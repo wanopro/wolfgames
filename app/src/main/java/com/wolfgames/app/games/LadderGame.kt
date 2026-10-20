@@ -92,8 +92,9 @@ private fun tracePath(d: LadderData, start: Int): Pair<List<Pair<Float, Float>>,
     return pts to c
 }
 
-private fun DrawScope.drawPolyline(points: List<Offset>, fraction: Float, color: Color, width: Float) {
-    if (points.size < 2) return
+private fun DrawScope.drawPolyline(points: List<Offset>, fraction: Float, color: Color, width: Float): Offset {
+    if (points.size < 2) return points.firstOrNull() ?: Offset.Zero
+    var tip = points.last()
     var total = 0f
     for (i in 1 until points.size) total += (points[i] - points[i - 1]).getDistance()
     var remain = total * fraction
@@ -107,10 +108,12 @@ private fun DrawScope.drawPolyline(points: List<Offset>, fraction: Float, color:
             val t = if (seg == 0f) 0f else remain / seg
             val p = points[i - 1] + (points[i] - points[i - 1]) * t
             path.lineTo(p.x, p.y)
+            tip = p
             break
         }
     }
     drawPath(path, color, style = Stroke(width = width, cap = StrokeCap.Round, join = StrokeJoin.Round))
+    return tip
 }
 
 /** 3. 사다리게임 */
@@ -146,21 +149,23 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
     val data = remember(seed) { makeLadder(n, k) }
     val paths = remember(data) { (0 until n).map { tracePath(data, it) } }
     val done = remember(seed) { mutableStateListOf<Int>() }
-    var animating by remember { mutableStateOf<Int?>(null) }
+    val animating = remember(seed) { mutableStateListOf<Int>() }
     var prog by remember { mutableFloatStateOf(0f) }
     val scope = rememberCoroutineScope()
     val haptic = LocalVibe.current
 
-    fun start(s: Int) {
-        if (animating != null || s in done) return
-        animating = s
+    /** 하나 또는 여러 줄을 동시에 5초 동안 내려보냄 */
+    fun start(list: List<Int>) {
+        val go = list.filter { it !in done }
+        if (animating.isNotEmpty() || go.isEmpty()) return
+        animating.addAll(go)
         haptic.tap()
         scope.launch {
             prog = 0f
-            runFor(1600L) { prog = it }
-            done.add(s)
-            animating = null
-            if (data.prizes[paths[s].second]) haptic.strong() else haptic.tap()
+            runFor(5000L) { prog = it }
+            done.addAll(go)
+            animating.clear()
+            if (go.any { data.prizes[paths[it].second] }) haptic.strong() else haptic.tap()
         }
     }
 
@@ -175,7 +180,7 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
         // 위쪽 번호
         Row(Modifier.fillMaxWidth()) {
             for (s in 0 until n) {
-                val active = s in done || animating == s
+                val active = s in done || s in animating
                 Box(
                     Modifier
                         .weight(1f)
@@ -183,7 +188,7 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
                         .aspectRatio(1f)
                         .clip(CircleShape)
                         .background(WG.PlayerColors[s].copy(alpha = if (active) 1f else 0.35f))
-                        .clickable { start(s) },
+                        .clickable { start(listOf(s)) },
                     contentAlignment = Alignment.Center,
                 ) {
                     Text(
@@ -217,7 +222,12 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
             }
             val lw = 7.dp.toPx()
             for (s in done) drawPolyline(paths[s].first.map { px(it) }, 1f, WG.PlayerColors[s], lw)
-            animating?.let { s -> drawPolyline(paths[s].first.map { px(it) }, prog, WG.PlayerColors[s], lw) }
+            for (s in animating) {
+                val tip = drawPolyline(paths[s].first.map { px(it) }, prog, WG.PlayerColors[s], lw)
+                // 내려가는 공
+                drawCircle(Color.White, radius = lw * 1.25f, center = tip)
+                drawCircle(WG.PlayerColors[s], radius = lw * 0.95f, center = tip)
+            }
         }
 
         // 아래 결과
@@ -277,14 +287,14 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
             BigButton(
                 s.showAll,
                 Modifier.weight(1f),
-                enabled = animating == null && done.size < n,
+                enabled = animating.isEmpty() && done.size < n,
             ) {
-                for (s in 0 until n) if (s !in done) done.add(s)
+                start((0 until n).toList())
             }
             BigButton(
                 s.newLadder,
                 Modifier.weight(1f),
-                enabled = animating == null,
+                enabled = animating.isEmpty(),
                 color = WG.Surface2,
                 contentColor = WG.Text,
             ) { seed++ }
