@@ -48,8 +48,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.wolfgames.app.games.ArrowGame
 import com.wolfgames.app.games.FiveDiceGame
 import com.wolfgames.app.games.LadderGame
+import com.wolfgames.app.games.PirateGame
 import com.wolfgames.app.games.RaceGame
 import com.wolfgames.app.games.RollDiceGame
 import com.wolfgames.app.games.RouletteGame
@@ -97,7 +99,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, Croc, Ladder, Roulette, Race, Language }
+enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, Croc, Ladder, Roulette, Race, Pirate, Arrow, Language }
 
 @Composable
 fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
@@ -121,6 +123,8 @@ fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
             Screen.Ladder -> LadderGame(onBack = back)
             Screen.Roulette -> RouletteGame(onBack = back)
             Screen.Race -> RaceGame(onBack = back)
+            Screen.Pirate -> PirateGame(onBack = back)
+            Screen.Arrow -> ArrowGame(onBack = back)
             Screen.Language -> LanguageScreen(langPref, onBack = back, onSelect = onLangChange)
         }
     }
@@ -137,23 +141,44 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
             Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
-            Spacer(Modifier.height(12.dp))
-            Image(
-                painter = painterResource(R.drawable.wolf_logo),
-                contentDescription = s.appName,
-                modifier = Modifier
-                    .size(120.dp)
-                    .clip(CircleShape)
-                    .clickable { vibe.tap(); askOpen = true },
-            )
-            Text(s.appName, color = WG.Accent, fontSize = 36.sp, fontWeight = FontWeight.Black)
-            Text(s.appSubtitle, color = WG.SubText, fontSize = 16.sp)
+            Spacer(Modifier.height(8.dp))
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Image(
+                    painter = painterResource(R.drawable.wolf_logo),
+                    contentDescription = s.appName,
+                    modifier = Modifier
+                        .size(104.dp)
+                        .clip(CircleShape)
+                        .clickable { vibe.tap(); askOpen = true },
+                )
+                Spacer(Modifier.width(14.dp))
+                Column(Modifier.weight(1f)) {
+                    Text(s.appName, color = WG.Accent, fontSize = 32.sp, fontWeight = FontWeight.Black, lineHeight = 36.sp)
+                    Text(s.appSubtitle, color = WG.SubText, fontSize = 16.sp)
+                    Spacer(Modifier.height(8.dp))
+                    // 언어 버튼 (현재 국기 표시)
+                    Row(
+                        Modifier
+                            .clip(RoundedCornerShape(20.dp))
+                            .background(WG.Surface)
+                            .clickable { vibe.tap(); onSelect(Screen.Language) }
+                            .padding(horizontal = 12.dp, vertical = 6.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(currentLang.flag, fontSize = 18.sp)
+                        Spacer(Modifier.width(6.dp))
+                        Text("🌐 ${s.language}", color = WG.Text, fontSize = 14.sp)
+                    }
+                }
+            }
             Spacer(Modifier.height(8.dp))
             MenuCard("🎲", s.menuDice, s.menuDiceSub) { onSelect(Screen.DiceMenu) }
             MenuCard("🐺", s.menuCroc, s.menuCrocSub) { onSelect(Screen.Croc) }
             MenuCard("🪜", s.menuLadder, s.menuLadderSub) { onSelect(Screen.Ladder) }
             MenuCard("🎡", s.menuRoulette, s.menuRouletteSub) { onSelect(Screen.Roulette) }
             MenuCard("🏁", s.menuRace, s.menuRaceSub) { onSelect(Screen.Race) }
+            MenuCard("🏴‍☠️", s.menuPirate, s.menuPirateSub) { onSelect(Screen.Pirate) }
+            MenuCard("➡️", s.menuArrow, s.menuArrowSub) { onSelect(Screen.Arrow) }
             Spacer(Modifier.height(10.dp))
             // Powered by WOLF(feat. segna) — WOLF 를 누르면 홈페이지 이동 확인
             Row(
@@ -175,21 +200,6 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                 )
                 Text("(feat. segna)", color = WG.SubText, fontSize = 13.sp)
             }
-        }
-        // 오른쪽 위 언어 버튼 (현재 국기 표시)
-        Row(
-            Modifier
-                .align(Alignment.TopEnd)
-                .padding(12.dp)
-                .clip(RoundedCornerShape(20.dp))
-                .background(WG.Surface)
-                .clickable { vibe.tap(); onSelect(Screen.Language) }
-                .padding(horizontal = 12.dp, vertical = 8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(currentLang.flag, fontSize = 20.sp)
-            Spacer(Modifier.width(6.dp))
-            Text("🌐 ${s.language}", color = WG.Text, fontSize = 14.sp)
         }
     }
 
