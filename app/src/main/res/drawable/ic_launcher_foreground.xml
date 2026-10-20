@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 주사위 몸체 -->
+    <path
+        android:fillColor="#FFFFB300"
+        android:pathData="M43,32 H65 A11,11 0 0 1 76,43 V65 A11,11 0 0 1 65,76 H43 A11,11 0 0 1 32,65 V43 A11,11 0 0 1 43,32 Z" />
+    <!-- 눈 5개 -->
+    <path
+        android:fillColor="#FF12121A"
+        android:pathData="M39,43 a4.5,4.5 0 1,0 9,0 a4.5,4.5 0 1,0 -9,0 Z
+                          M60,43 a4.5,4.5 0 1,0 9,0 a4.5,4.5 0 1,0 -9,0 Z
+                          M49.5,54 a4.5,4.5 0 1,0 9,0 a4.5,4.5 0 1,0 -9,0 Z
+                          M39,65 a4.5,4.5 0 1,0 9,0 a4.5,4.5 0 1,0 -9,0 Z
+                          M60,65 a4.5,4.5 0 1,0 9,0 a4.5,4.5 0 1,0 -9,0 Z" />
+</vector>
