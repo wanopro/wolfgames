@@ -1,6 +1,9 @@
 package com.wolfgames.app
 
+import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
@@ -24,9 +27,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
@@ -37,16 +43,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.wolfgames.app.games.CrocodileGame
 import com.wolfgames.app.games.FiveDiceGame
 import com.wolfgames.app.games.LadderGame
 import com.wolfgames.app.games.RollDiceGame
 import com.wolfgames.app.games.RouletteGame
 import com.wolfgames.app.games.ShutBoxGame
+import com.wolfgames.app.games.WolfTeethGame
 import com.wolfgames.app.i18n.Lang
 import com.wolfgames.app.i18n.LocalStrings
 import com.wolfgames.app.i18n.stringsFor
@@ -57,6 +65,7 @@ import com.wolfgames.app.ui.WolfTheme
 
 private const val PREFS = "wolfgames"
 private const val KEY_LANG = "lang"
+private const val HOMEPAGE = "https://wolf.community"
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -104,7 +113,7 @@ fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
             Screen.RollDice -> RollDiceGame(onBack = back)
             Screen.ShutBox -> ShutBoxGame(onBack = back)
             Screen.FiveDice -> FiveDiceGame(onBack = back)
-            Screen.Croc -> CrocodileGame(onBack = back)
+            Screen.Croc -> WolfTeethGame(onBack = back)
             Screen.Ladder -> LadderGame(onBack = back)
             Screen.Roulette -> RouletteGame(onBack = back)
             Screen.Language -> LanguageScreen(langPref, onBack = back, onSelect = onLangChange)
@@ -115,6 +124,8 @@ fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
 @Composable
 fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
     val s = LocalStrings.current
+    val context = LocalContext.current
+    var askOpen by remember { mutableStateOf(false) }
     Box(Modifier.fillMaxSize()) {
         Column(
             Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
@@ -124,15 +135,39 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
             Image(
                 painter = painterResource(R.drawable.wolf_logo),
                 contentDescription = s.appName,
-                modifier = Modifier.size(120.dp),
+                modifier = Modifier
+                    .size(120.dp)
+                    .clip(CircleShape)
+                    .clickable { askOpen = true },
             )
             Text(s.appName, color = WG.Accent, fontSize = 36.sp, fontWeight = FontWeight.Black)
             Text(s.appSubtitle, color = WG.SubText, fontSize = 16.sp)
             Spacer(Modifier.height(8.dp))
             MenuCard("🎲", s.menuDice, s.menuDiceSub) { onSelect(Screen.DiceMenu) }
-            MenuCard("🐊", s.menuCroc, s.menuCrocSub) { onSelect(Screen.Croc) }
+            MenuCard("🐺", s.menuCroc, s.menuCrocSub) { onSelect(Screen.Croc) }
             MenuCard("🪜", s.menuLadder, s.menuLadderSub) { onSelect(Screen.Ladder) }
             MenuCard("🎡", s.menuRoulette, s.menuRouletteSub) { onSelect(Screen.Roulette) }
+            Spacer(Modifier.height(10.dp))
+            // Powered by WOLF(feat. segna) — WOLF 를 누르면 홈페이지 이동 확인
+            Row(
+                Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text("Powered by ", color = WG.SubText, fontSize = 13.sp)
+                Text(
+                    "WOLF",
+                    color = WG.Accent,
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Black,
+                    textDecoration = TextDecoration.Underline,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(4.dp))
+                        .clickable { askOpen = true }
+                        .padding(horizontal = 2.dp, vertical = 6.dp),
+                )
+                Text("(feat. segna)", color = WG.SubText, fontSize = 13.sp)
+            }
         }
         // 오른쪽 위 언어 버튼 (현재 국기 표시)
         Row(
@@ -149,6 +184,27 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
             Spacer(Modifier.width(6.dp))
             Text("🌐 ${s.language}", color = WG.Text, fontSize = 14.sp)
         }
+    }
+
+    if (askOpen) {
+        AlertDialog(
+            onDismissRequest = { askOpen = false },
+            containerColor = WG.Surface,
+            title = { Text("🐺 WOLF", color = WG.Accent, fontWeight = FontWeight.Black) },
+            text = { Text(s.goHomepage + "\n" + HOMEPAGE, color = WG.Text) },
+            confirmButton = {
+                TextButton(onClick = {
+                    askOpen = false
+                    try {
+                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(HOMEPAGE)))
+                    } catch (_: ActivityNotFoundException) {
+                    }
+                }) { Text(s.ok, color = WG.Accent, fontWeight = FontWeight.Bold) }
+            },
+            dismissButton = {
+                TextButton(onClick = { askOpen = false }) { Text(s.cancel, color = WG.SubText) }
+            },
+        )
     }
 }
 

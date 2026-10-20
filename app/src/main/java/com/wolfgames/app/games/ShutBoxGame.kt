@@ -46,11 +46,11 @@ import kotlin.random.Random
 
 private const val BOARD = 12
 
-private enum class SbPhase { Roll, Rolling, Pick, NoMove, Win }
+private enum class SbPhase { Roll, Rolling, Pick, PickSecond, NoMove, Win }
 
 /**
  * 1-2 숫자 뒤집기 잭팟 (1~12)
- * 주사위 2개 → 두 눈·합 중 하나, 또는 서로 다른 두 눈을 동시에 뒤집음. 뒤집을 게 없으면 다음 사람.
+ * 주사위 2개 → 합 하나, 또는 눈 하나를 고른 뒤 나머지 눈까지 이어서 뒤집기. 뒤집을 게 없으면 다음 사람.
  * 마지막 숫자를 뒤집은 사람이 승리.
  */
 @Composable
@@ -84,6 +84,7 @@ private fun ShutBoxPlay(playerCount: Int, onSetup: () -> Unit) {
     var dice by remember { mutableStateOf(listOf(1, 1)) }
     var phase by remember { mutableStateOf(SbPhase.Roll) }
     var rollKey by remember { mutableIntStateOf(0) }
+    var second by remember { mutableIntStateOf(0) }
     val haptic = LocalHapticFeedback.current
 
     LaunchedEffect(rollKey) {
@@ -110,22 +111,41 @@ private fun ShutBoxPlay(playerCount: Int, onSetup: () -> Unit) {
         phase = SbPhase.Roll
     }
 
-    /** 숫자 뒤집기 (1개 또는 2개 동시) → 승리 판정 또는 다음 사람 */
-    fun flip(nums: List<Int>) {
-        for (num in nums) flipped[num - 1] = true
+    /**
+     * 숫자 하나 뒤집기
+     * - 합을 고르면 차례 끝
+     * - 주사위 눈 하나를 고르면, 나머지 눈이 아직 남아 있을 때 그것만 켜지고 이어서 고를 수 있음
+     * - 두 번째 숫자까지 뒤집으면 차례 끝
+     */
+    fun flip(num: Int) {
+        flipped[num - 1] = true
         haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
         if (flipped.all { it }) {
             phase = SbPhase.Win
             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+            return
+        }
+        if (phase == SbPhase.PickSecond) {
+            nextTurn()
+            return
+        }
+        val a = dice[0]
+        val b = dice[1]
+        val isDie = num != a + b && (num == a || num == b)
+        val other = if (num == a) b else a
+        if (isDie && a != b && !flipped[other - 1]) {
+            second = other
+            phase = SbPhase.PickSecond
         } else {
             nextTurn()
         }
     }
 
-    val avail = if (phase == SbPhase.Pick) options(dice[0], dice[1], flipped) else emptySet()
-    // 두 눈이 서로 다르고 둘 다 아직 안 뒤집혔으면 동시에 뒤집기 가능
-    val pairAvail = phase == SbPhase.Pick && dice[0] != dice[1] &&
-        !flipped[dice[0] - 1] && !flipped[dice[1] - 1]
+    val avail = when (phase) {
+        SbPhase.Pick -> options(dice[0], dice[1], flipped)
+        SbPhase.PickSecond -> setOf(second)
+        else -> emptySet()
+    }
     val pColor = WG.PlayerColors[turn % WG.PlayerColors.size]
 
     Box(Modifier.fillMaxSize()) {
@@ -151,7 +171,7 @@ private fun ShutBoxPlay(playerCount: Int, onSetup: () -> Unit) {
                             isFlipped = flipped[num - 1],
                             available = num in avail,
                             modifier = Modifier.weight(1f),
-                        ) { flip(listOf(num)) }
+                        ) { flip(num) }
                     }
                 }
             }
@@ -171,6 +191,7 @@ private fun ShutBoxPlay(playerCount: Int, onSetup: () -> Unit) {
                 SbPhase.Roll -> s.rollPrompt
                 SbPhase.Rolling -> s.rolling
                 SbPhase.Pick -> s.pickPrompt(avail.sorted().joinToString(", "))
+                SbPhase.PickSecond -> s.pickSecond(second)
                 SbPhase.NoMove -> s.noMove
                 SbPhase.Win -> ""
             }
@@ -188,16 +209,12 @@ private fun ShutBoxPlay(playerCount: Int, onSetup: () -> Unit) {
                     rollKey++
                 }
                 SbPhase.NoMove -> BigButton(s.nextPlayer, Modifier.fillMaxWidth()) { nextTurn() }
-                SbPhase.Pick -> if (pairAvail) {
-                    BigButton(
-                        s.flipBoth(dice[0], dice[1]),
-                        Modifier.fillMaxWidth(),
-                        color = WG.Surface2,
-                        contentColor = WG.Accent,
-                    ) { flip(listOf(dice[0], dice[1])) }
-                } else {
-                    Spacer(Modifier.height(56.dp))
-                }
+                SbPhase.PickSecond -> BigButton(
+                    s.endTurn,
+                    Modifier.fillMaxWidth(),
+                    color = WG.Surface2,
+                    contentColor = WG.Text,
+                ) { nextTurn() }
                 else -> Spacer(Modifier.height(56.dp))
             }
         }
