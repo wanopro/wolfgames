@@ -49,7 +49,7 @@ private enum class SbPhase { Roll, Rolling, Pick, NoMove, Win }
 
 /**
  * 1-2 숫자 뒤집기 잭팟 (1~12)
- * 주사위 2개 → 두 눈과 합 중 하나를 뒤집음. 뒤집을 게 없으면 다음 사람.
+ * 주사위 2개 → 두 눈·합 중 하나, 또는 서로 다른 두 눈을 동시에 뒤집음. 뒤집을 게 없으면 다음 사람.
  * 마지막 숫자를 뒤집은 사람이 승리.
  */
 @Composable
@@ -61,6 +61,7 @@ fun ShutBoxGame(onBack: () -> Unit) {
         if (!started) {
             SetupPanel(
                 description = "주사위 2개를 던져 나온 두 숫자와 그 합 중 하나를 골라 뒤집어요.\n" +
+                    "두 숫자가 다르면 두 개를 한꺼번에 뒤집을 수도 있어요. (예: 1·6 → 7, 또는 1과 6 같이)\n" +
                     "뒤집을 숫자가 없으면 다음 사람 차례.\n" +
                     "1~12를 모두 뒤집어서 마지막 숫자를 뒤집은 사람이 승리!",
                 onStart = { started = true },
@@ -109,7 +110,22 @@ private fun ShutBoxPlay(playerCount: Int, onSetup: () -> Unit) {
         phase = SbPhase.Roll
     }
 
+    /** 숫자 뒤집기 (1개 또는 2개 동시) → 승리 판정 또는 다음 사람 */
+    fun flip(nums: List<Int>) {
+        for (num in nums) flipped[num - 1] = true
+        haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+        if (flipped.all { it }) {
+            phase = SbPhase.Win
+            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+        } else {
+            nextTurn()
+        }
+    }
+
     val avail = if (phase == SbPhase.Pick) options(dice[0], dice[1], flipped) else emptySet()
+    // 두 눈이 서로 다르고 둘 다 아직 안 뒤집혔으면 동시에 뒤집기 가능
+    val pairAvail = phase == SbPhase.Pick && dice[0] != dice[1] &&
+        !flipped[dice[0] - 1] && !flipped[dice[1] - 1]
     val pColor = WG.PlayerColors[turn % WG.PlayerColors.size]
 
     Box(Modifier.fillMaxSize()) {
@@ -135,16 +151,7 @@ private fun ShutBoxPlay(playerCount: Int, onSetup: () -> Unit) {
                             isFlipped = flipped[num - 1],
                             available = num in avail,
                             modifier = Modifier.weight(1f),
-                        ) {
-                            flipped[num - 1] = true
-                            haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
-                            if (flipped.all { it }) {
-                                phase = SbPhase.Win
-                                haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                            } else {
-                                nextTurn()
-                            }
-                        }
+                        ) { flip(listOf(num)) }
                     }
                 }
             }
@@ -163,7 +170,7 @@ private fun ShutBoxPlay(playerCount: Int, onSetup: () -> Unit) {
             val msg = when (phase) {
                 SbPhase.Roll -> "주사위를 던지세요"
                 SbPhase.Rolling -> "굴리는 중..."
-                SbPhase.Pick -> "뒤집을 숫자를 고르세요: ${avail.sorted().joinToString(", ")}"
+                SbPhase.Pick -> "숫자 하나를 누르세요: ${avail.sorted().joinToString(", ")}"
                 SbPhase.NoMove -> "뒤집을 숫자가 없어요!"
                 SbPhase.Win -> ""
             }
@@ -181,6 +188,16 @@ private fun ShutBoxPlay(playerCount: Int, onSetup: () -> Unit) {
                     rollKey++
                 }
                 SbPhase.NoMove -> BigButton("다음 사람 ▶", Modifier.fillMaxWidth()) { nextTurn() }
+                SbPhase.Pick -> if (pairAvail) {
+                    BigButton(
+                        "${dice[0]} + ${dice[1]} 같이 뒤집기",
+                        Modifier.fillMaxWidth(),
+                        color = WG.Surface2,
+                        contentColor = WG.Accent,
+                    ) { flip(listOf(dice[0], dice[1])) }
+                } else {
+                    Spacer(Modifier.height(56.dp))
+                }
                 else -> Spacer(Modifier.height(56.dp))
             }
         }
