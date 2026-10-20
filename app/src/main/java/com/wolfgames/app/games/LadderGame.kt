@@ -18,7 +18,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -45,8 +44,10 @@ import androidx.compose.ui.unit.sp
 import com.wolfgames.app.i18n.LocalStrings
 import com.wolfgames.app.ui.BigButton
 import com.wolfgames.app.ui.GameScaffold
+import com.wolfgames.app.ui.LocalVibe
 import com.wolfgames.app.ui.SetupPanel
 import com.wolfgames.app.ui.Stepper
+import com.wolfgames.app.ui.VTextButton
 import com.wolfgames.app.ui.WG
 import kotlinx.coroutines.launch
 import kotlin.random.Random
@@ -149,15 +150,18 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
     var animating by remember { mutableStateOf<Int?>(null) }
     val prog = remember { Animatable(0f) }
     val scope = rememberCoroutineScope()
+    val haptic = LocalVibe.current
 
     fun start(s: Int) {
         if (animating != null || s in done) return
         animating = s
+        haptic.tap()
         scope.launch {
             prog.snapTo(0f)
             prog.animateTo(1f, tween(1600, easing = LinearEasing))
             done.add(s)
             animating = null
+            if (data.prizes[paths[s].second]) haptic.strong() else haptic.tap()
         }
     }
 
@@ -286,6 +290,6 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
                 contentColor = WG.Text,
             ) { seed++ }
         }
-        TextButton(onClick = onSetup) { Text(s.changeLadder, color = WG.SubText) }
+        VTextButton(onClick = onSetup) { Text(s.changeLadder, color = WG.SubText) }
     }
 }

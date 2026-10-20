@@ -110,12 +110,13 @@ fun GameScaffold(
     actions: @Composable RowScope.() -> Unit = {},
     content: @Composable BoxScope.() -> Unit,
 ) {
+    val vibe = LocalVibe.current
     Column(Modifier.fillMaxSize().background(WG.Bg)) {
         Row(
             Modifier.fillMaxWidth().height(56.dp).padding(horizontal = 4.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            IconButton(onClick = onBack) {
+            IconButton(onClick = { vibe.tap(); onBack() }) {
                 Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = LocalStrings.current.back, tint = WG.Text)
             }
             Text(
@@ -140,8 +141,9 @@ fun BigButton(
     contentColor: Color = Color.Black,
     onClick: () -> Unit,
 ) {
+    val vibe = LocalVibe.current
     Button(
-        onClick = onClick,
+        onClick = { vibe.tap(); onClick() },
         enabled = enabled,
         modifier = modifier.height(56.dp),
         shape = RoundedCornerShape(16.dp),
@@ -178,12 +180,13 @@ fun Stepper(label: String, value: Int, range: IntRange, onChange: (Int) -> Unit)
 
 @Composable
 private fun StepButton(text: String, enabled: Boolean, onClick: () -> Unit) {
+    val vibe = LocalVibe.current
     Box(
         Modifier
             .size(44.dp)
             .clip(CircleShape)
             .background(if (enabled) WG.Surface2 else WG.Surface)
-            .clickable(enabled = enabled, onClick = onClick),
+            .clickable(enabled = enabled) { vibe.tap(); onClick() },
         contentAlignment = Alignment.Center,
     ) {
         Text(text, color = if (enabled) WG.Text else WG.SubText, fontSize = 24.sp, fontWeight = FontWeight.Bold)
@@ -192,12 +195,13 @@ private fun StepButton(text: String, enabled: Boolean, onClick: () -> Unit) {
 
 @Composable
 fun MenuCard(emoji: String, title: String, subtitle: String, onClick: () -> Unit) {
+    val vibe = LocalVibe.current
     Row(
         Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(20.dp))
             .background(WG.Surface)
-            .clickable(onClick = onClick)
+            .clickable { vibe.tap(); onClick() }
             .padding(20.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {

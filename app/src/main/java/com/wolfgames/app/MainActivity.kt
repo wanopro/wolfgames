@@ -32,7 +32,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
@@ -51,6 +50,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.wolfgames.app.games.FiveDiceGame
 import com.wolfgames.app.games.LadderGame
+import com.wolfgames.app.games.RaceGame
 import com.wolfgames.app.games.RollDiceGame
 import com.wolfgames.app.games.RouletteGame
 import com.wolfgames.app.games.ShutBoxGame
@@ -59,6 +59,9 @@ import com.wolfgames.app.i18n.Lang
 import com.wolfgames.app.i18n.LocalStrings
 import com.wolfgames.app.i18n.stringsFor
 import com.wolfgames.app.ui.GameScaffold
+import com.wolfgames.app.ui.LocalVibe
+import com.wolfgames.app.ui.VTextButton
+import com.wolfgames.app.ui.Vibe
 import com.wolfgames.app.ui.MenuCard
 import com.wolfgames.app.ui.WG
 import com.wolfgames.app.ui.WolfTheme
@@ -74,10 +77,11 @@ class MainActivity : ComponentActivity() {
         // 술자리에서 화면이 꺼지지 않도록
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         val prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val vibe = Vibe.from(this)
         setContent {
             var langPref by remember { mutableStateOf(prefs.getString(KEY_LANG, Lang.SYSTEM) ?: Lang.SYSTEM) }
             val lang = Lang.resolve(langPref)
-            CompositionLocalProvider(LocalStrings provides stringsFor(lang)) {
+            CompositionLocalProvider(LocalStrings provides stringsFor(lang), LocalVibe provides vibe) {
                 WolfTheme {
                     App(
                         langPref = langPref,
@@ -93,7 +97,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, Croc, Ladder, Roulette, Language }
+enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, Croc, Ladder, Roulette, Race, Language }
 
 @Composable
 fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
@@ -116,6 +120,7 @@ fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
             Screen.Croc -> WolfTeethGame(onBack = back)
             Screen.Ladder -> LadderGame(onBack = back)
             Screen.Roulette -> RouletteGame(onBack = back)
+            Screen.Race -> RaceGame(onBack = back)
             Screen.Language -> LanguageScreen(langPref, onBack = back, onSelect = onLangChange)
         }
     }
@@ -126,6 +131,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
     val s = LocalStrings.current
     val context = LocalContext.current
     var askOpen by remember { mutableStateOf(false) }
+    val vibe = LocalVibe.current
     Box(Modifier.fillMaxSize()) {
         Column(
             Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
@@ -138,7 +144,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                 modifier = Modifier
                     .size(120.dp)
                     .clip(CircleShape)
-                    .clickable { askOpen = true },
+                    .clickable { vibe.tap(); askOpen = true },
             )
             Text(s.appName, color = WG.Accent, fontSize = 36.sp, fontWeight = FontWeight.Black)
             Text(s.appSubtitle, color = WG.SubText, fontSize = 16.sp)
@@ -147,6 +153,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
             MenuCard("🐺", s.menuCroc, s.menuCrocSub) { onSelect(Screen.Croc) }
             MenuCard("🪜", s.menuLadder, s.menuLadderSub) { onSelect(Screen.Ladder) }
             MenuCard("🎡", s.menuRoulette, s.menuRouletteSub) { onSelect(Screen.Roulette) }
+            MenuCard("🏁", s.menuRace, s.menuRaceSub) { onSelect(Screen.Race) }
             Spacer(Modifier.height(10.dp))
             // Powered by WOLF(feat. segna) — WOLF 를 누르면 홈페이지 이동 확인
             Row(
@@ -163,7 +170,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                     textDecoration = TextDecoration.Underline,
                     modifier = Modifier
                         .clip(RoundedCornerShape(4.dp))
-                        .clickable { askOpen = true }
+                        .clickable { vibe.tap(); askOpen = true }
                         .padding(horizontal = 2.dp, vertical = 6.dp),
                 )
                 Text("(feat. segna)", color = WG.SubText, fontSize = 13.sp)
@@ -176,7 +183,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                 .padding(12.dp)
                 .clip(RoundedCornerShape(20.dp))
                 .background(WG.Surface)
-                .clickable { onSelect(Screen.Language) }
+                .clickable { vibe.tap(); onSelect(Screen.Language) }
                 .padding(horizontal = 12.dp, vertical = 8.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -193,7 +200,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
             title = { Text("🐺 WOLF", color = WG.Accent, fontWeight = FontWeight.Black) },
             text = { Text(s.goHomepage + "\n" + HOMEPAGE, color = WG.Text) },
             confirmButton = {
-                TextButton(onClick = {
+                VTextButton(onClick = {
                     askOpen = false
                     try {
                         context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(HOMEPAGE)))
@@ -202,7 +209,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                 }) { Text(s.ok, color = WG.Accent, fontWeight = FontWeight.Bold) }
             },
             dismissButton = {
-                TextButton(onClick = { askOpen = false }) { Text(s.cancel, color = WG.SubText) }
+                VTextButton(onClick = { askOpen = false }) { Text(s.cancel, color = WG.SubText) }
             },
         )
     }
@@ -242,6 +249,7 @@ fun LanguageScreen(langPref: String, onBack: () -> Unit, onSelect: (String) -> U
 
 @Composable
 private fun LanguageRow(flag: String, label: String, selected: Boolean, onClick: () -> Unit) {
+    val vibe = LocalVibe.current
     val shape = RoundedCornerShape(16.dp)
     Row(
         Modifier
@@ -249,7 +257,7 @@ private fun LanguageRow(flag: String, label: String, selected: Boolean, onClick:
             .clip(shape)
             .background(if (selected) WG.Surface2 else WG.Surface)
             .border(2.dp, if (selected) WG.Accent else WG.Surface, shape)
-            .clickable(onClick = onClick)
+            .clickable { vibe.tap(); onClick() }
             .padding(horizontal = 18.dp, vertical = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {

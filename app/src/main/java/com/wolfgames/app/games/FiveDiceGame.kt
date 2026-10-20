@@ -19,7 +19,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
@@ -33,8 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.hapticfeedback.HapticFeedbackType
-import androidx.compose.ui.platform.LocalHapticFeedback
+import com.wolfgames.app.ui.LocalVibe
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -44,6 +42,7 @@ import com.wolfgames.app.ui.DieView
 import com.wolfgames.app.ui.GameScaffold
 import com.wolfgames.app.ui.SetupPanel
 import com.wolfgames.app.ui.Stepper
+import com.wolfgames.app.ui.VTextButton
 import com.wolfgames.app.ui.WG
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -94,7 +93,7 @@ private fun FiveDicePlay(n: Int, onExit: () -> Unit) {
     val slots = remember { mutableStateListOf(*Array(n) { SlotState.Waiting }) }
     var phase by remember { mutableStateOf(FdPhase.Playing) }
     var winners by remember { mutableStateOf(emptyList<Int>()) }
-    val haptic = LocalHapticFeedback.current
+    val haptic = LocalVibe.current
     val scope = rememberCoroutineScope()
 
     /** 모두 굴렸을 때 결과 반영 */
@@ -115,7 +114,7 @@ private fun FiveDicePlay(n: Int, onExit: () -> Unit) {
         if (w.isNotEmpty()) {
             winners = w
             phase = FdPhase.Win
-            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+            haptic.strong()
         } else {
             phase = FdPhase.Playing
         }
@@ -124,6 +123,7 @@ private fun FiveDicePlay(n: Int, onExit: () -> Unit) {
     fun roll(i: Int) {
         if (phase != FdPhase.Playing || slots[i] != SlotState.Waiting) return
         slots[i] = SlotState.Rolling
+        haptic.tap()
         scope.launch {
             repeat(12) {
                 faces[i] = List(counts[i]) { Random.nextInt(1, 7) }
@@ -131,7 +131,7 @@ private fun FiveDicePlay(n: Int, onExit: () -> Unit) {
             }
             faces[i] = List(counts[i]) { Random.nextInt(1, 7) }
             slots[i] = SlotState.Done
-            haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+            haptic.tap()
             if (slots.all { it == SlotState.Done }) applyResults()
         }
     }
@@ -193,7 +193,7 @@ private fun CenterBar(
         Modifier.fillMaxWidth().height(64.dp).padding(horizontal = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        TextButton(onClick = onExit) { Text(s.exit, color = WG.SubText) }
+        VTextButton(onClick = onExit) { Text(s.exit, color = WG.SubText) }
         Box(Modifier.weight(1f), contentAlignment = Alignment.Center) {
             val text = when (phase) {
                 FdPhase.Playing -> s.tapYourArea(waitingCount)
@@ -209,7 +209,7 @@ private fun CenterBar(
             )
         }
         if (phase == FdPhase.Win) {
-            TextButton(onClick = onRestart) { Text(s.again, color = WG.Accent, fontWeight = FontWeight.Bold) }
+            VTextButton(onClick = onRestart) { Text(s.again, color = WG.Accent, fontWeight = FontWeight.Bold) }
         } else {
             Spacer(Modifier.width(64.dp))
         }

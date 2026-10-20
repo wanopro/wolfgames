@@ -27,8 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.hapticfeedback.HapticFeedbackType
-import androidx.compose.ui.platform.LocalHapticFeedback
+import com.wolfgames.app.ui.LocalVibe
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -85,7 +84,7 @@ private fun ShutBoxPlay(playerCount: Int, onSetup: () -> Unit) {
     var phase by remember { mutableStateOf(SbPhase.Roll) }
     var rollKey by remember { mutableIntStateOf(0) }
     var second by remember { mutableIntStateOf(0) }
-    val haptic = LocalHapticFeedback.current
+    val haptic = LocalVibe.current
 
     LaunchedEffect(rollKey) {
         if (rollKey == 0) return@LaunchedEffect
@@ -119,10 +118,10 @@ private fun ShutBoxPlay(playerCount: Int, onSetup: () -> Unit) {
      */
     fun flip(num: Int) {
         flipped[num - 1] = true
-        haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+        haptic.tap()
         if (flipped.all { it }) {
             phase = SbPhase.Win
-            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+            haptic.strong()
             return
         }
         if (phase == SbPhase.PickSecond) {

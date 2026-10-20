@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -23,18 +22,18 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.pointer.PointerId
 import androidx.compose.ui.input.pointer.changedToDown
 import androidx.compose.ui.input.pointer.changedToUp
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.platform.LocalHapticFeedback
+import com.wolfgames.app.ui.LocalVibe
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.wolfgames.app.i18n.LocalStrings
 import com.wolfgames.app.ui.GameScaffold
+import com.wolfgames.app.ui.VTextButton
 import com.wolfgames.app.ui.WG
 import com.wolfgames.app.ui.drawDie
 import kotlin.random.Random
@@ -67,7 +66,7 @@ fun RollDiceGame(onBack: () -> Unit) {
     var now by remember { mutableLongStateOf(System.currentTimeMillis()) }
     var lastTapTime by remember { mutableLongStateOf(0L) }
     var lastTapPos by remember { mutableStateOf(Offset.Zero) }
-    val haptic = LocalHapticFeedback.current
+    val haptic = LocalVibe.current
     val density = LocalDensity.current
     val dieSizePx = with(density) { 64.dp.toPx() }
     val circleR = with(density) { 50.dp.toPx() }
@@ -92,7 +91,7 @@ fun RollDiceGame(onBack: () -> Unit) {
                     buzz = true
                 }
             }
-            if (buzz) haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+            if (buzz) haptic.strong()
         }
     }
 
@@ -100,7 +99,7 @@ fun RollDiceGame(onBack: () -> Unit) {
         title = s.rollTitle,
         onBack = onBack,
         actions = {
-            TextButton(onClick = { placed.clear() }) { Text(s.reset, color = WG.Accent) }
+            VTextButton(onClick = { placed.clear() }) { Text(s.reset, color = WG.Accent) }
         },
     ) {
         Box(
@@ -115,6 +114,7 @@ fun RollDiceGame(onBack: () -> Unit) {
                                 val id = change.id
                                 when {
                                     change.changedToDown() -> {
+                                        haptic.tap()
                                         active[id] = ActiveTouch(
                                             pos = change.position,
                                             start = t,
@@ -134,6 +134,7 @@ fun RollDiceGame(onBack: () -> Unit) {
                                                     (a.pos - lastTapPos).getDistance() < doubleTapDist
                                                 if (isDouble) {
                                                     placed.clear()
+                                                    haptic.strong()
                                                     lastTapTime = 0L
                                                 } else {
                                                     lastTapTime = t

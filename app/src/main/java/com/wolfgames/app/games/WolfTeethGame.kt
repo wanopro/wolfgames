@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -34,8 +33,7 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.hapticfeedback.HapticFeedbackType
-import androidx.compose.ui.platform.LocalHapticFeedback
+import com.wolfgames.app.ui.LocalVibe
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -45,6 +43,7 @@ import com.wolfgames.app.ui.BigButton
 import com.wolfgames.app.ui.GameScaffold
 import com.wolfgames.app.ui.SetupPanel
 import com.wolfgames.app.ui.Stepper
+import com.wolfgames.app.ui.VTextButton
 import com.wolfgames.app.ui.WG
 
 private const val TEETH = 20
@@ -82,7 +81,7 @@ private fun WolfTeethPlay(k: Int, onSetup: () -> Unit) {
     val pressed = remember(round) { mutableStateListOf(*Array(TEETH) { false }) }
     var bitten by remember(round) { mutableStateOf(false) }
     var found by remember(round) { mutableIntStateOf(0) }
-    val haptic = LocalHapticFeedback.current
+    val haptic = LocalVibe.current
     val gap by animateDpAsState(
         targetValue = if (bitten) 0.dp else 130.dp,
         animationSpec = tween(if (bitten) 140 else 500),
@@ -96,9 +95,9 @@ private fun WolfTeethPlay(k: Int, onSetup: () -> Unit) {
             if (i in traps) {
                 found++
                 bitten = true
-                haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                haptic.strong()
             } else {
-                haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                haptic.tap()
             }
         }
     }
@@ -173,7 +172,7 @@ private fun WolfTeethPlay(k: Int, onSetup: () -> Unit) {
             bitten -> BigButton(s.playAgain, Modifier.fillMaxWidth()) { round++ }
             else -> BigButton(s.shuffle, Modifier.fillMaxWidth(), color = WG.Surface2, contentColor = WG.Text) { round++ }
         }
-        TextButton(onClick = onSetup) { Text(s.changePrizes, color = WG.SubText) }
+        VTextButton(onClick = onSetup) { Text(s.changePrizes, color = WG.SubText) }
     }
 }
 

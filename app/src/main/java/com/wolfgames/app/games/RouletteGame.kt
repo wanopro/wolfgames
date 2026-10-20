@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -32,8 +31,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
-import androidx.compose.ui.hapticfeedback.HapticFeedbackType
-import androidx.compose.ui.platform.LocalHapticFeedback
+import com.wolfgames.app.ui.LocalVibe
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
@@ -46,6 +44,7 @@ import com.wolfgames.app.ui.BigButton
 import com.wolfgames.app.ui.GameScaffold
 import com.wolfgames.app.ui.SetupPanel
 import com.wolfgames.app.ui.Stepper
+import com.wolfgames.app.ui.VTextButton
 import com.wolfgames.app.ui.WG
 import kotlinx.coroutines.launch
 import kotlin.random.Random
@@ -96,7 +95,7 @@ private fun RoulettePlay(m: Int, k: Int, onSetup: () -> Unit) {
     var spinning by remember { mutableStateOf(false) }
     var result by remember { mutableStateOf<Int?>(null) }
     val scope = rememberCoroutineScope()
-    val haptic = LocalHapticFeedback.current
+    val haptic = LocalVibe.current
     val tm = rememberTextMeasurer()
 
     val fontSize = when {
@@ -116,15 +115,16 @@ private fun RoulettePlay(m: Int, k: Int, onSetup: () -> Unit) {
         if (spinning) return
         spinning = true
         result = null
+        haptic.tap()
         scope.launch {
             val target = rotation.value + 360f * Random.nextInt(5, 9) + Random.nextFloat() * 360f
-            rotation.animateTo(target, tween(4500, easing = CubicBezierEasing(0.12f, 0.8f, 0.2f, 1f)))
+            rotation.animateTo(target, tween(5000, easing = CubicBezierEasing(0.12f, 0.8f, 0.2f, 1f)))
             rotation.snapTo(rotation.value % 360f)
             val sweep = 360f / m
             val a = ((-rotation.value) % 360f + 360f) % 360f
             result = (a / sweep).toInt().coerceIn(0, m - 1)
             spinning = false
-            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+            haptic.strong()
         }
     }
 
@@ -240,6 +240,6 @@ private fun RoulettePlay(m: Int, k: Int, onSetup: () -> Unit) {
                 result = null
             }
         }
-        TextButton(onClick = onSetup, enabled = !spinning) { Text(s.changeWheel, color = WG.SubText) }
+        VTextButton(onClick = onSetup, enabled = !spinning) { Text(s.changeWheel, color = WG.SubText) }
     }
 }
