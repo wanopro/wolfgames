@@ -1,8 +1,5 @@
 package com.wolfgames.app.games
 
-import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.FastOutSlowInEasing
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Column
@@ -14,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -40,6 +38,8 @@ import com.wolfgames.app.ui.BigButton
 import com.wolfgames.app.ui.GameScaffold
 import com.wolfgames.app.ui.LocalVibe
 import com.wolfgames.app.ui.WG
+import com.wolfgames.app.ui.runFor
+import com.wolfgames.app.ui.spinFor
 import kotlinx.coroutines.launch
 import kotlin.math.sin
 import kotlin.random.Random
@@ -79,8 +79,8 @@ fun PirateGame(onBack: () -> Unit) {
     val trap = remember(round) { Random.nextInt(SLOTS) }
     val swords = remember(round) { mutableStateListOf<Int>() }
     var popped by remember(round) { mutableStateOf(false) }
-    val launch = remember(round) { Animatable(0f) }
-    val shake = remember(round) { Animatable(0f) }
+    var launch by remember(round) { mutableFloatStateOf(0f) }
+    var shake by remember(round) { mutableFloatStateOf(0f) }
     val scope = rememberCoroutineScope()
 
     fun insert(i: Int) {
@@ -89,12 +89,11 @@ fun PirateGame(onBack: () -> Unit) {
         if (i == trap) {
             popped = true
             vibe.strong()
-            scope.launch { launch.animateTo(1f, tween(900, easing = FastOutSlowInEasing)) }
+            scope.launch { spinFor(900L) { launch = it } }
         } else {
             vibe.tap()
             scope.launch {
-                shake.snapTo(1f)
-                shake.animateTo(0f, tween(350))
+                runFor(350L) { shake = 1f - it }
             }
         }
     }
@@ -132,9 +131,9 @@ fun PirateGame(onBack: () -> Unit) {
             ) {
                 val w = size.width
                 val h = size.height
-                val shakeX = sin(shake.value * 40f) * shake.value * 6.dp.toPx()
+                val shakeX = sin(shake * 40f) * shake * 6.dp.toPx()
                 // 늑대 (통 뒤에서 튀어나옴)
-                val l = launch.value
+                val l = launch
                 val headR = w * 0.17f
                 val headC = Offset(w * 0.5f, h * 0.27f - l * h * 0.24f)
                 rotate(degrees = l * 720f, pivot = headC) {

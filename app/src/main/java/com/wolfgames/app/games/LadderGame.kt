@@ -1,8 +1,5 @@
 package com.wolfgames.app.games
 
-import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,6 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -49,6 +47,7 @@ import com.wolfgames.app.ui.SetupPanel
 import com.wolfgames.app.ui.Stepper
 import com.wolfgames.app.ui.VTextButton
 import com.wolfgames.app.ui.WG
+import com.wolfgames.app.ui.runFor
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
@@ -148,7 +147,7 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
     val paths = remember(data) { (0 until n).map { tracePath(data, it) } }
     val done = remember(seed) { mutableStateListOf<Int>() }
     var animating by remember { mutableStateOf<Int?>(null) }
-    val prog = remember { Animatable(0f) }
+    var prog by remember { mutableFloatStateOf(0f) }
     val scope = rememberCoroutineScope()
     val haptic = LocalVibe.current
 
@@ -157,8 +156,8 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
         animating = s
         haptic.tap()
         scope.launch {
-            prog.snapTo(0f)
-            prog.animateTo(1f, tween(1600, easing = LinearEasing))
+            prog = 0f
+            runFor(1600L) { prog = it }
             done.add(s)
             animating = null
             if (data.prizes[paths[s].second]) haptic.strong() else haptic.tap()
@@ -218,7 +217,7 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
             }
             val lw = 7.dp.toPx()
             for (s in done) drawPolyline(paths[s].first.map { px(it) }, 1f, WG.PlayerColors[s], lw)
-            animating?.let { s -> drawPolyline(paths[s].first.map { px(it) }, prog.value, WG.PlayerColors[s], lw) }
+            animating?.let { s -> drawPolyline(paths[s].first.map { px(it) }, prog, WG.PlayerColors[s], lw) }
         }
 
         // 아래 결과

@@ -1,8 +1,5 @@
 package com.wolfgames.app.games
 
-import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.CubicBezierEasing
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -17,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -46,6 +44,7 @@ import com.wolfgames.app.ui.SetupPanel
 import com.wolfgames.app.ui.Stepper
 import com.wolfgames.app.ui.VTextButton
 import com.wolfgames.app.ui.WG
+import com.wolfgames.app.ui.spinFor
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
@@ -91,7 +90,7 @@ private fun RoulettePlay(m: Int, k: Int, onSetup: () -> Unit) {
     val s = LocalStrings.current
     var seed by remember { mutableIntStateOf(0) }
     val wins = remember(seed) { (List(k) { true } + List(m - k) { false }).shuffled() }
-    val rotation = remember { Animatable(0f) }
+    var rotation by remember { mutableFloatStateOf(0f) }
     var spinning by remember { mutableStateOf(false) }
     var result by remember { mutableStateOf<Int?>(null) }
     val scope = rememberCoroutineScope()
@@ -117,11 +116,12 @@ private fun RoulettePlay(m: Int, k: Int, onSetup: () -> Unit) {
         result = null
         haptic.tap()
         scope.launch {
-            val target = rotation.value + 360f * Random.nextInt(5, 9) + Random.nextFloat() * 360f
-            rotation.animateTo(target, tween(5000, easing = CubicBezierEasing(0.12f, 0.8f, 0.2f, 1f)))
-            rotation.snapTo(rotation.value % 360f)
+            val from = rotation
+            val total = 360f * Random.nextInt(4, 6) + Random.nextFloat() * 360f
+            spinFor(5000L) { e -> rotation = from + total * e }
+            rotation %= 360f
             val sweep = 360f / m
-            val a = ((-rotation.value) % 360f + 360f) % 360f
+            val a = ((-rotation) % 360f + 360f) % 360f
             result = (a / sweep).toInt().coerceIn(0, m - 1)
             spinning = false
             haptic.strong()
@@ -160,7 +160,7 @@ private fun RoulettePlay(m: Int, k: Int, onSetup: () -> Unit) {
             val c = Offset(size.width / 2f, size.height / 2f)
             val rad = size.minDimension / 2f - 10.dp.toPx()
             val sweep = 360f / m
-            val rot = rotation.value
+            val rot = rotation
             val tl = Offset(c.x - rad, c.y - rad)
             val sz = Size(rad * 2f, rad * 2f)
 
