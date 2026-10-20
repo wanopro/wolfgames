@@ -40,9 +40,7 @@ import com.wolfgames.app.ui.LocalVibe
 import com.wolfgames.app.ui.Stepper
 import com.wolfgames.app.ui.WG
 import kotlinx.coroutines.launch
-import kotlin.math.cos
 import kotlin.math.max
-import kotlin.math.sin
 import kotlin.random.Random
 
 /** 8. 화살표 돌리기 — 정한 시간 동안 돌다가 천천히 멈춤 */
@@ -102,12 +100,6 @@ fun ArrowGame(onBack: () -> Unit) {
                 // 판
                 drawCircle(WG.Surface, radius = r, center = c)
                 drawCircle(WG.Surface2, radius = r, center = c, style = Stroke(width = 6.dp.toPx()))
-                // 눈금 (색 점 12개)
-                for (k in 0 until 12) {
-                    val a = Math.toRadians((k * 30 - 90).toDouble())
-                    val p = Offset(c.x + (r * 0.86f) * cos(a).toFloat(), c.y + (r * 0.86f) * sin(a).toFloat())
-                    drawCircle(WG.PlayerColors[k % WG.PlayerColors.size], radius = 7.dp.toPx(), center = p)
-                }
                 // 화살표
                 rotate(degrees = angle.value, pivot = c) {
                     val len = r * 0.72f
