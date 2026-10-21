@@ -59,6 +59,7 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.sin
+import kotlin.math.cos
 import kotlin.random.Random
 
 /** 늑대 색 — 빨 주 노 초 파 검 보 회 분홍 */
@@ -83,45 +84,57 @@ private val Outline = Color(0x66000000)
 private enum class RacePhase { Ready, Countdown, Running, Done }
 
 /**
- * 한 마리의 진행 곡선. 0~1 사이 u(=시간/완주시간)에 대해 0~1 위치를 돌려줌.
- * 사인파를 섞어 중간에 앞서거니 뒤서거니 하지만 항상 앞으로만 달림.
+ * 진행 곡선: 구간마다 속도를 다르게(질주·주춤) 줘서 순위가 자주 뒤바뀜.
+ * 미리 계산한 누적 거리표(0→1)를 finishTime 동안 따라감 → 정한 시간에 정확히 도착.
  */
-private class Runner(val finishTime: Float, private val a1: Float, private val k1: Int, private val ph1: Float,
-                     private val a2: Float, private val k2: Int, private val ph2: Float) {
+private class Runner(val finishTime: Float, private val table: FloatArray) {
     fun pos(t: Float): Float {
-        val u = (t / finishTime).coerceIn(0f, 1f)
-        val w1 = 2f * PI.toFloat() * k1
-        val w2 = 2f * PI.toFloat() * k2
-        // 양 끝(0,1)에서 0이 되도록 sin(w u) 형태 + 미분이 1-|a1|-|a2| > 0 이 되도록 진폭 제한
-        val p = u + a1 * (sin(w1 * u + ph1) - sin(ph1) * (1 - u) - sin(w1 + ph1) * u) / w1 +
-            a2 * (sin(w2 * u + ph2) - sin(ph2) * (1 - u) - sin(w2 + ph2) * u) / w2
-        return p.coerceIn(0f, 1f)
+        val m = table.size - 1
+        val u = (t / finishTime).coerceIn(0f, 1f) * m
+        val j = minOf(m - 1, u.toInt())
+        return table[j] + (table[j + 1] - table[j]) * (u - j)
     }
 }
 
-/** 결과 시간 duration 초에 1등이 정확히 들어오도록 각자 완주 시간을 정함 */
 private fun makeRunners(n: Int, duration: Float): List<Runner> {
     val order = (0 until n).shuffled()
     val times = FloatArray(n)
     times[order[0]] = duration
-    // 2등부터는 조금씩 늦게 (마지막은 최대 22% 늦게)
+    // 2등부터는 조금씩 늦게 (마지막은 최대 12% 늦게 → 끝까지 접전)
     val gaps = List(n - 1) { Random.nextFloat() * 0.6f + 0.4f }.sorted()
     val total = gaps.sum()
     var acc = 0f
     for (r in 1 until n) {
         acc += gaps[r - 1]
-        times[order[r]] = duration * (1f + 0.22f * acc / total)
+        times[order[r]] = duration * (1f + 0.12f * acc / total)
     }
-    return List(n) {
-        Runner(
-            finishTime = times[it],
-            a1 = Random.nextFloat() * 0.45f + 0.15f, k1 = Random.nextInt(1, 3), ph1 = Random.nextFloat() * 6.28f,
-            a2 = Random.nextFloat() * 0.25f, k2 = Random.nextInt(2, 5), ph2 = Random.nextFloat() * 6.28f,
-        )
+    val k = 12
+    val l = k - 1
+    val slots = (1..l).shuffled()
+    return List(n) { i ->
+        val v = FloatArray(k + 1) { 0.5f + Random.nextFloat() * 0.5f }
+        v[0] = 0.6f + Random.nextFloat() * 0.6f
+        v[slots[i % l]] = 2.2f + Random.nextFloat() * 0.6f // 폭풍 질주 (늑대마다 타이밍이 엇갈림)
+        v[slots[(i + 4) % l]] = 1.8f + Random.nextFloat() * 0.5f
+        v[slots[(i + 8) % l]] = 1.5f + Random.nextFloat() * 0.4f
+        v[slots[(i + 2) % l]] = 0.15f + Random.nextFloat() * 0.15f // 주춤
+        v[slots[(i + 6) % l]] = 0.25f + Random.nextFloat() * 0.15f
+        val m = 120
+        val tab = FloatArray(m + 1)
+        var sum = 0f
+        for (j in 1..m) {
+            val u = (j - 0.5f) / m * k
+            val kk = u.toInt()
+            val e = (1f - cos(PI.toFloat() * (u - kk))) / 2f
+            sum += v[kk] * (1 - e) + v[minOf(k, kk + 1)] * e
+            tab[j] = sum
+        }
+        for (j in 0..m) tab[j] /= sum
+        Runner(times[i], tab)
     }
 }
 
-/** 5. 동물달리기 */
+/** 5. 늑대달리기 */
 @Composable
 fun RaceGame(onBack: () -> Unit) {
     val s = LocalStrings.current

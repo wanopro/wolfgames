@@ -1,5 +1,5 @@
-// 동물달리기 / 해적 룰렛 / 화살표 돌리기
-import { C, S, h, btn, top, stepper, setupPanel, liveCanvas, vibe, animate, sleep, rnd } from './core.js';
+// 늑대달리기 / 늑대 룰렛 / 늑대 돌리기
+import { C, S, h, btn, top, stepper, setupPanel, liveCanvas, vibe, animate, sleep, rnd, shuffle } from './core.js';
 
 const INK = '#2B2B33';
 const R = (d) => (d * Math.PI) / 180;
@@ -44,7 +44,7 @@ function sideWolf(ctx, cx, cy, s, fur, ph) {
   ctx.restore();
 }
 
-// ===================== 5. 동물달리기 =====================
+// ===================== 5. 늑대달리기 =====================
 export function race(root, back) {
   const s = S();
   let n = 4, secs = 8, cv = null, alive = true;
@@ -69,6 +69,7 @@ export function race(root, back) {
   };
 
   // 정한 시간에 1등이 들어오도록 진행 곡선을 만듦 (앱과 같은 방식)
+  // 구간마다 속도를 다르게(질주·주춤) 해서 순위가 자주 뒤바뀜. 질주 타이밍은 늑대마다 엇갈리게.
   const makeRunners = () => {
     const order = [...Array(n).keys()].sort(() => Math.random() - 0.5);
     const times = Array(n);
@@ -76,16 +77,28 @@ export function race(root, back) {
     const gaps = Array.from({ length: n - 1 }, () => Math.random() * 0.6 + 0.4).sort((a, b) => a - b);
     const total = gaps.reduce((a, b) => a + b, 0);
     let acc = 0;
-    for (let r = 1; r < n; r++) { acc += gaps[r - 1]; times[order[r]] = secs * (1 + 0.22 * acc / total); }
-    return times.map((T) => {
-      const a1 = Math.random() * 0.45 + 0.15, k1 = rnd(1, 2), p1 = Math.random() * 6.28;
-      const a2 = Math.random() * 0.25, k2 = rnd(2, 4), p2 = Math.random() * 6.28;
+    for (let r = 1; r < n; r++) { acc += gaps[r - 1]; times[order[r]] = secs * (1 + 0.12 * acc / total); }
+    const K = 12, L = K - 1, slots = shuffle([...Array(L).keys()].map((j) => j + 1));
+    return times.map((T, i) => {
+      const v = Array.from({ length: K + 1 }, () => 0.5 + Math.random() * 0.5);
+      v[0] = 0.6 + Math.random() * 0.6;
+      v[slots[i % L]] = 2.2 + Math.random() * 0.6; // 폭풍 질주
+      v[slots[(i + 4) % L]] = 1.8 + Math.random() * 0.5;
+      v[slots[(i + 8) % L]] = 1.5 + Math.random() * 0.4;
+      v[slots[(i + 2) % L]] = 0.15 + Math.random() * 0.15; // 주춤
+      v[slots[(i + 6) % L]] = 0.25 + Math.random() * 0.15;
+      const M = 120, tab = [0];
+      let sum = 0;
+      for (let j = 1; j <= M; j++) {
+        const u = ((j - 0.5) / M) * K, k = Math.floor(u), e = (1 - Math.cos(Math.PI * (u - k))) / 2;
+        sum += v[k] * (1 - e) + v[Math.min(K, k + 1)] * e; tab.push(sum);
+      }
+      for (let j = 0; j <= M; j++) tab[j] /= sum;
       return {
         T,
         pos(t) {
-          const u = Math.min(1, Math.max(0, t / T)), w1 = 2 * Math.PI * k1, w2 = 2 * Math.PI * k2;
-          const p = u + a1 * (Math.sin(w1 * u + p1) - Math.sin(p1)) / w1 + a2 * (Math.sin(w2 * u + p2) - Math.sin(p2)) / w2;
-          return Math.min(1, Math.max(0, p));
+          const u = Math.min(1, Math.max(0, t / T)) * M, j = Math.min(M - 1, Math.floor(u));
+          return tab[j] + (tab[j + 1] - tab[j]) * (u - j);
         },
       };
     });
@@ -279,67 +292,76 @@ export function pirate(root, back) {
  * 원점은 판 가운데, r 은 판 반지름
  */
 function spinWolf(ctx, r, open, bite) {
-  const FUR = '#9AA5B4', DARK = '#6E7A8A', CREAM = '#F4ECE1', OL = 'rgba(0,0,0,.35)';
-  const L = r * 0.86, hr = r * 0.25, hy = -L * 0.36;
-  // 꼬리
-  ctx.beginPath(); ctx.ellipse(0, L * 0.62, r * 0.1, r * 0.2, 0, 0, 7); ctx.fillStyle = FUR; ctx.fill(); ctx.strokeStyle = OL; ctx.lineWidth = 2; ctx.stroke();
-  ctx.beginPath(); ctx.ellipse(0, L * 0.62 + r * 0.13, r * 0.06, r * 0.07, 0, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
-  // 몸통 + 발
-  for (const [x, y] of [[-1, -0.12], [1, -0.12], [-1, 0.32], [1, 0.32]]) { ctx.beginPath(); ctx.ellipse(x * r * 0.13, y * L, r * 0.055, r * 0.045, 0, 0, 7); ctx.fillStyle = CREAM; ctx.fill(); ctx.strokeStyle = OL; ctx.lineWidth = 1.5; ctx.stroke(); }
-  ctx.beginPath(); ctx.ellipse(0, L * 0.1, r * 0.12, r * 0.3, 0, 0, 7); ctx.fillStyle = FUR; ctx.fill(); ctx.strokeStyle = OL; ctx.lineWidth = 2; ctx.stroke();
-  ctx.beginPath(); ctx.ellipse(0, L * 0.05, r * 0.05, r * 0.16, 0, 0, 7); ctx.fillStyle = DARK; ctx.globalAlpha = 0.5; ctx.fill(); ctx.globalAlpha = 1;
-  // 귀 (머리 뒤쪽)
-  for (const sx of [-1, 1]) {
-    ctx.beginPath(); ctx.moveTo(sx * hr * 0.2, hy + hr * 0.2); ctx.lineTo(sx * hr * 1.15, hy + hr * 0.95); ctx.lineTo(sx * hr * 0.95, hy - hr * 0.15); ctx.closePath();
-    ctx.fillStyle = DARK; ctx.fill(); ctx.strokeStyle = OL; ctx.lineWidth = 2; ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(sx * hr * 0.45, hy + hr * 0.2); ctx.lineTo(sx * hr * 1.0, hy + hr * 0.7); ctx.lineTo(sx * hr * 0.85, hy + hr * 0.05); ctx.closePath(); ctx.fillStyle = '#F6AFC0'; ctx.fill();
+  const FUR = '#9AA5B4', DARK = '#7D8899', BEL = '#FFF6E8', OL = 'rgba(0,0,0,.4)', INK = '#2B2B33', PINK = '#F6AFC0';
+  const s = r, sw = Math.max(1.5, s * 0.02);
+  ctx.save();
+  ctx.rotate(-Math.PI / 2); // u(→)=앞(코), v(↓)=배 쪽
+  ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  const oval = (x, y, rx, ry, fill, stroke, rot = 0) => { ctx.beginPath(); ctx.ellipse(x * s, y * s, rx * s, ry * s, rot, 0, 7); ctx.fillStyle = fill; ctx.fill(); if (stroke) { ctx.lineWidth = sw; ctx.strokeStyle = OL; ctx.stroke(); } };
+  const tri = (pts, fill, stroke) => { ctx.beginPath(); pts.forEach(([u, v], i) => (i ? ctx.lineTo(u * s, v * s) : ctx.moveTo(u * s, v * s))); ctx.closePath(); ctx.fillStyle = fill; ctx.fill(); if (stroke) { ctx.lineWidth = sw; ctx.strokeStyle = OL; ctx.stroke(); } };
+
+  // 꼬리 (뒤로 쭉, 끝은 흰색)
+  oval(-0.68, -0.04, 0.22, 0.09, FUR, true, -0.15); oval(-0.85, -0.01, 0.07, 0.055, BEL, false, -0.15);
+  // 뒷다리·앞다리 (엎드려 앞으로 뻗은 자세)
+  for (const [u, v, len, dark] of [[-0.34, 0.12, 0.2, 1], [0.12, 0.12, 0.24, 1], [-0.26, 0.15, 0.2, 0], [0.2, 0.15, 0.26, 0]]) {
+    ctx.globalAlpha = dark ? 0.75 : 1;
+    ctx.strokeStyle = FUR; ctx.lineWidth = s * 0.1; ctx.beginPath(); ctx.moveTo(u * s, v * s); ctx.lineTo((u + len) * s, (v + 0.08) * s); ctx.stroke();
+    ctx.globalAlpha = 1; oval(u + len + 0.02, v + 0.085, 0.06, 0.045, BEL, true);
   }
-  // 턱 (앞으로 길게, 벌리면 양옆으로)
-  const hingeY = hy - hr * 0.55, tipY = -L, a = (open * 38 * Math.PI) / 180;
-  const jaw = (sx) => {
-    ctx.save(); ctx.translate(0, hingeY); ctx.rotate(sx * a); ctx.translate(0, -hingeY);
-    const len = hingeY - tipY;
-    ctx.beginPath(); ctx.moveTo(0, hingeY); ctx.lineTo(sx * hr * 0.66, hingeY + hr * 0.1);
-    ctx.quadraticCurveTo(sx * hr * 0.6, hingeY - len * 0.75, sx * hr * 0.16, tipY); ctx.lineTo(0, tipY); ctx.closePath();
-    ctx.fillStyle = FUR; ctx.fill(); ctx.strokeStyle = OL; ctx.lineWidth = 2; ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(0, hingeY - len * 0.1); ctx.lineTo(sx * hr * 0.16, hingeY - len * 0.12); ctx.quadraticCurveTo(sx * hr * 0.16, hingeY - len * 0.7, sx * hr * 0.05, tipY + len * 0.14); ctx.lineTo(0, tipY + len * 0.14); ctx.closePath();
-    ctx.fillStyle = CREAM; ctx.fill();
-    // 이빨 (안쪽)
-    if (open > 0.05) {
-      ctx.fillStyle = '#fff';
-      for (let k = 0; k < 4; k++) {
-        const y0 = tipY + len * (0.12 + k * 0.2);
-        ctx.beginPath(); ctx.moveTo(0, y0); ctx.lineTo(0, y0 + len * 0.12); ctx.lineTo(-sx * hr * 0.16, y0 + len * 0.06); ctx.closePath(); ctx.fill();
-      }
-    }
-    // 코
-    ctx.beginPath(); ctx.ellipse(sx * hr * 0.04, tipY + hr * 0.12, hr * 0.17, hr * 0.12, 0, 0, 7); ctx.fillStyle = '#2B2B33'; ctx.fill();
-    ctx.restore();
-  };
-  if (open > 0.05) {
-    // 입 안쪽
-    const len = hingeY - tipY;
-    ctx.beginPath(); ctx.moveTo(0, hingeY + hr * 0.1);
-    ctx.lineTo(Math.sin(-a) * len, hingeY - Math.cos(a) * len); ctx.lineTo(Math.sin(a) * len, hingeY - Math.cos(a) * len); ctx.closePath();
-    ctx.fillStyle = '#8E2440'; ctx.fill();
-    ctx.beginPath(); ctx.ellipse(0, hingeY - len * 0.3, hr * 0.22, len * 0.28, 0, 0, 7); ctx.fillStyle = '#E86A86'; ctx.fill();
-  }
-  jaw(-1); jaw(1);
+  // 몸통
+  oval(-0.15, 0.0, 0.42, 0.19, FUR, true); oval(-0.12, 0.1, 0.28, 0.07, BEL);
+  // 등 무늬
+  oval(-0.2, -0.1, 0.25, 0.06, DARK);
+  // 목 갈기
+  tri([[0.05, -0.17], [0.1, -0.24], [0.15, -0.16], [0.2, -0.22], [0.2, 0.12], [0.08, 0.16], [0.12, 0.08], [0.02, 0.1]], FUR, true);
+
   // 머리
-  ctx.beginPath(); ctx.arc(0, hy, hr, 0, 7); ctx.fillStyle = FUR; ctx.fill(); ctx.strokeStyle = OL; ctx.lineWidth = 2; ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(-hr * 0.18, hy - hr); ctx.lineTo(0, hy - hr * 0.35); ctx.lineTo(hr * 0.18, hy - hr); ctx.closePath(); ctx.fillStyle = CREAM; ctx.globalAlpha = 0.8; ctx.fill(); ctx.globalAlpha = 1;
-  // 눈
-  for (const sx of [-1, 1]) {
-    const ex = sx * hr * 0.45, ey = hy - hr * 0.28;
-    if (bite) {
-      const d = hr * 0.17; ctx.beginPath(); ctx.moveTo(ex - d * sx, ey - d); ctx.lineTo(ex + d * sx, ey); ctx.lineTo(ex - d * sx, ey + d);
-      ctx.strokeStyle = '#2B2B33'; ctx.lineWidth = hr * 0.1; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke();
-    } else {
-      ctx.beginPath(); ctx.arc(ex, ey, hr * 0.21, 0, 7); ctx.fillStyle = '#2B2B33'; ctx.fill();
-      ctx.beginPath(); ctx.arc(ex - hr * 0.06, ey - hr * 0.07, hr * 0.08, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
-    }
-    ctx.beginPath(); ctx.ellipse(ex + sx * hr * 0.15, ey + hr * 0.32, hr * 0.17, hr * 0.09, 0, 0, 7); ctx.fillStyle = 'rgba(255,143,163,.55)'; ctx.fill();
+  const hx = 0.36, hy = -0.07, hr = 0.27;
+  for (const ex of [hx - hr * 0.6, hx + hr * 0.15]) { // 귀 2개
+    tri([[ex - hr * 0.35, hy - hr * 0.55], [ex - hr * 0.05, hy - hr * 1.5], [ex + hr * 0.38, hy - hr * 0.6]], FUR, true);
+    tri([[ex - hr * 0.17, hy - hr * 0.68], [ex - hr * 0.04, hy - hr * 1.18], [ex + hr * 0.2, hy - hr * 0.7]], PINK);
   }
+  ctx.beginPath(); ctx.arc(hx * s, hy * s, hr * s, 0, 7); ctx.fillStyle = FUR; ctx.fill(); ctx.lineWidth = sw; ctx.strokeStyle = OL; ctx.stroke();
+  // 볼털 (뾰족)
+  tri([[hx - hr * 0.5, hy + hr * 0.75], [hx - hr * 0.2, hy + hr * 1.25], [hx + hr * 0.05, hy + hr * 0.85], [hx + hr * 0.3, hy + hr * 1.15], [hx + hr * 0.45, hy + hr * 0.7]], FUR, true);
+
+  // 주둥이: 위턱·아래턱 (경첩 = 주둥이 뒤쪽)
+  const jx = hx + hr * 0.5, jy = hy + hr * 0.36, a = open * 0.75;
+  const hinge = (ang, fn) => { ctx.save(); ctx.translate(jx * s, jy * s); ctx.rotate(ang); ctx.translate(-jx * s, -jy * s); fn(); ctx.restore(); };
+  if (open > 0.04) { // 입 안
+    ctx.beginPath(); ctx.moveTo(jx * s, jy * s);
+    ctx.lineTo((jx + Math.cos(-a * 0.45) * 0.27) * s, (jy + Math.sin(-a * 0.45) * 0.27) * s);
+    ctx.lineTo((jx + Math.cos(a * 0.55) * 0.24) * s, (jy + Math.sin(a * 0.55) * 0.24) * s); ctx.closePath();
+    ctx.fillStyle = '#8E2440'; ctx.fill();
+  }
+  hinge(a * 0.55, () => { // 아래턱
+    oval(jx + 0.13, jy + 0.04, 0.15, 0.05, BEL, true);
+    if (open > 0.04) { oval(jx + 0.09, jy + 0.005, 0.09, 0.022, '#E86A86'); for (const u of [0.1, 0.16]) tri([[jx + u, jy - 0.0], [jx + u + 0.012, jy - 0.035], [jx + u + 0.024, jy - 0.0]], '#fff'); tri([[jx + 0.22, jy - 0.0], [jx + 0.238, jy - 0.07], [jx + 0.256, jy - 0.0]], '#fff', true); }
+  });
+  hinge(-a * 0.45, () => { // 위턱 (코)
+    ctx.beginPath(); ctx.moveTo((jx - 0.03) * s, (jy - 0.1) * s);
+    ctx.quadraticCurveTo((jx + 0.15) * s, (jy - 0.15) * s, (jx + 0.29) * s, (jy - 0.08) * s);
+    ctx.quadraticCurveTo((jx + 0.34) * s, (jy - 0.02) * s, (jx + 0.28) * s, (jy + 0.005) * s);
+    ctx.lineTo((jx - 0.02) * s, (jy + 0.005) * s); ctx.closePath();
+    ctx.fillStyle = BEL; ctx.fill(); ctx.lineWidth = sw; ctx.strokeStyle = OL; ctx.stroke();
+    tri([[jx + 0.19, jy + 0.0], [jx + 0.208, jy + 0.075], [jx + 0.226, jy + 0.0]], '#fff', true); // 송곳니
+    if (open > 0.04) for (const u of [0.08, 0.13]) tri([[jx + u, jy], [jx + u + 0.012, jy + 0.035], [jx + u + 0.024, jy]], '#fff');
+    oval(jx + 0.3, jy - 0.065, 0.055, 0.042, INK, false, 0.3); // 코
+    oval(jx + 0.288, jy - 0.08, 0.014, 0.01, 'rgba(255,255,255,.6)');
+    ctx.beginPath(); ctx.moveTo((jx + 0.02) * s, (jy - 0.13) * s); ctx.quadraticCurveTo((jx + 0.1) * s, (jy - 0.15) * s, (jx + 0.2) * s, (jy - 0.115) * s); ctx.lineWidth = s * 0.03; ctx.strokeStyle = FUR; ctx.stroke(); // 콧등 회색
+  });
+  // 눈
+  const ex = hx + hr * 0.25, ey = hy - hr * 0.15;
+  if (bite) {
+    ctx.beginPath(); ctx.moveTo((ex - 0.045) * s, (ey - 0.045) * s); ctx.lineTo((ex + 0.035) * s, ey * s); ctx.lineTo((ex - 0.045) * s, (ey + 0.045) * s);
+    ctx.strokeStyle = INK; ctx.lineWidth = s * 0.028; ctx.stroke();
+  } else {
+    ctx.beginPath(); ctx.arc(ex * s, ey * s, hr * 0.27 * s, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
+    ctx.beginPath(); ctx.arc((ex + hr * 0.06) * s, ey * s, hr * 0.19 * s, 0, 7); ctx.fillStyle = INK; ctx.fill();
+    ctx.beginPath(); ctx.arc((ex + hr * 0.01) * s, (ey - hr * 0.07) * s, hr * 0.07 * s, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
+  }
+  oval(hx + hr * 0.0, hy + hr * 0.4, hr * 0.2, hr * 0.12, 'rgba(255,143,163,.55)'); // 볼
+  ctx.restore();
 }
 
 export function arrow(root, back) {

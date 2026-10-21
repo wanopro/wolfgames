@@ -46,6 +46,10 @@ import com.wolfgames.app.ui.WG
 import com.wolfgames.app.ui.spinFor
 import kotlinx.coroutines.launch
 import kotlin.math.max
+import kotlin.math.sin
+import kotlin.math.cos
+import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import kotlin.random.Random
 
 /** 8. 늑대 돌리기 — 정한 시간 동안 입을 벌리고 돌다가, 멈추면 꽉 묾 */
@@ -137,84 +141,111 @@ private fun DrawScope.oval(cx: Float, cy: Float, rx: Float, ry: Float, color: Co
 }
 
 /**
- * 위에서 본 늑대 (원점 = 판 가운데, 앞 = -y). open: 입 벌린 정도 0~1, bite: 꽉 문 표정
- * (웹 버전 web/games-fun.js 의 spinWolf 와 같은 그림)
+ * 늑대 돌리기 그림: 엎드린 옆모습 늑대 (늑대달리기 늑대와 같은 그림체). 코끝이 위(-y)를 가리킴.
+ * open 0~1 = 입 벌림, bite = 꽉 문 뒤 표정. (웹 spinWolf 와 같은 좌표)
  */
 private fun DrawScope.drawSpinWolf(r: Float, open: Float, bite: Boolean) {
-    val l = r * 0.86f
-    val hr = r * 0.25f
-    val hy = -l * 0.36f
-    // 꼬리
-    oval(0f, l * 0.62f, r * 0.1f, r * 0.2f, SwFur, true)
-    oval(0f, l * 0.62f + r * 0.13f, r * 0.06f, r * 0.07f, Color.White)
-    // 발 + 몸통
-    for ((x, y) in listOf(-1f to -0.12f, 1f to -0.12f, -1f to 0.32f, 1f to 0.32f)) oval(x * r * 0.13f, y * l, r * 0.055f, r * 0.045f, SwCream, true)
-    oval(0f, l * 0.1f, r * 0.12f, r * 0.3f, SwFur, true)
-    oval(0f, l * 0.05f, r * 0.05f, r * 0.16f, SwDark.copy(alpha = 0.5f))
-    // 귀
-    for (sx in listOf(-1f, 1f)) {
-        val ear = Path().apply {
-            moveTo(sx * hr * 0.2f, hy + hr * 0.2f); lineTo(sx * hr * 1.15f, hy + hr * 0.95f); lineTo(sx * hr * 0.95f, hy - hr * 0.15f); close()
+    val fur = 0xFF9AA5B4.toInt(); val dark = 0xFF7D8899.toInt(); val bel = 0xFFFFF6E8.toInt()
+    val ol = 0x66000000; val ink = 0xFF2B2B33.toInt(); val pink = 0xFFF6AFC0.toInt()
+    val s = r
+    val sw = max(1.5f, s * 0.02f)
+    drawIntoCanvas { cc ->
+        val c = cc.nativeCanvas
+        val fill = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply { style = android.graphics.Paint.Style.FILL }
+        val line = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply {
+            style = android.graphics.Paint.Style.STROKE; strokeJoin = android.graphics.Paint.Join.ROUND; strokeCap = android.graphics.Paint.Cap.ROUND
         }
-        drawPath(ear, SwDark); drawPath(ear, SwLine, style = Stroke(width = 2f))
-        val inner = Path().apply {
-            moveTo(sx * hr * 0.45f, hy + hr * 0.2f); lineTo(sx * hr * 1.0f, hy + hr * 0.7f); lineTo(sx * hr * 0.85f, hy + hr * 0.05f); close()
+        fun outline(p: android.graphics.Path) { line.color = ol; line.strokeWidth = sw; c.drawPath(p, line) }
+        fun oval(x: Float, y: Float, rx: Float, ry: Float, color: Int, stroke: Boolean = false, rot: Float = 0f) {
+            c.save(); c.translate(x * s, y * s); c.rotate(Math.toDegrees(rot.toDouble()).toFloat())
+            val rect = android.graphics.RectF(-rx * s, -ry * s, rx * s, ry * s)
+            fill.color = color; c.drawOval(rect, fill)
+            if (stroke) { line.color = ol; line.strokeWidth = sw; c.drawOval(rect, line) }
+            c.restore()
         }
-        drawPath(inner, Color(0xFFF6AFC0))
-    }
-    // 턱
-    val hingeY = hy - hr * 0.55f
-    val tipY = -l
-    val len = hingeY - tipY
-    val a = open * 38f
-    if (open > 0.05f) {
-        val rad = Math.toRadians(a.toDouble())
-        val sx = (kotlin.math.sin(rad) * len).toFloat()
-        val sy = (kotlin.math.cos(rad) * len).toFloat()
-        val mouth = Path().apply { moveTo(0f, hingeY + hr * 0.1f); lineTo(-sx, hingeY - sy); lineTo(sx, hingeY - sy); close() }
-        drawPath(mouth, Color(0xFF8E2440))
-        oval(0f, hingeY - len * 0.3f, hr * 0.22f, len * 0.28f, Color(0xFFE86A86))
-    }
-    for (sx in listOf(-1f, 1f)) {
-        rotate(degrees = sx * a, pivot = Offset(0f, hingeY)) {
-            val jaw = Path().apply {
-                moveTo(0f, hingeY); lineTo(sx * hr * 0.66f, hingeY + hr * 0.1f)
-                quadraticTo(sx * hr * 0.6f, hingeY - len * 0.75f, sx * hr * 0.16f, tipY); lineTo(0f, tipY); close()
-            }
-            drawPath(jaw, SwFur); drawPath(jaw, SwLine, style = Stroke(width = 2f))
-            val cream = Path().apply {
-                moveTo(0f, hingeY - len * 0.1f); lineTo(sx * hr * 0.16f, hingeY - len * 0.12f)
-                quadraticTo(sx * hr * 0.16f, hingeY - len * 0.7f, sx * hr * 0.05f, tipY + len * 0.14f); lineTo(0f, tipY + len * 0.14f); close()
-            }
-            drawPath(cream, SwCream)
-            if (open > 0.05f) {
-                for (k in 0 until 4) {
-                    val y0 = tipY + len * (0.12f + k * 0.2f)
-                    val tooth = Path().apply { moveTo(0f, y0); lineTo(0f, y0 + len * 0.12f); lineTo(-sx * hr * 0.16f, y0 + len * 0.06f); close() }
-                    drawPath(tooth, Color.White)
-                }
-            }
-            oval(sx * hr * 0.04f, tipY + hr * 0.12f, hr * 0.17f, hr * 0.12f, SwInk)
+        fun poly(vararg pts: Float, color: Int, stroke: Boolean = false) {
+            val p = android.graphics.Path()
+            p.moveTo(pts[0] * s, pts[1] * s)
+            var i = 2
+            while (i < pts.size) { p.lineTo(pts[i] * s, pts[i + 1] * s); i += 2 }
+            p.close()
+            fill.color = color; c.drawPath(p, fill)
+            if (stroke) outline(p)
         }
-    }
-    // 머리
-    drawCircle(SwFur, radius = hr, center = Offset(0f, hy))
-    drawCircle(SwLine, radius = hr, center = Offset(0f, hy), style = Stroke(width = 2f))
-    val mark = Path().apply { moveTo(-hr * 0.18f, hy - hr); lineTo(0f, hy - hr * 0.35f); lineTo(hr * 0.18f, hy - hr); close() }
-    drawPath(mark, SwCream.copy(alpha = 0.8f))
-    // 눈
-    for (sx in listOf(-1f, 1f)) {
-        val ex = sx * hr * 0.45f
-        val ey = hy - hr * 0.28f
+        fun circle(x: Float, y: Float, rr: Float, color: Int, stroke: Boolean = false) {
+            fill.color = color; c.drawCircle(x * s, y * s, rr * s, fill)
+            if (stroke) { line.color = ol; line.strokeWidth = sw; c.drawCircle(x * s, y * s, rr * s, line) }
+        }
+
+        c.save()
+        c.rotate(-90f) // u(→)=앞(코), v(↓)=배 쪽
+        // 꼬리
+        oval(-0.68f, -0.04f, 0.22f, 0.09f, fur, true, -0.15f); oval(-0.85f, -0.01f, 0.07f, 0.055f, bel, false, -0.15f)
+        // 다리 (엎드려 앞으로 뻗은 자세)
+        for (lg in listOf(floatArrayOf(-0.34f, 0.12f, 0.2f, 1f), floatArrayOf(0.12f, 0.12f, 0.24f, 1f), floatArrayOf(-0.26f, 0.15f, 0.2f, 0f), floatArrayOf(0.2f, 0.15f, 0.26f, 0f))) {
+            val (u, v, len, dk) = lg.toList()
+            line.color = fur; line.alpha = if (dk > 0f) 191 else 255; line.strokeWidth = s * 0.1f
+            c.drawLine(u * s, v * s, (u + len) * s, (v + 0.08f) * s, line); line.alpha = 255
+            oval(u + len + 0.02f, v + 0.085f, 0.06f, 0.045f, bel, true)
+        }
+        // 몸통, 배, 등 무늬
+        oval(-0.15f, 0f, 0.42f, 0.19f, fur, true); oval(-0.12f, 0.1f, 0.28f, 0.07f, bel); oval(-0.2f, -0.1f, 0.25f, 0.06f, dark)
+        // 목 갈기
+        poly(0.05f, -0.17f, 0.1f, -0.24f, 0.15f, -0.16f, 0.2f, -0.22f, 0.2f, 0.12f, 0.08f, 0.16f, 0.12f, 0.08f, 0.02f, 0.1f, color = fur, stroke = true)
+        // 머리, 귀
+        val hx = 0.36f; val hy = -0.07f; val hr = 0.27f
+        for (ex in listOf(hx - hr * 0.6f, hx + hr * 0.15f)) {
+            poly(ex - hr * 0.35f, hy - hr * 0.55f, ex - hr * 0.05f, hy - hr * 1.5f, ex + hr * 0.38f, hy - hr * 0.6f, color = fur, stroke = true)
+            poly(ex - hr * 0.17f, hy - hr * 0.68f, ex - hr * 0.04f, hy - hr * 1.18f, ex + hr * 0.2f, hy - hr * 0.7f, color = pink)
+        }
+        circle(hx, hy, hr, fur, true)
+        poly(hx - hr * 0.5f, hy + hr * 0.75f, hx - hr * 0.2f, hy + hr * 1.25f, hx + hr * 0.05f, hy + hr * 0.85f, hx + hr * 0.3f, hy + hr * 1.15f, hx + hr * 0.45f, hy + hr * 0.7f, color = fur, stroke = true)
+
+        // 주둥이 (경첩 = 주둥이 뒤쪽)
+        val jx = hx + hr * 0.5f; val jy = hy + hr * 0.36f; val a = open * 0.75f
+        fun hinge(ang: Float, body: () -> Unit) {
+            c.save(); c.translate(jx * s, jy * s); c.rotate(Math.toDegrees(ang.toDouble()).toFloat()); c.translate(-jx * s, -jy * s); body(); c.restore()
+        }
+        if (open > 0.04f) { // 입 안
+            poly(jx, jy, jx + cos(-a * 0.45f) * 0.27f, jy + sin(-a * 0.45f) * 0.27f, jx + cos(a * 0.55f) * 0.24f, jy + sin(a * 0.55f) * 0.24f, color = 0xFF8E2440.toInt())
+        }
+        hinge(a * 0.55f) { // 아래턱
+            oval(jx + 0.13f, jy + 0.04f, 0.15f, 0.05f, bel, true)
+            if (open > 0.04f) {
+                oval(jx + 0.09f, jy + 0.005f, 0.09f, 0.022f, 0xFFE86A86.toInt())
+                for (u in listOf(0.1f, 0.16f)) poly(jx + u, jy, jx + u + 0.012f, jy - 0.035f, jx + u + 0.024f, jy, color = 0xFFFFFFFF.toInt())
+                poly(jx + 0.22f, jy, jx + 0.238f, jy - 0.07f, jx + 0.256f, jy, color = 0xFFFFFFFF.toInt(), stroke = true)
+            }
+        }
+        hinge(-a * 0.45f) { // 위턱 (코)
+            val p = android.graphics.Path()
+            p.moveTo((jx - 0.03f) * s, (jy - 0.1f) * s)
+            p.quadTo((jx + 0.15f) * s, (jy - 0.15f) * s, (jx + 0.29f) * s, (jy - 0.08f) * s)
+            p.quadTo((jx + 0.34f) * s, (jy - 0.02f) * s, (jx + 0.28f) * s, (jy + 0.005f) * s)
+            p.lineTo((jx - 0.02f) * s, (jy + 0.005f) * s); p.close()
+            fill.color = bel; c.drawPath(p, fill); outline(p)
+            poly(jx + 0.19f, jy, jx + 0.208f, jy + 0.075f, jx + 0.226f, jy, color = 0xFFFFFFFF.toInt(), stroke = true) // 송곳니
+            if (open > 0.04f) for (u in listOf(0.08f, 0.13f)) poly(jx + u, jy, jx + u + 0.012f, jy + 0.035f, jx + u + 0.024f, jy, color = 0xFFFFFFFF.toInt())
+            oval(jx + 0.3f, jy - 0.065f, 0.055f, 0.042f, ink, false, 0.3f) // 코
+            oval(jx + 0.288f, jy - 0.08f, 0.014f, 0.01f, 0x99FFFFFF.toInt())
+            val nose = android.graphics.Path()
+            nose.moveTo((jx + 0.02f) * s, (jy - 0.13f) * s)
+            nose.quadTo((jx + 0.1f) * s, (jy - 0.15f) * s, (jx + 0.2f) * s, (jy - 0.115f) * s)
+            line.color = fur; line.strokeWidth = s * 0.03f; c.drawPath(nose, line) // 콧등 회색
+        }
+        // 눈
+        val ex = hx + hr * 0.25f; val ey = hy - hr * 0.15f
         if (bite) {
-            val d = hr * 0.17f
-            val eye = Path().apply { moveTo(ex - d * sx, ey - d); lineTo(ex + d * sx, ey); lineTo(ex - d * sx, ey + d) }
-            drawPath(eye, SwInk, style = Stroke(width = hr * 0.1f, cap = StrokeCap.Round, join = StrokeJoin.Round))
+            val p = android.graphics.Path()
+            p.moveTo((ex - 0.045f) * s, (ey - 0.045f) * s); p.lineTo((ex + 0.035f) * s, ey * s); p.lineTo((ex - 0.045f) * s, (ey + 0.045f) * s)
+            line.color = ink; line.strokeWidth = s * 0.028f; c.drawPath(p, line)
         } else {
-            drawCircle(SwInk, radius = hr * 0.21f, center = Offset(ex, ey))
-            drawCircle(Color.White, radius = hr * 0.08f, center = Offset(ex - hr * 0.06f, ey - hr * 0.07f))
+            circle(ex, ey, hr * 0.27f, 0xFFFFFFFF.toInt())
+            circle(ex + hr * 0.06f, ey, hr * 0.19f, ink)
+            circle(ex + hr * 0.01f, ey - hr * 0.07f, hr * 0.07f, 0xFFFFFFFF.toInt())
         }
-        oval(ex + sx * hr * 0.15f, ey + hr * 0.32f, hr * 0.17f, hr * 0.09f, Color(0x8CFF8FA3))
+        oval(hx, hy + hr * 0.4f, hr * 0.2f, hr * 0.12f, 0x8CFF8FA3.toInt()) // 볼
+        c.restore()
     }
 }
 

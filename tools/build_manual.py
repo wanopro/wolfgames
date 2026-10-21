@@ -220,7 +220,7 @@ def game_shots(b, lang):
     pg.locator('.lnums button').nth(3).click(); pg.wait_for_timeout(2600); shot('how-ladder')
     # 돌림판
     home(); card(4); start(); pg.locator('.row .btn').first.click(); pg.wait_for_timeout(5400); shot('how-roulette')
-    # 동물달리기 (5명)
+    # 늑대달리기 (5명)
     home(); card(5); pg.locator('.stepper').first.locator('button').last.click(); start(); pg.locator('.btn').first.click(); pg.wait_for_timeout(2000 + 5000); shot('how-race')
     # 늑대 룰렛
     home(); card(6)
