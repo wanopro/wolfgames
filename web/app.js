@@ -4,6 +4,7 @@ import { rollDice, shutBox, fiveDice } from './games-dice.js';
 import { wolfTeeth, ladder, roulette } from './games-pick.js';
 import { race, pirate, arrow } from './games-fun.js';
 import { four } from './games-four.js';
+import { calculator, exchange } from './calc.js';
 
 const HOMEPAGE = 'https://wolf.community';
 const app = document.getElementById('app');
@@ -22,6 +23,8 @@ const SCREENS = {
   pirate,
   arrow,
   four,
+  calc: (root, b) => calculator(root, b, go),
+  fx: exchange,
   lang: langScreen,
 };
 const PARENT = { roll: 'dice', shut: 'dice', five: 'dice' };
@@ -55,7 +58,9 @@ function homeScreen(root) {
       h('div', {},
         h('h1', { style: s.appName.length > 6 ? 'font-size:27px;line-height:31px' : '' }, s.appName),
         h('p', {}, s.appSubtitle),
-        btn([h('span', { class: 'flag' }, cur.flag), `🌐 ${s.language}`], () => go('lang'), 'chip'))),
+        h('div', { style: 'display:flex;gap:6px;flex-wrap:wrap' },
+          btn([h('span', { class: 'flag' }, cur.flag), `🌐 ${s.language}`], () => go('lang'), 'chip'),
+          btn(`🧮 ${s.calcTitle}`, () => go('calc'), 'chip')))),
     h('div', { style: 'height:4px' }),
     card('🎲', s.menuDice, s.menuDiceSub, () => go('dice')),
     card('🐺', s.menuCroc, s.menuCrocSub, () => go('teeth')),

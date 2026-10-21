@@ -17,6 +17,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -49,6 +51,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.wolfgames.app.games.ArrowGame
+import com.wolfgames.app.games.CalculatorScreen
+import com.wolfgames.app.games.ExchangeScreen
 import com.wolfgames.app.games.FiveDiceGame
 import com.wolfgames.app.games.FourGame
 import com.wolfgames.app.games.LadderGame
@@ -100,7 +104,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Language }
+enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language }
 
 @Composable
 fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
@@ -108,6 +112,7 @@ fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
     val back: () -> Unit = {
         screen = when (screen) {
             Screen.RollDice, Screen.ShutBox, Screen.FiveDice -> Screen.DiceMenu
+            Screen.Fx -> Screen.Calc
             else -> Screen.Home
         }
     }
@@ -127,11 +132,14 @@ fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
             Screen.Pirate -> PirateGame(onBack = back)
             Screen.Arrow -> ArrowGame(onBack = back)
             Screen.Four -> FourGame(onBack = back)
+            Screen.Calc -> CalculatorScreen(onBack = back, onExchange = { screen = Screen.Fx })
+            Screen.Fx -> ExchangeScreen(onBack = back, langCode = currentLang.code)
             Screen.Language -> LanguageScreen(langPref, onBack = back, onSelect = onLangChange)
         }
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
     val s = LocalStrings.current
@@ -158,18 +166,31 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                     Text(s.appName, color = WG.Accent, fontSize = if (s.appName.length > 6) 27.sp else 32.sp, fontWeight = FontWeight.Black, lineHeight = 36.sp)
                     Text(s.appSubtitle, color = WG.SubText, fontSize = 16.sp)
                     Spacer(Modifier.height(8.dp))
-                    // 언어 버튼 (현재 국기 표시)
-                    Row(
-                        Modifier
-                            .clip(RoundedCornerShape(20.dp))
-                            .background(WG.Surface)
-                            .clickable { vibe.tap(); onSelect(Screen.Language) }
-                            .padding(horizontal = 12.dp, vertical = 6.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Text(currentLang.flag, fontSize = 18.sp)
-                        Spacer(Modifier.width(6.dp))
-                        Text("🌐 ${s.language}", color = WG.Text, fontSize = 14.sp)
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                        // 언어 버튼 (현재 국기 표시)
+                        Row(
+                            Modifier
+                                .clip(RoundedCornerShape(20.dp))
+                                .background(WG.Surface)
+                                .clickable { vibe.tap(); onSelect(Screen.Language) }
+                                .padding(horizontal = 12.dp, vertical = 6.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text(currentLang.flag, fontSize = 18.sp)
+                            Spacer(Modifier.width(6.dp))
+                            Text("🌐 ${s.language}", color = WG.Text, fontSize = 14.sp)
+                        }
+                        // 계산기 버튼
+                        Row(
+                            Modifier
+                                .clip(RoundedCornerShape(20.dp))
+                                .background(WG.Surface)
+                                .clickable { vibe.tap(); onSelect(Screen.Calc) }
+                                .padding(horizontal = 12.dp, vertical = 6.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text("🧮 ${s.calcTitle}", color = WG.Text, fontSize = 14.sp)
+                        }
                     }
                 }
             }
