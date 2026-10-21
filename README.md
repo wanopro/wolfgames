@@ -3,6 +3,14 @@
 술자리에서 폰 하나로 바로 하는 게임 모음 안드로이드 앱입니다.
 Powered by WOLF(feat. segna) · https://wolf.community
 
+## 📖 설치 안내 (그림 포함)
+
+**https://wanopro.github.io/wolfgames/manual.html**
+안드로이드 APK 설치(보안 허용)와 아이폰 홈 화면 추가 방법을 단계별 그림으로 정리했습니다.
+
+- 최신 APK 고정 링크: https://github.com/wanopro/wolfgames/releases/latest/download/WolfGames.apk
+- 현재 버전: **v1.0**
+
 ## 🌐 웹 버전 (아이폰 · PC)
 
 **https://wanopro.github.io/wolfgames/**

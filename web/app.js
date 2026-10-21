@@ -1,5 +1,5 @@
 // 울프 게임즈 웹 버전 — 화면 이동, 메인, 언어 설정
-import { S, h, btn, card, top, lang, LANGS, vibe } from './core.js';
+import { S, h, btn, card, top, lang, LANGS, vibe, VERSION } from './core.js';
 import { rollDice, shutBox, fiveDice } from './games-dice.js';
 import { wolfTeeth, ladder, roulette } from './games-pick.js';
 import { race, pirate, arrow } from './games-fun.js';
@@ -62,7 +62,8 @@ function homeScreen(root) {
     card('🏁', s.menuRace, s.menuRaceSub, () => go('race')),
     card('🏴‍☠️', s.menuPirate, s.menuPirateSub, () => go('pirate')),
     card('➡️', s.menuArrow, s.menuArrowSub, () => go('arrow')),
-    h('div', { class: 'footer' }, 'Powered by ', btn('WOLF', ask, ''), '(feat. segna)'));
+    h('div', { class: 'footer' }, 'Powered by ', btn('WOLF', ask, ''), '(feat. segna)'),
+    h('div', { class: 'footer', style: 'padding-top:0;font-size:12px' }, h('a', { href: 'manual.html', style: 'color:var(--sub)' }, '📖 설치 안내'), h('span', { style: 'opacity:.6' }, `  ·  v${VERSION}`)));
   root.append(scroll);
 }
 

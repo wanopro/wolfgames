@@ -200,6 +200,17 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                 )
                 Text("(feat. segna)", color = WG.SubText, fontSize = 13.sp)
             }
+            // 버전 표시 (build.gradle 의 versionName)
+            val version = remember {
+                try { context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: "" } catch (_: Exception) { "" }
+            }
+            Text(
+                "v$version",
+                color = WG.SubText.copy(alpha = 0.6f),
+                fontSize = 12.sp,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+            )
         }
     }
 
