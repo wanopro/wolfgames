@@ -50,6 +50,24 @@
       h1 { font-size: 24px; }
       header img { width: 68px; height: 68px; }
     }
+    @media print {
+      :root { --bg:#fff; --surface:#F4F4F8; --surface2:#E6E6EE; --text:#15151c; --sub:#555566; --link:#0b57d0; color-scheme: light; }
+      body { font-size: 13.5px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      main { padding: 0; max-width: none; }
+      nav, .q a.btn { display: none; }
+      h1 { color: #B07800; }
+      h2 { margin-top: 18px; break-after: avoid; }
+      .step, .faq details, .q, .note { break-inside: avoid; }
+      .step { grid-template-columns: 150px 1fr; padding: 10px; gap: 14px; margin-bottom: 8px; }
+      .step p, .step li, .faq details p { color: #222; font-size: 13.5px; }
+      .note { background: #FFF6DD; color: #3a3000; }
+      .note.warn { background: #FFE8EC; color: #4a0010; }
+      .q img { max-width: 140px; }
+      .faq details { display: block; }
+      .faq details > *:not(summary) { display: block !important; }
+      #iphone { break-before: page; }
+      #update { break-before: page; }
+    }
   </style>
 </head>
 <body>
