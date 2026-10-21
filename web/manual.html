@@ -116,7 +116,7 @@ function render(lang) {
   <div class="top-row"><a class="back" href="./">${t.back}</a>
     <div class="langbar">${LANGS.map(([c, f, l]) => `<button data-l="${c}" class="${c === lang ? 'sel' : ''}">${f} ${l}</button>`).join('')}</div></div>
   <header><img src="icons/logo.png" alt="${s.appName}"><div><h1>${s.appName} <span class="ver">v1.1</span></h1><p class="lead">${t.lead}</p></div></header>
-  <nav><a href="#android">${t.navAndroid}</a><a href="#iphone">${t.navIphone}</a><a href="#new">${t.navNew}</a><a href="#update">${t.navUpdate}</a><a href="#faq">${t.navFaq}</a></nav>
+  <nav><a href="#android">${t.navAndroid}</a><a href="#iphone">${t.navIphone}</a><a href="#how">${t.navHow}</a><a href="#new">${t.navNew}</a><a href="#update">${t.navUpdate}</a><a href="#faq">${t.navFaq}</a></nav>
   <div class="quick">
     <div class="q"><b>${t.qAndroid}</b><small>${t.qAndroidSub}</small><img src="manual/qr-apk.png" alt="QR APK"><a class="btn" href="${APK}">${t.qApk}</a></div>
     <div class="q"><b>${t.qWeb}</b><small>${t.qWebSub}</small><img src="manual/qr-web.png" alt="QR web"><a class="btn" href="./">wanopro.github.io/wolfgames</a></div>
@@ -128,6 +128,13 @@ function render(lang) {
   <p class="illu">${t.illuI}</p><div class="note">${t.noteI}</div>
   ${steps(t.i, ['ios-1-safari', 'ios-2-share', 'ios-3-add', 'ios-4-home'], 1)}
   <div class="step"><img src="${img('web-home')}" alt="${t.mainT}" loading="lazy"><div><h3>${t.mainT}</h3><p>${t.mainP}</p></div></div>
+  <h2 id="how">${t.hHow}</h2>
+  <p class="illu" style="font-size:15px;color:var(--text)">${t.howIntro}</p>
+  ${t.howKeys.map(([shot, key], k) => `
+    <div class="step"><img src="${img(shot)}" alt="${s[key]}" loading="lazy"><div>
+      <h3>${t.howEmoji[k] ? t.howEmoji[k] + ' ' : ''}${s[key]}</h3>
+      <ol class="list">${t.steps[k].map((x) => `<li>${x}</li>`).join('')}</ol>
+    </div></div>`).join('')}
   <h2 id="new">${t.hNew}</h2>
   <p>${t.newIntro}</p>
   <div class="games">${games.map(([e, n, d]) => `<div><b>${e} ${n}</b>${d}</div>`).join('')}</div>

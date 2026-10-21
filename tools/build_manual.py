@@ -12,7 +12,7 @@ from PIL import Image
 from playwright.sync_api import sync_playwright
 
 sys.path.insert(0, os.path.dirname(__file__))
-from manual_text import PAGE, SHOT  # noqa: E402
+from manual_text import HOW, HOW_EMOJI, HOW_KEYS, PAGE, SHOT  # noqa: E402
 
 WEB = 'web'
 SERVER = 'http://localhost:8765/'
@@ -21,7 +21,8 @@ APPNAME = {'ko': '울프 게임즈', 'en': 'Wolf Games', 'ja': 'ウルフゲー�
 # ---------- 1) 문구 파일 ----------
 with open(f'{WEB}/manual-i18n.js', 'w', encoding='utf-8') as f:
     f.write('// 자동 생성: tools/build_manual.py (문구 원본은 tools/manual_text.py)\n')
-    f.write('export const MANUAL = ' + json.dumps(PAGE, ensure_ascii=False, indent=1) + ';\n')
+    out = {lg: {**PAGE[lg], **HOW[lg], 'howKeys': HOW_KEYS, 'howEmoji': HOW_EMOJI} for lg in PAGE}
+    f.write('export const MANUAL = ' + json.dumps(out, ensure_ascii=False, indent=1) + ';\n')
 print('wrote manual-i18n.js')
 
 icon_b64 = base64.b64encode(open(f'{WEB}/icons/icon-192.png', 'rb').read()).decode()
@@ -140,4 +141,106 @@ with sync_playwright() as p:
             Image.open(io.BytesIO(sp.screenshot())).convert('RGB').save(f'{d}/{name}.jpg', quality=84, optimize=True)
         sp.close()
         print('images', lang)
+    b.close()
+
+
+# ---------- 3) 게임 방법용 실제 게임 화면 (언어별) ----------
+import math  # noqa: E402
+import random  # noqa: E402
+
+FAKE_RATES = {"result": "success", "time_last_update_unix": 1792540801, "time_next_update_unix": 1792627201,
+              "rates": {"USD": 1, "KRW": 1385.5, "JPY": 149.2, "CNY": 7.12, "THB": 32.9, "VND": 25360, "EUR": 0.92, "GBP": 0.77, "HKD": 7.78,
+                        "TWD": 31.9, "SGD": 1.29, "PHP": 56.8, "MYR": 4.21, "IDR": 15620, "AUD": 1.49, "CAD": 1.37, "CHF": 0.86, "NZD": 1.64,
+                        "INR": 84.1, "MNT": 3390, "LAK": 21900, "KHR": 4060, "RUB": 96.5, "AED": 3.67}}
+
+
+def game_shots(b, lang):
+    d = f'{WEB}/manual/{lang}'
+    ctx = b.new_context(viewport={'width': 393, 'height': 852}, device_scale_factor=2, is_mobile=True, has_touch=True)
+    ctx.route('https://open.er-api.com/**', lambda r: r.fulfill(status=200, content_type='application/json', body=json.dumps(FAKE_RATES), headers={'Access-Control-Allow-Origin': '*'}))
+    pg = ctx.new_page()
+    rnd = random.Random(7)
+
+    def home():
+        pg.evaluate("history.replaceState({s:'home'},'')"); pg.goto(SERVER); pg.wait_for_timeout(350)
+
+    def shot(n):
+        Image.open(io.BytesIO(pg.screenshot())).convert('RGB').save(f'{d}/{n}.jpg', quality=80, optimize=True)
+
+    def card(i):
+        pg.locator('.card').nth(i).click(); pg.wait_for_timeout(200)
+
+    def start():
+        pg.locator('.scroll > .btn').last.click(); pg.wait_for_timeout(200)
+
+    pg.goto(SERVER); pg.evaluate(f"localStorage.clear(); localStorage.setItem('wg-lang','{lang}')"); home()
+    # 주사위 굴리기: 손가락 3개 중 2개 완료
+    card(0); card(0)
+    for pid, (x, y) in [(1, (110, 230)), (2, (280, 330))]:
+        pg.dispatch_event('canvas', 'pointerdown', {'pointerId': pid, 'clientX': x, 'clientY': y, 'bubbles': True})
+    pg.wait_for_timeout(2150)
+    for pid, (x, y) in [(1, (110, 230)), (2, (280, 330))]:
+        pg.dispatch_event('canvas', 'pointerup', {'pointerId': pid, 'clientX': x, 'clientY': y, 'bubbles': True})
+    pg.dispatch_event('canvas', 'pointerdown', {'pointerId': 3, 'clientX': 190, 'clientY': 560, 'bubbles': True}); pg.wait_for_timeout(1200)
+    shot('how-roll')
+    pg.dispatch_event('canvas', 'pointerup', {'pointerId': 3, 'clientX': 190, 'clientY': 560, 'bubbles': True})
+    # 숫자 뒤집기
+    pg.go_back(); pg.wait_for_timeout(250); card(1); start()
+    for _ in range(3):
+        pg.locator('.body.pad .btn').last.click(); pg.wait_for_timeout(1000)
+        for _k in range(2):
+            on = pg.query_selector_all('.tile.on')
+            if on: on[-1].click(); pg.wait_for_timeout(120)
+        nb = pg.query_selector_all('.body.pad .btn')
+        if nb and pg.query_selector('.msg.win'): nb[-1].click()
+    pg.locator('.body.pad .btn').last.click(); pg.wait_for_timeout(1100); shot('how-shut')
+    # 5개 주사위 (3명)
+    home(); card(0); card(2); pg.click('.stepper button:last-of-type'); start()
+    pg.locator('.area').nth(1).click(); pg.wait_for_timeout(1000); shot('how-five')
+    # 늑대이빨 (당첨 2)
+    home(); card(1); pg.click('.stepper button:last-of-type'); start()
+    for k in rnd.sample(range(20), 20):
+        pg.click(f'path.tooth[data-i="{k}"]')
+        if pg.query_selector('.wolf.bit'): break
+    pg.wait_for_timeout(400); shot('how-teeth')
+    # 사다리 (5명)
+    home(); card(2); pg.locator('.stepper').first.locator('button').last.click(); start()
+    pg.locator('.lnums button').nth(0).click(); pg.wait_for_timeout(5300)
+    pg.locator('.lnums button').nth(3).click(); pg.wait_for_timeout(2600); shot('how-ladder')
+    # 돌림판
+    home(); card(3); start(); pg.locator('.row .btn').first.click(); pg.wait_for_timeout(5400); shot('how-roulette')
+    # 동물달리기 (5명)
+    home(); card(4); pg.locator('.stepper').first.locator('button').last.click(); start(); pg.locator('.btn').first.click(); pg.wait_for_timeout(2000 + 5000); shot('how-race')
+    # 늑대 룰렛
+    home(); card(5)
+    bb = pg.query_selector('canvas').bounding_box(); w, h = bb['width'], bb['height']; H = w / 0.9; oy = h - H
+    for i in rnd.sample(range(20), 20):
+        r, c = i // 5, i % 5; bl = 1 + 0.06 * math.sin(math.pi * (r + .5) / 4)
+        pg.mouse.click(bb['x'] + w * .5 + (c - 2) * w * .135 * bl, bb['y'] + oy + H * (.47 + r * .125)); pg.wait_for_timeout(40)
+        if pg.query_selector('.h-title.win'): break
+    pg.wait_for_timeout(1000); shot('how-pirate')
+    # 늑대 돌리기 (도는 중)
+    home(); card(6); pg.locator('.btn').last.click(); pg.wait_for_timeout(1500); shot('how-arrow')
+    # 4목
+    home(); card(7)
+    bb = pg.query_selector('canvas').bounding_box(); w, h = bb['width'], bb['height']; cell = min(w / 7, h / 7.15); left = (w - cell * 7) / 2
+    for c in [3, 3, 4, 2, 2, 4, 5]:
+        pg.mouse.click(bb['x'] + left + (c + .5) * cell, bb['y'] + h * .5); pg.wait_for_timeout(750)
+    shot('how-four')
+    # 계산기 → N빵 → 환전
+    home(); pg.locator('.hero .chip').nth(1).click(); pg.wait_for_timeout(200)
+    for k in ['1', '8', '7', '5', '0', '0', '=']:
+        pg.click(f'.body.pad > div:last-child button:text-is("{k}")')
+    pg.locator('.row .btn').nth(0).click(); pg.wait_for_timeout(150); pg.locator('.overlay .stepper button').last.click(); pg.wait_for_timeout(200)
+    shot('how-split')
+    pg.locator('.overlay .btn').last.click(); pg.locator('.row .btn').nth(1).click(); pg.wait_for_timeout(500)
+    shot('how-fx')
+    ctx.close()
+
+
+with sync_playwright() as p:
+    b = p.chromium.launch()
+    for lang in PAGE:
+        game_shots(b, lang)
+        print('game shots', lang)
     b.close()

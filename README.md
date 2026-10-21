@@ -6,7 +6,7 @@ Powered by WOLF(feat. segna) · https://wolf.community
 ## 📖 설치 안내 (그림 포함 · 6개 언어)
 
 **https://wanopro.github.io/wolfgames/manual.html**
-안드로이드 APK 설치(보안 허용)와 아이폰 홈 화면 추가 방법을 단계별 그림으로 정리했습니다. 페이지 위쪽에서 언어를 고르면 설명과 그림이 그 언어로 바뀝니다.
+안드로이드 APK 설치(보안 허용)와 아이폰 홈 화면 추가 방법, **게임 10종 + N빵·환전 사용법**을 실제 화면과 함께 정리했습니다. 페이지 위쪽에서 언어를 고르면 설명과 그림이 그 언어로 바뀝니다.
 
 - 최신 APK 고정 링크: https://github.com/wanopro/wolfgames/releases/latest/download/WolfGames.apk
 - 현재 버전: **v1.1**
