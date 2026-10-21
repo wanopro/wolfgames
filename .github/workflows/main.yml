@@ -34,9 +34,26 @@ jobs:
           name: WolfGames-apk
           path: WolfGames.apk
 
+      # 커밋 메시지에 [release] 가 있으면 build.gradle 의 versionName 으로 정식 릴리스(v1.0 등)
+      - name: 릴리스 이름 정하기
+        id: rel
+        env:
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          VER=$(grep -oP 'versionName = "\K[^"]+' app/build.gradle.kts)
+          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+            echo "tag=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"; echo "name=울프 게임즈 ${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          elif [[ "$MSG" == *"[release]"* ]]; then
+            echo "tag=v${VER}" >> "$GITHUB_OUTPUT"; echo "name=울프 게임즈 v${VER}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=build-${{ github.run_number }}" >> "$GITHUB_OUTPUT"; echo "name=울프 게임즈 빌드 ${{ github.run_number }} (v${VER})" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: 릴리스에 APK 올리기 (폰에서 바로 다운로드용)
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || format('build-{0}', github.run_number) }}
-          name: ${{ startsWith(github.ref, 'refs/tags/v') && format('울프 게임즈 {0}', github.ref_name) || format('울프 게임즈 빌드 {0}', github.run_number) }}
+          tag_name: ${{ steps.rel.outputs.tag }}
+          name: ${{ steps.rel.outputs.name }}
+          target_commitish: ${{ github.sha }}
+          make_latest: true
           files: WolfGames.apk
