@@ -2,6 +2,7 @@ name: APK 빌드
 
 on:
   push:
+    paths-ignore: ['web/**', 'README.md', '.github/workflows/pages.yml']
   workflow_dispatch:
 
 permissions:
