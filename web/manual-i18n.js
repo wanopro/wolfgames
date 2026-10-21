@@ -115,7 +115,9 @@ export const MANUAL = {
   "changes": [
    "<b>🎲 5개 주사위</b>: 한 명이 이기면 끝나던 방식에서, <b>마지막 한 명이 남을 때까지</b> 하는 패자 정하기 게임으로 바뀌었어요. 주사위를 다 없앤 사람은 탈출, 6은 아직 남은 옆 사람에게 넘어가요.",
    "<b>🍶 789</b> 추가 (주사위 메뉴): 합의 뒷자리 7 첨잔, 8 반만, 9 원샷, 6 순서 반대로.",
-   "<b>🃏 카드</b> 메뉴 추가: <b>Up/Down</b>(누적 옵션)과 <b>호치민</b>."
+   "<b>🃏 카드</b> 메뉴 추가: <b>Up/Down</b>(누적 옵션)과 <b>호치민</b>.",
+   "<b>🏁 늑대달리기</b>: 동물달리기에서 이름이 바뀌었어요. 늑대마다 질주·주춤하는 타이밍이 달라서 순위가 엎치락뒤치락, 끝까지 접전이에요.",
+   "<b>🔄 늑대 돌리기</b>: 늑대 그림이 엎드린 옆모습으로 바뀌었어요. 돌 때 입을 위아래로 쩍 벌리고, 멈추면 꽉 물어요."
   ],
   "hUpdate": "🔄 업데이트",
   "updA": "<b>안드로이드</b>: 같은 QR이나 같은 버튼으로 새 APK를 받아 설치하면 됩니다. <b>기존 앱을 지우지 않고</b> 덮어 설치돼요.",
@@ -419,7 +421,9 @@ export const MANUAL = {
   "changes": [
    "<b>🎲 Five Dice</b>: instead of ending when someone wins, you now play <b>until one player is left</b> — it picks the loser. Players who run out of dice escape, and 6s go to the next player still in.",
    "<b>🍶 789</b> added (Dice menu): last digit 7 top up, 8 half, 9 bottoms up, 6 reverses the order.",
-   "New <b>🃏 Cards</b> menu: <b>Up/Down</b> (with stack option) and <b>Ho Chi Minh</b>."
+   "New <b>🃏 Cards</b> menu: <b>Up/Down</b> (with stack option) and <b>Ho Chi Minh</b>.",
+   "<b>🏁 Wolf Race</b>: renamed from Animal Race. Each wolf sprints and stumbles at different times, so the lead keeps changing until the very end.",
+   "<b>🔄 Wolf Spin</b>: new wolf drawing — a wolf lying on its side that opens its jaws wide while spinning and snaps shut when it stops."
   ],
   "hUpdate": "🔄 Updates",
   "updA": "<b>Android</b>: download the new APK with the same QR code or button and install it. It installs <b>over the old app</b> — no need to delete it.",
@@ -722,7 +726,9 @@ export const MANUAL = {
   "changes": [
    "<b>🎲 5個サイコロ</b>：1人が勝ったら終わる方式から、<b>最後の1人が残るまで</b>続ける負け決めゲームに変わりました。サイコロをなくした人は脱出、6はまだ残っている隣の人へ渡ります。",
    "<b>🍶 789</b>追加（サイコロメニュー）：合計の下1桁7 注ぎ足し、8 半分、9 一気、6 順番逆。",
-   "<b>🃏 カード</b>メニュー追加：<b>Up/Down</b>（累積オプション）と<b>ホーチミン</b>。"
+   "<b>🃏 カード</b>メニュー追加：<b>Up/Down</b>（累積オプション）と<b>ホーチミン</b>。",
+   "<b>🏁 ウルフレース</b>：動物レースから名前が変わりました。オオカミごとにダッシュと失速のタイミングが違うので、順位が最後まで入れ替わります。",
+   "<b>🔄 オオカミ回し</b>：オオカミの絵が伏せた横向きの姿に変わりました。回っている間は口を大きく開け、止まるとガブッとかみます。"
   ],
   "hUpdate": "🔄 アップデート",
   "updA": "<b>Android</b>：同じQRコードかボタンで新しいAPKをダウンロードしてインストールします。<b>古いアプリを消さずに</b>上書きされます。",
@@ -1025,7 +1031,9 @@ export const MANUAL = {
   "changes": [
    "<b>🎲 五颗骰子</b>：从有人赢就结束，改为<b>一直玩到只剩一个人</b>，用来决定输家。骰子用完的人逃脱，6点交给还在场的下一位。",
    "新增<b>🍶 789</b>（骰子菜单）：和的个位7加酒、8喝一半、9干杯、6顺序反转。",
-   "新增<b>🃏 纸牌</b>菜单：<b>Up/Down</b>（可累积）和<b>胡志明</b>。"
+   "新增<b>🃏 纸牌</b>菜单：<b>Up/Down</b>（可累积）和<b>胡志明</b>。",
+   "<b>🏁 群狼赛跑</b>：由动物赛跑改名。每只狼冲刺和放慢的时机不同，名次你追我赶，一直到最后。",
+   "<b>🔄 转狼</b>：狼的图案改成趴着的侧面。转的时候张大嘴，停下时一口咬住。"
   ],
   "hUpdate": "🔄 更新",
   "updA": "<b>安卓</b>：用同一个二维码或按钮下载新的APK并安装即可。<b>不用删除旧应用</b>，直接覆盖安装。",
@@ -1328,7 +1336,9 @@ export const MANUAL = {
   "changes": [
    "<b>🎲 เต๋า 5 ลูก</b>: จากเดิมที่จบเมื่อมีคนชนะ ตอนนี้เล่น<b>จนเหลือคนสุดท้าย</b>เพื่อหาคนแพ้ คนที่เต๋าหมดจะรอด และเลข 6 ส่งให้คนถัดไปที่ยังเล่นอยู่",
    "เพิ่ม <b>🍶 789</b> (เมนูลูกเต๋า): หลักหน่วย 7 เติมแก้ว, 8 ดื่มครึ่ง, 9 หมดแก้ว, 6 สลับลำดับ",
-   "เพิ่มเมนู <b>🃏 ไพ่</b>: <b>Up/Down</b> (มีตัวเลือกสะสม) และ <b>โฮจิมินห์</b>"
+   "เพิ่มเมนู <b>🃏 ไพ่</b>: <b>Up/Down</b> (มีตัวเลือกสะสม) และ <b>โฮจิมินห์</b>",
+   "<b>🏁 วิ่งแข่งหมาป่า</b>: เปลี่ยนชื่อจากวิ่งแข่งสัตว์ หมาป่าแต่ละตัวเร่งและชะลอคนละจังหวะ อันดับเลยสลับกันไปมาจนถึงเส้นชัย",
+   "<b>🔄 หมุนหมาป่า</b>: เปลี่ยนรูปหมาป่าเป็นท่าหมอบด้านข้าง ตอนหมุนจะอ้าปากกว้าง พอหยุดก็งับทันที"
   ],
   "hUpdate": "🔄 อัปเดต",
   "updA": "<b>Android</b>: ดาวน์โหลด APK ใหม่ด้วย QR หรือปุ่มเดิมแล้วติดตั้ง จะติดตั้ง <b>ทับแอปเดิม</b> โดยไม่ต้องลบ",
@@ -1631,7 +1641,9 @@ export const MANUAL = {
   "changes": [
    "<b>🎲 5 xúc xắc</b>: thay vì kết thúc khi có người thắng, giờ chơi <b>đến khi chỉ còn một người</b> để chọn người thua. Ai hết xúc xắc thì thoát, số 6 chuyển cho người kế bên còn đang chơi.",
    "Thêm <b>🍶 789</b> (menu Xúc xắc): chữ số cuối 7 rót thêm, 8 uống nửa, 9 uống cạn, 6 đảo chiều.",
-   "Thêm menu <b>🃏 Bài</b>: <b>Up/Down</b> (có cộng dồn) và <b>Hồ Chí Minh</b>."
+   "Thêm menu <b>🃏 Bài</b>: <b>Up/Down</b> (có cộng dồn) và <b>Hồ Chí Minh</b>.",
+   "<b>🏁 Sói chạy đua</b>: đổi tên từ Đua thú. Mỗi chú sói bứt tốc và chậm lại vào lúc khác nhau nên thứ hạng thay đổi liên tục đến phút cuối.",
+   "<b>🔄 Quay sói</b>: hình chú sói mới — sói nằm nghiêng, khi quay thì há to miệng, khi dừng thì đớp chặt."
   ],
   "hUpdate": "🔄 Cập nhật",
   "updA": "<b>Android</b>: tải APK mới bằng cùng mã QR hoặc nút rồi cài. Ứng dụng được cài <b>đè lên bản cũ</b>, không cần xóa.",
