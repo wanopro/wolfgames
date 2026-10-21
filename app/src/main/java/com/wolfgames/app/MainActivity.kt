@@ -65,6 +65,10 @@ import com.wolfgames.app.games.RollDiceGame
 import com.wolfgames.app.games.RouletteGame
 import com.wolfgames.app.games.ShutBoxGame
 import com.wolfgames.app.games.WolfTeethGame
+import com.wolfgames.app.i18n.CHANGELOG
+import com.wolfgames.app.i18n.ChangeItem
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.graphics.Color
 import com.wolfgames.app.i18n.Lang
 import com.wolfgames.app.i18n.LocalStrings
 import com.wolfgames.app.i18n.stringsFor
@@ -107,7 +111,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, D789, CardMenu, UpDown, HoChiMinh, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language }
+enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, D789, CardMenu, UpDown, HoChiMinh, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language, Changelog }
 
 @Composable
 fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
@@ -143,6 +147,7 @@ fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
             Screen.Calc -> CalculatorScreen(onBack = back, onExchange = { screen = Screen.Fx })
             Screen.Fx -> ExchangeScreen(onBack = back, langCode = currentLang.code)
             Screen.Language -> LanguageScreen(langPref, onBack = back, onSelect = onLangChange)
+            Screen.Changelog -> ChangelogScreen(currentLang.code, onBack = back)
         }
     }
 }
@@ -154,6 +159,14 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
     val context = LocalContext.current
     var askOpen by remember { mutableStateOf(false) }
     val vibe = LocalVibe.current
+    // 버전 표시 (build.gradle 의 versionName)
+    val version = remember {
+        try { context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: "" } catch (_: Exception) { "" }
+    }
+    // 새 버전을 처음 열었을 때 한 번만 바뀐 점 보여주기
+    val prefs = remember { context.getSharedPreferences("wolfgames", Context.MODE_PRIVATE) }
+    var showNew by remember { mutableStateOf(version.isNotEmpty() && prefs.getString("seen_version", null) != version) }
+    LaunchedEffect(Unit) { if (showNew) prefs.edit().putString("seen_version", version).apply() }
     Box(Modifier.fillMaxSize()) {
         Column(
             Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
@@ -233,10 +246,6 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                 )
                 Text("(feat. segna)", color = WG.SubText, fontSize = 13.sp)
             }
-            // 버전 표시 (build.gradle 의 versionName)
-            val version = remember {
-                try { context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: "" } catch (_: Exception) { "" }
-            }
             // 설치 안내(웹) 링크 + 버전
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
                 Text(
@@ -254,7 +263,17 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                         }
                         .padding(horizontal = 4.dp, vertical = 6.dp),
                 )
-                Text("  ·  v$version", color = WG.SubText.copy(alpha = 0.6f), fontSize = 12.sp)
+                Text("  ·  ", color = WG.SubText.copy(alpha = 0.6f), fontSize = 12.sp)
+                Text(
+                    "📜 v$version ${s.logTitle}",
+                    color = WG.SubText,
+                    fontSize = 12.sp,
+                    textDecoration = TextDecoration.Underline,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(4.dp))
+                        .clickable { vibe.tap(); onSelect(Screen.Changelog) }
+                        .padding(horizontal = 4.dp, vertical = 6.dp),
+                )
             }
         }
     }
@@ -278,6 +297,70 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                 VTextButton(onClick = { askOpen = false }) { Text(s.cancel, color = WG.SubText) }
             },
         )
+    }
+
+    if (showNew) {
+        val rel = CHANGELOG.firstOrNull { it.version == version } ?: CHANGELOG.first()
+        AlertDialog(
+            onDismissRequest = { showNew = false },
+            containerColor = WG.Surface,
+            title = { Text("🐺 ${s.logNew(rel.version)}", color = WG.Accent, fontWeight = FontWeight.Black, fontSize = 20.sp) },
+            text = {
+                Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(9.dp)) {
+                    rel.items.forEach { ChangeRow(it, currentLang.code) }
+                }
+            },
+            confirmButton = {
+                VTextButton(onClick = { showNew = false }) { Text(s.logOk, color = WG.Accent, fontWeight = FontWeight.Bold) }
+            },
+            dismissButton = {
+                VTextButton(onClick = { showNew = false; onSelect(Screen.Changelog) }) { Text(s.logAll, color = WG.SubText) }
+            },
+        )
+    }
+}
+
+@Composable
+private fun ChangeRow(item: ChangeItem, langCode: String) {
+    Row {
+        Text(item.emoji, fontSize = 15.sp, modifier = Modifier.width(28.dp))
+        Text(item.text[langCode] ?: item.text["en"] ?: "", color = WG.Text, fontSize = 15.sp, lineHeight = 21.sp)
+    }
+}
+
+/** 📜 업데이트 내역 (버전별 수정 사항) */
+@Composable
+fun ChangelogScreen(langCode: String, onBack: () -> Unit) {
+    val s = LocalStrings.current
+    GameScaffold("📜 ${s.logTitle}", onBack) {
+        Column(
+            Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(14.dp),
+        ) {
+            CHANGELOG.forEachIndexed { i, rel ->
+                Column(
+                    Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp)).background(WG.Surface).padding(horizontal = 18.dp, vertical = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(9.dp),
+                ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text("v${rel.version}", color = WG.Accent, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+                        Spacer(Modifier.width(10.dp))
+                        Text(rel.date.replace("-", "."), color = WG.SubText, fontSize = 13.sp)
+                        if (i == 0) {
+                            Spacer(Modifier.width(10.dp))
+                            Text(
+                                s.logLatest,
+                                color = Color.Black,
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.ExtraBold,
+                                modifier = Modifier.clip(RoundedCornerShape(10.dp)).background(WG.Accent).padding(horizontal = 8.dp, vertical = 2.dp),
+                            )
+                        }
+                    }
+                    rel.items.forEach { ChangeRow(it, langCode) }
+                }
+            }
+        }
     }
 }
 

@@ -79,13 +79,23 @@
       #iphone { break-before: page; }
       #update { break-before: page; }
     }
-  </style>
+  .rel { background: var(--surface); border-radius: 16px; padding: 14px 18px; margin: 10px 0; break-inside: avoid; }
+.rel .rh { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.rel .rh b { font-size: 20px; color: var(--accent); }
+.rel .rh span { color: var(--sub); font-size: 13px; }
+.rel .rh .new { background: #FFB300; color: #000; font-weight: 800; border-radius: 10px; padding: 2px 8px; font-size: 12px; }
+.rel ul { list-style: none; margin: 0; padding: 0; }
+.rel li { display: flex; gap: 10px; padding: 4px 0; line-height: 1.5; }
+.rel li .e { flex: none; width: 24px; text-align: center; }
+</style>
 </head>
 <body>
 <main id="m"></main>
 <script type="module">
 import { MANUAL } from './manual-i18n.js';
 import { STRINGS } from './i18n.js';
+import { CHANGELOG } from './changelog.js';
+const V = CHANGELOG[0].ver;
 
 const LANGS = [['ko', '🇰🇷', '한국어'], ['en', '🇺🇸', 'English'], ['ja', '🇯🇵', '日本語'], ['zh', '🇨🇳', '简体中文'], ['th', '🇹🇭', 'ไทย'], ['vi', '🇻🇳', 'Tiếng Việt']];
 const APK = 'https://github.com/wanopro/wolfgames/releases/latest/download/WolfGames.apk';
@@ -104,19 +114,19 @@ function pickLang() {
 function render(lang) {
   const t = MANUAL[lang], s = STRINGS[lang], img = (n) => `manual/${lang}/${n}.jpg`;
   document.documentElement.lang = lang;
-  document.title = `${t.title} · ${s.appName} v1.2`;
+  document.title = `${t.title} · ${s.appName} v${V}`;
   const steps = (arr, imgs, from) => arr.map(([h, p, li], k) => `
     <div class="step"><img src="${img(imgs[k])}" alt="${h}" loading="lazy"><div>
       <h3><span class="num">${lang === 'zh' ? t.step + (k + from) + '步' : t.step + ' ' + (k + from)}</span>${h}${imgs[k] === 'android-5-protect' ? ` <small style="color:var(--sub);font-weight:400">${t.optional}</small>` : ''}</h3>
       <p>${p}</p>${li.length ? `<ul>${li.map((x) => `<li>${x}</li>`).join('')}</ul>` : ''}
     </div></div>`).join('');
-  const games = [['🎲', s.menuDice, s.menuDiceSub], ['🐺', s.menuCroc, s.menuCrocSub], ['🪜', s.menuLadder, s.menuLadderSub], ['🎡', s.menuRoulette, s.menuRouletteSub],
+  const games = [['🎲', s.menuDice, s.menuDiceSub], ['🃏', s.menuCards, s.menuCardsSub], ['🐺', s.menuCroc, s.menuCrocSub], ['🪜', s.menuLadder, s.menuLadderSub], ['🎡', s.menuRoulette, s.menuRouletteSub],
     ['🏁', s.menuRace, s.menuRaceSub], ['🗡️', s.menuPirate, s.menuPirateSub], ['🔄', s.menuArrow, s.menuArrowSub], ['🔴', s.menuFour, s.menuFourSub]];
   document.getElementById('m').innerHTML = `
   <div class="top-row"><a class="back" href="./">${t.back}</a>
     <div class="langbar">${LANGS.map(([c, f, l]) => `<button data-l="${c}" class="${c === lang ? 'sel' : ''}">${f} ${l}</button>`).join('')}</div></div>
-  <header><img src="icons/logo.png" alt="${s.appName}"><div><h1>${s.appName} <span class="ver">v1.2</span></h1><p class="lead">${t.lead}</p></div></header>
-  <nav><a href="#android">${t.navAndroid}</a><a href="#iphone">${t.navIphone}</a><a href="#how">${t.navHow}</a><a href="#new">${t.navNew}</a><a href="#update">${t.navUpdate}</a><a href="#faq">${t.navFaq}</a></nav>
+  <header><img src="icons/logo.png" alt="${s.appName}"><div><h1>${s.appName} <span class="ver">v${V}</span></h1><p class="lead">${t.lead}</p></div></header>
+  <nav><a href="#android">${t.navAndroid}</a><a href="#iphone">${t.navIphone}</a><a href="#how">${t.navHow}</a><a href="#new">${t.navNew}</a><a href="#update">${t.navUpdate}</a><a href="#log">📜 ${s.logTitle}</a><a href="#faq">${t.navFaq}</a></nav>
   <div class="quick">
     <div class="q"><b>${t.qAndroid}</b><small>${t.qAndroidSub}</small><img src="manual/qr-apk.png" alt="QR APK"><a class="btn" href="${APK}">${t.qApk}</a></div>
     <div class="q"><b>${t.qWeb}</b><small>${t.qWebSub}</small><img src="manual/qr-web.png" alt="QR web"><a class="btn" href="./">wanopro.github.io/wolfgames</a></div>
@@ -143,9 +153,12 @@ function render(lang) {
   <ul class="list">${t.changes.map((x) => `<li>${x}</li>`).join('')}</ul>
   <h2 id="update">${t.hUpdate}</h2>
   <div class="step" style="grid-template-columns:1fr"><div><p>${t.updA}</p><p style="margin-top:8px">${t.updI}</p></div></div>
+  <h2 id="log">📜 ${s.logTitle}</h2>
+  ${CHANGELOG.map((r, i) => `<div class="rel"><div class="rh"><b>v${r.ver}</b><span>${r.date.replace(/-/g, '.')}</span>${i === 0 ? `<span class="new">${s.logLatest}</span>` : ''}</div>
+    <ul>${r.items.map(([e, tx]) => `<li><span class="e">${e}</span><span>${tx[lang] || tx.en}</span></li>`).join('')}</ul></div>`).join('')}
   <h2 id="faq">${t.hFaq}</h2>
   <div class="faq">${t.faq.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('')}</div>
-  <footer>Powered by <a href="https://wolf.community" target="_blank" rel="noopener">WOLF</a>(feat. segna) · ${s.appName} v1.2</footer>`;
+  <footer>Powered by <a href="https://wolf.community" target="_blank" rel="noopener">WOLF</a>(feat. segna) · ${s.appName} v${V}</footer>`;
   document.querySelectorAll('.langbar button').forEach((b) => b.addEventListener('click', () => {
     put('wg-lang', b.dataset.l);
     const u = new URL(location.href); u.searchParams.set('lang', b.dataset.l); history.replaceState(null, '', u);

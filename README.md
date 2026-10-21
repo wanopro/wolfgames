@@ -122,6 +122,7 @@ Powered by WOLF(feat. segna) · https://wolf.community
 - **🃏 카드** 메뉴 추가: **Up/Down**, **호치민**
 - **🏁 동물달리기 → 늑대달리기**로 이름 변경, 순위가 훨씬 자주 뒤바뀌도록 달리기 방식 변경 (질주·주춤, 마지막까지 접전)
 - **🔄 늑대 돌리기** 늑대 그림 변경: 엎드린 옆모습 늑대, 입이 위아래로 벌어지고 멈추면 꽉 묾
+- **📜 업데이트 내역** 추가: 메인 화면 맨 아래 버전을 누르면 버전별 수정 사항을 볼 수 있고, 새 버전을 처음 열면 바뀐 점을 한 번 보여줌 (설치 안내에도 같은 내역)
 - 설치 안내·게임 방법(6개 언어)과 화면 그림 갱신
 
 ### v1.1
@@ -149,6 +150,7 @@ Powered by WOLF(feat. segna) · https://wolf.community
 - **💱 환전**: 두 나라 통화를 고르면 환율로 바꿔줍니다. 환율은 하루 한 번 갱신되는 참고용이에요.
 
 ## ⚙️ 기타 기능
+- **📜 업데이트 내역**: 메인 화면 맨 아래 `📜 v1.2 업데이트 내역`을 누르면 버전별 수정 사항이 6개 언어로 나와요. 새 버전을 처음 열면 바뀐 점을 한 번 띄워줍니다.
 - **6개 언어**: 🇰🇷 한국어, 🇺🇸 English, 🇯🇵 日本語, 🇨🇳 简体中文, 🇹🇭 ไทย, 🇻🇳 Tiếng Việt
   - 처음에는 폰 언어를 따르고, 메인 화면의 🌐 언어 버튼으로 직접 바꿀 수 있습니다.
 - **진동**: 모든 버튼과 게임 터치에 진동이 오고, 당첨·승리 때는 강하게 진동합니다.
@@ -163,4 +165,5 @@ Powered by WOLF(feat. segna) · https://wolf.community
   - 문구는 앱의 `Strings.kt`에서 변환한 `web/i18n.js`를 씁니다.
 - 문구는 `app/src/main/java/com/wolfgames/app/i18n/Strings.kt`에 6개 언어로 모여 있습니다.
   - 웹 문구 갱신: `python3 tools/gen_web_i18n.py`
+  - 버전별 수정 내역은 `tools/changelog.py` 한 곳에 적고 `python3 tools/gen_changelog.py` → 앱(`Changelog.kt`)·웹(`web/changelog.js`)·설치 안내에 같이 반영
   - 설치 안내 문구는 `tools/manual_text.py`, 페이지·그림 갱신은 `python3 tools/build_manual.py`

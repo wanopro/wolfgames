@@ -6,6 +6,7 @@ import { wolfTeeth, ladder, roulette } from './games-pick.js';
 import { race, pirate, arrow } from './games-fun.js';
 import { four } from './games-four.js';
 import { calculator, exchange } from './calc.js';
+import { CHANGELOG } from './changelog.js';
 
 const HOMEPAGE = 'https://wolf.community';
 const app = document.getElementById('app');
@@ -31,6 +32,7 @@ const SCREENS = {
   calc: (root, b) => calculator(root, b, go),
   fx: exchange,
   lang: langScreen,
+  log: logScreen,
 };
 const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', updown: 'cards', hcm: 'cards' };
 
@@ -77,8 +79,38 @@ function homeScreen(root) {
     card('🔄', s.menuArrow, s.menuArrowSub, () => go('arrow')),
     card('🔴', s.menuFour, s.menuFourSub, () => go('four')),
     h('div', { class: 'footer' }, 'Powered by ', btn('WOLF', ask, ''), '(feat. segna)'),
-    h('div', { class: 'footer', style: 'padding-top:0;font-size:12px' }, h('a', { href: `manual.html?lang=${lang.current}`, style: 'color:var(--sub)' }, `📖 ${s.installGuide}`), h('span', { style: 'opacity:.6' }, `  ·  v${VERSION}`)));
+    h('div', { class: 'footer', style: 'padding-top:0;font-size:12px' }, h('a', { href: `manual.html?lang=${lang.current}`, style: 'color:var(--sub)' }, `📖 ${s.installGuide}`), h('span', { style: 'opacity:.6' }, '  ·  '), btn(`📜 v${VERSION} ${s.logTitle}`, () => go('log'), 'linkbtn')));
   root.append(scroll);
+  whatsNew(root);
+}
+
+// ---------- 업데이트 내역 ----------
+const fmtDate = (d) => d.replace(/-/g, '.');
+function releaseCard(r, latest) {
+  const s = S();
+  return h('div', { class: 'rel' },
+    h('div', { class: 'rh' }, h('b', {}, `v${r.ver}`), h('span', {}, fmtDate(r.date)), latest ? h('span', { class: 'new' }, s.logLatest) : null),
+    h('ul', {}, r.items.map(([emo, tx]) => h('li', {}, h('span', { class: 'e' }, emo), h('span', {}, tx[lang.current] || tx.en)))));
+}
+function logScreen(root) {
+  const s = S();
+  root.append(top(`📜 ${s.logTitle}`, back), h('div', { class: 'scroll' }, CHANGELOG.map((r, i) => releaseCard(r, i === 0))));
+}
+/** 새 버전을 처음 열었을 때 한 번만 바뀐 점 보여주기 */
+function whatsNew(root) {
+  let seen = null;
+  try { seen = localStorage.getItem('wg-seen'); } catch (_) { return; }
+  if (seen === VERSION) return;
+  try { localStorage.setItem('wg-seen', VERSION); } catch (_) { /* 무시 */ }
+  const s = S(), r = CHANGELOG.find((x) => x.ver === VERSION) || CHANGELOG[0];
+  const ov = h('div', { class: 'overlay' });
+  ov.addEventListener('click', (e) => { if (e.target === ov) ov.remove(); });
+  ov.append(h('div', { class: 'dialog wn' },
+    h('div', { class: 'dt' }, `🐺 ${s.logNew(r.ver)}`),
+    h('ul', {}, r.items.map(([emo, tx]) => h('li', {}, h('span', { class: 'e' }, emo), h('span', {}, tx[lang.current] || tx.en)))),
+    btn(s.logOk, () => ov.remove()),
+    btn(s.logAll, () => { ov.remove(); go('log'); }, 'btn alt')));
+  root.append(ov);
 }
 
 /** "홈페이지로 이동하겠습니까?" 확인 창 */

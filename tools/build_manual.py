@@ -1,3 +1,4 @@
+import re
 """설치 안내 만들기: web/manual-i18n.js + 언어별 단계 그림(web/manual/<lang>/*.jpg)
 사용: 저장소 최상위에서  python3 tools/build_manual.py  (웹 서버가 localhost:8765 에서 web/ 를 제공 중이어야 함)
 그림은 실제 화면을 단순화해서 다시 그린 것 (설명용)
@@ -15,6 +16,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from manual_text import HOW, HOW_EMOJI, HOW_KEYS, PAGE, SHOT  # noqa: E402
 
 WEB = 'web'
+WEB_VERSION = re.search(r"VERSION = '([^']+)'", open(f'{WEB}/core.js', encoding='utf-8').read()).group(1)
 SERVER = 'http://localhost:8765/'
 APPNAME = {'ko': '울프 게임즈', 'en': 'Wolf Games', 'ja': 'ウルフゲームズ', 'zh': '沃夫游戏', 'th': 'Wolf Games', 'vi': 'Wolf Games'}
 
@@ -128,7 +130,7 @@ with sync_playwright() as p:
         ctx = b.new_context(viewport={'width': 360, 'height': 640}, device_scale_factor=2, is_mobile=True, has_touch=True)
         pg = ctx.new_page()
         pg.goto(SERVER)
-        pg.evaluate(f"localStorage.setItem('wg-lang','{lang}')")
+        pg.evaluate(f"localStorage.setItem('wg-lang','{lang}'); localStorage.setItem('wg-seen','{WEB_VERSION}')")
         pg.reload(); pg.wait_for_timeout(600)
         home = pg.screenshot()
         pg.set_viewport_size({'width': 393, 'height': 852}); pg.wait_for_timeout(300)
@@ -173,7 +175,7 @@ def game_shots(b, lang):
     def start():
         pg.locator('.scroll > .btn').last.click(); pg.wait_for_timeout(200)
 
-    pg.goto(SERVER); pg.evaluate(f"localStorage.clear(); localStorage.setItem('wg-lang','{lang}')"); home()
+    pg.goto(SERVER); pg.evaluate(f"localStorage.clear(); localStorage.setItem('wg-lang','{lang}'); localStorage.setItem('wg-seen','{WEB_VERSION}')"); home()
     # 주사위 굴리기: 손가락 3개 중 2개 완료
     card(0); card(0)
     for pid, (x, y) in [(1, (110, 230)), (2, (280, 330))]:
