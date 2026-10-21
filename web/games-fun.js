@@ -273,10 +273,78 @@ export function pirate(root, back) {
   return () => cv.stop();
 }
 
-// ===================== 8. 화살표 돌리기 =====================
+// ===================== 8. 늑대 돌리기 =====================
+/**
+ * 위에서 본 늑대 (앞 = -y 방향). open: 입 벌린 정도 0~1, bite: 꽉 문 표정
+ * 원점은 판 가운데, r 은 판 반지름
+ */
+function spinWolf(ctx, r, open, bite) {
+  const FUR = '#9AA5B4', DARK = '#6E7A8A', CREAM = '#F4ECE1', OL = 'rgba(0,0,0,.35)';
+  const L = r * 0.86, hr = r * 0.25, hy = -L * 0.36;
+  // 꼬리
+  ctx.beginPath(); ctx.ellipse(0, L * 0.62, r * 0.1, r * 0.2, 0, 0, 7); ctx.fillStyle = FUR; ctx.fill(); ctx.strokeStyle = OL; ctx.lineWidth = 2; ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(0, L * 0.62 + r * 0.13, r * 0.06, r * 0.07, 0, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
+  // 몸통 + 발
+  for (const [x, y] of [[-1, -0.12], [1, -0.12], [-1, 0.32], [1, 0.32]]) { ctx.beginPath(); ctx.ellipse(x * r * 0.13, y * L, r * 0.055, r * 0.045, 0, 0, 7); ctx.fillStyle = CREAM; ctx.fill(); ctx.strokeStyle = OL; ctx.lineWidth = 1.5; ctx.stroke(); }
+  ctx.beginPath(); ctx.ellipse(0, L * 0.1, r * 0.12, r * 0.3, 0, 0, 7); ctx.fillStyle = FUR; ctx.fill(); ctx.strokeStyle = OL; ctx.lineWidth = 2; ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(0, L * 0.05, r * 0.05, r * 0.16, 0, 0, 7); ctx.fillStyle = DARK; ctx.globalAlpha = 0.5; ctx.fill(); ctx.globalAlpha = 1;
+  // 귀 (머리 뒤쪽)
+  for (const sx of [-1, 1]) {
+    ctx.beginPath(); ctx.moveTo(sx * hr * 0.2, hy + hr * 0.2); ctx.lineTo(sx * hr * 1.15, hy + hr * 0.95); ctx.lineTo(sx * hr * 0.95, hy - hr * 0.15); ctx.closePath();
+    ctx.fillStyle = DARK; ctx.fill(); ctx.strokeStyle = OL; ctx.lineWidth = 2; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(sx * hr * 0.45, hy + hr * 0.2); ctx.lineTo(sx * hr * 1.0, hy + hr * 0.7); ctx.lineTo(sx * hr * 0.85, hy + hr * 0.05); ctx.closePath(); ctx.fillStyle = '#F6AFC0'; ctx.fill();
+  }
+  // 턱 (앞으로 길게, 벌리면 양옆으로)
+  const hingeY = hy - hr * 0.55, tipY = -L, a = (open * 38 * Math.PI) / 180;
+  const jaw = (sx) => {
+    ctx.save(); ctx.translate(0, hingeY); ctx.rotate(sx * a); ctx.translate(0, -hingeY);
+    const len = hingeY - tipY;
+    ctx.beginPath(); ctx.moveTo(0, hingeY); ctx.lineTo(sx * hr * 0.66, hingeY + hr * 0.1);
+    ctx.quadraticCurveTo(sx * hr * 0.6, hingeY - len * 0.75, sx * hr * 0.16, tipY); ctx.lineTo(0, tipY); ctx.closePath();
+    ctx.fillStyle = FUR; ctx.fill(); ctx.strokeStyle = OL; ctx.lineWidth = 2; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0, hingeY - len * 0.1); ctx.lineTo(sx * hr * 0.16, hingeY - len * 0.12); ctx.quadraticCurveTo(sx * hr * 0.16, hingeY - len * 0.7, sx * hr * 0.05, tipY + len * 0.14); ctx.lineTo(0, tipY + len * 0.14); ctx.closePath();
+    ctx.fillStyle = CREAM; ctx.fill();
+    // 이빨 (안쪽)
+    if (open > 0.05) {
+      ctx.fillStyle = '#fff';
+      for (let k = 0; k < 4; k++) {
+        const y0 = tipY + len * (0.12 + k * 0.2);
+        ctx.beginPath(); ctx.moveTo(0, y0); ctx.lineTo(0, y0 + len * 0.12); ctx.lineTo(-sx * hr * 0.16, y0 + len * 0.06); ctx.closePath(); ctx.fill();
+      }
+    }
+    // 코
+    ctx.beginPath(); ctx.ellipse(sx * hr * 0.04, tipY + hr * 0.12, hr * 0.17, hr * 0.12, 0, 0, 7); ctx.fillStyle = '#2B2B33'; ctx.fill();
+    ctx.restore();
+  };
+  if (open > 0.05) {
+    // 입 안쪽
+    const len = hingeY - tipY;
+    ctx.beginPath(); ctx.moveTo(0, hingeY + hr * 0.1);
+    ctx.lineTo(Math.sin(-a) * len, hingeY - Math.cos(a) * len); ctx.lineTo(Math.sin(a) * len, hingeY - Math.cos(a) * len); ctx.closePath();
+    ctx.fillStyle = '#8E2440'; ctx.fill();
+    ctx.beginPath(); ctx.ellipse(0, hingeY - len * 0.3, hr * 0.22, len * 0.28, 0, 0, 7); ctx.fillStyle = '#E86A86'; ctx.fill();
+  }
+  jaw(-1); jaw(1);
+  // 머리
+  ctx.beginPath(); ctx.arc(0, hy, hr, 0, 7); ctx.fillStyle = FUR; ctx.fill(); ctx.strokeStyle = OL; ctx.lineWidth = 2; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-hr * 0.18, hy - hr); ctx.lineTo(0, hy - hr * 0.35); ctx.lineTo(hr * 0.18, hy - hr); ctx.closePath(); ctx.fillStyle = CREAM; ctx.globalAlpha = 0.8; ctx.fill(); ctx.globalAlpha = 1;
+  // 눈
+  for (const sx of [-1, 1]) {
+    const ex = sx * hr * 0.45, ey = hy - hr * 0.28;
+    if (bite) {
+      const d = hr * 0.17; ctx.beginPath(); ctx.moveTo(ex - d * sx, ey - d); ctx.lineTo(ex + d * sx, ey); ctx.lineTo(ex - d * sx, ey + d);
+      ctx.strokeStyle = '#2B2B33'; ctx.lineWidth = hr * 0.1; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke();
+    } else {
+      ctx.beginPath(); ctx.arc(ex, ey, hr * 0.21, 0, 7); ctx.fillStyle = '#2B2B33'; ctx.fill();
+      ctx.beginPath(); ctx.arc(ex - hr * 0.06, ey - hr * 0.07, hr * 0.08, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
+    }
+    ctx.beginPath(); ctx.ellipse(ex + sx * hr * 0.15, ey + hr * 0.32, hr * 0.17, hr * 0.09, 0, 0, 7); ctx.fillStyle = 'rgba(255,143,163,.55)'; ctx.fill();
+  }
+}
+
 export function arrow(root, back) {
   const s = S();
-  let secs = 5, angle = Math.random() * 360, spinning = false, stopped = false;
+  let secs = 5, angle = Math.random() * 360, spinning = false, stopped = false, open = 0;
   root.append(top(s.menuArrow, back));
   const wrap = h('div', { class: 'body pad center', style: 'gap:10px' });
   root.append(wrap);
@@ -287,31 +355,25 @@ export function arrow(root, back) {
 
   const render = () => {
     title.textContent = spinning ? s.arrowSpinning : stopped ? s.arrowStopped : s.arrowTap;
-    title.classList.toggle('acc', stopped && !spinning);
+    title.classList.toggle('win', stopped && !spinning);
     spinB.disabled = spinning;
   };
   const spin = async () => {
     if (spinning) return;
     spinning = true; stopped = false; vibe.tap(); render();
+    animate(180, (p) => { open = p; });
     const from = angle, total = 360 * Math.max(1.5, secs * 0.85) + Math.random() * 360, dur = secs * 1000;
     await animate(dur, (p) => { angle = from + total * p; });
-    angle %= 360; spinning = false; stopped = true; vibe.strong(); render();
+    angle %= 360;
+    await animate(130, (p) => { open = 1 - p; }, 'linear'); // 꽉!
+    spinning = false; stopped = true; vibe.strong(); render();
   };
   const cv = liveCanvas(holder, (ctx, w, hh) => {
     const cx = w / 2, cy = hh / 2, r = Math.min(w, hh) / 2 - 8;
     ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.fillStyle = C.surface; ctx.fill(); ctx.lineWidth = 6; ctx.strokeStyle = C.surface2; ctx.stroke();
     ctx.save(); ctx.translate(cx, cy); ctx.rotate(R(angle));
-    const L = r * 0.72, sw = r * 0.07, hw = r * 0.2, hl = r * 0.24;
-    ctx.beginPath(); ctx.moveTo(0, -L); ctx.lineTo(hw, -L + hl); ctx.lineTo(sw, -L + hl); ctx.lineTo(sw, L * 0.55); ctx.lineTo(-sw, L * 0.55); ctx.lineTo(-sw, -L + hl); ctx.lineTo(-hw, -L + hl); ctx.closePath();
-    ctx.fillStyle = C.accent; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#7A5200'; ctx.stroke();
-    ctx.fillStyle = C.win;
-    for (let k = 0; k < 3; k++) {
-      const y = L * (0.3 + k * 0.12);
-      for (const d of [-1, 1]) { ctx.beginPath(); ctx.moveTo(d * sw, y); ctx.lineTo(d * (sw + r * 0.12), y + r * 0.1); ctx.lineTo(d * (sw + r * 0.12), y + r * 0.02); ctx.closePath(); ctx.fill(); }
-    }
+    spinWolf(ctx, r, open, stopped && !spinning);
     ctx.restore();
-    ctx.beginPath(); ctx.arc(cx, cy, r * 0.11, 0, 7); ctx.fillStyle = C.bg; ctx.fill();
-    ctx.beginPath(); ctx.arc(cx, cy, r * 0.07, 0, 7); ctx.fillStyle = C.accent; ctx.fill();
   });
   cv.canvas.addEventListener('click', spin);
   render();

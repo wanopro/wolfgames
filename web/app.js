@@ -53,7 +53,7 @@ function homeScreen(root) {
     h('div', { class: 'hero' },
       logo,
       h('div', {},
-        h('h1', {}, s.appName),
+        h('h1', { style: s.appName.length > 6 ? 'font-size:27px;line-height:31px' : '' }, s.appName),
         h('p', {}, s.appSubtitle),
         btn([h('span', { class: 'flag' }, cur.flag), `🌐 ${s.language}`], () => go('lang'), 'chip'))),
     h('div', { style: 'height:4px' }),
@@ -62,11 +62,11 @@ function homeScreen(root) {
     card('🪜', s.menuLadder, s.menuLadderSub, () => go('ladder')),
     card('🎡', s.menuRoulette, s.menuRouletteSub, () => go('roulette')),
     card('🏁', s.menuRace, s.menuRaceSub, () => go('race')),
-    card('🏴‍☠️', s.menuPirate, s.menuPirateSub, () => go('pirate')),
-    card('➡️', s.menuArrow, s.menuArrowSub, () => go('arrow')),
+    card('🗡️', s.menuPirate, s.menuPirateSub, () => go('pirate')),
+    card('🔄', s.menuArrow, s.menuArrowSub, () => go('arrow')),
     card('🔴', s.menuFour, s.menuFourSub, () => go('four')),
     h('div', { class: 'footer' }, 'Powered by ', btn('WOLF', ask, ''), '(feat. segna)'),
-    h('div', { class: 'footer', style: 'padding-top:0;font-size:12px' }, h('a', { href: 'manual.html', style: 'color:var(--sub)' }, '📖 설치 안내'), h('span', { style: 'opacity:.6' }, `  ·  v${VERSION}`)));
+    h('div', { class: 'footer', style: 'padding-top:0;font-size:12px' }, h('a', { href: `manual.html?lang=${lang.current}`, style: 'color:var(--sub)' }, `📖 ${s.installGuide}`), h('span', { style: 'opacity:.6' }, `  ·  v${VERSION}`)));
   root.append(scroll);
 }
 

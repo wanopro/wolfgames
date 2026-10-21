@@ -155,7 +155,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                 )
                 Spacer(Modifier.width(14.dp))
                 Column(Modifier.weight(1f)) {
-                    Text(s.appName, color = WG.Accent, fontSize = 32.sp, fontWeight = FontWeight.Black, lineHeight = 36.sp)
+                    Text(s.appName, color = WG.Accent, fontSize = if (s.appName.length > 6) 27.sp else 32.sp, fontWeight = FontWeight.Black, lineHeight = 36.sp)
                     Text(s.appSubtitle, color = WG.SubText, fontSize = 16.sp)
                     Spacer(Modifier.height(8.dp))
                     // 언어 버튼 (현재 국기 표시)
@@ -179,8 +179,8 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
             MenuCard("🪜", s.menuLadder, s.menuLadderSub) { onSelect(Screen.Ladder) }
             MenuCard("🎡", s.menuRoulette, s.menuRouletteSub) { onSelect(Screen.Roulette) }
             MenuCard("🏁", s.menuRace, s.menuRaceSub) { onSelect(Screen.Race) }
-            MenuCard("🏴‍☠️", s.menuPirate, s.menuPirateSub) { onSelect(Screen.Pirate) }
-            MenuCard("➡️", s.menuArrow, s.menuArrowSub) { onSelect(Screen.Arrow) }
+            MenuCard("🗡️", s.menuPirate, s.menuPirateSub) { onSelect(Screen.Pirate) }
+            MenuCard("🔄", s.menuArrow, s.menuArrowSub) { onSelect(Screen.Arrow) }
             MenuCard("🔴", s.menuFour, s.menuFourSub) { onSelect(Screen.Four) }
             Spacer(Modifier.height(10.dp))
             // Powered by WOLF(feat. segna) — WOLF 를 누르면 홈페이지 이동 확인
@@ -207,13 +207,25 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
             val version = remember {
                 try { context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: "" } catch (_: Exception) { "" }
             }
-            Text(
-                "v$version",
-                color = WG.SubText.copy(alpha = 0.6f),
-                fontSize = 12.sp,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-            )
+            // 설치 안내(웹) 링크 + 버전
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    "📖 ${s.installGuide}",
+                    color = WG.SubText,
+                    fontSize = 12.sp,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(4.dp))
+                        .clickable {
+                            vibe.tap()
+                            try {
+                                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wanopro.github.io/wolfgames/manual.html?lang=${currentLang.code}")))
+                            } catch (_: ActivityNotFoundException) {
+                            }
+                        }
+                        .padding(horizontal = 4.dp, vertical = 6.dp),
+                )
+                Text("  ·  v$version", color = WG.SubText.copy(alpha = 0.6f), fontSize = 12.sp)
+            }
         }
     }
 

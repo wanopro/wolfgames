@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>설치 안내 · 울프 게임즈</title>
-  <meta name="description" content="울프 게임즈 v1.0 — 안드로이드 APK 설치 방법과 아이폰 홈 화면 추가 방법">
+  <title>Wolf Games · 설치 안내 / Install guide</title>
+  <meta name="description" content="울프 게임즈 v1.0 — 안드로이드 APK 설치 방법과 아이폰 홈 화면 추가 방법 (6개 언어)">
   <meta name="theme-color" content="#12121A">
   <link rel="icon" type="image/png" href="icons/favicon.png">
   <style>
@@ -18,6 +18,17 @@
     h1 { font-size: 28px; line-height: 1.25; color: var(--accent); font-weight: 900; }
     .ver { display: inline-block; font-size: 14px; color: #000; background: var(--accent); border-radius: 8px; padding: 1px 8px; font-weight: 800; vertical-align: middle; margin-left: 6px; }
     .lead { color: var(--sub); margin: 4px 0 0; font-size: 15px; }
+    .langbar { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; margin-bottom: 14px; }
+    .langbar button { font: inherit; border: 2px solid var(--surface); background: var(--surface); color: var(--text); border-radius: 20px; padding: 5px 11px; font-size: 13px; cursor: pointer; }
+    .langbar button.sel { border-color: var(--accent); font-weight: 800; }
+    .back { color: var(--sub); text-decoration: none; font-size: 14px; }
+    .top-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+    .red { color: #FF2D55; }
+    .games { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0 14px; }
+    .games div { background: var(--surface); border-radius: 14px; padding: 12px; font-size: 14px; color: var(--sub); }
+    .games b { display: block; color: var(--text); font-size: 16px; }
+    .list { padding-left: 20px; } .list li { margin: 4px 0; }
+    @media (max-width: 560px) { .games { grid-template-columns: 1fr; } }
     nav { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 8px; }
     nav a { background: var(--surface); border-radius: 20px; padding: 6px 14px; text-decoration: none; color: var(--text); font-size: 14px; }
     h2 { font-size: 23px; margin: 40px 0 14px; padding-top: 8px; display: flex; align-items: center; gap: 10px; }
@@ -54,7 +65,7 @@
       :root { --bg:#fff; --surface:#F4F4F8; --surface2:#E6E6EE; --text:#15151c; --sub:#555566; --link:#0b57d0; color-scheme: light; }
       body { font-size: 13.5px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       main { padding: 0; max-width: none; }
-      nav, .q a.btn { display: none; }
+      nav, .q a.btn, .langbar, .back { display: none; }
       h1 { color: #B07800; }
       h2 { margin-top: 18px; break-after: avoid; }
       .step, .faq details, .q, .note { break-inside: avoid; }
@@ -71,189 +82,70 @@
   </style>
 </head>
 <body>
-<main>
-  <header>
-    <img src="icons/logo.png" alt="울프 게임즈 로고">
-    <div>
-      <h1>울프 게임즈 <span class="ver">v1.0</span></h1>
-      <p class="lead">술자리 게임 모음 · 설치 안내</p>
-    </div>
-  </header>
+<main id="m"></main>
+<script type="module">
+import { MANUAL } from './manual-i18n.js';
+import { STRINGS } from './i18n.js';
 
-  <nav>
-    <a href="#android">🤖 안드로이드 설치</a>
-    <a href="#iphone">🍎 아이폰 홈 화면 추가</a>
-    <a href="#update">🔄 업데이트</a>
-    <a href="#faq">❓ 자주 묻는 질문</a>
-  </nav>
+const LANGS = [['ko', '🇰🇷', '한국어'], ['en', '🇺🇸', 'English'], ['ja', '🇯🇵', '日本語'], ['zh', '🇨🇳', '简体中文'], ['th', '🇹🇭', 'ไทย'], ['vi', '🇻🇳', 'Tiếng Việt']];
+const APK = 'https://github.com/wanopro/wolfgames/releases/latest/download/WolfGames.apk';
+const get = (k) => { try { return localStorage.getItem(k); } catch (_) { return null; } };
+const put = (k, v) => { try { localStorage.setItem(k, v); } catch (_) { /* 무시 */ } };
 
+function pickLang() {
+  const q = new URLSearchParams(location.search).get('lang');
+  if (q && MANUAL[q]) return q;
+  const saved = get('wg-lang');
+  if (saved && MANUAL[saved]) return saved;
+  const sys = (navigator.language || 'en').slice(0, 2).toLowerCase();
+  return MANUAL[sys] ? sys : 'en';
+}
+
+function render(lang) {
+  const t = MANUAL[lang], s = STRINGS[lang], img = (n) => `manual/${lang}/${n}.jpg`;
+  document.documentElement.lang = lang;
+  document.title = `${t.title} · ${s.appName} v1.0`;
+  const steps = (arr, imgs, from) => arr.map(([h, p, li], k) => `
+    <div class="step"><img src="${img(imgs[k])}" alt="${h}" loading="lazy"><div>
+      <h3><span class="num">${lang === 'zh' ? t.step + (k + from) + '步' : t.step + ' ' + (k + from)}</span>${h}${imgs[k] === 'android-5-protect' ? ` <small style="color:var(--sub);font-weight:400">${t.optional}</small>` : ''}</h3>
+      <p>${p}</p>${li.length ? `<ul>${li.map((x) => `<li>${x}</li>`).join('')}</ul>` : ''}
+    </div></div>`).join('');
+  const games = [['🎲', s.menuDice, s.menuDiceSub], ['🐺', s.menuCroc, s.menuCrocSub], ['🪜', s.menuLadder, s.menuLadderSub], ['🎡', s.menuRoulette, s.menuRouletteSub],
+    ['🏁', s.menuRace, s.menuRaceSub], ['🗡️', s.menuPirate, s.menuPirateSub], ['🔄', s.menuArrow, s.menuArrowSub], ['🔴', s.menuFour, s.menuFourSub]];
+  document.getElementById('m').innerHTML = `
+  <div class="top-row"><a class="back" href="./">${t.back}</a>
+    <div class="langbar">${LANGS.map(([c, f, l]) => `<button data-l="${c}" class="${c === lang ? 'sel' : ''}">${f} ${l}</button>`).join('')}</div></div>
+  <header><img src="icons/logo.png" alt="${s.appName}"><div><h1>${s.appName} <span class="ver">v1.0</span></h1><p class="lead">${t.lead}</p></div></header>
+  <nav><a href="#android">${t.navAndroid}</a><a href="#iphone">${t.navIphone}</a><a href="#new">${t.navNew}</a><a href="#update">${t.navUpdate}</a><a href="#faq">${t.navFaq}</a></nav>
   <div class="quick">
-    <div class="q">
-      <b>🤖 안드로이드 앱</b>
-      <small>카메라로 QR을 찍거나 아래 버튼을 누르세요</small>
-      <img src="manual/qr-apk.png" alt="안드로이드 APK 다운로드 QR 코드">
-      <a class="btn" href="https://github.com/wanopro/wolfgames/releases/latest/download/WolfGames.apk">APK 다운로드 (약 10MB)</a>
-    </div>
-    <div class="q">
-      <b>🍎 아이폰 · PC (웹)</b>
-      <small>설치 없이 브라우저에서 바로 실행</small>
-      <img src="manual/qr-web.png" alt="웹 버전 주소 QR 코드">
-      <a class="btn" href="./">wanopro.github.io/wolfgames</a>
-    </div>
+    <div class="q"><b>${t.qAndroid}</b><small>${t.qAndroidSub}</small><img src="manual/qr-apk.png" alt="QR APK"><a class="btn" href="${APK}">${t.qApk}</a></div>
+    <div class="q"><b>${t.qWeb}</b><small>${t.qWebSub}</small><img src="manual/qr-web.png" alt="QR web"><a class="btn" href="./">wanopro.github.io/wolfgames</a></div>
   </div>
-
-  <!-- ===================== 안드로이드 ===================== -->
-  <h2 id="android">🤖 안드로이드에 설치하기 <span class="tag">약 2분</span></h2>
-  <p class="illu">※ 그림은 설명을 위해 단순하게 그린 화면입니다. 휴대폰 제조사(삼성·LG 등)와 안드로이드 버전에 따라 문구나 위치가 조금 다를 수 있어요. 그림 속 <b style="color:#FF2D55">빨간 번호</b>는 누르는 순서예요.</p>
-
-  <div class="note">울프 게임즈는 플레이스토어가 아닌 곳에서 받는 앱이라서, 처음 한 번만 <b>"출처를 알 수 없는 앱 설치"</b>를 허용해야 해요. 이 허용은 다운로드한 브라우저(크롬 등) 하나에만 적용됩니다.</div>
-
-  <div class="step">
-    <img src="manual/android-1-download.jpg" alt="APK 다운로드 화면">
-    <div>
-      <h3><span class="num">1단계</span>APK 다운로드</h3>
-      <p>위의 <b>QR 코드를 카메라로 찍거나</b> <b>APK 다운로드</b> 버튼을 누르세요. GitHub 페이지가 열리면 <span class="k">WolfGames.apk</span>를 눌러도 됩니다.</p>
-      <ul>
-        <li>"파일을 다운로드할까요?"가 나오면 <span class="k">다운로드</span></li>
-        <li>"유해할 수 있는 파일" 경고가 나와도 <span class="k">다운로드</span>를 누르면 돼요.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="step">
-    <img src="manual/android-2-blocked.jpg" alt="설치 차단 안내 화면">
-    <div>
-      <h3><span class="num">2단계</span>다운로드한 파일 열기 → 설정</h3>
-      <p>다운로드가 끝나면 알림이나 화면 아래쪽의 <span class="k">열기</span>를 누르세요. 처음이라면 <b>"보안을 위해 … 설치할 수 없도록 설정되어 있습니다"</b> 창이 떠요.</p>
-      <ul><li><span class="k">설정</span>을 누르세요.</li></ul>
-    </div>
-  </div>
-
-  <div class="step">
-    <img src="manual/android-3-allow.jpg" alt="이 출처 허용 설정 화면">
-    <div>
-      <h3><span class="num">3단계</span>"이 출처 허용" 켜기 → 뒤로</h3>
-      <p><b>알 수 없는 앱 설치</b> 화면에서 <span class="k">이 출처 허용</span> 스위치를 켜세요. 그다음 왼쪽 위 <span class="k">←</span>(뒤로)를 누르면 설치 화면으로 돌아갑니다.</p>
-      <ul>
-        <li>삼성 휴대폰은 <b>"이 출처에서 앱 설치 허용"</b>으로 나올 수 있어요.</li>
-        <li>설정 창이 자동으로 안 뜨면 <b>설정 → 애플리케이션 → (오른쪽 위 ⋮) 특별한 접근 → 알 수 없는 앱 설치 → Chrome</b>에서 켜세요.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="step">
-    <img src="manual/android-4-install.jpg" alt="앱 설치 확인 화면">
-    <div>
-      <h3><span class="num">4단계</span>설치</h3>
-      <p>"이 앱을 설치하시겠습니까?"에서 <span class="k">설치</span>를 누르세요.</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <img src="manual/android-5-protect.jpg" alt="Play 프로텍트 경고 화면">
-    <div>
-      <h3><span class="num">5단계</span>Play 프로텍트 경고가 나오면 <small style="color:var(--sub);font-weight:400">(나올 때만)</small></h3>
-      <p>플레이스토어에 등록되지 않은 앱이라서 <b>"Play 프로텍트에서 차단함 / 알 수 없는 개발자"</b> 경고가 나올 수 있어요.</p>
-      <ul>
-        <li><span class="k">세부정보 더보기</span> → <span class="k">무시하고 설치</span>를 누르세요.</li>
-        <li>"앱 검사를 위해 보낼까요?"가 나오면 <span class="k">보내지 않음</span>을 눌러도 괜찮아요.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="step">
-    <img src="manual/android-6-done.jpg" alt="설치 완료 화면">
-    <div>
-      <h3><span class="num">6단계</span>완료! 열기</h3>
-      <p><span class="k">열기</span>를 누르면 바로 시작돼요. 홈 화면이나 앱 목록에 <b>선글라스 낀 늑대 아이콘 "울프 게임즈"</b>가 생깁니다.</p>
-      <ul><li>보안이 걱정되면 설치 후 3번 화면에서 <span class="k">이 출처 허용</span>을 다시 꺼도 돼요. 이미 설치된 앱은 그대로 쓸 수 있습니다.</li></ul>
-    </div>
-  </div>
-
-  <!-- ===================== 아이폰 ===================== -->
-  <h2 id="iphone">🍎 아이폰에서 아이콘 만들기 <span class="tag">약 30초</span></h2>
-  <p class="illu">※ 그림은 설명을 위해 단순하게 그린 화면입니다. iOS 버전에 따라 버튼 위치가 조금 다를 수 있어요. 그림 속 <b style="color:#FF2D55">빨간 번호</b>는 누르는 순서예요.</p>
-
-  <div class="note">아이폰은 앱 파일을 설치할 수 없어서 <b>웹 버전</b>을 씁니다. 게임과 화면은 안드로이드 앱과 똑같고, 홈 화면에 추가하면 앱처럼 전체 화면으로 열려요. <b>반드시 사파리(Safari)</b>로 열어주세요.</div>
-
-  <div class="step">
-    <img src="manual/ios-1-safari.jpg" alt="사파리에서 웹 버전을 연 화면">
-    <div>
-      <h3><span class="num">1단계</span>사파리로 접속 → 공유 버튼</h3>
-      <p>카메라로 위의 <b>웹 QR 코드</b>를 찍거나 사파리 주소창에 <span class="k">wanopro.github.io/wolfgames</span>를 입력하세요.</p>
-      <ul><li>페이지가 열리면 화면 아래쪽(또는 주소창 옆)의 <span class="k">공유 ⬆︎</span> 버튼을 누르세요.</li></ul>
-    </div>
-  </div>
-
-  <div class="step">
-    <img src="manual/ios-2-share.jpg" alt="공유 메뉴에서 홈 화면에 추가 선택">
-    <div>
-      <h3><span class="num">2단계</span>"홈 화면에 추가"</h3>
-      <p>공유 메뉴를 위로 조금 올리면 <span class="k">홈 화면에 추가 ⊞</span>가 보여요. 눌러주세요.</p>
-      <ul><li>안 보이면 메뉴 맨 아래 <b>"작업 편집…"</b>에서 추가할 수 있어요.</li></ul>
-    </div>
-  </div>
-
-  <div class="step">
-    <img src="manual/ios-3-add.jpg" alt="홈 화면에 추가 확인 화면">
-    <div>
-      <h3><span class="num">3단계</span>오른쪽 위 "추가"</h3>
-      <p>이름이 <b>울프 게임즈</b>로 들어가 있어요. 오른쪽 위 <span class="k">추가</span>를 누르세요.</p>
-      <ul><li><b>"웹 앱으로 열기"</b> 스위치가 보이면 켜둔 채로 추가하세요.</li></ul>
-    </div>
-  </div>
-
-  <div class="step">
-    <img src="manual/ios-4-home.jpg" alt="홈 화면에 생긴 울프 게임즈 아이콘">
-    <div>
-      <h3><span class="num">4단계</span>홈 화면의 늑대 아이콘으로 실행</h3>
-      <p>홈 화면에 <b>울프 게임즈</b> 아이콘이 생겼어요. 누르면 주소창 없이 앱처럼 열립니다.</p>
-      <ul>
-        <li>한 번 열어두면 인터넷이 약한 곳에서도 실행돼요.</li>
-        <li>아이폰은 웹에서 <b>진동을 지원하지 않아</b> 진동 없이 화면 효과만 나와요.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="step">
-    <img src="manual/web-home.jpg" alt="울프 게임즈 메인 화면">
-    <div>
-      <h3>🎮 메인 화면</h3>
-      <p>주사위(3종), 늑대이빨, 사다리게임, 돌림판, 동물달리기, 해적 룰렛, 화살표 돌리기, 4목을 즐길 수 있어요.</p>
-      <ul>
-        <li>로고 옆 <span class="k">🌐 언어</span>: 한국어·English·日本語·简体中文·ไทย·Tiếng Việt</li>
-        <li>맨 아래에서 버전(<b>v1.0</b>)을 확인할 수 있어요.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ===================== 업데이트 ===================== -->
-  <h2 id="update">🔄 업데이트</h2>
-  <div class="step" style="grid-template-columns:1fr">
-    <div>
-      <p><b>안드로이드</b>: 같은 QR이나 같은 버튼으로 새 APK를 받아 설치하면 됩니다. <b>기존 앱을 지우지 않고</b> 덮어 설치돼요.</p>
-      <p style="margin-top:8px"><b>아이폰·웹</b>: 따로 할 것 없이, 인터넷이 될 때 열면 자동으로 최신 버전이 됩니다.</p>
-    </div>
-  </div>
-
-  <!-- ===================== FAQ ===================== -->
-  <h2 id="faq">❓ 자주 묻는 질문</h2>
-  <div class="faq">
-    <details><summary>"패키지를 파싱하는 중 문제" 또는 "앱이 설치되지 않았습니다"가 나와요</summary>
-      <p>다운로드가 중간에 끊긴 경우가 많아요. 다운로드 폴더의 WolfGames.apk를 지우고 다시 받아보세요. 안드로이드 8.0 이상에서 설치할 수 있어요.</p></details>
-    <details><summary>설정 버튼을 눌렀는데 "이 출처 허용"이 안 보여요</summary>
-      <p><b>설정 → 애플리케이션 → ⋮ → 특별한 접근 → 알 수 없는 앱 설치</b>에서 파일을 받은 앱(Chrome, 삼성 인터넷, 내 파일 등)을 골라 켜세요.</p></details>
-    <details><summary>이 앱 안전한가요? 권한이 필요한가요?</summary>
-      <p>울프 게임즈는 <b>진동</b> 외에 다른 권한을 쓰지 않아요. 인터넷, 연락처, 사진, 위치에 접근하지 않습니다. 경고는 플레이스토어에 등록되지 않은 앱이면 공통으로 나오는 안내예요.</p></details>
-    <details><summary>아이폰에서 홈 화면에 추가가 안 보여요</summary>
-      <p>카카오톡이나 크롬 안의 브라우저로 열린 경우에는 메뉴가 없을 수 있어요. 오른쪽 아래 <b>사파리로 열기</b>를 눌러 사파리에서 다시 열어주세요.</p></details>
-    <details><summary>진동이 안 와요</summary>
-      <p>아이폰(웹)은 진동이 지원되지 않아요. 안드로이드 앱인데 진동이 없다면 휴대폰이 무음/방해 금지 모드인지 확인해 주세요.</p></details>
-  </div>
-
-  <footer>
-    Powered by <a href="https://wolf.community" target="_blank" rel="noopener">WOLF</a>(feat. segna) · 울프 게임즈 v1.0
-  </footer>
-</main>
+  <h2 id="android">${t.hAndroid} <span class="tag">${t.tAndroid}</span></h2>
+  <p class="illu">${t.illuA}</p><div class="note">${t.noteA}</div>
+  ${steps(t.a, ['android-1-download', 'android-2-blocked', 'android-3-allow', 'android-4-install', 'android-5-protect', 'android-6-done'], 1)}
+  <h2 id="iphone">${t.hIphone} <span class="tag">${t.tIphone}</span></h2>
+  <p class="illu">${t.illuI}</p><div class="note">${t.noteI}</div>
+  ${steps(t.i, ['ios-1-safari', 'ios-2-share', 'ios-3-add', 'ios-4-home'], 1)}
+  <div class="step"><img src="${img('web-home')}" alt="${t.mainT}" loading="lazy"><div><h3>${t.mainT}</h3><p>${t.mainP}</p></div></div>
+  <h2 id="new">${t.hNew}</h2>
+  <p>${t.newIntro}</p>
+  <div class="games">${games.map(([e, n, d]) => `<div><b>${e} ${n}</b>${d}</div>`).join('')}</div>
+  <ul class="list">${t.newFeat.map((x) => `<li>${x}</li>`).join('')}</ul>
+  <h3 style="margin:18px 0 6px">${t.hChange}</h3>
+  <ul class="list">${t.changes.map((x) => `<li>${x}</li>`).join('')}</ul>
+  <h2 id="update">${t.hUpdate}</h2>
+  <div class="step" style="grid-template-columns:1fr"><div><p>${t.updA}</p><p style="margin-top:8px">${t.updI}</p></div></div>
+  <h2 id="faq">${t.hFaq}</h2>
+  <div class="faq">${t.faq.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('')}</div>
+  <footer>Powered by <a href="https://wolf.community" target="_blank" rel="noopener">WOLF</a>(feat. segna) · ${s.appName} v1.0</footer>`;
+  document.querySelectorAll('.langbar button').forEach((b) => b.addEventListener('click', () => {
+    put('wg-lang', b.dataset.l);
+    const u = new URL(location.href); u.searchParams.set('lang', b.dataset.l); history.replaceState(null, '', u);
+    render(b.dataset.l);
+  }));
+}
+render(pickLang());
+</script>
 </body>
 </html>

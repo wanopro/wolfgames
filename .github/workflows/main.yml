@@ -64,4 +64,5 @@ jobs:
           target_commitish: ${{ github.sha }}
           make_latest: true
           overwrite_files: true
+          body_path: ${{ startsWith(steps.rel.outputs.tag, 'v') && 'RELEASE_NOTES.md' || '' }}
           files: WolfGames.apk

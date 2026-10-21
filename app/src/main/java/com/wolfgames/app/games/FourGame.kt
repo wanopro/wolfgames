@@ -248,11 +248,39 @@ private fun DrawScope.drawDisc(c: Offset, r: Float, player: Int, alpha: Float) {
     val dark = if (player == 1) RedDark else YellowDark
     drawCircle(dark, radius = r, center = c, alpha = alpha)
     drawCircle(main, radius = r * 0.86f, center = Offset(c.x - r * 0.04f, c.y - r * 0.04f), alpha = alpha)
-    drawCircle(dark.copy(alpha = 0.35f), radius = r * 0.6f, center = c, style = Stroke(width = r * 0.08f), alpha = alpha)
-    drawOval(
-        Color.White.copy(alpha = 0.35f),
-        topLeft = Offset(c.x - r * 0.5f, c.y - r * 0.62f),
-        size = Size(r * 0.55f, r * 0.32f),
-        alpha = alpha,
-    )
+    drawCircle(dark.copy(alpha = 0.35f), radius = r * 0.66f, center = c, style = Stroke(width = r * 0.06f), alpha = alpha)
+    drawWolfMark(Offset(c.x, c.y + r * 0.02f), r, dark, main)
+    drawCircle(Color.White.copy(alpha = 0.45f), radius = r * 0.11f, center = Offset(c.x - r * 0.52f, c.y - r * 0.52f), alpha = alpha)
 }
+
+/** 알 가운데 늑대 얼굴 무늬 (웹 버전 wolfMark 와 같은 모양) */
+private fun DrawScope.drawWolfMark(c: Offset, r: Float, ink: Color, base: Color) {
+    fun p(x: Float, y: Float) = Offset(c.x + x * r, c.y + y * r)
+    val mark = ink.copy(alpha = 0.8f)
+    for (s in listOf(-1f, 1f)) {
+        val ear = Path().apply {
+            p(s * 0.44f, -0.16f).let { moveTo(it.x, it.y) }
+            p(s * 0.33f, -0.6f).let { lineTo(it.x, it.y) }
+            p(s * 0.08f, -0.3f).let { lineTo(it.x, it.y) }
+            close()
+        }
+        drawPath(ear, mark)
+    }
+    val face = Path().apply {
+        val a = p(-0.46f, -0.2f); moveTo(a.x, a.y)
+        val c1 = p(-0.5f, 0.12f); val e1 = p(-0.18f, 0.3f); quadraticTo(c1.x, c1.y, e1.x, e1.y)
+        val chin = p(0f, 0.5f); lineTo(chin.x, chin.y)
+        val e2 = p(0.18f, 0.3f); lineTo(e2.x, e2.y)
+        val c2 = p(0.5f, 0.12f); val e3 = p(0.46f, -0.2f); quadraticTo(c2.x, c2.y, e3.x, e3.y)
+        val c3 = p(0f, -0.42f); quadraticTo(c3.x, c3.y, a.x, a.y)
+        close()
+    }
+    drawPath(face, mark)
+    for (s in listOf(-1f, 1f)) {
+        val e = p(s * 0.19f, -0.04f)
+        drawOval(base, topLeft = Offset(e.x - r * 0.075f, e.y - r * 0.055f), size = Size(r * 0.15f, r * 0.11f))
+    }
+    val n = p(0f, 0.33f)
+    drawOval(base, topLeft = Offset(n.x - r * 0.07f, n.y - r * 0.05f), size = Size(r * 0.14f, r * 0.1f))
+}
+

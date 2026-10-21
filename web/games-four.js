@@ -20,12 +20,26 @@ function findWin(b, r, c) {
 // 중력처럼 빨라지다가 바닥에서 살짝 튕김
 const dropCurve = (u) => (u < 0.72 ? (u / 0.72) ** 2 : 1 - 0.14 * Math.sin(Math.PI * ((u - 0.72) / 0.28)));
 
+/** 알 가운데 늑대 얼굴 무늬 */
+function wolfMark(ctx, x, y, r, ink, base) {
+  const P = (px, py) => [x + px * r, y + py * r];
+  ctx.save(); ctx.globalAlpha = 0.8; ctx.fillStyle = ink;
+  for (const s of [-1, 1]) { ctx.beginPath(); ctx.moveTo(...P(s * 0.44, -0.16)); ctx.lineTo(...P(s * 0.33, -0.6)); ctx.lineTo(...P(s * 0.08, -0.3)); ctx.closePath(); ctx.fill(); }
+  ctx.beginPath(); ctx.moveTo(...P(-0.46, -0.2)); ctx.quadraticCurveTo(...P(-0.5, 0.12), ...P(-0.18, 0.3)); ctx.lineTo(...P(0, 0.5)); ctx.lineTo(...P(0.18, 0.3));
+  ctx.quadraticCurveTo(...P(0.5, 0.12), ...P(0.46, -0.2)); ctx.quadraticCurveTo(...P(0, -0.42), ...P(-0.46, -0.2)); ctx.closePath(); ctx.fill();
+  ctx.globalAlpha = 1; ctx.fillStyle = base;
+  for (const s of [-1, 1]) { ctx.beginPath(); ctx.ellipse(...P(s * 0.19, -0.04), r * 0.075, r * 0.055, s * 0.35, 0, 7); ctx.fill(); }
+  ctx.beginPath(); ctx.ellipse(...P(0, 0.33), r * 0.07, r * 0.05, 0, 0, 7); ctx.fill();
+  ctx.restore();
+}
+
 function disc(ctx, x, y, r, p) {
   const [main, dark] = p === 1 ? RED : YEL;
   ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fillStyle = dark; ctx.fill();
   ctx.beginPath(); ctx.arc(x - r * 0.04, y - r * 0.04, r * 0.86, 0, 7); ctx.fillStyle = main; ctx.fill();
-  ctx.beginPath(); ctx.arc(x, y, r * 0.6, 0, 7); ctx.strokeStyle = dark + '59'; ctx.lineWidth = r * 0.08; ctx.stroke();
-  ctx.beginPath(); ctx.ellipse(x - r * 0.22, y - r * 0.46, r * 0.27, r * 0.16, 0, 0, 7); ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.fill();
+  ctx.beginPath(); ctx.arc(x, y, r * 0.66, 0, 7); ctx.strokeStyle = dark + '59'; ctx.lineWidth = r * 0.06; ctx.stroke();
+  wolfMark(ctx, x, y + r * 0.02, r, dark, main);
+  ctx.beginPath(); ctx.ellipse(x - r * 0.5, y - r * 0.5, r * 0.16, r * 0.09, -0.8, 0, 7); ctx.fillStyle = 'rgba(255,255,255,.45)'; ctx.fill();
 }
 
 export function four(root, back) {

@@ -1,0 +1,863 @@
+// 자동 생성: tools/build_manual.py (문구 원본은 tools/manual_text.py)
+export const MANUAL = {
+ "ko": {
+  "title": "설치 안내",
+  "lead": "술자리 게임 모음 · 설치 안내",
+  "navAndroid": "🤖 안드로이드 설치",
+  "navIphone": "🍎 아이폰 홈 화면 추가",
+  "navNew": "🆕 v1.0 구성",
+  "navUpdate": "🔄 업데이트",
+  "navFaq": "❓ 자주 묻는 질문",
+  "qAndroid": "🤖 안드로이드 앱",
+  "qAndroidSub": "카메라로 QR을 찍거나 아래 버튼을 누르세요",
+  "qApk": "APK 다운로드 (약 10MB)",
+  "qWeb": "🍎 아이폰 · PC (웹)",
+  "qWebSub": "설치 없이 브라우저에서 바로 실행",
+  "hAndroid": "🤖 안드로이드에 설치하기",
+  "tAndroid": "약 2분",
+  "illuA": "※ 그림은 설명을 위해 단순하게 그린 화면입니다. 휴대폰 제조사(삼성·LG 등)와 안드로이드 버전에 따라 문구나 위치가 조금 다를 수 있어요. 그림 속 <b class=\"red\">빨간 번호</b>는 누르는 순서예요.",
+  "noteA": "울프 게임즈는 플레이스토어가 아닌 곳에서 받는 앱이라서, 처음 한 번만 <b>\"출처를 알 수 없는 앱 설치\"</b>를 허용해야 해요. 이 허용은 다운로드한 브라우저(크롬 등) 하나에만 적용됩니다.",
+  "step": "단계",
+  "optional": "(나올 때만)",
+  "a": [
+   [
+    "APK 다운로드",
+    "위의 <b>QR 코드를 카메라로 찍거나</b> <b>APK 다운로드</b> 버튼을 누르세요. GitHub 페이지가 열리면 <span class=\"k\">WolfGames.apk</span>를 눌러도 됩니다.",
+    [
+     "\"파일을 다운로드할까요?\"가 나오면 <span class=\"k\">다운로드</span>",
+     "\"유해할 수 있는 파일\" 경고가 나와도 <span class=\"k\">다운로드</span>를 누르면 돼요."
+    ]
+   ],
+   [
+    "다운로드한 파일 열기 → 설정",
+    "다운로드가 끝나면 알림이나 화면 아래쪽의 <span class=\"k\">열기</span>를 누르세요. 처음이라면 <b>\"보안을 위해 … 설치할 수 없도록 설정되어 있습니다\"</b> 창이 떠요.",
+    [
+     "<span class=\"k\">설정</span>을 누르세요."
+    ]
+   ],
+   [
+    "\"이 출처 허용\" 켜기 → 뒤로",
+    "<b>알 수 없는 앱 설치</b> 화면에서 <span class=\"k\">이 출처 허용</span> 스위치를 켜세요. 그다음 왼쪽 위 <span class=\"k\">←</span>(뒤로)를 누르면 설치 화면으로 돌아갑니다.",
+    [
+     "삼성 휴대폰은 <b>\"이 출처에서 앱 설치 허용\"</b>으로 나올 수 있어요.",
+     "설정 창이 자동으로 안 뜨면 <b>설정 → 애플리케이션 → (오른쪽 위 ⋮) 특별한 접근 → 알 수 없는 앱 설치 → Chrome</b>에서 켜세요."
+    ]
+   ],
+   [
+    "설치",
+    "\"이 앱을 설치하시겠습니까?\"에서 <span class=\"k\">설치</span>를 누르세요.",
+    []
+   ],
+   [
+    "Play 프로텍트 경고가 나오면",
+    "플레이스토어에 등록되지 않은 앱이라서 <b>\"Play 프로텍트에서 차단함 / 알 수 없는 개발자\"</b> 경고가 나올 수 있어요.",
+    [
+     "<span class=\"k\">세부정보 더보기</span> → <span class=\"k\">무시하고 설치</span>를 누르세요.",
+     "\"앱 검사를 위해 보낼까요?\"가 나오면 <span class=\"k\">보내지 않음</span>을 눌러도 괜찮아요."
+    ]
+   ],
+   [
+    "완료! 열기",
+    "<span class=\"k\">열기</span>를 누르면 바로 시작돼요. 홈 화면이나 앱 목록에 <b>선글라스 낀 늑대 아이콘 \"울프 게임즈\"</b>가 생깁니다.",
+    [
+     "보안이 걱정되면 설치 후 3단계 화면에서 <span class=\"k\">이 출처 허용</span>을 다시 꺼도 돼요. 이미 설치된 앱은 그대로 쓸 수 있습니다."
+    ]
+   ]
+  ],
+  "hIphone": "🍎 아이폰에서 아이콘 만들기",
+  "tIphone": "약 30초",
+  "illuI": "※ 그림은 설명을 위해 단순하게 그린 화면입니다. iOS 버전에 따라 버튼 위치가 조금 다를 수 있어요. 그림 속 <b class=\"red\">빨간 번호</b>는 누르는 순서예요.",
+  "noteI": "아이폰은 앱 파일을 설치할 수 없어서 <b>웹 버전</b>을 씁니다. 게임과 화면은 안드로이드 앱과 똑같고, 홈 화면에 추가하면 앱처럼 전체 화면으로 열려요. <b>반드시 사파리(Safari)</b>로 열어주세요.",
+  "i": [
+   [
+    "사파리로 접속 → 공유 버튼",
+    "카메라로 위의 <b>웹 QR 코드</b>를 찍거나 사파리 주소창에 <span class=\"k\">wanopro.github.io/wolfgames</span>를 입력하세요.",
+    [
+     "페이지가 열리면 화면 아래쪽(또는 주소창 옆)의 <span class=\"k\">공유 ⬆︎</span> 버튼을 누르세요."
+    ]
+   ],
+   [
+    "\"홈 화면에 추가\"",
+    "공유 메뉴를 위로 조금 올리면 <span class=\"k\">홈 화면에 추가 ⊞</span>가 보여요. 눌러주세요.",
+    [
+     "안 보이면 메뉴 맨 아래 <b>\"작업 편집…\"</b>에서 추가할 수 있어요."
+    ]
+   ],
+   [
+    "오른쪽 위 \"추가\"",
+    "이름이 <b>울프 게임즈</b>로 들어가 있어요. 오른쪽 위 <span class=\"k\">추가</span>를 누르세요.",
+    [
+     "<b>\"웹 앱으로 열기\"</b> 스위치가 보이면 켜둔 채로 추가하세요."
+    ]
+   ],
+   [
+    "홈 화면의 늑대 아이콘으로 실행",
+    "홈 화면에 <b>울프 게임즈</b> 아이콘이 생겼어요. 누르면 주소창 없이 앱처럼 열립니다.",
+    [
+     "한 번 열어두면 인터넷이 약한 곳에서도 실행돼요.",
+     "아이폰은 웹에서 <b>진동을 지원하지 않아</b> 진동 없이 화면 효과만 나와요."
+    ]
+   ]
+  ],
+  "mainT": "🎮 메인 화면",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.0</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v1.0 구성",
+  "newIntro": "울프 게임즈 v1.0에는 아래 게임과 기능이 들어 있어요.",
+  "newFeat": [
+   "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "📳 모든 버튼·게임 터치에 진동 (당첨·승리 땐 강하게)",
+   "🔆 게임 중 화면 꺼짐 방지",
+   "📱 아이폰·PC는 웹 버전으로 똑같이 이용"
+  ],
+  "hChange": "🛠 최근 수정 내용",
+  "changes": [
+   "<b>늑대 룰렛</b>: 해적 룰렛의 이름을 바꿨어요. 칼을 꽂다가 해적 두건을 쓴 늑대가 튀어나오면 당첨이에요.",
+   "<b>늑대 돌리기</b>: 화살표 돌리기가 늑대로 바뀌었어요. 늑대가 입을 벌리고 돌다가 멈추면 \"앙!\" 하고 꽉 물어요.",
+   "<b>4목</b>: 빨강·노랑 알에 늑대 얼굴 무늬를 넣었어요.",
+   "<b>설치 안내</b>: 6개 언어로 볼 수 있고, 그림도 언어에 맞게 바뀌어요."
+  ],
+  "hUpdate": "🔄 업데이트",
+  "updA": "<b>안드로이드</b>: 같은 QR이나 같은 버튼으로 새 APK를 받아 설치하면 됩니다. <b>기존 앱을 지우지 않고</b> 덮어 설치돼요.",
+  "updI": "<b>아이폰·웹</b>: 따로 할 것 없이, 인터넷이 될 때 열면 자동으로 최신 버전이 됩니다.",
+  "hFaq": "❓ 자주 묻는 질문",
+  "faq": [
+   [
+    "\"패키지를 파싱하는 중 문제\" 또는 \"앱이 설치되지 않았습니다\"가 나와요",
+    "다운로드가 중간에 끊긴 경우가 많아요. 다운로드 폴더의 WolfGames.apk를 지우고 다시 받아보세요. 안드로이드 8.0 이상에서 설치할 수 있어요."
+   ],
+   [
+    "설정 버튼을 눌렀는데 \"이 출처 허용\"이 안 보여요",
+    "<b>설정 → 애플리케이션 → ⋮ → 특별한 접근 → 알 수 없는 앱 설치</b>에서 파일을 받은 앱(Chrome, 삼성 인터넷, 내 파일 등)을 골라 켜세요."
+   ],
+   [
+    "이 앱 안전한가요? 권한이 필요한가요?",
+    "울프 게임즈는 <b>진동</b> 외에 다른 권한을 쓰지 않아요. 인터넷, 연락처, 사진, 위치에 접근하지 않습니다. 경고는 플레이스토어에 등록되지 않은 앱이면 공통으로 나오는 안내예요."
+   ],
+   [
+    "아이폰에서 홈 화면에 추가가 안 보여요",
+    "카카오톡이나 크롬 안의 브라우저로 열린 경우에는 메뉴가 없을 수 있어요. 오른쪽 아래 <b>사파리로 열기</b>를 눌러 사파리에서 다시 열어주세요."
+   ],
+   [
+    "진동이 안 와요",
+    "아이폰(웹)은 진동이 지원되지 않아요. 안드로이드 앱인데 진동이 없다면 휴대폰이 무음/방해 금지 모드인지 확인해 주세요."
+   ]
+  ],
+  "back": "← 게임으로"
+ },
+ "en": {
+  "title": "Install guide",
+  "lead": "Drinking game collection · Install guide",
+  "navAndroid": "🤖 Android install",
+  "navIphone": "🍎 iPhone home screen",
+  "navNew": "🆕 What's in v1.0",
+  "navUpdate": "🔄 Updates",
+  "navFaq": "❓ FAQ",
+  "qAndroid": "🤖 Android app",
+  "qAndroidSub": "Scan the QR code or tap the button below",
+  "qApk": "Download APK (about 10 MB)",
+  "qWeb": "🍎 iPhone · PC (web)",
+  "qWebSub": "Runs right in the browser, no install",
+  "hAndroid": "🤖 Install on Android",
+  "tAndroid": "about 2 min",
+  "illuA": "※ The pictures are simplified drawings for explanation. Wording and positions may differ slightly by phone maker (Samsung, LG, etc.) and Android version. The <b class=\"red\">red numbers</b> show the order to tap.",
+  "noteA": "Wolf Games is not downloaded from the Play Store, so you need to allow <b>\"Install unknown apps\"</b> once. The permission only applies to the browser you downloaded with (e.g. Chrome).",
+  "step": "Step",
+  "optional": "(only if shown)",
+  "a": [
+   [
+    "Download the APK",
+    "<b>Scan the QR code</b> above or tap <b>Download APK</b>. If the GitHub page opens, tap <span class=\"k\">WolfGames.apk</span>.",
+    [
+     "When asked \"Download file?\", tap <span class=\"k\">Download</span>",
+     "If you see a \"file might be harmful\" warning, tap <span class=\"k\">Download</span> anyway."
+    ]
+   ],
+   [
+    "Open the file → Settings",
+    "When the download finishes, tap <span class=\"k\">Open</span> in the notification or at the bottom of the screen. The first time, you will see <b>\"For your security, your phone is not allowed to install unknown apps from this source\"</b>.",
+    [
+     "Tap <span class=\"k\">Settings</span>."
+    ]
+   ],
+   [
+    "Turn on \"Allow from this source\" → Back",
+    "On the <b>Install unknown apps</b> screen, turn on <span class=\"k\">Allow from this source</span>. Then tap <span class=\"k\">←</span> (back) at the top left to return to the installer.",
+    [
+     "On Samsung phones it may say <b>\"Allow from this source\"</b> under <b>Install unknown apps</b>.",
+     "If the settings screen does not open, go to <b>Settings → Apps → ⋮ (top right) → Special access → Install unknown apps → Chrome</b>."
+    ]
+   ],
+   [
+    "Install",
+    "At \"Do you want to install this app?\", tap <span class=\"k\">Install</span>.",
+    []
+   ],
+   [
+    "If Play Protect warns you",
+    "Because the app is not on the Play Store, you may see <b>\"Blocked by Play Protect / unknown developer\"</b>.",
+    [
+     "Tap <span class=\"k\">More details</span> → <span class=\"k\">Install anyway</span>.",
+     "If asked to send the app for a scan, <span class=\"k\">Don’t send</span> is fine."
+    ]
+   ],
+   [
+    "Done! Open",
+    "Tap <span class=\"k\">Open</span> to start. The <b>wolf-with-sunglasses icon \"Wolf Games\"</b> appears on your home screen or app list.",
+    [
+     "If you prefer, you can turn <span class=\"k\">Allow from this source</span> off again on the step 3 screen. The installed app keeps working."
+    ]
+   ]
+  ],
+  "hIphone": "🍎 Add the icon on iPhone",
+  "tIphone": "about 30 sec",
+  "illuI": "※ The pictures are simplified drawings for explanation. Button positions may differ slightly by iOS version. The <b class=\"red\">red numbers</b> show the order to tap.",
+  "noteI": "iPhones cannot install app files, so you use the <b>web version</b>. The games and screens are the same as the Android app, and once added to the home screen it opens full screen like an app. <b>Please use Safari.</b>",
+  "i": [
+   [
+    "Open in Safari → Share",
+    "Scan the <b>web QR code</b> above or type <span class=\"k\">wanopro.github.io/wolfgames</span> in Safari.",
+    [
+     "When the page opens, tap the <span class=\"k\">Share ⬆︎</span> button at the bottom (or next to the address bar)."
+    ]
+   ],
+   [
+    "\"Add to Home Screen\"",
+    "Swipe the share menu up a little to find <span class=\"k\">Add to Home Screen ⊞</span> and tap it.",
+    [
+     "If it is missing, add it from <b>\"Edit Actions…\"</b> at the bottom of the menu."
+    ]
+   ],
+   [
+    "\"Add\" at the top right",
+    "The name is already <b>Wolf Games</b>. Tap <span class=\"k\">Add</span> at the top right.",
+    [
+     "If you see an <b>\"Open as Web App\"</b> switch, leave it on."
+    ]
+   ],
+   [
+    "Launch from the wolf icon",
+    "The <b>Wolf Games</b> icon is now on your home screen. It opens like an app, without the address bar.",
+    [
+     "Once opened, it also runs where the internet is weak.",
+     "iPhone does <b>not support vibration</b> on the web, so you get the visual effects only."
+    ]
+   ]
+  ],
+  "mainT": "🎮 Main screen",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.0</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v1.0",
+  "newIntro": "Wolf Games v1.0 includes these games and features.",
+  "newFeat": [
+   "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "📳 Vibration on every button and game tap (stronger on wins)",
+   "🔆 Screen stays on while playing",
+   "📱 iPhone and PC can use the same games on the web"
+  ],
+  "hChange": "🛠 Latest changes",
+  "changes": [
+   "<b>Wolf Roulette</b>: renamed from Pirate Roulette. Insert swords — whoever makes the bandana-wearing wolf pop out loses.",
+   "<b>Wolf Spin</b>: the arrow is now a wolf. It spins with its mouth open and bites \"chomp!\" when it stops.",
+   "<b>Connect 4</b>: the red and yellow discs now have a wolf face.",
+   "<b>Install guide</b>: available in 6 languages, with pictures in each language."
+  ],
+  "hUpdate": "🔄 Updates",
+  "updA": "<b>Android</b>: download the new APK with the same QR code or button and install it. It installs <b>over the old app</b> — no need to delete it.",
+  "updI": "<b>iPhone / web</b>: nothing to do. It updates automatically when you open it with internet.",
+  "hFaq": "❓ FAQ",
+  "faq": [
+   [
+    "\"There was a problem parsing the package\" or \"App not installed\"",
+    "Usually the download was cut off. Delete WolfGames.apk from your Downloads folder and download it again. Android 8.0 or later is required."
+   ],
+   [
+    "I tapped Settings but cannot find \"Allow from this source\"",
+    "Go to <b>Settings → Apps → ⋮ → Special access → Install unknown apps</b> and turn it on for the app you downloaded with (Chrome, Samsung Internet, My Files, etc.)."
+   ],
+   [
+    "Is it safe? Which permissions does it use?",
+    "Wolf Games uses no permission other than <b>vibration</b>. It does not access the internet, contacts, photos or location. The warning appears for any app that is not on the Play Store."
+   ],
+   [
+    "\"Add to Home Screen\" is missing on iPhone",
+    "If the page opened inside KakaoTalk or Chrome, the menu may be missing. Tap <b>Open in Safari</b> and try again in Safari."
+   ],
+   [
+    "No vibration",
+    "iPhone (web) does not support vibration. On the Android app, check that the phone is not in silent or Do Not Disturb mode."
+   ]
+  ],
+  "back": "← Back to games"
+ },
+ "ja": {
+  "title": "インストール案内",
+  "lead": "飲み会ゲーム集 · インストール案内",
+  "navAndroid": "🤖 Androidにインストール",
+  "navIphone": "🍎 iPhoneのホーム画面に追加",
+  "navNew": "🆕 v1.0の内容",
+  "navUpdate": "🔄 アップデート",
+  "navFaq": "❓ よくある質問",
+  "qAndroid": "🤖 Androidアプリ",
+  "qAndroidSub": "QRコードを読み取るか、下のボタンを押してください",
+  "qApk": "APKをダウンロード（約10MB）",
+  "qWeb": "🍎 iPhone · PC（ウェブ）",
+  "qWebSub": "インストール不要、ブラウザですぐ遊べます",
+  "hAndroid": "🤖 Androidにインストール",
+  "tAndroid": "約2分",
+  "illuA": "※ 図は説明用に簡単に描いた画面です。メーカー（Samsungなど）やAndroidのバージョンによって文言や位置が少し違うことがあります。図の<b class=\"red\">赤い番号</b>は押す順番です。",
+  "noteA": "ウルフゲームズはPlayストア以外から入手するアプリなので、最初の1回だけ<b>「提供元不明のアプリのインストール」</b>を許可する必要があります。許可はダウンロードに使ったブラウザ（Chromeなど）にだけ適用されます。",
+  "step": "ステップ",
+  "optional": "（表示された場合のみ）",
+  "a": [
+   [
+    "APKをダウンロード",
+    "上の<b>QRコードをカメラで読み取るか</b>、<b>APKをダウンロード</b>ボタンを押してください。GitHubのページが開いたら<span class=\"k\">WolfGames.apk</span>を押してもOKです。",
+    [
+     "「ファイルをダウンロードしますか？」と出たら<span class=\"k\">ダウンロード</span>",
+     "「有害なファイルの可能性」と出ても<span class=\"k\">ダウンロード</span>を押して大丈夫です。"
+    ]
+   ],
+   [
+    "ファイルを開く → 設定",
+    "ダウンロードが終わったら通知か画面下の<span class=\"k\">開く</span>を押します。初回は<b>「セキュリティ上の理由から…インストールできません」</b>と表示されます。",
+    [
+     "<span class=\"k\">設定</span>を押してください。"
+    ]
+   ],
+   [
+    "「この提供元を許可」をオン → 戻る",
+    "<b>提供元不明のアプリのインストール</b>画面で<span class=\"k\">この提供元を許可</span>をオンにし、左上の<span class=\"k\">←</span>（戻る）でインストール画面に戻ります。",
+    [
+     "設定画面が自動で開かない場合は <b>設定 → アプリ → ⋮ → 特別なアプリアクセス → 提供元不明のアプリのインストール → Chrome</b> でオンにしてください。"
+    ]
+   ],
+   [
+    "インストール",
+    "「このアプリをインストールしますか？」で<span class=\"k\">インストール</span>を押します。",
+    []
+   ],
+   [
+    "Playプロテクトの警告が出たら",
+    "Playストアに登録されていないアプリのため、<b>「Playプロテクトによりブロックされました / 不明なデベロッパー」</b>と出ることがあります。",
+    [
+     "<span class=\"k\">詳細</span> → <span class=\"k\">インストールする</span>を押してください。",
+     "「アプリをスキャンに送信しますか？」は<span class=\"k\">送信しない</span>で大丈夫です。"
+    ]
+   ],
+   [
+    "完了！開く",
+    "<span class=\"k\">開く</span>を押すとすぐ始まります。ホーム画面かアプリ一覧に<b>サングラスのオオカミのアイコン「ウルフゲームズ」</b>ができます。",
+    [
+     "気になる場合は、インストール後にステップ3の画面で<span class=\"k\">この提供元を許可</span>をオフに戻しても大丈夫です。"
+    ]
+   ]
+  ],
+  "hIphone": "🍎 iPhoneでアイコンを作る",
+  "tIphone": "約30秒",
+  "illuI": "※ 図は説明用に簡単に描いた画面です。iOSのバージョンによってボタンの位置が少し違うことがあります。図の<b class=\"red\">赤い番号</b>は押す順番です。",
+  "noteI": "iPhoneはアプリファイルをインストールできないので<b>ウェブ版</b>を使います。ゲームと画面はAndroidアプリと同じで、ホーム画面に追加するとアプリのように全画面で開きます。<b>必ずSafari</b>で開いてください。",
+  "i": [
+   [
+    "Safariで開く → 共有ボタン",
+    "上の<b>ウェブ用QRコード</b>を読み取るか、Safariのアドレス欄に<span class=\"k\">wanopro.github.io/wolfgames</span>と入力します。",
+    [
+     "ページが開いたら画面下（またはアドレス欄の横）の<span class=\"k\">共有 ⬆︎</span>を押します。"
+    ]
+   ],
+   [
+    "「ホーム画面に追加」",
+    "共有メニューを少し上にスクロールすると<span class=\"k\">ホーム画面に追加 ⊞</span>があります。押してください。",
+    [
+     "見つからない場合はメニュー下の<b>「アクションを編集…」</b>から追加できます。"
+    ]
+   ],
+   [
+    "右上の「追加」",
+    "名前は<b>ウルフゲームズ</b>になっています。右上の<span class=\"k\">追加</span>を押します。",
+    [
+     "<b>「Webアプリとして開く」</b>スイッチがあればオンのまま追加してください。"
+    ]
+   ],
+   [
+    "ホーム画面のオオカミのアイコンで起動",
+    "ホーム画面に<b>ウルフゲームズ</b>のアイコンができました。押すとアドレス欄なしでアプリのように開きます。",
+    [
+     "一度開いておけば電波が弱い場所でも動きます。",
+     "iPhoneはウェブで<b>振動に対応していない</b>ため、画面の演出だけになります。"
+    ]
+   ]
+  ],
+  "mainT": "🎮 メイン画面",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.0</b>）を確認できます。",
+  "hNew": "🆕 v1.0の内容",
+  "newIntro": "ウルフゲームズv1.0には次のゲームと機能が入っています。",
+  "newFeat": [
+   "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "📳 すべてのボタンとゲーム操作で振動（当たり・勝ちは強め）",
+   "🔆 ゲーム中は画面が消えない",
+   "📱 iPhone・PCはウェブ版で同じように遊べます"
+  ],
+  "hChange": "🛠 最近の変更",
+  "changes": [
+   "<b>オオカミルーレット</b>：海賊ルーレットから名前を変更。剣を刺してバンダナのオオカミが飛び出したら当たり。",
+   "<b>オオカミ回し</b>：矢印がオオカミに。口を開けて回り、止まると「ガブッ！」とかみます。",
+   "<b>4目並べ</b>：赤と黄のコマにオオカミの顔のマークを入れました。",
+   "<b>インストール案内</b>：6言語に対応し、図も言語ごとに変わります。"
+  ],
+  "hUpdate": "🔄 アップデート",
+  "updA": "<b>Android</b>：同じQRコードかボタンで新しいAPKをダウンロードしてインストールします。<b>古いアプリを消さずに</b>上書きされます。",
+  "updI": "<b>iPhone・ウェブ</b>：何もしなくても、ネットにつながった状態で開けば自動で最新になります。",
+  "hFaq": "❓ よくある質問",
+  "faq": [
+   [
+    "「パッケージの解析中に問題が発生しました」「アプリはインストールされていません」と出る",
+    "ダウンロードが途中で切れたことが多いです。ダウンロードフォルダのWolfGames.apkを消してもう一度ダウンロードしてください。Android 8.0以上が必要です。"
+   ],
+   [
+    "設定を押しても「この提供元を許可」が見つからない",
+    "<b>設定 → アプリ → ⋮ → 特別なアプリアクセス → 提供元不明のアプリのインストール</b>で、ダウンロードに使ったアプリ（Chromeなど）をオンにしてください。"
+   ],
+   [
+    "安全ですか？権限は必要ですか？",
+    "ウルフゲームズは<b>振動</b>以外の権限を使いません。インターネット、連絡先、写真、位置情報にはアクセスしません。警告はPlayストア以外のアプリ共通の案内です。"
+   ],
+   [
+    "iPhoneで「ホーム画面に追加」がない",
+    "LINEやChromeの中で開いた場合はメニューがないことがあります。<b>Safariで開く</b>を押して、Safariで開き直してください。"
+   ],
+   [
+    "振動しない",
+    "iPhone（ウェブ）は振動に対応していません。Androidアプリで振動しない場合は、マナーモードやおやすみモードを確認してください。"
+   ]
+  ],
+  "back": "← ゲームに戻る"
+ },
+ "zh": {
+  "title": "安装说明",
+  "lead": "酒桌游戏合集 · 安装说明",
+  "navAndroid": "🤖 安卓安装",
+  "navIphone": "🍎 iPhone添加到主屏幕",
+  "navNew": "🆕 v1.0内容",
+  "navUpdate": "🔄 更新",
+  "navFaq": "❓ 常见问题",
+  "qAndroid": "🤖 安卓应用",
+  "qAndroidSub": "用相机扫描二维码或点下面的按钮",
+  "qApk": "下载APK（约10MB）",
+  "qWeb": "🍎 iPhone · 电脑（网页）",
+  "qWebSub": "无需安装，在浏览器中直接玩",
+  "hAndroid": "🤖 在安卓手机上安装",
+  "tAndroid": "约2分钟",
+  "illuA": "※ 图片是为了说明而简化绘制的画面。不同手机品牌（三星等）和安卓版本的文字和位置可能略有不同。图中<b class=\"red\">红色数字</b>是点击顺序。",
+  "noteA": "沃夫游戏不是从应用商店下载的，所以第一次需要允许<b>\"安装未知应用\"</b>。这个权限只对下载时使用的浏览器（如Chrome）有效。",
+  "step": "第",
+  "optional": "（出现时）",
+  "a": [
+   [
+    "下载APK",
+    "用<b>相机扫描上面的二维码</b>或点<b>下载APK</b>按钮。打开GitHub页面后也可以点<span class=\"k\">WolfGames.apk</span>。",
+    [
+     "出现\"要下载文件吗？\"时点<span class=\"k\">下载</span>",
+     "即使出现\"文件可能有害\"的提示，也点<span class=\"k\">下载</span>即可。"
+    ]
+   ],
+   [
+    "打开下载的文件 → 设置",
+    "下载完成后，点通知或屏幕下方的<span class=\"k\">打开</span>。第一次会出现<b>\"出于安全考虑，您的手机不允许安装来自此来源的未知应用\"</b>。",
+    [
+     "点<span class=\"k\">设置</span>。"
+    ]
+   ],
+   [
+    "打开\"允许来自此来源\" → 返回",
+    "在<b>安装未知应用</b>页面打开<span class=\"k\">允许来自此来源</span>，然后点左上角<span class=\"k\">←</span>（返回）回到安装界面。",
+    [
+     "如果设置页面没有自动打开，请到 <b>设置 → 应用 → ⋮ → 特殊访问权限 → 安装未知应用 → Chrome</b> 中打开。"
+    ]
+   ],
+   [
+    "安装",
+    "在\"要安装此应用吗？\"中点<span class=\"k\">安装</span>。",
+    []
+   ],
+   [
+    "如果出现Play保护机制警告",
+    "因为没有在应用商店上架，可能会出现<b>\"已被Play保护机制拦截 / 未知开发者\"</b>。",
+    [
+     "点<span class=\"k\">更多详情</span> → <span class=\"k\">仍然安装</span>。",
+     "询问\"是否发送应用进行扫描\"时，点<span class=\"k\">不发送</span>也可以。"
+    ]
+   ],
+   [
+    "完成！打开",
+    "点<span class=\"k\">打开</span>即可开始。主屏幕或应用列表中会出现<b>戴墨镜的狼图标\"沃夫游戏\"</b>。",
+    [
+     "如果担心安全，安装后可以在第3步的页面重新关闭<span class=\"k\">允许来自此来源</span>，已安装的应用照常使用。"
+    ]
+   ]
+  ],
+  "hIphone": "🍎 在iPhone上创建图标",
+  "tIphone": "约30秒",
+  "illuI": "※ 图片是为了说明而简化绘制的画面。不同iOS版本的按钮位置可能略有不同。图中<b class=\"red\">红色数字</b>是点击顺序。",
+  "noteI": "iPhone不能安装应用文件，所以使用<b>网页版</b>。游戏和画面与安卓应用相同，添加到主屏幕后会像应用一样全屏打开。<b>请务必使用Safari</b>打开。",
+  "i": [
+   [
+    "用Safari打开 → 分享按钮",
+    "用相机扫描上面的<b>网页二维码</b>，或在Safari地址栏输入<span class=\"k\">wanopro.github.io/wolfgames</span>。",
+    [
+     "页面打开后，点屏幕下方（或地址栏旁）的<span class=\"k\">分享 ⬆︎</span>按钮。"
+    ]
+   ],
+   [
+    "\"添加到主屏幕\"",
+    "把分享菜单稍微往上滑，就能看到<span class=\"k\">添加到主屏幕 ⊞</span>，点它。",
+    [
+     "如果没有，可以在菜单最下面的<b>\"编辑操作…\"</b>中添加。"
+    ]
+   ],
+   [
+    "右上角\"添加\"",
+    "名称已经是<b>沃夫游戏</b>。点右上角的<span class=\"k\">添加</span>。",
+    [
+     "如果看到<b>\"作为网页App打开\"</b>开关，保持打开即可。"
+    ]
+   ],
+   [
+    "点主屏幕上的狼图标启动",
+    "主屏幕上出现了<b>沃夫游戏</b>图标。点击后会像应用一样打开，没有地址栏。",
+    [
+     "打开过一次后，网络不好也能运行。",
+     "iPhone网页<b>不支持振动</b>，只有画面效果。"
+    ]
+   ]
+  ],
+  "mainT": "🎮 主界面",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.0</b>）。",
+  "hNew": "🆕 v1.0内容",
+  "newIntro": "沃夫游戏v1.0包含以下游戏和功能。",
+  "newFeat": [
+   "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "📳 所有按钮和游戏操作都会振动（中奖、获胜时更强）",
+   "🔆 游戏中屏幕不会熄灭",
+   "📱 iPhone和电脑可以用网页版玩同样的游戏"
+  ],
+  "hChange": "🛠 最近修改",
+  "changes": [
+   "<b>狼轮盘</b>：由海盗轮盘改名。插剑时戴头巾的狼跳出来就中奖。",
+   "<b>转狼</b>：箭头变成了狼。张着嘴转圈，停下时\"啊呜！\"一口咬住。",
+   "<b>四子棋</b>：红色和黄色棋子上加了狼脸图案。",
+   "<b>安装说明</b>：支持6种语言，图片也会随语言变化。"
+  ],
+  "hUpdate": "🔄 更新",
+  "updA": "<b>安卓</b>：用同一个二维码或按钮下载新的APK并安装即可。<b>不用删除旧应用</b>，直接覆盖安装。",
+  "updI": "<b>iPhone · 网页</b>：不需要任何操作，联网打开时会自动更新到最新版本。",
+  "hFaq": "❓ 常见问题",
+  "faq": [
+   [
+    "出现\"解析软件包时出现问题\"或\"未安装应用\"",
+    "多半是下载中断了。删除下载文件夹里的WolfGames.apk后重新下载。需要安卓8.0及以上。"
+   ],
+   [
+    "点了设置却找不到\"允许来自此来源\"",
+    "请到 <b>设置 → 应用 → ⋮ → 特殊访问权限 → 安装未知应用</b>，为下载文件的应用（Chrome等）打开。"
+   ],
+   [
+    "安全吗？需要什么权限？",
+    "沃夫游戏除了<b>振动</b>不使用其他权限，不访问网络、通讯录、照片或位置。警告是所有非应用商店应用都会出现的提示。"
+   ],
+   [
+    "iPhone上找不到\"添加到主屏幕\"",
+    "如果是在微信或Chrome里打开的，可能没有这个菜单。请点<b>在Safari中打开</b>，用Safari重新打开。"
+   ],
+   [
+    "没有振动",
+    "iPhone（网页）不支持振动。如果安卓应用没有振动，请检查手机是否处于静音或勿扰模式。"
+   ]
+  ],
+  "back": "← 返回游戏"
+ },
+ "th": {
+  "title": "วิธีติดตั้ง",
+  "lead": "รวมเกมวงเหล้า · วิธีติดตั้ง",
+  "navAndroid": "🤖 ติดตั้งบน Android",
+  "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
+  "navNew": "🆕 มีอะไรใน v1.0",
+  "navUpdate": "🔄 อัปเดต",
+  "navFaq": "❓ คำถามที่พบบ่อย",
+  "qAndroid": "🤖 แอป Android",
+  "qAndroidSub": "สแกน QR หรือกดปุ่มด้านล่าง",
+  "qApk": "ดาวน์โหลด APK (ประมาณ 10MB)",
+  "qWeb": "🍎 iPhone · PC (เว็บ)",
+  "qWebSub": "เล่นในเบราว์เซอร์ได้ทันที ไม่ต้องติดตั้ง",
+  "hAndroid": "🤖 ติดตั้งบน Android",
+  "tAndroid": "ประมาณ 2 นาที",
+  "illuA": "※ รูปเป็นหน้าจอที่วาดอย่างง่ายเพื่ออธิบาย ข้อความและตำแหน่งอาจต่างกันเล็กน้อยตามยี่ห้อโทรศัพท์ (Samsung ฯลฯ) และเวอร์ชัน Android <b class=\"red\">ตัวเลขสีแดง</b>ในรูปคือลำดับที่ต้องกด",
+  "noteA": "Wolf Games ไม่ได้ดาวน์โหลดจาก Play Store จึงต้องอนุญาต <b>\"ติดตั้งแอปที่ไม่รู้จัก\"</b> ครั้งแรกครั้งเดียว การอนุญาตนี้ใช้กับเบราว์เซอร์ที่ใช้ดาวน์โหลด (เช่น Chrome) เท่านั้น",
+  "step": "ขั้นที่",
+  "optional": "(ถ้ามี)",
+  "a": [
+   [
+    "ดาวน์โหลด APK",
+    "<b>สแกน QR</b> ด้านบนหรือกดปุ่ม <b>ดาวน์โหลด APK</b> ถ้าเปิดหน้า GitHub ให้กด <span class=\"k\">WolfGames.apk</span>",
+    [
+     "เมื่อถาม \"ดาวน์โหลดไฟล์ไหม?\" ให้กด <span class=\"k\">ดาวน์โหลด</span>",
+     "ถ้ามีคำเตือน \"ไฟล์อาจเป็นอันตราย\" ก็กด <span class=\"k\">ดาวน์โหลด</span> ได้เลย"
+    ]
+   ],
+   [
+    "เปิดไฟล์ → การตั้งค่า",
+    "ดาวน์โหลดเสร็จแล้วกด <span class=\"k\">เปิด</span> ที่การแจ้งเตือนหรือด้านล่างจอ ครั้งแรกจะขึ้นว่า <b>\"เพื่อความปลอดภัย โทรศัพท์ไม่ได้รับอนุญาตให้ติดตั้งแอปที่ไม่รู้จักจากแหล่งนี้\"</b>",
+    [
+     "กด <span class=\"k\">การตั้งค่า</span>"
+    ]
+   ],
+   [
+    "เปิด \"อนุญาตจากแหล่งนี้\" → ย้อนกลับ",
+    "ที่หน้า <b>ติดตั้งแอปที่ไม่รู้จัก</b> ให้เปิด <span class=\"k\">อนุญาตจากแหล่งนี้</span> แล้วกด <span class=\"k\">←</span> (ย้อนกลับ) มุมซ้ายบนเพื่อกลับไปหน้าติดตั้ง",
+    [
+     "ถ้าหน้าตั้งค่าไม่เปิดเอง ไปที่ <b>การตั้งค่า → แอป → ⋮ → การเข้าถึงพิเศษ → ติดตั้งแอปที่ไม่รู้จัก → Chrome</b>"
+    ]
+   ],
+   [
+    "ติดตั้ง",
+    "ที่ \"ต้องการติดตั้งแอปนี้ไหม?\" กด <span class=\"k\">ติดตั้ง</span>",
+    []
+   ],
+   [
+    "ถ้า Play Protect เตือน",
+    "เพราะแอปไม่ได้อยู่ใน Play Store อาจขึ้นว่า <b>\"ถูก Play Protect บล็อก / ไม่รู้จักนักพัฒนา\"</b>",
+    [
+     "กด <span class=\"k\">รายละเอียดเพิ่มเติม</span> → <span class=\"k\">ติดตั้งต่อไป</span>",
+     "ถ้าถามว่าจะส่งแอปไปสแกนไหม กด <span class=\"k\">ไม่ส่ง</span> ได้"
+    ]
+   ],
+   [
+    "เสร็จแล้ว! เปิด",
+    "กด <span class=\"k\">เปิด</span> เพื่อเริ่มเล่น จะมี <b>ไอคอนหมาป่าใส่แว่นกันแดด \"Wolf Games\"</b> บนหน้าจอโฮมหรือในรายการแอป",
+    [
+     "ถ้ากังวลเรื่องความปลอดภัย ปิด <span class=\"k\">อนุญาตจากแหล่งนี้</span> ที่หน้าขั้นที่ 3 ได้หลังติดตั้ง แอปที่ติดตั้งแล้วยังใช้ได้"
+    ]
+   ]
+  ],
+  "hIphone": "🍎 สร้างไอคอนบน iPhone",
+  "tIphone": "ประมาณ 30 วินาที",
+  "illuI": "※ รูปเป็นหน้าจอที่วาดอย่างง่ายเพื่ออธิบาย ตำแหน่งปุ่มอาจต่างกันเล็กน้อยตามเวอร์ชัน iOS <b class=\"red\">ตัวเลขสีแดง</b>ในรูปคือลำดับที่ต้องกด",
+  "noteI": "iPhone ติดตั้งไฟล์แอปไม่ได้ จึงใช้ <b>เวอร์ชันเว็บ</b> เกมและหน้าจอเหมือนแอป Android และเมื่อเพิ่มลงหน้าจอโฮมจะเปิดเต็มจอเหมือนแอป <b>ต้องเปิดด้วย Safari</b>",
+  "i": [
+   [
+    "เปิดด้วย Safari → ปุ่มแชร์",
+    "สแกน <b>QR เว็บ</b> ด้านบน หรือพิมพ์ <span class=\"k\">wanopro.github.io/wolfgames</span> ใน Safari",
+    [
+     "เมื่อหน้าเปิดแล้ว กดปุ่ม <span class=\"k\">แชร์ ⬆︎</span> ด้านล่าง (หรือข้างช่องที่อยู่)"
+    ]
+   ],
+   [
+    "\"เพิ่มไปยังหน้าจอโฮม\"",
+    "เลื่อนเมนูแชร์ขึ้นเล็กน้อยจะเห็น <span class=\"k\">เพิ่มไปยังหน้าจอโฮม ⊞</span> แล้วกด",
+    [
+     "ถ้าไม่เห็น เพิ่มได้จาก <b>\"แก้ไขการทำงาน…\"</b> ด้านล่างเมนู"
+    ]
+   ],
+   [
+    "กด \"เพิ่ม\" มุมขวาบน",
+    "ชื่อเป็น <b>Wolf Games</b> อยู่แล้ว กด <span class=\"k\">เพิ่ม</span> มุมขวาบน",
+    [
+     "ถ้ามีสวิตช์ <b>\"เปิดเป็นเว็บแอป\"</b> ให้เปิดไว้"
+    ]
+   ],
+   [
+    "เปิดจากไอคอนหมาป่า",
+    "มีไอคอน <b>Wolf Games</b> บนหน้าจอโฮมแล้ว กดเพื่อเปิดเหมือนแอปโดยไม่มีช่องที่อยู่",
+    [
+     "เปิดครั้งหนึ่งแล้ว เน็ตไม่ดีก็ยังเล่นได้",
+     "iPhone บนเว็บ <b>ไม่รองรับการสั่น</b> จึงมีแค่เอฟเฟกต์บนจอ"
+    ]
+   ]
+  ],
+  "mainT": "🎮 หน้าหลัก",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.0</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v1.0",
+  "newIntro": "Wolf Games v1.0 มีเกมและฟีเจอร์ต่อไปนี้",
+  "newFeat": [
+   "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "📳 สั่นทุกครั้งที่กดปุ่มหรือแตะในเกม (สั่นแรงเมื่อโดนหรือชนะ)",
+   "🔆 หน้าจอไม่ดับขณะเล่น",
+   "📱 iPhone และ PC เล่นเกมเดียวกันได้บนเว็บ"
+  ],
+  "hChange": "🛠 การแก้ไขล่าสุด",
+  "changes": [
+   "<b>รูเล็ตหมาป่า</b>: เปลี่ยนชื่อจากรูเล็ตโจรสลัด เสียบดาบ ใครทำหมาป่าโพกผ้าเด้งออกมาคนนั้นโดน",
+   "<b>หมุนหมาป่า</b>: ลูกศรกลายเป็นหมาป่า หมุนโดยอ้าปาก แล้วงับ \"งับ!\" เมื่อหยุด",
+   "<b>เรียง 4</b>: เพิ่มลายหน้าหมาป่าบนเหรียญแดงและเหลือง",
+   "<b>วิธีติดตั้ง</b>: ดูได้ 6 ภาษา และรูปเปลี่ยนตามภาษา"
+  ],
+  "hUpdate": "🔄 อัปเดต",
+  "updA": "<b>Android</b>: ดาวน์โหลด APK ใหม่ด้วย QR หรือปุ่มเดิมแล้วติดตั้ง จะติดตั้ง <b>ทับแอปเดิม</b> โดยไม่ต้องลบ",
+  "updI": "<b>iPhone · เว็บ</b>: ไม่ต้องทำอะไร เปิดตอนมีเน็ตจะเป็นเวอร์ชันล่าสุดอัตโนมัติ",
+  "hFaq": "❓ คำถามที่พบบ่อย",
+  "faq": [
+   [
+    "ขึ้นว่า \"เกิดปัญหาในการแยกวิเคราะห์แพ็กเกจ\" หรือ \"ไม่ได้ติดตั้งแอป\"",
+    "ส่วนใหญ่ดาวน์โหลดไม่ครบ ลบ WolfGames.apk ในโฟลเดอร์ดาวน์โหลดแล้วดาวน์โหลดใหม่ ต้องใช้ Android 8.0 ขึ้นไป"
+   ],
+   [
+    "กดการตั้งค่าแล้วไม่เห็น \"อนุญาตจากแหล่งนี้\"",
+    "ไปที่ <b>การตั้งค่า → แอป → ⋮ → การเข้าถึงพิเศษ → ติดตั้งแอปที่ไม่รู้จัก</b> แล้วเปิดให้แอปที่ใช้ดาวน์โหลด (Chrome ฯลฯ)"
+   ],
+   [
+    "ปลอดภัยไหม? ต้องใช้สิทธิ์อะไร?",
+    "Wolf Games ไม่ใช้สิทธิ์อื่นนอกจาก <b>การสั่น</b> ไม่เข้าถึงอินเทอร์เน็ต รายชื่อ รูปภาพ หรือตำแหน่ง คำเตือนเป็นข้อความทั่วไปของแอปที่ไม่ได้อยู่ใน Play Store"
+   ],
+   [
+    "iPhone ไม่มี \"เพิ่มไปยังหน้าจอโฮม\"",
+    "ถ้าเปิดใน LINE หรือ Chrome อาจไม่มีเมนูนี้ กด <b>เปิดใน Safari</b> แล้วลองใหม่"
+   ],
+   [
+    "ไม่สั่น",
+    "iPhone (เว็บ) ไม่รองรับการสั่น ถ้าแอป Android ไม่สั่น ให้ตรวจว่าโทรศัพท์ไม่ได้อยู่ในโหมดเงียบหรือห้ามรบกวน"
+   ]
+  ],
+  "back": "← กลับไปที่เกม"
+ },
+ "vi": {
+  "title": "Hướng dẫn cài đặt",
+  "lead": "Bộ trò chơi nhậu · Hướng dẫn cài đặt",
+  "navAndroid": "🤖 Cài trên Android",
+  "navIphone": "🍎 Thêm vào MH chính iPhone",
+  "navNew": "🆕 Có gì trong v1.0",
+  "navUpdate": "🔄 Cập nhật",
+  "navFaq": "❓ Câu hỏi thường gặp",
+  "qAndroid": "🤖 Ứng dụng Android",
+  "qAndroidSub": "Quét mã QR hoặc bấm nút bên dưới",
+  "qApk": "Tải APK (khoảng 10MB)",
+  "qWeb": "🍎 iPhone · PC (web)",
+  "qWebSub": "Chơi ngay trên trình duyệt, không cần cài",
+  "hAndroid": "🤖 Cài đặt trên Android",
+  "tAndroid": "khoảng 2 phút",
+  "illuA": "※ Hình là màn hình vẽ đơn giản để minh họa. Chữ và vị trí có thể hơi khác tùy hãng điện thoại (Samsung…) và phiên bản Android. <b class=\"red\">Số màu đỏ</b> trong hình là thứ tự bấm.",
+  "noteA": "Wolf Games không tải từ Play Store, nên lần đầu cần cho phép <b>\"Cài đặt ứng dụng không rõ nguồn gốc\"</b>. Quyền này chỉ áp dụng cho trình duyệt bạn dùng để tải (ví dụ Chrome).",
+  "step": "Bước",
+  "optional": "(nếu xuất hiện)",
+  "a": [
+   [
+    "Tải APK",
+    "<b>Quét mã QR</b> ở trên hoặc bấm <b>Tải APK</b>. Nếu trang GitHub mở ra, bấm <span class=\"k\">WolfGames.apk</span>.",
+    [
+     "Khi hỏi \"Tải tệp xuống?\", bấm <span class=\"k\">Tải xuống</span>",
+     "Nếu có cảnh báo \"tệp có thể gây hại\", vẫn bấm <span class=\"k\">Tải xuống</span>."
+    ]
+   ],
+   [
+    "Mở tệp → Cài đặt",
+    "Tải xong, bấm <span class=\"k\">Mở</span> trên thông báo hoặc ở cuối màn hình. Lần đầu sẽ hiện <b>\"Vì lý do bảo mật, điện thoại không được phép cài ứng dụng không rõ nguồn gốc từ nguồn này\"</b>.",
+    [
+     "Bấm <span class=\"k\">Cài đặt</span>."
+    ]
+   ],
+   [
+    "Bật \"Cho phép từ nguồn này\" → Quay lại",
+    "Ở màn hình <b>Cài đặt ứng dụng không rõ</b>, bật <span class=\"k\">Cho phép từ nguồn này</span>, rồi bấm <span class=\"k\">←</span> (quay lại) ở góc trên bên trái để về màn hình cài đặt.",
+    [
+     "Nếu màn hình cài đặt không tự mở, vào <b>Cài đặt → Ứng dụng → ⋮ → Quyền truy cập đặc biệt → Cài đặt ứng dụng không rõ → Chrome</b>."
+    ]
+   ],
+   [
+    "Cài đặt",
+    "Ở \"Bạn có muốn cài ứng dụng này?\", bấm <span class=\"k\">Cài đặt</span>.",
+    []
+   ],
+   [
+    "Nếu Play Protect cảnh báo",
+    "Vì ứng dụng không có trên Play Store, có thể hiện <b>\"Bị Play Protect chặn / nhà phát triển không xác định\"</b>.",
+    [
+     "Bấm <span class=\"k\">Thêm chi tiết</span> → <span class=\"k\">Vẫn cài đặt</span>.",
+     "Nếu hỏi gửi ứng dụng để quét, bấm <span class=\"k\">Không gửi</span> cũng được."
+    ]
+   ],
+   [
+    "Xong! Mở",
+    "Bấm <span class=\"k\">Mở</span> để bắt đầu. Biểu tượng <b>chú sói đeo kính râm \"Wolf Games\"</b> sẽ có trên màn hình chính hoặc danh sách ứng dụng.",
+    [
+     "Nếu lo ngại, sau khi cài bạn có thể tắt lại <span class=\"k\">Cho phép từ nguồn này</span> ở màn hình bước 3. Ứng dụng đã cài vẫn dùng bình thường."
+    ]
+   ]
+  ],
+  "hIphone": "🍎 Tạo biểu tượng trên iPhone",
+  "tIphone": "khoảng 30 giây",
+  "illuI": "※ Hình là màn hình vẽ đơn giản để minh họa. Vị trí nút có thể hơi khác tùy phiên bản iOS. <b class=\"red\">Số màu đỏ</b> trong hình là thứ tự bấm.",
+  "noteI": "iPhone không cài được tệp ứng dụng nên dùng <b>bản web</b>. Trò chơi và màn hình giống ứng dụng Android, và khi thêm vào màn hình chính sẽ mở toàn màn hình như ứng dụng. <b>Hãy mở bằng Safari.</b>",
+  "i": [
+   [
+    "Mở bằng Safari → nút Chia sẻ",
+    "Quét <b>mã QR web</b> ở trên hoặc gõ <span class=\"k\">wanopro.github.io/wolfgames</span> vào Safari.",
+    [
+     "Khi trang mở, bấm nút <span class=\"k\">Chia sẻ ⬆︎</span> ở dưới (hoặc cạnh thanh địa chỉ)."
+    ]
+   ],
+   [
+    "\"Thêm vào MH chính\"",
+    "Kéo menu chia sẻ lên một chút sẽ thấy <span class=\"k\">Thêm vào MH chính ⊞</span>, bấm vào đó.",
+    [
+     "Nếu không thấy, thêm từ <b>\"Sửa tác vụ…\"</b> ở cuối menu."
+    ]
+   ],
+   [
+    "Bấm \"Thêm\" góc trên bên phải",
+    "Tên đã là <b>Wolf Games</b>. Bấm <span class=\"k\">Thêm</span> ở góc trên bên phải.",
+    [
+     "Nếu thấy công tắc <b>\"Mở dưới dạng ứng dụng web\"</b>, hãy để bật."
+    ]
+   ],
+   [
+    "Mở từ biểu tượng chú sói",
+    "Biểu tượng <b>Wolf Games</b> đã có trên màn hình chính. Bấm để mở như ứng dụng, không có thanh địa chỉ.",
+    [
+     "Mở một lần rồi thì mạng yếu vẫn chơi được.",
+     "iPhone trên web <b>không hỗ trợ rung</b>, chỉ có hiệu ứng trên màn hình."
+    ]
+   ]
+  ],
+  "mainT": "🎮 Màn hình chính",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.0</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v1.0",
+  "newIntro": "Wolf Games v1.0 gồm các trò chơi và tính năng sau.",
+  "newFeat": [
+   "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "📳 Rung khi bấm nút và chạm trong trò chơi (rung mạnh khi trúng, thắng)",
+   "🔆 Màn hình không tắt khi đang chơi",
+   "📱 iPhone và PC chơi cùng trò chơi trên web"
+  ],
+  "hChange": "🛠 Thay đổi gần đây",
+  "changes": [
+   "<b>Sói may rủi</b>: đổi tên từ Hải tặc may rủi. Cắm kiếm, ai làm chú sói đội khăn bật ra là trúng.",
+   "<b>Quay sói</b>: mũi tên thành chú sói. Sói há miệng quay, dừng lại thì cắn \"phập!\".",
+   "<b>Nối 4</b>: thêm hình mặt sói trên quân đỏ và vàng.",
+   "<b>Hướng dẫn cài đặt</b>: có 6 ngôn ngữ, hình ảnh cũng đổi theo ngôn ngữ."
+  ],
+  "hUpdate": "🔄 Cập nhật",
+  "updA": "<b>Android</b>: tải APK mới bằng cùng mã QR hoặc nút rồi cài. Ứng dụng được cài <b>đè lên bản cũ</b>, không cần xóa.",
+  "updI": "<b>iPhone · web</b>: không cần làm gì, mở khi có mạng sẽ tự lên bản mới nhất.",
+  "hFaq": "❓ Câu hỏi thường gặp",
+  "faq": [
+   [
+    "Hiện \"Đã xảy ra sự cố khi phân tích cú pháp gói\" hoặc \"Ứng dụng chưa được cài đặt\"",
+    "Thường do tải bị gián đoạn. Xóa WolfGames.apk trong thư mục Tải xuống rồi tải lại. Cần Android 8.0 trở lên."
+   ],
+   [
+    "Bấm Cài đặt nhưng không thấy \"Cho phép từ nguồn này\"",
+    "Vào <b>Cài đặt → Ứng dụng → ⋮ → Quyền truy cập đặc biệt → Cài đặt ứng dụng không rõ</b> và bật cho ứng dụng đã dùng để tải (Chrome…)."
+   ],
+   [
+    "Có an toàn không? Cần quyền gì?",
+    "Wolf Games không dùng quyền nào ngoài <b>rung</b>. Không truy cập internet, danh bạ, ảnh hay vị trí. Cảnh báo là thông báo chung cho ứng dụng không có trên Play Store."
+   ],
+   [
+    "iPhone không có \"Thêm vào MH chính\"",
+    "Nếu mở trong Zalo hoặc Chrome có thể không có menu này. Bấm <b>Mở bằng Safari</b> và thử lại."
+   ],
+   [
+    "Không rung",
+    "iPhone (web) không hỗ trợ rung. Nếu ứng dụng Android không rung, hãy kiểm tra chế độ im lặng hoặc Không làm phiền."
+   ]
+  ],
+  "back": "← Quay lại trò chơi"
+ }
+};
