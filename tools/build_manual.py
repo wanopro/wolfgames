@@ -55,7 +55,7 @@ def shots(lang, home_b64):
     chrome = ('<div style="height:56px;display:flex;align-items:center;gap:10px;padding:0 12px;background:#f1f3f4">'
               '<div style="flex:1;height:40px;border-radius:20px;background:#fff;display:flex;align-items:center;padding:0 14px;font-size:14px;color:#444">🔒 github.com/wanopro/wolfgames/releases</div><span style="font-size:20px">⋮</span></div>')
     release = (A + chrome + '<div style="padding:18px 16px">'
-               f'<div style="font-size:22px;font-weight:800">{name} v1.1</div>'
+               f'<div style="font-size:22px;font-weight:800">{name} v1.2</div>'
                f'<div style="font-size:13px;color:#666;margin:6px 0 18px">wanopro {t["released"]}</div>'
                '<div style="border:1px solid #ddd;border-radius:10px">'
                '<div style="padding:12px 14px;font-weight:700;border-bottom:1px solid #eee">▾ Assets 3</div>'
@@ -197,22 +197,33 @@ def game_shots(b, lang):
     # 5개 주사위 (3명)
     home(); card(0); card(2); pg.click('.stepper button:last-of-type'); start()
     pg.locator('.area').nth(1).click(); pg.wait_for_timeout(1000); shot('how-five')
+    # 789 (4명): 두 번 굴린 뒤
+    home(); card(0); card(3); start()
+    for _ in range(2):
+        pg.locator('.g7 > div').nth(1).click(); pg.wait_for_timeout(1500)
+    shot('how-789')
+    # Up/Down (누적 켬): 한 번 맞혀본 결과
+    home(); card(1); card(0); pg.locator('.stepper.toggle').click(); start()
+    pg.locator('.ud .row .btn').first.click(); pg.wait_for_timeout(900); shot('how-updown')
+    # 호치민 (3명): 카드 한 장 바꾼 뒤
+    home(); card(1); card(1); start(); pg.wait_for_timeout(300)
+    pg.locator('.mid2 .pcard').nth(0).click(); pg.wait_for_timeout(900); shot('how-hcm')
     # 늑대이빨 (당첨 2)
-    home(); card(1); pg.click('.stepper button:last-of-type'); start()
+    home(); card(2); pg.click('.stepper button:last-of-type'); start()
     for k in rnd.sample(range(20), 20):
         pg.click(f'path.tooth[data-i="{k}"]')
         if pg.query_selector('.wolf.bit'): break
     pg.wait_for_timeout(400); shot('how-teeth')
     # 사다리 (5명)
-    home(); card(2); pg.locator('.stepper').first.locator('button').last.click(); start()
+    home(); card(3); pg.locator('.stepper').first.locator('button').last.click(); start()
     pg.locator('.lnums button').nth(0).click(); pg.wait_for_timeout(5300)
     pg.locator('.lnums button').nth(3).click(); pg.wait_for_timeout(2600); shot('how-ladder')
     # 돌림판
-    home(); card(3); start(); pg.locator('.row .btn').first.click(); pg.wait_for_timeout(5400); shot('how-roulette')
+    home(); card(4); start(); pg.locator('.row .btn').first.click(); pg.wait_for_timeout(5400); shot('how-roulette')
     # 동물달리기 (5명)
-    home(); card(4); pg.locator('.stepper').first.locator('button').last.click(); start(); pg.locator('.btn').first.click(); pg.wait_for_timeout(2000 + 5000); shot('how-race')
+    home(); card(5); pg.locator('.stepper').first.locator('button').last.click(); start(); pg.locator('.btn').first.click(); pg.wait_for_timeout(2000 + 5000); shot('how-race')
     # 늑대 룰렛
-    home(); card(5)
+    home(); card(6)
     bb = pg.query_selector('canvas').bounding_box(); w, h = bb['width'], bb['height']; H = w / 0.9; oy = h - H
     for i in rnd.sample(range(20), 20):
         r, c = i // 5, i % 5; bl = 1 + 0.06 * math.sin(math.pi * (r + .5) / 4)
@@ -220,9 +231,9 @@ def game_shots(b, lang):
         if pg.query_selector('.h-title.win'): break
     pg.wait_for_timeout(1000); shot('how-pirate')
     # 늑대 돌리기 (도는 중)
-    home(); card(6); pg.locator('.btn').last.click(); pg.wait_for_timeout(1500); shot('how-arrow')
+    home(); card(7); pg.locator('.btn').last.click(); pg.wait_for_timeout(1500); shot('how-arrow')
     # 4목
-    home(); card(7)
+    home(); card(8)
     bb = pg.query_selector('canvas').bounding_box(); w, h = bb['width'], bb['height']; cell = min(w / 7, h / 7.15); left = (w - cell * 7) / 2
     for c in [3, 3, 4, 2, 2, 4, 5]:
         pg.mouse.click(bb['x'] + left + (c + .5) * cell, bb['y'] + h * .5); pg.wait_for_timeout(750)

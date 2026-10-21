@@ -5,7 +5,7 @@ export const MANUAL = {
   "lead": "술자리 게임 모음 · 설치 안내",
   "navAndroid": "🤖 안드로이드 설치",
   "navIphone": "🍎 아이폰 홈 화면 추가",
-  "navNew": "🆕 v1.1 구성",
+  "navNew": "🆕 v1.2 구성",
   "navUpdate": "🔄 업데이트",
   "navFaq": "❓ 자주 묻는 질문",
   "qAndroid": "🤖 안드로이드 앱",
@@ -100,11 +100,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 메인 화면",
-  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.1</b>)을 확인할 수 있어요.",
-  "hNew": "🆕 v1.1 구성",
-  "newIntro": "울프 게임즈 v1.1에는 아래 게임과 기능이 들어 있어요.",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.2</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v1.2 구성",
+  "newIntro": "울프 게임즈 v1.2에는 아래 게임과 기능이 들어 있어요.",
   "newFeat": [
    "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "🃏 카드 게임 (Up/Down · 호치민) · 🍶 789",
    "🧮 계산기 · 🍻 N빵(술값 나누기) · 💱 환전 (메인 화면 로고 옆)",
    "📳 모든 버튼·게임 터치에 진동 (당첨·승리 땐 강하게)",
    "🔆 게임 중 화면 꺼짐 방지",
@@ -112,9 +113,9 @@ export const MANUAL = {
   ],
   "hChange": "🛠 최근 수정 내용",
   "changes": [
-   "<b>🧮 계산기</b>: 메인 화면 로고 옆에 계산기 버튼이 생겼어요. 기본 사칙연산을 할 수 있어요.",
-   "<b>🍻 N빵</b>: 계산기의 금액을 인원수로 나눠 1인당 금액을 보여줘요. 10·100·1000 단위로 올림할 수 있고, 모두 걷으면 얼마가 남는지도 알려줘요.",
-   "<b>💱 환전</b>: 두 나라 통화를 골라 바꿔줘요. 환율은 하루 한 번 갱신되고, 인터넷이 없으면 마지막으로 받은 환율을 보여줘요."
+   "<b>🎲 5개 주사위</b>: 한 명이 이기면 끝나던 방식에서, <b>마지막 한 명이 남을 때까지</b> 하는 패자 정하기 게임으로 바뀌었어요. 주사위를 다 없앤 사람은 탈출, 6은 아직 남은 옆 사람에게 넘어가요.",
+   "<b>🍶 789</b> 추가 (주사위 메뉴): 합의 뒷자리 7 첨잔, 8 반만, 9 원샷, 6 순서 반대로.",
+   "<b>🃏 카드</b> 메뉴 추가: <b>Up/Down</b>(누적 옵션)과 <b>호치민</b>."
   ],
   "hUpdate": "🔄 업데이트",
   "updA": "<b>안드로이드</b>: 같은 QR이나 같은 버튼으로 새 APK를 받아 설치하면 됩니다. <b>기존 앱을 지우지 않고</b> 덮어 설치돼요.",
@@ -160,7 +161,22 @@ export const MANUAL = {
    [
     "인원(2~4명)을 정하고 폰을 테이블 가운데에 둬요. 화면이 각자 방향으로 나뉘어요.",
     "자기 영역을 탭하면 내 주사위가 굴러가요. 모두 굴리면 결과가 한꺼번에 반영돼요.",
-    "1은 아웃, 6은 시계방향 옆 사람에게. <b>주사위가 다 없어지면 승리!</b>"
+    "1은 아웃, 6은 시계방향 옆 사람에게. 주사위가 다 없어지면 <b>탈출</b>! <b>마지막까지 남은 한 명이 패배</b>예요."
+   ],
+   [
+    "인원(2~8명)을 정하고, <b>6이 나오면 순서 반대로</b> 옵션을 켜거나 꺼요.",
+    "차례인 사람이 화면을 탭하면 주사위 2개가 통통 튀면서 굴러가요.",
+    "합의 뒷자리가 <b>7 첨잔 · 8 반만 마시기 · 9 한번에 다 마시기</b>, 6은 순서 반대로, 나머지는 통과예요."
+   ],
+   [
+    "인원(2~8명)을 정해요. <b>누적</b> 옵션을 켜면 성공할 때마다 벌주가 1잔씩 쌓여요.",
+    "바닥 카드보다 다음 카드가 높으면 <b>UP</b>, 낮으면 <b>DOWN</b>. A나 K가 기준이면 <b>레드/블랙</b>을 맞혀요.",
+    "성공하면 다음 사람 차례, 실패하면 벌주(누적이면 쌓인 잔 전부)! <b>같은 숫자가 나오면 원샷</b>이에요."
+   ],
+   [
+    "인원(2~4명)을 정하고 폰을 테이블 가운데에 둬요. 각자 받은 카드 1장이 내 숫자예요.",
+    "차례인 사람이 가운데 카드 2장 중 바꿀 카드를 눌러요. 새 카드가 뒤집혀 올라와요.",
+    "두 장 합의 뒷자리가 내 숫자면 <b>원샷!</b> (A=1, 10·J·Q·K=0) <b>새 게임</b>으로 카드를 다시 나눠요."
    ],
    [
     "당첨 이빨 개수(1~10개)를 정하고 시작해요.",
@@ -222,6 +238,18 @@ export const MANUAL = {
     "fiveTitle"
    ],
    [
+    "how-789",
+    "d789Title"
+   ],
+   [
+    "how-updown",
+    "udTitle"
+   ],
+   [
+    "how-hcm",
+    "hcmTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -262,6 +290,9 @@ export const MANUAL = {
    "👆",
    "🔢",
    "🎲",
+   "🍶",
+   "↕️",
+   "🇻🇳",
    "🐺",
    "🪜",
    "🎡",
@@ -278,7 +309,7 @@ export const MANUAL = {
   "lead": "Drinking game collection · Install guide",
   "navAndroid": "🤖 Android install",
   "navIphone": "🍎 iPhone home screen",
-  "navNew": "🆕 What's in v1.1",
+  "navNew": "🆕 What's in v1.2",
   "navUpdate": "🔄 Updates",
   "navFaq": "❓ FAQ",
   "qAndroid": "🤖 Android app",
@@ -373,11 +404,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Main screen",
-  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.1</b>) is shown at the bottom.",
-  "hNew": "🆕 What's in v1.1",
-  "newIntro": "Wolf Games v1.1 includes these games and features.",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.2</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v1.2",
+  "newIntro": "Wolf Games v1.2 includes these games and features.",
   "newFeat": [
    "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "🃏 Card games (Up/Down · Ho Chi Minh) · 🍶 789",
    "🧮 Calculator · 🍻 Bill split · 💱 Currency exchange (next to the logo)",
    "📳 Vibration on every button and game tap (stronger on wins)",
    "🔆 Screen stays on while playing",
@@ -385,9 +417,9 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Latest changes",
   "changes": [
-   "<b>🧮 Calculator</b>: a calculator button next to the logo on the main screen, with basic arithmetic.",
-   "<b>🍻 Bill split</b>: divides the calculator amount by the number of people. Round up to 10, 100 or 1000, and see how much is left over.",
-   "<b>💱 Currency exchange</b>: pick two currencies to convert. Rates update once a day; without internet the last saved rates are shown."
+   "<b>🎲 Five Dice</b>: instead of ending when someone wins, you now play <b>until one player is left</b> — it picks the loser. Players who run out of dice escape, and 6s go to the next player still in.",
+   "<b>🍶 789</b> added (Dice menu): last digit 7 top up, 8 half, 9 bottoms up, 6 reverses the order.",
+   "New <b>🃏 Cards</b> menu: <b>Up/Down</b> (with stack option) and <b>Ho Chi Minh</b>."
   ],
   "hUpdate": "🔄 Updates",
   "updA": "<b>Android</b>: download the new APK with the same QR code or button and install it. It installs <b>over the old app</b> — no need to delete it.",
@@ -433,7 +465,22 @@ export const MANUAL = {
    [
     "Choose 2–4 players and put the phone in the middle of the table. The screen splits so each area faces its player.",
     "Tap your own area to roll your dice. When everyone has rolled, the results apply at once.",
-    "1 is out, 6 goes to the next player clockwise. <b>No dice left = you win!</b>"
+    "1s are out, 6s go to the next player clockwise. Run out of dice and you <b>escape</b>! <b>The last player left loses.</b>"
+   ],
+   [
+    "Choose the number of players (2–8) and turn the <b>reverse on 6</b> option on or off.",
+    "The player whose turn it is taps the screen and two dice bounce and roll.",
+    "Last digit of the sum: <b>7 top up · 8 drink half · 9 drink it all</b>, 6 reverses the order, anything else passes."
+   ],
+   [
+    "Choose the number of players (2–8). With the <b>stack</b> option, 1 drink is added for every success.",
+    "Guess whether the next card is higher (<b>UP</b>) or lower (<b>DOWN</b>). If the base card is A or K, guess <b>red/black</b>.",
+    "Right: next player. Wrong: drink (with stack, the whole pot)! <b>Same number: bottoms up.</b>"
+   ],
+   [
+    "Choose the number of players (2–4) and put the phone in the middle. Your one card is your number.",
+    "On your turn, tap one of the two middle cards to replace it. A new card flips up.",
+    "If the last digit of the two cards matches your number, <b>bottoms up!</b> (A=1, 10/J/Q/K=0) <b>New game</b> deals again."
    ],
    [
     "Choose how many biting teeth (1–10) and start.",
@@ -495,6 +542,18 @@ export const MANUAL = {
     "fiveTitle"
    ],
    [
+    "how-789",
+    "d789Title"
+   ],
+   [
+    "how-updown",
+    "udTitle"
+   ],
+   [
+    "how-hcm",
+    "hcmTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -535,6 +594,9 @@ export const MANUAL = {
    "👆",
    "🔢",
    "🎲",
+   "🍶",
+   "↕️",
+   "🇻🇳",
    "🐺",
    "🪜",
    "🎡",
@@ -551,7 +613,7 @@ export const MANUAL = {
   "lead": "飲み会ゲーム集 · インストール案内",
   "navAndroid": "🤖 Androidにインストール",
   "navIphone": "🍎 iPhoneのホーム画面に追加",
-  "navNew": "🆕 v1.1の内容",
+  "navNew": "🆕 v1.2の内容",
   "navUpdate": "🔄 アップデート",
   "navFaq": "❓ よくある質問",
   "qAndroid": "🤖 Androidアプリ",
@@ -645,11 +707,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 メイン画面",
-  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.1</b>）を確認できます。",
-  "hNew": "🆕 v1.1の内容",
-  "newIntro": "ウルフゲームズv1.1には次のゲームと機能が入っています。",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.2</b>）を確認できます。",
+  "hNew": "🆕 v1.2の内容",
+  "newIntro": "ウルフゲームズv1.2には次のゲームと機能が入っています。",
   "newFeat": [
    "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "🃏 カードゲーム（Up/Down・ホーチミン）・🍶 789",
    "🧮 電卓 · 🍻 割り勘 · 💱 両替（ロゴの横）",
    "📳 すべてのボタンとゲーム操作で振動（当たり・勝ちは強め）",
    "🔆 ゲーム中は画面が消えない",
@@ -657,9 +720,9 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近の変更",
   "changes": [
-   "<b>🧮 電卓</b>：メイン画面のロゴ横に電卓ボタンができました。四則演算ができます。",
-   "<b>🍻 割り勘</b>：電卓の金額を人数で割って1人あたりの金額を表示。10・100・1000単位で切り上げでき、集めた時の余りもわかります。",
-   "<b>💱 両替</b>：2つの通貨を選んで換算します。レートは1日1回更新、オフラインでは前回のレートを表示します。"
+   "<b>🎲 5個サイコロ</b>：1人が勝ったら終わる方式から、<b>最後の1人が残るまで</b>続ける負け決めゲームに変わりました。サイコロをなくした人は脱出、6はまだ残っている隣の人へ渡ります。",
+   "<b>🍶 789</b>追加（サイコロメニュー）：合計の下1桁7 注ぎ足し、8 半分、9 一気、6 順番逆。",
+   "<b>🃏 カード</b>メニュー追加：<b>Up/Down</b>（累積オプション）と<b>ホーチミン</b>。"
   ],
   "hUpdate": "🔄 アップデート",
   "updA": "<b>Android</b>：同じQRコードかボタンで新しいAPKをダウンロードしてインストールします。<b>古いアプリを消さずに</b>上書きされます。",
@@ -705,7 +768,22 @@ export const MANUAL = {
    [
     "人数（2〜4人）を決めてスマホをテーブルの真ん中に置きます。画面がそれぞれの向きに分かれます。",
     "自分のエリアをタップすると自分のサイコロが転がります。全員振ると結果がまとめて反映されます。",
-    "1はアウト、6は時計回りで隣の人へ。<b>サイコロがなくなったら勝ち！</b>"
+    "1はアウト、6は時計回りの隣の人へ。サイコロがなくなったら<b>脱出</b>！<b>最後まで残った1人が負け</b>です。"
+   ],
+   [
+    "人数（2〜8人）を決め、<b>6で順番を逆に</b>のオン・オフを選びます。",
+    "順番の人が画面をタップすると、サイコロ2個が跳ねながら転がります。",
+    "合計の下1桁が<b>7 注ぎ足し・8 半分飲む・9 一気に飲む</b>、6は順番を逆に、それ以外はパス。"
+   ],
+   [
+    "人数（2〜8人）を決めます。<b>累積</b>をオンにすると成功するたびに罰杯が1杯ずつ増えます。",
+    "場のカードより次のカードが高ければ<b>UP</b>、低ければ<b>DOWN</b>。AかKが基準なら<b>赤/黒</b>を当てます。",
+    "成功なら次の人、失敗なら罰杯（累積ならたまった分全部）！<b>同じ数字なら一気</b>です。"
+   ],
+   [
+    "人数（2〜4人）を決めてスマホをテーブルの真ん中に置きます。配られた1枚が自分の数字です。",
+    "順番の人が真ん中の2枚から替えるカードを押すと、新しいカードがめくられます。",
+    "2枚の合計の下1桁が自分の数字なら<b>一気！</b>（A=1、10・J・Q・K=0）<b>新しいゲーム</b>で配り直します。"
    ],
    [
     "当たりの歯の数（1〜10）を決めて始めます。",
@@ -767,6 +845,18 @@ export const MANUAL = {
     "fiveTitle"
    ],
    [
+    "how-789",
+    "d789Title"
+   ],
+   [
+    "how-updown",
+    "udTitle"
+   ],
+   [
+    "how-hcm",
+    "hcmTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -807,6 +897,9 @@ export const MANUAL = {
    "👆",
    "🔢",
    "🎲",
+   "🍶",
+   "↕️",
+   "🇻🇳",
    "🐺",
    "🪜",
    "🎡",
@@ -823,7 +916,7 @@ export const MANUAL = {
   "lead": "酒桌游戏合集 · 安装说明",
   "navAndroid": "🤖 安卓安装",
   "navIphone": "🍎 iPhone添加到主屏幕",
-  "navNew": "🆕 v1.1内容",
+  "navNew": "🆕 v1.2内容",
   "navUpdate": "🔄 更新",
   "navFaq": "❓ 常见问题",
   "qAndroid": "🤖 安卓应用",
@@ -917,11 +1010,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 主界面",
-  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.1</b>）。",
-  "hNew": "🆕 v1.1内容",
-  "newIntro": "沃夫游戏v1.1包含以下游戏和功能。",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.2</b>）。",
+  "hNew": "🆕 v1.2内容",
+  "newIntro": "沃夫游戏v1.2包含以下游戏和功能。",
   "newFeat": [
    "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "🃏 纸牌游戏（Up/Down · 胡志明）· 🍶 789",
    "🧮 计算器 · 🍻 AA分摊 · 💱 汇率换算（标志旁边）",
    "📳 所有按钮和游戏操作都会振动（中奖、获胜时更强）",
    "🔆 游戏中屏幕不会熄灭",
@@ -929,9 +1023,9 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近修改",
   "changes": [
-   "<b>🧮 计算器</b>：主界面标志旁边新增计算器按钮，可以进行四则运算。",
-   "<b>🍻 AA分摊</b>：把计算器的金额按人数平分，显示每人金额。可按10、100、1000向上取整，并显示收齐后多出多少。",
-   "<b>💱 汇率换算</b>：选择两种货币进行换算。汇率每天更新一次，没有网络时显示上次保存的汇率。"
+   "<b>🎲 五颗骰子</b>：从有人赢就结束，改为<b>一直玩到只剩一个人</b>，用来决定输家。骰子用完的人逃脱，6点交给还在场的下一位。",
+   "新增<b>🍶 789</b>（骰子菜单）：和的个位7加酒、8喝一半、9干杯、6顺序反转。",
+   "新增<b>🃏 纸牌</b>菜单：<b>Up/Down</b>（可累积）和<b>胡志明</b>。"
   ],
   "hUpdate": "🔄 更新",
   "updA": "<b>安卓</b>：用同一个二维码或按钮下载新的APK并安装即可。<b>不用删除旧应用</b>，直接覆盖安装。",
@@ -977,7 +1071,22 @@ export const MANUAL = {
    [
     "选好人数（2~4人），把手机放在桌子中间，屏幕会按各自方向分开。",
     "点自己的区域就会摇自己的骰子。所有人都摇完后结果一起生效。",
-    "1出局，6按顺时针给下家。<b>骰子全部没有就获胜！</b>"
+    "1点出局，6点顺时针交给下一位。骰子全没了就<b>逃脱</b>！<b>最后剩下的一个人输</b>。"
+   ],
+   [
+    "选择人数（2~8人），并开关<b>掷出6时顺序反转</b>选项。",
+    "轮到的人点屏幕，两颗骰子会弹跳着滚动。",
+    "点数和的个位：<b>7 加酒 · 8 喝一半 · 9 一口干</b>，6 顺序反转，其他直接过。"
+   ],
+   [
+    "选择人数（2~8人）。打开<b>累积</b>后每成功一次罚酒加1杯。",
+    "猜下一张比桌上的牌大（<b>UP</b>）还是小（<b>DOWN</b>）。基准牌是A或K时猜<b>红/黑</b>。",
+    "猜对轮到下一位，猜错喝罚酒（累积时喝掉全部）！<b>点数相同就干杯</b>。"
+   ],
+   [
+    "选择人数（2~4人），把手机放在桌子中间。每人拿到的一张牌就是自己的数字。",
+    "轮到的人从中间两张牌里点一张替换，新牌会翻开。",
+    "两张牌之和的个位等于自己的数字就<b>干杯！</b>（A=1，10·J·Q·K=0）点<b>新游戏</b>重新发牌。"
    ],
    [
     "选好中奖牙齿数量（1~10颗）开始。",
@@ -1039,6 +1148,18 @@ export const MANUAL = {
     "fiveTitle"
    ],
    [
+    "how-789",
+    "d789Title"
+   ],
+   [
+    "how-updown",
+    "udTitle"
+   ],
+   [
+    "how-hcm",
+    "hcmTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -1079,6 +1200,9 @@ export const MANUAL = {
    "👆",
    "🔢",
    "🎲",
+   "🍶",
+   "↕️",
+   "🇻🇳",
    "🐺",
    "🪜",
    "🎡",
@@ -1095,7 +1219,7 @@ export const MANUAL = {
   "lead": "รวมเกมวงเหล้า · วิธีติดตั้ง",
   "navAndroid": "🤖 ติดตั้งบน Android",
   "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
-  "navNew": "🆕 มีอะไรใน v1.1",
+  "navNew": "🆕 มีอะไรใน v1.2",
   "navUpdate": "🔄 อัปเดต",
   "navFaq": "❓ คำถามที่พบบ่อย",
   "qAndroid": "🤖 แอป Android",
@@ -1189,11 +1313,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 หน้าหลัก",
-  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.1</b>) ได้ที่ด้านล่างสุด",
-  "hNew": "🆕 มีอะไรใน v1.1",
-  "newIntro": "Wolf Games v1.1 มีเกมและฟีเจอร์ต่อไปนี้",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.2</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v1.2",
+  "newIntro": "Wolf Games v1.2 มีเกมและฟีเจอร์ต่อไปนี้",
   "newFeat": [
    "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "🃏 เกมไพ่ (Up/Down · โฮจิมินห์) · 🍶 789",
    "🧮 เครื่องคิดเลข · 🍻 หารบิล · 💱 แลกเงิน (ข้างโลโก้)",
    "📳 สั่นทุกครั้งที่กดปุ่มหรือแตะในเกม (สั่นแรงเมื่อโดนหรือชนะ)",
    "🔆 หน้าจอไม่ดับขณะเล่น",
@@ -1201,9 +1326,9 @@ export const MANUAL = {
   ],
   "hChange": "🛠 การแก้ไขล่าสุด",
   "changes": [
-   "<b>🧮 เครื่องคิดเลข</b>: มีปุ่มเครื่องคิดเลขข้างโลโก้ในหน้าหลัก ใช้บวก ลบ คูณ หารได้",
-   "<b>🍻 หารบิล</b>: หารยอดในเครื่องคิดเลขตามจำนวนคน แสดงยอดต่อคน ปัดขึ้นทีละ 10, 100, 1000 ได้ และบอกว่าเก็บแล้วเหลือเท่าไร",
-   "<b>💱 แลกเงิน</b>: เลือก 2 สกุลเงินเพื่อแปลง อัตราอัปเดตวันละครั้ง ถ้าไม่มีเน็ตจะแสดงอัตราล่าสุดที่บันทึกไว้"
+   "<b>🎲 เต๋า 5 ลูก</b>: จากเดิมที่จบเมื่อมีคนชนะ ตอนนี้เล่น<b>จนเหลือคนสุดท้าย</b>เพื่อหาคนแพ้ คนที่เต๋าหมดจะรอด และเลข 6 ส่งให้คนถัดไปที่ยังเล่นอยู่",
+   "เพิ่ม <b>🍶 789</b> (เมนูลูกเต๋า): หลักหน่วย 7 เติมแก้ว, 8 ดื่มครึ่ง, 9 หมดแก้ว, 6 สลับลำดับ",
+   "เพิ่มเมนู <b>🃏 ไพ่</b>: <b>Up/Down</b> (มีตัวเลือกสะสม) และ <b>โฮจิมินห์</b>"
   ],
   "hUpdate": "🔄 อัปเดต",
   "updA": "<b>Android</b>: ดาวน์โหลด APK ใหม่ด้วย QR หรือปุ่มเดิมแล้วติดตั้ง จะติดตั้ง <b>ทับแอปเดิม</b> โดยไม่ต้องลบ",
@@ -1249,7 +1374,22 @@ export const MANUAL = {
    [
     "เลือกผู้เล่น 2–4 คน แล้ววางโทรศัพท์กลางโต๊ะ หน้าจอจะแบ่งตามทิศของแต่ละคน",
     "แตะพื้นที่ของตัวเองเพื่อทอยเต๋าของตัวเอง เมื่อทุกคนทอยครบ ผลจะนับพร้อมกัน",
-    "1 ถูกคัดออก 6 ส่งให้คนถัดไปตามเข็มนาฬิกา <b>ไม่มีเต๋าเหลือ = ชนะ!</b>"
+    "เลข 1 ออก เลข 6 ส่งให้คนถัดไปตามเข็มนาฬิกา เต๋าหมดเมื่อไหร่ก็<b>รอด</b>! <b>คนสุดท้ายที่เหลือแพ้</b>"
+   ],
+   [
+    "เลือกจำนวนคน (2–8 คน) แล้วเปิดหรือปิดตัวเลือก <b>ออก 6 สลับลำดับ</b>",
+    "คนที่ถึงตาแตะหน้าจอ เต๋า 2 ลูกจะเด้งและกลิ้ง",
+    "หลักหน่วยของผลรวม: <b>7 เติมแก้ว · 8 ดื่มครึ่ง · 9 หมดแก้ว</b> 6 สลับลำดับ นอกนั้นผ่าน"
+   ],
+   [
+    "เลือกจำนวนคน (2–8 คน) ถ้าเปิด <b>สะสม</b> ทุกครั้งที่ทายถูกจะเพิ่มแก้วลงโทษ 1 แก้ว",
+    "ทายว่าไพ่ใบต่อไปสูงกว่า (<b>UP</b>) หรือต่ำกว่า (<b>DOWN</b>) ถ้าไพ่ฐานเป็น A หรือ K ให้ทาย <b>แดง/ดำ</b>",
+    "ถูกก็ถึงตาคนต่อไป ผิดดื่มลงโทษ (ถ้าสะสมดื่มทั้งหมด)! <b>ได้เลขเดียวกันหมดแก้ว</b>"
+   ],
+   [
+    "เลือกจำนวนคน (2–4 คน) แล้ววางโทรศัพท์กลางโต๊ะ ไพ่ 1 ใบที่ได้คือเลขของเรา",
+    "คนที่ถึงตากดเลือกไพ่ 1 ใน 2 ใบตรงกลางเพื่อเปลี่ยน ไพ่ใหม่จะพลิกขึ้น",
+    "ถ้าหลักหน่วยของผลรวมตรงกับเลขของเรา <b>หมดแก้ว!</b> (A=1, 10·J·Q·K=0) กด <b>เกมใหม่</b> เพื่อแจกใหม่"
    ],
    [
     "เลือกจำนวนฟันที่งับ (1–10 ซี่) แล้วเริ่ม",
@@ -1311,6 +1451,18 @@ export const MANUAL = {
     "fiveTitle"
    ],
    [
+    "how-789",
+    "d789Title"
+   ],
+   [
+    "how-updown",
+    "udTitle"
+   ],
+   [
+    "how-hcm",
+    "hcmTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -1351,6 +1503,9 @@ export const MANUAL = {
    "👆",
    "🔢",
    "🎲",
+   "🍶",
+   "↕️",
+   "🇻🇳",
    "🐺",
    "🪜",
    "🎡",
@@ -1367,7 +1522,7 @@ export const MANUAL = {
   "lead": "Bộ trò chơi nhậu · Hướng dẫn cài đặt",
   "navAndroid": "🤖 Cài trên Android",
   "navIphone": "🍎 Thêm vào MH chính iPhone",
-  "navNew": "🆕 Có gì trong v1.1",
+  "navNew": "🆕 Có gì trong v1.2",
   "navUpdate": "🔄 Cập nhật",
   "navFaq": "❓ Câu hỏi thường gặp",
   "qAndroid": "🤖 Ứng dụng Android",
@@ -1461,11 +1616,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Màn hình chính",
-  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.1</b>) hiện ở dưới cùng.",
-  "hNew": "🆕 Có gì trong v1.1",
-  "newIntro": "Wolf Games v1.1 gồm các trò chơi và tính năng sau.",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.2</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v1.2",
+  "newIntro": "Wolf Games v1.2 gồm các trò chơi và tính năng sau.",
   "newFeat": [
    "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "🃏 Trò chơi bài (Up/Down · Hồ Chí Minh) · 🍶 789",
    "🧮 Máy tính · 🍻 Chia tiền · 💱 Đổi tiền (cạnh logo)",
    "📳 Rung khi bấm nút và chạm trong trò chơi (rung mạnh khi trúng, thắng)",
    "🔆 Màn hình không tắt khi đang chơi",
@@ -1473,9 +1629,9 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Thay đổi gần đây",
   "changes": [
-   "<b>🧮 Máy tính</b>: có nút máy tính cạnh logo ở màn hình chính, tính cộng trừ nhân chia.",
-   "<b>🍻 Chia tiền</b>: chia số tiền trong máy tính theo số người, hiện số tiền mỗi người. Làm tròn lên 10, 100, 1000 và cho biết dư bao nhiêu.",
-   "<b>💱 Đổi tiền</b>: chọn 2 loại tiền để quy đổi. Tỷ giá cập nhật mỗi ngày một lần; khi không có mạng sẽ hiện tỷ giá đã lưu."
+   "<b>🎲 5 xúc xắc</b>: thay vì kết thúc khi có người thắng, giờ chơi <b>đến khi chỉ còn một người</b> để chọn người thua. Ai hết xúc xắc thì thoát, số 6 chuyển cho người kế bên còn đang chơi.",
+   "Thêm <b>🍶 789</b> (menu Xúc xắc): chữ số cuối 7 rót thêm, 8 uống nửa, 9 uống cạn, 6 đảo chiều.",
+   "Thêm menu <b>🃏 Bài</b>: <b>Up/Down</b> (có cộng dồn) và <b>Hồ Chí Minh</b>."
   ],
   "hUpdate": "🔄 Cập nhật",
   "updA": "<b>Android</b>: tải APK mới bằng cùng mã QR hoặc nút rồi cài. Ứng dụng được cài <b>đè lên bản cũ</b>, không cần xóa.",
@@ -1521,7 +1677,22 @@ export const MANUAL = {
    [
     "Chọn 2–4 người và đặt điện thoại giữa bàn. Màn hình chia theo hướng của từng người.",
     "Chạm vào khu vực của mình để lắc xúc xắc của mình. Khi tất cả lắc xong, kết quả được tính cùng lúc.",
-    "1 bị loại, 6 chuyền cho người kế tiếp theo chiều kim đồng hồ. <b>Hết xúc xắc là thắng!</b>"
+    "Ra 1 thì bỏ, ra 6 chuyển cho người kế bên theo chiều kim đồng hồ. Hết xúc xắc là <b>thoát</b>! <b>Người còn lại cuối cùng thua.</b>"
+   ],
+   [
+    "Chọn số người (2–8) và bật/tắt tùy chọn <b>ra 6 thì đảo chiều</b>.",
+    "Người đến lượt chạm màn hình, 2 xúc xắc nảy lên và lăn.",
+    "Chữ số cuối của tổng: <b>7 rót thêm · 8 uống nửa · 9 uống cạn</b>, 6 đảo chiều, còn lại thì qua."
+   ],
+   [
+    "Chọn số người (2–8). Bật <b>cộng dồn</b> thì mỗi lần đoán đúng thêm 1 ly phạt.",
+    "Đoán lá tiếp theo cao hơn (<b>UP</b>) hay thấp hơn (<b>DOWN</b>). Nếu lá gốc là A hoặc K thì đoán <b>đỏ/đen</b>.",
+    "Đúng thì đến người kế, sai thì uống phạt (cộng dồn thì uống hết)! <b>Ra cùng số thì uống cạn.</b>"
+   ],
+   [
+    "Chọn số người (2–4) và đặt điện thoại giữa bàn. Lá bài mỗi người nhận là số của mình.",
+    "Người đến lượt chạm 1 trong 2 lá ở giữa để thay, lá mới sẽ lật lên.",
+    "Nếu chữ số cuối của tổng hai lá trùng số của mình thì <b>uống cạn!</b> (A=1, 10·J·Q·K=0) Bấm <b>Ván mới</b> để chia lại."
    ],
    [
     "Chọn số răng cắn (1–10) rồi bắt đầu.",
@@ -1583,6 +1754,18 @@ export const MANUAL = {
     "fiveTitle"
    ],
    [
+    "how-789",
+    "d789Title"
+   ],
+   [
+    "how-updown",
+    "udTitle"
+   ],
+   [
+    "how-hcm",
+    "hcmTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -1623,6 +1806,9 @@ export const MANUAL = {
    "👆",
    "🔢",
    "🎲",
+   "🍶",
+   "↕️",
+   "🇻🇳",
    "🐺",
    "🪜",
    "🎡",
