@@ -38,7 +38,7 @@ import com.wolfgames.app.ui.WG
 import com.wolfgames.app.ui.drawDie
 import kotlin.random.Random
 
-private const val HOLD_MS = 1000L
+private const val HOLD_MS = 500L
 private const val TAP_MS = 300L
 private const val DOUBLE_TAP_GAP_MS = 400L
 
@@ -55,7 +55,7 @@ private data class PlacedDie(val pos: Offset, val value: Int, val color: Color)
 /**
  * 1-1 주사위 굴리기
  * - 여러 손가락 동시 터치, 손가락마다 다른 색 원
- * - 1초 이상 누르면 원 아래 주사위가 정해지고, 손을 떼면 원이 사라지고 주사위 공개
+ * - 0.5초 이상 누르면 원 아래 주사위가 정해지고, 손을 떼면 원이 사라지고 주사위 공개
  * - 더블탭(또는 상단 초기화)으로 리셋
  */
 @Composable

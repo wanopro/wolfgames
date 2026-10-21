@@ -354,7 +354,7 @@ HOW_EMOJI = ['👆', '🔢', '🎲', '🐺', '🪜', '🎡', '🏁', '🗡️', 
 
 HOW = {
     'ko': dict(navHow='🎮 게임 방법', hHow='🎮 게임 방법', howIntro='메인 화면에서 게임을 누르면 바로 시작돼요. 설정이 있는 게임은 인원 등을 정한 뒤 <b>게임 시작</b>을 누르세요. 왼쪽 위 <b>←</b>로 언제든 나갈 수 있어요.', steps=[
-        ['여러 명이 동시에 화면에 손가락을 하나씩 올려요.', '원 둘레가 다 차고 진동이 오면(1초) 손을 떼세요. 그 자리에 각자 주사위가 나와요.', '화면을 두 번 톡톡 치거나 위쪽 <b>초기화</b>를 누르면 다시 시작해요.'],
+        ['여러 명이 동시에 화면에 손가락을 하나씩 올려요.', '원 둘레가 다 차고 진동이 오면(0.5초) 손을 떼세요. 그 자리에 각자 주사위가 나와요.', '화면을 두 번 톡톡 치거나 위쪽 <b>초기화</b>를 누르면 다시 시작해요.'],
         ['인원(1~8명)을 정하고 시작해요.', '주사위를 던지면 두 눈과 합이 노랗게 켜져요. 합을 누르면 그 숫자만, 눈 하나를 누르면 나머지 눈도 이어서 뒤집을 수 있어요.', '뒤집을 숫자가 없으면 다음 사람 차례. <b>마지막 숫자를 뒤집은 사람이 승리!</b>'],
         ['인원(2~4명)을 정하고 폰을 테이블 가운데에 둬요. 화면이 각자 방향으로 나뉘어요.', '자기 영역을 탭하면 내 주사위가 굴러가요. 모두 굴리면 결과가 한꺼번에 반영돼요.', '1은 아웃, 6은 시계방향 옆 사람에게. <b>주사위가 다 없어지면 승리!</b>'],
         ['당첨 이빨 개수(1~10개)를 정하고 시작해요.', '돌아가며 이빨을 하나씩 눌러요. 당첨이면 늑대가 <b>"앙!"</b> 하고 물어요.', '<b>계속하기</b>로 남은 당첨을 이어서 찾고, <b>새로 섞기</b>로 새 판을 시작해요.'],
@@ -368,7 +368,7 @@ HOW = {
         ['계산기에서 <b>💱 환전</b>을 눌러요. 계산기 금액이 자동으로 들어가요.', '위·아래 통화 버튼을 눌러 두 나라를 고르고, <b>⇅</b>로 맞바꿀 수 있어요.', '환율은 하루 한 번 갱신되는 참고용이에요. 인터넷이 없으면 마지막 환율을 보여줘요.'],
     ]),
     'en': dict(navHow='🎮 How to play', hHow='🎮 How to play', howIntro='Tap a game on the main screen to start. For games with settings, choose the number of players etc. and tap <b>Start</b>. Tap <b>←</b> at the top left to leave at any time.', steps=[
-        ['Several people put one finger each on the screen at the same time.', 'When the ring fills and the phone vibrates (1 sec), lift your finger. Your die appears where you touched.', 'Double-tap the screen or tap <b>Reset</b> at the top to start over.'],
+        ['Several people put one finger each on the screen at the same time.', 'When the ring fills and the phone vibrates (0.5 sec), lift your finger. Your die appears where you touched.', 'Double-tap the screen or tap <b>Reset</b> at the top to start over.'],
         ['Choose the number of players (1–8) and start.', 'Roll the dice: both numbers and their sum light up. Tap the sum to flip just that number, or tap one die number and then flip the other too.', "If nothing can be flipped, it's the next player's turn. <b>Whoever flips the last number wins!</b>"],
         ['Choose 2–4 players and put the phone in the middle of the table. The screen splits so each area faces its player.', 'Tap your own area to roll your dice. When everyone has rolled, the results apply at once.', '1 is out, 6 goes to the next player clockwise. <b>No dice left = you win!</b>'],
         ['Choose how many biting teeth (1–10) and start.', 'Take turns pressing one tooth at a time. Hit a biting tooth and the wolf goes <b>"chomp!"</b>', 'Tap <b>Continue</b> to keep looking for the rest, or <b>Shuffle</b> for a new round.'],
@@ -382,7 +382,7 @@ HOW = {
         ['Tap <b>💱 Exchange</b> in the calculator. The calculator amount is filled in automatically.', 'Tap the top and bottom currency buttons to choose two currencies, and <b>⇅</b> to swap them.', 'Rates update once a day and are for reference. Without internet the last saved rates are shown.'],
     ]),
     'ja': dict(navHow='🎮 遊び方', hHow='🎮 遊び方', howIntro='メイン画面でゲームを押すとすぐ始まります。設定があるゲームは人数などを決めてから<b>ゲーム開始</b>を押してください。左上の<b>←</b>でいつでも戻れます。', steps=[
-        ['何人かで同時に画面に指を1本ずつ置きます。', '円のまわりがいっぱいになって振動したら（1秒）指を離します。その場所にそれぞれのサイコロが出ます。', '画面をダブルタップするか上の<b>リセット</b>でやり直します。'],
+        ['何人かで同時に画面に指を1本ずつ置きます。', '円のまわりがいっぱいになって振動したら（0.5秒）指を離します。その場所にそれぞれのサイコロが出ます。', '画面をダブルタップするか上の<b>リセット</b>でやり直します。'],
         ['人数（1〜8人）を決めて始めます。', 'サイコロを振ると2つの目と合計が黄色く光ります。合計を押すとその数字だけ、目を1つ押すと続けてもう1つもめくれます。', 'めくれる数字がなければ次の人の番。<b>最後の数字をめくった人の勝ち！</b>'],
         ['人数（2〜4人）を決めてスマホをテーブルの真ん中に置きます。画面がそれぞれの向きに分かれます。', '自分のエリアをタップすると自分のサイコロが転がります。全員振ると結果がまとめて反映されます。', '1はアウト、6は時計回りで隣の人へ。<b>サイコロがなくなったら勝ち！</b>'],
         ['当たりの歯の数（1〜10）を決めて始めます。', '順番に歯を1本ずつ押します。当たりだとオオカミが<b>「ガブッ！」</b>とかみます。', '<b>続ける</b>で残りの当たりを探し、<b>シャッフル</b>で新しいゲームを始めます。'],
@@ -396,7 +396,7 @@ HOW = {
         ['電卓で<b>💱 両替</b>を押します。電卓の金額が自動で入ります。', '上下の通貨ボタンで2つの通貨を選び、<b>⇅</b>で入れ替えられます。', 'レートは1日1回更新の参考値です。オフラインでは前回のレートを表示します。'],
     ]),
     'zh': dict(navHow='🎮 玩法', hHow='🎮 玩法', howIntro='在主界面点游戏即可开始。有设置的游戏先选好人数等再点<b>开始游戏</b>。随时可以点左上角<b>←</b>返回。', steps=[
-        ['几个人同时各把一根手指放在屏幕上。', '圆圈转满并振动后（1秒）松开手指，各自的位置会出现骰子。', '双击屏幕或点上方<b>重置</b>重新开始。'],
+        ['几个人同时各把一根手指放在屏幕上。', '圆圈转满并振动后（0.5秒）松开手指，各自的位置会出现骰子。', '双击屏幕或点上方<b>重置</b>重新开始。'],
         ['选好人数（1~8人）开始。', '掷骰子后，两个点数和它们的和会亮起。点和只翻这个数字，点一个点数还可以接着翻另一个。', '没有可翻的数字就轮到下一位。<b>翻开最后一个数字的人获胜！</b>'],
         ['选好人数（2~4人），把手机放在桌子中间，屏幕会按各自方向分开。', '点自己的区域就会摇自己的骰子。所有人都摇完后结果一起生效。', '1出局，6按顺时针给下家。<b>骰子全部没有就获胜！</b>'],
         ['选好中奖牙齿数量（1~10颗）开始。', '轮流一颗一颗按牙齿。按到中奖，狼会<b>"啊呜！"</b>咬一口。', '点<b>继续</b>找剩下的中奖，点<b>重新洗牌</b>开始新一局。'],
@@ -410,7 +410,7 @@ HOW = {
         ['在计算器里点<b>💱 汇率</b>，计算器的金额会自动填入。', '点上下的货币按钮选两种货币，点<b>⇅</b>可以对调。', '汇率每天更新一次，仅供参考。没有网络时显示上次保存的汇率。'],
     ]),
     'th': dict(navHow='🎮 วิธีเล่น', hHow='🎮 วิธีเล่น', howIntro='กดเกมในหน้าหลักเพื่อเริ่มได้เลย เกมที่มีการตั้งค่าให้เลือกจำนวนคนก่อนแล้วกด <b>เริ่มเกม</b> กด <b>←</b> มุมซ้ายบนเพื่อออกได้ตลอด', steps=[
-        ['หลายคนวางนิ้วคนละนิ้วบนหน้าจอพร้อมกัน', 'เมื่อวงกลมเต็มและเครื่องสั่น (1 วินาที) ให้ยกนิ้ว ลูกเต๋าของแต่ละคนจะขึ้นตรงที่แตะ', 'แตะหน้าจอสองครั้งหรือกด <b>รีเซ็ต</b> ด้านบนเพื่อเริ่มใหม่'],
+        ['หลายคนวางนิ้วคนละนิ้วบนหน้าจอพร้อมกัน', 'เมื่อวงกลมเต็มและเครื่องสั่น (0.5 วินาที) ให้ยกนิ้ว ลูกเต๋าของแต่ละคนจะขึ้นตรงที่แตะ', 'แตะหน้าจอสองครั้งหรือกด <b>รีเซ็ต</b> ด้านบนเพื่อเริ่มใหม่'],
         ['เลือกจำนวนผู้เล่น (1–8 คน) แล้วเริ่ม', 'ทอยลูกเต๋าแล้วแต้มทั้งสองและผลรวมจะสว่าง กดผลรวมเพื่อพลิกเลขนั้น หรือกดแต้มหนึ่งตัวแล้วพลิกอีกตัวต่อได้', 'ถ้าไม่มีเลขให้พลิก ตาคนถัดไป <b>คนที่พลิกเลขสุดท้ายชนะ!</b>'],
         ['เลือกผู้เล่น 2–4 คน แล้ววางโทรศัพท์กลางโต๊ะ หน้าจอจะแบ่งตามทิศของแต่ละคน', 'แตะพื้นที่ของตัวเองเพื่อทอยเต๋าของตัวเอง เมื่อทุกคนทอยครบ ผลจะนับพร้อมกัน', '1 ถูกคัดออก 6 ส่งให้คนถัดไปตามเข็มนาฬิกา <b>ไม่มีเต๋าเหลือ = ชนะ!</b>'],
         ['เลือกจำนวนฟันที่งับ (1–10 ซี่) แล้วเริ่ม', 'ผลัดกันกดฟันทีละซี่ ถ้าโดน หมาป่าจะ <b>"งับ!"</b>', 'กด <b>เล่นต่อ</b> เพื่อหาที่เหลือ หรือ <b>สุ่มใหม่</b> เพื่อเริ่มรอบใหม่'],
@@ -424,7 +424,7 @@ HOW = {
         ['กด <b>💱 แลกเงิน</b> ในเครื่องคิดเลข ยอดในเครื่องคิดเลขจะถูกใส่อัตโนมัติ', 'กดปุ่มสกุลเงินบนและล่างเพื่อเลือก 2 สกุล และกด <b>⇅</b> เพื่อสลับ', 'อัตราอัปเดตวันละครั้งใช้อ้างอิง ถ้าไม่มีเน็ตจะแสดงอัตราล่าสุดที่บันทึกไว้'],
     ]),
     'vi': dict(navHow='🎮 Cách chơi', hHow='🎮 Cách chơi', howIntro='Bấm vào trò chơi ở màn hình chính để bắt đầu. Trò chơi có cài đặt thì chọn số người… rồi bấm <b>Bắt đầu</b>. Bấm <b>←</b> góc trên bên trái để thoát bất cứ lúc nào.', steps=[
-        ['Nhiều người cùng đặt mỗi người một ngón tay lên màn hình.', 'Khi vòng tròn đầy và điện thoại rung (1 giây) thì nhấc tay. Xúc xắc của mỗi người hiện ở chỗ chạm.', 'Chạm hai lần lên màn hình hoặc bấm <b>Đặt lại</b> ở trên để chơi lại.'],
+        ['Nhiều người cùng đặt mỗi người một ngón tay lên màn hình.', 'Khi vòng tròn đầy và điện thoại rung (0,5 giây) thì nhấc tay. Xúc xắc của mỗi người hiện ở chỗ chạm.', 'Chạm hai lần lên màn hình hoặc bấm <b>Đặt lại</b> ở trên để chơi lại.'],
         ['Chọn số người chơi (1–8) rồi bắt đầu.', 'Tung xúc xắc thì hai số và tổng sẽ sáng lên. Bấm tổng để lật số đó, hoặc bấm một số rồi lật tiếp số còn lại.', 'Không còn số để lật thì đến lượt người kế tiếp. <b>Ai lật số cuối cùng là thắng!</b>'],
         ['Chọn 2–4 người và đặt điện thoại giữa bàn. Màn hình chia theo hướng của từng người.', 'Chạm vào khu vực của mình để lắc xúc xắc của mình. Khi tất cả lắc xong, kết quả được tính cùng lúc.', '1 bị loại, 6 chuyền cho người kế tiếp theo chiều kim đồng hồ. <b>Hết xúc xắc là thắng!</b>'],
         ['Chọn số răng cắn (1–10) rồi bắt đầu.', 'Lần lượt nhấn từng cái răng. Trúng răng cắn thì sói sẽ <b>"phập!"</b>', 'Bấm <b>Tiếp tục</b> để tìm răng còn lại, hoặc <b>Xáo lại</b> để chơi ván mới.'],

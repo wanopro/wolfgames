@@ -149,7 +149,7 @@ export const MANUAL = {
   "steps": [
    [
     "여러 명이 동시에 화면에 손가락을 하나씩 올려요.",
-    "원 둘레가 다 차고 진동이 오면(1초) 손을 떼세요. 그 자리에 각자 주사위가 나와요.",
+    "원 둘레가 다 차고 진동이 오면(0.5초) 손을 떼세요. 그 자리에 각자 주사위가 나와요.",
     "화면을 두 번 톡톡 치거나 위쪽 <b>초기화</b>를 누르면 다시 시작해요."
    ],
    [
@@ -422,7 +422,7 @@ export const MANUAL = {
   "steps": [
    [
     "Several people put one finger each on the screen at the same time.",
-    "When the ring fills and the phone vibrates (1 sec), lift your finger. Your die appears where you touched.",
+    "When the ring fills and the phone vibrates (0.5 sec), lift your finger. Your die appears where you touched.",
     "Double-tap the screen or tap <b>Reset</b> at the top to start over."
    ],
    [
@@ -694,7 +694,7 @@ export const MANUAL = {
   "steps": [
    [
     "何人かで同時に画面に指を1本ずつ置きます。",
-    "円のまわりがいっぱいになって振動したら（1秒）指を離します。その場所にそれぞれのサイコロが出ます。",
+    "円のまわりがいっぱいになって振動したら（0.5秒）指を離します。その場所にそれぞれのサイコロが出ます。",
     "画面をダブルタップするか上の<b>リセット</b>でやり直します。"
    ],
    [
@@ -966,7 +966,7 @@ export const MANUAL = {
   "steps": [
    [
     "几个人同时各把一根手指放在屏幕上。",
-    "圆圈转满并振动后（1秒）松开手指，各自的位置会出现骰子。",
+    "圆圈转满并振动后（0.5秒）松开手指，各自的位置会出现骰子。",
     "双击屏幕或点上方<b>重置</b>重新开始。"
    ],
    [
@@ -1238,7 +1238,7 @@ export const MANUAL = {
   "steps": [
    [
     "หลายคนวางนิ้วคนละนิ้วบนหน้าจอพร้อมกัน",
-    "เมื่อวงกลมเต็มและเครื่องสั่น (1 วินาที) ให้ยกนิ้ว ลูกเต๋าของแต่ละคนจะขึ้นตรงที่แตะ",
+    "เมื่อวงกลมเต็มและเครื่องสั่น (0.5 วินาที) ให้ยกนิ้ว ลูกเต๋าของแต่ละคนจะขึ้นตรงที่แตะ",
     "แตะหน้าจอสองครั้งหรือกด <b>รีเซ็ต</b> ด้านบนเพื่อเริ่มใหม่"
    ],
    [
@@ -1510,7 +1510,7 @@ export const MANUAL = {
   "steps": [
    [
     "Nhiều người cùng đặt mỗi người một ngón tay lên màn hình.",
-    "Khi vòng tròn đầy và điện thoại rung (1 giây) thì nhấc tay. Xúc xắc của mỗi người hiện ở chỗ chạm.",
+    "Khi vòng tròn đầy và điện thoại rung (0,5 giây) thì nhấc tay. Xúc xắc của mỗi người hiện ở chỗ chạm.",
     "Chạm hai lần lên màn hình hoặc bấm <b>Đặt lại</b> ở trên để chơi lại."
    ],
    [
