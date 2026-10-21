@@ -50,6 +50,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.wolfgames.app.games.ArrowGame
 import com.wolfgames.app.games.FiveDiceGame
+import com.wolfgames.app.games.FourGame
 import com.wolfgames.app.games.LadderGame
 import com.wolfgames.app.games.PirateGame
 import com.wolfgames.app.games.RaceGame
@@ -99,7 +100,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, Croc, Ladder, Roulette, Race, Pirate, Arrow, Language }
+enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Language }
 
 @Composable
 fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
@@ -125,6 +126,7 @@ fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
             Screen.Race -> RaceGame(onBack = back)
             Screen.Pirate -> PirateGame(onBack = back)
             Screen.Arrow -> ArrowGame(onBack = back)
+            Screen.Four -> FourGame(onBack = back)
             Screen.Language -> LanguageScreen(langPref, onBack = back, onSelect = onLangChange)
         }
     }
@@ -179,6 +181,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
             MenuCard("🏁", s.menuRace, s.menuRaceSub) { onSelect(Screen.Race) }
             MenuCard("🏴‍☠️", s.menuPirate, s.menuPirateSub) { onSelect(Screen.Pirate) }
             MenuCard("➡️", s.menuArrow, s.menuArrowSub) { onSelect(Screen.Arrow) }
+            MenuCard("🔴", s.menuFour, s.menuFourSub) { onSelect(Screen.Four) }
             Spacer(Modifier.height(10.dp))
             // Powered by WOLF(feat. segna) — WOLF 를 누르면 홈페이지 이동 확인
             Row(

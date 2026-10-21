@@ -3,6 +3,7 @@ import { S, h, btn, card, top, lang, LANGS, vibe, VERSION } from './core.js';
 import { rollDice, shutBox, fiveDice } from './games-dice.js';
 import { wolfTeeth, ladder, roulette } from './games-pick.js';
 import { race, pirate, arrow } from './games-fun.js';
+import { four } from './games-four.js';
 
 const HOMEPAGE = 'https://wolf.community';
 const app = document.getElementById('app');
@@ -20,6 +21,7 @@ const SCREENS = {
   race,
   pirate,
   arrow,
+  four,
   lang: langScreen,
 };
 const PARENT = { roll: 'dice', shut: 'dice', five: 'dice' };
@@ -62,6 +64,7 @@ function homeScreen(root) {
     card('🏁', s.menuRace, s.menuRaceSub, () => go('race')),
     card('🏴‍☠️', s.menuPirate, s.menuPirateSub, () => go('pirate')),
     card('➡️', s.menuArrow, s.menuArrowSub, () => go('arrow')),
+    card('🔴', s.menuFour, s.menuFourSub, () => go('four')),
     h('div', { class: 'footer' }, 'Powered by ', btn('WOLF', ask, ''), '(feat. segna)'),
     h('div', { class: 'footer', style: 'padding-top:0;font-size:12px' }, h('a', { href: 'manual.html', style: 'color:var(--sub)' }, '📖 설치 안내'), h('span', { style: 'opacity:.6' }, `  ·  v${VERSION}`)));
   root.append(scroll);

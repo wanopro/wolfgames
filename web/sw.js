@@ -3,7 +3,7 @@
 const VERSION = 'wg-__BUILD__';
 const FILES = [
   './', 'index.html', 'style.css', 'app.js', 'core.js', 'i18n.js',
-  'games-dice.js', 'games-pick.js', 'games-fun.js', 'manifest.webmanifest',
+  'games-dice.js', 'games-pick.js', 'games-fun.js', 'games-four.js', 'manual.html', 'manifest.webmanifest',
   'icons/logo.png', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png', 'icons/favicon.png',
 ];
 

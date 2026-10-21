@@ -49,6 +49,13 @@ jobs:
             echo "tag=build-${{ github.run_number }}" >> "$GITHUB_OUTPUT"; echo "name=울프 게임즈 빌드 ${{ github.run_number }} (v${VER})" >> "$GITHUB_OUTPUT"
           fi
 
+      # 같은 버전으로 다시 릴리스하면 태그를 이 커밋으로 옮겨 최신 내용으로 교체
+      - name: 버전 태그를 이 커밋으로 이동
+        if: startsWith(steps.rel.outputs.tag, 'v')
+        run: |
+          git tag -f "${{ steps.rel.outputs.tag }}"
+          git push -f origin "refs/tags/${{ steps.rel.outputs.tag }}"
+
       - name: 릴리스에 APK 올리기 (폰에서 바로 다운로드용)
         uses: softprops/action-gh-release@v2
         with:
@@ -56,4 +63,5 @@ jobs:
           name: ${{ steps.rel.outputs.name }}
           target_commitish: ${{ github.sha }}
           make_latest: true
+          overwrite_files: true
           files: WolfGames.apk
