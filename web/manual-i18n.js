@@ -5,7 +5,7 @@ export const MANUAL = {
   "lead": "술자리 게임 모음 · 설치 안내",
   "navAndroid": "🤖 안드로이드 설치",
   "navIphone": "🍎 아이폰 홈 화면 추가",
-  "navNew": "🆕 v1.0 구성",
+  "navNew": "🆕 v1.1 구성",
   "navUpdate": "🔄 업데이트",
   "navFaq": "❓ 자주 묻는 질문",
   "qAndroid": "🤖 안드로이드 앱",
@@ -100,21 +100,21 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 메인 화면",
-  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.0</b>)을 확인할 수 있어요.",
-  "hNew": "🆕 v1.0 구성",
-  "newIntro": "울프 게임즈 v1.0에는 아래 게임과 기능이 들어 있어요.",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.1</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v1.1 구성",
+  "newIntro": "울프 게임즈 v1.1에는 아래 게임과 기능이 들어 있어요.",
   "newFeat": [
    "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "🧮 계산기 · 🍻 N빵(술값 나누기) · 💱 환전 (메인 화면 로고 옆)",
    "📳 모든 버튼·게임 터치에 진동 (당첨·승리 땐 강하게)",
    "🔆 게임 중 화면 꺼짐 방지",
    "📱 아이폰·PC는 웹 버전으로 똑같이 이용"
   ],
   "hChange": "🛠 최근 수정 내용",
   "changes": [
-   "<b>늑대 룰렛</b>: 해적 룰렛의 이름을 바꿨어요. 칼을 꽂다가 해적 두건을 쓴 늑대가 튀어나오면 당첨이에요.",
-   "<b>늑대 돌리기</b>: 화살표 돌리기가 늑대로 바뀌었어요. 늑대가 입을 벌리고 돌다가 멈추면 \"앙!\" 하고 꽉 물어요.",
-   "<b>4목</b>: 빨강·노랑 알에 늑대 얼굴 무늬를 넣었어요.",
-   "<b>설치 안내</b>: 6개 언어로 볼 수 있고, 그림도 언어에 맞게 바뀌어요."
+   "<b>🧮 계산기</b>: 메인 화면 로고 옆에 계산기 버튼이 생겼어요. 기본 사칙연산을 할 수 있어요.",
+   "<b>🍻 N빵</b>: 계산기의 금액을 인원수로 나눠 1인당 금액을 보여줘요. 10·100·1000 단위로 올림할 수 있고, 모두 걷으면 얼마가 남는지도 알려줘요.",
+   "<b>💱 환전</b>: 두 나라 통화를 골라 바꿔줘요. 환율은 하루 한 번 갱신되고, 인터넷이 없으면 마지막으로 받은 환율을 보여줘요."
   ],
   "hUpdate": "🔄 업데이트",
   "updA": "<b>안드로이드</b>: 같은 QR이나 같은 버튼으로 새 APK를 받아 설치하면 됩니다. <b>기존 앱을 지우지 않고</b> 덮어 설치돼요.",
@@ -131,7 +131,7 @@ export const MANUAL = {
    ],
    [
     "이 앱 안전한가요? 권한이 필요한가요?",
-    "울프 게임즈는 <b>진동</b> 외에 다른 권한을 쓰지 않아요. 인터넷, 연락처, 사진, 위치에 접근하지 않습니다. 경고는 플레이스토어에 등록되지 않은 앱이면 공통으로 나오는 안내예요."
+    "울프 게임즈는 <b>진동</b>과 <b>인터넷</b>(환전에서 환율을 받아올 때만) 외에는 권한을 쓰지 않아요. 연락처, 사진, 위치에는 접근하지 않습니다. 경고는 플레이스토어에 등록되지 않은 앱이면 공통으로 나오는 안내예요."
    ],
    [
     "아이폰에서 홈 화면에 추가가 안 보여요",
@@ -149,7 +149,7 @@ export const MANUAL = {
   "lead": "Drinking game collection · Install guide",
   "navAndroid": "🤖 Android install",
   "navIphone": "🍎 iPhone home screen",
-  "navNew": "🆕 What's in v1.0",
+  "navNew": "🆕 What's in v1.1",
   "navUpdate": "🔄 Updates",
   "navFaq": "❓ FAQ",
   "qAndroid": "🤖 Android app",
@@ -244,21 +244,21 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Main screen",
-  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.0</b>) is shown at the bottom.",
-  "hNew": "🆕 What's in v1.0",
-  "newIntro": "Wolf Games v1.0 includes these games and features.",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.1</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v1.1",
+  "newIntro": "Wolf Games v1.1 includes these games and features.",
   "newFeat": [
    "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "🧮 Calculator · 🍻 Bill split · 💱 Currency exchange (next to the logo)",
    "📳 Vibration on every button and game tap (stronger on wins)",
    "🔆 Screen stays on while playing",
    "📱 iPhone and PC can use the same games on the web"
   ],
   "hChange": "🛠 Latest changes",
   "changes": [
-   "<b>Wolf Roulette</b>: renamed from Pirate Roulette. Insert swords — whoever makes the bandana-wearing wolf pop out loses.",
-   "<b>Wolf Spin</b>: the arrow is now a wolf. It spins with its mouth open and bites \"chomp!\" when it stops.",
-   "<b>Connect 4</b>: the red and yellow discs now have a wolf face.",
-   "<b>Install guide</b>: available in 6 languages, with pictures in each language."
+   "<b>🧮 Calculator</b>: a calculator button next to the logo on the main screen, with basic arithmetic.",
+   "<b>🍻 Bill split</b>: divides the calculator amount by the number of people. Round up to 10, 100 or 1000, and see how much is left over.",
+   "<b>💱 Currency exchange</b>: pick two currencies to convert. Rates update once a day; without internet the last saved rates are shown."
   ],
   "hUpdate": "🔄 Updates",
   "updA": "<b>Android</b>: download the new APK with the same QR code or button and install it. It installs <b>over the old app</b> — no need to delete it.",
@@ -275,7 +275,7 @@ export const MANUAL = {
    ],
    [
     "Is it safe? Which permissions does it use?",
-    "Wolf Games uses no permission other than <b>vibration</b>. It does not access the internet, contacts, photos or location. The warning appears for any app that is not on the Play Store."
+    "Wolf Games uses only <b>vibration</b> and <b>internet</b> (only to get exchange rates). It does not access contacts, photos or location. The warning appears for any app that is not on the Play Store."
    ],
    [
     "\"Add to Home Screen\" is missing on iPhone",
@@ -293,7 +293,7 @@ export const MANUAL = {
   "lead": "飲み会ゲーム集 · インストール案内",
   "navAndroid": "🤖 Androidにインストール",
   "navIphone": "🍎 iPhoneのホーム画面に追加",
-  "navNew": "🆕 v1.0の内容",
+  "navNew": "🆕 v1.1の内容",
   "navUpdate": "🔄 アップデート",
   "navFaq": "❓ よくある質問",
   "qAndroid": "🤖 Androidアプリ",
@@ -387,21 +387,21 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 メイン画面",
-  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.0</b>）を確認できます。",
-  "hNew": "🆕 v1.0の内容",
-  "newIntro": "ウルフゲームズv1.0には次のゲームと機能が入っています。",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.1</b>）を確認できます。",
+  "hNew": "🆕 v1.1の内容",
+  "newIntro": "ウルフゲームズv1.1には次のゲームと機能が入っています。",
   "newFeat": [
    "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "🧮 電卓 · 🍻 割り勘 · 💱 両替（ロゴの横）",
    "📳 すべてのボタンとゲーム操作で振動（当たり・勝ちは強め）",
    "🔆 ゲーム中は画面が消えない",
    "📱 iPhone・PCはウェブ版で同じように遊べます"
   ],
   "hChange": "🛠 最近の変更",
   "changes": [
-   "<b>オオカミルーレット</b>：海賊ルーレットから名前を変更。剣を刺してバンダナのオオカミが飛び出したら当たり。",
-   "<b>オオカミ回し</b>：矢印がオオカミに。口を開けて回り、止まると「ガブッ！」とかみます。",
-   "<b>4目並べ</b>：赤と黄のコマにオオカミの顔のマークを入れました。",
-   "<b>インストール案内</b>：6言語に対応し、図も言語ごとに変わります。"
+   "<b>🧮 電卓</b>：メイン画面のロゴ横に電卓ボタンができました。四則演算ができます。",
+   "<b>🍻 割り勘</b>：電卓の金額を人数で割って1人あたりの金額を表示。10・100・1000単位で切り上げでき、集めた時の余りもわかります。",
+   "<b>💱 両替</b>：2つの通貨を選んで換算します。レートは1日1回更新、オフラインでは前回のレートを表示します。"
   ],
   "hUpdate": "🔄 アップデート",
   "updA": "<b>Android</b>：同じQRコードかボタンで新しいAPKをダウンロードしてインストールします。<b>古いアプリを消さずに</b>上書きされます。",
@@ -418,7 +418,7 @@ export const MANUAL = {
    ],
    [
     "安全ですか？権限は必要ですか？",
-    "ウルフゲームズは<b>振動</b>以外の権限を使いません。インターネット、連絡先、写真、位置情報にはアクセスしません。警告はPlayストア以外のアプリ共通の案内です。"
+    "ウルフゲームズが使う権限は<b>振動</b>と<b>インターネット</b>（両替のレート取得時のみ）だけです。連絡先、写真、位置情報にはアクセスしません。警告はPlayストア以外のアプリ共通の案内です。"
    ],
    [
     "iPhoneで「ホーム画面に追加」がない",
@@ -436,7 +436,7 @@ export const MANUAL = {
   "lead": "酒桌游戏合集 · 安装说明",
   "navAndroid": "🤖 安卓安装",
   "navIphone": "🍎 iPhone添加到主屏幕",
-  "navNew": "🆕 v1.0内容",
+  "navNew": "🆕 v1.1内容",
   "navUpdate": "🔄 更新",
   "navFaq": "❓ 常见问题",
   "qAndroid": "🤖 安卓应用",
@@ -530,21 +530,21 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 主界面",
-  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.0</b>）。",
-  "hNew": "🆕 v1.0内容",
-  "newIntro": "沃夫游戏v1.0包含以下游戏和功能。",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.1</b>）。",
+  "hNew": "🆕 v1.1内容",
+  "newIntro": "沃夫游戏v1.1包含以下游戏和功能。",
   "newFeat": [
    "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "🧮 计算器 · 🍻 AA分摊 · 💱 汇率换算（标志旁边）",
    "📳 所有按钮和游戏操作都会振动（中奖、获胜时更强）",
    "🔆 游戏中屏幕不会熄灭",
    "📱 iPhone和电脑可以用网页版玩同样的游戏"
   ],
   "hChange": "🛠 最近修改",
   "changes": [
-   "<b>狼轮盘</b>：由海盗轮盘改名。插剑时戴头巾的狼跳出来就中奖。",
-   "<b>转狼</b>：箭头变成了狼。张着嘴转圈，停下时\"啊呜！\"一口咬住。",
-   "<b>四子棋</b>：红色和黄色棋子上加了狼脸图案。",
-   "<b>安装说明</b>：支持6种语言，图片也会随语言变化。"
+   "<b>🧮 计算器</b>：主界面标志旁边新增计算器按钮，可以进行四则运算。",
+   "<b>🍻 AA分摊</b>：把计算器的金额按人数平分，显示每人金额。可按10、100、1000向上取整，并显示收齐后多出多少。",
+   "<b>💱 汇率换算</b>：选择两种货币进行换算。汇率每天更新一次，没有网络时显示上次保存的汇率。"
   ],
   "hUpdate": "🔄 更新",
   "updA": "<b>安卓</b>：用同一个二维码或按钮下载新的APK并安装即可。<b>不用删除旧应用</b>，直接覆盖安装。",
@@ -561,7 +561,7 @@ export const MANUAL = {
    ],
    [
     "安全吗？需要什么权限？",
-    "沃夫游戏除了<b>振动</b>不使用其他权限，不访问网络、通讯录、照片或位置。警告是所有非应用商店应用都会出现的提示。"
+    "沃夫游戏只使用<b>振动</b>和<b>网络</b>（仅在汇率换算获取汇率时）权限，不访问通讯录、照片或位置。警告是所有非应用商店应用都会出现的提示。"
    ],
    [
     "iPhone上找不到\"添加到主屏幕\"",
@@ -579,7 +579,7 @@ export const MANUAL = {
   "lead": "รวมเกมวงเหล้า · วิธีติดตั้ง",
   "navAndroid": "🤖 ติดตั้งบน Android",
   "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
-  "navNew": "🆕 มีอะไรใน v1.0",
+  "navNew": "🆕 มีอะไรใน v1.1",
   "navUpdate": "🔄 อัปเดต",
   "navFaq": "❓ คำถามที่พบบ่อย",
   "qAndroid": "🤖 แอป Android",
@@ -673,21 +673,21 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 หน้าหลัก",
-  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.0</b>) ได้ที่ด้านล่างสุด",
-  "hNew": "🆕 มีอะไรใน v1.0",
-  "newIntro": "Wolf Games v1.0 มีเกมและฟีเจอร์ต่อไปนี้",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.1</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v1.1",
+  "newIntro": "Wolf Games v1.1 มีเกมและฟีเจอร์ต่อไปนี้",
   "newFeat": [
    "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "🧮 เครื่องคิดเลข · 🍻 หารบิล · 💱 แลกเงิน (ข้างโลโก้)",
    "📳 สั่นทุกครั้งที่กดปุ่มหรือแตะในเกม (สั่นแรงเมื่อโดนหรือชนะ)",
    "🔆 หน้าจอไม่ดับขณะเล่น",
    "📱 iPhone และ PC เล่นเกมเดียวกันได้บนเว็บ"
   ],
   "hChange": "🛠 การแก้ไขล่าสุด",
   "changes": [
-   "<b>รูเล็ตหมาป่า</b>: เปลี่ยนชื่อจากรูเล็ตโจรสลัด เสียบดาบ ใครทำหมาป่าโพกผ้าเด้งออกมาคนนั้นโดน",
-   "<b>หมุนหมาป่า</b>: ลูกศรกลายเป็นหมาป่า หมุนโดยอ้าปาก แล้วงับ \"งับ!\" เมื่อหยุด",
-   "<b>เรียง 4</b>: เพิ่มลายหน้าหมาป่าบนเหรียญแดงและเหลือง",
-   "<b>วิธีติดตั้ง</b>: ดูได้ 6 ภาษา และรูปเปลี่ยนตามภาษา"
+   "<b>🧮 เครื่องคิดเลข</b>: มีปุ่มเครื่องคิดเลขข้างโลโก้ในหน้าหลัก ใช้บวก ลบ คูณ หารได้",
+   "<b>🍻 หารบิล</b>: หารยอดในเครื่องคิดเลขตามจำนวนคน แสดงยอดต่อคน ปัดขึ้นทีละ 10, 100, 1000 ได้ และบอกว่าเก็บแล้วเหลือเท่าไร",
+   "<b>💱 แลกเงิน</b>: เลือก 2 สกุลเงินเพื่อแปลง อัตราอัปเดตวันละครั้ง ถ้าไม่มีเน็ตจะแสดงอัตราล่าสุดที่บันทึกไว้"
   ],
   "hUpdate": "🔄 อัปเดต",
   "updA": "<b>Android</b>: ดาวน์โหลด APK ใหม่ด้วย QR หรือปุ่มเดิมแล้วติดตั้ง จะติดตั้ง <b>ทับแอปเดิม</b> โดยไม่ต้องลบ",
@@ -704,7 +704,7 @@ export const MANUAL = {
    ],
    [
     "ปลอดภัยไหม? ต้องใช้สิทธิ์อะไร?",
-    "Wolf Games ไม่ใช้สิทธิ์อื่นนอกจาก <b>การสั่น</b> ไม่เข้าถึงอินเทอร์เน็ต รายชื่อ รูปภาพ หรือตำแหน่ง คำเตือนเป็นข้อความทั่วไปของแอปที่ไม่ได้อยู่ใน Play Store"
+    "Wolf Games ใช้สิทธิ์แค่ <b>การสั่น</b> และ <b>อินเทอร์เน็ต</b> (เฉพาะตอนดึงอัตราแลกเงิน) ไม่เข้าถึงรายชื่อ รูปภาพ หรือตำแหน่ง คำเตือนเป็นข้อความทั่วไปของแอปที่ไม่ได้อยู่ใน Play Store"
    ],
    [
     "iPhone ไม่มี \"เพิ่มไปยังหน้าจอโฮม\"",
@@ -722,7 +722,7 @@ export const MANUAL = {
   "lead": "Bộ trò chơi nhậu · Hướng dẫn cài đặt",
   "navAndroid": "🤖 Cài trên Android",
   "navIphone": "🍎 Thêm vào MH chính iPhone",
-  "navNew": "🆕 Có gì trong v1.0",
+  "navNew": "🆕 Có gì trong v1.1",
   "navUpdate": "🔄 Cập nhật",
   "navFaq": "❓ Câu hỏi thường gặp",
   "qAndroid": "🤖 Ứng dụng Android",
@@ -816,21 +816,21 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Màn hình chính",
-  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.0</b>) hiện ở dưới cùng.",
-  "hNew": "🆕 Có gì trong v1.0",
-  "newIntro": "Wolf Games v1.0 gồm các trò chơi và tính năng sau.",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.1</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v1.1",
+  "newIntro": "Wolf Games v1.1 gồm các trò chơi và tính năng sau.",
   "newFeat": [
    "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "🧮 Máy tính · 🍻 Chia tiền · 💱 Đổi tiền (cạnh logo)",
    "📳 Rung khi bấm nút và chạm trong trò chơi (rung mạnh khi trúng, thắng)",
    "🔆 Màn hình không tắt khi đang chơi",
    "📱 iPhone và PC chơi cùng trò chơi trên web"
   ],
   "hChange": "🛠 Thay đổi gần đây",
   "changes": [
-   "<b>Sói may rủi</b>: đổi tên từ Hải tặc may rủi. Cắm kiếm, ai làm chú sói đội khăn bật ra là trúng.",
-   "<b>Quay sói</b>: mũi tên thành chú sói. Sói há miệng quay, dừng lại thì cắn \"phập!\".",
-   "<b>Nối 4</b>: thêm hình mặt sói trên quân đỏ và vàng.",
-   "<b>Hướng dẫn cài đặt</b>: có 6 ngôn ngữ, hình ảnh cũng đổi theo ngôn ngữ."
+   "<b>🧮 Máy tính</b>: có nút máy tính cạnh logo ở màn hình chính, tính cộng trừ nhân chia.",
+   "<b>🍻 Chia tiền</b>: chia số tiền trong máy tính theo số người, hiện số tiền mỗi người. Làm tròn lên 10, 100, 1000 và cho biết dư bao nhiêu.",
+   "<b>💱 Đổi tiền</b>: chọn 2 loại tiền để quy đổi. Tỷ giá cập nhật mỗi ngày một lần; khi không có mạng sẽ hiện tỷ giá đã lưu."
   ],
   "hUpdate": "🔄 Cập nhật",
   "updA": "<b>Android</b>: tải APK mới bằng cùng mã QR hoặc nút rồi cài. Ứng dụng được cài <b>đè lên bản cũ</b>, không cần xóa.",
@@ -847,7 +847,7 @@ export const MANUAL = {
    ],
    [
     "Có an toàn không? Cần quyền gì?",
-    "Wolf Games không dùng quyền nào ngoài <b>rung</b>. Không truy cập internet, danh bạ, ảnh hay vị trí. Cảnh báo là thông báo chung cho ứng dụng không có trên Play Store."
+    "Wolf Games chỉ dùng quyền <b>rung</b> và <b>internet</b> (chỉ khi lấy tỷ giá đổi tiền). Không truy cập danh bạ, ảnh hay vị trí. Cảnh báo là thông báo chung cho ứng dụng không có trên Play Store."
    ],
    [
     "iPhone không có \"Thêm vào MH chính\"",

@@ -54,7 +54,7 @@ def shots(lang, home_b64):
     chrome = ('<div style="height:56px;display:flex;align-items:center;gap:10px;padding:0 12px;background:#f1f3f4">'
               '<div style="flex:1;height:40px;border-radius:20px;background:#fff;display:flex;align-items:center;padding:0 14px;font-size:14px;color:#444">🔒 github.com/wanopro/wolfgames/releases</div><span style="font-size:20px">⋮</span></div>')
     release = (A + chrome + '<div style="padding:18px 16px">'
-               f'<div style="font-size:22px;font-weight:800">{name} v1.0</div>'
+               f'<div style="font-size:22px;font-weight:800">{name} v1.1</div>'
                f'<div style="font-size:13px;color:#666;margin:6px 0 18px">wanopro {t["released"]}</div>'
                '<div style="border:1px solid #ddd;border-radius:10px">'
                '<div style="padding:12px 14px;font-weight:700;border-bottom:1px solid #eee">▾ Assets 3</div>'

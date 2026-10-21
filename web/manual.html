@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Wolf Games · 설치 안내 / Install guide</title>
-  <meta name="description" content="울프 게임즈 v1.0 — 안드로이드 APK 설치 방법과 아이폰 홈 화면 추가 방법 (6개 언어)">
+  <meta name="description" content="울프 게임즈 v1.1 — 안드로이드 APK 설치 방법과 아이폰 홈 화면 추가 방법 (6개 언어)">
   <meta name="theme-color" content="#12121A">
   <link rel="icon" type="image/png" href="icons/favicon.png">
   <style>
@@ -104,7 +104,7 @@ function pickLang() {
 function render(lang) {
   const t = MANUAL[lang], s = STRINGS[lang], img = (n) => `manual/${lang}/${n}.jpg`;
   document.documentElement.lang = lang;
-  document.title = `${t.title} · ${s.appName} v1.0`;
+  document.title = `${t.title} · ${s.appName} v1.1`;
   const steps = (arr, imgs, from) => arr.map(([h, p, li], k) => `
     <div class="step"><img src="${img(imgs[k])}" alt="${h}" loading="lazy"><div>
       <h3><span class="num">${lang === 'zh' ? t.step + (k + from) + '步' : t.step + ' ' + (k + from)}</span>${h}${imgs[k] === 'android-5-protect' ? ` <small style="color:var(--sub);font-weight:400">${t.optional}</small>` : ''}</h3>
@@ -115,7 +115,7 @@ function render(lang) {
   document.getElementById('m').innerHTML = `
   <div class="top-row"><a class="back" href="./">${t.back}</a>
     <div class="langbar">${LANGS.map(([c, f, l]) => `<button data-l="${c}" class="${c === lang ? 'sel' : ''}">${f} ${l}</button>`).join('')}</div></div>
-  <header><img src="icons/logo.png" alt="${s.appName}"><div><h1>${s.appName} <span class="ver">v1.0</span></h1><p class="lead">${t.lead}</p></div></header>
+  <header><img src="icons/logo.png" alt="${s.appName}"><div><h1>${s.appName} <span class="ver">v1.1</span></h1><p class="lead">${t.lead}</p></div></header>
   <nav><a href="#android">${t.navAndroid}</a><a href="#iphone">${t.navIphone}</a><a href="#new">${t.navNew}</a><a href="#update">${t.navUpdate}</a><a href="#faq">${t.navFaq}</a></nav>
   <div class="quick">
     <div class="q"><b>${t.qAndroid}</b><small>${t.qAndroidSub}</small><img src="manual/qr-apk.png" alt="QR APK"><a class="btn" href="${APK}">${t.qApk}</a></div>
@@ -138,7 +138,7 @@ function render(lang) {
   <div class="step" style="grid-template-columns:1fr"><div><p>${t.updA}</p><p style="margin-top:8px">${t.updI}</p></div></div>
   <h2 id="faq">${t.hFaq}</h2>
   <div class="faq">${t.faq.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('')}</div>
-  <footer>Powered by <a href="https://wolf.community" target="_blank" rel="noopener">WOLF</a>(feat. segna) · ${s.appName} v1.0</footer>`;
+  <footer>Powered by <a href="https://wolf.community" target="_blank" rel="noopener">WOLF</a>(feat. segna) · ${s.appName} v1.1</footer>`;
   document.querySelectorAll('.langbar button').forEach((b) => b.addEventListener('click', () => {
     put('wg-lang', b.dataset.l);
     const u = new URL(location.href); u.searchParams.set('lang', b.dataset.l); history.replaceState(null, '', u);
