@@ -2,7 +2,7 @@ name: APK 빌드
 
 on:
   push:
-    paths-ignore: ['web/**', 'README.md', '.github/workflows/pages.yml']
+    paths-ignore: ['web/**', 'README.md', 'docs/**', '.github/workflows/pages.yml']
   workflow_dispatch:
 
 permissions:
@@ -62,7 +62,7 @@ jobs:
           tag_name: ${{ steps.rel.outputs.tag }}
           name: ${{ steps.rel.outputs.name }}
           target_commitish: ${{ github.sha }}
-          make_latest: true
+          make_latest: ${{ startsWith(steps.rel.outputs.tag, 'v') }}
           overwrite_files: true
           body_path: ${{ startsWith(steps.rel.outputs.tag, 'v') && 'RELEASE_NOTES.md' || '' }}
           files: WolfGames.apk
