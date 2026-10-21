@@ -33,7 +33,7 @@ export const STRINGS = {
     fiveTitle: "5개 주사위",
     fiveSub: "1은 아웃, 6은 옆 사람에게",
     reset: "초기화",
-    rollHint: "화면에 손가락을 올리고\n2초 기다렸다가 떼세요\n\n여러 명이 동시에 가능해요\n더블탭하면 초기화",
+    rollHint: "화면에 손가락을 올리고\n1초 기다렸다가 떼세요\n\n여러 명이 동시에 가능해요\n더블탭하면 초기화",
     shutDesc: "주사위 2개를 던져 두 숫자의 합 또는 두 숫자를 뒤집어요.\n" +
         "• 합을 고르면 그 숫자 하나만 뒤집고 차례 끝\n" +
         "• 한 숫자를 고르면 나머지 숫자도 이어서 뒤집을 수 있어요 (예: 1·4 → 5, 또는 1 다음 4)\n" +
@@ -184,7 +184,7 @@ export const STRINGS = {
     fiveTitle: "Five Dice",
     fiveSub: "1 is out, 6 goes to the next player",
     reset: "Reset",
-    rollHint: "Put your finger on the screen,\nwait 2 seconds, then lift it\n\nSeveral people can play at once\nDouble-tap to reset",
+    rollHint: "Put your finger on the screen,\nwait 1 second, then lift it\n\nSeveral people can play at once\nDouble-tap to reset",
     shutDesc: "Roll 2 dice and flip the sum or the two numbers.\n" +
         "• Pick the sum: flip just that number and your turn ends\n" +
         "• Pick one number: you can then flip the other one too (e.g. 1·4 → 5, or 1 then 4)\n" +
@@ -335,7 +335,7 @@ export const STRINGS = {
     fiveTitle: "5個サイコロ",
     fiveSub: "1はアウト、6は隣の人へ",
     reset: "リセット",
-    rollHint: "画面に指を置いて\n2秒待ってから離してください\n\n何人でも同時にOK\nダブルタップでリセット",
+    rollHint: "画面に指を置いて\n1秒待ってから離してください\n\n何人でも同時にOK\nダブルタップでリセット",
     shutDesc: "サイコロ2個を振って、合計か2つの数字をめくります。\n" +
         "• 合計を選ぶとその数字だけめくって番が終わります\n" +
         "• 1つの数字を選ぶと、続けてもう1つもめくれます（例：1・4 → 5、または1のあと4）\n" +
@@ -486,7 +486,7 @@ export const STRINGS = {
     fiveTitle: "五颗骰子",
     fiveSub: "1出局，6给下家",
     reset: "重置",
-    rollHint: "把手指放在屏幕上\n等2秒后松开\n\n多人可同时进行\n双击重置",
+    rollHint: "把手指放在屏幕上\n等1秒后松开\n\n多人可同时进行\n双击重置",
     shutDesc: "掷2颗骰子，翻开两个点数之和，或者翻开两个点数。\n" +
         "• 选择和：只翻这一个数字，回合结束\n" +
         "• 选择一个点数：可以接着翻另一个点数（例：1·4 → 5，或先1再4）\n" +
@@ -637,7 +637,7 @@ export const STRINGS = {
     fiveTitle: "เต๋า 5 ลูก",
     fiveSub: "1 ออก, 6 ส่งให้คนถัดไป",
     reset: "รีเซ็ต",
-    rollHint: "วางนิ้วบนหน้าจอ\nรอ 2 วินาทีแล้วยกนิ้ว\n\nเล่นพร้อมกันหลายคนได้\nแตะสองครั้งเพื่อรีเซ็ต",
+    rollHint: "วางนิ้วบนหน้าจอ\nรอ 1 วินาทีแล้วยกนิ้ว\n\nเล่นพร้อมกันหลายคนได้\nแตะสองครั้งเพื่อรีเซ็ต",
     shutDesc: "ทอยลูกเต๋า 2 ลูก แล้วพลิกผลรวม หรือพลิกแต้มทั้งสอง\n" +
         "• เลือกผลรวม: พลิกเลขนั้นตัวเดียวแล้วจบตา\n" +
         "• เลือกแต้มหนึ่งตัว: พลิกอีกตัวต่อได้ (เช่น 1·4 → 5 หรือ 1 แล้ว 4)\n" +
@@ -788,7 +788,7 @@ export const STRINGS = {
     fiveTitle: "5 xúc xắc",
     fiveSub: "1 bị loại, 6 chuyền cho người kế",
     reset: "Đặt lại",
-    rollHint: "Đặt ngón tay lên màn hình,\nchờ 2 giây rồi nhấc lên\n\nNhiều người có thể chơi cùng lúc\nChạm hai lần để đặt lại",
+    rollHint: "Đặt ngón tay lên màn hình,\nchờ 1 giây rồi nhấc lên\n\nNhiều người có thể chơi cùng lúc\nChạm hai lần để đặt lại",
     shutDesc: "Tung 2 xúc xắc, lật tổng hoặc lật hai số.\n" +
         "• Chọn tổng: chỉ lật số đó và hết lượt\n" +
         "• Chọn một số: có thể lật tiếp số còn lại (vd: 1·4 → 5, hoặc 1 rồi 4)\n" +

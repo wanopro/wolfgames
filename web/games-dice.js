@@ -4,7 +4,7 @@ import { C, S, h, btn, top, stepper, setupPanel, resultOverlay, liveCanvas, vibe
 // ===================== 1-1 주사위 굴리기 =====================
 export function rollDice(root, back) {
   const s = S();
-  const HOLD = 2000, TAP = 300, DTAP = 400;
+  const HOLD = 1000, TAP = 300, DTAP = 400;
   const active = new Map();
   const placed = [];
   let lastTap = 0, lastPos = { x: 0, y: 0 };
