@@ -284,3 +284,30 @@ fun BoxScope.ResultOverlay(
         }
     }
 }
+
+/** 켜기/끄기 스위치 설정 줄 */
+@Composable
+fun ToggleRow(label: String, checked: Boolean, onChange: (Boolean) -> Unit) {
+    val vibe = LocalVibe.current
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(16.dp))
+            .background(WG.Surface)
+            .clickable { vibe.tap(); onChange(!checked) }
+            .padding(horizontal = 16.dp, vertical = 16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(label, color = WG.Text, fontSize = 18.sp, modifier = Modifier.weight(1f))
+        Box(
+            Modifier
+                .size(width = 54.dp, height = 32.dp)
+                .clip(RoundedCornerShape(16.dp))
+                .background(if (checked) WG.Accent else WG.Surface2)
+                .padding(3.dp),
+            contentAlignment = if (checked) Alignment.CenterEnd else Alignment.CenterStart,
+        ) {
+            Box(Modifier.size(26.dp).clip(CircleShape).background(Color.White))
+        }
+    }
+}

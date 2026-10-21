@@ -1,7 +1,7 @@
 // 공통: 요소 생성, 진동, 화면 부품, 캔버스, 시간 기반 애니메이션
 import { STRINGS } from './i18n.js';
 
-export const VERSION = '1.1';
+export const VERSION = '1.2';
 
 export const C = {
   bg: '#12121A', surface: '#1E1E2A', surface2: '#2C2C3E', accent: '#FFB300',
@@ -82,6 +82,14 @@ export function stepper(label, value, min, max, onChange) {
   sync();
   const el = h('div', { class: 'stepper' }, h('span', { class: 'lbl' }, label), minus, val, plus);
   el.setMax = (m) => { max = m; if (value > max) { value = max; onChange(value); } sync(); };
+  return el;
+}
+
+/** 켜기/끄기 스위치 줄 */
+export function toggle(label, value, onChange) {
+  const sw = h('span', { class: 'sw' + (value ? ' on' : '') }, h('span', { class: 'knob' }));
+  const el = h('button', { class: 'stepper toggle' }, h('span', { class: 'lbl' }, label), sw);
+  el.addEventListener('click', () => { vibe.tap(); value = !value; sw.classList.toggle('on', value); onChange(value); });
   return el;
 }
 
@@ -195,4 +203,29 @@ export function dieSvg(value, size, border = null, alpha = 1) {
   }
   const s = h('span', { style: `display:inline-block;width:${size}px;height:${size}px;opacity:${alpha};flex:none`, html: `<svg viewBox="0 0 100 100" width="${size}" height="${size}">${g}</svg>` });
   return s;
+}
+
+// ---------- 그리기: 트럼프 카드 ----------
+export const RANKS = ['', 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+export const SUITS = ['♠', '♥', '♦', '♣'];
+export const isRed = (c) => c.s === 1 || c.s === 2;
+/** 52장 덱 (r: 1~13, s: 0~3) 섞어서 */
+export const newDeck = () => shuffle([...Array(52).keys()].map((i) => ({ r: (i % 13) + 1, s: Math.floor(i / 13) })));
+
+/** 카드 한 장. card가 null이면 뒷면. 반환 요소의 .set(card)로 앞면을 뒤집어 보여줌 */
+export function cardEl(c, w = 90) {
+  const hh = Math.round(w * 1.4);
+  const face = h('div', { class: 'pc-face' });
+  const el = h('div', { class: 'pcard' + (c ? '' : ' down'), style: `width:${w}px;height:${hh}px;font-size:${w / 90 * 16}px` },
+    h('div', { class: 'pc-in' }, face, h('div', { class: 'pc-back' }, h('span', {}, '🐺'))));
+  const paint = (cc) => {
+    face.style.color = isRed(cc) ? '#E53935' : '#1A1A1A';
+    face.replaceChildren(
+      h('div', { class: 'pc-c' }, h('b', {}, RANKS[cc.r]), h('span', {}, SUITS[cc.s])),
+      h('div', { class: 'pc-m' }, SUITS[cc.s]),
+      h('div', { class: 'pc-c r' }, h('b', {}, RANKS[cc.r]), h('span', {}, SUITS[cc.s])));
+  };
+  if (c) paint(c);
+  el.set = (cc) => { if (cc) { paint(cc); el.classList.remove('down'); } else el.classList.add('down'); };
+  return el;
 }

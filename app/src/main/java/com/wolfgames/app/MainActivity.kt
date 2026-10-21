@@ -52,6 +52,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.wolfgames.app.games.ArrowGame
 import com.wolfgames.app.games.CalculatorScreen
+import com.wolfgames.app.games.D789Game
+import com.wolfgames.app.games.HoChiMinhGame
+import com.wolfgames.app.games.UpDownGame
 import com.wolfgames.app.games.ExchangeScreen
 import com.wolfgames.app.games.FiveDiceGame
 import com.wolfgames.app.games.FourGame
@@ -104,14 +107,15 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language }
+enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, D789, CardMenu, UpDown, HoChiMinh, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language }
 
 @Composable
 fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
     var screen by rememberSaveable { mutableStateOf(Screen.Home) }
     val back: () -> Unit = {
         screen = when (screen) {
-            Screen.RollDice, Screen.ShutBox, Screen.FiveDice -> Screen.DiceMenu
+            Screen.RollDice, Screen.ShutBox, Screen.FiveDice, Screen.D789 -> Screen.DiceMenu
+            Screen.UpDown, Screen.HoChiMinh -> Screen.CardMenu
             Screen.Fx -> Screen.Calc
             else -> Screen.Home
         }
@@ -125,6 +129,10 @@ fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
             Screen.RollDice -> RollDiceGame(onBack = back)
             Screen.ShutBox -> ShutBoxGame(onBack = back)
             Screen.FiveDice -> FiveDiceGame(onBack = back)
+            Screen.D789 -> D789Game(onBack = back)
+            Screen.CardMenu -> CardMenuScreen(onBack = back) { screen = it }
+            Screen.UpDown -> UpDownGame(onBack = back)
+            Screen.HoChiMinh -> HoChiMinhGame(onBack = back)
             Screen.Croc -> WolfTeethGame(onBack = back)
             Screen.Ladder -> LadderGame(onBack = back)
             Screen.Roulette -> RouletteGame(onBack = back)
@@ -196,6 +204,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
             }
             Spacer(Modifier.height(8.dp))
             MenuCard("🎲", s.menuDice, s.menuDiceSub) { onSelect(Screen.DiceMenu) }
+            MenuCard("🃏", s.menuCards, s.menuCardsSub) { onSelect(Screen.CardMenu) }
             MenuCard("🐺", s.menuCroc, s.menuCrocSub) { onSelect(Screen.Croc) }
             MenuCard("🪜", s.menuLadder, s.menuLadderSub) { onSelect(Screen.Ladder) }
             MenuCard("🎡", s.menuRoulette, s.menuRouletteSub) { onSelect(Screen.Roulette) }
@@ -283,6 +292,22 @@ fun DiceMenuScreen(onBack: () -> Unit, onSelect: (Screen) -> Unit) {
             MenuCard("👆", s.rollTitle, s.rollSub) { onSelect(Screen.RollDice) }
             MenuCard("🔢", s.shutTitle, s.shutSub) { onSelect(Screen.ShutBox) }
             MenuCard("🎲", s.fiveTitle, s.fiveSub) { onSelect(Screen.FiveDice) }
+            MenuCard("🍶", s.d789Title, s.d789Sub) { onSelect(Screen.D789) }
+        }
+    }
+}
+
+/** 카드 게임 메뉴 */
+@Composable
+fun CardMenuScreen(onBack: () -> Unit, onSelect: (Screen) -> Unit) {
+    val s = LocalStrings.current
+    GameScaffold("🃏 ${s.menuCards}", onBack) {
+        Column(
+            Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(14.dp),
+        ) {
+            MenuCard("↕️", s.udTitle, s.udSub) { onSelect(Screen.UpDown) }
+            MenuCard("🇻🇳", s.hcmTitle, s.hcmSub) { onSelect(Screen.HoChiMinh) }
         }
     }
 }

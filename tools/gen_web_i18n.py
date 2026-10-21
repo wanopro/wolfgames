@@ -20,11 +20,11 @@ for lang in ['Ko', 'En', 'Ja', 'Zh', 'Th', 'Vi']:
     st = src.index(head) + len(head)
     body = src[st:src.index('\n)\n', st)]
     out.append(f'  {lang.lower()}: {{')
-    for it in re.split(r'\n    (?=[a-zA-Z]+ = )', body):
+    for it in re.split(r'\n    (?=[a-zA-Z][a-zA-Z0-9]* = )', body):
         it = it.strip()
         if not it:
             continue
-        k, v = re.match(r'([a-zA-Z]+) = (.*)', it, re.S).groups()
+        k, v = re.match(r'([a-zA-Z][a-zA-Z0-9]*) = (.*)', it, re.S).groups()
         v = v.rstrip().rstrip(',')
         if v.startswith('{'):
             m = re.match(r'\{\s*(?:([\w, ]+?)\s*->\s*)?(.*)\}$', v, re.S)

@@ -1,6 +1,7 @@
 // 울프 게임즈 웹 버전 — 화면 이동, 메인, 언어 설정
 import { S, h, btn, card, top, lang, LANGS, vibe, VERSION } from './core.js';
-import { rollDice, shutBox, fiveDice } from './games-dice.js';
+import { rollDice, shutBox, fiveDice, d789 } from './games-dice.js';
+import { upDown, hoChiMinh } from './games-cards.js';
 import { wolfTeeth, ladder, roulette } from './games-pick.js';
 import { race, pirate, arrow } from './games-fun.js';
 import { four } from './games-four.js';
@@ -16,6 +17,10 @@ const SCREENS = {
   roll: rollDice,
   shut: shutBox,
   five: fiveDice,
+  d789,
+  cards: cardMenu,
+  updown: upDown,
+  hcm: hoChiMinh,
   teeth: wolfTeeth,
   ladder,
   roulette,
@@ -27,7 +32,7 @@ const SCREENS = {
   fx: exchange,
   lang: langScreen,
 };
-const PARENT = { roll: 'dice', shut: 'dice', five: 'dice' };
+const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', updown: 'cards', hcm: 'cards' };
 
 // ---------- 화면 이동 (휴대폰 뒤로가기 버튼과 연동) ----------
 function show(name) {
@@ -63,6 +68,7 @@ function homeScreen(root) {
           btn(`🧮 ${s.calcTitle}`, () => go('calc'), 'chip')))),
     h('div', { style: 'height:4px' }),
     card('🎲', s.menuDice, s.menuDiceSub, () => go('dice')),
+    card('🃏', s.menuCards, s.menuCardsSub, () => go('cards')),
     card('🐺', s.menuCroc, s.menuCrocSub, () => go('teeth')),
     card('🪜', s.menuLadder, s.menuLadderSub, () => go('ladder')),
     card('🎡', s.menuRoulette, s.menuRouletteSub, () => go('roulette')),
@@ -94,7 +100,15 @@ function diceMenu(root) {
   root.append(top(s.menuDice, back), h('div', { class: 'scroll' },
     card('👆', s.rollTitle, s.rollSub, () => go('roll')),
     card('🔢', s.shutTitle, s.shutSub, () => go('shut')),
-    card('🎲', s.fiveTitle, s.fiveSub, () => go('five'))));
+    card('🎲', s.fiveTitle, s.fiveSub, () => go('five')),
+    card('🍶', s.d789Title, s.d789Sub, () => go('d789'))));
+}
+
+function cardMenu(root) {
+  const s = S();
+  root.append(top(`🃏 ${s.menuCards}`, back), h('div', { class: 'scroll' },
+    card('↕️', s.udTitle, s.udSub, () => go('updown')),
+    card('🇻🇳', s.hcmTitle, s.hcmSub, () => go('hcm'))));
 }
 
 function langScreen(root) {

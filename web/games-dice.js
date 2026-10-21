@@ -1,5 +1,5 @@
-// 주사위 게임 3종: 주사위 굴리기 / 숫자 뒤집기 잭팟 / 5개 주사위
-import { C, S, h, btn, top, stepper, setupPanel, resultOverlay, liveCanvas, vibe, drawDie, dieSvg, sleep, rnd } from './core.js';
+// 주사위 게임 4종: 주사위 굴리기 / 숫자 뒤집기 잭팟 / 5개 주사위 / 789
+import { C, S, h, btn, top, stepper, toggle, setupPanel, resultOverlay, liveCanvas, vibe, drawDie, dieSvg, sleep, rnd, animate } from './core.js';
 
 // ===================== 1-1 주사위 굴리기 =====================
 export function rollDice(root, back) {
@@ -149,21 +149,33 @@ export function fiveDice(root, back) {
     const counts = Array(n).fill(5);
     let faces = Array.from({ length: n }, () => []);
     let slots = Array(n).fill('wait');
-    let phase = 'playing', winners = [];
+    let phase = 'playing', losers = [];
+    const safe = Array(n).fill(false); // 주사위를 다 없애 탈출한 사람
     const fd = h('div', { class: 'fd' });
     root.replaceChildren(fd);
+    const active = () => [...Array(n).keys()].filter((i) => !safe[i]);
+    /** 시계방향으로 다음, 아직 탈출하지 않은 사람 */
+    const nextActive = (i, act) => { for (let k = 1; k <= n; k++) { const j = (i + k) % n; if (act.includes(j)) return j; } return i; };
 
     const applyResults = async () => {
       if (phase !== 'playing') return;
       phase = 'applying'; render();
       await sleep(1800);
       if (!alive) return;
+      const act = active();
       const ones = faces.map((f) => f.filter((v) => v === 1).length);
       const sixes = faces.map((f) => f.filter((v) => v === 6).length);
-      for (let i = 0; i < n; i++) counts[i] = counts[i] - ones[i] - sixes[i] + sixes[(i - 1 + n) % n];
-      faces = faces.map(() => []); slots = slots.map(() => 'wait');
-      winners = [...Array(n).keys()].filter((i) => counts[i] === 0);
-      if (winners.length) { phase = 'win'; vibe.strong(); } else phase = 'playing';
+      const add = Array(n).fill(0);
+      for (const i of act) add[nextActive(i, act)] += sixes[i];
+      for (const i of act) counts[i] = counts[i] - ones[i] - sixes[i] + add[i];
+      const justSafe = act.filter((i) => counts[i] === 0);
+      justSafe.forEach((i) => { safe[i] = true; });
+      faces = faces.map(() => []); slots = slots.map((_, i) => (safe[i] ? 'safe' : 'wait'));
+      const left = active();
+      if (left.length <= 1) {
+        losers = left.length === 1 ? left : justSafe; // 마지막이 동시에 0개면 그 사람들이 공동 패배
+        phase = 'over'; vibe.strong();
+      } else { phase = 'playing'; if (justSafe.length) vibe.tap(); }
       render();
     };
 
@@ -174,44 +186,50 @@ export function fiveDice(root, back) {
       if (!alive) return;
       faces[i] = Array.from({ length: counts[i] }, () => rnd(1, 6));
       slots[i] = 'done'; vibe.tap(); render();
-      if (slots.every((x) => x === 'done')) applyResults();
+      if (active().every((x) => slots[x] === 'done')) applyResults();
     };
 
-    const restart = () => { counts.fill(5); faces = faces.map(() => []); slots = slots.map(() => 'wait'); winners = []; phase = 'playing'; render(); };
+    const restart = () => { counts.fill(5); safe.fill(false); faces = faces.map(() => []); slots = slots.map(() => 'wait'); losers = []; phase = 'playing'; render(); };
 
     const area = (i, rotated) => {
-      const color = C.players[i], slot = slots[i], win = winners.includes(i);
+      const color = C.players[i], slot = slots[i], lose = losers.includes(i), isSafe = safe[i] && !lose;
       const canTap = phase === 'playing' && slot === 'wait';
-      const bg = win ? '59' : canTap ? '38' : '14';
-      const vals = slot !== 'wait' ? faces[i] : Array(counts[i]).fill(0);
+      const bg = lose ? '66' : isSafe ? '0A' : canTap ? '38' : '14';
+      const vals = slot === 'safe' ? [] : slot !== 'wait' ? faces[i] : Array(counts[i]).fill(0);
       const ds = vals.length <= 6 ? 44 : vals.length <= 10 ? 34 : 26;
       const marked = slot === 'done';
       const dice = h('div', { class: 'dice' }, vals.map((v) => dieSvg(v, ds, marked && v === 6 ? C.accent : marked && v === 1 ? C.win : null, marked && v === 1 ? 0.25 : 1)));
       let st = '';
-      if (!(win || phase === 'win')) {
+      if (lose) st = s.fiveLoserSub;
+      else if (isSafe) st = '';
+      else if (phase !== 'over') {
         if (slot === 'wait') st = s.tapToRoll;
         else if (slot === 'rolling') st = s.rolling;
         else {
+          const act = active();
           const ones = faces[i].filter((v) => v === 1).length, sixes = faces[i].filter((v) => v === 6).length;
-          st = s.outPass(ones, ((i + 1) % n) + 1, sixes) + (phase === 'playing' ? '\n' + s.waitingOthers : '');
+          st = s.outPass(ones, nextActive(i, act) + 1, sixes) + (phase === 'playing' ? '\n' + s.waitingOthers : '');
         }
       }
-      const a = h('div', { class: 'area' + (rotated ? ' rot' : ''), style: `background:${color}${bg};border-color:${color}${canTap ? 'ff' : '80'};border-width:${canTap ? 3 : 2}px` },
+      const status = lose ? h('div', { class: 'pc win', style: 'font-size:24px;font-weight:900' }, '💀')
+        : isSafe ? h('div', { class: 'pc', style: 'font-size:22px;font-weight:900;color:var(--text)' }, s.fiveSafe)
+          : h('div', { class: 'pc' }, s.diceLeft(counts[i]));
+      const a = h('div', { class: 'area' + (rotated ? ' rot' : ''), style: `background:${color}${bg};border-color:${color}${canTap ? 'ff' : isSafe ? '40' : '80'};border-width:${canTap ? 3 : 2}px;${isSafe ? 'opacity:.55' : ''}` },
         h('div', { class: 'pn', style: `color:${color}` }, s.playerN(i + 1)),
-        h('div', { class: 'pc' + (win ? ' acc' : ''), style: win ? 'font-size:22px;font-weight:900' : '' }, win ? s.winner : s.diceLeft(counts[i])),
+        status,
         dice,
-        h('div', { class: 'st' + (slot === 'wait' ? ' big' : ''), style: slot === 'wait' ? `color:${color}` : '' }, st));
+        h('div', { class: 'st' + (slot === 'wait' ? ' big' : '') + (lose ? ' win' : ''), style: slot === 'wait' ? `color:${color}` : '' }, st));
       if (canTap) a.addEventListener('click', () => roll(i));
       return a;
     };
 
     const bar = () => {
-      const text = phase === 'playing' ? s.tapYourArea(slots.filter((x) => x !== 'done').length)
-        : phase === 'applying' ? s.allRolled : s.winnersWin(winners.map((i) => 'P' + (i + 1)).join(', '));
+      const text = phase === 'playing' ? s.tapYourArea(active().filter((x) => slots[x] !== 'done').length)
+        : phase === 'applying' ? s.allRolled : s.fiveLoser(losers.map((i) => 'P' + (i + 1)).join(', '));
       return h('div', { class: 'bar' },
         btn(s.exit, setup, 'tbtn'),
-        h('div', { class: 'mid' }, text),
-        phase === 'win' ? btn(s.again, restart, 'tbtn accent') : h('div', { style: 'width:64px' }));
+        h('div', { class: 'mid' + (phase === 'over' ? ' win' : '') }, text),
+        phase === 'over' ? btn(s.again, restart, 'tbtn accent') : h('div', { style: 'width:64px' }));
     };
 
     const render = () => {
@@ -220,6 +238,94 @@ export function fiveDice(root, back) {
       else fd.replaceChildren(h('div', { class: 'half' }, area(1, true), area(2, true)), bar(), h('div', { class: 'half' }, area(0, false), area(3, false)));
     };
     render();
+  };
+
+  setup();
+  return () => { alive = false; };
+}
+
+// ===================== 1-4 789 =====================
+/** 합의 뒷자리 → 결과 종류 */
+export function judge789(sum, rev) {
+  const d = sum % 10;
+  if (d === 7) return 'top';
+  if (d === 8) return 'half';
+  if (d === 9) return 'shot';
+  if (d === 6 && rev) return 'rev';
+  return 'pass';
+}
+
+export function d789(root, back) {
+  const s = S();
+  let n = 4, rev = true;
+  let alive = true;
+  const setup = () => {
+    root.replaceChildren(top(s.d789Title, back), h('div', { class: 'body' }, setupPanel(s.d789Desc, play,
+      stepper(s.players, n, 2, 8, (v) => { n = v; }),
+      toggle(s.d789RevOpt, rev, (v) => { rev = v; }))));
+  };
+
+  const play = () => {
+    let turn = 0, dir = 1, busy = false;
+    let vals = [rnd(1, 6), rnd(1, 6)], anim = null, shown = false, lastRoller = 0;
+    const RES = {
+      top: { t: s.d789Top, e: '🍶', c: C.accent },
+      half: { t: s.d789Half, e: '🍺', c: '#FF9800' },
+      shot: { t: s.d789Shot, e: '🔥', c: C.win },
+      rev: { t: s.d789Rev, e: '🔄', c: '#448AFF' },
+      pass: { t: s.d789Pass, e: '👉', c: C.sub },
+    };
+    const turnEl = h('div', { class: 'turn' });
+    const resEl = h('div', { class: 'bigres' });
+    const stage = h('div', { style: 'flex:1;position:relative;width:100%;min-height:0;cursor:pointer' });
+    const hint = h('div', { class: 'h-sub', style: 'text-align:center;padding:0 0 18px;font-size:16px;color:var(--sub)' }, s.d789Tap);
+    const g = h('div', { class: 'g7' }, turnEl, stage, resEl, hint);
+    root.replaceChildren(top(s.d789Title, setup), h('div', { class: 'body' }, g));
+
+    const showTurn = (roller) => {
+      const arrow = dir === 1 ? '↻' : '↺';
+      turnEl.replaceChildren(h('span', { style: `color:${C.players[turn % C.players.length]}` }, s.playerN(turn + 1)), ' ', h('span', { style: 'color:var(--sub)' }, arrow),
+        h('small', {}, roller != null ? s.playerN(roller + 1) + ' → ' + s.playerN(turn + 1) : ''));
+    };
+    showTurn(null);
+
+    liveCanvas(stage, (ctx, w, hh) => {
+      const size = Math.min(110, w * 0.3), cy = hh * 0.55;
+      const now = performance.now();
+      let p = 1;
+      if (anim) { p = Math.min(1, (now - anim.t0) / anim.ms); if (now - anim.last > 70 && p < 0.92) { anim.last = now; vals = [rnd(1, 6), rnd(1, 6)]; } }
+      [-1, 1].forEach((side, i) => {
+        const x = w / 2 + side * size * 0.75;
+        const bounce = anim ? Math.abs(Math.sin(p * Math.PI * (3 + i * 0.5))) * (1 - p) * hh * 0.35 : 0;
+        const rot = anim ? (1 - p) * (1 - p) * Math.PI * (5 + i) * side : 0;
+        ctx.save(); ctx.translate(x, cy - bounce); ctx.rotate(rot);
+        drawDie(ctx, 0, 0, size, vals[i], shown ? C.players[lastRoller % C.players.length] : null);
+        ctx.restore();
+        ctx.beginPath(); ctx.ellipse(x, cy + size * 0.62, size * 0.42 * (1 - bounce / hh), size * 0.08, 0, 0, 7); ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fill();
+      });
+    });
+
+    const roll = async () => {
+      if (busy) return;
+      busy = true; shown = false; vibe.tap();
+      resEl.replaceChildren(); hint.style.visibility = 'hidden';
+      const roller = turn; lastRoller = roller;
+      anim = { t0: performance.now(), ms: 1100, last: 0, roller };
+      const final = [rnd(1, 6), rnd(1, 6)];
+      await sleep(1020); if (!alive) return;
+      vals = final; await sleep(90); if (!alive) return;
+      anim = null; shown = true;
+      const sum = final[0] + final[1], kind = judge789(sum, rev), r = RES[kind];
+      if (kind === 'pass') vibe.tap(); else vibe.strong();
+      if (kind === 'rev') dir = -dir;
+      resEl.replaceChildren(h('div', { class: 'pops', style: `color:${r.c}` }, `${r.e} ${r.t}`), h('small', {}, s.d789Sum(sum)));
+      turn = (turn + dir + n) % n;
+      showTurn(roller);
+      hint.style.visibility = 'visible';
+      busy = false;
+    };
+    stage.addEventListener('click', roll);
+    hint.addEventListener('click', roll);
   };
 
   setup();
