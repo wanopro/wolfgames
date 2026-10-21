@@ -3,7 +3,17 @@
 술자리에서 폰 하나로 바로 하는 게임 모음 안드로이드 앱입니다.
 Powered by WOLF(feat. segna) · https://wolf.community
 
-## 📥 설치
+## 🌐 웹 버전 (아이폰 · PC)
+
+**https://wanopro.github.io/wolfgames/**
+
+- 아이폰: 사파리로 열고 **공유 → 홈 화면에 추가**를 누르면 늑대 아이콘이 생기고, 앱처럼 전체 화면으로 열립니다.
+- 한 번 열어두면 인터넷이 약해도 실행됩니다(오프라인 지원).
+- 게임, 언어, 화면은 안드로이드 앱과 같습니다.
+- 아이폰 사파리는 웹 진동을 지원하지 않아서 진동은 나오지 않아요. 안드로이드 크롬에서는 진동이 됩니다.
+- `web/` 폴더가 바뀌면 GitHub Actions가 자동으로 다시 배포합니다.
+
+## 📥 안드로이드 앱 설치
 
 1. 폰에서 이 저장소의 **Releases** 메뉴를 열고 가장 최신 `WolfGames.apk`를 받습니다.
 2. 설치할 때 "출처를 알 수 없는 앱 허용"을 한 번 켜줍니다.
@@ -77,4 +87,6 @@ Powered by WOLF(feat. segna) · https://wolf.community
 - Kotlin + Jetpack Compose, Android 8.0(API 26) 이상
 - 고정 서명키(`app/debug.keystore`)를 사용해서 새 버전을 덮어 설치할 수 있습니다.
 - 빌드: GitHub Actions(`.github/workflows/main.yml`) 또는 Android Studio
+- 웹 버전: `web/` (HTML/JavaScript, 빌드 과정 없음) → `.github/workflows/pages.yml`로 GitHub Pages에 배포
+  - 문구는 앱의 `Strings.kt`에서 변환한 `web/i18n.js`를 씁니다.
 - 문구는 `app/src/main/java/com/wolfgames/app/i18n/Strings.kt`에 6개 언어로 모여 있습니다.
