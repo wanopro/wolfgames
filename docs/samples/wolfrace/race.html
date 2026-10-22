@@ -1,0 +1,99 @@
+<!doctype html><meta charset=utf-8>
+<style>body{margin:0;background:#12121A;color:#F2F2F7;font-family:-apple-system,"Noto Sans KR",sans-serif}
+#setup{width:393px;height:852px;box-sizing:border-box;padding:0 20px}
+.top{height:56px;display:flex;align-items:center;font-size:20px;font-weight:700;gap:14px}
+.desc{color:#9A9AB0;font-size:15px;line-height:22px;margin:8px 0 14px}
+.stp{display:flex;align-items:center;background:#1E1E2A;border-radius:16px;padding:10px 16px;margin-bottom:14px}
+.stp .l{flex:1;font-size:18px}.stp b{width:56px;text-align:center;color:#FFB300;font-size:26px}
+.stp i{width:44px;height:44px;border-radius:50%;background:#2C2C3E;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:24px;font-weight:700}
+h3{font-size:16px;margin:6px 0 10px;color:#F2F2F7}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.a{background:#1E1E2A;border-radius:14px;height:70px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:32px;position:relative;border:2px solid transparent}
+.a small{font-size:12px;color:#9A9AB0;margin-top:2px}
+.a.on{border-color:#FFB300;background:#2C2A1E}.a .n{position:absolute;top:-6px;right:-6px;background:#FFB300;color:#000;border-radius:50%;width:22px;height:22px;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.lanes{display:flex;gap:8px;margin:14px 0}.lanes div{flex:1;background:#1E1E2A;border-radius:12px;padding:8px 0;text-align:center;font-size:26px}.lanes small{display:block;font-size:12px;color:#9A9AB0}
+.btn{height:56px;border-radius:16px;background:#FFB300;color:#000;font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:8px}
+</style>
+<div id=setup>
+ <div class=top>← <span>늑대달리기</span></div>
+ <div class=desc>인원수를 정하고 각자 동물을 고르세요.<br>동물들이 결승선에서 기다리고, 늑대가 먼저 무는 동물이 1등!</div>
+ <div class=stp><span class=l>참가 인원</span><i>−</i><b>4</b><i>+</i></div>
+ <div class=stp><span class=l>결과 시간(초)</span><i>−</i><b>6</b><i>+</i></div>
+ <h3>동물 고르기 (4마리 · 누른 순서대로 1~4번)</h3>
+ <div class=grid id=grid></div>
+ <div class=lanes id=lanes></div>
+ <div class=btn>게임 시작</div>
+</div>
+<canvas id=c width=393 height=852 style="display:none"></canvas>
+<script type=module>
+import {cuteWolf} from './cute.js';
+import {animalFace,ANIMALS} from './faces.js';
+const AN=ANIMALS;
+const PICK=[0,1,3,10];
+const g=document.getElementById('grid');
+const face=(kind,px)=>{const c=document.createElement('canvas');c.width=c.height=px*2;c.style.width=c.style.height=px+'px';const q=c.getContext('2d');q.scale(2,2);animalFace(q,px/2,px/2+px*0.08,px*0.33,kind,0);return c;};
+AN.forEach(([k,n],i)=>{const j=PICK.indexOf(i);const d=document.createElement('div');d.className='a'+(j>=0?' on':'');d.append(face(k,46));d.insertAdjacentHTML('beforeend',`<small>${n}</small>${j>=0?`<span class=n>${j+1}</span>`:''}`);g.append(d);});
+const ln=document.getElementById('lanes');PICK.forEach((a,i)=>{const d=document.createElement('div');d.append(face(AN[a][0],34));d.insertAdjacentHTML('beforeend',`<small>${i+1}번 ${AN[a][1]}</small>`);ln.append(d);});
+// ---- 경주 ----
+const n=4,secs=6;
+let seed=11;const R=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+const order=[2,0,3,1];const times=Array(n);times[order[0]]=secs;
+const gaps=[0.5,0.7,0.9];let acc=0;const tot=gaps.reduce((a,b)=>a+b);for(let r=1;r<n;r++){acc+=gaps[r-1];times[order[r]]=secs*(1+0.08*acc/tot);}
+const K=20,L=K-1,slots=[3,11,7,15,1,9,17,5,13,2,10,18,6,14,4,12,8,16,19];
+const CFG=[[0,2.8,0.6],[4,2.4,0.5],[8,2.0,0.4],[12,1.8,0.4],[2,0.1,0.1],[6,0.12,0.1],[10,0.15,0.1],[14,0.2,0.1]];
+const runners=times.map((T,i)=>{const v=Array.from({length:K+1},()=>0.5+R()*0.5);v[0]=0.6+R()*0.6;CFG.forEach(([o,a,b])=>{v[slots[(i*CFG.length+o)%L]]=a+R()*b;});
+ const M=160,tab=[0];let sum=0;for(let j=1;j<=M;j++){const u=(j-0.5)/M*K,k=Math.floor(u),e=(1-Math.cos(Math.PI*(u-k)))/2;sum+=v[k]*(1-e)+v[Math.min(K,k+1)]*e;tab.push(sum);}for(let j=0;j<=M;j++)tab[j]/=sum;
+ return{T,pos(t){const u=Math.min(1,Math.max(0,t/T))*M,j=Math.min(M-1,Math.floor(u));return tab[j]+(tab[j+1]-tab[j])*(u-j);}}});
+const rankOf=[...Array(n).keys()].sort((a,b)=>times[a]-times[b]);
+const cv=document.getElementById('c'),x=cv.getContext('2d');
+const BITE=0.7;
+window.showRace=()=>{document.getElementById('setup').style.display='none';cv.style.display='block';};
+window.frame=(t)=>{ // t<0 카운트다운
+ x.fillStyle='#12121A';x.fillRect(0,0,393,852);
+ x.fillStyle='#F2F2F7';x.font='700 20px sans-serif';x.textAlign='left';x.textBaseline='middle';x.fillText('←  늑대달리기',14,28);
+ const done=rankOf.filter(i=>t>=times[i]);
+ let title=t<0?String(Math.ceil(-t)):t<0.6&&done.length===0?'출발!':'달리는 중...';
+ if(t>Math.max(...times)+BITE) title=`1등: ${AN[PICK[rankOf[0]]][1]} · 꼴찌: ${AN[PICK[rankOf[n-1]]][1]}`;
+ x.textAlign='center';x.font=(t<0?'900 40px':'800 21px')+' sans-serif';x.fillStyle=t>Math.max(...times)+BITE?'#FFB300':'#F2F2F7';x.fillText(title,196,82);
+ // 트랙
+ const top=112,H=600,lh=H/n,left=10,right=383,finish=318;
+ x.save();x.beginPath();x.roundRect(left,top,right-left,H,16);x.clip();
+ for(let i=0;i<n;i++){x.fillStyle=i%2?'#E4D6B8':'#F1E7D0';x.fillRect(left,top+i*lh,right-left,lh);
+  x.fillStyle='rgba(0,0,0,.08)';x.fillRect(left,top+(i+1)*lh-8,right-left,8);}
+ x.fillStyle='#fff';x.fillRect(46,top,3,H);
+ for(let y=top,r=0;y<top+H;y+=8,r++)for(let c=0;c<2;c++){x.fillStyle=(r+c)%2?'#fff':'#2B2B33';x.fillRect(finish+c*8,y,8,8);}
+ for(let i=0;i<n;i++){
+  const gy=top+(i+0.82)*lh, a=PICK[i];
+  // 번호
+  x.beginPath();x.arc(28,top+(i+0.5)*lh,13,0,7);x.fillStyle='#5B616B';x.fill();x.fillStyle='#fff';x.font='900 13px sans-serif';x.fillText(String(i+1),28,top+(i+0.5)*lh+1);
+  // 동물 얼굴 (결승선 너머에서 대기)
+  const bt=t-times[i], ws=Math.min(lh*0.42,70), ar=Math.min(lh*0.14,ws*0.34), ax=352, ay=gy-ws*0.5;
+  x.save();x.translate(ax,ay);
+  if(bt<0){ const near=t>0&&t>times[i]-1.4; x.rotate(Math.sin(t*(near?26:12)+i)*(near?0.12:0.05)); animalFace(x,0,0,ar,AN[a][0],near?1:0);
+    if(near){x.font='16px sans-serif';x.fillText('💦',ar*0.9,-ar*0.9);} }
+  else { const hit=bt>0.22; x.translate(hit?Math.sin(bt*40)*2*Math.max(0,1-bt):0,0); x.rotate(hit?0.3:0); x.scale(hit?1.12:1,hit?0.84:1); animalFace(x,0,0,ar,AN[a][0],hit?2:1);
+    if(bt>0.3){x.rotate(-0.3);x.font='15px sans-serif';x.fillText('💫',0,-ar*1.25);} }
+  x.restore();
+  // 늑대
+  const s=ws, p=t<0?0:runners[i].pos(t);
+  const startX=56+s*0.9, endX=finish-4-s*0.84; // 코끝이 동물 앞에 닿는 위치
+  let wx=startX+p*(endX-startX), open=0, run=t>0&&bt<0?1:0, ph=t*16+i*1.7;
+  const near=t>0&&bt<0&&t>times[i]-1.4; if(near){const k=Math.min(1,(t-(times[i]-1.4))/0.3); open=k*(0.55+0.25*Math.abs(Math.sin(t*9+i)));} // 물 준비: 입 벌리고 덥석덥석
+  if(bt>=0){ const u=Math.min(1,bt/BITE); const reach=(ax-ar*0.6)-(endX+0.84*s); // 코끝이 동물에 닿도록 덮침
+    const e=u<0.4?1-Math.pow(1-u/0.4,2):1; wx=endX+reach*e; run=u<0.4?0.6:0; ph=0.8+i;
+    open=u<0.3?u/0.3:u<0.45?1-(u-0.3)/0.15:0; }
+  if(run>0.5&&t>0){const sp=(runners[i].pos(t+0.06)-p)/0.06*runners[i].T; if(sp>1.25){const k=Math.min(1,(sp-1.25)/1.2);
+    for(let d=0;d<3;d++){const q=((t*3+d/3+i*0.3)%1);x.globalAlpha=(1-q)*0.55*k;x.beginPath();x.arc(wx-s*(0.5+q*0.9),gy-s*0.06-q*s*0.12,s*(0.07+q*0.12),0,7);x.fillStyle='#B8A27E';x.fill();}
+    x.globalAlpha=0.5*k;x.strokeStyle='#fff';x.lineWidth=2;for(let d=0;d<3;d++){const yy=gy-s*(0.45+d*0.18);x.beginPath();x.moveTo(wx-s*(0.95+d*0.1),yy);x.lineTo(wx-s*(1.35+d*0.15),yy);x.stroke();}x.globalAlpha=1;}}
+  cuteWolf(x,wx,gy,s,ph,{run,open,happy:bt>BITE*0.6});
+  if(bt>=0.25&&bt<0.9){ x.font='900 22px sans-serif';x.fillStyle='#E53950';x.fillText('앙!',ax-6,ay-ar*1.6-(bt-0.25)*20); x.font='20px sans-serif';x.fillText('💥',ax-ar*0.9,ay+ar*0.4);}
+  // 순위 배지
+  const rk=rankOf.indexOf(i);
+  if(bt>=BITE*0.6){ x.beginPath();x.arc(ax+2,ay+ar*1.45,13,0,7);x.fillStyle=rk===0?'#FFC107':rk===n-1?'#FF3D5A':'#555566';x.fill();
+   x.fillStyle=rk===0?'#2B2B33':'#fff';x.font='900 13px sans-serif';x.fillText(String(rk+1),ax+2,ay+ar*1.45+1);}
+ }
+ x.restore();
+ x.fillStyle='#9A9AB0';x.font='600 14px sans-serif';x.fillText('인원 / 동물 / 시간 변경',196,780);
+};
+window.END=Math.max(...times)+BITE;
+</script>
