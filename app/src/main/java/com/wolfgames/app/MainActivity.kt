@@ -57,6 +57,7 @@ import com.wolfgames.app.games.HoChiMinhGame
 import com.wolfgames.app.games.UpDownGame
 import com.wolfgames.app.games.ExchangeScreen
 import com.wolfgames.app.games.FiveDiceGame
+import com.wolfgames.app.games.FingerGame
 import com.wolfgames.app.games.FourGame
 import com.wolfgames.app.games.LadderGame
 import com.wolfgames.app.games.PirateGame
@@ -111,15 +112,20 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, D789, CardMenu, UpDown, HoChiMinh, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language, Changelog }
+enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, D789, CardMenu, UpDown, HoChiMinh, FingerMenu, Finger, WolfMenu, LuckMenu, BattleMenu, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language, Changelog }
 
 @Composable
 fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
     var screen by rememberSaveable { mutableStateOf(Screen.Home) }
+    val s = LocalStrings.current
     val back: () -> Unit = {
         screen = when (screen) {
             Screen.RollDice, Screen.ShutBox, Screen.FiveDice, Screen.D789 -> Screen.DiceMenu
             Screen.UpDown, Screen.HoChiMinh -> Screen.CardMenu
+            Screen.Finger -> Screen.FingerMenu
+            Screen.Croc, Screen.Race, Screen.Pirate, Screen.Arrow -> Screen.WolfMenu
+            Screen.Ladder, Screen.Roulette -> Screen.LuckMenu
+            Screen.Four -> Screen.BattleMenu
             Screen.Fx -> Screen.Calc
             else -> Screen.Home
         }
@@ -137,6 +143,19 @@ fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
             Screen.CardMenu -> CardMenuScreen(onBack = back) { screen = it }
             Screen.UpDown -> UpDownGame(onBack = back)
             Screen.HoChiMinh -> HoChiMinhGame(onBack = back)
+            Screen.Finger -> FingerGame(onBack = back)
+            Screen.FingerMenu -> CategoryScreen("👆 ${s.menuFinger}", back, listOf(MenuItem("☝️", s.fingerTitle, s.fingerSub, Screen.Finger))) { screen = it }
+            Screen.WolfMenu -> CategoryScreen("🐺 ${s.menuWolf}", back, listOf(
+                MenuItem("🐺", s.menuCroc, s.menuCrocSub, Screen.Croc),
+                MenuItem("🏁", s.menuRace, s.menuRaceSub, Screen.Race),
+                MenuItem("🗡️", s.menuPirate, s.menuPirateSub, Screen.Pirate),
+                MenuItem("🔄", s.menuArrow, s.menuArrowSub, Screen.Arrow),
+            )) { screen = it }
+            Screen.LuckMenu -> CategoryScreen("🍀 ${s.menuLuck}", back, listOf(
+                MenuItem("🪜", s.menuLadder, s.menuLadderSub, Screen.Ladder),
+                MenuItem("🎡", s.menuRoulette, s.menuRouletteSub, Screen.Roulette),
+            )) { screen = it }
+            Screen.BattleMenu -> CategoryScreen("⚔️ ${s.menuBattle}", back, listOf(MenuItem("🔴", s.menuFour, s.menuFourSub, Screen.Four))) { screen = it }
             Screen.Croc -> WolfTeethGame(onBack = back)
             Screen.Ladder -> LadderGame(onBack = back)
             Screen.Roulette -> RouletteGame(onBack = back)
@@ -218,13 +237,10 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
             Spacer(Modifier.height(8.dp))
             MenuCard("🎲", s.menuDice, s.menuDiceSub) { onSelect(Screen.DiceMenu) }
             MenuCard("🃏", s.menuCards, s.menuCardsSub) { onSelect(Screen.CardMenu) }
-            MenuCard("🐺", s.menuCroc, s.menuCrocSub) { onSelect(Screen.Croc) }
-            MenuCard("🪜", s.menuLadder, s.menuLadderSub) { onSelect(Screen.Ladder) }
-            MenuCard("🎡", s.menuRoulette, s.menuRouletteSub) { onSelect(Screen.Roulette) }
-            MenuCard("🏁", s.menuRace, s.menuRaceSub) { onSelect(Screen.Race) }
-            MenuCard("🗡️", s.menuPirate, s.menuPirateSub) { onSelect(Screen.Pirate) }
-            MenuCard("🔄", s.menuArrow, s.menuArrowSub) { onSelect(Screen.Arrow) }
-            MenuCard("🔴", s.menuFour, s.menuFourSub) { onSelect(Screen.Four) }
+            MenuCard("👆", s.menuFinger, s.menuFingerSub) { onSelect(Screen.FingerMenu) }
+            MenuCard("🐺", s.menuWolf, s.menuWolfSub) { onSelect(Screen.WolfMenu) }
+            MenuCard("🍀", s.menuLuck, s.menuLuckSub) { onSelect(Screen.LuckMenu) }
+            MenuCard("⚔️", s.menuBattle, s.menuBattleSub) { onSelect(Screen.BattleMenu) }
             Spacer(Modifier.height(10.dp))
             // Powered by WOLF(feat. segna) — WOLF 를 누르면 홈페이지 이동 확인
             Row(
@@ -376,6 +392,22 @@ fun DiceMenuScreen(onBack: () -> Unit, onSelect: (Screen) -> Unit) {
             MenuCard("🔢", s.shutTitle, s.shutSub) { onSelect(Screen.ShutBox) }
             MenuCard("🎲", s.fiveTitle, s.fiveSub) { onSelect(Screen.FiveDice) }
             MenuCard("🍶", s.d789Title, s.d789Sub) { onSelect(Screen.D789) }
+        }
+    }
+}
+
+/** 카테고리 메뉴 한 줄 */
+data class MenuItem(val emoji: String, val title: String, val sub: String, val screen: Screen)
+
+/** 카테고리 안의 게임 목록 */
+@Composable
+fun CategoryScreen(title: String, onBack: () -> Unit, items: List<MenuItem>, onSelect: (Screen) -> Unit) {
+    GameScaffold(title, onBack) {
+        Column(
+            Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(14.dp),
+        ) {
+            items.forEach { MenuCard(it.emoji, it.title, it.sub) { onSelect(it.screen) } }
         }
     }
 }

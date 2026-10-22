@@ -2,6 +2,7 @@
 import { S, h, btn, card, top, lang, LANGS, vibe, VERSION } from './core.js';
 import { rollDice, shutBox, fiveDice, d789 } from './games-dice.js';
 import { upDown, hoChiMinh } from './games-cards.js';
+import { fingerPick } from './games-finger.js';
 import { wolfTeeth, ladder, roulette } from './games-pick.js';
 import { race, pirate, arrow } from './games-fun.js';
 import { four } from './games-four.js';
@@ -20,6 +21,11 @@ const SCREENS = {
   five: fiveDice,
   d789,
   cards: cardMenu,
+  fingers: fingerMenu,
+  finger: fingerPick,
+  wolves: wolfMenu,
+  luck: luckMenu,
+  battle: battleMenu,
   updown: upDown,
   hcm: hoChiMinh,
   teeth: wolfTeeth,
@@ -34,7 +40,7 @@ const SCREENS = {
   lang: langScreen,
   log: logScreen,
 };
-const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', updown: 'cards', hcm: 'cards' };
+const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', updown: 'cards', hcm: 'cards', finger: 'fingers', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle' };
 
 // ---------- 화면 이동 (휴대폰 뒤로가기 버튼과 연동) ----------
 function show(name) {
@@ -71,13 +77,10 @@ function homeScreen(root) {
     h('div', { style: 'height:4px' }),
     card('🎲', s.menuDice, s.menuDiceSub, () => go('dice')),
     card('🃏', s.menuCards, s.menuCardsSub, () => go('cards')),
-    card('🐺', s.menuCroc, s.menuCrocSub, () => go('teeth')),
-    card('🪜', s.menuLadder, s.menuLadderSub, () => go('ladder')),
-    card('🎡', s.menuRoulette, s.menuRouletteSub, () => go('roulette')),
-    card('🏁', s.menuRace, s.menuRaceSub, () => go('race')),
-    card('🗡️', s.menuPirate, s.menuPirateSub, () => go('pirate')),
-    card('🔄', s.menuArrow, s.menuArrowSub, () => go('arrow')),
-    card('🔴', s.menuFour, s.menuFourSub, () => go('four')),
+    card('👆', s.menuFinger, s.menuFingerSub, () => go('fingers')),
+    card('🐺', s.menuWolf, s.menuWolfSub, () => go('wolves')),
+    card('🍀', s.menuLuck, s.menuLuckSub, () => go('luck')),
+    card('⚔️', s.menuBattle, s.menuBattleSub, () => go('battle')),
     h('div', { class: 'footer' }, 'Powered by ', btn('WOLF', ask, ''), '(feat. segna)'),
     h('div', { class: 'footer', style: 'padding-top:0;font-size:12px' }, h('a', { href: `manual.html?lang=${lang.current}`, style: 'color:var(--sub)' }, `📖 ${s.installGuide}`), h('span', { style: 'opacity:.6' }, '  ·  '), btn(`📜 v${VERSION} ${s.logTitle}`, () => go('log'), 'linkbtn')));
   root.append(scroll);
@@ -134,6 +137,31 @@ function diceMenu(root) {
     card('🔢', s.shutTitle, s.shutSub, () => go('shut')),
     card('🎲', s.fiveTitle, s.fiveSub, () => go('five')),
     card('🍶', s.d789Title, s.d789Sub, () => go('d789'))));
+}
+
+function fingerMenu(root) {
+  const s = S();
+  root.append(top(`👆 ${s.menuFinger}`, back), h('div', { class: 'scroll' },
+    card('☝️', s.fingerTitle, s.fingerSub, () => go('finger'))));
+}
+function wolfMenu(root) {
+  const s = S();
+  root.append(top(`🐺 ${s.menuWolf}`, back), h('div', { class: 'scroll' },
+    card('🐺', s.menuCroc, s.menuCrocSub, () => go('teeth')),
+    card('🏁', s.menuRace, s.menuRaceSub, () => go('race')),
+    card('🗡️', s.menuPirate, s.menuPirateSub, () => go('pirate')),
+    card('🔄', s.menuArrow, s.menuArrowSub, () => go('arrow'))));
+}
+function luckMenu(root) {
+  const s = S();
+  root.append(top(`🍀 ${s.menuLuck}`, back), h('div', { class: 'scroll' },
+    card('🪜', s.menuLadder, s.menuLadderSub, () => go('ladder')),
+    card('🎡', s.menuRoulette, s.menuRouletteSub, () => go('roulette'))));
+}
+function battleMenu(root) {
+  const s = S();
+  root.append(top(`⚔️ ${s.menuBattle}`, back), h('div', { class: 'scroll' },
+    card('🔴', s.menuFour, s.menuFourSub, () => go('four'))));
 }
 
 function cardMenu(root) {
