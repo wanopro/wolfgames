@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Wolf Games · 설치 안내 / Install guide</title>
-  <meta name="description" content="울프 게임즈 v1.2 — 안드로이드 APK 설치 방법과 아이폰 홈 화면 추가 방법 (6개 언어)">
+  <meta name="description" content="울프 게임즈 v1.3 — 안드로이드 APK 설치 방법과 아이폰 홈 화면 추가 방법 (6개 언어)">
   <meta name="theme-color" content="#12121A">
   <link rel="icon" type="image/png" href="icons/favicon.png">
   <style>
@@ -120,8 +120,8 @@ function render(lang) {
       <h3><span class="num">${lang === 'zh' ? t.step + (k + from) + '步' : t.step + ' ' + (k + from)}</span>${h}${imgs[k] === 'android-5-protect' ? ` <small style="color:var(--sub);font-weight:400">${t.optional}</small>` : ''}</h3>
       <p>${p}</p>${li.length ? `<ul>${li.map((x) => `<li>${x}</li>`).join('')}</ul>` : ''}
     </div></div>`).join('');
-  const games = [['🎲', s.menuDice, s.menuDiceSub], ['🃏', s.menuCards, s.menuCardsSub], ['🐺', s.menuCroc, s.menuCrocSub], ['🪜', s.menuLadder, s.menuLadderSub], ['🎡', s.menuRoulette, s.menuRouletteSub],
-    ['🏁', s.menuRace, s.menuRaceSub], ['🗡️', s.menuPirate, s.menuPirateSub], ['🔄', s.menuArrow, s.menuArrowSub], ['🔴', s.menuFour, s.menuFourSub]];
+  const games = [['🎲', s.menuDice, s.menuDiceSub], ['🃏', s.menuCards, s.menuCardsSub], ['👆', s.menuFinger, s.menuFingerSub],
+    ['🐺', s.menuWolf, s.menuWolfSub], ['🍀', s.menuLuck, s.menuLuckSub], ['⚔️', s.menuBattle, s.menuBattleSub]];
   document.getElementById('m').innerHTML = `
   <div class="top-row"><a class="back" href="./">${t.back}</a>
     <div class="langbar">${LANGS.map(([c, f, l]) => `<button data-l="${c}" class="${c === lang ? 'sel' : ''}">${f} ${l}</button>`).join('')}</div></div>

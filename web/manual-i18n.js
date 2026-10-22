@@ -5,7 +5,7 @@ export const MANUAL = {
   "lead": "술자리 게임 모음 · 설치 안내",
   "navAndroid": "🤖 안드로이드 설치",
   "navIphone": "🍎 아이폰 홈 화면 추가",
-  "navNew": "🆕 v1.2 구성",
+  "navNew": "🆕 v1.3 구성",
   "navUpdate": "🔄 업데이트",
   "navFaq": "❓ 자주 묻는 질문",
   "qAndroid": "🤖 안드로이드 앱",
@@ -100,11 +100,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 메인 화면",
-  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.2</b>)을 확인할 수 있어요.",
-  "hNew": "🆕 v1.2 구성",
-  "newIntro": "울프 게임즈 v1.2에는 아래 게임과 기능이 들어 있어요.",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.3</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v1.3 구성",
+  "newIntro": "울프 게임즈 v1.3에는 아래 게임과 기능이 들어 있어요.",
   "newFeat": [
    "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "👆 손가락게임 (손가락선택) · 🐺 늑대게임 · 🍀 운빨게임 · ⚔️ 대결게임 카테고리",
    "🃏 카드 게임 (Up/Down · 호치민) · 🍶 789",
    "🧮 계산기 · 🍻 N빵(술값 나누기) · 💱 환전 (메인 화면 로고 옆)",
    "📳 모든 버튼·게임 터치에 진동 (당첨·승리 땐 강하게)",
@@ -113,11 +114,8 @@ export const MANUAL = {
   ],
   "hChange": "🛠 최근 수정 내용",
   "changes": [
-   "<b>🎲 5개 주사위</b>: 한 명이 이기면 끝나던 방식에서, <b>마지막 한 명이 남을 때까지</b> 하는 패자 정하기 게임으로 바뀌었어요. 주사위를 다 없앤 사람은 탈출, 6은 아직 남은 옆 사람에게 넘어가요.",
-   "<b>🍶 789</b> 추가 (주사위 메뉴): 합의 뒷자리 7 첨잔, 8 반만, 9 원샷, 6 순서 반대로.",
-   "<b>🃏 카드</b> 메뉴 추가: <b>Up/Down</b>(누적 옵션)과 <b>호치민</b>.",
-   "<b>🏁 늑대달리기</b>: 동물달리기에서 이름이 바뀌었어요. 늑대마다 질주·주춤하는 타이밍이 달라서 순위가 엎치락뒤치락, 끝까지 접전이에요.",
-   "<b>🔄 늑대 돌리기</b>: 늑대 그림이 엎드린 옆모습으로 바뀌었어요. 돌 때 입을 위아래로 쩍 벌리고, 멈추면 꽉 물어요."
+   "<b>☝️ 손가락선택</b> 추가 (👆 손가락게임): 걸릴 인원을 정하고 다 같이 손가락을 올렸다 떼면, 걸린 자리에 늑대가 나타나 메롱~",
+   "<b>메인 화면 정리</b>: 🐺 늑대게임(늑대이빨·늑대달리기·늑대 룰렛·늑대 돌리기), 🍀 운빨게임(사다리게임·돌림판), ⚔️ 대결게임(4목) 카테고리로 묶었어요."
   ],
   "hUpdate": "🔄 업데이트",
   "updA": "<b>안드로이드</b>: 같은 QR이나 같은 버튼으로 새 APK를 받아 설치하면 됩니다. <b>기존 앱을 지우지 않고</b> 덮어 설치돼요.",
@@ -148,7 +146,7 @@ export const MANUAL = {
   "back": "← 게임으로",
   "navHow": "🎮 게임 방법",
   "hHow": "🎮 게임 방법",
-  "howIntro": "메인 화면에서 게임을 누르면 바로 시작돼요. 설정이 있는 게임은 인원 등을 정한 뒤 <b>게임 시작</b>을 누르세요. 왼쪽 위 <b>←</b>로 언제든 나갈 수 있어요.",
+  "howIntro": "메인 화면에서 게임을 누르면 바로 시작돼요. 설정이 있는 게임은 인원 등을 정한 뒤 <b>게임 시작</b>을 누르세요. 왼쪽 위 <b>←</b>로 언제든 나갈 수 있어요. 메인 화면은 <b>주사위 · 카드 · 손가락게임 · 늑대게임 · 운빨게임 · 대결게임</b> 카테고리로 나뉘어 있어요.",
   "steps": [
    [
     "여러 명이 동시에 화면에 손가락을 하나씩 올려요.",
@@ -179,6 +177,11 @@ export const MANUAL = {
     "인원(2~4명)을 정하고 폰을 테이블 가운데에 둬요. 각자 받은 카드 1장이 내 숫자예요.",
     "차례인 사람이 가운데 카드 2장 중 바꿀 카드를 눌러요. 새 카드가 뒤집혀 올라와요.",
     "두 장 합의 뒷자리가 내 숫자면 <b>원샷!</b> (A=1, 10·J·Q·K=0) <b>새 게임</b>으로 카드를 다시 나눠요."
+   ],
+   [
+    "걸릴 인원(1~9명)을 정하고 시작해요.",
+    "다 같이 화면에 손가락을 하나씩 올려요. 손가락마다 다른 색 원이 생겨요.",
+    "모두 손을 떼고 0.5초가 지나면 걸린 사람 자리에만 늑대가 나타나 <b>메롱~</b> 하고 약올려요. 화면을 탭하면 다시 해요."
    ],
    [
     "당첨 이빨 개수(1~10개)를 정하고 시작해요.",
@@ -252,6 +255,10 @@ export const MANUAL = {
     "hcmTitle"
    ],
    [
+    "how-finger",
+    "fingerTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -295,6 +302,7 @@ export const MANUAL = {
    "🍶",
    "↕️",
    "🇻🇳",
+   "☝️",
    "🐺",
    "🪜",
    "🎡",
@@ -311,7 +319,7 @@ export const MANUAL = {
   "lead": "Drinking game collection · Install guide",
   "navAndroid": "🤖 Android install",
   "navIphone": "🍎 iPhone home screen",
-  "navNew": "🆕 What's in v1.2",
+  "navNew": "🆕 What's in v1.3",
   "navUpdate": "🔄 Updates",
   "navFaq": "❓ FAQ",
   "qAndroid": "🤖 Android app",
@@ -406,11 +414,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Main screen",
-  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.2</b>) is shown at the bottom.",
-  "hNew": "🆕 What's in v1.2",
-  "newIntro": "Wolf Games v1.2 includes these games and features.",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.3</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v1.3",
+  "newIntro": "Wolf Games v1.3 includes these games and features.",
   "newFeat": [
    "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "👆 Finger Games (Finger Pick) · 🐺 Wolf Games · 🍀 Luck Games · ⚔️ Versus Games",
    "🃏 Card games (Up/Down · Ho Chi Minh) · 🍶 789",
    "🧮 Calculator · 🍻 Bill split · 💱 Currency exchange (next to the logo)",
    "📳 Vibration on every button and game tap (stronger on wins)",
@@ -419,11 +428,8 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Latest changes",
   "changes": [
-   "<b>🎲 Five Dice</b>: instead of ending when someone wins, you now play <b>until one player is left</b> — it picks the loser. Players who run out of dice escape, and 6s go to the next player still in.",
-   "<b>🍶 789</b> added (Dice menu): last digit 7 top up, 8 half, 9 bottoms up, 6 reverses the order.",
-   "New <b>🃏 Cards</b> menu: <b>Up/Down</b> (with stack option) and <b>Ho Chi Minh</b>.",
-   "<b>🏁 Wolf Race</b>: renamed from Animal Race. Each wolf sprints and stumbles at different times, so the lead keeps changing until the very end.",
-   "<b>🔄 Wolf Spin</b>: new wolf drawing — a wolf lying on its side that opens its jaws wide while spinning and snaps shut when it stops."
+   "New <b>☝️ Finger Pick</b> (👆 Finger Games): choose how many get picked, everyone puts a finger down and lifts — a wolf pops up on the picked spots and sticks its tongue out.",
+   "<b>Main screen reorganized</b>: 🐺 Wolf Games (Wolf Teeth · Wolf Race · Wolf Roulette · Wolf Spin), 🍀 Luck Games (Ladder Game · Roulette), ⚔️ Versus Games (Connect 4)."
   ],
   "hUpdate": "🔄 Updates",
   "updA": "<b>Android</b>: download the new APK with the same QR code or button and install it. It installs <b>over the old app</b> — no need to delete it.",
@@ -454,7 +460,7 @@ export const MANUAL = {
   "back": "← Back to games",
   "navHow": "🎮 How to play",
   "hHow": "🎮 How to play",
-  "howIntro": "Tap a game on the main screen to start. For games with settings, choose the number of players etc. and tap <b>Start</b>. Tap <b>←</b> at the top left to leave at any time.",
+  "howIntro": "Tap a game on the main screen to start. For games with settings, choose the number of players etc. and tap <b>Start</b>. Tap <b>←</b> at the top left to leave at any time. The main screen is grouped into <b>Dice · Cards · Finger Games · Wolf Games · Luck Games · Versus Games</b>.",
   "steps": [
    [
     "Several people put one finger each on the screen at the same time.",
@@ -485,6 +491,11 @@ export const MANUAL = {
     "Choose the number of players (2–4) and put the phone in the middle. Your one card is your number.",
     "On your turn, tap one of the two middle cards to replace it. A new card flips up.",
     "If the last digit of the two cards matches your number, <b>bottoms up!</b> (A=1, 10/J/Q/K=0) <b>New game</b> deals again."
+   ],
+   [
+    "Choose how many get picked (1–9) and start.",
+    "Everyone puts one finger on the screen. Each finger gets its own colored circle.",
+    "When all fingers are lifted, after 0.5 sec a wolf pops up only on the picked spots and goes <b>Nyah~</b>. Tap the screen to play again."
    ],
    [
     "Choose how many biting teeth (1–10) and start.",
@@ -558,6 +569,10 @@ export const MANUAL = {
     "hcmTitle"
    ],
    [
+    "how-finger",
+    "fingerTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -601,6 +616,7 @@ export const MANUAL = {
    "🍶",
    "↕️",
    "🇻🇳",
+   "☝️",
    "🐺",
    "🪜",
    "🎡",
@@ -617,7 +633,7 @@ export const MANUAL = {
   "lead": "飲み会ゲーム集 · インストール案内",
   "navAndroid": "🤖 Androidにインストール",
   "navIphone": "🍎 iPhoneのホーム画面に追加",
-  "navNew": "🆕 v1.2の内容",
+  "navNew": "🆕 v1.3の内容",
   "navUpdate": "🔄 アップデート",
   "navFaq": "❓ よくある質問",
   "qAndroid": "🤖 Androidアプリ",
@@ -711,11 +727,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 メイン画面",
-  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.2</b>）を確認できます。",
-  "hNew": "🆕 v1.2の内容",
-  "newIntro": "ウルフゲームズv1.2には次のゲームと機能が入っています。",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.3</b>）を確認できます。",
+  "hNew": "🆕 v1.3の内容",
+  "newIntro": "ウルフゲームズv1.3には次のゲームと機能が入っています。",
   "newFeat": [
    "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "👆 指ゲーム（指えらび）・🐺 オオカミゲーム・🍀 運ゲー・⚔️ 対決ゲーム",
    "🃏 カードゲーム（Up/Down・ホーチミン）・🍶 789",
    "🧮 電卓 · 🍻 割り勘 · 💱 両替（ロゴの横）",
    "📳 すべてのボタンとゲーム操作で振動（当たり・勝ちは強め）",
@@ -724,11 +741,8 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近の変更",
   "changes": [
-   "<b>🎲 5個サイコロ</b>：1人が勝ったら終わる方式から、<b>最後の1人が残るまで</b>続ける負け決めゲームに変わりました。サイコロをなくした人は脱出、6はまだ残っている隣の人へ渡ります。",
-   "<b>🍶 789</b>追加（サイコロメニュー）：合計の下1桁7 注ぎ足し、8 半分、9 一気、6 順番逆。",
-   "<b>🃏 カード</b>メニュー追加：<b>Up/Down</b>（累積オプション）と<b>ホーチミン</b>。",
-   "<b>🏁 ウルフレース</b>：動物レースから名前が変わりました。オオカミごとにダッシュと失速のタイミングが違うので、順位が最後まで入れ替わります。",
-   "<b>🔄 オオカミ回し</b>：オオカミの絵が伏せた横向きの姿に変わりました。回っている間は口を大きく開け、止まるとガブッとかみます。"
+   "<b>☝️ 指えらび</b>追加（👆 指ゲーム）：当たる人数を決めて、みんなで指を置いて離すと、当たった場所にオオカミが出てきてあっかんべー。",
+   "<b>メイン画面を整理</b>：🐺 オオカミゲーム（オオカミの歯・ウルフレース・オオカミルーレット・オオカミ回し）、🍀 運ゲー（あみだくじ・ルーレット）、⚔️ 対決ゲーム（4目並べ）にまとめました。"
   ],
   "hUpdate": "🔄 アップデート",
   "updA": "<b>Android</b>：同じQRコードかボタンで新しいAPKをダウンロードしてインストールします。<b>古いアプリを消さずに</b>上書きされます。",
@@ -759,7 +773,7 @@ export const MANUAL = {
   "back": "← ゲームに戻る",
   "navHow": "🎮 遊び方",
   "hHow": "🎮 遊び方",
-  "howIntro": "メイン画面でゲームを押すとすぐ始まります。設定があるゲームは人数などを決めてから<b>ゲーム開始</b>を押してください。左上の<b>←</b>でいつでも戻れます。",
+  "howIntro": "メイン画面でゲームを押すとすぐ始まります。設定があるゲームは人数などを決めてから<b>ゲーム開始</b>を押してください。左上の<b>←</b>でいつでも戻れます。 メイン画面は<b>サイコロ・カード・指ゲーム・オオカミゲーム・運ゲー・対決ゲーム</b>のカテゴリに分かれています。",
   "steps": [
    [
     "何人かで同時に画面に指を1本ずつ置きます。",
@@ -790,6 +804,11 @@ export const MANUAL = {
     "人数（2〜4人）を決めてスマホをテーブルの真ん中に置きます。配られた1枚が自分の数字です。",
     "順番の人が真ん中の2枚から替えるカードを押すと、新しいカードがめくられます。",
     "2枚の合計の下1桁が自分の数字なら<b>一気！</b>（A=1、10・J・Q・K=0）<b>新しいゲーム</b>で配り直します。"
+   ],
+   [
+    "当たる人数（1〜9人）を決めてスタート。",
+    "みんなで画面に指を1本ずつ置きます。指ごとに違う色の円が出ます。",
+    "全員が指を離して0.5秒たつと、当たった人の場所にだけオオカミが出てきて<b>あっかんべー</b>。画面をタップするともう一度。"
    ],
    [
     "当たりの歯の数（1〜10）を決めて始めます。",
@@ -863,6 +882,10 @@ export const MANUAL = {
     "hcmTitle"
    ],
    [
+    "how-finger",
+    "fingerTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -906,6 +929,7 @@ export const MANUAL = {
    "🍶",
    "↕️",
    "🇻🇳",
+   "☝️",
    "🐺",
    "🪜",
    "🎡",
@@ -922,7 +946,7 @@ export const MANUAL = {
   "lead": "酒桌游戏合集 · 安装说明",
   "navAndroid": "🤖 安卓安装",
   "navIphone": "🍎 iPhone添加到主屏幕",
-  "navNew": "🆕 v1.2内容",
+  "navNew": "🆕 v1.3内容",
   "navUpdate": "🔄 更新",
   "navFaq": "❓ 常见问题",
   "qAndroid": "🤖 安卓应用",
@@ -1016,11 +1040,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 主界面",
-  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.2</b>）。",
-  "hNew": "🆕 v1.2内容",
-  "newIntro": "沃夫游戏v1.2包含以下游戏和功能。",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.3</b>）。",
+  "hNew": "🆕 v1.3内容",
+  "newIntro": "沃夫游戏v1.3包含以下游戏和功能。",
   "newFeat": [
    "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "👆 手指游戏（手指选人）· 🐺 狼游戏 · 🍀 拼手气 · ⚔️ 对战游戏",
    "🃏 纸牌游戏（Up/Down · 胡志明）· 🍶 789",
    "🧮 计算器 · 🍻 AA分摊 · 💱 汇率换算（标志旁边）",
    "📳 所有按钮和游戏操作都会振动（中奖、获胜时更强）",
@@ -1029,11 +1054,8 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近修改",
   "changes": [
-   "<b>🎲 五颗骰子</b>：从有人赢就结束，改为<b>一直玩到只剩一个人</b>，用来决定输家。骰子用完的人逃脱，6点交给还在场的下一位。",
-   "新增<b>🍶 789</b>（骰子菜单）：和的个位7加酒、8喝一半、9干杯、6顺序反转。",
-   "新增<b>🃏 纸牌</b>菜单：<b>Up/Down</b>（可累积）和<b>胡志明</b>。",
-   "<b>🏁 群狼赛跑</b>：由动物赛跑改名。每只狼冲刺和放慢的时机不同，名次你追我赶，一直到最后。",
-   "<b>🔄 转狼</b>：狼的图案改成趴着的侧面。转的时候张大嘴，停下时一口咬住。"
+   "新增<b>☝️ 手指选人</b>（👆 手指游戏）：选好抽中人数，大家放上手指再松开，被抽中的位置会冒出小狼吐舌头。",
+   "<b>主界面整理</b>：分成🐺 狼游戏（狼牙齿·群狼赛跑·狼轮盘·转狼）、🍀 拼手气（爬梯子·转盘）、⚔️ 对战游戏（四子棋）。"
   ],
   "hUpdate": "🔄 更新",
   "updA": "<b>安卓</b>：用同一个二维码或按钮下载新的APK并安装即可。<b>不用删除旧应用</b>，直接覆盖安装。",
@@ -1064,7 +1086,7 @@ export const MANUAL = {
   "back": "← 返回游戏",
   "navHow": "🎮 玩法",
   "hHow": "🎮 玩法",
-  "howIntro": "在主界面点游戏即可开始。有设置的游戏先选好人数等再点<b>开始游戏</b>。随时可以点左上角<b>←</b>返回。",
+  "howIntro": "在主界面点游戏即可开始。有设置的游戏先选好人数等再点<b>开始游戏</b>。随时可以点左上角<b>←</b>返回。 主界面分为<b>骰子 · 纸牌 · 手指游戏 · 狼游戏 · 拼手气 · 对战游戏</b>几个类别。",
   "steps": [
    [
     "几个人同时各把一根手指放在屏幕上。",
@@ -1095,6 +1117,11 @@ export const MANUAL = {
     "选择人数（2~4人），把手机放在桌子中间。每人拿到的一张牌就是自己的数字。",
     "轮到的人从中间两张牌里点一张替换，新牌会翻开。",
     "两张牌之和的个位等于自己的数字就<b>干杯！</b>（A=1，10·J·Q·K=0）点<b>新游戏</b>重新发牌。"
+   ],
+   [
+    "选好抽中人数（1~9人）后开始。",
+    "大家各放一根手指在屏幕上，每根手指会出现不同颜色的圆。",
+    "所有人松开0.5秒后，只有被抽中的位置会冒出小狼<b>吐舌头</b>气你。点屏幕再来一次。"
    ],
    [
     "选好中奖牙齿数量（1~10颗）开始。",
@@ -1168,6 +1195,10 @@ export const MANUAL = {
     "hcmTitle"
    ],
    [
+    "how-finger",
+    "fingerTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -1211,6 +1242,7 @@ export const MANUAL = {
    "🍶",
    "↕️",
    "🇻🇳",
+   "☝️",
    "🐺",
    "🪜",
    "🎡",
@@ -1227,7 +1259,7 @@ export const MANUAL = {
   "lead": "รวมเกมวงเหล้า · วิธีติดตั้ง",
   "navAndroid": "🤖 ติดตั้งบน Android",
   "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
-  "navNew": "🆕 มีอะไรใน v1.2",
+  "navNew": "🆕 มีอะไรใน v1.3",
   "navUpdate": "🔄 อัปเดต",
   "navFaq": "❓ คำถามที่พบบ่อย",
   "qAndroid": "🤖 แอป Android",
@@ -1321,11 +1353,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 หน้าหลัก",
-  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.2</b>) ได้ที่ด้านล่างสุด",
-  "hNew": "🆕 มีอะไรใน v1.2",
-  "newIntro": "Wolf Games v1.2 มีเกมและฟีเจอร์ต่อไปนี้",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.3</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v1.3",
+  "newIntro": "Wolf Games v1.3 มีเกมและฟีเจอร์ต่อไปนี้",
   "newFeat": [
    "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "👆 เกมนิ้ว (จิ้มนิ้วเลือกคน) · 🐺 เกมหมาป่า · 🍀 เกมดวง · ⚔️ เกมดวล",
    "🃏 เกมไพ่ (Up/Down · โฮจิมินห์) · 🍶 789",
    "🧮 เครื่องคิดเลข · 🍻 หารบิล · 💱 แลกเงิน (ข้างโลโก้)",
    "📳 สั่นทุกครั้งที่กดปุ่มหรือแตะในเกม (สั่นแรงเมื่อโดนหรือชนะ)",
@@ -1334,11 +1367,8 @@ export const MANUAL = {
   ],
   "hChange": "🛠 การแก้ไขล่าสุด",
   "changes": [
-   "<b>🎲 เต๋า 5 ลูก</b>: จากเดิมที่จบเมื่อมีคนชนะ ตอนนี้เล่น<b>จนเหลือคนสุดท้าย</b>เพื่อหาคนแพ้ คนที่เต๋าหมดจะรอด และเลข 6 ส่งให้คนถัดไปที่ยังเล่นอยู่",
-   "เพิ่ม <b>🍶 789</b> (เมนูลูกเต๋า): หลักหน่วย 7 เติมแก้ว, 8 ดื่มครึ่ง, 9 หมดแก้ว, 6 สลับลำดับ",
-   "เพิ่มเมนู <b>🃏 ไพ่</b>: <b>Up/Down</b> (มีตัวเลือกสะสม) และ <b>โฮจิมินห์</b>",
-   "<b>🏁 วิ่งแข่งหมาป่า</b>: เปลี่ยนชื่อจากวิ่งแข่งสัตว์ หมาป่าแต่ละตัวเร่งและชะลอคนละจังหวะ อันดับเลยสลับกันไปมาจนถึงเส้นชัย",
-   "<b>🔄 หมุนหมาป่า</b>: เปลี่ยนรูปหมาป่าเป็นท่าหมอบด้านข้าง ตอนหมุนจะอ้าปากกว้าง พอหยุดก็งับทันที"
+   "เพิ่ม <b>☝️ จิ้มนิ้วเลือกคน</b> (👆 เกมนิ้ว): เลือกจำนวนคนที่โดน ทุกคนวางนิ้วแล้วยกออก หมาป่าจะโผล่ตรงคนที่โดนแล้วแลบลิ้นใส่",
+   "<b>จัดหน้าหลักใหม่</b>: 🐺 เกมหมาป่า (ฟันหมาป่า·วิ่งแข่งหมาป่า·รูเล็ตหมาป่า·หมุนหมาป่า), 🍀 เกมดวง (เกมบันได·วงล้อ), ⚔️ เกมดวล (เรียง 4)"
   ],
   "hUpdate": "🔄 อัปเดต",
   "updA": "<b>Android</b>: ดาวน์โหลด APK ใหม่ด้วย QR หรือปุ่มเดิมแล้วติดตั้ง จะติดตั้ง <b>ทับแอปเดิม</b> โดยไม่ต้องลบ",
@@ -1369,7 +1399,7 @@ export const MANUAL = {
   "back": "← กลับไปที่เกม",
   "navHow": "🎮 วิธีเล่น",
   "hHow": "🎮 วิธีเล่น",
-  "howIntro": "กดเกมในหน้าหลักเพื่อเริ่มได้เลย เกมที่มีการตั้งค่าให้เลือกจำนวนคนก่อนแล้วกด <b>เริ่มเกม</b> กด <b>←</b> มุมซ้ายบนเพื่อออกได้ตลอด",
+  "howIntro": "กดเกมในหน้าหลักเพื่อเริ่มได้เลย เกมที่มีการตั้งค่าให้เลือกจำนวนคนก่อนแล้วกด <b>เริ่มเกม</b> กด <b>←</b> มุมซ้ายบนเพื่อออกได้ตลอด หน้าหลักแบ่งเป็นหมวด <b>ลูกเต๋า · ไพ่ · เกมนิ้ว · เกมหมาป่า · เกมดวง · เกมดวล</b>",
   "steps": [
    [
     "หลายคนวางนิ้วคนละนิ้วบนหน้าจอพร้อมกัน",
@@ -1400,6 +1430,11 @@ export const MANUAL = {
     "เลือกจำนวนคน (2–4 คน) แล้ววางโทรศัพท์กลางโต๊ะ ไพ่ 1 ใบที่ได้คือเลขของเรา",
     "คนที่ถึงตากดเลือกไพ่ 1 ใน 2 ใบตรงกลางเพื่อเปลี่ยน ไพ่ใหม่จะพลิกขึ้น",
     "ถ้าหลักหน่วยของผลรวมตรงกับเลขของเรา <b>หมดแก้ว!</b> (A=1, 10·J·Q·K=0) กด <b>เกมใหม่</b> เพื่อแจกใหม่"
+   ],
+   [
+    "เลือกจำนวนคนที่จะโดน (1–9 คน) แล้วเริ่ม",
+    "ทุกคนวางนิ้วบนหน้าจอคนละนิ้ว แต่ละนิ้วจะมีวงกลมคนละสี",
+    "เมื่อทุกคนยกนิ้วออก 0.5 วินาที หมาป่าจะโผล่เฉพาะตรงคนที่โดนแล้ว<b>แลบลิ้นแบร่~</b> แตะหน้าจอเพื่อเล่นใหม่"
    ],
    [
     "เลือกจำนวนฟันที่งับ (1–10 ซี่) แล้วเริ่ม",
@@ -1473,6 +1508,10 @@ export const MANUAL = {
     "hcmTitle"
    ],
    [
+    "how-finger",
+    "fingerTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -1516,6 +1555,7 @@ export const MANUAL = {
    "🍶",
    "↕️",
    "🇻🇳",
+   "☝️",
    "🐺",
    "🪜",
    "🎡",
@@ -1532,7 +1572,7 @@ export const MANUAL = {
   "lead": "Bộ trò chơi nhậu · Hướng dẫn cài đặt",
   "navAndroid": "🤖 Cài trên Android",
   "navIphone": "🍎 Thêm vào MH chính iPhone",
-  "navNew": "🆕 Có gì trong v1.2",
+  "navNew": "🆕 Có gì trong v1.3",
   "navUpdate": "🔄 Cập nhật",
   "navFaq": "❓ Câu hỏi thường gặp",
   "qAndroid": "🤖 Ứng dụng Android",
@@ -1626,11 +1666,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Màn hình chính",
-  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.2</b>) hiện ở dưới cùng.",
-  "hNew": "🆕 Có gì trong v1.2",
-  "newIntro": "Wolf Games v1.2 gồm các trò chơi và tính năng sau.",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.3</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v1.3",
+  "newIntro": "Wolf Games v1.3 gồm các trò chơi và tính năng sau.",
   "newFeat": [
    "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "👆 Ngón tay (Chọn ngón tay) · 🐺 Sói · 🍀 May rủi · ⚔️ Đối kháng",
    "🃏 Trò chơi bài (Up/Down · Hồ Chí Minh) · 🍶 789",
    "🧮 Máy tính · 🍻 Chia tiền · 💱 Đổi tiền (cạnh logo)",
    "📳 Rung khi bấm nút và chạm trong trò chơi (rung mạnh khi trúng, thắng)",
@@ -1639,11 +1680,8 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Thay đổi gần đây",
   "changes": [
-   "<b>🎲 5 xúc xắc</b>: thay vì kết thúc khi có người thắng, giờ chơi <b>đến khi chỉ còn một người</b> để chọn người thua. Ai hết xúc xắc thì thoát, số 6 chuyển cho người kế bên còn đang chơi.",
-   "Thêm <b>🍶 789</b> (menu Xúc xắc): chữ số cuối 7 rót thêm, 8 uống nửa, 9 uống cạn, 6 đảo chiều.",
-   "Thêm menu <b>🃏 Bài</b>: <b>Up/Down</b> (có cộng dồn) và <b>Hồ Chí Minh</b>.",
-   "<b>🏁 Sói chạy đua</b>: đổi tên từ Đua thú. Mỗi chú sói bứt tốc và chậm lại vào lúc khác nhau nên thứ hạng thay đổi liên tục đến phút cuối.",
-   "<b>🔄 Quay sói</b>: hình chú sói mới — sói nằm nghiêng, khi quay thì há to miệng, khi dừng thì đớp chặt."
+   "Thêm <b>☝️ Chọn ngón tay</b> (👆 Trò chơi ngón tay): chọn số người bị chọn, mọi người đặt ngón tay rồi nhấc ra — sói hiện ở chỗ bị chọn và lè lưỡi trêu.",
+   "<b>Sắp xếp lại màn hình chính</b>: 🐺 Trò chơi sói (Răng sói · Sói chạy đua · Sói may rủi · Quay sói), 🍀 Trò may rủi (Leo thang · Vòng quay), ⚔️ Trò đối kháng (Nối 4)."
   ],
   "hUpdate": "🔄 Cập nhật",
   "updA": "<b>Android</b>: tải APK mới bằng cùng mã QR hoặc nút rồi cài. Ứng dụng được cài <b>đè lên bản cũ</b>, không cần xóa.",
@@ -1674,7 +1712,7 @@ export const MANUAL = {
   "back": "← Quay lại trò chơi",
   "navHow": "🎮 Cách chơi",
   "hHow": "🎮 Cách chơi",
-  "howIntro": "Bấm vào trò chơi ở màn hình chính để bắt đầu. Trò chơi có cài đặt thì chọn số người… rồi bấm <b>Bắt đầu</b>. Bấm <b>←</b> góc trên bên trái để thoát bất cứ lúc nào.",
+  "howIntro": "Bấm vào trò chơi ở màn hình chính để bắt đầu. Trò chơi có cài đặt thì chọn số người… rồi bấm <b>Bắt đầu</b>. Bấm <b>←</b> góc trên bên trái để thoát bất cứ lúc nào. Màn hình chính chia thành các mục <b>Xúc xắc · Bài · Ngón tay · Sói · May rủi · Đối kháng</b>.",
   "steps": [
    [
     "Nhiều người cùng đặt mỗi người một ngón tay lên màn hình.",
@@ -1705,6 +1743,11 @@ export const MANUAL = {
     "Chọn số người (2–4) và đặt điện thoại giữa bàn. Lá bài mỗi người nhận là số của mình.",
     "Người đến lượt chạm 1 trong 2 lá ở giữa để thay, lá mới sẽ lật lên.",
     "Nếu chữ số cuối của tổng hai lá trùng số của mình thì <b>uống cạn!</b> (A=1, 10·J·Q·K=0) Bấm <b>Ván mới</b> để chia lại."
+   ],
+   [
+    "Chọn số người bị chọn (1–9) rồi bắt đầu.",
+    "Mỗi người đặt một ngón tay lên màn hình. Mỗi ngón có một vòng tròn màu riêng.",
+    "Khi mọi người nhấc tay ra 0,5 giây, sói chỉ hiện ở chỗ người bị chọn và <b>lè lưỡi lêu lêu</b>. Chạm màn hình để chơi lại."
    ],
    [
     "Chọn số răng cắn (1–10) rồi bắt đầu.",
@@ -1778,6 +1821,10 @@ export const MANUAL = {
     "hcmTitle"
    ],
    [
+    "how-finger",
+    "fingerTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -1821,6 +1868,7 @@ export const MANUAL = {
    "🍶",
    "↕️",
    "🇻🇳",
+   "☝️",
    "🐺",
    "🪜",
    "🎡",

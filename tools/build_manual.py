@@ -210,22 +210,30 @@ def game_shots(b, lang):
     # 호치민 (3명): 카드 한 장 바꾼 뒤
     home(); card(1); card(1); start(); pg.wait_for_timeout(300)
     pg.locator('.mid2 .pcard').nth(0).click(); pg.wait_for_timeout(900); shot('how-hcm')
+    # 손가락선택 (걸릴 인원 2명, 5명 터치)
+    home(); card(2); card(0); pg.click('.stepper button:last-of-type'); start(); pg.wait_for_timeout(300)
+    pts = [(1, 90, 230), (2, 290, 200), (3, 200, 420), (4, 100, 620), (5, 300, 650)]
+    for i, x, y in pts:
+        pg.dispatch_event('canvas', 'pointerdown', {'pointerId': i, 'clientX': x, 'clientY': y, 'bubbles': True}); pg.wait_for_timeout(60)
+    for i, x, y in pts:
+        pg.dispatch_event('canvas', 'pointerup', {'pointerId': i, 'clientX': x, 'clientY': y, 'bubbles': True})
+    pg.wait_for_timeout(1700); shot('how-finger')
     # 늑대이빨 (당첨 2)
-    home(); card(2); pg.click('.stepper button:last-of-type'); start()
+    home(); card(3); card(0); pg.click('.stepper button:last-of-type'); start()
     for k in rnd.sample(range(20), 20):
         pg.click(f'path.tooth[data-i="{k}"]')
         if pg.query_selector('.wolf.bit'): break
     pg.wait_for_timeout(400); shot('how-teeth')
     # 사다리 (5명)
-    home(); card(3); pg.locator('.stepper').first.locator('button').last.click(); start()
+    home(); card(4); card(0); pg.locator('.stepper').first.locator('button').last.click(); start()
     pg.locator('.lnums button').nth(0).click(); pg.wait_for_timeout(5300)
     pg.locator('.lnums button').nth(3).click(); pg.wait_for_timeout(2600); shot('how-ladder')
     # 돌림판
-    home(); card(4); start(); pg.locator('.row .btn').first.click(); pg.wait_for_timeout(5400); shot('how-roulette')
+    home(); card(4); card(1); start(); pg.locator('.row .btn').first.click(); pg.wait_for_timeout(5400); shot('how-roulette')
     # 늑대달리기 (5명)
-    home(); card(5); pg.locator('.stepper').first.locator('button').last.click(); start(); pg.locator('.btn').first.click(); pg.wait_for_timeout(2000 + 5000); shot('how-race')
+    home(); card(3); card(1); pg.locator('.stepper').first.locator('button').last.click(); start(); pg.locator('.btn').first.click(); pg.wait_for_timeout(2000 + 5000); shot('how-race')
     # 늑대 룰렛
-    home(); card(6)
+    home(); card(3); card(2)
     bb = pg.query_selector('canvas').bounding_box(); w, h = bb['width'], bb['height']; H = w / 0.9; oy = h - H
     for i in rnd.sample(range(20), 20):
         r, c = i // 5, i % 5; bl = 1 + 0.06 * math.sin(math.pi * (r + .5) / 4)
@@ -233,9 +241,9 @@ def game_shots(b, lang):
         if pg.query_selector('.h-title.win'): break
     pg.wait_for_timeout(1000); shot('how-pirate')
     # 늑대 돌리기 (도는 중)
-    home(); card(7); pg.locator('.btn').last.click(); pg.wait_for_timeout(1500); shot('how-arrow')
+    home(); card(3); card(3); pg.locator('.btn').last.click(); pg.wait_for_timeout(1500); shot('how-arrow')
     # 4목
-    home(); card(8)
+    home(); card(5); card(0)
     bb = pg.query_selector('canvas').bounding_box(); w, h = bb['width'], bb['height']; cell = min(w / 7, h / 7.15); left = (w - cell * 7) / 2
     for c in [3, 3, 4, 2, 2, 4, 5]:
         pg.mouse.click(bb['x'] + left + (c + .5) * cell, bb['y'] + h * .5); pg.wait_for_timeout(750)

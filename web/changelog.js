@@ -1,6 +1,34 @@
 // 자동 생성 파일: tools/changelog.py 를 고친 뒤  python3 tools/gen_changelog.py
 export const CHANGELOG = [
  {
+  "ver": "1.3",
+  "date": "2026-10-22",
+  "items": [
+   [
+    "☝️",
+    {
+     "ko": "손가락선택 추가 (👆 손가락게임): 걸릴 인원을 정하고 다 같이 손가락을 올렸다 떼면, 0.5초 뒤 걸린 자리에 늑대가 나타나 메롱~",
+     "en": "New Finger Pick (👆 Finger Games): choose how many get picked, everyone puts a finger down and lifts — 0.5 sec later a wolf pops up on the picked spots and sticks its tongue out",
+     "ja": "指えらび追加（👆 指ゲーム）：当たる人数を決めてみんなで指を置いて離すと、0.5秒後に当たった場所にオオカミが出てきてあっかんべー",
+     "zh": "新增手指选人（👆 手指游戏）：选好抽中人数，大家放上手指再松开，0.5秒后被抽中的位置冒出小狼吐舌头",
+     "th": "เพิ่มจิ้มนิ้วเลือกคน (👆 เกมนิ้ว): เลือกจำนวนคนที่โดน ทุกคนวางนิ้วแล้วยกออก 0.5 วินาทีต่อมาหมาป่าโผล่ตรงคนที่โดนแล้วแลบลิ้นใส่",
+     "vi": "Thêm Chọn ngón tay (👆 Trò chơi ngón tay): chọn số người bị chọn, mọi người đặt ngón tay rồi nhấc ra — 0,5 giây sau sói hiện ở chỗ bị chọn và lè lưỡi trêu"
+    }
+   ],
+   [
+    "🗂️",
+    {
+     "ko": "메인 화면 카테고리 정리: 🐺 늑대게임(늑대이빨·늑대달리기·늑대 룰렛·늑대 돌리기) · 🍀 운빨게임(사다리게임·돌림판) · ⚔️ 대결게임(4목)",
+     "en": "Main screen grouped into categories: 🐺 Wolf Games (Wolf Teeth · Wolf Race · Wolf Roulette · Wolf Spin) · 🍀 Luck Games (Ladder Game · Roulette) · ⚔️ Versus Games (Connect 4)",
+     "ja": "メイン画面をカテゴリに整理：🐺 オオカミゲーム（オオカミの歯・ウルフレース・オオカミルーレット・オオカミ回し）・🍀 運ゲー（あみだくじ・ルーレット）・⚔️ 対決ゲーム（4目並べ）",
+     "zh": "主界面按类别整理：🐺 狼游戏（狼牙齿·群狼赛跑·狼轮盘·转狼）· 🍀 拼手气（爬梯子·转盘）· ⚔️ 对战游戏（四子棋）",
+     "th": "จัดหน้าหลักเป็นหมวด: 🐺 เกมหมาป่า (ฟันหมาป่า·วิ่งแข่งหมาป่า·รูเล็ตหมาป่า·หมุนหมาป่า) · 🍀 เกมดวง (เกมบันได·วงล้อ) · ⚔️ เกมดวล (เรียง 4)",
+     "vi": "Sắp xếp màn hình chính theo mục: 🐺 Trò chơi sói (Răng sói · Sói chạy đua · Sói may rủi · Quay sói) · 🍀 Trò may rủi (Leo thang · Vòng quay) · ⚔️ Trò đối kháng (Nối 4)"
+    }
+   ]
+  ]
+ },
+ {
   "ver": "1.2",
   "date": "2026-10-21",
   "items": [
