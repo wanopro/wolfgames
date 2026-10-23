@@ -1,0 +1,21 @@
+<!doctype html><meta charset=utf-8><body style="margin:0;background:#12121A"><canvas id=c width=786 height=1520 style="width:393px;height:760px"></canvas>
+<script type=module>
+import {Reaction,ColorGame,Stopwatch,Bomb} from './games.js';
+const cv=document.getElementById('c'),x=cv.getContext('2d');x.scale(2,2);
+const W=393,H=760;
+let G,taps,title;
+window.setup=(kind)=>{
+ if(kind==='reaction'){G=new Reaction(4,2.2);taps=[[2.43,2],[2.49,0],[2.58,3],[2.81,1]];title='⚡ 반응속도 대결';}
+ if(kind==='reaction_foul'){G=new Reaction(3,2.4);taps=[[1.6,1],[2.66,0],[2.79,2]];title='⚡ 반응속도 대결';}
+ if(kind==='color'){const seq=[];let t=0,c=0;const R=[0.35,0.2,0.45,0.15,0.3,0.25,0.4,0.12,0.28,0.38,0.18,0.33];for(let k=0;k<R.length;k++){c=[0,2,4,5,1,2,0,4,5,2,1,4][k];seq.push([t,c]);t+=R[k];}G=new ColorGame(3,3,seq,t);taps=[[t+0.31,1],[t+0.42,0]];title='🎨 색 반응 대결';}
+ if(kind==='color_ok'){const seq=[[0,0],[0.3,2],[0.5,4],[0.9,1],[1.1,5],[1.45,0],[1.6,2],[2.0,4],[2.2,1]];G=new ColorGame(4,3,seq,2.5);taps=[[2.78,3],[2.83,1],[2.95,0],[3.12,2]];title='🎨 색 반응 대결';}
+ if(kind==='stop'){G=new Stopwatch(4,5,1.0);taps=[[5.87,2],[6.06,0],[6.31,3],[7.22,1]];title='⏱️ 스탑워치';}
+ if(kind==='bomb'){G=new Bomb(6,'cw',0,5.6);taps=[[0.9,0],[1.7,1],[2.3,2],[3.4,3],[4.2,4]];title='💣 폭탄돌리기';}
+ G.k=0;
+};
+window.frame=(t)=>{while(G.k<taps.length&&taps[G.k][0]<=t){G.press(taps[G.k][1],taps[G.k][0]);G.k++;}
+ x.fillStyle='#12121A';x.fillRect(0,0,W,H);G.draw(x,W,H,t);
+ // 손가락 표시
+ for(const [tt,i] of taps){ if(t>=tt&&t<tt+0.25){ /* 탭 표시 */ } }
+};
+</script>

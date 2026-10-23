@@ -1,0 +1,10 @@
+<!doctype html><meta charset=utf-8><body style="margin:0;background:#12121A"><canvas id=c width=1650 height=760></canvas>
+<script type=module>
+import {sectors,region,lines,text} from './split.js';
+import {PC} from './games.js';
+const x=document.getElementById('c').getContext('2d');
+[2,3,4,6,8].forEach((n,j)=>{x.save();x.translate(j*330,0);const W=315,H=680;x.save();x.beginPath();x.roundRect(0,40,W,H,18);x.clip();x.translate(0,40);
+ sectors(W,H,n).forEach((s,i)=>region(x,s,PC[i]+'55',(c,sc)=>{text(c,`P${i+1}`,0,-10*sc,30*sc,'#fff',900);text(c,'👤 이쪽에 앉아요',0,24*sc,14*sc,'#ddd',600);}));
+ lines(x,sectors(W,H,n),W,H);x.beginPath();x.arc(W/2,H/2,26,0,7);x.fillStyle='#121826';x.fill();x.restore();
+ text(x,`${n}명`,W/2,20,22,'#FFB300',900);x.restore();});
+</script>
