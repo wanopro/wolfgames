@@ -1,0 +1,32 @@
+<!doctype html><meta charset=utf-8><body style="margin:0;background:#12121A;color:#F2F2F7;font-family:-apple-system,'Noto Sans KR',sans-serif">
+<div style="width:393px;padding:0 12px;box-sizing:border-box">
+<div style="height:52px;display:flex;align-items:center;font-size:20px;font-weight:700">← 사다리게임</div>
+<div style="text-align:center;color:#9A9AB0;font-size:14px">번호를 눌러 사다리를 타세요</div>
+<div id=nums style="display:flex;justify-content:space-around;margin:8px 0"></div>
+<canvas id=c width=738 height=900 style="width:369px;height:450px;display:block"></canvas>
+<div id=res style="display:flex;gap:6px;margin-top:8px"></div>
+<div id=st style="text-align:center;font-weight:800;margin-top:10px;height:24px"></div></div>
+<script type=module>
+import {ladderWolf} from './chomp.js';
+const P=['#FF5252','#448AFF','#69F0AE','#FFD740','#E040FB'];const n=5,LEVELS=14;
+const RU=[[1,0,1,0],[0,1,0,0],[1,0,0,1],[0,0,1,0],[0,1,0,1],[1,0,0,0],[0,0,1,0],[0,1,0,1],[1,0,0,0],[0,0,1,0],[1,0,0,1],[0,1,0,0],[0,0,1,0],[1,0,0,1]];
+const prizes=[false,true,false,false,false];
+const paths=[...Array(n).keys()].map(st=>{let c=st;const pts=[[c,0]];for(let l=0;l<LEVELS;l++){const y=l+1;if(c<n-1&&RU[l][c]){pts.push([c,y],[c+1,y]);c++;}else if(c>0&&RU[l][c-1]){pts.push([c,y],[c-1,y]);c--;}}pts.push([c,LEVELS+1]);return{pts,end:c};});
+document.getElementById('nums').innerHTML=P.map((c,i)=>`<div style="width:44px;height:44px;border-radius:50%;background:${c};display:flex;align-items:center;justify-content:center;font-weight:900;color:#000">${i+1}</div>`).join('');
+const cv=document.getElementById('c'),x=cv.getContext('2d');x.scale(2,2);const w=369,hh=450;
+const px=p=>[(p[0]+0.5)*w/n,p[1]*hh/(LEVELS+1)*0.94+12];
+function walk(pts,frac){let tot=0;for(let i=1;i<pts.length;i++)tot+=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);let rem=tot*frac;const out=[pts[0]];let dir=0;
+ for(let i=1;i<pts.length;i++){const sg=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);dir=Math.sign(pts[i][0]-pts[i-1][0]);if(rem>=sg){out.push(pts[i]);rem-=sg;}else{const t=sg?rem/sg:0;out.push([pts[i-1][0]+(pts[i][0]-pts[i-1][0])*t,pts[i-1][1]+(pts[i][1]-pts[i-1][1])*t]);break;}}return{out,dir};}
+window.f=(T)=>{ // 0.4초 뒤 전체 출발, 5초 동안
+ const prog=Math.max(0,Math.min(1,(T-0.4)/5)), done=prog>=1, bt=T-5.4;
+ x.clearRect(0,0,w,hh);x.strokeStyle='#55556A';x.lineWidth=4;
+ for(let c=0;c<n;c++){const X=(c+0.5)*w/n;x.beginPath();x.moveTo(X,12);x.lineTo(X,hh-12);x.stroke();}
+ for(let l=0;l<LEVELS;l++)for(let j=0;j<n-1;j++)if(RU[l][j]){const[ax,ay]=px([j,l+1]),[bx]=px([j+1,l+1]);x.beginPath();x.moveTo(ax,ay);x.lineTo(bx,ay);x.stroke();}
+ const heads=[];
+ paths.forEach((p,i)=>{const pts=p.pts.map(px);const {out,dir}=walk(pts,prog);x.beginPath();out.forEach(([a,b],k)=>k?x.lineTo(a,b):x.moveTo(a,b));x.strokeStyle=P[i];x.lineWidth=7;x.lineCap='round';x.lineJoin='round';x.stroke();heads.push([out[out.length-1],dir,i]);});
+ for(const [[a,b],dir,i] of heads){ if(prog<=0) continue; const bite=done?(bt<0.5?Math.abs(Math.sin(bt*Math.PI*3)):0):null; ladderWolf(x,a,b-4,15,T+i*0.3,P[i],done?0:dir,bite);}
+ const R=document.getElementById('res');R.innerHTML=[...Array(n).keys()].map(e=>{const o=paths.findIndex(p=>p.end===e);const rev=done;const pz=prizes[e];return `<div style="flex:1;height:52px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:14px;background:${!rev?'#2C2C3E':pz?'#FF3D5A':'#1E1E2A'};color:${rev&&!pz?'#9A9AB0':'#fff'}">${!rev?'?':pz?'당첨':'통과'}${rev?`<span style="font-size:11px;color:${P[o]}">${o+1}번</span>`:''}</div>`}).join('');
+ const st=document.getElementById('st');st.textContent=done?`🎯 당첨: ${paths.findIndex(p=>prizes[p.end])+1}번`:prog>0?'앙앙앙... 늑대들이 사다리를 타요':'';st.style.color=done?'#FF3D5A':'#9A9AB0';
+};
+f(0);
+</script>
