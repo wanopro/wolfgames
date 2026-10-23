@@ -94,9 +94,16 @@ function homeScreen(root) {
   // 누적 방문 수 (GoatCounter에서 '방문자 수 표시 허용'을 켜야 나옴, 못 가져오면 안 보임)
   const visits = h('div', { class: 'footer', style: 'padding-top:0;font-size:12px;opacity:.55;display:none' });
   scroll.append(visits);
-  fetch('https://wolfgames.goatcounter.com/counter/TOTAL.json').then((r) => (r.ok ? r.json() : null)).then((j) => {
-    if (j && j.count) { visits.textContent = `👀 ${j.count}`; visits.style.display = ''; }
-  }).catch(() => {});
+  // 사이트 전체(TOTAL) → 안 되면 이 페이지 주소로 다시 시도
+  const GC = 'https://wolfgames.goatcounter.com/counter/';
+  const tryCount = (paths) => {
+    if (!paths.length) return;
+    fetch(GC + encodeURIComponent(paths[0]) + '.json', { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((j) => { if (j && j.count) { visits.textContent = `👀 ${j.count}`; visits.style.display = ''; } else tryCount(paths.slice(1)); })
+      .catch((e) => { console.warn('[방문 수]', paths[0], e); tryCount(paths.slice(1)); });
+  };
+  tryCount(['TOTAL', location.pathname]);
   root.append(scroll);
   whatsNew(root);
 }
