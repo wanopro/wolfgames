@@ -1,0 +1,24 @@
+<!doctype html><meta charset=utf-8><body style="margin:0;background:#12121A;color:#F2F2F7;font-family:sans-serif">
+<div style="width:393px;padding:0 16px;box-sizing:border-box">
+<div style="height:56px;display:flex;align-items:center;font-size:20px;font-weight:700">← 늑대 룰렛</div>
+<div id=t style="text-align:center;font-size:24px;font-weight:900;height:34px">칼 자리를 눌러 칼을 꽂으세요</div>
+<div id=s style="text-align:center;color:#9A9AB0;height:24px">남은 자리 20칸</div>
+<canvas id=c width=722 height=1000 style="width:361px;height:500px;display:block;margin:8px auto"></canvas>
+<div style="height:56px;border-radius:16px;background:#2C2C3E;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px">새로 섞기</div></div>
+<script type=module>
+import {drawScene} from './tease.js';
+const cv=document.getElementById('c'),x=cv.getContext('2d');x.scale(2,2);
+const plan=[[1.0,7],[2.6,12],[4.2,3],[5.8,16]], TRAP=16;
+window.f=(T)=>{
+ const sw=plan.filter(([a])=>T>=a).map(([,i])=>i); const last=plan.filter(([a])=>T>=a).pop();
+ let mode='idle',modeT=0,launch=0,shake=0;
+ if(last){const dt=T-last[0]; shake=Math.max(0,1-dt/0.35);
+  if(last[1]===TRAP){mode='sur';launch=Math.min(1,dt/0.9);launch=1-Math.pow(1-launch,3);} else if(dt<1.3){mode='tease';modeT=dt;}}
+ x.clearRect(0,0,361,500); drawScene(x,361,500,{swords:sw,trap:TRAP,mode,modeT,launch,shake,time:T});
+ const t=document.getElementById('t'),s=document.getElementById('s');
+ if(mode==='sur'){t.textContent='펑! 🐺 튀어나왔다!';t.style.color='#FF3D5A';s.textContent=sw.length+'번째 칼에서 튀어나왔어요';}
+ else if(mode==='tease'){t.textContent='통과! 늑대가 약올려요 😜';t.style.color='#F2F2F7';s.textContent='남은 자리 '+(20-sw.length)+'칸';}
+ else{t.textContent='칼 자리를 눌러 칼을 꽂으세요';t.style.color='#F2F2F7';s.textContent='남은 자리 '+(20-sw.length)+'칸';}
+};
+f(0);
+</script>
