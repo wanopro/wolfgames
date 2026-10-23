@@ -1,0 +1,130 @@
+10-23 10:15:40.023  3031  3031 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-23 10:15:40.042  3031  3031 I AndroidRuntime: Using default boot image
+10-23 10:15:40.042  3031  3031 I AndroidRuntime: Leaving lock profiling enabled
+10-23 10:15:40.469  3031  3031 D AndroidRuntime: Calling main entry com.android.commands.monkey.Monkey
+10-23 10:15:40.469  3031  3031 W Monkey  : args: [-p, com.wolfgames.app, -c, android.intent.category.LAUNCHER, 1]
+10-23 10:15:40.470  3031  3031 W Monkey  :  arg: "com.wolfgames.app"
+10-23 10:15:40.470  3031  3031 W Monkey  : data="com.wolfgames.app"
+10-23 10:15:40.622   521   983 V SplashScreenExceptionList: SplashScreen checking exception for package com.wolfgames.app (target sdk:35) -> false
+10-23 10:15:40.670   843   877 V WindowManagerShell: Transition requested: android.os.BinderProxy@c8f039c TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.wolfgames.app/.MainActivity } baseActivity=ComponentInfo{com.wolfgames.app/com.wolfgames.app.MainActivity} topActivity=ComponentInfo{com.wolfgames.app/com.wolfgames.app.MainActivity} origActivity=null realActivity=ComponentInfo{com.wolfgames.app/com.wolfgames.app.MainActivity} numActivities=1 lastActiveTime=47652 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@2a641a5} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{368697a com.wolfgames.app.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+10-23 10:15:40.675   521   983 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.wolfgames.app/.MainActivity} with LAUNCH_MULTIPLE from uid 2000 (BAL_ALLOW_PERMISSION) result code=0
+10-23 10:15:40.691   521  2383 D CoreBackPreview: Window{91947cf u0 Splash Screen com.wolfgames.app}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@36b1065, mPriority=0, mIsAnimationCallback=false}
+10-23 10:15:40.942   521   552 I ActivityManager: Start proc 3112:com.wolfgames.app/u0a192 for next-top-activity {com.wolfgames.app/com.wolfgames.app.MainActivity}
+10-23 10:15:40.962  3031  3031 I AndroidRuntime: VM exiting with result code 0.
+10-23 10:15:41.228  3112  3112 I m.wolfgames.app: Late-enabling -Xcheck:jni
+10-23 10:15:41.268  3112  3112 I m.wolfgames.app: Using CollectorTypeCC GC.
+10-23 10:15:41.269  3112  3112 W m.wolfgames.app: Unexpected CPU variant for x86: x86_64.
+10-23 10:15:41.269  3112  3112 W m.wolfgames.app: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, tremont, kabylake, default
+10-23 10:15:41.377   521   813 I SdkSandboxManager: No SDKs used. Skipping SDK data reconcilation for CallingInfo{mUid=10192, mPackageName='com.wolfgames.app, mAppProcessToken='null'}
+10-23 10:15:41.714   845   845 I SafetyLabelChangedBroadcastReceiver: received broadcast packageName: com.wolfgames.app, current user: UserHandle{0}, packageChangeEvent: NEW_INSTALL, intent user: UserHandle{0}
+10-23 10:15:41.753   521   541 V WindowManager: Sent Transition #6 createdAt=10-23 10:15:40.600 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.wolfgames.app/.MainActivity } baseActivity=ComponentInfo{com.wolfgames.app/com.wolfgames.app.MainActivity} topActivity=ComponentInfo{com.wolfgames.app/com.wolfgames.app.MainActivity} origActivity=null realActivity=ComponentInfo{com.wolfgames.app/com.wolfgames.app.MainActivity} numActivities=1 lastActiveTime=47652 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{6d9b81a Task{6e2bb7e #8 type=standard A=10192:com.wolfgames.app}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{ee77f4b com.wolfgames.app.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+10-23 10:15:41.753   521   541 V WindowManager:     info={id=6 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{6d9b81a Task{6e2bb7e #8 type=standard A=10192:com.wolfgames.app}}} m=OPEN f=NONE leash=Surface(name=Task=8)/@0xd246309 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{5c3d28 Task{20756b8 #1 type=home}}} m=TO_BACK f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x2e07e00 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
+10-23 10:15:41.770  3112  3112 W ziparchive: Unable to open '/data/app/~~G7tLgkKrWRMKU7Im_BnWiQ==/com.wolfgames.app-jAk-f6m-zg3i1Z1wOg-8Ig==/base.dm': No such file or directory
+10-23 10:15:41.774  3112  3112 W ziparchive: Unable to open '/data/app/~~G7tLgkKrWRMKU7Im_BnWiQ==/com.wolfgames.app-jAk-f6m-zg3i1Z1wOg-8Ig==/base.dm': No such file or directory
+10-23 10:15:42.972  3112  3112 D nativeloader: Configuring clns-6 for other apk /data/app/~~G7tLgkKrWRMKU7Im_BnWiQ==/com.wolfgames.app-jAk-f6m-zg3i1Z1wOg-8Ig==/base.apk. target_sdk_version=35, uses_libraries=, library_path=/data/app/~~G7tLgkKrWRMKU7Im_BnWiQ==/com.wolfgames.app-jAk-f6m-zg3i1Z1wOg-8Ig==/lib/x86_64:/data/app/~~G7tLgkKrWRMKU7Im_BnWiQ==/com.wolfgames.app-jAk-f6m-zg3i1Z1wOg-8Ig==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.wolfgames.app
+10-23 10:15:43.079  3112  3112 V GraphicsEnvironment: ANGLE GameManagerService for com.wolfgames.app: false
+10-23 10:15:43.079  3112  3112 V GraphicsEnvironment: com.wolfgames.app is not listed in per-application setting
+10-23 10:15:43.717  3112  3112 W m.wolfgames.app: Verification of androidx.compose.runtime.snapshots.MutableSnapshot androidx.compose.runtime.snapshots.MutableSnapshot.takeNestedMutableSnapshot(kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1) took 186.229ms (1073.94 bytecodes/s) (4704B approximate peak alloc)
+10-23 10:15:43.962  1055  1055 D CarrierSvcBindHelper: onPackageAdded: com.wolfgames.app
+10-23 10:15:44.367  1055  1347 D ImsResolver: maybeAddedImsService, packageName: com.wolfgames.app
+10-23 10:15:44.474  3112  3112 D AndroidRuntime: Shutting down VM
+10-23 10:15:44.490  1055  1055 D CarrierSvcBindHelper: onPackageModified: com.wolfgames.app
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: FATAL EXCEPTION: main
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: Process: com.wolfgames.app, PID: 3112
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: java.lang.VerifyError: Verifier rejected class com.wolfgames.app.i18n.StringsKt: void com.wolfgames.app.i18n.StringsKt.<clinit>() failed to verify: void com.wolfgames.app.i18n.StringsKt.<clinit>(): [0x3C1] Rejecting invocation, expected 6 argument registers, method signature has 7 or more (declaration of 'com.wolfgames.app.i18n.StringsKt' appears in /data/app/~~G7tLgkKrWRMKU7Im_BnWiQ==/com.wolfgames.app-jAk-f6m-zg3i1Z1wOg-8Ig==/base.apk!classes4.dex)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at com.wolfgames.app.MainActivity$onCreate$1.invoke(MainActivity.kt:104)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at com.wolfgames.app.MainActivity$onCreate$1.invoke(MainActivity.kt:101)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.jvm.kt:109)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.jvm.kt:35)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.ComposeView.Content(ComposeView.android.kt:441)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.AbstractComposeView$ensureCompositionCreated$1.invoke(ComposeView.android.kt:259)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.AbstractComposeView$ensureCompositionCreated$1.invoke(ComposeView.android.kt:258)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.jvm.kt:109)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.jvm.kt:35)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.CompositionLocalKt.CompositionLocalProvider(CompositionLocal.kt:380)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.CompositionLocalsKt.ProvideCommonCompositionLocals(CompositionLocals.kt:216)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.AndroidCompositionLocals_androidKt$ProvideAndroidCompositionLocals$3.invoke(AndroidCompositionLocals.android.kt:132)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.AndroidCompositionLocals_androidKt$ProvideAndroidCompositionLocals$3.invoke(AndroidCompositionLocals.android.kt:131)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.jvm.kt:109)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.jvm.kt:35)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.CompositionLocalKt.CompositionLocalProvider(CompositionLocal.kt:380)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.AndroidCompositionLocals_androidKt.ProvideAndroidCompositionLocals(AndroidCompositionLocals.android.kt:121)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.WrappedComposition$setContent$1$1$3.invoke(Wrapper.android.kt:155)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.WrappedComposition$setContent$1$1$3.invoke(Wrapper.android.kt:154)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.jvm.kt:109)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.jvm.kt:35)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.CompositionLocalKt.CompositionLocalProvider(CompositionLocal.kt:401)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.WrappedComposition$setContent$1$1.invoke(Wrapper.android.kt:154)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.WrappedComposition$setContent$1$1.invoke(Wrapper.android.kt:133)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.jvm.kt:109)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.jvm.kt:35)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.ActualJvm_jvmKt.invokeComposable(ActualJvm.jvm.kt:97)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.ComposerImpl.doCompose(Composer.kt:3595)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.ComposerImpl.composeContent$runtime_release(Composer.kt:3522)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.CompositionImpl.composeContent(Composition.kt:743)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.Recomposer.composeInitial$runtime_release(Recomposer.kt:1122)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.CompositionImpl.composeInitial(Composition.kt:649)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.runtime.CompositionImpl.setContent(Composition.kt:635)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.WrappedComposition$setContent$1.invoke(Wrapper.android.kt:133)
+10-23 10:15:44.496  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.WrappedComposition$setContent$1.invoke(Wrapper.android.kt:124)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.AndroidComposeView.setOnViewTreeOwnersAvailable(AndroidComposeView.android.kt:1626)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.WrappedComposition.setContent(Wrapper.android.kt:124)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.WrappedComposition.onStateChanged(Wrapper.android.kt:180)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at androidx.lifecycle.LifecycleRegistry$ObserverWithState.dispatchEvent(LifecycleRegistry.jvm.kt:320)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at androidx.lifecycle.LifecycleRegistry.addObserver(LifecycleRegistry.jvm.kt:198)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.WrappedComposition$setContent$1.invoke(Wrapper.android.kt:131)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.WrappedComposition$setContent$1.invoke(Wrapper.android.kt:124)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at androidx.compose.ui.platform.AndroidComposeView.onAttachedToWindow(AndroidComposeView.android.kt:1707)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.View.dispatchAttachedToWindow(View.java:21980)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.ViewGroup.dispatchAttachedToWindow(ViewGroup.java:3490)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.ViewGroup.dispatchAttachedToWindow(ViewGroup.java:3497)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.ViewGroup.dispatchAttachedToWindow(ViewGroup.java:3497)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.ViewGroup.dispatchAttachedToWindow(ViewGroup.java:3497)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.ViewGroup.dispatchAttachedToWindow(ViewGroup.java:3497)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.ViewRootImpl.performTraversals(ViewRootImpl.java:3014)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.ViewRootImpl.doTraversal(ViewRootImpl.java:2465)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.ViewRootImpl$TraversalRunnable.run(ViewRootImpl.java:9305)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:1339)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:1348)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.Choreographer.doCallbacks(Choreographer.java:952)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.Choreographer.doFrame(Choreographer.java:882)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:1322)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:958)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:205)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:294)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+10-23 10:15:44.497  3112  3112 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+10-23 10:15:44.515  1055  1347 D ImsResolver: maybeAddedImsService, packageName: com.wolfgames.app
+10-23 10:15:44.558   521  2304 W ActivityTaskManager:   Force finishing activity com.wolfgames.app/.MainActivity
+10-23 10:15:44.591   521  2219 I WindowManager: WIN DEATH: Window{dad8b22 u0 com.wolfgames.app/com.wolfgames.app.MainActivity}
+10-23 10:15:44.591   521  2219 W InputManager-JNI: Input channel object 'dad8b22 com.wolfgames.app/com.wolfgames.app.MainActivity (client)' was disposed without first being removed with the input manager!
+10-23 10:15:44.705   521  1926 I ActivityManager: Process com.wolfgames.app (pid 3112) has died: prcp TOP 
+10-23 10:15:45.071   521   544 W ActivityTaskManager: Activity top resumed state loss timeout for ActivityRecord{8164939 u0 com.wolfgames.app/.MainActivity t8 f} isExiting}
+10-23 10:15:46.241   521   541 V WindowManager:     info={id=7 t=CLOSE f=0x10 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{5c3d28 Task{20756b8 #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP leash=Surface(name=Task=1)/@0x2e07e00 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{6d9b81a Task{6e2bb7e #8 type=standard A=10192:com.wolfgames.app}}} m=CLOSE f=NONE leash=Surface(name=Task=8)/@0xd246309 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{5dcdef1 token=android.os.Binder@76bd698})/@0x424fb6b sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
+10-23 10:15:46.555   521  2219 D CoreBackPreview: Window{91947cf u0 Splash Screen com.wolfgames.app EXITING}: Setting back callback null
+10-23 10:15:46.556   521  2268 W InputManager-JNI: Input channel object '91947cf Splash Screen com.wolfgames.app (client)' was disposed without first being removed with the input manager!
+10-23 10:15:48.002   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{7dc130d com.google.android.googlequicksearchbox/10132} BLOCKED
+10-23 10:15:48.003   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{f9042c2 com.android.camera2/10145} BLOCKED
+10-23 10:15:48.003   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{8cfb8d3 com.google.android.gm/10144} BLOCKED
+10-23 10:15:48.003   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{f42c10 com.google.android.dialer/10128} BLOCKED
+10-23 10:15:48.003   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{1c3d309 com.google.android.contacts/10155} BLOCKED
+10-23 10:15:48.003   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{ca3c90e com.google.android.apps.youtube.music/10156} BLOCKED
+10-23 10:15:48.280  1618  1618 I AiAiEcho: AppFetcherImplV2 updateApps package:[com.wolfgames.app], userId:[0], reason:[package is added.].
+10-23 10:15:48.280  1618  1618 I AiAiEcho: AppFetcherImpl onPackageChanged com.wolfgames.app.
+10-23 10:15:48.284  1618  3311 I AiAiEcho: AppIndexer Package:[com.wolfgames.app] UserProfile:[0] Enabled:[true].
+10-23 10:15:48.284  1618  3311 I AiAiEcho: AppFetcherImplV2 updateApps package:[com.wolfgames.app], userId:[0], reason:[package is updated.].
+10-23 10:15:50.694   521   826 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{3bc7d61 com.google.android.gm/10144} BLOCKED
+10-23 10:15:52.312   521  2371 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{3384584 com.google.android.settings.intelligence/10118} BLOCKED
+10-23 10:15:52.320   521   911 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{c3c016d com.google.android.settings.intelligence/10118} BLOCKED
+10-23 10:15:58.850  1466  3533 I BlockstoreStorage: Clearing Blockstore Data for package com.wolfgames.app [CONTEXT service_id=258 ]
+10-23 10:15:59.114  1416  3694 I FontLog : Package com.wolfgames.app has no metadata [CONTEXT service_id=132 ]
+10-23 10:15:59.811   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{15e97a com.google.android.googlequicksearchbox/10132} BLOCKED
+10-23 10:15:59.816   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{4d3c52b com.google.android.apps.messaging/10130} BLOCKED
+10-23 10:15:59.816   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{e803d88 com.google.android.gm/10144} BLOCKED
+10-23 10:15:59.816   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{e89d321 com.google.android.devicelockcontroller/10170} BLOCKED
+10-23 10:15:59.816   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{b892346 com.google.android.rkpdapp/10184} BLOCKED
+10-23 10:15:59.816   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{478907 com.google.android.settings.intelligence/10118} BLOCKED
+10-23 10:15:59.816   521   575 I AppsFilter: interaction: PackageSetting{62d19a4 com.wolfgames.app/10192} -> PackageSetting{a5e6a6c com.google.android.projection.gearhead/10123} BLOCKED
