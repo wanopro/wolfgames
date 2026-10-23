@@ -58,6 +58,11 @@ import com.wolfgames.app.games.UpDownGame
 import com.wolfgames.app.games.ExchangeScreen
 import com.wolfgames.app.games.FiveDiceGame
 import com.wolfgames.app.games.FingerGame
+import com.wolfgames.app.games.BombGameScreen
+import com.wolfgames.app.games.ColorGameScreen
+import com.wolfgames.app.games.DiceDuelScreen
+import com.wolfgames.app.games.ReactionGameScreen
+import com.wolfgames.app.games.StopwatchScreen
 import com.wolfgames.app.games.FourGame
 import com.wolfgames.app.games.LadderGame
 import com.wolfgames.app.games.PirateGame
@@ -112,7 +117,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, D789, CardMenu, UpDown, HoChiMinh, FingerMenu, Finger, WolfMenu, LuckMenu, BattleMenu, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language, Changelog }
+enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, D789, CardMenu, UpDown, HoChiMinh, FingerMenu, Finger, WolfMenu, LuckMenu, BattleMenu, DiceDuel, QuickMenu, Reaction, ColorReact, Stopwatch, Bomb, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language, Changelog }
 
 @Composable
 fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
@@ -120,11 +125,12 @@ fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
     val s = LocalStrings.current
     val back: () -> Unit = {
         screen = when (screen) {
-            Screen.RollDice, Screen.ShutBox, Screen.FiveDice, Screen.D789 -> Screen.DiceMenu
+            Screen.RollDice, Screen.ShutBox, Screen.FiveDice, Screen.D789, Screen.DiceDuel -> Screen.DiceMenu
+            Screen.Reaction, Screen.ColorReact, Screen.Stopwatch -> Screen.QuickMenu
             Screen.UpDown, Screen.HoChiMinh -> Screen.CardMenu
             Screen.Finger -> Screen.FingerMenu
             Screen.Croc, Screen.Race, Screen.Pirate, Screen.Arrow -> Screen.WolfMenu
-            Screen.Ladder, Screen.Roulette -> Screen.LuckMenu
+            Screen.Ladder, Screen.Roulette, Screen.Bomb -> Screen.LuckMenu
             Screen.Four -> Screen.BattleMenu
             Screen.Fx -> Screen.Calc
             else -> Screen.Home
@@ -154,7 +160,18 @@ fun App(langPref: String, currentLang: Lang, onLangChange: (String) -> Unit) {
             Screen.LuckMenu -> CategoryScreen("🍀 ${s.menuLuck}", back, listOf(
                 MenuItem("🪜", s.menuLadder, s.menuLadderSub, Screen.Ladder),
                 MenuItem("🎡", s.menuRoulette, s.menuRouletteSub, Screen.Roulette),
+                MenuItem("💣", s.bombTitle, s.bombSub, Screen.Bomb),
             )) { screen = it }
+            Screen.QuickMenu -> CategoryScreen("⚡ ${s.menuQuick}", back, listOf(
+                MenuItem("🟢", s.reactTitle, s.reactSub, Screen.Reaction),
+                MenuItem("🎨", s.colorTitle, s.colorSub, Screen.ColorReact),
+                MenuItem("⏱️", s.stopTitle, s.stopSub, Screen.Stopwatch),
+            )) { screen = it }
+            Screen.DiceDuel -> DiceDuelScreen(onBack = back)
+            Screen.Reaction -> ReactionGameScreen(onBack = back)
+            Screen.ColorReact -> ColorGameScreen(onBack = back)
+            Screen.Stopwatch -> StopwatchScreen(onBack = back)
+            Screen.Bomb -> BombGameScreen(onBack = back)
             Screen.BattleMenu -> CategoryScreen("⚔️ ${s.menuBattle}", back, listOf(MenuItem("🔴", s.menuFour, s.menuFourSub, Screen.Four))) { screen = it }
             Screen.Croc -> WolfTeethGame(onBack = back)
             Screen.Ladder -> LadderGame(onBack = back)
@@ -238,6 +255,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
             MenuCard("🎲", s.menuDice, s.menuDiceSub) { onSelect(Screen.DiceMenu) }
             MenuCard("🃏", s.menuCards, s.menuCardsSub) { onSelect(Screen.CardMenu) }
             MenuCard("👆", s.menuFinger, s.menuFingerSub) { onSelect(Screen.FingerMenu) }
+            MenuCard("⚡", s.menuQuick, s.menuQuickSub) { onSelect(Screen.QuickMenu) }
             MenuCard("🐺", s.menuWolf, s.menuWolfSub) { onSelect(Screen.WolfMenu) }
             MenuCard("🍀", s.menuLuck, s.menuLuckSub) { onSelect(Screen.LuckMenu) }
             MenuCard("⚔️", s.menuBattle, s.menuBattleSub) { onSelect(Screen.BattleMenu) }
@@ -392,6 +410,7 @@ fun DiceMenuScreen(onBack: () -> Unit, onSelect: (Screen) -> Unit) {
             MenuCard("🔢", s.shutTitle, s.shutSub) { onSelect(Screen.ShutBox) }
             MenuCard("🎲", s.fiveTitle, s.fiveSub) { onSelect(Screen.FiveDice) }
             MenuCard("🍶", s.d789Title, s.d789Sub) { onSelect(Screen.D789) }
+            MenuCard("⚔️", s.duelTitle, s.duelSub) { onSelect(Screen.DiceDuel) }
         }
     }
 }

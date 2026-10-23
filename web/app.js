@@ -1,6 +1,7 @@
 // 울프 게임즈 웹 버전 — 화면 이동, 메인, 언어 설정
 import { S, h, btn, card, top, lang, LANGS, vibe, VERSION } from './core.js';
-import { rollDice, shutBox, fiveDice, d789 } from './games-dice.js';
+import { rollDice, shutBox, fiveDice, d789, diceDuel } from './games-dice.js';
+import { reaction, colorGame, stopwatch, bombGame } from './games-quick.js';
 import { upDown, hoChiMinh } from './games-cards.js';
 import { fingerPick } from './games-finger.js';
 import { wolfTeeth, ladder, roulette } from './games-pick.js';
@@ -20,6 +21,12 @@ const SCREENS = {
   shut: shutBox,
   five: fiveDice,
   d789,
+  duel: diceDuel,
+  quick: quickMenu,
+  react: reaction,
+  color: colorGame,
+  stop: stopwatch,
+  bomb: bombGame,
   cards: cardMenu,
   fingers: fingerMenu,
   finger: fingerPick,
@@ -40,7 +47,7 @@ const SCREENS = {
   lang: langScreen,
   log: logScreen,
 };
-const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', updown: 'cards', hcm: 'cards', finger: 'fingers', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle' };
+const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', duel: 'dice', react: 'quick', color: 'quick', stop: 'quick', bomb: 'luck', updown: 'cards', hcm: 'cards', finger: 'fingers', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle' };
 
 // ---------- 화면 이동 (휴대폰 뒤로가기 버튼과 연동) ----------
 function show(name) {
@@ -78,6 +85,7 @@ function homeScreen(root) {
     card('🎲', s.menuDice, s.menuDiceSub, () => go('dice')),
     card('🃏', s.menuCards, s.menuCardsSub, () => go('cards')),
     card('👆', s.menuFinger, s.menuFingerSub, () => go('fingers')),
+    card('⚡', s.menuQuick, s.menuQuickSub, () => go('quick')),
     card('🐺', s.menuWolf, s.menuWolfSub, () => go('wolves')),
     card('🍀', s.menuLuck, s.menuLuckSub, () => go('luck')),
     card('⚔️', s.menuBattle, s.menuBattleSub, () => go('battle')),
@@ -142,7 +150,8 @@ function diceMenu(root) {
     card('👆', s.rollTitle, s.rollSub, () => go('roll')),
     card('🔢', s.shutTitle, s.shutSub, () => go('shut')),
     card('🎲', s.fiveTitle, s.fiveSub, () => go('five')),
-    card('🍶', s.d789Title, s.d789Sub, () => go('d789'))));
+    card('🍶', s.d789Title, s.d789Sub, () => go('d789')),
+    card('⚔️', s.duelTitle, s.duelSub, () => go('duel'))));
 }
 
 function fingerMenu(root) {
@@ -158,11 +167,19 @@ function wolfMenu(root) {
     card('🗡️', s.menuPirate, s.menuPirateSub, () => go('pirate')),
     card('🔄', s.menuArrow, s.menuArrowSub, () => go('arrow'))));
 }
+function quickMenu(root) {
+  const s = S();
+  root.append(top(`⚡ ${s.menuQuick}`, back), h('div', { class: 'scroll' },
+    card('🟢', s.reactTitle, s.reactSub, () => go('react')),
+    card('🎨', s.colorTitle, s.colorSub, () => go('color')),
+    card('⏱️', s.stopTitle, s.stopSub, () => go('stop'))));
+}
 function luckMenu(root) {
   const s = S();
   root.append(top(`🍀 ${s.menuLuck}`, back), h('div', { class: 'scroll' },
     card('🪜', s.menuLadder, s.menuLadderSub, () => go('ladder')),
-    card('🎡', s.menuRoulette, s.menuRouletteSub, () => go('roulette'))));
+    card('🎡', s.menuRoulette, s.menuRouletteSub, () => go('roulette')),
+    card('💣', s.bombTitle, s.bombSub, () => go('bomb'))));
 }
 function battleMenu(root) {
   const s = S();

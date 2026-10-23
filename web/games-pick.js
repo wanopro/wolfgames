@@ -1,5 +1,6 @@
 // 늑대이빨 / 사다리게임 / 돌림판
 import { C, S, h, btn, top, stepper, setupPanel, liveCanvas, vibe, animate, shuffle, rnd } from './core.js';
+import { ladderWolf } from './art.js';
 
 // ===================== 2. 늑대이빨 =====================
 export function wolfTeeth(root, back) {
@@ -150,7 +151,7 @@ export function ladder(root, back) {
 
   const play = () => {
     let data = make();
-    const done = new Set(), anim = new Set();
+    const done = new Set(), anim = new Set(), arrived = new Map();
     let prog = 0;
     const wrap = h('div', { class: 'body', style: 'padding:12px;gap:6px;align-items:center' + (n > 7 ? '' : '') });
     if (n > 7) wrap.classList.add('small');
@@ -168,7 +169,7 @@ export function ladder(root, back) {
       if (anim.size || !go.length) return;
       go.forEach((x) => anim.add(x)); vibe.tap(); render();
       await animate(5000, (p) => { prog = p; }, 'linear');
-      go.forEach((x) => done.add(x)); anim.clear();
+      go.forEach((x) => { done.add(x); arrived.set(x, performance.now() / 1000); }); anim.clear();
       if (go.some((x) => data.prizes[data.paths[x].end])) vibe.strong(); else vibe.tap();
       render();
     };
@@ -197,14 +198,16 @@ export function ladder(root, back) {
     const poly = (ctx, pts, frac, color, lw) => {
       let total = 0;
       for (let i = 1; i < pts.length; i++) total += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
-      let remain = total * frac, tip = pts[pts.length - 1];
+      let remain = total * frac, tip = pts[pts.length - 1], dir = 0;
       ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
       for (let i = 1; i < pts.length; i++) {
         const seg = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+        dir = Math.sign(pts[i][0] - pts[i - 1][0]);
         if (remain >= seg) { ctx.lineTo(pts[i][0], pts[i][1]); remain -= seg; }
         else { const t = seg ? remain / seg : 0; tip = [pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * t, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * t]; ctx.lineTo(tip[0], tip[1]); break; }
       }
       ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke();
+      tip.dir = dir;
       return tip;
     };
 
@@ -217,11 +220,17 @@ export function ladder(root, back) {
         const y = (l + 1) * hh / (LEVELS + 1);
         ctx.beginPath(); ctx.moveTo((j + 0.5) * w / n, y); ctx.lineTo((j + 1.5) * w / n, y); ctx.stroke();
       }
+      const now = performance.now() / 1000, wr = Math.min(19, w / n * 0.3);
       for (const i of done) poly(ctx, data.paths[i].pts.map(px), 1, C.players[i], 7);
+      // 내려가는 늑대 얼굴: 입을 앙앙 벌렸다 닫았다, 목에 플레이어 색 목도리
       for (const i of anim) {
         const tip = poly(ctx, data.paths[i].pts.map(px), prog, C.players[i], 7);
-        ctx.beginPath(); ctx.arc(tip[0], tip[1], 8.75, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
-        ctx.beginPath(); ctx.arc(tip[0], tip[1], 6.65, 0, 7); ctx.fillStyle = C.players[i]; ctx.fill();
+        ladderWolf(ctx, tip[0], tip[1] - wr * 0.3, wr, now + i * 0.3, C.players[i], prog >= 1 ? 0 : tip.dir);
+      }
+      // 도착한 늑대는 결과 칸 위에서 "앙!" 한 번 하고 쉼
+      for (const i of done) {
+        const p = data.paths[i].pts, [x, y] = px(p[p.length - 1]), since = now - (arrived.get(i) || 0);
+        ladderWolf(ctx, x, y - wr * 0.9, wr * 0.85, now + i, C.players[i], 0, since < 0.5 ? Math.abs(Math.sin(since * Math.PI * 3)) : 0);
       }
     });
     render();

@@ -311,3 +311,25 @@ fun ToggleRow(label: String, checked: Boolean, onChange: (Boolean) -> Unit) {
         }
     }
 }
+
+/** 여러 개 중 하나 고르기 (폭탄돌리기 방향, 주사위 대결 계산 방법) */
+@Composable
+fun ChoiceRow(label: String, options: List<String>, selected: Int, onChange: (Int) -> Unit) {
+    val vibe = LocalVibe.current
+    Column(
+        Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(WG.Surface).padding(horizontal = 16.dp, vertical = 12.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        Text(label, color = WG.Text, fontSize = 18.sp)
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            options.forEachIndexed { i, o ->
+                val on = i == selected
+                Box(
+                    Modifier.weight(1f).height(44.dp).clip(RoundedCornerShape(12.dp)).background(if (on) WG.Accent else WG.Surface2)
+                        .clickable { vibe.tap(); onChange(i) },
+                    contentAlignment = Alignment.Center,
+                ) { Text(o, color = if (on) Color.Black else WG.Text, fontSize = 14.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center, maxLines = 1) }
+            }
+        }
+    }
+}

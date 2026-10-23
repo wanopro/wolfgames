@@ -1,5 +1,18 @@
 package com.wolfgames.app.games
 
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.withFrameNanos
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalDensity
+import com.wolfgames.app.ui.Ctx
+import com.wolfgames.app.ui.ladderWolf
+import kotlin.math.PI
+import kotlin.math.abs
+import kotlin.math.min
+import kotlin.math.sign
+import kotlin.math.sin
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -116,6 +129,21 @@ private fun DrawScope.drawPolyline(points: List<Offset>, fraction: Float, color:
     return tip
 }
 
+/** 진행 위치에서 가는 방향 (-1 왼쪽, 0 아래, 1 오른쪽) */
+private fun tipDir(points: List<Offset>, fraction: Float): Float {
+    var total = 0f
+    for (i in 1 until points.size) total += (points[i] - points[i - 1]).getDistance()
+    var remain = total * fraction
+    for (i in 1 until points.size) {
+        val seg = (points[i] - points[i - 1]).getDistance()
+        if (remain <= seg) return sign(points[i].x - points[i - 1].x)
+        remain -= seg
+    }
+    return 0f
+}
+
+private fun hex(c: Color) = String.format("#%06X", 0xFFFFFF and c.toArgb())
+
 /** 3. 사다리게임 */
 @Composable
 fun LadderGame(onBack: () -> Unit) {
@@ -152,6 +180,11 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
     val animating = remember(seed) { mutableStateListOf<Int>() }
     var prog by remember { mutableFloatStateOf(0f) }
     val scope = rememberCoroutineScope()
+    // 늑대 얼굴 애니메이션용 시계, 도착 시각
+    var clock by remember { mutableFloatStateOf(0f) }
+    val arrived = remember(seed) { mutableMapOf<Int, Float>() }
+    val density = LocalDensity.current.density
+    LaunchedEffect(Unit) { val st = withFrameNanos { it }; while (true) { val f = withFrameNanos { it }; clock = (f - st) / 1e9f } }
     val haptic = LocalVibe.current
 
     /** 하나 또는 여러 줄을 동시에 5초 동안 내려보냄 */
@@ -164,6 +197,7 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
             prog = 0f
             runFor(5000L) { prog = it }
             done.addAll(go)
+            go.forEach { arrived[it] = clock }
             animating.clear()
             if (go.any { data.prizes[paths[it].second] }) haptic.strong() else haptic.tap()
         }
@@ -222,11 +256,20 @@ private fun LadderPlay(n: Int, k: Int, onSetup: () -> Unit) {
             }
             val lw = 7.dp.toPx()
             for (s in done) drawPolyline(paths[s].first.map { px(it) }, 1f, WG.PlayerColors[s], lw)
-            for (s in animating) {
-                val tip = drawPolyline(paths[s].first.map { px(it) }, prog, WG.PlayerColors[s], lw)
-                // 내려가는 공
-                drawCircle(Color.White, radius = lw * 1.25f, center = tip)
-                drawCircle(WG.PlayerColors[s], radius = lw * 0.95f, center = tip)
+            val tips = animating.map { s -> s to drawPolyline(paths[s].first.map { px(it) }, prog, WG.PlayerColors[s], lw) }
+            // 내려가는 늑대 얼굴 (입을 앙앙, 목에 플레이어 색 목도리), 도착한 늑대는 결과 칸 위에서 쉼
+            drawIntoCanvas { cc ->
+                val x = Ctx(cc.nativeCanvas, density)
+                val wr = min(19f, w / density / n * 0.3f)
+                for ((s, tip) in tips) {
+                    val dir = tipDir(paths[s].first.map { px(it) }, prog)
+                    x.ladderWolf(tip.x / density, tip.y / density - wr * 0.3f, wr, clock + s * 0.3f, hex(WG.PlayerColors[s]), if (prog >= 1f) 0f else dir)
+                }
+                for (s in done) {
+                    val end = px(paths[s].first.last()); val since = clock - (arrived[s] ?: -9f)
+                    x.ladderWolf(end.x / density, end.y / density - wr * 0.9f, wr * 0.85f, clock + s, hex(WG.PlayerColors[s]), 0f, if (since < 0.5f) abs(sin(since * PI.toFloat() * 3)) else 0f)
+                }
+                x.finish()
             }
         }
 

@@ -43,6 +43,18 @@ import com.wolfgames.app.ui.spinFor
 import kotlinx.coroutines.launch
 import kotlin.math.sin
 import kotlin.random.Random
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.withFrameNanos
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.platform.LocalDensity
+import com.wolfgames.app.ui.Ctx
+import com.wolfgames.app.ui.TAU
+import com.wolfgames.app.ui.pirateHead2
+import com.wolfgames.app.ui.text
+import kotlin.math.cos
+import kotlin.math.max
+import kotlin.math.min
 
 private const val SLOTS = 20
 private const val COLS = 5
@@ -82,6 +94,11 @@ fun PirateGame(onBack: () -> Unit) {
     var launch by remember(round) { mutableFloatStateOf(0f) }
     var shake by remember(round) { mutableFloatStateOf(0f) }
     val scope = rememberCoroutineScope()
+    // 통과할 때마다 늑대가 올라와 메롱 (teaseAt: 시작 시각, now: 매 프레임 시간)
+    var now by remember { mutableFloatStateOf(0f) }
+    var teaseAt by remember(round) { mutableFloatStateOf(-9f) }
+    val density = LocalDensity.current.density
+    LaunchedEffect(Unit) { val st = withFrameNanos { it }; while (true) { val f = withFrameNanos { it }; now = (f - st) / 1e9f } }
 
     fun insert(i: Int) {
         if (popped || i in swords) return
@@ -92,6 +109,7 @@ fun PirateGame(onBack: () -> Unit) {
             scope.launch { spinFor(900L) { launch = it } }
         } else {
             vibe.tap()
+            teaseAt = now
             scope.launch {
                 runFor(350L) { shake = 1f - it }
             }
@@ -104,7 +122,7 @@ fun PirateGame(onBack: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
-                if (popped) s.popped else s.pirateHint,
+                if (popped) s.popped else if (now - teaseAt < 1.3f) s.pirateTease else s.pirateHint,
                 color = if (popped) WG.Win else WG.Text,
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Black,
@@ -132,15 +150,38 @@ fun PirateGame(onBack: () -> Unit) {
                 val w = size.width
                 val h = size.height
                 val shakeX = sin(shake * 40f) * shake * 6.dp.toPx()
-                // 늑대 (통 뒤에서 튀어나옴)
-                val l = launch
-                val headR = w * 0.17f
-                val headC = Offset(w * 0.5f, h * 0.27f - l * h * 0.24f)
-                rotate(degrees = l * 720f, pivot = headC) {
-                    drawWolfHead(headC, headR, surprised = popped)
-                }
                 // 통
                 drawBarrel(w, h, shakeX)
+                drawIntoCanvas { cc ->
+                    val x = Ctx(cc.nativeCanvas, density)
+                    val W = w / density; val H = h / density; val sx = shakeX / density
+                    val l = W * 0.14f + sx; val rr = W * 0.86f + sx; val rimY = H * 0.36f; val rx = (rr - l - W * 0.08f) / 2; val ry = H * 0.03f; val cxr = (l + rr) / 2
+                    val hr = W * 0.17f; val hx = W * 0.5f; val tt = now - teaseAt
+                    val mode = if (popped) "sur" else if (tt < 1.3f) "tease" else "idle"
+                    val hy = when (mode) {
+                        "sur" -> rimY - hr * 0.3f - launch * (rimY - hr * 0.3f - hr * 0.2f)
+                        "tease" -> { val u = min(1f, tt / 0.25f); val bk = if (tt > 1.05f) min(1f, (tt - 1.05f) / 0.2f) else 0f; val up = (if (u < 1) 1 - (1 - u) * (1 - u) * (1 - u) * cos(u * 8) else 1f) * (1 - bk); rimY - hr * 0.3f - up * hr * 0.75f + sin(tt * 9) * hr * 0.04f * (1 - bk) }
+                        else -> rimY - hr * 0.3f + sin(now * 2.2f) * hr * 0.05f
+                    }
+                    // 늑대: 통 입구 앞쪽 테두리보다 위만 보이게 (통 안에 들어가 있음)
+                    x.save()
+                    x.beginPath(); x.moveTo(0f, 0f); x.lineTo(W, 0f); x.lineTo(W, rimY); x.lineTo(cxr + rx, rimY)
+                    x.ellipse(cxr, rimY, rx, ry, 0f, 0f, Math.PI.toFloat()); x.lineTo(0f, rimY); x.closePath(); x.clip()
+                    x.translate(hx, hy); if (mode == "sur") x.rotate(launch * Math.PI.toFloat() * 4); x.translate(-hx, -hy)
+                    x.pirateHead2(hx, hy, hr, mode, tt)
+                    x.restore()
+                    // 통 입구 앞쪽 테두리 + 통을 붙잡은 앞발
+                    x.beginPath(); x.ellipse(cxr, rimY, (rr - l + 8) / 2, H * 0.045f, 0f, 0f, Math.PI.toFloat()); x.ellipse(cxr, rimY, rx, ry, 0f, Math.PI.toFloat(), 0f, true); x.closePath(); x.fillStyle = "#6E4220"; x.fill()
+                    if (mode != "sur" || launch < 0.15f) {
+                        val lift = if (mode == "tease") min(1f, tt / 0.2f) * (if (tt > 1.05f) max(0f, 1 - (tt - 1.05f) / 0.2f) else 1f) else 0f
+                        for (k in listOf(-1f, 1f)) {
+                            val px = hx + k * hr * 0.75f; val py = rimY + H * 0.012f - lift * hr * 0.1f
+                            x.beginPath(); x.ellipse(px, py, hr * 0.28f, hr * 0.17f, 0f, 0f, TAU); x.fillStyle = "#9AA5B4"; x.fill(); x.lineWidth = 1.5f; x.strokeStyle = "rgba(0,0,0,.3)"; x.stroke()
+                            for (q in listOf(-1f, 0f, 1f)) { x.beginPath(); x.moveTo(px + q * hr * 0.09f, py - hr * 0.02f); x.lineTo(px + q * hr * 0.09f, py + hr * 0.12f); x.stroke() }
+                        }
+                    }
+                    x.finish()
+                }
                 // 칼 자리 & 꽂힌 칼
                 for (i in 0 until SLOTS) {
                     val p = slotPos(i, w, h) + Offset(shakeX, 0f)
@@ -151,6 +192,18 @@ fun PirateGame(onBack: () -> Unit) {
                     )
                     val idx = swords.indexOf(i)
                     if (idx >= 0) drawSword(p, w * 0.11f, WG.PlayerColors[idx % WG.PlayerColors.size], isTrap = popped && i == trap)
+                }
+                // 메롱~ 말풍선
+                val tt2 = now - teaseAt
+                if (!popped && tt2 > 0.15f && tt2 < 1.15f) drawIntoCanvas { cc ->
+                    val x = Ctx(cc.nativeCanvas, density)
+                    val W = w / density; val H = h / density; val hr = W * 0.17f; val hx = W * 0.5f
+                    val b = min(1f, (tt2 - 0.15f) / 0.2f); val hy = H * 0.36f - hr * 1.05f
+                    x.save(); x.translate(hx + hr * 1.35f, hy - hr * 1.15f + sin(tt2 * 8) * 3); x.scale(b, b); x.rotate(-0.1f)
+                    x.font(hr * 0.42f); val tw = x.measureText(s.fingerMerong) + hr * 0.4f; val th = hr * 0.62f
+                    x.beginPath(); x.roundRect(-tw / 2, -th / 2, tw, th, th / 2); x.fillStyle = "#fff"; x.fill()
+                    x.beginPath(); x.moveTo(-tw * 0.3f, th / 2 - 2); x.lineTo(-tw * 0.45f, th / 2 + hr * 0.2f); x.lineTo(-tw * 0.1f, th / 2 - 2); x.fill()
+                    x.text(s.fingerMerong, 0f, 2f, hr * 0.42f, "#E53950"); x.restore(); x.finish()
                 }
             }
             Spacer(Modifier.weight(1f))
@@ -218,66 +271,3 @@ private fun DrawScope.drawSword(at: Offset, len: Float, grip: Color, isTrap: Boo
     drawCircle(if (isTrap) WG.Win else Gold, radius = len * 0.11f, center = end)
 }
 
-/** 해적 두건을 쓴 귀여운 늑대 얼굴 (정면) */
-private fun DrawScope.drawWolfHead(c: Offset, r: Float, surprised: Boolean) {
-    // 귀
-    for (sx in listOf(-1f, 1f)) {
-        val ear = Path().apply {
-            moveTo(c.x + sx * r * 0.25f, c.y - r * 0.7f)
-            lineTo(c.x + sx * r * 0.85f, c.y - r * 1.35f)
-            lineTo(c.x + sx * r * 0.95f, c.y - r * 0.35f)
-            close()
-        }
-        drawPath(ear, HeadDark)
-        val inner = Path().apply {
-            moveTo(c.x + sx * r * 0.45f, c.y - r * 0.68f)
-            lineTo(c.x + sx * r * 0.8f, c.y - r * 1.1f)
-            lineTo(c.x + sx * r * 0.85f, c.y - r * 0.5f)
-            close()
-        }
-        drawPath(inner, Color(0xFFF6AFC0))
-    }
-    drawCircle(HeadFur, radius = r, center = c)
-    // 해적 두건
-    val band = Path().apply {
-        moveTo(c.x - r * 0.97f, c.y - r * 0.25f)
-        quadraticTo(c.x, c.y - r * 1.25f, c.x + r * 0.97f, c.y - r * 0.25f)
-        quadraticTo(c.x, c.y - r * 0.75f, c.x - r * 0.97f, c.y - r * 0.25f)
-        close()
-    }
-    drawPath(band, Bandana)
-    for (k in listOf(-0.45f, 0f, 0.45f)) {
-        drawCircle(Color.White, radius = r * 0.06f, center = Offset(c.x + k * r, c.y - r * 0.68f + kotlin.math.abs(k) * r * 0.25f))
-    }
-    // 두건 매듭
-    drawCircle(Bandana, radius = r * 0.13f, center = Offset(c.x + r * 0.95f, c.y - r * 0.3f))
-    drawLine(Bandana, Offset(c.x + r * 0.95f, c.y - r * 0.3f), Offset(c.x + r * 1.25f, c.y - r * 0.05f), strokeWidth = r * 0.12f, cap = StrokeCap.Round)
-    // 주둥이
-    drawOval(Cream, topLeft = Offset(c.x - r * 0.48f, c.y + r * 0.08f), size = Size(r * 0.96f, r * 0.72f))
-    // 눈
-    val ey = c.y - r * 0.08f
-    for (sx in listOf(-1f, 1f)) {
-        val ex = c.x + sx * r * 0.42f
-        if (surprised) {
-            val d = r * 0.13f
-            drawLine(Ink, Offset(ex - d * sx, ey - d), Offset(ex + d * sx, ey), strokeWidth = r * 0.07f, cap = StrokeCap.Round)
-            drawLine(Ink, Offset(ex + d * sx, ey), Offset(ex - d * sx, ey + d), strokeWidth = r * 0.07f, cap = StrokeCap.Round)
-        } else {
-            drawCircle(Ink, radius = r * 0.15f, center = Offset(ex, ey))
-            drawCircle(Color.White, radius = r * 0.06f, center = Offset(ex - r * 0.04f, ey - r * 0.05f))
-        }
-        drawOval(Color(0x66FF8FA3), topLeft = Offset(ex - r * 0.2f + sx * r * 0.08f, ey + r * 0.2f), size = Size(r * 0.4f, r * 0.2f))
-    }
-    // 코
-    drawOval(Ink, topLeft = Offset(c.x - r * 0.13f, c.y + r * 0.16f), size = Size(r * 0.26f, r * 0.17f))
-    // 입
-    if (surprised) {
-        drawOval(Color(0xFF8E2440), topLeft = Offset(c.x - r * 0.12f, c.y + r * 0.42f), size = Size(r * 0.24f, r * 0.24f))
-    } else {
-        drawArc(
-            Ink, startAngle = 20f, sweepAngle = 140f, useCenter = false,
-            topLeft = Offset(c.x - r * 0.16f, c.y + r * 0.32f), size = Size(r * 0.32f, r * 0.2f),
-            style = Stroke(width = r * 0.05f, cap = StrokeCap.Round),
-        )
-    }
-}

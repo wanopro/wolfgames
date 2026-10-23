@@ -36,6 +36,16 @@ import com.wolfgames.app.ui.GameScaffold
 import com.wolfgames.app.ui.VTextButton
 import com.wolfgames.app.ui.WG
 import com.wolfgames.app.ui.drawDie
+import com.wolfgames.app.ui.Ctx
+import com.wolfgames.app.ui.TAU
+import com.wolfgames.app.ui.die
+import com.wolfgames.app.ui.text
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.graphics.toArgb
+import kotlin.math.PI
+import kotlin.math.cos
+import kotlin.math.sin
 import kotlin.random.Random
 
 private const val HOLD_MS = 500L
@@ -158,10 +168,39 @@ fun RollDiceGame(onBack: () -> Unit) {
                 },
         ) {
             Canvas(Modifier.fillMaxSize()) {
-                // 이미 나온 주사위
-                for (d in placed) {
-                    drawCircle(d.color.copy(alpha = 0.22f), radius = circleR * 0.95f, center = d.pos)
-                    drawDie(at = d.pos, dieSize = dieSizePx, value = d.value, border = d.color)
+                // 이미 나온 주사위 — 2개 이상이면 제일 높은 수·제일 낮은 수 강조 (전부 같으면 강조 안 함)
+                val dn = density.density
+                drawIntoCanvas { cc ->
+                    val x = Ctx(cc.nativeCanvas, dn)
+                    val vals = placed.map { it.value }
+                    val hi = vals.maxOrNull() ?: 0; val lo = vals.minOrNull() ?: 0
+                    val mark = placed.size >= 2 && hi != lo
+                    val tt = (now % 1_000_000L) / 1000f; val pulse = 1 + sin(tt * 5) * 0.04f
+                    for (d in placed) {
+                        val px = d.pos.x / dn; val py = d.pos.y / dn
+                        val isHi = mark && d.value == hi; val isLo = mark && d.value == lo
+                        val hex = String.format("#%06X", 0xFFFFFF and d.color.toArgb())
+                        x.save()
+                        if (isHi) {
+                            x.beginPath(); x.arc(px, py, 82f, 0f, TAU); x.radialFill(px, py, 20f, 82f, listOf(0f to "rgba(255,200,40,.75)", 1f to "rgba(255,200,40,0)")); x.fill()
+                            for (k in 0 until 8) { val a = tt * 1.2f + k * PI.toFloat() / 4; val r2 = 70 + sin(tt * 6 + k) * 6; x.strokeStyle = "rgba(255,215,64,.9)"; x.lineWidth = 4f; x.beginPath(); x.moveTo(px + cos(a) * 58, py + sin(a) * 58); x.lineTo(px + cos(a) * r2, py + sin(a) * r2); x.stroke() }
+                        } else if (isLo) {
+                            x.beginPath(); x.arc(px, py, 80f, 0f, TAU); x.radialFill(px, py, 20f, 80f, listOf(0f to "rgba(255,61,90,.7)", 1f to "rgba(255,61,90,0)")); x.fill()
+                        }
+                        x.globalAlpha = if (mark && !isHi && !isLo) 0.4f else 1f
+                        x.beginPath(); x.arc(px, py, 47.5f, 0f, TAU); x.fillStyle = hex + "38"; x.fill()
+                        x.translate(px, py); val sc = if (isHi || isLo) 1.25f * pulse else if (mark) 0.9f else 1f; x.scale(sc, sc)
+                        if (isLo) x.rotate(sin(tt * 9) * 0.08f)
+                        x.die(0f, 0f, 64f, d.value, if (isHi) "#FFC107" else if (isLo) "#FF3D5A" else hex)
+                        x.restore()
+                        if (isHi || isLo) {
+                            val lab = if (isHi) s.hiTag else s.loTag
+                            x.font(16f); val w = x.measureText(lab) + 22
+                            x.fillStyle = if (isHi) "#FFC107" else "#FF3D5A"; x.beginPath(); x.roundRect(px - w / 2, py + 50, w, 28f, 14f); x.fill()
+                            x.text(lab, px, py + 64, 16f, if (isHi) "#000" else "#fff")
+                        }
+                    }
+                    x.finish()
                 }
                 // 누르고 있는 손가락
                 for (a in active.values) {

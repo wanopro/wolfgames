@@ -1,75 +1,54 @@
 // 늑대달리기 / 늑대 룰렛 / 늑대 돌리기
 import { C, S, h, btn, top, stepper, setupPanel, liveCanvas, vibe, animate, sleep, rnd, shuffle } from './core.js';
+import { cuteWolf, animalFace, ANIMALS, pirateHead2 } from './art.js';
 
 const INK = '#2B2B33';
 const R = (d) => (d * Math.PI) / 180;
 
 // ---------- 옆모습 늑대 (달리기용) ----------
-export const RACE_COLORS = ['#E53935', '#FF8F00', '#FDD835', '#43A047', '#1E88E5', '#212121', '#8E24AA', '#9E9E9E', '#FF6FB0'];
-function sideWolf(ctx, cx, cy, s, fur, ph) {
-  const BEL = '#FFF6E8', OL = 'rgba(0,0,0,.4)', sw = Math.max(1.5, s * 0.035), swing = Math.sin(ph) * 28;
-  ctx.save(); ctx.translate(cx, cy);
-  const oval = (x, y, rx, ry, fill, stroke) => { ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 7); ctx.fillStyle = fill; ctx.fill(); if (stroke) { ctx.lineWidth = sw; ctx.strokeStyle = OL; ctx.stroke(); } };
-  // 꼬리
-  ctx.save(); ctx.translate(-s * 0.42, -s * 0.05); ctx.rotate(R(-25 + Math.sin(ph * 0.5) * 15)); ctx.translate(s * 0.42, s * 0.05);
-  oval(-s * 0.6, -s * 0.09, s * 0.25, s * 0.11, fur, true); oval(-s * 0.78, -s * 0.095, s * 0.08, s * 0.065, BEL);
-  ctx.restore();
-  // 다리
-  const leg = (x, a, dark) => {
-    ctx.save(); ctx.translate(x, s * 0.1); ctx.rotate(R(a));
-    ctx.globalAlpha = dark ? 0.75 : 1; ctx.strokeStyle = fur; ctx.lineWidth = s * 0.13; ctx.lineCap = 'round';
-    ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, s * 0.32); ctx.stroke(); ctx.globalAlpha = 1;
-    ctx.beginPath(); ctx.arc(0, s * 0.33, s * 0.065, 0, 7); ctx.fillStyle = BEL; ctx.fill(); ctx.restore();
-  };
-  leg(-s * 0.28, -swing, 1); leg(s * 0.22, swing, 1); leg(-s * 0.2, swing, 0); leg(s * 0.3, -swing, 0);
-  // 몸
-  oval(0, 0, s * 0.5, s * 0.24, fur, true); oval(0, s * 0.12, s * 0.3, s * 0.1, BEL);
-  // 머리, 귀
-  const hx = s * 0.52, hy = -s * 0.3, hr = s * 0.27;
-  for (const ex of [hx - hr * 0.55, hx + hr * 0.25]) {
-    ctx.beginPath(); ctx.moveTo(ex - hr * 0.32, hy - hr * 0.55); ctx.lineTo(ex + hr * 0.02, hy - hr * 1.45); ctx.lineTo(ex + hr * 0.4, hy - hr * 0.55); ctx.closePath();
-    ctx.fillStyle = fur; ctx.fill(); ctx.lineWidth = sw; ctx.strokeStyle = OL; ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(ex - hr * 0.14, hy - hr * 0.65); ctx.lineTo(ex + hr * 0.03, hy - hr * 1.15); ctx.lineTo(ex + hr * 0.22, hy - hr * 0.65); ctx.closePath();
-    ctx.fillStyle = '#F6AFC0'; ctx.fill();
-  }
-  ctx.beginPath(); ctx.arc(hx, hy, hr, 0, 7); ctx.fillStyle = fur; ctx.fill(); ctx.lineWidth = sw; ctx.strokeStyle = OL; ctx.stroke();
-  const mx = hx + hr * 0.25, my = hy - hr * 0.05, mw = hr * 1.15, mh = hr * 0.75;
-  oval(mx + mw / 2, my + mh / 2, mw / 2, mh / 2, BEL, true);
-  ctx.beginPath(); ctx.arc(mx + mw * 0.92, my + mh * 0.3, hr * 0.17, 0, 7); ctx.fillStyle = INK; ctx.fill();
-  const ex = hx + hr * 0.15, ey = hy - hr * 0.25;
-  ctx.beginPath(); ctx.arc(ex, ey, hr * 0.27, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
-  ctx.beginPath(); ctx.arc(ex + hr * 0.05, ey, hr * 0.19, 0, 7); ctx.fillStyle = INK; ctx.fill();
-  ctx.beginPath(); ctx.arc(ex, ey - hr * 0.07, hr * 0.07, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
-  ctx.beginPath(); ctx.arc(hx + hr * 0.05, hy + hr * 0.35, hr * 0.17, 0, 7); ctx.fillStyle = 'rgba(255,143,163,.53)'; ctx.fill();
-  ctx.restore();
-}
 
 // ===================== 5. 늑대달리기 =====================
 export function race(root, back) {
   const s = S();
-  let n = 4, secs = 8, cv = null, alive = true;
+  const names = s.animalNames.split(',');
+  let n = 4, secs = 8, cv = null, alive = true, picks = [0, 1, 3, 10];
   root.append(top(s.menuRace, back));
   const body = h('div', { class: 'body' });
   root.append(body);
 
-  const preview = () => {
-    const row = h('div', { class: 'preview' });
-    for (let i = 0; i < n; i++) {
-      const c = h('canvas', { width: 68, height: 68, style: 'width:34px;height:34px' });
-      const x = c.getContext('2d'); x.scale(2, 2); sideWolf(x, 14, 20, 21, RACE_COLORS[i], 0);
-      row.append(h('div', {}, c, i + 1));
-    }
-    return row;
+  const face = (kind, px) => {
+    const c = h('canvas', { width: px * 2, height: px * 2, style: `width:${px}px;height:${px}px` });
+    const x = c.getContext('2d'); x.scale(2, 2); animalFace(x, px / 2, px / 2 + px * 0.08, px * 0.33, kind, 0);
+    return c;
+  };
+  const fixPicks = () => {
+    picks = picks.slice(0, n);
+    for (let k = 0; picks.length < n && k < ANIMALS.length; k++) if (!picks.includes(k)) picks.push(k);
   };
   const setup = () => {
     if (cv) { cv.stop(); cv = null; }
-    let pv = preview();
-    const nStep = stepper(s.players, n, 2, 9, (v) => { n = v; const np = preview(); pv.replaceWith(np); pv = np; });
-    body.replaceChildren(setupPanel(s.raceDesc, play, nStep, stepper(s.raceSeconds, secs, 3, 30, (v) => { secs = v; }), pv));
+    fixPicks();
+    const grid = h('div', { class: 'agrid' }), lanes = h('div', { class: 'alanes' }), title = h('div', { class: 'h-sub', style: 'font-weight:700;color:var(--text);text-align:left;width:100%' });
+    const startB = btn(s.start, () => { if (picks.length === n) play(); });
+    const draw = () => {
+      title.textContent = s.racePick(n);
+      grid.replaceChildren(...ANIMALS.map((k, i) => {
+        const j = picks.indexOf(i);
+        const b = h('button', { class: 'a' + (j >= 0 ? ' on' : '') }, face(k, 44), h('small', {}, names[i]), j >= 0 ? h('span', { class: 'n' }, j + 1) : null);
+        b.addEventListener('click', () => { vibe.tap(); if (j >= 0) picks.splice(j, 1); else if (picks.length < n) picks.push(i); draw(); });
+        return b;
+      }));
+      lanes.replaceChildren(...picks.map((a, i) => h('div', {}, face(ANIMALS[a], 32), h('small', {}, s.raceLane(i + 1, names[a])))));
+      startB.disabled = picks.length !== n;
+      startB.textContent = picks.length === n ? s.start : s.raceNeed(n);
+    };
+    const nStep = stepper(s.players, n, 2, 9, (v) => { n = v; fixPicks(); draw(); });
+    body.replaceChildren(h('div', { class: 'scroll' }, h('div', { class: 'desc' }, s.raceDesc), nStep, stepper(s.raceSeconds, secs, 3, 30, (v) => { secs = v; }), title, grid, lanes, startB));
+    draw();
   };
 
   // 정한 시간에 1등이 들어오도록 진행 곡선을 만듦 (앱과 같은 방식)
-  // 구간마다 속도를 다르게(질주·주춤) 해서 순위가 자주 뒤바뀜. 질주 타이밍은 늑대마다 엇갈리게.
+  // 구간마다 속도를 다르게(질주·주춤) 해서 순위가 자주 뒤바뀜. 끝까지 접전(꼴찌도 1등보다 최대 8%만 늦음)
   const makeRunners = () => {
     const order = [...Array(n).keys()].sort(() => Math.random() - 0.5);
     const times = Array(n);
@@ -77,17 +56,14 @@ export function race(root, back) {
     const gaps = Array.from({ length: n - 1 }, () => Math.random() * 0.6 + 0.4).sort((a, b) => a - b);
     const total = gaps.reduce((a, b) => a + b, 0);
     let acc = 0;
-    for (let r = 1; r < n; r++) { acc += gaps[r - 1]; times[order[r]] = secs * (1 + 0.12 * acc / total); }
-    const K = 12, L = K - 1, slots = shuffle([...Array(L).keys()].map((j) => j + 1));
+    for (let r = 1; r < n; r++) { acc += gaps[r - 1]; times[order[r]] = secs * (1 + 0.08 * acc / total); }
+    const K = 20, L = K - 1, slots = shuffle([...Array(L).keys()].map((j) => j + 1));
+    const CFG = [[0, 2.8, 0.6], [4, 2.4, 0.5], [8, 2.0, 0.4], [12, 1.8, 0.4], [2, 0.1, 0.1], [6, 0.12, 0.1], [10, 0.15, 0.1], [14, 0.2, 0.1]];
     return times.map((T, i) => {
       const v = Array.from({ length: K + 1 }, () => 0.5 + Math.random() * 0.5);
       v[0] = 0.6 + Math.random() * 0.6;
-      v[slots[i % L]] = 2.2 + Math.random() * 0.6; // 폭풍 질주
-      v[slots[(i + 4) % L]] = 1.8 + Math.random() * 0.5;
-      v[slots[(i + 8) % L]] = 1.5 + Math.random() * 0.4;
-      v[slots[(i + 2) % L]] = 0.15 + Math.random() * 0.15; // 주춤
-      v[slots[(i + 6) % L]] = 0.25 + Math.random() * 0.15;
-      const M = 120, tab = [0];
+      CFG.forEach(([o, a, b]) => { v[slots[(i * CFG.length + o) % L]] = a + Math.random() * b; });
+      const M = 160, tab = [0];
       let sum = 0;
       for (let j = 1; j <= M; j++) {
         const u = ((j - 0.5) / M) * K, k = Math.floor(u), e = (1 - Math.cos(Math.PI * (u - k))) / 2;
@@ -106,21 +82,23 @@ export function race(root, back) {
 
   const play = () => {
     let runners = makeRunners(), phase = 'ready', count = 3, t = 0, finished = [];
+    const BITE = 0.7;
     const wrap = h('div', { class: 'body', style: 'padding:12px;align-items:center' });
     body.replaceChildren(wrap);
-    const title = h('div', { class: 'h-title', style: 'height:54px;font-size:22px;display:flex;align-items:center' });
+    const title = h('div', { class: 'h-title', style: 'height:54px;font-size:21px;display:flex;align-items:center;text-align:center' });
     const holder = h('div', { class: 'cv-wrap grow', style: 'border-radius:16px;overflow:hidden' });
     const action = h('div', { style: 'width:100%;margin-top:10px' });
     const chB = btn(s.changeRace, setup, 'tbtn');
     wrap.append(title, holder, action, chB);
+    const nm = (i) => names[picks[i]];
 
     const render = () => {
-      title.style.fontSize = phase === 'count' ? '40px' : '22px';
+      title.style.fontSize = phase === 'count' ? '40px' : '21px';
       title.classList.toggle('acc', phase === 'done');
       title.textContent = phase === 'ready' ? s.raceTapStart
         : phase === 'count' ? (count > 0 ? String(count) : s.raceGo)
           : phase === 'run' ? s.raceRunning + (finished.length ? '' : `  ${Math.max(0, secs - Math.floor(t))}`)
-            : s.raceResult(finished[0] + 1, finished[finished.length - 1] + 1);
+            : s.raceResultNames(nm(finished[0]), nm(finished[finished.length - 1]));
       chB.disabled = !(phase === 'ready' || phase === 'done');
     };
     const setAction = () => {
@@ -131,7 +109,7 @@ export function race(root, back) {
       phase = 'count'; setAction();
       for (let c = 3; c >= 1; c--) { count = c; vibe.tick(); render(); await sleep(650); if (!alive) return; }
       count = 0; vibe.strong(); phase = 'run'; render();
-      const t0 = performance.now(), end = Math.max(...runners.map((r) => r.T));
+      const t0 = performance.now(), end = Math.max(...runners.map((r) => r.T)) + BITE;
       await new Promise((res) => {
         const step = (now) => {
           if (!alive) return res();
@@ -146,27 +124,56 @@ export function race(root, back) {
     };
 
     cv = liveCanvas(holder, (ctx, w, hh) => {
-      const laneH = hh / n, startX = 44, finishX = w - 20, ws = Math.min(laneH * 0.62, 58);
+      const lh = hh / n, finish = w - 66, ws = Math.min(lh * 0.42, 70), ar = Math.min(lh * 0.14, ws * 0.34), ax = w - 34;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       for (let i = 0; i < n; i++) {
-        ctx.fillStyle = i % 2 === 0 ? '#F1E7D0' : '#E4D6B8'; ctx.fillRect(0, i * laneH, w, laneH);
-        ctx.beginPath(); ctx.arc(22, i * laneH + laneH / 2, Math.min(laneH * 0.3, 15), 0, 7); ctx.fillStyle = RACE_COLORS[i]; ctx.fill();
-        ctx.font = '900 14px sans-serif'; ctx.fillStyle = i === 2 || i === 7 ? INK : '#fff'; ctx.fillText(String(i + 1), 22, i * laneH + laneH / 2 + 1);
+        ctx.fillStyle = i % 2 === 0 ? '#F1E7D0' : '#E4D6B8'; ctx.fillRect(0, i * lh, w, lh);
+        ctx.fillStyle = 'rgba(0,0,0,.07)'; ctx.fillRect(0, (i + 1) * lh - 6, w, 6);
+        ctx.beginPath(); ctx.arc(18, i * lh + lh / 2, Math.min(lh * 0.28, 12), 0, 7); ctx.fillStyle = '#5B616B'; ctx.fill();
+        ctx.font = '900 12px sans-serif'; ctx.fillStyle = '#fff'; ctx.fillText(String(i + 1), 18, i * lh + lh / 2 + 1);
       }
-      ctx.fillStyle = '#fff'; ctx.fillRect(startX - 1.5, 0, 3, hh);
-      for (let y = 0, r = 0; y < hh; y += 8, r++) for (let c = 0; c < 2; c++) { ctx.fillStyle = (r + c) % 2 === 0 ? INK : '#fff'; ctx.fillRect(finishX + c * 8, y, 8, Math.min(8, hh - y)); }
+      ctx.fillStyle = '#fff'; ctx.fillRect(34, 0, 3, hh);
+      for (let y = 0, r = 0; y < hh; y += 8, r++) for (let c = 0; c < 2; c++) { ctx.fillStyle = (r + c) % 2 ? '#fff' : INK; ctx.fillRect(finish + c * 8, y, 8, Math.min(8, hh - y)); }
       const running = phase === 'run' || phase === 'done';
       for (let i = 0; i < n; i++) {
-        const p = running ? runners[i].pos(t) : 0, cy = (i + 0.5) * laneH;
-        const cx = startX + ws * 0.55 + p * (finishX - startX - ws * 1.25);
-        const moving = phase === 'run' && !finished.includes(i);
-        const lp = moving ? t * 16 + i : 0, bob = moving ? Math.abs(Math.sin(lp)) * ws * 0.06 : 0;
-        sideWolf(ctx, cx, cy + ws * 0.12 - bob, ws, RACE_COLORS[i], lp);
+        const gy = (i + 0.84) * lh, ay = gy - ws * 0.5, rt = runners[i].T, bt = running ? t - rt : -1;
+        // 동물: 결승선 너머에서 덜덜, 늑대가 가까우면 겁먹고 땀, 물리면 X눈
+        ctx.save(); ctx.translate(ax, ay);
+        if (bt < 0) {
+          const near = running && t > rt - 1.4; ctx.rotate(Math.sin((running ? t : performance.now() / 1000) * (near ? 26 : 12) + i) * (near ? 0.12 : 0.05));
+          animalFace(ctx, 0, 0, ar, ANIMALS[picks[i]], near ? 1 : 0);
+          if (near) { ctx.font = `${Math.round(ar * 0.7)}px sans-serif`; ctx.fillText('💦', ar * 0.9, -ar * 0.9); }
+        } else {
+          const hit = bt > 0.22; if (hit) { ctx.translate(Math.sin(bt * 40) * 2 * Math.max(0, 1 - bt), 0); ctx.rotate(0.3); ctx.scale(1.12, 0.84); }
+          animalFace(ctx, 0, 0, ar, ANIMALS[picks[i]], hit ? 2 : 1);
+          if (bt > 0.3) { ctx.rotate(-0.3); ctx.font = `${Math.round(ar * 0.65)}px sans-serif`; ctx.fillText('💫', 0, -ar * 1.25); }
+        }
+        ctx.restore();
+        // 늑대
+        const s0 = ws, p = running ? runners[i].pos(t) : 0;
+        const startX = 40 + s0 * 0.9, endX = finish - 4 - s0 * 0.84;
+        let wx = startX + p * (endX - startX), open = 0, run = phase === 'run' && bt < 0 ? 1 : 0, ph = t * 16 + i * 1.7;
+        if (run && t > rt - 1.4) { const k = Math.min(1, (t - (rt - 1.4)) / 0.3); open = k * (0.55 + 0.25 * Math.abs(Math.sin(t * 9 + i))); }
+        if (bt >= 0) {
+          const u = Math.min(1, bt / BITE), reach = (ax - ar * 0.6) - (endX + 0.84 * s0), e = u < 0.4 ? 1 - Math.pow(1 - u / 0.4, 2) : 1;
+          wx = endX + reach * e; run = u < 0.4 ? 0.6 : 0; ph = 0.8 + i; open = u < 0.3 ? u / 0.3 : u < 0.45 ? 1 - (u - 0.3) / 0.15 : 0;
+        }
+        if (run > 0.5 && t > 0) { // 질주할 때 흙먼지·속도선
+          const sp = (runners[i].pos(t + 0.06) - p) / 0.06 * rt;
+          if (sp > 1.25) {
+            const k = Math.min(1, (sp - 1.25) / 1.2);
+            for (let d = 0; d < 3; d++) { const q = (t * 3 + d / 3 + i * 0.3) % 1; ctx.globalAlpha = (1 - q) * 0.55 * k; ctx.beginPath(); ctx.arc(wx - s0 * (0.5 + q * 0.9), gy - s0 * 0.06 - q * s0 * 0.12, s0 * (0.07 + q * 0.12), 0, 7); ctx.fillStyle = '#B8A27E'; ctx.fill(); }
+            ctx.globalAlpha = 0.5 * k; ctx.strokeStyle = '#fff'; ctx.lineWidth = 2;
+            for (let d = 0; d < 3; d++) { const yy = gy - s0 * (0.45 + d * 0.18); ctx.beginPath(); ctx.moveTo(wx - s0 * (0.95 + d * 0.1), yy); ctx.lineTo(wx - s0 * (1.35 + d * 0.15), yy); ctx.stroke(); }
+            ctx.globalAlpha = 1;
+          }
+        }
+        cuteWolf(ctx, wx, gy, s0, ph, { run, open, happy: bt > BITE * 0.6 });
+        if (bt >= 0.25 && bt < 0.9) { ctx.font = '900 20px sans-serif'; ctx.fillStyle = '#E53950'; ctx.fillText(s.biteWord, ax - 6, ay - ar * 1.6 - (bt - 0.25) * 20); ctx.font = '18px sans-serif'; ctx.fillText('💥', ax - ar * 0.9, ay + ar * 0.4); }
         const rank = finished.indexOf(i);
-        if (rank >= 0) {
-          const bx = cx - ws * 0.9, r = Math.min(laneH * 0.22, 13);
-          ctx.beginPath(); ctx.arc(bx, cy, r, 0, 7); ctx.fillStyle = rank === 0 ? '#FFC107' : rank === n - 1 ? C.win : '#555566'; ctx.fill();
-          ctx.font = '900 12px sans-serif'; ctx.fillStyle = rank === 0 ? INK : '#fff'; ctx.fillText(String(rank + 1), bx, cy + 1);
+        if (rank >= 0 && bt >= BITE * 0.6) {
+          ctx.beginPath(); ctx.arc(ax + 2, ay + ar * 1.45, Math.min(lh * 0.2, 12), 0, 7); ctx.fillStyle = rank === 0 ? '#FFC107' : rank === n - 1 ? C.win : '#555566'; ctx.fill();
+          ctx.font = '900 12px sans-serif'; ctx.fillStyle = rank === 0 ? INK : '#fff'; ctx.fillText(String(rank + 1), ax + 2, ay + ar * 1.45 + 1);
         }
       }
     });
@@ -178,32 +185,6 @@ export function race(root, back) {
 }
 
 // ===================== 7. 해적 룰렛 =====================
-function pirateHead(ctx, cx, cy, r, sur) {
-  for (const sx of [-1, 1]) {
-    ctx.beginPath(); ctx.moveTo(cx + sx * r * 0.25, cy - r * 0.7); ctx.lineTo(cx + sx * r * 0.85, cy - r * 1.35); ctx.lineTo(cx + sx * r * 0.95, cy - r * 0.35); ctx.closePath(); ctx.fillStyle = '#6E7A8A'; ctx.fill();
-    ctx.beginPath(); ctx.moveTo(cx + sx * r * 0.45, cy - r * 0.68); ctx.lineTo(cx + sx * r * 0.8, cy - r * 1.1); ctx.lineTo(cx + sx * r * 0.85, cy - r * 0.5); ctx.closePath(); ctx.fillStyle = '#F6AFC0'; ctx.fill();
-  }
-  ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.fillStyle = '#9AA5B4'; ctx.fill();
-  ctx.beginPath(); ctx.moveTo(cx - r * 0.97, cy - r * 0.25); ctx.quadraticCurveTo(cx, cy - r * 1.25, cx + r * 0.97, cy - r * 0.25); ctx.quadraticCurveTo(cx, cy - r * 0.75, cx - r * 0.97, cy - r * 0.25); ctx.fillStyle = '#E53935'; ctx.fill();
-  for (const k of [-0.45, 0, 0.45]) { ctx.beginPath(); ctx.arc(cx + k * r, cy - r * 0.68 + Math.abs(k) * r * 0.25, r * 0.06, 0, 7); ctx.fillStyle = '#fff'; ctx.fill(); }
-  ctx.beginPath(); ctx.arc(cx + r * 0.95, cy - r * 0.3, r * 0.13, 0, 7); ctx.fillStyle = '#E53935'; ctx.fill();
-  ctx.beginPath(); ctx.moveTo(cx + r * 0.95, cy - r * 0.3); ctx.lineTo(cx + r * 1.25, cy - r * 0.05); ctx.strokeStyle = '#E53935'; ctx.lineWidth = r * 0.12; ctx.lineCap = 'round'; ctx.stroke();
-  ctx.beginPath(); ctx.ellipse(cx, cy + r * 0.44, r * 0.48, r * 0.36, 0, 0, 7); ctx.fillStyle = '#F4ECE1'; ctx.fill();
-  const ey = cy - r * 0.08;
-  for (const sx of [-1, 1]) {
-    const ex = cx + sx * r * 0.42;
-    if (sur) {
-      const d = r * 0.13; ctx.beginPath(); ctx.moveTo(ex - d * sx, ey - d); ctx.lineTo(ex + d * sx, ey); ctx.lineTo(ex - d * sx, ey + d); ctx.strokeStyle = INK; ctx.lineWidth = r * 0.07; ctx.stroke();
-    } else {
-      ctx.beginPath(); ctx.arc(ex, ey, r * 0.15, 0, 7); ctx.fillStyle = INK; ctx.fill();
-      ctx.beginPath(); ctx.arc(ex - r * 0.04, ey - r * 0.05, r * 0.06, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
-    }
-    ctx.beginPath(); ctx.ellipse(ex + sx * r * 0.08, ey + r * 0.3, r * 0.2, r * 0.1, 0, 0, 7); ctx.fillStyle = 'rgba(255,143,163,.4)'; ctx.fill();
-  }
-  ctx.beginPath(); ctx.ellipse(cx, cy + r * 0.245, r * 0.13, r * 0.085, 0, 0, 7); ctx.fillStyle = INK; ctx.fill();
-  if (sur) { ctx.beginPath(); ctx.arc(cx, cy + r * 0.54, r * 0.12, 0, 7); ctx.fillStyle = '#8E2440'; ctx.fill(); }
-  else { ctx.beginPath(); ctx.moveTo(cx - r * 0.13, cy + r * 0.45); ctx.quadraticCurveTo(cx, cy + r * 0.55, cx + r * 0.13, cy + r * 0.45); ctx.strokeStyle = INK; ctx.lineWidth = r * 0.05; ctx.stroke(); }
-}
 function barrel(ctx, w, hh, dx) {
   const l = w * 0.14 + dx, rr = w * 0.86 + dx, t = hh * 0.36, b = hh * 0.98, bu = w * 0.05;
   ctx.beginPath(); ctx.moveTo(l, t); ctx.lineTo(rr, t); ctx.quadraticCurveTo(rr + bu * 2, (t + b) / 2, rr, b); ctx.lineTo(l, b); ctx.quadraticCurveTo(l - bu * 2, (t + b) / 2, l, t); ctx.closePath(); ctx.fillStyle = '#9A6332'; ctx.fill();
@@ -247,8 +228,10 @@ export function pirate(root, back) {
     const r = Math.floor(i / 5), c = i % 5, b = 1 + 0.06 * Math.sin(Math.PI * (r + 0.5) / 4);
     return [w * 0.5 + (c - 2) * w * 0.135 * b, oy + H * (0.47 + r * 0.125)];
   };
+  let teaseAt = -9;
   const render = () => {
-    title.textContent = popped ? s.popped : s.pirateHint;
+    const teasing = !popped && performance.now() / 1000 - teaseAt < 1.3;
+    title.textContent = popped ? s.popped : teasing ? s.pirateTease : s.pirateHint;
     title.classList.toggle('win', popped);
     sub.textContent = popped ? s.poppedAt(swords.length) : s.slotsLeft(SLOTS - swords.length);
     action.replaceChildren(popped ? btn(s.playAgain, newRound) : btn(s.shuffle, newRound, 'btn alt'));
@@ -258,22 +241,55 @@ export function pirate(root, back) {
     if (popped || swords.includes(i)) return;
     swords.push(i);
     if (i === trap) { popped = true; vibe.strong(); animate(900, (p) => { launch = p; }); }
-    else { vibe.tap(); animate(350, (p) => { shake = 1 - p; }, 'linear'); }
+    else { vibe.tap(); teaseAt = performance.now() / 1000; animate(350, (p) => { shake = 1 - p; }, 'linear'); setTimeout(render, 1350); }
     render();
   };
 
   cv = liveCanvas(holder, (ctx, w, hh) => {
     const sx = Math.sin(shake * 40) * shake * 6;
-    const { H, oy } = area(w, hh);
-    const hr = w * 0.17, hx = w * 0.5, hy = oy + H * 0.27 - launch * (oy + H * 0.27 - hr * 1.45);
-    ctx.save(); ctx.translate(hx, hy); ctx.rotate(R(launch * 720)); ctx.translate(-hx, -hy);
-    pirateHead(ctx, hx, hy, hr, popped); ctx.restore();
+    const { H, oy } = area(w, hh), now = performance.now() / 1000;
+    const l = w * 0.14 + sx, rr = w * 0.86 + sx, rimY = oy + H * 0.36, rx = (rr - l - w * 0.08) / 2, ry = H * 0.03, cxr = (l + rr) / 2;
+    // 1) 통
     ctx.save(); ctx.translate(0, oy); barrel(ctx, w, H, sx); ctx.restore();
+    // 2) 늑대: 통 입구 앞쪽 테두리보다 위만 보이게 (통 안에 들어가 있음)
+    const hr = w * 0.17, hx = w * 0.5, tt = now - teaseAt;
+    const mode = popped ? 'sur' : tt < 1.3 ? 'tease' : 'idle';
+    let hy;
+    if (mode === 'sur') hy = rimY - hr * 0.3 - launch * (rimY - hr * 0.3 - hr * 1.45);
+    else if (mode === 'tease') { const u = Math.min(1, tt / 0.25), bk = tt > 1.05 ? Math.min(1, (tt - 1.05) / 0.2) : 0; const up = (u < 1 ? 1 - Math.pow(1 - u, 3) * Math.cos(u * 8) : 1) * (1 - bk); hy = rimY - hr * 0.3 - up * hr * 0.75 + Math.sin(tt * 9) * hr * 0.04 * (1 - bk); }
+    else hy = rimY - hr * 0.3 + Math.sin(now * 2.2) * hr * 0.05;
+    ctx.save();
+    ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(w, 0); ctx.lineTo(w, rimY); ctx.lineTo(cxr + rx, rimY);
+    ctx.ellipse(cxr, rimY, rx, ry, 0, 0, Math.PI, false); ctx.lineTo(0, rimY); ctx.closePath(); ctx.clip();
+    ctx.translate(hx, hy); ctx.rotate(mode === 'sur' ? R(launch * 720) : 0); ctx.translate(-hx, -hy);
+    pirateHead2(ctx, hx, hy, hr, mode, tt);
+    ctx.restore();
+    // 3) 통 입구 앞쪽 테두리 + 통을 붙잡은 앞발
+    ctx.beginPath(); ctx.ellipse(cxr, rimY, (rr - l + 8) / 2, H * 0.045, 0, 0, Math.PI, false); ctx.ellipse(cxr, rimY, rx, ry, 0, Math.PI, 0, true); ctx.closePath(); ctx.fillStyle = '#6E4220'; ctx.fill();
+    if (mode !== 'sur' || launch < 0.15) {
+      const lift = mode === 'tease' ? Math.min(1, tt / 0.2) * (tt > 1.05 ? Math.max(0, 1 - (tt - 1.05) / 0.2) : 1) : 0;
+      for (const k of [-1, 1]) {
+        const px = hx + k * hr * 0.75, py = rimY + H * 0.012 - lift * hr * 0.1;
+        ctx.beginPath(); ctx.ellipse(px, py, hr * 0.28, hr * 0.17, 0, 0, 7); ctx.fillStyle = '#9AA5B4'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(0,0,0,.3)'; ctx.stroke();
+        for (const q of [-1, 0, 1]) { ctx.beginPath(); ctx.moveTo(px + q * hr * 0.09, py - hr * 0.02); ctx.lineTo(px + q * hr * 0.09, py + hr * 0.12); ctx.stroke(); }
+      }
+    }
+    // 4) 칼 구멍과 칼
     for (let i = 0; i < SLOTS; i++) {
       const [x, y] = slot(i, w, hh);
       ctx.beginPath(); ctx.ellipse(x + sx, y, w * 0.04, w * 0.025, 0, 0, 7); ctx.fillStyle = '#2A170A'; ctx.fill();
       const idx = swords.indexOf(i);
       if (idx >= 0) sword(ctx, x + sx, y, w * 0.11, C.players[idx % C.players.length], popped && i === trap);
+    }
+    // 5) 메롱~ 말풍선
+    if (mode === 'tease' && tt > 0.15 && tt < 1.15) {
+      const b = Math.min(1, (tt - 0.15) / 0.2), bob = Math.sin(tt * 8) * 3;
+      ctx.save(); ctx.translate(hx + hr * 1.35, hy - hr * 1.15 + bob); ctx.scale(b, b); ctx.rotate(-0.1);
+      ctx.font = `900 ${Math.round(hr * 0.42)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const tw = ctx.measureText(s.fingerMerong).width + hr * 0.4, th = hr * 0.62;
+      ctx.beginPath(); ctx.roundRect(-tw / 2, -th / 2, tw, th, th / 2); ctx.fillStyle = '#fff'; ctx.fill();
+      ctx.beginPath(); ctx.moveTo(-tw * 0.3, th / 2 - 2); ctx.lineTo(-tw * 0.45, th / 2 + hr * 0.2); ctx.lineTo(-tw * 0.1, th / 2 - 2); ctx.fill();
+      ctx.fillStyle = '#E53950'; ctx.fillText(s.fingerMerong, 0, 2); ctx.restore();
     }
   });
   cv.canvas.addEventListener('click', (e) => {
@@ -300,8 +316,14 @@ function spinWolf(ctx, r, open, bite) {
   const oval = (x, y, rx, ry, fill, stroke, rot = 0) => { ctx.beginPath(); ctx.ellipse(x * s, y * s, rx * s, ry * s, rot, 0, 7); ctx.fillStyle = fill; ctx.fill(); if (stroke) { ctx.lineWidth = sw; ctx.strokeStyle = OL; ctx.stroke(); } };
   const tri = (pts, fill, stroke) => { ctx.beginPath(); pts.forEach(([u, v], i) => (i ? ctx.lineTo(u * s, v * s) : ctx.moveTo(u * s, v * s))); ctx.closePath(); ctx.fillStyle = fill; ctx.fill(); if (stroke) { ctx.lineWidth = sw; ctx.strokeStyle = OL; ctx.stroke(); } };
 
-  // 꼬리 (뒤로 쭉, 끝은 흰색)
-  oval(-0.68, -0.04, 0.22, 0.09, FUR, true, -0.15); oval(-0.85, -0.01, 0.07, 0.055, BEL, false, -0.15);
+  // 꼬리 (등 쪽으로 동그랗게 말린 복슬 꼬리, 끝은 흰색) — 가리키는 코끝이랑 헷갈리지 않게
+  const tail = new Path2D();
+  tail.moveTo(-0.5 * s, 0.0 * s);
+  tail.bezierCurveTo(-0.86 * s, 0.04 * s, -0.9 * s, -0.34 * s, -0.64 * s, -0.33 * s);
+  tail.quadraticCurveTo(-0.5 * s, -0.31 * s, -0.55 * s, -0.19 * s);
+  ctx.lineWidth = s * 0.15 + sw * 2; ctx.strokeStyle = OL; ctx.stroke(tail);
+  ctx.lineWidth = s * 0.15; ctx.strokeStyle = FUR; ctx.stroke(tail);
+  ctx.beginPath(); ctx.arc(-0.55 * s, -0.19 * s, s * 0.075, 0, 7); ctx.fillStyle = BEL; ctx.fill();
   // 뒷다리·앞다리 (엎드려 앞으로 뻗은 자세)
   for (const [u, v, len, dark] of [[-0.34, 0.12, 0.2, 1], [0.12, 0.12, 0.24, 1], [-0.26, 0.15, 0.2, 0], [0.2, 0.15, 0.26, 0]]) {
     ctx.globalAlpha = dark ? 0.75 : 1;

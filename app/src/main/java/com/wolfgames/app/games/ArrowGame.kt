@@ -179,8 +179,15 @@ private fun DrawScope.drawSpinWolf(r: Float, open: Float, bite: Boolean) {
 
         c.save()
         c.rotate(-90f) // u(→)=앞(코), v(↓)=배 쪽
-        // 꼬리
-        oval(-0.68f, -0.04f, 0.22f, 0.09f, fur, true, -0.15f); oval(-0.85f, -0.01f, 0.07f, 0.055f, bel, false, -0.15f)
+        // 꼬리: 등 쪽으로 동그랗게 말린 복슬 꼬리 (가리키는 코끝이랑 헷갈리지 않게)
+        val tail = android.graphics.Path().apply {
+            moveTo(-0.5f * s, 0f)
+            cubicTo(-0.86f * s, 0.04f * s, -0.9f * s, -0.34f * s, -0.64f * s, -0.33f * s)
+            quadTo(-0.5f * s, -0.31f * s, -0.55f * s, -0.19f * s)
+        }
+        line.color = ol; line.strokeWidth = s * 0.15f + sw * 2; c.drawPath(tail, line)
+        line.color = fur; line.strokeWidth = s * 0.15f; c.drawPath(tail, line)
+        fill.color = bel; c.drawCircle(-0.55f * s, -0.19f * s, s * 0.075f, fill)
         // 다리 (엎드려 앞으로 뻗은 자세)
         for (lg in listOf(floatArrayOf(-0.34f, 0.12f, 0.2f, 1f), floatArrayOf(0.12f, 0.12f, 0.24f, 1f), floatArrayOf(-0.26f, 0.15f, 0.2f, 0f), floatArrayOf(0.2f, 0.15f, 0.26f, 0f))) {
             val (u, v, len, dk) = lg.toList()

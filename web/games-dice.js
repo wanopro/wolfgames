@@ -1,5 +1,7 @@
-// 주사위 게임 4종: 주사위 굴리기 / 숫자 뒤집기 잭팟 / 5개 주사위 / 789
+// 주사위 게임 5종: 주사위 굴리기 / 숫자 뒤집기 잭팟 / 5개 주사위 / 789 / 주사위 대결
 import { C, S, h, btn, top, stepper, toggle, setupPanel, resultOverlay, liveCanvas, vibe, drawDie, dieSvg, sleep, rnd, animate } from './core.js';
+import { splitStage, hub, choice } from './games-quick.js';
+import { region, lines, text, badge } from './split.js';
 
 // ===================== 1-1 주사위 굴리기 =====================
 export function rollDice(root, back) {
@@ -24,9 +26,33 @@ export function rollDice(root, back) {
   const cv = liveCanvas(body, (ctx) => {
     const now = performance.now();
     hint.style.display = active.size || placed.length ? 'none' : 'flex';
+    // 2개 이상 나오면 제일 높은 수·제일 낮은 수 강조 (전부 같으면 강조 안 함)
+    const vals = placed.map((d) => d.value), hi = Math.max(...vals), lo = Math.min(...vals), mark = placed.length >= 2 && hi !== lo;
+    const tt = now / 1000, pulse = 1 + Math.sin(tt * 5) * 0.04;
     for (const d of placed) {
+      const isHi = mark && d.value === hi, isLo = mark && d.value === lo;
+      ctx.save();
+      if (isHi) {
+        const g = ctx.createRadialGradient(d.x, d.y, 20, d.x, d.y, 82); g.addColorStop(0, 'rgba(255,200,40,.75)'); g.addColorStop(1, 'rgba(255,200,40,0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(d.x, d.y, 82, 0, 7); ctx.fill();
+        for (let k = 0; k < 8; k++) { const a = tt * 1.2 + k * Math.PI / 4, r2 = 70 + Math.sin(tt * 6 + k) * 6; ctx.strokeStyle = 'rgba(255,215,64,.9)'; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(d.x + Math.cos(a) * 58, d.y + Math.sin(a) * 58); ctx.lineTo(d.x + Math.cos(a) * r2, d.y + Math.sin(a) * r2); ctx.stroke(); }
+      } else if (isLo) {
+        const g = ctx.createRadialGradient(d.x, d.y, 20, d.x, d.y, 80); g.addColorStop(0, 'rgba(255,61,90,.7)'); g.addColorStop(1, 'rgba(255,61,90,0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(d.x, d.y, 80, 0, 7); ctx.fill();
+      }
+      ctx.globalAlpha = mark && !isHi && !isLo ? 0.4 : 1;
       ctx.beginPath(); ctx.arc(d.x, d.y, 47.5, 0, 7); ctx.fillStyle = d.color + '38'; ctx.fill();
-      drawDie(ctx, d.x, d.y, 64, d.value, d.color);
+      ctx.translate(d.x, d.y); const sc = isHi || isLo ? 1.25 * pulse : mark ? 0.9 : 1; ctx.scale(sc, sc);
+      if (isLo) ctx.rotate(Math.sin(tt * 9) * 0.08);
+      drawDie(ctx, 0, 0, 64, d.value, isHi ? '#FFC107' : isLo ? '#FF3D5A' : d.color);
+      ctx.restore();
+      if (isHi || isLo) {
+        const lab = isHi ? s.hiTag : s.loTag, col = isHi ? '#FFC107' : '#FF3D5A';
+        ctx.font = '900 16px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        const w = ctx.measureText(lab).width + 22;
+        ctx.fillStyle = col; ctx.beginPath(); ctx.roundRect(d.x - w / 2, d.y + 50, w, 28, 14); ctx.fill();
+        ctx.fillStyle = isHi ? '#000' : '#fff'; ctx.fillText(lab, d.x, d.y + 65);
+      }
     }
     for (const a of active.values()) {
       const p = Math.min(1, (now - a.start) / HOLD);
@@ -330,4 +356,58 @@ export function d789(root, back) {
 
   setup();
   return () => { alive = false; };
+}
+
+// ===================== 1-5 주사위 대결 =====================
+/** 합 또는 곱 */
+export const duelValue = (faces, mul) => faces.reduce((a, b) => (mul ? a * b : a + b), mul ? 1 : 0);
+export function diceDuel(root, back) {
+  const s = S();
+  let n = 2, dice = 2, mul = false, cv = null;
+  const setup = () => {
+    if (cv) { cv.stop(); cv = null; }
+    root.replaceChildren(top(s.duelTitle, back), h('div', { class: 'body' }, setupPanel(s.duelDesc, play,
+      stepper(s.players, n, 2, 4, (v) => { n = v; }), stepper(s.duelDice, dice, 2, 4, (v) => { dice = v; }),
+      choice(s.duelMode, [[false, `➕ ${s.duelSum}`], [true, `✖️ ${s.duelMul}`]], mul, (v) => { mul = v; }))));
+  };
+  const play = () => {
+    const g = {};
+    const round = () => { g.faces = Array.from({ length: n }, () => Array(dice).fill(0)); g.rollAt = Array(n).fill(null); g.done = false; };
+    round();
+    const ROLL = 0.7;
+    const game = {
+      n,
+      tap: (i, t) => { if (g.done || g.rollAt[i] !== null) return; g.rollAt[i] = t; g.faces[i] = Array.from({ length: dice }, () => rnd(1, 6)); vibe.tap(); },
+      hub: () => { if (g.done) { round(); vibe.tap(); } },
+      draw(ctx, W, H, t, secs) {
+        const settled = g.rollAt.map((r) => r !== null && t - r >= ROLL);
+        if (!g.done && settled.every(Boolean)) { g.done = true; vibe.strong(); }
+        const vals = g.faces.map((f) => duelValue(f, mul)), hi = Math.max(...vals), lo = Math.min(...vals), mark = g.done && hi !== lo;
+        secs.forEach((sec, i) => {
+          const isHi = mark && vals[i] === hi, isLo = mark && vals[i] === lo, rolling = g.rollAt[i] !== null && !settled[i];
+          const fill = isHi ? '#3D3416' : isLo ? '#4A1820' : g.rollAt[i] === null ? '#24304A' : '#1E1E2A';
+          region(ctx, sec, fill, (c, sc) => {
+            text(c, `P${i + 1}`, 0, -82 * sc, 20 * sc, C.players[i]);
+            const ds = 46 * sc, gap = 8 * sc, total = dice * ds + (dice - 1) * gap;
+            for (let k = 0; k < dice; k++) {
+              const v = rolling ? rnd(1, 6) : g.faces[i][k];
+              const jx = rolling ? Math.sin(t * 50 + k) * 3 : 0, jy = rolling ? Math.cos(t * 43 + k * 2) * 3 : 0;
+              c.save(); c.translate(-total / 2 + ds / 2 + k * (ds + gap) + jx, -22 * sc + jy); if (rolling) c.rotate(Math.sin(t * 30 + k) * 0.4);
+              drawDie(c, 0, 0, ds, g.rollAt[i] === null ? 0 : v, isHi ? '#FFC107' : isLo ? '#FF3D5A' : null); c.restore();
+            }
+            if (g.rollAt[i] === null) text(c, s.tapToRoll, 0, 30 * sc, 20 * sc, C.players[i], 900);
+            else if (!rolling) text(c, mul ? s.duelMulN(vals[i]) : s.duelSumN(vals[i]), 0, 34 * sc, 30 * sc, '#fff', 900);
+            if (isHi) badge(c, s.hiTag, 0, 72 * sc, sc, '#FFC107', '#000');
+            if (isLo) badge(c, s.loTag, 0, 72 * sc, sc, '#FF3D5A', '#fff');
+          }, isHi ? '#FFC107' : isLo ? '#FF3D5A' : null);
+        });
+        lines(ctx, secs, W, H);
+        hub(ctx, W, H, 34, '#121826', () => text(ctx, g.done ? '🔄' : mul ? '✖️' : '➕', W / 2, H / 2 + 2, 24, '#FFD740', 900));
+        if (g.done) text(ctx, s.tapHubAgain, W / 2, H / 2 + 62, 13, '#fff', 700);
+      },
+    };
+    cv = splitStage(root, s.duelTitle, setup, game);
+  };
+  setup();
+  return () => { if (cv) cv.stop(); };
 }
