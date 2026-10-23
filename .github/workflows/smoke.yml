@@ -3,6 +3,9 @@ name: 실행 점검 (에뮬레이터)
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   smoke:
     runs-on: ubuntu-latest
@@ -32,7 +35,15 @@ jobs:
             adb logcat -d | grep -E "AndroidRuntime|FATAL|wolfgames" | tail -200 > log.txt || true
             adb shell pidof com.wolfgames.app || echo "NOT RUNNING"
             adb exec-out screencap -p > shot.png
+            (adb shell pidof com.wolfgames.app || echo "NOT RUNNING") > status.txt
             cat crash.txt
+      - name: 결과를 smoke-results 브랜치에 저장
+        if: always()
+        run: |
+          mkdir -p /tmp/r && cp crash.txt log.txt status.txt shot.png /tmp/r/ 2>/dev/null || true
+          cd /tmp/r && git init -q && git checkout -q -b smoke-results && git add -A
+          git -c user.name=bot -c user.email=bot@x commit -qm "smoke ${{ github.run_number }}"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" smoke-results
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: smoke, path: "crash.txt\nlog.txt\nshot.png" }
