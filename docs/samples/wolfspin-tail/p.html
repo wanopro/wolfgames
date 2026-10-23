@@ -1,0 +1,9 @@
+<!doctype html><meta charset=utf-8><body style="margin:0;background:#12121A;font:700 18px sans-serif;color:#F2F2F7">
+<canvas id=c width=1320 height=720></canvas>
+<script type=module>
+import {oldWolf,newWolf} from './both.js';
+const x=document.getElementById('c').getContext('2d');
+const cell=(fn,cx,cy,ang,open,bite)=>{x.beginPath();x.arc(cx,cy,150,0,7);x.fillStyle='#1E1E2A';x.fill();x.lineWidth=6;x.strokeStyle='#2C2C3E';x.stroke();x.save();x.translate(cx,cy);x.rotate(ang*Math.PI/180);fn(x,142,open,bite);x.restore();};
+x.textAlign='center';x.fillStyle='#9A9AB0';x.fillText('지금',60,190);x.fillStyle='#FFB300';x.fillText('바꿀 그림',60,540);
+[[0,0,false],[40,1,false],[200,0,true],[290,0,false]].forEach(([a,o,b],i)=>{cell(oldWolf,280+i*330,180,a,o,b);cell(newWolf,280+i*330,535,a,o,b);});
+</script>
