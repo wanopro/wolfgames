@@ -83,6 +83,12 @@ function homeScreen(root) {
     card('⚔️', s.menuBattle, s.menuBattleSub, () => go('battle')),
     h('div', { class: 'footer' }, 'Powered by ', btn('WOLF', ask, ''), '(feat. segna)'),
     h('div', { class: 'footer', style: 'padding-top:0;font-size:12px' }, h('a', { href: `manual.html?lang=${lang.current}`, style: 'color:var(--sub)' }, `📖 ${s.installGuide}`), h('span', { style: 'opacity:.6' }, '  ·  '), btn(`📜 v${VERSION} ${s.logTitle}`, () => go('log'), 'linkbtn')));
+  // 누적 방문 수 (GoatCounter에서 '방문자 수 표시 허용'을 켜야 나옴, 못 가져오면 안 보임)
+  const visits = h('div', { class: 'footer', style: 'padding-top:0;font-size:12px;opacity:.55;display:none' });
+  scroll.append(visits);
+  fetch('https://wolfgames.goatcounter.com/counter/TOTAL.json').then((r) => (r.ok ? r.json() : null)).then((j) => {
+    if (j && j.count) { visits.textContent = `👀 ${j.count}`; visits.style.display = ''; }
+  }).catch(() => {});
   root.append(scroll);
   whatsNew(root);
 }
