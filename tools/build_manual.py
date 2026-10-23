@@ -218,22 +218,48 @@ def game_shots(b, lang):
     for i, x, y in pts:
         pg.dispatch_event('canvas', 'pointerup', {'pointerId': i, 'clientX': x, 'clientY': y, 'bubbles': True})
     pg.wait_for_timeout(1700); shot('how-finger')
+    def area_tap(fx, fy, pid=50):
+        bb = pg.query_selector('canvas').bounding_box()
+        pg.dispatch_event('canvas', 'pointerdown', {'pointerId': pid, 'clientX': bb['x'] + bb['width'] * fx, 'clientY': bb['y'] + bb['height'] * fy, 'bubbles': True})
+    # 주사위 대결 (3명): 모두 굴린 뒤
+    home(); card(0); card(4); pg.locator('.stepper').first.locator('button').last.click(); start(); pg.wait_for_timeout(300)
+    for k, (fx, fy) in enumerate([(0.5, 0.85), (0.2, 0.2), (0.8, 0.2)]):
+        area_tap(fx, fy, 60 + k); pg.wait_for_timeout(120)
+    pg.wait_for_timeout(1100); shot('how-duel')
+    # 반응속도 대결 (3명): 초록 → 모두 터치
+    home(); card(3); card(0); pg.locator('.stepper').first.locator('button').last.click(); start()
+    # 화면이 초록색으로 바뀔 때까지 기다림 (P1 영역 색 확인)
+    for _ in range(80):
+        g = pg.evaluate("(() => { const c = document.querySelector('canvas'); const d = c.getContext('2d').getImageData(c.width / 2, c.height * 0.95, 1, 1).data; return d[1] > 150 && d[0] < 120; })()")
+        if g: break
+        pg.wait_for_timeout(50)
+    pg.wait_for_timeout(180)
+    for k, (fx, fy) in enumerate([(0.5, 0.85), (0.8, 0.2), (0.2, 0.2)]):
+        area_tap(fx, fy, 70 + k); pg.wait_for_timeout(90 + k * 60)
+    pg.wait_for_timeout(400); shot('how-react')
+    # 색 반응 대결 (2명): 색이 바뀌는 중
+    home(); card(3); card(1); start(); pg.wait_for_timeout(1800); shot('how-color')
+    # 스탑워치 (2명, 7초): 결과
+    home(); card(3); card(2); start(); pg.wait_for_timeout(3000 + 6880)
+    area_tap(0.5, 0.85, 80); pg.wait_for_timeout(430); area_tap(0.5, 0.15, 81); pg.wait_for_timeout(500); shot('how-stop')
+    # 폭탄돌리기 (4명): 심지 타는 중
+    home(); card(5); card(2); start(); pg.wait_for_timeout(1500); shot('how-bomb')
     # 늑대이빨 (당첨 2)
-    home(); card(3); card(0); pg.click('.stepper button:last-of-type'); start()
+    home(); card(4); card(0); pg.click('.stepper button:last-of-type'); start()
     for k in rnd.sample(range(20), 20):
         pg.click(f'path.tooth[data-i="{k}"]')
         if pg.query_selector('.wolf.bit'): break
     pg.wait_for_timeout(400); shot('how-teeth')
     # 사다리 (5명)
-    home(); card(4); card(0); pg.locator('.stepper').first.locator('button').last.click(); start()
+    home(); card(5); card(0); pg.locator('.stepper').first.locator('button').last.click(); start()
     pg.locator('.lnums button').nth(0).click(); pg.wait_for_timeout(5300)
     pg.locator('.lnums button').nth(3).click(); pg.wait_for_timeout(2600); shot('how-ladder')
     # 돌림판
-    home(); card(4); card(1); start(); pg.locator('.row .btn').first.click(); pg.wait_for_timeout(5400); shot('how-roulette')
+    home(); card(5); card(1); start(); pg.locator('.row .btn').first.click(); pg.wait_for_timeout(5400); shot('how-roulette')
     # 늑대달리기 (5명)
-    home(); card(3); card(1); pg.locator('.stepper').first.locator('button').last.click(); start(); pg.locator('.btn').first.click(); pg.wait_for_timeout(2000 + 5000); shot('how-race')
+    home(); card(4); card(1); pg.locator('.stepper').first.locator('button').last.click(); start(); pg.locator('.btn').first.click(); pg.wait_for_timeout(2000 + 7800); shot('how-race')
     # 늑대 룰렛
-    home(); card(3); card(2)
+    home(); card(4); card(2)
     bb = pg.query_selector('canvas').bounding_box(); w, h = bb['width'], bb['height']; H = w / 0.9; oy = h - H
     for i in rnd.sample(range(20), 20):
         r, c = i // 5, i % 5; bl = 1 + 0.06 * math.sin(math.pi * (r + .5) / 4)
@@ -241,9 +267,9 @@ def game_shots(b, lang):
         if pg.query_selector('.h-title.win'): break
     pg.wait_for_timeout(1000); shot('how-pirate')
     # 늑대 돌리기 (도는 중)
-    home(); card(3); card(3); pg.locator('.btn').last.click(); pg.wait_for_timeout(1500); shot('how-arrow')
+    home(); card(4); card(3); pg.locator('.btn').last.click(); pg.wait_for_timeout(1500); shot('how-arrow')
     # 4목
-    home(); card(5); card(0)
+    home(); card(6); card(0)
     bb = pg.query_selector('canvas').bounding_box(); w, h = bb['width'], bb['height']; cell = min(w / 7, h / 7.15); left = (w - cell * 7) / 2
     for c in [3, 3, 4, 2, 2, 4, 5]:
         pg.mouse.click(bb['x'] + left + (c + .5) * cell, bb['y'] + h * .5); pg.wait_for_timeout(750)

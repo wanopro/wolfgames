@@ -3,6 +3,72 @@
 # 각 항목: (이모지, 6개 언어 문장)
 
 CHANGELOG = [
+    dict(ver='1.4', date='2026-10-23', items=[
+        ('⚡', dict(
+            ko='⚡ 순발력게임 카테고리 추가: 반응속도 대결 · 색 반응 대결 · 스탑워치 (화면이 원형으로 같은 크기로 나뉘어 각자 터치)',
+            en='New ⚡ Quick Games: Reaction Duel · Color Reaction · Stopwatch (the screen splits evenly in a circle and everyone taps their own area)',
+            ja='⚡ 反射神経ゲーム追加：反応速度対決・色反応対決・ストップウォッチ（画面が円形に同じ大きさで分かれ、各自タッチ）',
+            zh='新增⚡ 反应游戏：反应速度对决 · 颜色反应对决 · 秒表（屏幕按圆形平均分开，各自点击）',
+            th='เพิ่ม ⚡ เกมไหวพริบ: ดวลความไว · ดวลสี · นาฬิกาจับเวลา (หน้าจอแบ่งเป็นวงเท่า ๆ กัน แต่ละคนแตะของตัวเอง)',
+            vi='Thêm ⚡ Trò phản xạ: Đấu phản xạ · Đấu màu · Bấm giờ (màn hình chia đều hình tròn, mỗi người chạm phần mình)',
+        )),
+        ('💣', dict(
+            ko='💣 폭탄돌리기 추가 (운빨게임): 심지 타는 폭탄을 시계·반시계·랜덤 방향으로 넘기다가 터지면 늑대가 콱!',
+            en='New 💣 Hot Bomb (Luck Games): pass the bomb with a burning fuse clockwise, counter-clockwise or randomly — when it blows, the wolf bites!',
+            ja='💣 爆弾回し追加（運ゲー）：導火線が燃える爆弾を時計回り・反時計回り・ランダムに回し、爆発したらオオカミがガブッ！',
+            zh='新增💣 传炸弹（拼手气）：把引线燃烧的炸弹按顺时针、逆时针或随机传下去，爆炸时小狼咬一口！',
+            th='เพิ่ม 💣 ส่งระเบิด (เกมดวง): ส่งระเบิดที่ชนวนไหม้ตามเข็ม ทวนเข็ม หรือสุ่ม ระเบิดเมื่อไหร่หมาป่างับ!',
+            vi='Thêm 💣 Chuyền bom (May rủi): chuyền bom đang cháy ngòi theo chiều kim, ngược chiều hoặc ngẫu nhiên — nổ thì sói ngoạm!',
+        )),
+        ('⚔️', dict(
+            ko='⚔️ 주사위 대결 추가 (주사위): 주사위 2~4개를 더하거나 곱해서 최고·최저 가리기',
+            en='New ⚔️ Dice Duel (Dice): add or multiply 2–4 dice to find the highest and lowest',
+            ja='⚔️ サイコロ対決追加（サイコロ）：2〜4個のサイコロを足すか掛けて最高・最低を決める',
+            zh='新增⚔️ 骰子对决（骰子）：2~4颗骰子相加或相乘比最高最低',
+            th='เพิ่ม ⚔️ ดวลลูกเต๋า (ลูกเต๋า): บวกหรือคูณเต๋า 2–4 ลูกหาสูงสุด·ต่ำสุด',
+            vi='Thêm ⚔️ Đấu xúc xắc (Xúc xắc): cộng hoặc nhân 2–4 xúc xắc để so cao thấp',
+        )),
+        ('🎲', dict(
+            ko='주사위 굴리기: 제일 높은 수(👑 최고)와 제일 낮은 수(💀 최저)가 눈에 확 띄게',
+            en='Roll Dice: the highest (👑) and lowest (💀) numbers now stand out',
+            ja='サイコロ振り：一番大きい数（👑 最高）と小さい数（💀 最低）が目立つように',
+            zh='摇骰子：最大（👑 最高）和最小（💀 最低）的点数更醒目',
+            th='ทอยลูกเต๋า: เลขสูงสุด (👑) และต่ำสุด (💀) เด่นชัดขึ้น',
+            vi='Lắc xúc xắc: số cao nhất (👑) và thấp nhất (💀) nổi bật hơn',
+        )),
+        ('🏁', dict(
+            ko='늑대달리기 개편: 귀여운 회색 늑대, 각자 동물(12종) 고르기, 동물은 결승선에서 대기, 늑대가 먼저 무는 동물이 1등',
+            en='Wolf Race revamp: cute gray wolves, each player picks an animal (12 kinds) waiting at the finish — the animal bitten first is 1st',
+            ja='ウルフレース刷新：かわいい灰色オオカミ、各自動物（12種）を選び、ゴールで待つ動物を先にかまれたら1位',
+            zh='群狼赛跑改版：可爱的灰色小狼，每人选一只动物（12种）在终点等待，先被咬到的第1名',
+            th='ปรับวิ่งแข่งหมาป่า: หมาป่าสีเทาน่ารัก แต่ละคนเลือกสัตว์ (12 ชนิด) รอที่เส้นชัย สัตว์ที่โดนงับก่อนได้ที่ 1',
+            vi='Đổi mới Sói chạy đua: sói xám dễ thương, mỗi người chọn con vật (12 loại) chờ ở đích — con bị ngoạm trước là hạng 1',
+        )),
+        ('🗡️', dict(
+            ko='늑대 룰렛: 늑대가 통 안에 숨어 있다가 칼이 통과할 때마다 올라와 메롱~',
+            en='Wolf Roulette: the wolf hides in the barrel and pops up to tease you every time a sword is safe',
+            ja='オオカミルーレット：オオカミが樽の中に隠れ、セーフのたびに出てきてあっかんべー',
+            zh='狼轮盘：小狼躲在桶里，每次安全都会探出头吐舌头',
+            th='รูเล็ตหมาป่า: หมาป่าซ่อนในถัง รอดทีไรโผล่มาแลบลิ้นแซว',
+            vi='Sói may rủi: sói trốn trong thùng, mỗi lần an toàn lại ló lên lè lưỡi trêu',
+        )),
+        ('🪜', dict(
+            ko='사다리게임: 공 대신 앙앙 깨물며 내려가는 귀여운 늑대 얼굴 · 늑대 돌리기: 꼬리를 동그랗게 말아서 코끝이랑 안 헷갈리게',
+            en='Ladder Game: a cute chomping wolf face rides down instead of a ball · Wolf Spin: curled tail so it is not confused with the nose',
+            ja='あみだくじ：ボールの代わりにパクパクするオオカミの顔・オオカミ回し：しっぽを丸めて鼻先と間違えないように',
+            zh='爬梯子：小球换成嗷呜嗷呜的小狼脸 · 转狼：尾巴卷起来，不会和鼻尖搞混',
+            th='เกมบันได: เปลี่ยนลูกบอลเป็นหน้าหมาป่างับ ๆ · หมุนหมาป่า: ม้วนหางไม่ให้สับสนกับปลายจมูก',
+            vi='Leo thang: mặt sói ngoạm ngoạm thay cho quả bóng · Quay sói: đuôi cuộn lại để không nhầm với mũi',
+        )),
+        ('👀', dict(
+            ko='웹 버전: 메인 화면 맨 아래에 누적 방문 수 표시',
+            en='Web version: total visit count at the bottom of the main screen',
+            ja='ウェブ版：メイン画面の一番下に累計訪問数を表示',
+            zh='网页版：主界面最下方显示累计访问数',
+            th='เวอร์ชันเว็บ: แสดงจำนวนผู้เข้าชมสะสมด้านล่างหน้าหลัก',
+            vi='Bản web: hiện tổng lượt truy cập ở cuối màn hình chính',
+        )),
+    ]),
     dict(ver='1.3', date='2026-10-22', items=[
         ('☝️', dict(
             ko='손가락선택 추가 (👆 손가락게임): 걸릴 인원을 정하고 다 같이 손가락을 올렸다 떼면, 0.5초 뒤 걸린 자리에 늑대가 나타나 메롱~',

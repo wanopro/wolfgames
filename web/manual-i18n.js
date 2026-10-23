@@ -5,7 +5,7 @@ export const MANUAL = {
   "lead": "술자리 게임 모음 · 설치 안내",
   "navAndroid": "🤖 안드로이드 설치",
   "navIphone": "🍎 아이폰 홈 화면 추가",
-  "navNew": "🆕 v1.3 구성",
+  "navNew": "🆕 v1.4 구성",
   "navUpdate": "🔄 업데이트",
   "navFaq": "❓ 자주 묻는 질문",
   "qAndroid": "🤖 안드로이드 앱",
@@ -100,11 +100,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 메인 화면",
-  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.3</b>)을 확인할 수 있어요.",
-  "hNew": "🆕 v1.3 구성",
-  "newIntro": "울프 게임즈 v1.3에는 아래 게임과 기능이 들어 있어요.",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.4</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v1.4 구성",
+  "newIntro": "울프 게임즈 v1.4에는 아래 게임과 기능이 들어 있어요.",
   "newFeat": [
    "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "⚡ 순발력게임 (반응속도 대결 · 색 반응 대결 · 스탑워치) · 💣 폭탄돌리기 · ⚔️ 주사위 대결",
    "👆 손가락게임 (손가락선택) · 🐺 늑대게임 · 🍀 운빨게임 · ⚔️ 대결게임 카테고리",
    "🃏 카드 게임 (Up/Down · 호치민) · 🍶 789",
    "🧮 계산기 · 🍻 N빵(술값 나누기) · 💱 환전 (메인 화면 로고 옆)",
@@ -114,8 +115,13 @@ export const MANUAL = {
   ],
   "hChange": "🛠 최근 수정 내용",
   "changes": [
-   "<b>☝️ 손가락선택</b> 추가 (👆 손가락게임): 걸릴 인원을 정하고 다 같이 손가락을 올렸다 떼면, 걸린 자리에 늑대가 나타나 메롱~",
-   "<b>메인 화면 정리</b>: 🐺 늑대게임(늑대이빨·늑대달리기·늑대 룰렛·늑대 돌리기), 🍀 운빨게임(사다리게임·돌림판), ⚔️ 대결게임(4목) 카테고리로 묶었어요."
+   "<b>⚡ 순발력게임</b> 카테고리 추가: <b>반응속도 대결 · 색 반응 대결 · 스탑워치</b> (원형으로 나뉜 같은 크기 화면에서 각자 터치)",
+   "<b>💣 폭탄돌리기</b> 추가 (🍀 운빨게임): 심지 타는 폭탄을 시계·반시계·랜덤 방향으로 넘기다 터지면 늑대가 콱!",
+   "<b>⚔️ 주사위 대결</b> 추가 (🎲 주사위): 주사위 2~4개를 더하거나 곱해서 최고·최저 가리기",
+   "<b>🎲 주사위 굴리기</b>: 제일 높은 수·제일 낮은 수가 눈에 확 띄게",
+   "<b>🏁 늑대달리기</b>: 귀여운 회색 늑대, 각자 동물(12종) 고르기, 늑대가 먼저 무는 동물이 1등",
+   "<b>🗡️ 늑대 룰렛</b>: 늑대가 통 안에 숨어 있다가 통과할 때마다 메롱~",
+   "<b>🪜 사다리게임</b>: 앙앙 깨물며 내려가는 늑대 얼굴 · <b>🔄 늑대 돌리기</b>: 꼬리를 동그랗게 말아서 코끝이랑 안 헷갈리게"
   ],
   "hUpdate": "🔄 업데이트",
   "updA": "<b>안드로이드</b>: 같은 QR이나 같은 버튼으로 새 APK를 받아 설치하면 됩니다. <b>기존 앱을 지우지 않고</b> 덮어 설치돼요.",
@@ -146,11 +152,11 @@ export const MANUAL = {
   "back": "← 게임으로",
   "navHow": "🎮 게임 방법",
   "hHow": "🎮 게임 방법",
-  "howIntro": "메인 화면에서 게임을 누르면 바로 시작돼요. 설정이 있는 게임은 인원 등을 정한 뒤 <b>게임 시작</b>을 누르세요. 왼쪽 위 <b>←</b>로 언제든 나갈 수 있어요. 메인 화면은 <b>주사위 · 카드 · 손가락게임 · 늑대게임 · 운빨게임 · 대결게임</b> 카테고리로 나뉘어 있어요.",
+  "howIntro": "메인 화면에서 게임을 누르면 바로 시작돼요. 설정이 있는 게임은 인원 등을 정한 뒤 <b>게임 시작</b>을 누르세요. 왼쪽 위 <b>←</b>로 언제든 나갈 수 있어요. 메인 화면은 <b>주사위 · 카드 · 손가락게임 · 순발력게임 · 늑대게임 · 운빨게임 · 대결게임</b> 카테고리로 나뉘어 있어요.",
   "steps": [
    [
     "여러 명이 동시에 화면에 손가락을 하나씩 올려요.",
-    "원 둘레가 다 차고 진동이 오면(0.5초) 손을 떼세요. 그 자리에 각자 주사위가 나와요.",
+    "원 둘레가 다 차고 진동이 오면(0.5초) 손을 떼세요. 그 자리에 각자 주사위가 나와요. 2개 이상 나오면 <b>👑 최고</b>와 <b>💀 최저</b> 주사위가 반짝여요.",
     "화면을 두 번 톡톡 치거나 위쪽 <b>초기화</b>를 누르면 다시 시작해요."
    ],
    [
@@ -169,6 +175,11 @@ export const MANUAL = {
     "합의 뒷자리가 <b>7 첨잔 · 8 반만 마시기 · 9 한번에 다 마시기</b>, 6은 순서 반대로, 나머지는 통과예요."
    ],
    [
+    "인원(2~4명), 주사위 개수(2~4개), 계산 방법(더하기·곱하기)을 정해요.",
+    "폰을 가운데 두면 화면이 인원수만큼 똑같이 나뉘어요. 자기 영역을 탭하면 주사위가 굴러가요.",
+    "모두 굴리면 <b>👑 최고</b>와 <b>💀 최저</b>가 표시돼요. 가운데 원을 누르면 다시!"
+   ],
+   [
     "인원(2~8명)을 정해요. <b>누적</b> 옵션을 켜면 성공할 때마다 벌주가 1잔씩 쌓여요.",
     "바닥 카드보다 다음 카드가 높으면 <b>UP</b>, 낮으면 <b>DOWN</b>. A나 K가 기준이면 <b>레드/블랙</b>을 맞혀요.",
     "성공하면 다음 사람 차례, 실패하면 벌주(누적이면 쌓인 잔 전부)! <b>같은 숫자가 나오면 원샷</b>이에요."
@@ -184,13 +195,28 @@ export const MANUAL = {
     "모두 손을 떼고 0.5초가 지나면 걸린 사람 자리에만 늑대가 나타나 <b>메롱~</b> 하고 약올려요. 화면을 탭하면 다시 해요."
    ],
    [
+    "인원(2~4명)을 정하고 폰을 가운데 둬요. 화면이 인원수만큼 똑같이 나뉘어요.",
+    "\"기다리세요...\" 화면이 <b>초록색으로 바뀌는 순간</b> 자기 영역을 터치!",
+    "반응 시간이 나오고 <b>👑 1등 · 💀 꼴찌</b>가 표시돼요. 초록 전에 누르면 🚫 부정출발."
+   ],
+   [
+    "인원(2~4명)을 정해요. 가운데 원에 이번 판 <b>지정색</b>이 나와요.",
+    "화면 색이 0.1~0.5초마다 계속 바뀌다가 <b>지정색이 나오면</b> 자기 영역을 터치!",
+    "못 누르거나 다른 색에서 누르면 <b>💀 걸림</b>. 모두 누르면 빠른 순서로 등수가 나와요."
+   ],
+   [
+    "인원(2~4명)과 목표 시간(3~30초)을 정해요. 목표 시간은 가운데 원에 나와요.",
+    "3·2·1 뒤 시작하면 시간은 안 보여요. <b>속으로 세다가</b> 됐다 싶을 때 자기 영역을 터치!",
+    "모두 누르면 결과가 소수점 둘째 자리까지(예: 7.06초 / +0.06초). 가장 가까운 사람 👑 1등."
+   ],
+   [
     "당첨 이빨 개수(1~10개)를 정하고 시작해요.",
     "돌아가며 이빨을 하나씩 눌러요. 당첨이면 늑대가 <b>\"앙!\"</b> 하고 물어요.",
     "<b>계속하기</b>로 남은 당첨을 이어서 찾고, <b>새로 섞기</b>로 새 판을 시작해요."
    ],
    [
     "참가 인원(2~10명)과 당첨 개수를 정해요.",
-    "위쪽 번호를 누르면 공이 5초 동안 사다리를 타고 내려가요. <b>전체 결과</b>는 모두 한꺼번에 내려가요.",
+    "위쪽 번호를 누르면 <b>늑대 얼굴이 앙앙 깨물면서</b> 5초 동안 사다리를 타고 내려가요. <b>전체 결과</b>는 모두 한꺼번에!",
     "아래 칸에 당첨/통과와 번호가 표시돼요."
    ],
    [
@@ -199,13 +225,18 @@ export const MANUAL = {
     "위쪽 화살표가 가리키는 칸이 결과예요. <b>당첨 칸 섞기</b>로 위치를 바꿀 수 있어요."
    ],
    [
-    "인원(2~9명)과 결과 시간(3~30초)을 정하고, 각자 자기 색 늑대를 골라요.",
-    "<b>출발</b>을 누르면 3·2·1 뒤에 달리기 시작! 정한 시간에 1등이 들어와요.",
-    "도착 순서대로 순위가 붙어요. 1등은 금색, 꼴찌는 빨강이에요."
+    "인원(2~8명)과 방향(시계방향 · 반시계방향 · 랜덤)을 정하고 폰을 가운데 둬요.",
+    "심지가 타는 폭탄이 내 자리에 오면 <b>터치해서 넘기기!</b> 정한 방향으로 날아가요.",
+    "언제 터질지 몰라요(10~30초). <b>펑!</b> 터지면 늑대가 튀어나와 콱 물고, 그 사람이 💀 당첨."
    ],
    [
-    "통에 칼 자리가 20개 있고, 그중 하나가 당첨이에요.",
-    "돌아가며 칼 자리를 눌러 칼을 꽂아요.",
+    "인원(2~9명)과 결과 시간(3~30초)을 정하고, <b>각자 동물을 골라요</b> (12종, 누른 순서대로 레인 번호).",
+    "동물들은 결승선에서 덜덜 떨며 기다리고, 늑대가 엎치락뒤치락 달려와요. 가까워지면 늑대가 입을 쩍!",
+    "<b>늑대가 먼저 무는 동물이 1등</b>. \"앙!\" 하고 문 순서대로 순위가 붙어요."
+   ],
+   [
+    "통에 칼 자리가 20개 있고 그중 하나가 당첨이에요. 늑대는 통 안에 숨어 있어요.",
+    "돌아가며 칼 자리를 눌러 칼을 꽂아요. 통과하면 늑대가 쏙 올라와 <b>메롱~</b> 하고 약올려요.",
     "<b>늑대가 튀어나오면 당첨!</b> <b>다시 하기</b>로 새 판을 시작해요."
    ],
    [
@@ -247,6 +278,10 @@ export const MANUAL = {
     "d789Title"
    ],
    [
+    "how-duel",
+    "duelTitle"
+   ],
+   [
     "how-updown",
     "udTitle"
    ],
@@ -259,6 +294,18 @@ export const MANUAL = {
     "fingerTitle"
    ],
    [
+    "how-react",
+    "reactTitle"
+   ],
+   [
+    "how-color",
+    "colorTitle"
+   ],
+   [
+    "how-stop",
+    "stopTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -269,6 +316,10 @@ export const MANUAL = {
    [
     "how-roulette",
     "menuRoulette"
+   ],
+   [
+    "how-bomb",
+    "bombTitle"
    ],
    [
     "how-race",
@@ -300,12 +351,17 @@ export const MANUAL = {
    "🔢",
    "🎲",
    "🍶",
+   "⚔️",
    "↕️",
    "🇻🇳",
    "☝️",
+   "🟢",
+   "🎨",
+   "⏱️",
    "🐺",
    "🪜",
    "🎡",
+   "💣",
    "🏁",
    "🗡️",
    "🔄",
@@ -319,7 +375,7 @@ export const MANUAL = {
   "lead": "Drinking game collection · Install guide",
   "navAndroid": "🤖 Android install",
   "navIphone": "🍎 iPhone home screen",
-  "navNew": "🆕 What's in v1.3",
+  "navNew": "🆕 What's in v1.4",
   "navUpdate": "🔄 Updates",
   "navFaq": "❓ FAQ",
   "qAndroid": "🤖 Android app",
@@ -414,11 +470,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Main screen",
-  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.3</b>) is shown at the bottom.",
-  "hNew": "🆕 What's in v1.3",
-  "newIntro": "Wolf Games v1.3 includes these games and features.",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.4</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v1.4",
+  "newIntro": "Wolf Games v1.4 includes these games and features.",
   "newFeat": [
    "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "⚡ Quick Games (Reaction Duel · Color Reaction · Stopwatch) · 💣 Hot Bomb · ⚔️ Dice Duel",
    "👆 Finger Games (Finger Pick) · 🐺 Wolf Games · 🍀 Luck Games · ⚔️ Versus Games",
    "🃏 Card games (Up/Down · Ho Chi Minh) · 🍶 789",
    "🧮 Calculator · 🍻 Bill split · 💱 Currency exchange (next to the logo)",
@@ -428,8 +485,13 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Latest changes",
   "changes": [
-   "New <b>☝️ Finger Pick</b> (👆 Finger Games): choose how many get picked, everyone puts a finger down and lifts — a wolf pops up on the picked spots and sticks its tongue out.",
-   "<b>Main screen reorganized</b>: 🐺 Wolf Games (Wolf Teeth · Wolf Race · Wolf Roulette · Wolf Spin), 🍀 Luck Games (Ladder Game · Roulette), ⚔️ Versus Games (Connect 4)."
+   "New <b>⚡ Quick Games</b>: <b>Reaction Duel · Color Reaction · Stopwatch</b> (everyone taps on an evenly split, circle-like screen)",
+   "New <b>💣 Hot Bomb</b> (🍀 Luck Games): pass the bomb with a burning fuse clockwise, counter-clockwise or randomly — when it blows, the wolf bites!",
+   "New <b>⚔️ Dice Duel</b> (🎲 Dice): add or multiply 2–4 dice to find the highest and lowest",
+   "<b>🎲 Roll Dice</b>: the highest and lowest numbers now stand out",
+   "<b>🏁 Wolf Race</b>: cute gray wolves, each player picks an animal (12 kinds), the animal bitten first is 1st",
+   "<b>🗡️ Wolf Roulette</b>: the wolf hides in the barrel and teases you every time you are safe",
+   "<b>🪜 Ladder Game</b>: a chomping wolf face rides down · <b>🔄 Wolf Spin</b>: curled tail so it is not confused with the nose"
   ],
   "hUpdate": "🔄 Updates",
   "updA": "<b>Android</b>: download the new APK with the same QR code or button and install it. It installs <b>over the old app</b> — no need to delete it.",
@@ -460,11 +522,11 @@ export const MANUAL = {
   "back": "← Back to games",
   "navHow": "🎮 How to play",
   "hHow": "🎮 How to play",
-  "howIntro": "Tap a game on the main screen to start. For games with settings, choose the number of players etc. and tap <b>Start</b>. Tap <b>←</b> at the top left to leave at any time. The main screen is grouped into <b>Dice · Cards · Finger Games · Wolf Games · Luck Games · Versus Games</b>.",
+  "howIntro": "Tap a game on the main screen to start. For games with settings, choose the number of players etc. and tap <b>Start</b>. Tap <b>←</b> at the top left to leave at any time. The main screen is grouped into <b>Dice · Cards · Finger Games · Quick Games · Wolf Games · Luck Games · Versus Games</b>.",
   "steps": [
    [
     "Several people put one finger each on the screen at the same time.",
-    "When the ring fills and the phone vibrates (0.5 sec), lift your finger. Your die appears where you touched.",
+    "When the ring fills and the phone vibrates (0.5 sec), lift your finger. Your die appears where you touched. With two or more dice, the <b>👑 highest</b> and <b>💀 lowest</b> light up.",
     "Double-tap the screen or tap <b>Reset</b> at the top to start over."
    ],
    [
@@ -483,6 +545,11 @@ export const MANUAL = {
     "Last digit of the sum: <b>7 top up · 8 drink half · 9 drink it all</b>, 6 reverses the order, anything else passes."
    ],
    [
+    "Choose players (2–4), dice (2–4) and sum or product.",
+    "Put the phone in the middle — the screen splits evenly. Tap your area to roll.",
+    "When everyone has rolled, <b>👑 Highest</b> and <b>💀 Lowest</b> are shown. Tap the center to play again!"
+   ],
+   [
     "Choose the number of players (2–8). With the <b>stack</b> option, 1 drink is added for every success.",
     "Guess whether the next card is higher (<b>UP</b>) or lower (<b>DOWN</b>). If the base card is A or K, guess <b>red/black</b>.",
     "Right: next player. Wrong: drink (with stack, the whole pot)! <b>Same number: bottoms up.</b>"
@@ -498,14 +565,29 @@ export const MANUAL = {
     "When all fingers are lifted, after 0.5 sec a wolf pops up only on the picked spots and goes <b>Nyah~</b>. Tap the screen to play again."
    ],
    [
+    "Choose players (2–4) and put the phone in the middle. The screen splits evenly.",
+    "Tap your area <b>the moment the screen turns green</b>!",
+    "Reaction times are shown with <b>👑 1st · 💀 Last</b>. Tapping before green is a 🚫 false start."
+   ],
+   [
+    "Choose players (2–4). The <b>target color</b> for this round is shown in the center.",
+    "The screen changes color every 0.1–0.5 sec — tap your area <b>when the target color appears</b>!",
+    "Miss it or tap on the wrong color and you are <b>💀 Caught</b>. If everyone taps, they are ranked by speed."
+   ],
+   [
+    "Choose players (2–4) and a target time (3–30 sec). The target is shown in the center.",
+    "After 3·2·1 the timer is hidden. <b>Count in your head</b> and tap your area when you think it is time!",
+    "When everyone has tapped, results show two decimals (e.g. 7.06s / +0.06s). Closest is 👑 1st."
+   ],
+   [
     "Choose how many biting teeth (1–10) and start.",
     "Take turns pressing one tooth at a time. Hit a biting tooth and the wolf goes <b>\"chomp!\"</b>",
     "Tap <b>Continue</b> to keep looking for the rest, or <b>Shuffle</b> for a new round."
    ],
    [
-    "Choose the number of players (2–10) and prizes.",
-    "Tap a number at the top and a ball rides down the ladder for 5 seconds. <b>Show all</b> sends everyone down together.",
-    "The bottom boxes show WIN/Pass and the player number."
+    "Choose players (2–10) and the number of prizes.",
+    "Tap a number at the top and a <b>chomping wolf face</b> rides down the ladder for 5 sec. <b>Show all</b> sends everyone at once!",
+    "The bottom boxes show win/pass with the player number."
    ],
    [
     "Choose the number of slices (2–20) and prize slices. Prize slices are placed randomly.",
@@ -513,14 +595,19 @@ export const MANUAL = {
     "The slice under the top pointer is the result. <b>Shuffle prizes</b> moves the prize slices."
    ],
    [
-    "Choose players (2–9) and race time (3–30 sec). Everyone picks a wolf color.",
-    "Tap <b>Start</b> — after 3·2·1 they run! The winner crosses the line exactly at the time you set.",
-    "Ranks appear in finishing order. 1st is gold, last is red."
+    "Choose players (2–8) and direction (clockwise · counter-clockwise · random), then put the phone in the middle.",
+    "When the bomb with a burning fuse comes to you, <b>tap to pass it</b> in the chosen direction.",
+    "Nobody knows when it blows (10–30 sec). <b>BOOM!</b> A wolf pops out and bites — that player is 💀 caught."
    ],
    [
-    "The barrel has 20 sword slots, and one of them is the trigger.",
-    "Take turns tapping a slot to insert a sword.",
-    "<b>If the wolf pops out, you lose!</b> Tap <b>Play again</b> for a new round."
+    "Choose players (2–9) and race time (3–30 sec), then <b>each pick an animal</b> (12 kinds, lane number in the order you tap).",
+    "The animals wait trembling at the finish line while the wolves race back and forth. Close to the end, the wolves open wide!",
+    "<b>The animal the wolf bites first is 1st.</b> Ranks follow the order of the bites."
+   ],
+   [
+    "The barrel has 20 sword slots and one is the trap. The wolf hides inside the barrel.",
+    "Take turns tapping a slot to insert a sword. When it is safe, the wolf peeks out and teases you with <b>Nyah~</b>.",
+    "<b>If the wolf pops out, you are picked!</b> Tap <b>Play again</b> for a new round."
    ],
    [
     "Put the phone in the middle of the table and choose the spin time (1–15 sec).",
@@ -561,6 +648,10 @@ export const MANUAL = {
     "d789Title"
    ],
    [
+    "how-duel",
+    "duelTitle"
+   ],
+   [
     "how-updown",
     "udTitle"
    ],
@@ -573,6 +664,18 @@ export const MANUAL = {
     "fingerTitle"
    ],
    [
+    "how-react",
+    "reactTitle"
+   ],
+   [
+    "how-color",
+    "colorTitle"
+   ],
+   [
+    "how-stop",
+    "stopTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -583,6 +686,10 @@ export const MANUAL = {
    [
     "how-roulette",
     "menuRoulette"
+   ],
+   [
+    "how-bomb",
+    "bombTitle"
    ],
    [
     "how-race",
@@ -614,12 +721,17 @@ export const MANUAL = {
    "🔢",
    "🎲",
    "🍶",
+   "⚔️",
    "↕️",
    "🇻🇳",
    "☝️",
+   "🟢",
+   "🎨",
+   "⏱️",
    "🐺",
    "🪜",
    "🎡",
+   "💣",
    "🏁",
    "🗡️",
    "🔄",
@@ -633,7 +745,7 @@ export const MANUAL = {
   "lead": "飲み会ゲーム集 · インストール案内",
   "navAndroid": "🤖 Androidにインストール",
   "navIphone": "🍎 iPhoneのホーム画面に追加",
-  "navNew": "🆕 v1.3の内容",
+  "navNew": "🆕 v1.4の内容",
   "navUpdate": "🔄 アップデート",
   "navFaq": "❓ よくある質問",
   "qAndroid": "🤖 Androidアプリ",
@@ -727,11 +839,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 メイン画面",
-  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.3</b>）を確認できます。",
-  "hNew": "🆕 v1.3の内容",
-  "newIntro": "ウルフゲームズv1.3には次のゲームと機能が入っています。",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.4</b>）を確認できます。",
+  "hNew": "🆕 v1.4の内容",
+  "newIntro": "ウルフゲームズv1.4には次のゲームと機能が入っています。",
   "newFeat": [
    "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "⚡ 反射神経ゲーム（反応速度対決・色反応対決・ストップウォッチ）・💣 爆弾回し・⚔️ サイコロ対決",
    "👆 指ゲーム（指えらび）・🐺 オオカミゲーム・🍀 運ゲー・⚔️ 対決ゲーム",
    "🃏 カードゲーム（Up/Down・ホーチミン）・🍶 789",
    "🧮 電卓 · 🍻 割り勘 · 💱 両替（ロゴの横）",
@@ -741,8 +854,13 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近の変更",
   "changes": [
-   "<b>☝️ 指えらび</b>追加（👆 指ゲーム）：当たる人数を決めて、みんなで指を置いて離すと、当たった場所にオオカミが出てきてあっかんべー。",
-   "<b>メイン画面を整理</b>：🐺 オオカミゲーム（オオカミの歯・ウルフレース・オオカミルーレット・オオカミ回し）、🍀 運ゲー（あみだくじ・ルーレット）、⚔️ 対決ゲーム（4目並べ）にまとめました。"
+   "<b>⚡ 反射神経ゲーム</b>追加：<b>反応速度対決・色反応対決・ストップウォッチ</b>（円形に同じ大きさで分かれた画面で各自タッチ）",
+   "<b>💣 爆弾回し</b>追加（🍀 運ゲー）：導火線が燃える爆弾を時計回り・反時計回り・ランダムに回し、爆発したらオオカミがガブッ！",
+   "<b>⚔️ サイコロ対決</b>追加（🎲 サイコロ）：2〜4個のサイコロを足すか掛けて最高・最低を決める",
+   "<b>🎲 サイコロ振り</b>：一番大きい数・小さい数が目立つように",
+   "<b>🏁 ウルフレース</b>：かわいい灰色オオカミ、各自動物（12種）を選び、先にかまれた動物が1位",
+   "<b>🗡️ オオカミルーレット</b>：オオカミが樽の中に隠れ、セーフのたびにあっかんべー",
+   "<b>🪜 あみだくじ</b>：パクパクしながら下りるオオカミの顔・<b>🔄 オオカミ回し</b>：しっぽを丸めて鼻先と間違えないように"
   ],
   "hUpdate": "🔄 アップデート",
   "updA": "<b>Android</b>：同じQRコードかボタンで新しいAPKをダウンロードしてインストールします。<b>古いアプリを消さずに</b>上書きされます。",
@@ -773,11 +891,11 @@ export const MANUAL = {
   "back": "← ゲームに戻る",
   "navHow": "🎮 遊び方",
   "hHow": "🎮 遊び方",
-  "howIntro": "メイン画面でゲームを押すとすぐ始まります。設定があるゲームは人数などを決めてから<b>ゲーム開始</b>を押してください。左上の<b>←</b>でいつでも戻れます。 メイン画面は<b>サイコロ・カード・指ゲーム・オオカミゲーム・運ゲー・対決ゲーム</b>のカテゴリに分かれています。",
+  "howIntro": "メイン画面でゲームを押すとすぐ始まります。設定があるゲームは人数などを決めてから<b>ゲーム開始</b>を押してください。左上の<b>←</b>でいつでも戻れます。 メイン画面は<b>サイコロ・カード・指ゲーム・反射神経ゲーム・オオカミゲーム・運ゲー・対決ゲーム</b>のカテゴリに分かれています。",
   "steps": [
    [
     "何人かで同時に画面に指を1本ずつ置きます。",
-    "円のまわりがいっぱいになって振動したら（0.5秒）指を離します。その場所にそれぞれのサイコロが出ます。",
+    "円のまわりがいっぱいになって振動したら（0.5秒）指を離します。その場所にそれぞれのサイコロが出ます。 2個以上出ると<b>👑 最高</b>と<b>💀 最低</b>のサイコロが光ります。",
     "画面をダブルタップするか上の<b>リセット</b>でやり直します。"
    ],
    [
@@ -796,6 +914,11 @@ export const MANUAL = {
     "合計の下1桁が<b>7 注ぎ足し・8 半分飲む・9 一気に飲む</b>、6は順番を逆に、それ以外はパス。"
    ],
    [
+    "人数（2〜4人）、サイコロの数（2〜4個）、計算方法（足し算・掛け算）を決めます。",
+    "スマホを真ん中に置くと画面が人数分に分かれます。自分のエリアをタップでサイコロが転がります。",
+    "全員振ると<b>👑 最高</b>と<b>💀 最低</b>が表示されます。真ん中を押すともう一度！"
+   ],
+   [
     "人数（2〜8人）を決めます。<b>累積</b>をオンにすると成功するたびに罰杯が1杯ずつ増えます。",
     "場のカードより次のカードが高ければ<b>UP</b>、低ければ<b>DOWN</b>。AかKが基準なら<b>赤/黒</b>を当てます。",
     "成功なら次の人、失敗なら罰杯（累積ならたまった分全部）！<b>同じ数字なら一気</b>です。"
@@ -811,14 +934,29 @@ export const MANUAL = {
     "全員が指を離して0.5秒たつと、当たった人の場所にだけオオカミが出てきて<b>あっかんべー</b>。画面をタップするともう一度。"
    ],
    [
+    "人数（2〜4人）を決めてスマホを真ん中に。画面が人数分に同じ大きさで分かれます。",
+    "「待って...」の画面が<b>緑に変わった瞬間</b>に自分のエリアをタッチ！",
+    "反応時間が出て<b>👑 1位・💀 ビリ</b>が表示されます。緑の前に押すと🚫 フライング。"
+   ],
+   [
+    "人数（2〜4人）を決めます。真ん中に今回の<b>指定色</b>が出ます。",
+    "画面の色が0.1〜0.5秒ごとに変わり、<b>指定色が出たら</b>自分のエリアをタッチ！",
+    "押せなかったり違う色で押すと<b>💀 アウト</b>。全員押せたら速い順に順位が出ます。"
+   ],
+   [
+    "人数（2〜4人）と目標時間（3〜30秒）を決めます。目標時間は真ん中に表示。",
+    "3・2・1でスタートすると時間は見えません。<b>心の中で数えて</b>、今だと思ったらタッチ！",
+    "全員押すと小数点2桁まで結果が出ます（例：7.06秒 / +0.06秒）。一番近い人が👑 1位。"
+   ],
+   [
     "当たりの歯の数（1〜10）を決めて始めます。",
     "順番に歯を1本ずつ押します。当たりだとオオカミが<b>「ガブッ！」</b>とかみます。",
     "<b>続ける</b>で残りの当たりを探し、<b>シャッフル</b>で新しいゲームを始めます。"
    ],
    [
     "参加人数（2〜10人）と当たりの数を決めます。",
-    "上の番号を押すとボールが5秒かけてあみだを下ります。<b>全部見る</b>は全員一緒に下ります。",
-    "下の欄に当たり/セーフと番号が表示されます。"
+    "上の番号を押すと<b>オオカミの顔がパクパクしながら</b>5秒かけてあみだを下ります。<b>全部の結果</b>は全員いっせいに！",
+    "下のマスに当たり/セーフと番号が出ます。"
    ],
    [
     "マス数（2〜20）と当たりマスの数を決めます。当たりマスはランダムに並びます。",
@@ -826,14 +964,19 @@ export const MANUAL = {
     "上の矢印が指すマスが結果です。<b>当たりをシャッフル</b>で位置を変えられます。"
    ],
    [
-    "人数（2〜9人）と結果までの時間（3〜30秒）を決め、それぞれ自分の色のオオカミを選びます。",
-    "<b>スタート</b>を押すと3・2・1のあと走り出します！決めた時間ちょうどに1位がゴールします。",
-    "ゴール順に順位が付きます。1位は金色、ビリは赤です。"
+    "人数（2〜8人）と方向（時計回り・反時計回り・ランダム）を決めてスマホを真ん中に。",
+    "導火線が燃える爆弾が来たら<b>タッチで回す！</b>決めた方向に飛んでいきます。",
+    "いつ爆発するかわかりません（10〜30秒）。<b>ドカン！</b>でオオカミが出てきてガブッ、その人が💀 当たり。"
    ],
    [
-    "樽には剣の穴が20個あり、そのうち1つが当たりです。",
-    "順番に穴を押して剣を刺します。",
-    "<b>オオカミが飛び出したら当たり！</b><b>もう一回</b>で新しいゲーム。"
+    "人数（2〜9人）と結果時間（3〜30秒）を決め、<b>それぞれ動物を選びます</b>（12種、押した順にレーン番号）。",
+    "動物たちはゴールでぶるぶる待ち、オオカミが抜きつ抜かれつ走ってきます。近づくと口をガバッ！",
+    "<b>オオカミが先にかんだ動物が1位</b>。かんだ順に順位がつきます。"
+   ],
+   [
+    "樽に剣を刺す穴が20個あり、そのうち1つが当たり。オオカミは樽の中に隠れています。",
+    "順番に穴を押して剣を刺します。セーフだとオオカミがひょこっと出て<b>あっかんべー</b>。",
+    "<b>オオカミが飛び出したら当たり！</b><b>もう一度</b>で新しいゲーム。"
    ],
    [
     "スマホをテーブルの真ん中に置き、回る時間（1〜15秒）を決めます。",
@@ -874,6 +1017,10 @@ export const MANUAL = {
     "d789Title"
    ],
    [
+    "how-duel",
+    "duelTitle"
+   ],
+   [
     "how-updown",
     "udTitle"
    ],
@@ -886,6 +1033,18 @@ export const MANUAL = {
     "fingerTitle"
    ],
    [
+    "how-react",
+    "reactTitle"
+   ],
+   [
+    "how-color",
+    "colorTitle"
+   ],
+   [
+    "how-stop",
+    "stopTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -896,6 +1055,10 @@ export const MANUAL = {
    [
     "how-roulette",
     "menuRoulette"
+   ],
+   [
+    "how-bomb",
+    "bombTitle"
    ],
    [
     "how-race",
@@ -927,12 +1090,17 @@ export const MANUAL = {
    "🔢",
    "🎲",
    "🍶",
+   "⚔️",
    "↕️",
    "🇻🇳",
    "☝️",
+   "🟢",
+   "🎨",
+   "⏱️",
    "🐺",
    "🪜",
    "🎡",
+   "💣",
    "🏁",
    "🗡️",
    "🔄",
@@ -946,7 +1114,7 @@ export const MANUAL = {
   "lead": "酒桌游戏合集 · 安装说明",
   "navAndroid": "🤖 安卓安装",
   "navIphone": "🍎 iPhone添加到主屏幕",
-  "navNew": "🆕 v1.3内容",
+  "navNew": "🆕 v1.4内容",
   "navUpdate": "🔄 更新",
   "navFaq": "❓ 常见问题",
   "qAndroid": "🤖 安卓应用",
@@ -1040,11 +1208,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 主界面",
-  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.3</b>）。",
-  "hNew": "🆕 v1.3内容",
-  "newIntro": "沃夫游戏v1.3包含以下游戏和功能。",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.4</b>）。",
+  "hNew": "🆕 v1.4内容",
+  "newIntro": "沃夫游戏v1.4包含以下游戏和功能。",
   "newFeat": [
    "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "⚡ 反应游戏（反应速度对决 · 颜色反应对决 · 秒表）· 💣 传炸弹 · ⚔️ 骰子对决",
    "👆 手指游戏（手指选人）· 🐺 狼游戏 · 🍀 拼手气 · ⚔️ 对战游戏",
    "🃏 纸牌游戏（Up/Down · 胡志明）· 🍶 789",
    "🧮 计算器 · 🍻 AA分摊 · 💱 汇率换算（标志旁边）",
@@ -1054,8 +1223,13 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近修改",
   "changes": [
-   "新增<b>☝️ 手指选人</b>（👆 手指游戏）：选好抽中人数，大家放上手指再松开，被抽中的位置会冒出小狼吐舌头。",
-   "<b>主界面整理</b>：分成🐺 狼游戏（狼牙齿·群狼赛跑·狼轮盘·转狼）、🍀 拼手气（爬梯子·转盘）、⚔️ 对战游戏（四子棋）。"
+   "新增<b>⚡ 反应游戏</b>：<b>反应速度对决 · 颜色反应对决 · 秒表</b>（屏幕按圆形平均分开，各自点击）",
+   "新增<b>💣 传炸弹</b>（🍀 拼手气）：把引线燃烧的炸弹按顺时针、逆时针或随机传下去，爆炸时小狼咬一口！",
+   "新增<b>⚔️ 骰子对决</b>（🎲 骰子）：2~4颗骰子相加或相乘比最高最低",
+   "<b>🎲 摇骰子</b>：最大和最小的点数更醒目",
+   "<b>🏁 群狼赛跑</b>：可爱的灰色小狼，每人选一只动物（12种），先被咬到的动物第1名",
+   "<b>🗡️ 狼轮盘</b>：小狼躲在桶里，每次安全都会吐舌头气你",
+   "<b>🪜 爬梯子</b>：嗷呜嗷呜爬下来的小狼脸 · <b>🔄 转狼</b>：尾巴卷起来，不会和鼻尖搞混"
   ],
   "hUpdate": "🔄 更新",
   "updA": "<b>安卓</b>：用同一个二维码或按钮下载新的APK并安装即可。<b>不用删除旧应用</b>，直接覆盖安装。",
@@ -1086,11 +1260,11 @@ export const MANUAL = {
   "back": "← 返回游戏",
   "navHow": "🎮 玩法",
   "hHow": "🎮 玩法",
-  "howIntro": "在主界面点游戏即可开始。有设置的游戏先选好人数等再点<b>开始游戏</b>。随时可以点左上角<b>←</b>返回。 主界面分为<b>骰子 · 纸牌 · 手指游戏 · 狼游戏 · 拼手气 · 对战游戏</b>几个类别。",
+  "howIntro": "在主界面点游戏即可开始。有设置的游戏先选好人数等再点<b>开始游戏</b>。随时可以点左上角<b>←</b>返回。 主界面分为<b>骰子 · 纸牌 · 手指游戏 · 反应游戏 · 狼游戏 · 拼手气 · 对战游戏</b>几个类别。",
   "steps": [
    [
     "几个人同时各把一根手指放在屏幕上。",
-    "圆圈转满并振动后（0.5秒）松开手指，各自的位置会出现骰子。",
+    "圆圈转满并振动后（0.5秒）松开手指，各自的位置会出现骰子。 出现两颗以上时，<b>👑 最高</b>和<b>💀 最低</b>的骰子会闪亮。",
     "双击屏幕或点上方<b>重置</b>重新开始。"
    ],
    [
@@ -1109,6 +1283,11 @@ export const MANUAL = {
     "点数和的个位：<b>7 加酒 · 8 喝一半 · 9 一口干</b>，6 顺序反转，其他直接过。"
    ],
    [
+    "选择人数（2~4人）、骰子数量（2~4颗）、计算方式（加法·乘法）。",
+    "把手机放在中间，屏幕会按人数平分。点自己的区域掷骰子。",
+    "大家都掷完后显示<b>👑 最高</b>和<b>💀 最低</b>。点中间再来一次！"
+   ],
+   [
     "选择人数（2~8人）。打开<b>累积</b>后每成功一次罚酒加1杯。",
     "猜下一张比桌上的牌大（<b>UP</b>）还是小（<b>DOWN</b>）。基准牌是A或K时猜<b>红/黑</b>。",
     "猜对轮到下一位，猜错喝罚酒（累积时喝掉全部）！<b>点数相同就干杯</b>。"
@@ -1124,14 +1303,29 @@ export const MANUAL = {
     "所有人松开0.5秒后，只有被抽中的位置会冒出小狼<b>吐舌头</b>气你。点屏幕再来一次。"
    ],
    [
+    "选择人数（2~4人），把手机放在中间，屏幕平均分开。",
+    "屏幕<b>变绿的瞬间</b>点自己的区域！",
+    "显示反应时间和<b>👑 第1名 · 💀 最后</b>。变绿前点就是🚫 抢跑。"
+   ],
+   [
+    "选择人数（2~4人）。中间显示本局的<b>指定颜色</b>。",
+    "屏幕颜色每0.1~0.5秒变一次，<b>出现指定颜色时</b>点自己的区域！",
+    "没点到或在别的颜色时点就<b>💀 中招</b>。大家都点到就按快慢排名。"
+   ],
+   [
+    "选择人数（2~4人）和目标时间（3~30秒），目标时间显示在中间。",
+    "3·2·1开始后看不到时间。<b>心里默数</b>，觉得到了就点自己的区域！",
+    "大家都点完显示到小数点后两位（例：7.06秒 / +0.06秒）。最接近的👑 第1名。"
+   ],
+   [
     "选好中奖牙齿数量（1~10颗）开始。",
     "轮流一颗一颗按牙齿。按到中奖，狼会<b>\"啊呜！\"</b>咬一口。",
     "点<b>继续</b>找剩下的中奖，点<b>重新洗牌</b>开始新一局。"
    ],
    [
-    "选好参加人数（2~10人）和中奖数量。",
-    "点上方号码，小球会用5秒沿梯子往下走。<b>全部结果</b>会让所有人一起走。",
-    "下方格子会显示中奖/安全和号码。"
+    "选择人数（2~10人）和中奖数量。",
+    "点上面的号码，<b>小狼脸会嗷呜嗷呜地</b>用5秒爬下梯子。<b>全部结果</b>则大家一起！",
+    "下面格子显示中奖/通过和号码。"
    ],
    [
     "选好格数（2~20格）和中奖格数，中奖格随机排列。",
@@ -1139,14 +1333,19 @@ export const MANUAL = {
     "上方箭头指的格子就是结果。点<b>重排中奖格</b>可以换位置。"
    ],
    [
-    "选好人数（2~9人）和结果时间（3~30秒），每人选一只自己颜色的狼。",
-    "点<b>出发</b>，3·2·1后开跑！到设定时间第一名正好冲线。",
-    "按到达顺序排名，第一名金色，最后一名红色。"
+    "选择人数（2~8人）和方向（顺时针·逆时针·随机），把手机放在中间。",
+    "引线燃烧的炸弹传到你时<b>点一下传出去！</b>按设定方向飞走。",
+    "不知道什么时候爆炸（10~30秒）。<b>砰！</b>小狼冒出来咬一口，那个人💀 中招。"
    ],
    [
-    "桶上有20个插剑孔，其中一个是中奖。",
-    "轮流点孔插剑。",
-    "<b>狼跳出来就中奖！</b>点<b>再来一局</b>重新开始。"
+    "选择人数（2~9人）和时间（3~30秒），<b>每人选一只动物</b>（12种，按点的顺序分跑道）。",
+    "动物们在终点瑟瑟发抖，小狼你追我赶跑过来，快到时张大嘴！",
+    "<b>小狼先咬到的动物第1名</b>，按咬的顺序排名。"
+   ],
+   [
+    "桶上有20个插剑孔，其中一个是中奖。小狼躲在桶里。",
+    "轮流点孔插剑。安全时小狼探出头<b>吐舌头</b>气你。",
+    "<b>小狼跳出来就中奖！</b>点<b>再玩一次</b>开始新一局。"
    ],
    [
     "把手机放在桌子中间，选好旋转时间（1~15秒）。",
@@ -1187,6 +1386,10 @@ export const MANUAL = {
     "d789Title"
    ],
    [
+    "how-duel",
+    "duelTitle"
+   ],
+   [
     "how-updown",
     "udTitle"
    ],
@@ -1199,6 +1402,18 @@ export const MANUAL = {
     "fingerTitle"
    ],
    [
+    "how-react",
+    "reactTitle"
+   ],
+   [
+    "how-color",
+    "colorTitle"
+   ],
+   [
+    "how-stop",
+    "stopTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -1209,6 +1424,10 @@ export const MANUAL = {
    [
     "how-roulette",
     "menuRoulette"
+   ],
+   [
+    "how-bomb",
+    "bombTitle"
    ],
    [
     "how-race",
@@ -1240,12 +1459,17 @@ export const MANUAL = {
    "🔢",
    "🎲",
    "🍶",
+   "⚔️",
    "↕️",
    "🇻🇳",
    "☝️",
+   "🟢",
+   "🎨",
+   "⏱️",
    "🐺",
    "🪜",
    "🎡",
+   "💣",
    "🏁",
    "🗡️",
    "🔄",
@@ -1259,7 +1483,7 @@ export const MANUAL = {
   "lead": "รวมเกมวงเหล้า · วิธีติดตั้ง",
   "navAndroid": "🤖 ติดตั้งบน Android",
   "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
-  "navNew": "🆕 มีอะไรใน v1.3",
+  "navNew": "🆕 มีอะไรใน v1.4",
   "navUpdate": "🔄 อัปเดต",
   "navFaq": "❓ คำถามที่พบบ่อย",
   "qAndroid": "🤖 แอป Android",
@@ -1353,11 +1577,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 หน้าหลัก",
-  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.3</b>) ได้ที่ด้านล่างสุด",
-  "hNew": "🆕 มีอะไรใน v1.3",
-  "newIntro": "Wolf Games v1.3 มีเกมและฟีเจอร์ต่อไปนี้",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.4</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v1.4",
+  "newIntro": "Wolf Games v1.4 มีเกมและฟีเจอร์ต่อไปนี้",
   "newFeat": [
    "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "⚡ เกมไหวพริบ (ดวลความไว · ดวลสี · นาฬิกาจับเวลา) · 💣 ส่งระเบิด · ⚔️ ดวลลูกเต๋า",
    "👆 เกมนิ้ว (จิ้มนิ้วเลือกคน) · 🐺 เกมหมาป่า · 🍀 เกมดวง · ⚔️ เกมดวล",
    "🃏 เกมไพ่ (Up/Down · โฮจิมินห์) · 🍶 789",
    "🧮 เครื่องคิดเลข · 🍻 หารบิล · 💱 แลกเงิน (ข้างโลโก้)",
@@ -1367,8 +1592,13 @@ export const MANUAL = {
   ],
   "hChange": "🛠 การแก้ไขล่าสุด",
   "changes": [
-   "เพิ่ม <b>☝️ จิ้มนิ้วเลือกคน</b> (👆 เกมนิ้ว): เลือกจำนวนคนที่โดน ทุกคนวางนิ้วแล้วยกออก หมาป่าจะโผล่ตรงคนที่โดนแล้วแลบลิ้นใส่",
-   "<b>จัดหน้าหลักใหม่</b>: 🐺 เกมหมาป่า (ฟันหมาป่า·วิ่งแข่งหมาป่า·รูเล็ตหมาป่า·หมุนหมาป่า), 🍀 เกมดวง (เกมบันได·วงล้อ), ⚔️ เกมดวล (เรียง 4)"
+   "เพิ่มหมวด <b>⚡ เกมไหวพริบ</b>: <b>ดวลความไว · ดวลสี · นาฬิกาจับเวลา</b> (หน้าจอแบ่งเป็นวงเท่า ๆ กัน แต่ละคนแตะของตัวเอง)",
+   "เพิ่ม <b>💣 ส่งระเบิด</b> (🍀 เกมดวง): ส่งระเบิดที่ชนวนกำลังไหม้ตามเข็ม ทวนเข็ม หรือสุ่ม ระเบิดเมื่อไหร่หมาป่างับ!",
+   "เพิ่ม <b>⚔️ ดวลลูกเต๋า</b> (🎲 ลูกเต๋า): บวกหรือคูณเต๋า 2–4 ลูกหาสูงสุด·ต่ำสุด",
+   "<b>🎲 ทอยลูกเต๋า</b>: เลขสูงสุดและต่ำสุดเด่นชัดขึ้น",
+   "<b>🏁 วิ่งแข่งหมาป่า</b>: หมาป่าสีเทาน่ารัก แต่ละคนเลือกสัตว์ (12 ชนิด) สัตว์ที่โดนงับก่อนได้ที่ 1",
+   "<b>🗡️ รูเล็ตหมาป่า</b>: หมาป่าซ่อนในถัง รอดทีไรโผล่มาแลบลิ้นแซว",
+   "<b>🪜 เกมบันได</b>: หน้าหมาป่างับ ๆ ไต่ลงมา · <b>🔄 หมุนหมาป่า</b>: ม้วนหางไม่ให้สับสนกับปลายจมูก"
   ],
   "hUpdate": "🔄 อัปเดต",
   "updA": "<b>Android</b>: ดาวน์โหลด APK ใหม่ด้วย QR หรือปุ่มเดิมแล้วติดตั้ง จะติดตั้ง <b>ทับแอปเดิม</b> โดยไม่ต้องลบ",
@@ -1399,11 +1629,11 @@ export const MANUAL = {
   "back": "← กลับไปที่เกม",
   "navHow": "🎮 วิธีเล่น",
   "hHow": "🎮 วิธีเล่น",
-  "howIntro": "กดเกมในหน้าหลักเพื่อเริ่มได้เลย เกมที่มีการตั้งค่าให้เลือกจำนวนคนก่อนแล้วกด <b>เริ่มเกม</b> กด <b>←</b> มุมซ้ายบนเพื่อออกได้ตลอด หน้าหลักแบ่งเป็นหมวด <b>ลูกเต๋า · ไพ่ · เกมนิ้ว · เกมหมาป่า · เกมดวง · เกมดวล</b>",
+  "howIntro": "กดเกมในหน้าหลักเพื่อเริ่มได้เลย เกมที่มีการตั้งค่าให้เลือกจำนวนคนก่อนแล้วกด <b>เริ่มเกม</b> กด <b>←</b> มุมซ้ายบนเพื่อออกได้ตลอด หน้าหลักแบ่งเป็นหมวด <b>ลูกเต๋า · ไพ่ · เกมนิ้ว · เกมไหวพริบ · เกมหมาป่า · เกมดวง · เกมดวล</b>",
   "steps": [
    [
     "หลายคนวางนิ้วคนละนิ้วบนหน้าจอพร้อมกัน",
-    "เมื่อวงกลมเต็มและเครื่องสั่น (0.5 วินาที) ให้ยกนิ้ว ลูกเต๋าของแต่ละคนจะขึ้นตรงที่แตะ",
+    "เมื่อวงกลมเต็มและเครื่องสั่น (0.5 วินาที) ให้ยกนิ้ว ลูกเต๋าของแต่ละคนจะขึ้นตรงที่แตะ ถ้ามีเต๋า 2 ลูกขึ้นไป ลูกที่ <b>👑 สูงสุด</b> และ <b>💀 ต่ำสุด</b> จะเด่นขึ้นมา",
     "แตะหน้าจอสองครั้งหรือกด <b>รีเซ็ต</b> ด้านบนเพื่อเริ่มใหม่"
    ],
    [
@@ -1422,6 +1652,11 @@ export const MANUAL = {
     "หลักหน่วยของผลรวม: <b>7 เติมแก้ว · 8 ดื่มครึ่ง · 9 หมดแก้ว</b> 6 สลับลำดับ นอกนั้นผ่าน"
    ],
    [
+    "เลือกจำนวนคน (2–4) จำนวนลูกเต๋า (2–4) และวิธีคิด (บวก·คูณ)",
+    "วางโทรศัพท์ไว้ตรงกลาง หน้าจอจะแบ่งเท่า ๆ กัน แตะพื้นที่ของตัวเองเพื่อทอย",
+    "พอทุกคนทอยแล้วจะแสดง <b>👑 สูงสุด</b> และ <b>💀 ต่ำสุด</b> แตะตรงกลางเพื่อเล่นใหม่!"
+   ],
+   [
     "เลือกจำนวนคน (2–8 คน) ถ้าเปิด <b>สะสม</b> ทุกครั้งที่ทายถูกจะเพิ่มแก้วลงโทษ 1 แก้ว",
     "ทายว่าไพ่ใบต่อไปสูงกว่า (<b>UP</b>) หรือต่ำกว่า (<b>DOWN</b>) ถ้าไพ่ฐานเป็น A หรือ K ให้ทาย <b>แดง/ดำ</b>",
     "ถูกก็ถึงตาคนต่อไป ผิดดื่มลงโทษ (ถ้าสะสมดื่มทั้งหมด)! <b>ได้เลขเดียวกันหมดแก้ว</b>"
@@ -1437,14 +1672,29 @@ export const MANUAL = {
     "เมื่อทุกคนยกนิ้วออก 0.5 วินาที หมาป่าจะโผล่เฉพาะตรงคนที่โดนแล้ว<b>แลบลิ้นแบร่~</b> แตะหน้าจอเพื่อเล่นใหม่"
    ],
    [
+    "เลือกจำนวนคน (2–4) แล้ววางโทรศัพท์ไว้ตรงกลาง หน้าจอจะแบ่งเท่า ๆ กัน",
+    "<b>ทันทีที่หน้าจอเป็นสีเขียว</b> ให้แตะพื้นที่ของตัวเอง!",
+    "จะแสดงเวลาตอบสนอง <b>👑 ที่ 1 · 💀 ที่โหล่</b> แตะก่อนเขียวคือ 🚫 ออกตัวก่อน"
+   ],
+   [
+    "เลือกจำนวนคน (2–4) ตรงกลางจะแสดง<b>สีที่กำหนด</b>ของรอบนี้",
+    "สีหน้าจอเปลี่ยนทุก 0.1–0.5 วินาที <b>พอเป็นสีที่กำหนด</b>ให้แตะพื้นที่ของตัวเอง!",
+    "แตะไม่ทันหรือแตะผิดสีคือ <b>💀 โดน</b> ถ้าทุกคนแตะได้จะจัดอันดับตามความเร็ว"
+   ],
+   [
+    "เลือกจำนวนคน (2–4) และเวลาเป้าหมาย (3–30 วินาที) เวลาเป้าหมายแสดงอยู่ตรงกลาง",
+    "หลัง 3·2·1 จะไม่เห็นเวลา <b>นับในใจ</b> คิดว่าถึงแล้วให้แตะพื้นที่ของตัวเอง!",
+    "พอทุกคนแตะ ผลจะแสดงทศนิยม 2 ตำแหน่ง (เช่น 7.06 วิ / +0.06 วิ) ใกล้สุดได้ 👑 ที่ 1"
+   ],
+   [
     "เลือกจำนวนฟันที่งับ (1–10 ซี่) แล้วเริ่ม",
     "ผลัดกันกดฟันทีละซี่ ถ้าโดน หมาป่าจะ <b>\"งับ!\"</b>",
     "กด <b>เล่นต่อ</b> เพื่อหาที่เหลือ หรือ <b>สุ่มใหม่</b> เพื่อเริ่มรอบใหม่"
    ],
    [
-    "เลือกจำนวนผู้เล่น (2–10 คน) และจำนวนรางวัล",
-    "กดหมายเลขด้านบน ลูกบอลจะไต่บันไดลงไป 5 วินาที <b>ดูทั้งหมด</b> จะลงพร้อมกันทุกคน",
-    "ช่องด้านล่างแสดงโดน/รอดและหมายเลข"
+    "เลือกจำนวนคน (2–10) และจำนวนรางวัล",
+    "แตะเลขด้านบน <b>หน้าหมาป่าจะงับ ๆ</b> ไต่บันไดลงมา 5 วินาที <b>ผลทั้งหมด</b>จะลงพร้อมกัน!",
+    "ช่องด้านล่างแสดงโดน/รอดพร้อมหมายเลข"
    ],
    [
     "เลือกจำนวนช่อง (2–20) และช่องรางวัล ช่องรางวัลจะสุ่มตำแหน่ง",
@@ -1452,14 +1702,19 @@ export const MANUAL = {
     "ช่องที่ลูกศรด้านบนชี้คือผลลัพธ์ กด <b>สุ่มช่องรางวัล</b> เพื่อเปลี่ยนตำแหน่ง"
    ],
    [
-    "เลือกผู้เล่น (2–9 คน) และเวลาผลออก (3–30 วินาที) แต่ละคนเลือกหมาป่าสีของตัวเอง",
-    "กด <b>เริ่ม</b> หลัง 3·2·1 ก็วิ่งเลย! ที่ 1 เข้าเส้นตรงเวลาที่ตั้งไว้",
-    "มีลำดับตามการเข้าเส้น ที่ 1 สีทอง สุดท้ายสีแดง"
+    "เลือกจำนวนคน (2–8) และทิศทาง (ตามเข็ม · ทวนเข็ม · สุ่ม) แล้ววางโทรศัพท์ไว้ตรงกลาง",
+    "พอระเบิดที่ชนวนกำลังไหม้มาถึงเรา <b>แตะเพื่อส่งต่อ!</b> จะลอยไปตามทิศที่เลือก",
+    "ไม่รู้ว่าจะระเบิดเมื่อไหร่ (10–30 วินาที) <b>ตูม!</b> หมาป่าโผล่มางับ คนนั้น 💀 โดน"
    ],
    [
-    "ถังมีช่องเสียบดาบ 20 ช่อง มีช่องเดียวที่โดน",
-    "ผลัดกันแตะช่องเพื่อเสียบดาบ",
-    "<b>ถ้าหมาป่าเด้งออกมา คนนั้นโดน!</b> กด <b>เล่นอีกครั้ง</b> เพื่อเริ่มใหม่"
+    "เลือกจำนวนคน (2–9) และเวลา (3–30 วินาที) แล้ว<b>แต่ละคนเลือกสัตว์</b> (12 ชนิด ลำดับที่แตะ = เลขลู่)",
+    "สัตว์รอตัวสั่นอยู่ที่เส้นชัย หมาป่าวิ่งแซงกันไปมา ใกล้ถึงก็อ้าปากกว้าง!",
+    "<b>สัตว์ที่หมาป่างับก่อนได้ที่ 1</b> อันดับเรียงตามลำดับที่โดนงับ"
+   ],
+   [
+    "ถังมีช่องเสียบดาบ 20 ช่อง มีช่องโดน 1 ช่อง หมาป่าซ่อนอยู่ในถัง",
+    "ผลัดกันแตะช่องเพื่อเสียบดาบ ถ้ารอด หมาป่าจะโผล่หัวมา<b>แลบลิ้นแซว</b>",
+    "<b>หมาป่าเด้งออกมาคือโดน!</b> กด <b>เล่นอีกครั้ง</b> เพื่อเริ่มใหม่"
    ],
    [
     "วางโทรศัพท์กลางโต๊ะแล้วเลือกเวลาหมุน (1–15 วินาที)",
@@ -1500,6 +1755,10 @@ export const MANUAL = {
     "d789Title"
    ],
    [
+    "how-duel",
+    "duelTitle"
+   ],
+   [
     "how-updown",
     "udTitle"
    ],
@@ -1512,6 +1771,18 @@ export const MANUAL = {
     "fingerTitle"
    ],
    [
+    "how-react",
+    "reactTitle"
+   ],
+   [
+    "how-color",
+    "colorTitle"
+   ],
+   [
+    "how-stop",
+    "stopTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -1522,6 +1793,10 @@ export const MANUAL = {
    [
     "how-roulette",
     "menuRoulette"
+   ],
+   [
+    "how-bomb",
+    "bombTitle"
    ],
    [
     "how-race",
@@ -1553,12 +1828,17 @@ export const MANUAL = {
    "🔢",
    "🎲",
    "🍶",
+   "⚔️",
    "↕️",
    "🇻🇳",
    "☝️",
+   "🟢",
+   "🎨",
+   "⏱️",
    "🐺",
    "🪜",
    "🎡",
+   "💣",
    "🏁",
    "🗡️",
    "🔄",
@@ -1572,7 +1852,7 @@ export const MANUAL = {
   "lead": "Bộ trò chơi nhậu · Hướng dẫn cài đặt",
   "navAndroid": "🤖 Cài trên Android",
   "navIphone": "🍎 Thêm vào MH chính iPhone",
-  "navNew": "🆕 Có gì trong v1.3",
+  "navNew": "🆕 Có gì trong v1.4",
   "navUpdate": "🔄 Cập nhật",
   "navFaq": "❓ Câu hỏi thường gặp",
   "qAndroid": "🤖 Ứng dụng Android",
@@ -1666,11 +1946,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Màn hình chính",
-  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.3</b>) hiện ở dưới cùng.",
-  "hNew": "🆕 Có gì trong v1.3",
-  "newIntro": "Wolf Games v1.3 gồm các trò chơi và tính năng sau.",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.4</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v1.4",
+  "newIntro": "Wolf Games v1.4 gồm các trò chơi và tính năng sau.",
   "newFeat": [
    "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
+   "⚡ Phản xạ (Đấu phản xạ · Đấu màu · Bấm giờ) · 💣 Chuyền bom · ⚔️ Đấu xúc xắc",
    "👆 Ngón tay (Chọn ngón tay) · 🐺 Sói · 🍀 May rủi · ⚔️ Đối kháng",
    "🃏 Trò chơi bài (Up/Down · Hồ Chí Minh) · 🍶 789",
    "🧮 Máy tính · 🍻 Chia tiền · 💱 Đổi tiền (cạnh logo)",
@@ -1680,8 +1961,13 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Thay đổi gần đây",
   "changes": [
-   "Thêm <b>☝️ Chọn ngón tay</b> (👆 Trò chơi ngón tay): chọn số người bị chọn, mọi người đặt ngón tay rồi nhấc ra — sói hiện ở chỗ bị chọn và lè lưỡi trêu.",
-   "<b>Sắp xếp lại màn hình chính</b>: 🐺 Trò chơi sói (Răng sói · Sói chạy đua · Sói may rủi · Quay sói), 🍀 Trò may rủi (Leo thang · Vòng quay), ⚔️ Trò đối kháng (Nối 4)."
+   "Thêm mục <b>⚡ Trò phản xạ</b>: <b>Đấu phản xạ · Đấu màu · Bấm giờ</b> (màn hình chia đều hình tròn, mỗi người chạm phần mình)",
+   "Thêm <b>💣 Chuyền bom</b> (🍀 May rủi): chuyền quả bom đang cháy ngòi theo chiều kim, ngược chiều hoặc ngẫu nhiên — nổ thì sói ngoạm!",
+   "Thêm <b>⚔️ Đấu xúc xắc</b> (🎲 Xúc xắc): cộng hoặc nhân 2–4 xúc xắc để so cao thấp",
+   "<b>🎲 Lắc xúc xắc</b>: số cao nhất và thấp nhất nổi bật hơn",
+   "<b>🏁 Sói chạy đua</b>: sói xám dễ thương, mỗi người chọn con vật (12 loại), con bị ngoạm trước là hạng 1",
+   "<b>🗡️ Sói may rủi</b>: sói trốn trong thùng, mỗi lần an toàn lại lè lưỡi trêu",
+   "<b>🪜 Leo thang</b>: mặt sói ngoạm ngoạm leo xuống · <b>🔄 Quay sói</b>: đuôi cuộn lại để không nhầm với mũi"
   ],
   "hUpdate": "🔄 Cập nhật",
   "updA": "<b>Android</b>: tải APK mới bằng cùng mã QR hoặc nút rồi cài. Ứng dụng được cài <b>đè lên bản cũ</b>, không cần xóa.",
@@ -1712,11 +1998,11 @@ export const MANUAL = {
   "back": "← Quay lại trò chơi",
   "navHow": "🎮 Cách chơi",
   "hHow": "🎮 Cách chơi",
-  "howIntro": "Bấm vào trò chơi ở màn hình chính để bắt đầu. Trò chơi có cài đặt thì chọn số người… rồi bấm <b>Bắt đầu</b>. Bấm <b>←</b> góc trên bên trái để thoát bất cứ lúc nào. Màn hình chính chia thành các mục <b>Xúc xắc · Bài · Ngón tay · Sói · May rủi · Đối kháng</b>.",
+  "howIntro": "Bấm vào trò chơi ở màn hình chính để bắt đầu. Trò chơi có cài đặt thì chọn số người… rồi bấm <b>Bắt đầu</b>. Bấm <b>←</b> góc trên bên trái để thoát bất cứ lúc nào. Màn hình chính chia thành các mục <b>Xúc xắc · Bài · Ngón tay · Phản xạ · Sói · May rủi · Đối kháng</b>.",
   "steps": [
    [
     "Nhiều người cùng đặt mỗi người một ngón tay lên màn hình.",
-    "Khi vòng tròn đầy và điện thoại rung (0,5 giây) thì nhấc tay. Xúc xắc của mỗi người hiện ở chỗ chạm.",
+    "Khi vòng tròn đầy và điện thoại rung (0,5 giây) thì nhấc tay. Xúc xắc của mỗi người hiện ở chỗ chạm. Từ 2 xúc xắc trở lên, viên <b>👑 cao nhất</b> và <b>💀 thấp nhất</b> sẽ sáng lên.",
     "Chạm hai lần lên màn hình hoặc bấm <b>Đặt lại</b> ở trên để chơi lại."
    ],
    [
@@ -1735,6 +2021,11 @@ export const MANUAL = {
     "Chữ số cuối của tổng: <b>7 rót thêm · 8 uống nửa · 9 uống cạn</b>, 6 đảo chiều, còn lại thì qua."
    ],
    [
+    "Chọn số người (2–4), số xúc xắc (2–4) và cách tính (cộng·nhân).",
+    "Đặt điện thoại giữa bàn, màn hình chia đều. Chạm vào phần của mình để lắc.",
+    "Ai cũng lắc xong sẽ hiện <b>👑 Cao nhất</b> và <b>💀 Thấp nhất</b>. Chạm giữa để chơi lại!"
+   ],
+   [
     "Chọn số người (2–8). Bật <b>cộng dồn</b> thì mỗi lần đoán đúng thêm 1 ly phạt.",
     "Đoán lá tiếp theo cao hơn (<b>UP</b>) hay thấp hơn (<b>DOWN</b>). Nếu lá gốc là A hoặc K thì đoán <b>đỏ/đen</b>.",
     "Đúng thì đến người kế, sai thì uống phạt (cộng dồn thì uống hết)! <b>Ra cùng số thì uống cạn.</b>"
@@ -1750,14 +2041,29 @@ export const MANUAL = {
     "Khi mọi người nhấc tay ra 0,5 giây, sói chỉ hiện ở chỗ người bị chọn và <b>lè lưỡi lêu lêu</b>. Chạm màn hình để chơi lại."
    ],
    [
+    "Chọn số người (2–4) và đặt điện thoại giữa bàn. Màn hình chia đều.",
+    "Chạm vào phần của mình <b>ngay khi màn hình chuyển xanh</b>!",
+    "Hiện thời gian phản xạ và <b>👑 Hạng 1 · 💀 Bét</b>. Chạm trước khi xanh là 🚫 phạm quy."
+   ],
+   [
+    "Chọn số người (2–4). Giữa màn hình là <b>màu chỉ định</b> của ván này.",
+    "Màu màn hình đổi mỗi 0,1–0,5 giây — <b>khi ra màu chỉ định</b> thì chạm vào phần của mình!",
+    "Không kịp hoặc chạm sai màu là <b>💀 Dính</b>. Ai cũng chạm được thì xếp hạng theo tốc độ."
+   ],
+   [
+    "Chọn số người (2–4) và thời gian mục tiêu (3–30 giây), hiện ở giữa màn hình.",
+    "Sau 3·2·1 sẽ không thấy giờ. <b>Đếm thầm</b>, thấy đủ thì chạm vào phần của mình!",
+    "Ai cũng chạm xong sẽ hiện kết quả 2 chữ số thập phân (vd 7,06 giây / +0,06). Gần nhất là 👑 Hạng 1."
+   ],
+   [
     "Chọn số răng cắn (1–10) rồi bắt đầu.",
     "Lần lượt nhấn từng cái răng. Trúng răng cắn thì sói sẽ <b>\"phập!\"</b>",
     "Bấm <b>Tiếp tục</b> để tìm răng còn lại, hoặc <b>Xáo lại</b> để chơi ván mới."
    ],
    [
-    "Chọn số người chơi (2–10) và số ô trúng.",
-    "Bấm số ở trên, quả bóng sẽ đi xuống thang trong 5 giây. <b>Xem tất cả</b> cho mọi người đi xuống cùng lúc.",
-    "Ô bên dưới hiện Trúng/Qua và số người chơi."
+    "Chọn số người (2–10) và số giải.",
+    "Chạm số ở trên, <b>mặt sói ngoạm ngoạm</b> leo xuống thang trong 5 giây. <b>Xem tất cả</b> thì mọi người cùng xuống!",
+    "Ô dưới hiện trúng/qua và số người."
    ],
    [
     "Chọn số ô (2–20) và số ô trúng. Ô trúng được xếp ngẫu nhiên.",
@@ -1765,14 +2071,19 @@ export const MANUAL = {
     "Ô dưới mũi tên ở trên là kết quả. <b>Xáo ô trúng</b> để đổi vị trí."
    ],
    [
-    "Chọn số người (2–9) và thời gian kết quả (3–30 giây). Mỗi người chọn một chú sói theo màu.",
-    "Bấm <b>Xuất phát</b>, sau 3·2·1 là chạy! Người nhất về đích đúng thời gian đã đặt.",
-    "Thứ hạng theo thứ tự về đích. Nhất màu vàng, bét màu đỏ."
+    "Chọn số người (2–8) và hướng (theo chiều kim · ngược chiều kim · ngẫu nhiên), đặt điện thoại giữa bàn.",
+    "Bom có ngòi đang cháy đến chỗ mình thì <b>chạm để chuyền!</b> Bom bay theo hướng đã chọn.",
+    "Không biết khi nào nổ (10–30 giây). <b>BÙM!</b> Sói nhảy ra ngoạm, người đó 💀 dính."
    ],
    [
-    "Thùng có 20 lỗ cắm kiếm, một lỗ là trúng.",
-    "Lần lượt chạm vào lỗ để cắm kiếm.",
-    "<b>Sói bật ra là trúng!</b> Bấm <b>Chơi lại</b> để chơi ván mới."
+    "Chọn số người (2–9) và thời gian (3–30 giây), rồi <b>mỗi người chọn một con vật</b> (12 loại, thứ tự chạm = số làn).",
+    "Các con vật run rẩy chờ ở vạch đích, sói thay nhau dẫn đầu chạy tới, gần đến thì há to miệng!",
+    "<b>Con vật bị sói ngoạm trước là hạng 1</b>, xếp hạng theo thứ tự bị ngoạm."
+   ],
+   [
+    "Thùng có 20 lỗ cắm kiếm, một lỗ là trúng. Sói trốn trong thùng.",
+    "Lần lượt chạm lỗ để cắm kiếm. Nếu an toàn, sói ló đầu lên <b>lè lưỡi trêu</b>.",
+    "<b>Sói bật ra là trúng!</b> Bấm <b>Chơi lại</b> để bắt đầu ván mới."
    ],
    [
     "Đặt điện thoại giữa bàn và chọn thời gian quay (1–15 giây).",
@@ -1813,6 +2124,10 @@ export const MANUAL = {
     "d789Title"
    ],
    [
+    "how-duel",
+    "duelTitle"
+   ],
+   [
     "how-updown",
     "udTitle"
    ],
@@ -1825,6 +2140,18 @@ export const MANUAL = {
     "fingerTitle"
    ],
    [
+    "how-react",
+    "reactTitle"
+   ],
+   [
+    "how-color",
+    "colorTitle"
+   ],
+   [
+    "how-stop",
+    "stopTitle"
+   ],
+   [
     "how-teeth",
     "menuCroc"
    ],
@@ -1835,6 +2162,10 @@ export const MANUAL = {
    [
     "how-roulette",
     "menuRoulette"
+   ],
+   [
+    "how-bomb",
+    "bombTitle"
    ],
    [
     "how-race",
@@ -1866,12 +2197,17 @@ export const MANUAL = {
    "🔢",
    "🎲",
    "🍶",
+   "⚔️",
    "↕️",
    "🇻🇳",
    "☝️",
+   "🟢",
+   "🎨",
+   "⏱️",
    "🐺",
    "🪜",
    "🎡",
+   "💣",
    "🏁",
    "🗡️",
    "🔄",
