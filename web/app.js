@@ -100,7 +100,7 @@ function homeScreen(root) {
     if (!paths.length) return;
     fetch(GC + encodeURIComponent(paths[0]) + '.json', { cache: 'no-store' })
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-      .then((j) => { if (j && j.count) { visits.textContent = `👀 ${j.count}`; visits.style.display = ''; } else tryCount(paths.slice(1)); })
+      .then((j) => { if (j && Number(String(j.count).replace(/\D/g, '')) > 0) { visits.textContent = `👀 ${j.count}`; visits.style.display = ''; } else tryCount(paths.slice(1)); })
       .catch((e) => { console.warn('[방문 수]', paths[0], e); tryCount(paths.slice(1)); });
   };
   tryCount(['TOTAL', location.pathname]);
