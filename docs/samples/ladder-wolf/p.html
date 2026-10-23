@@ -24,7 +24,7 @@ window.f=(T)=>{ // 0.4초 뒤 전체 출발, 5초 동안
  for(let l=0;l<LEVELS;l++)for(let j=0;j<n-1;j++)if(RU[l][j]){const[ax,ay]=px([j,l+1]),[bx]=px([j+1,l+1]);x.beginPath();x.moveTo(ax,ay);x.lineTo(bx,ay);x.stroke();}
  const heads=[];
  paths.forEach((p,i)=>{const pts=p.pts.map(px);const {out,dir}=walk(pts,prog);x.beginPath();out.forEach(([a,b],k)=>k?x.lineTo(a,b):x.moveTo(a,b));x.strokeStyle=P[i];x.lineWidth=7;x.lineCap='round';x.lineJoin='round';x.stroke();heads.push([out[out.length-1],dir,i]);});
- for(const [[a,b],dir,i] of heads){ if(prog<=0) continue; const bite=done?(bt<0.5?Math.abs(Math.sin(bt*Math.PI*3)):0):null; ladderWolf(x,a,b-4,15,T+i*0.3,P[i],done?0:dir,bite);}
+ for(const [[a,b],dir,i] of heads){ if(prog<=0) continue; const bite=done?(bt<0.5?Math.abs(Math.sin(bt*Math.PI*3)):0):null; ladderWolf(x,a,b-6,19,T+i*0.3,P[i],done?0:dir,bite);}
  const R=document.getElementById('res');R.innerHTML=[...Array(n).keys()].map(e=>{const o=paths.findIndex(p=>p.end===e);const rev=done;const pz=prizes[e];return `<div style="flex:1;height:52px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:14px;background:${!rev?'#2C2C3E':pz?'#FF3D5A':'#1E1E2A'};color:${rev&&!pz?'#9A9AB0':'#fff'}">${!rev?'?':pz?'당첨':'통과'}${rev?`<span style="font-size:11px;color:${P[o]}">${o+1}번</span>`:''}</div>`}).join('');
  const st=document.getElementById('st');st.textContent=done?`🎯 당첨: ${paths.findIndex(p=>prizes[p.end])+1}번`:prog>0?'앙앙앙... 늑대들이 사다리를 타요':'';st.style.color=done?'#FF3D5A':'#9A9AB0';
 };
