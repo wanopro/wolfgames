@@ -224,7 +224,14 @@ document.addEventListener('pointerdown', () => { if (!wakeLock) keepAwake(); }, 
 
 // ---------- 오프라인 지원 ----------
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
-  navigator.serviceWorker.register('sw.js').catch(() => {});
+  // 새 버전이 배포되면 바로 받아서 한 번 새로고침 (업데이트가 늦게 보이는 문제 방지)
+  const hadSW = !!navigator.serviceWorker.controller;
+  let reloaded = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadSW && !reloaded) { reloaded = true; location.reload(); } });
+  navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then((reg) => {
+    reg.update().catch(() => {});
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') reg.update().catch(() => {}); });
+  }).catch(() => {});
 }
 
 // 시작

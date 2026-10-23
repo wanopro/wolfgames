@@ -8,7 +8,7 @@ const FILES = [
 ];
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(FILES.map((f) => new Request(f, { cache: 'reload' })))).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', (e) => {
   e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== VERSION).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
@@ -17,7 +17,9 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return;
   e.respondWith(
-    fetch(e.request).then((res) => {
+    // 같은 사이트 파일은 브라우저 임시 저장(HTTP 캐시)을 건너뛰고 서버에 확인해서 항상 최신 파일을 받음
+    fetch(new URL(e.request.url).origin === location.origin ? new Request(e.request, { cache: 'no-cache' }) : e.request).then((res) => {
+      if (!res.ok) return res;
       const copy = res.clone();
       caches.open(VERSION).then((c) => c.put(e.request, copy)).catch(() => {});
       return res;
