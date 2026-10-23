@@ -16,9 +16,9 @@ def tmpl(sv):
 
 
 for lang in ['Ko', 'En', 'Ja', 'Zh', 'Th', 'Vi']:
-    head = f'val {lang}Strings = Strings('
+    head = f'val {lang}Strings = Strings().apply {{'
     st = src.index(head) + len(head)
-    body = src[st:src.index('\n)\n', st)]
+    body = src[st:src.index('\n}\n', st)]
     out.append(f'  {lang.lower()}: {{')
     for it in re.split(r'\n    (?=[a-zA-Z][a-zA-Z0-9]* = )', body):
         it = it.strip()
