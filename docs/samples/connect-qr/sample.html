@@ -1,0 +1,65 @@
+<!doctype html><meta charset=utf-8>
+<script src="qrcode.js"></script>
+<style>
+body{margin:0;background:#0B0B10;font-family:-apple-system,"Noto Sans KR",sans-serif;color:#EDEDF2;display:flex;gap:26px;padding:26px}
+.ph{width:360px;height:740px;background:#12121A;border-radius:34px;overflow:hidden;position:relative;box-shadow:0 0 0 6px #222}
+.cap{position:absolute;top:-2px;left:0;right:0;text-align:center}
+.lbl{font-weight:900;color:#FFB300;text-align:center;margin-bottom:8px;font-size:18px}
+.hdr{display:flex;align-items:center;gap:10px;padding:18px 18px 8px}
+.logo{width:62px;height:62px;border-radius:50%;background:#9AA3AF;display:grid;place-items:center;font-size:34px}
+.qrbtn{margin-left:auto;width:48px;height:48px;border-radius:14px;background:#FFB300;color:#000;display:grid;place-items:center;font-size:24px;box-shadow:0 0 0 4px #FFB30055;position:relative}
+.qrbtn:after{content:'👆';position:absolute;right:-8px;bottom:-16px;font-size:26px}
+.card{margin:10px 18px;background:#1E1E2A;border-radius:16px;padding:16px;display:flex;gap:12px;align-items:center}
+.card b{font-size:18px}.card small{color:#9a9aa8;display:block}
+.top{display:flex;align-items:center;padding:16px 18px;font-weight:900;font-size:20px;gap:10px}
+.row{margin:8px 18px;background:#1E1E2A;border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.row .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:18px;color:#fff;font-weight:900}
+.row input{flex:1;background:#12121A;border:1px solid #333;border-radius:10px;color:#fff;padding:9px 10px;font-size:15px}
+.tog{width:40px;height:22px;border-radius:11px;background:#FFB300;position:relative}.tog:after{content:'';position:absolute;right:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#000}
+.off{background:#444}.off:after{left:3px;right:auto;background:#999}
+.note{margin:14px 22px;color:#8d8d9a;font-size:13px;line-height:1.5}
+.full{background:#fff;color:#111}
+.tabs{display:flex;gap:8px;justify-content:center;padding:22px 10px 6px}
+.tab{padding:8px 14px;border-radius:20px;background:#eee;font-weight:800;font-size:14px}
+.tab.on{color:#fff}
+.qrbox{margin:16px auto 0;width:300px;height:300px;display:grid;place-items:center;border-radius:24px;border:6px solid #E1306C;padding:6px;box-sizing:border-box}
+.who{text-align:center;font-weight:900;font-size:26px;margin-top:16px}
+.hint{text-align:center;color:#666;font-size:14px;margin-top:8px}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:16px}.dots i{width:8px;height:8px;border-radius:50%;background:#ccc}.dots i.on{background:#E1306C;width:20px;border-radius:4px}
+.close{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);background:#111;color:#fff;border-radius:30px;padding:12px 30px;font-weight:800}
+.wolf{position:absolute;bottom:90px;left:0;right:0;text-align:center;font-size:15px;color:#888}
+</style>
+<div><div class=lbl>① 메인 화면 위에 QR 버튼</div><div class=ph>
+ <div class=hdr><div class=logo>🐺</div><div><div style="color:#FFB300;font-weight:900;font-size:26px">울프 게임즈</div><div style="color:#9a9aa8">술자리 게임 모음</div></div><div class=qrbtn>▦</div></div>
+ <div class=card><span style="font-size:30px">🎲</span><div><b>주사위</b><small>주사위 굴리기 · 5개 주사위 · 789 …</small></div></div>
+ <div class=card><span style="font-size:30px">🃏</span><div><b>카드</b><small>Up/Down · 호치민 · 킹스컵</small></div></div>
+ <div class=card><span style="font-size:30px">👆</span><div><b>손가락게임</b><small>손가락선택</small></div></div>
+ <div class=card><span style="font-size:30px">⚡</span><div><b>순발력게임</b><small>반응속도 · 색 반응 · 스탑워치</small></div></div>
+ <div class=card><span style="font-size:30px">🐺</span><div><b>늑대게임</b><small>늑대이빨 · 늑대달리기 · 룰렛 · 돌리기</small></div></div>
+ <div class=card><span style="font-size:30px">🍀</span><div><b>운빨게임</b><small>사다리 · 돌림판 · 폭탄돌리기</small></div></div>
+</div></div>
+<div><div class=lbl>② 처음 한 번만: 내 SNS 입력</div><div class=ph>
+ <div class=top>← 📇 내 연락처 QR</div>
+ <div class=row><div class=ic style="background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF)">◎</div><input value="@wolf.segna"><div class=tog></div></div>
+ <div class=row><div class=ic style="background:#25D366">✆</div><input value="+82 10-1234-5678"><div class=tog></div></div>
+ <div class=row><div class=ic style="background:#06C755">L</div><input placeholder="LINE ID"><div class="tog off"></div></div>
+ <div class=row><div class=ic style="background:#FEE500;color:#3C1E1E">K</div><input placeholder="카카오톡 오픈프로필 링크"><div class="tog off"></div></div>
+ <div class=row><div class=ic style="background:#229ED9">✈</div><input placeholder="Telegram @아이디"><div class="tog off"></div></div>
+ <div class=row><div class=ic style="background:#1877F2">f</div><input placeholder="Facebook"><div class="tog off"></div></div>
+ <div class=row><div class=ic style="background:#0068FF">Z</div><input placeholder="Zalo 번호"><div class="tog off"></div></div>
+ <div class=note>🔒 입력한 정보는 <b>내 폰에만 저장</b>돼요. 서버로 안 보내고, 인터넷 없어도 QR이 만들어져요.</div>
+</div></div>
+<div><div class=lbl>③ 버튼 한 번 → 풀화면 QR</div><div class="ph full">
+ <div class=tabs><div class="tab on" style="background:#E1306C">Instagram</div><div class=tab>WhatsApp</div></div>
+ <div class=qrbox id=q></div>
+ <div class=who>@wolf.segna</div>
+ <div class=hint>카메라로 찍으면 바로 내 인스타로 연결 📷</div>
+ <div class=dots><i class=on></i><i></i></div>
+ <div class=wolf>← 옆으로 넘기면 WhatsApp QR · 화면 최대 밝기</div>
+ <div class=close>✕ 닫기</div>
+</div></div>
+<script>
+const q=qrcode(0,'M');q.addData('https://instagram.com/wolf.segna');q.make();
+document.getElementById('q').innerHTML=q.createSvgTag({cellSize:7,margin:0,scalable:true});
+document.querySelector('#q svg').style.width='270px';document.querySelector('#q svg').style.height='270px';
+</script>
