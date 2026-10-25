@@ -53,44 +53,49 @@ export class Tug {
 
 // ================= 슬랩 대결 (손등 때리기) =================
 // events: [시간, 'slap'|'dodge'|'flinch']  공격자 = att (0=아래 P1, 1=위 P2)
-// 손 (위에서 본 모양). palm=true 면 손바닥, false 면 손등(손톱 보임). 손가락은 위(-y) 방향
-const SKIN = '#F2C7A5', SKIN_D = '#D9A07C', SKIN_P = '#F7B9A6';
-function capsule(ctx, x0, y0, x1, y1, r) { const a = Math.atan2(y1 - y0, x1 - x0); ctx.moveTo(x0 + Math.cos(a + Math.PI / 2) * r, y0 + Math.sin(a + Math.PI / 2) * r); ctx.arc(x1, y1, r, a + Math.PI / 2, a - Math.PI / 2, true); ctx.arc(x0, y0, r, a - Math.PI / 2, a + Math.PI / 2, true); ctx.closePath(); }
-const HAND = (ctx, x, y, s, sleeve, flip, palm, red = 0) => {
-  ctx.save(); ctx.translate(x, y); if (flip) ctx.rotate(Math.PI); ctx.scale(s * 1.18 * (palm ? -1 : 1), s);
-  // 손가락: [밑동 x, 밑동 y, 끝 x, 끝 y, 굵기]
-  const F = [[-27, -38, -36, -104, 10.5], [-9, -44, -11, -124, 11], [9, -43, 12, -118, 11], [26, -36, 34, -92, 10]];
-  const TH = [-36, 4, -68, -36, 12.5];
-  // 조각마다 따로 그림 (경로 방향이 달라 겹친 곳에 구멍 나는 것 방지)
-  const parts = [() => { ctx.moveTo(-38, -40); ctx.quadraticCurveTo(0, -52, 38, -38); ctx.quadraticCurveTo(46, 10, 30, 52); ctx.lineTo(28, 96); ctx.lineTo(-28, 96); ctx.lineTo(-30, 52); ctx.quadraticCurveTo(-46, 10, -38, -40); ctx.closePath(); },
-    ...F.map((f) => () => capsule(ctx, ...f)), () => capsule(ctx, ...TH), () => { ctx.moveTo(-40, -20); ctx.lineTo(-30, 30); ctx.lineTo(-56, -14); ctx.closePath(); }];
+// 귀여운 늑대 앞발 (위에서 본 모양). palm=true 발바닥(젤리) / false 발등(털·발톱). 발끝은 위(-y) 방향
+const FUR = '#9AA3AF', FUR_D = '#7C8593', FUR_L = '#C9CFD8', CREAM = '#F1EEE8', PAD = '#F6AFC0', PAD_D = '#E88BA3', OL = '#4E5561';
+const HAND = (ctx, x, y, s, band, flip, palm, red = 0) => {
+  ctx.save(); ctx.translate(x, y); if (flip) ctx.rotate(Math.PI); ctx.scale(s, s);
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const TOES = [[-32, -50, 15], [-12, -66, 16], [12, -66, 16], [32, -50, 15]];
+  // 발 모양: 동그란 발 + 발가락 4개 + 털 많은 팔목
+  const body = () => {
+    ctx.moveTo(-40, -40); ctx.bezierCurveTo(-58, -8, -50, 30, -34, 50);
+    // 팔목 바깥쪽 복슬 털
+    ctx.lineTo(-36, 64); ctx.lineTo(-30, 70); ctx.lineTo(-34, 82); ctx.lineTo(-28, 100); ctx.lineTo(28, 100); ctx.lineTo(34, 82); ctx.lineTo(30, 70); ctx.lineTo(36, 64); ctx.lineTo(34, 50);
+    ctx.bezierCurveTo(50, 30, 58, -8, 40, -40); ctx.bezierCurveTo(26, -62, -26, -62, -40, -40); ctx.closePath();
+  };
+  const parts = [body, ...TOES.map(([tx, ty, r]) => () => { ctx.ellipse(tx, ty, r, r * 1.08, 0, 0, 7); })];
   const each = (fn) => { for (const pt of parts) { ctx.beginPath(); pt(); fn(); } };
-  const shape = () => { ctx.beginPath(); for (const pt of parts) pt(); };
-  ctx.save(); ctx.translate(5, 7); ctx.fillStyle = 'rgba(0,0,0,.28)'; each(() => ctx.fill()); ctx.restore();
-  ctx.lineWidth = 5; ctx.strokeStyle = '#8A5A3C'; ctx.lineJoin = 'round'; each(() => ctx.stroke());
-  const g = ctx.createLinearGradient(-50, 0, 50, 0); g.addColorStop(0, palm ? SKIN_P : SKIN_D); g.addColorStop(0.45, palm ? '#FAD3BF' : SKIN); g.addColorStop(1, palm ? SKIN_P : SKIN_D);
+  ctx.save(); ctx.translate(4, 8); ctx.globalAlpha = 0.25; ctx.fillStyle = '#000'; each(() => ctx.fill()); ctx.restore();
+  ctx.lineWidth = 4.5; ctx.strokeStyle = OL; each(() => ctx.stroke());
+  const g = ctx.createRadialGradient(-10, -20, 8, 0, 0, 105);
+  if (palm) { g.addColorStop(0, '#E9ECF0'); g.addColorStop(1, '#B4BBC6'); } else { g.addColorStop(0, FUR_L); g.addColorStop(1, FUR_D); }
   ctx.fillStyle = g; each(() => ctx.fill());
-  ctx.strokeStyle = 'rgba(138,90,60,.55)'; ctx.lineWidth = 2; ctx.lineCap = 'round';
   if (!palm) {
-    // 손톱 + 마디 주름
-    for (const [bx, by, tx, ty, r] of F) { const a = Math.atan2(ty - by, tx - bx); ctx.save(); ctx.translate(tx - Math.cos(a) * r * 0.9, ty - Math.sin(a) * r * 0.9); ctx.rotate(a + Math.PI / 2);
-      ctx.beginPath(); ctx.roundRect(-r * 0.62, -r * 0.75, r * 1.24, r * 1.5, r * 0.6); ctx.fillStyle = '#FBE3D6'; ctx.fill(); ctx.stroke(); ctx.restore();
-      for (const u of [0.42, 0.68]) { const mx = bx + (tx - bx) * u, my = by + (ty - by) * u, nx = -Math.sin(a) * r * 0.45, ny = Math.cos(a) * r * 0.45; ctx.beginPath(); ctx.moveTo(mx - nx, my - ny); ctx.quadraticCurveTo(mx + Math.cos(a) * 2, my + Math.sin(a) * 2, mx + nx, my + ny); ctx.strokeStyle = 'rgba(138,90,60,.35)'; ctx.lineWidth = 1.6; ctx.stroke(); } }
-    const [bx, by, tx, ty, r] = TH; const a = Math.atan2(ty - by, tx - bx); ctx.save(); ctx.translate(tx - Math.cos(a) * r * 0.9, ty - Math.sin(a) * r * 0.9); ctx.rotate(a + Math.PI / 2); ctx.beginPath(); ctx.roundRect(-r * 0.6, -r * 0.7, r * 1.2, r * 1.4, r * 0.6); ctx.fillStyle = '#FBE3D6'; ctx.fill(); ctx.stroke(); ctx.restore();
-    // 손등 뼈 라인
-    for (const f of F) { ctx.beginPath(); ctx.moveTo(f[0] * 0.8, 40); ctx.lineTo(f[0], f[1] + 6); ctx.strokeStyle = 'rgba(138,90,60,.18)'; ctx.stroke(); }
+    // 발등: 발가락 사이 선 + 털결 + 하얀 발톱 살짝
+    ctx.strokeStyle = 'rgba(78,85,97,.55)'; ctx.lineWidth = 2.4;
+    for (const xx of [-22, 0, 22]) { const y0 = xx ? -48 : -60; ctx.beginPath(); ctx.moveTo(xx, y0); ctx.lineTo(xx * 0.95, y0 + 12); ctx.stroke(); }
+    ctx.strokeStyle = 'rgba(255,255,255,.45)'; ctx.lineWidth = 2;
+    for (const [fx, fy] of [[-18, -10], [4, -4], [22, -14], [-8, 22], [14, 30], [-20, 44], [6, 58], [-4, 80]]) { ctx.beginPath(); ctx.moveTo(fx - 4, fy + 5); ctx.quadraticCurveTo(fx, fy - 2, fx + 4, fy + 5); ctx.stroke(); }
+    for (const [tx, ty, r] of TOES) { ctx.beginPath(); ctx.moveTo(tx - 3.5, ty - r + 2); ctx.quadraticCurveTo(tx, ty - r - 9, tx + 3.5, ty - r + 2); ctx.closePath(); ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = OL; ctx.stroke(); }
   } else {
-    // 손바닥 손금 + 손가락 마디
-    ctx.beginPath(); ctx.moveTo(-34, -18); ctx.quadraticCurveTo(0, -6, 36, -26); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(-36, 0); ctx.quadraticCurveTo(-4, 8, 22, -6); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(-26, -10); ctx.quadraticCurveTo(-10, 40, -14, 70); ctx.stroke();
-    for (const [bx, by, tx, ty, r] of F) { const a = Math.atan2(ty - by, tx - bx); for (const u of [0.38, 0.66]) { const mx = bx + (tx - bx) * u, my = by + (ty - by) * u, nx = -Math.sin(a) * r * 0.55, ny = Math.cos(a) * r * 0.55; ctx.beginPath(); ctx.moveTo(mx - nx, my - ny); ctx.lineTo(mx + nx, my + ny); ctx.stroke(); } }
+    // 발바닥 젤리: 큰 패드 + 발가락 젤리 4개
+    const pad = (fn) => { ctx.beginPath(); fn(); const pg = ctx.createLinearGradient(0, -90, 0, 40); pg.addColorStop(0, PAD); pg.addColorStop(1, PAD_D); ctx.fillStyle = pg; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = '#C96F89'; ctx.stroke(); };
+    pad(() => { ctx.moveTo(0, -30); ctx.bezierCurveTo(16, -40, 36, -26, 32, -4); ctx.bezierCurveTo(30, 16, 14, 22, 0, 18); ctx.bezierCurveTo(-14, 22, -30, 16, -32, -4); ctx.bezierCurveTo(-36, -26, -16, -40, 0, -30); });
+    for (const [tx, ty, r] of TOES) pad(() => ctx.ellipse(tx, ty - 2, r * 0.62, r * 0.72, 0, 0, 7));
+    ctx.fillStyle = 'rgba(255,255,255,.6)';
+    for (const [tx, ty, r] of TOES) { ctx.beginPath(); ctx.ellipse(tx - r * 0.2, ty - r * 0.35, r * 0.17, r * 0.24, -0.4, 0, 7); ctx.fill(); }
+    ctx.beginPath(); ctx.ellipse(-12, -18, 7, 5, -0.5, 0, 7); ctx.fill();
   }
-  // 맞은 자국
-  if (red > 0) { ctx.save(); ctx.beginPath(); parts[0](); ctx.clip(); ctx.globalAlpha = red * 0.75; const rg = ctx.createRadialGradient(0, -10, 4, 0, -10, 60); rg.addColorStop(0, '#FF1744'); rg.addColorStop(1, 'rgba(255,23,68,0)'); ctx.fillStyle = rg; ctx.fillRect(-80, -130, 160, 200); ctx.restore(); }
-  // 소매
-  ctx.beginPath(); ctx.roundRect(-40, 88, 80, 60, 10); ctx.fillStyle = sleeve; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(0,0,0,.35)'; ctx.stroke();
-  ctx.beginPath(); ctx.roundRect(-42, 86, 84, 14, 6); ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.fill();
+  // 맞은 자국 (빨갛게 + 털 쭈뼛)
+  if (red > 0) { ctx.save(); ctx.beginPath(); body(); ctx.clip(); ctx.globalAlpha = red * 0.85; const rg = ctx.createRadialGradient(0, -14, 4, 0, -14, 52); rg.addColorStop(0, '#FF3D57'); rg.addColorStop(1, 'rgba(255,61,87,0)'); ctx.fillStyle = rg; ctx.fillRect(-80, -130, 160, 200); ctx.restore(); }
+  // 팔목 밴드 (플레이어 색)
+  ctx.beginPath(); ctx.roundRect(-33, 84, 66, 16, 8); ctx.fillStyle = band; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(0,0,0,.35)'; ctx.stroke();
+  ctx.beginPath(); ctx.roundRect(-26, 87, 22, 5, 3); ctx.fillStyle = 'rgba(255,255,255,.45)'; ctx.fill();
+  // 팔 (화면 밖으로)
+  ctx.beginPath(); ctx.moveTo(-28, 100); ctx.lineTo(-30, 160); ctx.lineTo(30, 160); ctx.lineTo(28, 100); ctx.closePath(); ctx.fillStyle = palm ? '#B4BBC6' : FUR_D; ctx.fill(); ctx.lineWidth = 4.5; ctx.strokeStyle = OL; ctx.stroke();
   ctx.restore();
 };
 export class Slap {
@@ -114,12 +119,12 @@ export class Slap {
     const swing = Math.min(1, attOff / 120);
     // 공격 손(손바닥 위)이 밑에, 수비 손(손등 위)이 그 위에 살짝 겹쳐 올려진 모양
     if (swing < 0.5) {
-      HAND(ctx, cx + shake, cy - sign * (58 - attOff * 0.95), 0.78 + swing * 0.3, PC[att], att === 1, true);
-      HAND(ctx, cx, cy + sign * (58 + defOff), 0.78, PC[def], def === 1, false, red);
+      HAND(ctx, cx + shake, cy - sign * (58 - attOff * 0.95), 0.95 + swing * 0.3, PC[att], att === 1, true);
+      HAND(ctx, cx, cy + sign * (58 + defOff), 0.95, PC[def], def === 1, false, red);
     } else {
-      HAND(ctx, cx, cy + sign * (58 + defOff), 0.78, PC[def], def === 1, false, red);
+      HAND(ctx, cx, cy + sign * (58 + defOff), 0.95, PC[def], def === 1, false, red);
       // 내려칠 때는 손등이 보이게 뒤집혀서 덮침
-      HAND(ctx, cx + shake + swing * 14, cy - sign * (58 - attOff * 0.95), 0.78 + swing * 0.22, PC[att], att === 1, false);
+      HAND(ctx, cx + shake + swing * 14, cy - sign * (58 - attOff * 0.95), 0.95 + swing * 0.22, PC[att], att === 1, false);
     }
     if (st.kind === 'slap' && dtE > 0.14 && dtE < 0.9) { const k = Math.min(1, (dtE - 0.14) / 0.12); ctx.save(); ctx.translate(cx + 70, cy + sign * 40); ctx.scale(k, k); ctx.rotate(-0.2);
       ctx.beginPath(); for (let a = 0; a < 16; a++) { const r = a % 2 ? 26 : 52; ctx.lineTo(Math.cos(a * Math.PI / 8) * r, Math.sin(a * Math.PI / 8) * r); } ctx.closePath(); ctx.fillStyle = '#FFEB3B'; ctx.fill(); ctx.strokeStyle = '#E65100'; ctx.lineWidth = 4; ctx.stroke();
@@ -130,7 +135,7 @@ export class Slap {
       const isAtt = p === att, y = H / 2 - 40;
       text(ctx, `P${p + 1}`, 40, H / 2 - 24, 20, PC[p], 900);
       text(ctx, `💥 ${score[p]}`, W - 50, H / 2 - 24, 20, '#fff', 900);
-      text(ctx, isAtt ? '🖐️ 공격' : '🛡️ 수비', W / 2, y - 70, 24, isAtt ? '#FFAB91' : '#80D8FF', 900);
+      text(ctx, isAtt ? '🐾 공격' : '🛡️ 수비', W / 2, y - 70, 24, isAtt ? '#FFAB91' : '#80D8FF', 900);
       let sub = isAtt ? '아무 때나 터치하면 찰싹!' : '손가락 꾹 누르고 있다가 피하기!';
       if (st.kind === 'slap') sub = isAtt ? '짝!! 명중 🎯' : '아야!! 😵 원샷';
       if (st.kind === 'dodge') sub = isAtt ? '헛손질… 공수 교대 🔄' : '피했다! 🙌';
