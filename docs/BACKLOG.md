@@ -181,7 +181,7 @@
 
 ### 📇 연락처 QR (Connect QR) (2026-10-25 메모, 시안 `docs/samples/connect-qr/connect_qr.png`)
 - 술자리 끝날 때 인스타·왓츠앱 교환용. 메인 화면 위쪽(제목 옆)에 **QR 버튼** → 한 번 누르면 **풀화면 흰 배경 QR**
-- 처음 한 번만 내 SNS 입력, 켜 둔 것만 QR로 (옆으로 넘겨서 바꾸기): Instagram(`instagram.com/아이디`) · WhatsApp(`wa.me/번호`) · LINE · 카카오톡 오픈프로필 링크 · Telegram(`t.me/아이디`) · Facebook · Zalo(`zalo.me/번호`) 등
+- 처음 한 번만 내 SNS 입력, 켜 둔 것만 QR로 (옆으로 넘겨서 바꾸기): Instagram(`instagram.com/아이디`) · WhatsApp(`wa.me/번호`) · LINE · 카카오톡 오픈프로필 링크 · Telegram(`t.me/아이디`) · Facebook · **TikTok(`tiktok.com/@아이디`)** · Zalo(`zalo.me/번호`) 등
 - 상대는 폰 기본 카메라로 찍으면 바로 그 앱 프로필/채팅으로 연결
 - **웹·앱 둘 다 가능**: QR은 폰 안에서 직접 만듦 (작은 무료 라이브러리 `qrcode-generator`, MIT) → 서버 필요 없음, 인터넷 없어도 됨
 - 입력한 정보는 **그 폰에만 저장** (웹: 브라우저 저장소, 앱: 앱 설정). 어디에도 안 보냄
