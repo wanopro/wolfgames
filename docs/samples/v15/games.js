@@ -53,15 +53,44 @@ export class Tug {
 
 // ================= 슬랩 대결 (손등 때리기) =================
 // events: [시간, 'slap'|'dodge'|'flinch']  공격자 = att (0=아래 P1, 1=위 P2)
-const HAND = (ctx, x, y, s, color, flip, label, red = 0) => {
-  ctx.save(); ctx.translate(x, y); if (flip) ctx.rotate(Math.PI);
-  // 손바닥(둥근 사각 + 손가락 4 + 엄지)
-  ctx.fillStyle = color; ctx.strokeStyle = 'rgba(0,0,0,.35)'; ctx.lineWidth = 3;
-  ctx.beginPath(); ctx.roundRect(-46 * s, -20 * s, 92 * s, 80 * s, 26 * s); ctx.fill(); ctx.stroke();
-  for (let k = 0; k < 4; k++) { ctx.beginPath(); ctx.roundRect((-44 + k * 23) * s, -78 * s + Math.abs(k - 1.5) * 8 * s, 19 * s, 70 * s, 10 * s); ctx.fill(); ctx.stroke(); }
-  ctx.beginPath(); ctx.ellipse(54 * s, 18 * s, 13 * s, 30 * s, -0.6, 0, 7); ctx.fill(); ctx.stroke();
-  if (red > 0) { ctx.globalAlpha = red; ctx.fillStyle = '#FF1744'; ctx.beginPath(); ctx.ellipse(0, 14 * s, 38 * s, 30 * s, 0, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
-  if (label) text(ctx, label, 0, 20 * s, 15 * s, '#3a2a20', 900);
+// 손 (위에서 본 모양). palm=true 면 손바닥, false 면 손등(손톱 보임). 손가락은 위(-y) 방향
+const SKIN = '#F2C7A5', SKIN_D = '#D9A07C', SKIN_P = '#F7B9A6';
+function capsule(ctx, x0, y0, x1, y1, r) { const a = Math.atan2(y1 - y0, x1 - x0); ctx.moveTo(x0 + Math.cos(a + Math.PI / 2) * r, y0 + Math.sin(a + Math.PI / 2) * r); ctx.arc(x1, y1, r, a + Math.PI / 2, a - Math.PI / 2, true); ctx.arc(x0, y0, r, a - Math.PI / 2, a + Math.PI / 2, true); ctx.closePath(); }
+const HAND = (ctx, x, y, s, sleeve, flip, palm, red = 0) => {
+  ctx.save(); ctx.translate(x, y); if (flip) ctx.rotate(Math.PI); ctx.scale(s * 1.18 * (palm ? -1 : 1), s);
+  // 손가락: [밑동 x, 밑동 y, 끝 x, 끝 y, 굵기]
+  const F = [[-27, -38, -36, -104, 10.5], [-9, -44, -11, -124, 11], [9, -43, 12, -118, 11], [26, -36, 34, -92, 10]];
+  const TH = [-36, 4, -68, -36, 12.5];
+  // 조각마다 따로 그림 (경로 방향이 달라 겹친 곳에 구멍 나는 것 방지)
+  const parts = [() => { ctx.moveTo(-38, -40); ctx.quadraticCurveTo(0, -52, 38, -38); ctx.quadraticCurveTo(46, 10, 30, 52); ctx.lineTo(28, 96); ctx.lineTo(-28, 96); ctx.lineTo(-30, 52); ctx.quadraticCurveTo(-46, 10, -38, -40); ctx.closePath(); },
+    ...F.map((f) => () => capsule(ctx, ...f)), () => capsule(ctx, ...TH), () => { ctx.moveTo(-40, -20); ctx.lineTo(-30, 30); ctx.lineTo(-56, -14); ctx.closePath(); }];
+  const each = (fn) => { for (const pt of parts) { ctx.beginPath(); pt(); fn(); } };
+  const shape = () => { ctx.beginPath(); for (const pt of parts) pt(); };
+  ctx.save(); ctx.translate(5, 7); ctx.fillStyle = 'rgba(0,0,0,.28)'; each(() => ctx.fill()); ctx.restore();
+  ctx.lineWidth = 5; ctx.strokeStyle = '#8A5A3C'; ctx.lineJoin = 'round'; each(() => ctx.stroke());
+  const g = ctx.createLinearGradient(-50, 0, 50, 0); g.addColorStop(0, palm ? SKIN_P : SKIN_D); g.addColorStop(0.45, palm ? '#FAD3BF' : SKIN); g.addColorStop(1, palm ? SKIN_P : SKIN_D);
+  ctx.fillStyle = g; each(() => ctx.fill());
+  ctx.strokeStyle = 'rgba(138,90,60,.55)'; ctx.lineWidth = 2; ctx.lineCap = 'round';
+  if (!palm) {
+    // 손톱 + 마디 주름
+    for (const [bx, by, tx, ty, r] of F) { const a = Math.atan2(ty - by, tx - bx); ctx.save(); ctx.translate(tx - Math.cos(a) * r * 0.9, ty - Math.sin(a) * r * 0.9); ctx.rotate(a + Math.PI / 2);
+      ctx.beginPath(); ctx.roundRect(-r * 0.62, -r * 0.75, r * 1.24, r * 1.5, r * 0.6); ctx.fillStyle = '#FBE3D6'; ctx.fill(); ctx.stroke(); ctx.restore();
+      for (const u of [0.42, 0.68]) { const mx = bx + (tx - bx) * u, my = by + (ty - by) * u, nx = -Math.sin(a) * r * 0.45, ny = Math.cos(a) * r * 0.45; ctx.beginPath(); ctx.moveTo(mx - nx, my - ny); ctx.quadraticCurveTo(mx + Math.cos(a) * 2, my + Math.sin(a) * 2, mx + nx, my + ny); ctx.strokeStyle = 'rgba(138,90,60,.35)'; ctx.lineWidth = 1.6; ctx.stroke(); } }
+    const [bx, by, tx, ty, r] = TH; const a = Math.atan2(ty - by, tx - bx); ctx.save(); ctx.translate(tx - Math.cos(a) * r * 0.9, ty - Math.sin(a) * r * 0.9); ctx.rotate(a + Math.PI / 2); ctx.beginPath(); ctx.roundRect(-r * 0.6, -r * 0.7, r * 1.2, r * 1.4, r * 0.6); ctx.fillStyle = '#FBE3D6'; ctx.fill(); ctx.stroke(); ctx.restore();
+    // 손등 뼈 라인
+    for (const f of F) { ctx.beginPath(); ctx.moveTo(f[0] * 0.8, 40); ctx.lineTo(f[0], f[1] + 6); ctx.strokeStyle = 'rgba(138,90,60,.18)'; ctx.stroke(); }
+  } else {
+    // 손바닥 손금 + 손가락 마디
+    ctx.beginPath(); ctx.moveTo(-34, -18); ctx.quadraticCurveTo(0, -6, 36, -26); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(-36, 0); ctx.quadraticCurveTo(-4, 8, 22, -6); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(-26, -10); ctx.quadraticCurveTo(-10, 40, -14, 70); ctx.stroke();
+    for (const [bx, by, tx, ty, r] of F) { const a = Math.atan2(ty - by, tx - bx); for (const u of [0.38, 0.66]) { const mx = bx + (tx - bx) * u, my = by + (ty - by) * u, nx = -Math.sin(a) * r * 0.55, ny = Math.cos(a) * r * 0.55; ctx.beginPath(); ctx.moveTo(mx - nx, my - ny); ctx.lineTo(mx + nx, my + ny); ctx.stroke(); } }
+  }
+  // 맞은 자국
+  if (red > 0) { ctx.save(); ctx.beginPath(); parts[0](); ctx.clip(); ctx.globalAlpha = red * 0.75; const rg = ctx.createRadialGradient(0, -10, 4, 0, -10, 60); rg.addColorStop(0, '#FF1744'); rg.addColorStop(1, 'rgba(255,23,68,0)'); ctx.fillStyle = rg; ctx.fillRect(-80, -130, 160, 200); ctx.restore(); }
+  // 소매
+  ctx.beginPath(); ctx.roundRect(-40, 88, 80, 60, 10); ctx.fillStyle = sleeve; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(0,0,0,.35)'; ctx.stroke();
+  ctx.beginPath(); ctx.roundRect(-42, 86, 84, 14, 6); ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.fill();
   ctx.restore();
 };
 export class Slap {
@@ -76,15 +105,22 @@ export class Slap {
     const cx = W / 2, cy = H / 2, sign = def === 1 ? -1 : 1; // 수비자 쪽 방향
     let defOff = 0, attOff = 0, red = 0, flash = 0;
     if (st.kind === 'slap') { const u = dtE / 0.16; attOff = u < 1 ? ease(u) * 120 : Math.max(0, 1 - (dtE - 0.5) / 0.4) * 120; red = u >= 1 ? Math.max(0, 1 - (dtE - 0.2) / 1.6) : 0; flash = u >= 1 && dtE < 0.32 ? 1 - (dtE - 0.16) / 0.16 : 0; }
-    if (st.kind === 'dodge') { const u = dtE / 0.16; attOff = u < 1 ? ease(u) * 120 : Math.max(0, 1 - (dtE - 0.4) / 0.4) * 120; defOff = Math.min(1, dtE / 0.1) * 95 * (dtE < 1.0 ? 1 : Math.max(0, 1 - (dtE - 1.0) / 0.4)); }
-    if (st.kind === 'flinch') { defOff = Math.min(1, dtE / 0.08) * 70 * Math.max(0, 1 - Math.max(0, dtE - 0.6) / 0.4); }
+    if (st.kind === 'dodge') { const u = dtE / 0.16; attOff = u < 1 ? ease(u) * 120 : Math.max(0, 1 - (dtE - 0.4) / 0.4) * 120; defOff = Math.min(1, dtE / 0.1) * 80 * (dtE < 1.0 ? 1 : Math.max(0, 1 - (dtE - 1.0) / 0.4)); }
+    if (st.kind === 'flinch') { defOff = Math.min(1, dtE / 0.08) * 50 * Math.max(0, 1 - Math.max(0, dtE - 0.6) / 0.4); }
     if (st.kind === 'feint') { attOff = Math.sin(Math.min(1, dtE / 0.35) * Math.PI) * 40; }
     const shake = st.kind === 'ready' ? Math.sin(t * 9) * 4 : 0;
     // 수비 손 (손등 위, 공격 손 위에 겹침)
     // 공격 손은 휘두를 때 화면 쪽으로 커지면서 수비 손 위를 덮침
     const swing = Math.min(1, attOff / 120);
-    HAND(ctx, cx, cy + sign * (60 + defOff), 0.9, '#F1C9A5', def === 1, '', red);
-    HAND(ctx, cx + shake + swing * 18, cy - sign * (40 - attOff * 0.83), 0.9 + swing * 0.3, '#E8B48E', att === 1, '');
+    // 공격 손(손바닥 위)이 밑에, 수비 손(손등 위)이 그 위에 살짝 겹쳐 올려진 모양
+    if (swing < 0.5) {
+      HAND(ctx, cx + shake, cy - sign * (58 - attOff * 0.95), 0.78 + swing * 0.3, PC[att], att === 1, true);
+      HAND(ctx, cx, cy + sign * (58 + defOff), 0.78, PC[def], def === 1, false, red);
+    } else {
+      HAND(ctx, cx, cy + sign * (58 + defOff), 0.78, PC[def], def === 1, false, red);
+      // 내려칠 때는 손등이 보이게 뒤집혀서 덮침
+      HAND(ctx, cx + shake + swing * 14, cy - sign * (58 - attOff * 0.95), 0.78 + swing * 0.22, PC[att], att === 1, false);
+    }
     if (st.kind === 'slap' && dtE > 0.14 && dtE < 0.9) { const k = Math.min(1, (dtE - 0.14) / 0.12); ctx.save(); ctx.translate(cx + 70, cy + sign * 40); ctx.scale(k, k); ctx.rotate(-0.2);
       ctx.beginPath(); for (let a = 0; a < 16; a++) { const r = a % 2 ? 26 : 52; ctx.lineTo(Math.cos(a * Math.PI / 8) * r, Math.sin(a * Math.PI / 8) * r); } ctx.closePath(); ctx.fillStyle = '#FFEB3B'; ctx.fill(); ctx.strokeStyle = '#E65100'; ctx.lineWidth = 4; ctx.stroke();
       text(ctx, '짝!', 0, 2, 30, '#D84315', 900); ctx.restore(); }
