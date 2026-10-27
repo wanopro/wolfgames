@@ -1,0 +1,7 @@
+<!doctype html><meta charset=utf-8><body style="margin:0;background:#0B0B10"><canvas id=c width=786 height=1520 style="width:393px;height:760px"></canvas>
+<script type=module>
+import { Teeth } from './teeth.js';
+const x = document.getElementById('c').getContext('2d'); x.scale(2, 2); let G;
+window.setup = (k) => { if (k === 'play') G = new Teeth(13, [[0.6, 2], [1.3, 9], [2.0, 16], [2.7, 5], [3.4, 13]]); if (k === 'still') G = new Teeth(-1, []); };
+window.frame = (t) => G.draw(x, 393, 760, t);
+</script>
