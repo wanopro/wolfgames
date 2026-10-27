@@ -3,6 +3,16 @@
 # 각 항목: (이모지, 6개 언어 문장)
 
 CHANGELOG = [
+    dict(ver='1.5.3', date='2026-10-27', items=[
+        ('▦', dict(
+            ko='▦ 내 연락처 QR: SNS를 여러 개 넣으면 위 버튼이 찌그러지던 문제 수정 (버튼이 다음 줄로 넘어가요)',
+            en='▦ My Contact QR: fixed the top buttons getting squashed with many SNS (they now wrap to the next line)',
+            ja='▦ 連絡先QR：SNSをたくさん入れると上のボタンがつぶれる問題を修正（次の行に折り返します）',
+            zh='▦ 我的联系方式二维码：修复社交账号多时上方按钮被挤压的问题（会换到下一行）',
+            th='▦ QR ติดต่อ: แก้ปุ่มด้านบนบีบเบี้ยวเมื่อใส่โซเชียลหลายอัน (ปุ่มจะขึ้นบรรทัดใหม่)',
+            vi='▦ QR liên hệ: sửa lỗi các nút phía trên bị bóp méo khi có nhiều mạng xã hội (nút sẽ xuống dòng)',
+        )),
+    ]),
     dict(ver='1.5.2', date='2026-10-27', items=[
         ('🐺', dict(
             ko='🐺 늑대이빨 새 디자인: 화면 가득 벌린 늑대 입에 이빨이 크고 넓게 (네일해도 누르기 쉽게), 당첨이면 입이 콱 닫히고 🔄 버튼으로 계속',

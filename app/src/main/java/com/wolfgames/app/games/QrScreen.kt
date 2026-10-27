@@ -13,6 +13,8 @@ import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
@@ -103,6 +105,7 @@ private fun qrBitmap(text: String): Bitmap {
 }
 
 /** 풀화면 QR (흰 배경, 화면 밝기 최대). 입력한 게 없으면 바로 입력 화면 */
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun QrScreen(onBack: () -> Unit) {
     val s = LocalStrings.current; val vibe = LocalVibe.current; val ctx = LocalContext.current
@@ -135,12 +138,13 @@ fun QrScreen(onBack: () -> Unit) {
             },
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally), modifier = Modifier.fillMaxWidth()) {
+        // SNS 가 많으면 버튼이 다음 줄로 넘어감 (한 줄에 억지로 넣으면 마지막 버튼이 세로로 찌그러짐)
+        FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally), verticalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
             list.forEachIndexed { i, x ->
                 Box(
                     Modifier.clip(RoundedCornerShape(20.dp)).background(if (i == k) brushOf(x) else SolidColor(Color(0xFFEEEEEE)))
                         .clickable { k = i; vibe.tap() }.padding(horizontal = 12.dp, vertical = 8.dp),
-                ) { Text(x.name, color = if (i == k) Color.White else Color(0xFF222222), fontWeight = FontWeight.ExtraBold, fontSize = 13.sp) }
+                ) { Text(x.name, color = if (i == k) Color.White else Color(0xFF222222), fontWeight = FontWeight.ExtraBold, fontSize = 13.sp, maxLines = 1, softWrap = false) }
             }
         }
         Spacer(Modifier.height(18.dp))

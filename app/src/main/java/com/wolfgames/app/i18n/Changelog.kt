@@ -6,6 +6,9 @@ data class ChangeItem(val emoji: String, val text: Map<String, String>)
 data class Release(val version: String, val date: String, val items: List<ChangeItem>)
 
 val CHANGELOG = listOf(
+    Release("1.5.3", "2026-10-27", listOf(
+        ChangeItem("▦", mapOf("ko" to "▦ 내 연락처 QR: SNS를 여러 개 넣으면 위 버튼이 찌그러지던 문제 수정 (버튼이 다음 줄로 넘어가요)", "en" to "▦ My Contact QR: fixed the top buttons getting squashed with many SNS (they now wrap to the next line)", "ja" to "▦ 連絡先QR：SNSをたくさん入れると上のボタンがつぶれる問題を修正（次の行に折り返します）", "zh" to "▦ 我的联系方式二维码：修复社交账号多时上方按钮被挤压的问题（会换到下一行）", "th" to "▦ QR ติดต่อ: แก้ปุ่มด้านบนบีบเบี้ยวเมื่อใส่โซเชียลหลายอัน (ปุ่มจะขึ้นบรรทัดใหม่)", "vi" to "▦ QR liên hệ: sửa lỗi các nút phía trên bị bóp méo khi có nhiều mạng xã hội (nút sẽ xuống dòng)")),
+    )),
     Release("1.5.2", "2026-10-27", listOf(
         ChangeItem("🐺", mapOf("ko" to "🐺 늑대이빨 새 디자인: 화면 가득 벌린 늑대 입에 이빨이 크고 넓게 (네일해도 누르기 쉽게), 당첨이면 입이 콱 닫히고 🔄 버튼으로 계속", "en" to "🐺 Wolf Teeth redesign: a wolf mouth opened across the whole screen with big, well-spaced teeth (easy even with long nails); on a bite the mouth snaps shut — tap 🔄 to continue", "ja" to "🐺 オオカミの歯を新デザインに：画面いっぱいに開いた口、大きくて間隔の広い歯（ネイルしていても押しやすい）。当たりで口がガブッと閉じ、🔄で続ける", "zh" to "🐺 狼牙齿新设计：狼嘴张满整个屏幕，牙齿又大间距又宽（做了美甲也好按）；中了嘴巴啪地合上，点🔄继续", "th" to "🐺 ฟันหมาป่าดีไซน์ใหม่: ปากหมาป่าอ้าเต็มจอ ฟันใหญ่และห่างกัน (ทำเล็บก็กดง่าย) โดนแล้วปากงับปิด แตะ 🔄 เพื่อเล่นต่อ", "vi" to "🐺 Răng sói thiết kế mới: miệng sói há rộng cả màn hình, răng to và cách xa nhau (làm móng vẫn bấm dễ); trúng thì miệng ngoạm lại, chạm 🔄 để chơi tiếp")),
     )),

@@ -1,6 +1,23 @@
 // 자동 생성 파일: tools/changelog.py 를 고친 뒤  python3 tools/gen_changelog.py
 export const CHANGELOG = [
  {
+  "ver": "1.5.3",
+  "date": "2026-10-27",
+  "items": [
+   [
+    "▦",
+    {
+     "ko": "▦ 내 연락처 QR: SNS를 여러 개 넣으면 위 버튼이 찌그러지던 문제 수정 (버튼이 다음 줄로 넘어가요)",
+     "en": "▦ My Contact QR: fixed the top buttons getting squashed with many SNS (they now wrap to the next line)",
+     "ja": "▦ 連絡先QR：SNSをたくさん入れると上のボタンがつぶれる問題を修正（次の行に折り返します）",
+     "zh": "▦ 我的联系方式二维码：修复社交账号多时上方按钮被挤压的问题（会换到下一行）",
+     "th": "▦ QR ติดต่อ: แก้ปุ่มด้านบนบีบเบี้ยวเมื่อใส่โซเชียลหลายอัน (ปุ่มจะขึ้นบรรทัดใหม่)",
+     "vi": "▦ QR liên hệ: sửa lỗi các nút phía trên bị bóp méo khi có nhiều mạng xã hội (nút sẽ xuống dòng)"
+    }
+   ]
+  ]
+ },
+ {
   "ver": "1.5.2",
   "date": "2026-10-27",
   "items": [

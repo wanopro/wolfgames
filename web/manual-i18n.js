@@ -5,7 +5,7 @@ export const MANUAL = {
   "lead": "술자리 게임 모음 · 설치 안내",
   "navAndroid": "🤖 안드로이드 설치",
   "navIphone": "🍎 아이폰 홈 화면 추가",
-  "navNew": "🆕 v1.5.2 구성",
+  "navNew": "🆕 v1.5.3 구성",
   "navUpdate": "🔄 업데이트",
   "navFaq": "❓ 자주 묻는 질문",
   "qAndroid": "🤖 안드로이드 앱",
@@ -100,9 +100,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 메인 화면",
-  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.5.2</b>)을 확인할 수 있어요.",
-  "hNew": "🆕 v1.5.2 구성",
-  "newIntro": "울프 게임즈 v1.5.2에는 아래 게임과 기능이 들어 있어요.",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.5.3</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v1.5.3 구성",
+  "newIntro": "울프 게임즈 v1.5.3에는 아래 게임과 기능이 들어 있어요.",
   "newFeat": [
    "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎀 연타 땅따먹기 · 🐾 슬랩 대결 · 👑 글로벌 킹스컵 · 🍺 맥주 거품 채우기 · 🪙 동전 던지기",
@@ -117,6 +117,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 최근 수정 내용",
   "changes": [
+   "▦ 내 연락처 QR: SNS를 여러 개 넣으면 위 버튼이 찌그러지던 문제 수정 (버튼이 다음 줄로 넘어가요)",
    "🐺 늑대이빨 새 디자인: 화면 가득 벌린 늑대 입에 이빨이 크고 넓게 (네일해도 누르기 쉽게), 당첨이면 입이 콱 닫히고 🔄 버튼으로 계속",
    "🎀 탭 줄다리기 → 연타 땅따먹기로 이름 변경 (당기는 게 아니라 밀어낸 만큼 내 땅이 넓어지니까!)",
    "🍺 맥주 거품 채우기: 맥주가 빨라졌다 느려졌다 하면서 차올라요 (판마다 다르게)",
@@ -450,7 +451,7 @@ export const MANUAL = {
   "lead": "Drinking game collection · Install guide",
   "navAndroid": "🤖 Android install",
   "navIphone": "🍎 iPhone home screen",
-  "navNew": "🆕 What's in v1.5.2",
+  "navNew": "🆕 What's in v1.5.3",
   "navUpdate": "🔄 Updates",
   "navFaq": "❓ FAQ",
   "qAndroid": "🤖 Android app",
@@ -545,9 +546,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Main screen",
-  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.5.2</b>) is shown at the bottom.",
-  "hNew": "🆕 What's in v1.5.2",
-  "newIntro": "Wolf Games v1.5.2 includes these games and features.",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.5.3</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v1.5.3",
+  "newIntro": "Wolf Games v1.5.3 includes these games and features.",
   "newFeat": [
    "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎀 Tap Turf War · 🐾 Slap Duel · 👑 Global King's Cup · 🍺 Beer Pour · 🪙 Coin Toss",
@@ -562,6 +563,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Latest changes",
   "changes": [
+   "▦ My Contact QR: fixed the top buttons getting squashed with many SNS (they now wrap to the next line)",
    "🐺 Wolf Teeth redesign: a wolf mouth opened across the whole screen with big, well-spaced teeth (easy even with long nails); on a bite the mouth snaps shut — tap 🔄 to continue",
    "🎀 Tap Tug of War is now Tap Turf War (you push, not pull — the more you push, the more turf you own!)",
    "🍺 Beer Pour: the beer now speeds up and slows down as it fills (different every round)",
@@ -895,7 +897,7 @@ export const MANUAL = {
   "lead": "飲み会ゲーム集 · インストール案内",
   "navAndroid": "🤖 Androidにインストール",
   "navIphone": "🍎 iPhoneのホーム画面に追加",
-  "navNew": "🆕 v1.5.2の内容",
+  "navNew": "🆕 v1.5.3の内容",
   "navUpdate": "🔄 アップデート",
   "navFaq": "❓ よくある質問",
   "qAndroid": "🤖 Androidアプリ",
@@ -989,9 +991,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 メイン画面",
-  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.5.2</b>）を確認できます。",
-  "hNew": "🆕 v1.5.2の内容",
-  "newIntro": "ウルフゲームズv1.5.2には次のゲームと機能が入っています。",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.5.3</b>）を確認できます。",
+  "hNew": "🆕 v1.5.3の内容",
+  "newIntro": "ウルフゲームズv1.5.3には次のゲームと機能が入っています。",
   "newFeat": [
    "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎀 連打陣取り · 🐾 スラップ対決 · 👑 グローバル・キングスカップ · 🍺 ビール注ぎ · 🪙 コイントス",
@@ -1006,6 +1008,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近の変更",
   "changes": [
+   "▦ 連絡先QR：SNSをたくさん入れると上のボタンがつぶれる問題を修正（次の行に折り返します）",
    "🐺 オオカミの歯を新デザインに：画面いっぱいに開いた口、大きくて間隔の広い歯（ネイルしていても押しやすい）。当たりで口がガブッと閉じ、🔄で続ける",
    "🎀 タップ綱引き → 連打陣取りに名前変更（引くんじゃなくて、押した分だけ自分の陣地が広がる！）",
    "🍺 ビール注ぎ：ビールが速くなったり遅くなったりしながら注がれます（毎回ちがう）",
@@ -1339,7 +1342,7 @@ export const MANUAL = {
   "lead": "酒桌游戏合集 · 安装说明",
   "navAndroid": "🤖 安卓安装",
   "navIphone": "🍎 iPhone添加到主屏幕",
-  "navNew": "🆕 v1.5.2内容",
+  "navNew": "🆕 v1.5.3内容",
   "navUpdate": "🔄 更新",
   "navFaq": "❓ 常见问题",
   "qAndroid": "🤖 安卓应用",
@@ -1433,9 +1436,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 主界面",
-  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.5.2</b>）。",
-  "hNew": "🆕 v1.5.2内容",
-  "newIntro": "沃夫游戏v1.5.2包含以下游戏和功能。",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.5.3</b>）。",
+  "hNew": "🆕 v1.5.3内容",
+  "newIntro": "沃夫游戏v1.5.3包含以下游戏和功能。",
   "newFeat": [
    "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎀 狂点抢地盘 · 🐾 拍手背对决 · 👑 全球国王杯 · 🍺 倒啤酒 · 🪙 抛硬币",
@@ -1450,6 +1453,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近修改",
   "changes": [
+   "▦ 我的联系方式二维码：修复社交账号多时上方按钮被挤压的问题（会换到下一行）",
    "🐺 狼牙齿新设计：狼嘴张满整个屏幕，牙齿又大间距又宽（做了美甲也好按）；中了嘴巴啪地合上，点🔄继续",
    "🎀 点击拔河改名为狂点抢地盘（不是拉而是推，推得越多地盘越大！）",
    "🍺 倒啤酒：啤酒忽快忽慢地往上涨（每局都不一样）",
@@ -1783,7 +1787,7 @@ export const MANUAL = {
   "lead": "รวมเกมวงเหล้า · วิธีติดตั้ง",
   "navAndroid": "🤖 ติดตั้งบน Android",
   "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
-  "navNew": "🆕 มีอะไรใน v1.5.2",
+  "navNew": "🆕 มีอะไรใน v1.5.3",
   "navUpdate": "🔄 อัปเดต",
   "navFaq": "❓ คำถามที่พบบ่อย",
   "qAndroid": "🤖 แอป Android",
@@ -1877,9 +1881,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 หน้าหลัก",
-  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.5.2</b>) ได้ที่ด้านล่างสุด",
-  "hNew": "🆕 มีอะไรใน v1.5.2",
-  "newIntro": "Wolf Games v1.5.2 มีเกมและฟีเจอร์ต่อไปนี้",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.5.3</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v1.5.3",
+  "newIntro": "Wolf Games v1.5.3 มีเกมและฟีเจอร์ต่อไปนี้",
   "newFeat": [
    "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎀 แตะรัวยึดพื้นที่ · 🐾 ดวลตบมือ · 👑 คิงส์คัพสากล · 🍺 รินเบียร์ · 🪙 โยนเหรียญ",
@@ -1894,6 +1898,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 การแก้ไขล่าสุด",
   "changes": [
+   "▦ QR ติดต่อ: แก้ปุ่มด้านบนบีบเบี้ยวเมื่อใส่โซเชียลหลายอัน (ปุ่มจะขึ้นบรรทัดใหม่)",
    "🐺 ฟันหมาป่าดีไซน์ใหม่: ปากหมาป่าอ้าเต็มจอ ฟันใหญ่และห่างกัน (ทำเล็บก็กดง่าย) โดนแล้วปากงับปิด แตะ 🔄 เพื่อเล่นต่อ",
    "🎀 เปลี่ยนชื่อ ชักเย่อแตะรัว → แตะรัวยึดพื้นที่ (ไม่ได้ดึงแต่ดัน ยิ่งดันพื้นที่เรายิ่งกว้าง!)",
    "🍺 รินเบียร์: เบียร์จะเติมเร็วบ้างช้าบ้าง (แต่ละรอบไม่เหมือนกัน)",
@@ -2227,7 +2232,7 @@ export const MANUAL = {
   "lead": "Bộ trò chơi nhậu · Hướng dẫn cài đặt",
   "navAndroid": "🤖 Cài trên Android",
   "navIphone": "🍎 Thêm vào MH chính iPhone",
-  "navNew": "🆕 Có gì trong v1.5.2",
+  "navNew": "🆕 Có gì trong v1.5.3",
   "navUpdate": "🔄 Cập nhật",
   "navFaq": "❓ Câu hỏi thường gặp",
   "qAndroid": "🤖 Ứng dụng Android",
@@ -2321,9 +2326,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Màn hình chính",
-  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.5.2</b>) hiện ở dưới cùng.",
-  "hNew": "🆕 Có gì trong v1.5.2",
-  "newIntro": "Wolf Games v1.5.2 gồm các trò chơi và tính năng sau.",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.5.3</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v1.5.3",
+  "newIntro": "Wolf Games v1.5.3 gồm các trò chơi và tính năng sau.",
   "newFeat": [
    "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎀 Chạm nhanh giành đất · 🐾 Đấu đập tay · 👑 King's Cup toàn cầu · 🍺 Rót bia · 🪙 Tung đồng xu",
@@ -2338,6 +2343,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Thay đổi gần đây",
   "changes": [
+   "▦ QR liên hệ: sửa lỗi các nút phía trên bị bóp méo khi có nhiều mạng xã hội (nút sẽ xuống dòng)",
    "🐺 Răng sói thiết kế mới: miệng sói há rộng cả màn hình, răng to và cách xa nhau (làm móng vẫn bấm dễ); trúng thì miệng ngoạm lại, chạm 🔄 để chơi tiếp",
    "🎀 Đổi tên Kéo co chạm → Chạm nhanh giành đất (không kéo mà đẩy — đẩy càng nhiều, đất càng rộng!)",
    "🍺 Rót bia: bia rót lúc nhanh lúc chậm (mỗi ván một kiểu)",

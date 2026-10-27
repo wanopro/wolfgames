@@ -36,7 +36,7 @@ open Kings; tap 500 450; sleep 1; shot 07_kings_card; tap 500 450; sleep 1; shot
 # 연락처 QR: 입력 없을 때 → 입력 화면, 미리 넣어 둔 값으로 QR
 open Qr; shot 08_qr_empty
 adb shell am force-stop $PKG
-adb shell "run-as $PKG sh -c 'mkdir -p shared_prefs; echo \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\" standalone=\\\"yes\\\" ?><map><string name=\\\"qr_json\\\">{&quot;instagram&quot;:{&quot;v&quot;:&quot;@wolf.segna&quot;,&quot;on&quot;:true},&quot;whatsapp&quot;:{&quot;v&quot;:&quot;+82 10-1234-5678&quot;,&quot;on&quot;:true},&quot;tiktok&quot;:{&quot;v&quot;:&quot;wolfgames&quot;,&quot;on&quot;:true}}</string><string name=\\\"seen_version\\\">1.5-beta</string></map>\" > shared_prefs/wolfgames.xml'"
+adb shell "run-as $PKG sh -c 'mkdir -p shared_prefs; echo \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\" standalone=\\\"yes\\\" ?><map><string name=\\\"qr_json\\\">{&quot;instagram&quot;:{&quot;v&quot;:&quot;@wolf.segna&quot;,&quot;on&quot;:true},&quot;whatsapp&quot;:{&quot;v&quot;:&quot;+82 10-1234-5678&quot;,&quot;on&quot;:true},&quot;tiktok&quot;:{&quot;v&quot;:&quot;wolfgames&quot;,&quot;on&quot;:true},&quot;line&quot;:{&quot;v&quot;:&quot;wolfline&quot;,&quot;on&quot;:true},&quot;kakao&quot;:{&quot;v&quot;:&quot;https://open.kakao.com/o/abc&quot;,&quot;on&quot;:true},&quot;telegram&quot;:{&quot;v&quot;:&quot;wolfgram&quot;,&quot;on&quot;:true},&quot;facebook&quot;:{&quot;v&quot;:&quot;wolf.fb&quot;,&quot;on&quot;:true},&quot;zalo&quot;:{&quot;v&quot;:&quot;+84 912 345 678&quot;,&quot;on&quot;:true}}</string><string name=\\\"seen_version\\\">1.5-beta</string></map>\" > shared_prefs/wolfgames.xml'"
 open Qr; shot 08_qr_show
 adb shell input swipe $(px 800) $(py 500) $(px 200) $(py 500) 200; sleep 1; shot 08_qr_swipe
 # 계산기 팁
