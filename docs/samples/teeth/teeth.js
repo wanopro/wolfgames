@@ -8,20 +8,20 @@ export function layout(W, H) {
   const L = 0.03 * W, R = W - L, T = Y(0.085), B = Y(0.94), mid = Y(0.5);
   const teeth = [];
   for (const fx of [0.19, 0.395, 0.605, 0.81]) teeth.push([fx * W, Y(0.215) + (fx < 0.3 || fx > 0.7 ? Y(0.012) - y0 : 0), Math.PI / 2, true]);
-  for (const s of [-1, 1]) for (const fy of [0.3, 0.375, 0.45]) teeth.push([s < 0 ? 0.115 * W : 0.885 * W, Y(fy), s < 0 ? 0 : Math.PI, true]);
-  for (const s of [-1, 1]) for (const [fy, fx] of [[0.56, 0.13], [0.635, 0.12], [0.71, 0.115]]) teeth.push([s < 0 ? fx * W : (1 - fx) * W, Y(fy), s < 0 ? 0 : Math.PI, false]);
+  for (const s of [-1, 1]) for (const fy of [0.305, 0.385, 0.465]) teeth.push([s < 0 ? 0.115 * W : 0.885 * W, Y(fy), Math.PI / 2, true]);
+  for (const s of [-1, 1]) for (const [fy, fx] of [[0.545, 0.13], [0.625, 0.12], [0.705, 0.115]]) teeth.push([s < 0 ? fx * W : (1 - fx) * W, Y(fy), -Math.PI / 2, false]);
   for (const fx of [0.19, 0.395, 0.605, 0.81]) teeth.push([fx * W, Y(0.815) - (fx < 0.3 || fx > 0.7 ? Y(0.012) - y0 : 0), -Math.PI / 2, false]);
   return { L, R, T, B, mid, teeth };
 }
 function tooth(c, x, y, dir, s, pressed) {
   c.save(); c.translate(x, y); c.rotate(dir - Math.PI / 2); // 끝이 +y 쪽
-  const w = 24 * s, h = 30 * s;
+  const w = 25 * s, h = 26 * s;
   // 잇몸 그림자
   c.beginPath(); c.ellipse(0, -h * 0.55, w * 1.05, h * 0.38, 0, 0, 7); c.fillStyle = 'rgba(60,0,10,.45)'; c.fill();
   if (pressed) { c.scale(0.86, 0.6); c.translate(0, -h * 0.35); }
   const g = c.createRadialGradient(-w * 0.3, -h * 0.2, 2, 0, 0, h * 1.1);
   g.addColorStop(0, pressed ? '#cfc8c0' : '#FFFFFF'); g.addColorStop(0.6, pressed ? '#a9a29a' : '#EDE8E2'); g.addColorStop(1, pressed ? '#8a837c' : '#B9B2AA');
-  c.beginPath(); c.moveTo(-w, -h * 0.5); c.bezierCurveTo(-w, h * 0.3, -w * 0.35, h * 0.95, 0, h); c.bezierCurveTo(w * 0.35, h * 0.95, w, h * 0.3, w, -h * 0.5);
+  c.beginPath(); c.moveTo(-w, -h * 0.5); c.bezierCurveTo(-w, h * 0.45, -w * 0.55, h, 0, h); c.bezierCurveTo(w * 0.55, h, w, h * 0.45, w, -h * 0.5);
   c.bezierCurveTo(w, -h * 0.85, -w, -h * 0.85, -w, -h * 0.5); c.closePath(); c.fillStyle = g; c.fill();
   c.lineWidth = 2; c.strokeStyle = 'rgba(90,60,50,.35)'; c.stroke();
   if (!pressed) { c.beginPath(); c.ellipse(-w * 0.35, -h * 0.15, w * 0.18, h * 0.3, 0.2, 0, 7); c.fillStyle = 'rgba(255,255,255,.8)'; c.fill(); }
@@ -70,7 +70,7 @@ export class Teeth {
     const pressed = new Set(this.presses.filter(([tt]) => tt <= t).map(([, i]) => i));
     const winP = this.presses.find(([, i]) => i === this.win), bt = winP ? t - winP[0] : -1;
     // 무는 동작: 0.15초 뒤 확 닫힘 → 0.9초 물고 있다가 → 천천히 벌림
-    let close = 0; if (bt > 0.12) { const u = bt - 0.12; close = u < 0.12 ? ease(u / 0.12) : u < 1.2 ? 1 : Math.max(0.55, 1 - (u - 1.2) * 0.8); }
+    let close = 0; if (bt > 0.12) { const u = bt - 0.12; close = u < 0.12 ? ease(u / 0.12) : u < 1.2 ? 1 : Math.max(0, 1 - (u - 1.2) / 0.6); }
     const gap = 0.1 * H * close;
     const shake = bt > 0.24 && bt < 0.7 ? Math.sin(bt * 70) * 4 : 0;
     c.fillStyle = '#0B0B10'; c.fillRect(0, 0, W, H);
