@@ -1,6 +1,7 @@
 package com.wolfgames.app.ui
 
 import android.graphics.Canvas
+import android.graphics.DashPathEffect
 import android.graphics.LinearGradient
 import android.graphics.Matrix
 import android.graphics.Paint
@@ -33,6 +34,8 @@ class Ctx(val c: Canvas, density: Float) {
     var fontSize = 16f
     var fontBold = true
     var lineCap = "round"
+    /** 점선 (웹 setLineDash). null = 실선 */
+    var lineDash: FloatArray? = null
 
     init { c.save(); c.scale(density, density) }
     fun finish() = c.restore()
@@ -93,6 +96,7 @@ class Ctx(val c: Canvas, density: Float) {
         strokeP.alpha = (Color8.a(strokeP.color) * globalAlpha).toInt().coerceIn(0, 255)
         strokeP.strokeWidth = lineWidth
         strokeP.strokeCap = if (lineCap == "butt") Paint.Cap.BUTT else Paint.Cap.ROUND
+        strokeP.pathEffect = lineDash?.let { DashPathEffect(it, 0f) }
         c.drawPath(path, strokeP)
     }
     fun fillRect(x: Float, y: Float, w: Float, h: Float) { beginPath(); rect(x, y, w, h); fill() }

@@ -205,7 +205,10 @@ fun MenuCard(emoji: String, title: String, subtitle: String, onClick: () -> Unit
             .padding(20.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(emoji, fontSize = 40.sp)
+        // "@coin" · "@ladder": 폰마다 다르게 나오는 이모지 대신 직접 그린 아이콘
+        val icon = when (emoji) { "@coin" -> com.wolfgames.app.R.drawable.coin_icon; "@ladder" -> com.wolfgames.app.R.drawable.ladder_icon; else -> 0 }
+        if (icon != 0) androidx.compose.foundation.Image(androidx.compose.ui.res.painterResource(icon), contentDescription = null, modifier = Modifier.size(46.dp))
+        else Text(emoji, fontSize = 40.sp)
         Spacer(Modifier.width(16.dp))
         Column(Modifier.weight(1f)) {
             Text(title, color = WG.Text, fontSize = 22.sp, fontWeight = FontWeight.Bold)

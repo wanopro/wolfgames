@@ -277,3 +277,105 @@ export function pirateHead2(ctx, cx, cy, r, mode, t = 0) {
     ctx.restore();
   }
 }
+
+// ===================== v1.5 =====================
+// 귀여운 늑대 앞발 (위에서 본 모양). palm=true 발바닥(젤리) / false 발등(털·발톱). 발끝은 위(-y) 방향
+const PFUR = '#9AA3AF', PFUR_D = '#7C8593', PFUR_L = '#C9CFD8', PAD = '#F6AFC0', PAD_D = '#E88BA3', POL = '#4E5561';
+export function wolfPaw(ctx, x, y, s, band, flip, palm, red = 0) {
+  ctx.save(); ctx.translate(x, y); if (flip) ctx.rotate(Math.PI); ctx.scale(s, s);
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const TOES = [[-32, -50, 15], [-12, -66, 16], [12, -66, 16], [32, -50, 15]];
+  // 발 모양: 동그란 발 + 발가락 4개 + 털 많은 팔목
+  const body = () => {
+    ctx.moveTo(-40, -40); ctx.bezierCurveTo(-58, -8, -50, 30, -34, 50);
+    // 팔목 바깥쪽 복슬 털
+    ctx.lineTo(-36, 64); ctx.lineTo(-30, 70); ctx.lineTo(-34, 82); ctx.lineTo(-28, 100); ctx.lineTo(28, 100); ctx.lineTo(34, 82); ctx.lineTo(30, 70); ctx.lineTo(36, 64); ctx.lineTo(34, 50);
+    ctx.bezierCurveTo(50, 30, 58, -8, 40, -40); ctx.bezierCurveTo(26, -62, -26, -62, -40, -40); ctx.closePath();
+  };
+  const parts = [body, ...TOES.map(([tx, ty, r]) => () => { ctx.ellipse(tx, ty, r, r * 1.08, 0, 0, 7); })];
+  const each = (fn) => { for (const pt of parts) { ctx.beginPath(); pt(); fn(); } };
+  ctx.save(); ctx.translate(4, 8); ctx.globalAlpha = 0.25; ctx.fillStyle = '#000'; each(() => ctx.fill()); ctx.restore();
+  ctx.lineWidth = 4.5; ctx.strokeStyle = POL; each(() => ctx.stroke());
+  const g = ctx.createRadialGradient(-10, -20, 8, 0, 0, 105);
+  if (palm) { g.addColorStop(0, '#E9ECF0'); g.addColorStop(1, '#B4BBC6'); } else { g.addColorStop(0, PFUR_L); g.addColorStop(1, PFUR_D); }
+  ctx.fillStyle = g; each(() => ctx.fill());
+  if (!palm) {
+    // 발등: 발가락 사이 선 + 털결 + 하얀 발톱 살짝
+    ctx.strokeStyle = 'rgba(78,85,97,.55)'; ctx.lineWidth = 2.4;
+    for (const xx of [-22, 0, 22]) { const y0 = xx ? -48 : -60; ctx.beginPath(); ctx.moveTo(xx, y0); ctx.lineTo(xx * 0.95, y0 + 12); ctx.stroke(); }
+    ctx.strokeStyle = 'rgba(255,255,255,.45)'; ctx.lineWidth = 2;
+    for (const [fx, fy] of [[-18, -10], [4, -4], [22, -14], [-8, 22], [14, 30], [-20, 44], [6, 58], [-4, 80]]) { ctx.beginPath(); ctx.moveTo(fx - 4, fy + 5); ctx.quadraticCurveTo(fx, fy - 2, fx + 4, fy + 5); ctx.stroke(); }
+    for (const [tx, ty, r] of TOES) { ctx.beginPath(); ctx.moveTo(tx - 3.5, ty - r + 2); ctx.quadraticCurveTo(tx, ty - r - 9, tx + 3.5, ty - r + 2); ctx.closePath(); ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = POL; ctx.stroke(); }
+  } else {
+    // 발바닥 젤리: 큰 패드 + 발가락 젤리 4개
+    const pad = (fn) => { ctx.beginPath(); fn(); const pg = ctx.createLinearGradient(0, -90, 0, 40); pg.addColorStop(0, PAD); pg.addColorStop(1, PAD_D); ctx.fillStyle = pg; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = '#C96F89'; ctx.stroke(); };
+    pad(() => { ctx.moveTo(0, -30); ctx.bezierCurveTo(16, -40, 36, -26, 32, -4); ctx.bezierCurveTo(30, 16, 14, 22, 0, 18); ctx.bezierCurveTo(-14, 22, -30, 16, -32, -4); ctx.bezierCurveTo(-36, -26, -16, -40, 0, -30); });
+    for (const [tx, ty, r] of TOES) pad(() => ctx.ellipse(tx, ty - 2, r * 0.62, r * 0.72, 0, 0, 7));
+    ctx.fillStyle = 'rgba(255,255,255,.6)';
+    for (const [tx, ty, r] of TOES) { ctx.beginPath(); ctx.ellipse(tx - r * 0.2, ty - r * 0.35, r * 0.17, r * 0.24, -0.4, 0, 7); ctx.fill(); }
+    ctx.beginPath(); ctx.ellipse(-12, -18, 7, 5, -0.5, 0, 7); ctx.fill();
+  }
+  // 맞은 자국 (빨갛게 + 털 쭈뼛)
+  if (red > 0) { ctx.save(); ctx.beginPath(); body(); ctx.clip(); ctx.globalAlpha = red * 0.85; const rg = ctx.createRadialGradient(0, -14, 4, 0, -14, 52); rg.addColorStop(0, '#FF3D57'); rg.addColorStop(1, 'rgba(255,61,87,0)'); ctx.fillStyle = rg; ctx.fillRect(-80, -130, 160, 200); ctx.restore(); }
+  // 팔목 밴드 (플레이어 색)
+  ctx.beginPath(); ctx.roundRect(-33, 84, 66, 16, 8); ctx.fillStyle = band; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(0,0,0,.35)'; ctx.stroke();
+  ctx.beginPath(); ctx.roundRect(-26, 87, 22, 5, 3); ctx.fillStyle = 'rgba(255,255,255,.45)'; ctx.fill();
+  // 팔 (화면 밖으로)
+  ctx.beginPath(); ctx.moveTo(-28, 100); ctx.lineTo(-30, 160); ctx.lineTo(30, 160); ctx.lineTo(28, 100); ctx.closePath(); ctx.fillStyle = palm ? '#B4BBC6' : PFUR_D; ctx.fill(); ctx.lineWidth = 4.5; ctx.strokeStyle = POL; ctx.stroke();
+  ctx.restore();
+}
+
+const CGOLD = '#FFC94A', CGOLD_D = '#E0A021', CGOLD_DD = '#A86E0C', CFUR = '#9AA3AF', CFUR_D = '#7C8593', CCREAM = '#F1EEE8', CINK = '#2B2B33', CPINK = '#F6AFC0';
+// ----- 동전 앞면: 귀여운 늑대 얼굴 -----
+function wolfFace(c, r) {
+  for (const s of [-1, 1]) { // 귀
+    c.beginPath(); c.moveTo(s * r * 0.2, -r * 0.42); c.lineTo(s * r * 0.62, -r * 0.92); c.lineTo(s * r * 0.72, -r * 0.22); c.closePath(); c.fillStyle = CFUR_D; c.fill();
+    c.beginPath(); c.moveTo(s * r * 0.34, -r * 0.42); c.lineTo(s * r * 0.58, -r * 0.74); c.lineTo(s * r * 0.62, -r * 0.32); c.closePath(); c.fillStyle = CPINK; c.fill();
+  }
+  c.beginPath(); c.ellipse(0, r * 0.02, r * 0.66, r * 0.58, 0, 0, 7); c.fillStyle = CFUR; c.fill(); // 머리
+  for (const s of [-1, 1]) { c.beginPath(); c.moveTo(s * r * 0.62, r * 0.05); c.lineTo(s * r * 0.8, r * 0.18); c.lineTo(s * r * 0.6, r * 0.28); c.closePath(); c.fillStyle = CFUR; c.fill(); } // 볼털
+  c.beginPath(); c.ellipse(0, r * 0.24, r * 0.34, r * 0.26, 0, 0, 7); c.fillStyle = CCREAM; c.fill(); // 주둥이
+  for (const s of [-1, 1]) { c.beginPath(); c.ellipse(s * r * 0.26, -r * 0.08, r * 0.11, r * 0.13, 0, 0, 7); c.fillStyle = CINK; c.fill();
+    c.beginPath(); c.arc(s * r * 0.23, -r * 0.13, r * 0.045, 0, 7); c.fillStyle = '#fff'; c.fill();
+    c.beginPath(); c.ellipse(s * r * 0.44, r * 0.16, r * 0.1, r * 0.06, 0, 0, 7); c.fillStyle = 'rgba(255,130,150,.55)'; c.fill(); }
+  c.beginPath(); c.ellipse(0, r * 0.13, r * 0.09, r * 0.065, 0, 0, 7); c.fillStyle = CINK; c.fill(); // 코
+  c.beginPath(); c.moveTo(-r * 0.12, r * 0.28); c.quadraticCurveTo(-r * 0.06, r * 0.36, 0, r * 0.28); c.quadraticCurveTo(r * 0.06, r * 0.36, r * 0.12, r * 0.28); c.strokeStyle = CINK; c.lineWidth = r * 0.04; c.lineCap = 'round'; c.stroke();
+  c.beginPath(); c.ellipse(0, r * 0.36, r * 0.05, r * 0.06, 0, 0, Math.PI); c.fillStyle = '#F48FB1'; c.fill(); // 혀
+}
+// ----- 동전 뒷면: 늑대 엉덩이 -----
+function wolfButt(c, r) {
+  // 꼬리 (위로 말린 복슬)
+  c.save(); c.beginPath(); c.moveTo(-r * 0.08, -r * 0.18); c.bezierCurveTo(-r * 0.3, -r * 0.7, r * 0.3, -r * 0.95, r * 0.34, -r * 0.52); c.bezierCurveTo(r * 0.36, -r * 0.3, r * 0.14, -r * 0.24, r * 0.1, -r * 0.16); c.closePath(); c.fillStyle = CFUR_D; c.fill();
+  c.beginPath(); c.ellipse(r * 0.24, -r * 0.62, r * 0.13, r * 0.11, 0.5, 0, 7); c.fillStyle = CCREAM; c.fill(); c.restore();
+  // 뒷다리 + 발바닥
+  for (const s of [-1, 1]) { c.beginPath(); c.ellipse(s * r * 0.3, r * 0.5, r * 0.16, r * 0.12, 0, 0, 7); c.fillStyle = CFUR_D; c.fill();
+    c.beginPath(); c.ellipse(s * r * 0.3, r * 0.52, r * 0.08, r * 0.06, 0, 0, 7); c.fillStyle = CPINK; c.fill(); }
+  // 엉덩이 두 쪽
+  for (const s of [-1, 1]) { c.beginPath(); c.arc(s * r * 0.24, r * 0.12, r * 0.34, 0, 7); c.fillStyle = CFUR; c.fill(); }
+  c.beginPath(); c.moveTo(0, -r * 0.1); c.quadraticCurveTo(r * 0.03, r * 0.15, 0, r * 0.4); c.strokeStyle = 'rgba(60,66,78,.6)'; c.lineWidth = r * 0.04; c.lineCap = 'round'; c.stroke();
+  for (const s of [-1, 1]) { c.beginPath(); c.ellipse(s * r * 0.3, r * 0.02, r * 0.1, r * 0.06, s * 0.4, 0, 7); c.fillStyle = 'rgba(255,255,255,.35)'; c.fill(); // 반짝
+    c.beginPath(); c.ellipse(s * r * 0.36, r * 0.24, r * 0.09, r * 0.05, 0, 0, 7); c.fillStyle = 'rgba(255,130,150,.45)'; c.fill(); } // 볼터치(?)
+}
+// 동전 (face: 1 앞, -1 뒤). sy: 세로 눌림(뒤집히는 중), 크기 r
+export function coin(c, x, y, r, face, sy = 1) {
+  c.save(); c.translate(x, y); c.scale(1, Math.max(0.04, sy));
+  c.beginPath(); c.arc(0, r * 0.07 / Math.max(0.2, sy), r, 0, 7); c.fillStyle = CGOLD_DD; c.fill(); // 두께
+  const g = c.createRadialGradient(-r * 0.3, -r * 0.35, r * 0.1, 0, 0, r); g.addColorStop(0, '#FFE9A6'); g.addColorStop(0.6, CGOLD); g.addColorStop(1, CGOLD_D);
+  c.beginPath(); c.arc(0, 0, r, 0, 7); c.fillStyle = g; c.fill(); c.lineWidth = r * 0.06; c.strokeStyle = CGOLD_DD; c.stroke();
+  c.beginPath(); c.arc(0, 0, r * 0.84, 0, 7); c.lineWidth = r * 0.035; c.strokeStyle = 'rgba(168,110,12,.55)'; c.stroke();
+  for (let k = 0; k < 24; k++) { const a = k / 24 * Math.PI * 2; c.beginPath(); c.arc(Math.cos(a) * r * 0.92, Math.sin(a) * r * 0.92, r * 0.025, 0, 7); c.fillStyle = 'rgba(168,110,12,.5)'; c.fill(); }
+  c.save(); c.beginPath(); c.arc(0, 0, r * 0.8, 0, 7); c.clip(); c.translate(0, r * 0.02); if (face > 0) wolfFace(c, r * 0.95); else wolfButt(c, r * 0.95); c.restore();
+  c.beginPath(); c.ellipse(-r * 0.45, -r * 0.5, r * 0.22, r * 0.09, -0.7, 0, 7); c.fillStyle = 'rgba(255,255,255,.35)'; c.fill();
+  c.restore();
+}
+// 옆에서 본 동전 (세로로 선 모습)
+export function coinEdge(c, x, y, r, wob) {
+  c.save(); c.translate(x, y); c.rotate(wob);
+  const w = r * 0.26, h = r * 2;
+  c.beginPath(); c.roundRect(-w / 2, -h, w, h, w * 0.45); c.fillStyle = CGOLD_D; c.fill(); c.lineWidth = 3; c.strokeStyle = CGOLD_DD; c.stroke();
+  for (let k = 1; k < 14; k++) { c.beginPath(); c.moveTo(-w / 2 + 2, -h + k * h / 14); c.lineTo(w / 2 - 2, -h + k * h / 14); c.strokeStyle = 'rgba(168,110,12,.6)'; c.lineWidth = 1.5; c.stroke(); }
+  c.beginPath(); c.roundRect(-w / 2 + 3, -h + 6, w * 0.3, h - 12, 3); c.fillStyle = 'rgba(255,240,190,.6)'; c.fill();
+  c.restore();
+  c.beginPath(); c.ellipse(x, y + 2, r * 0.5, r * 0.1, 0, 0, 7); c.fillStyle = 'rgba(0,0,0,.35)'; c.fill();
+}
+

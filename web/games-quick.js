@@ -24,7 +24,7 @@ export function splitStage(root, title, onBack, game) {
     const r = cv.canvas.getBoundingClientRect(), p = [e.clientX - r.left, e.clientY - r.top];
     if (Math.hypot(p[0] - r.width / 2, p[1] - r.height / 2) < 48) { game.hub && game.hub(now()); return; }
     const i = secs.findIndex((sc) => inPoly(p, sc.poly));
-    if (i >= 0) game.tap(i, now());
+    if (i >= 0) game.tap(i, now(), p, secs[i]);
   });
   return cv;
 }

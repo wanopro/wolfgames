@@ -289,3 +289,111 @@ fun Ctx.pirateHead2(cx: Float, cy: Float, r: Float, mode: String, t: Float = 0f)
         restore()
     }
 }
+
+// ===================== v1.5 =====================
+// 귀여운 늑대 앞발 (위에서 본 모양). palm=true 발바닥(젤리) / false 발등(털·발톱). 발끝은 위(-y) 방향 — 웹 wolfPaw 와 같음
+private const val PFUR_D = "#7C8593"
+private const val PFUR_L = "#C9CFD8"
+private const val PAD = "#F6AFC0"
+private const val PAD_D = "#E88BA3"
+private const val POL = "#4E5561"
+private val TOES = listOf(floatArrayOf(-32f, -50f, 15f), floatArrayOf(-12f, -66f, 16f), floatArrayOf(12f, -66f, 16f), floatArrayOf(32f, -50f, 15f))
+
+fun Ctx.wolfPaw(x: Float, y: Float, s: Float, band: String, flip: Boolean, palm: Boolean, red: Float = 0f) {
+    save(); translate(x, y); if (flip) rotate(PIf); scale(s, s)
+    val body: Ctx.() -> Unit = {
+        moveTo(-40f, -40f); bezierCurveTo(-58f, -8f, -50f, 30f, -34f, 50f)
+        lineTo(-36f, 64f); lineTo(-30f, 70f); lineTo(-34f, 82f); lineTo(-28f, 100f); lineTo(28f, 100f); lineTo(34f, 82f); lineTo(30f, 70f); lineTo(36f, 64f); lineTo(34f, 50f)
+        bezierCurveTo(50f, 30f, 58f, -8f, 40f, -40f); bezierCurveTo(26f, -62f, -26f, -62f, -40f, -40f); closePath()
+    }
+    val parts: List<Ctx.() -> Unit> = listOf(body) + TOES.map { tt -> { ellipse(tt[0], tt[1], tt[2], tt[2] * 1.08f, 0f, 0f, TAU) } }
+    fun each(fn: Ctx.() -> Unit) { for (p in parts) { beginPath(); p(); fn() } }
+    save(); translate(4f, 8f); globalAlpha = 0.25f; fillStyle = "#000"; each { fill() }; restore()
+    lineWidth = 4.5f; strokeStyle = POL; each { stroke() }
+    if (palm) radialFill(-5f, -10f, 8f, 105f, listOf(0f to "#E9ECF0", 1f to "#B4BBC6")) else radialFill(-5f, -10f, 8f, 105f, listOf(0f to PFUR_L, 1f to PFUR_D))
+    each { fill() }
+    if (!palm) {
+        strokeStyle = "rgba(78,85,97,.55)"; lineWidth = 2.4f
+        for (xx in listOf(-22f, 0f, 22f)) { val y0 = if (xx != 0f) -48f else -60f; beginPath(); moveTo(xx, y0); lineTo(xx * 0.95f, y0 + 12f); stroke() }
+        strokeStyle = "rgba(255,255,255,.45)"; lineWidth = 2f
+        for ((fx, fy) in listOf(-18f to -10f, 4f to -4f, 22f to -14f, -8f to 22f, 14f to 30f, -20f to 44f, 6f to 58f, -4f to 80f)) { beginPath(); moveTo(fx - 4, fy + 5); quadraticCurveTo(fx, fy - 2, fx + 4, fy + 5); stroke() }
+        for (tt in TOES) { val tx = tt[0]; val ty = tt[1]; val r = tt[2]
+            beginPath(); moveTo(tx - 3.5f, ty - r + 2); quadraticCurveTo(tx, ty - r - 9, tx + 3.5f, ty - r + 2); closePath(); fillStyle = "#FFFFFF"; fill(); lineWidth = 1.5f; strokeStyle = POL; stroke() }
+    } else {
+        fun pad(fn: Ctx.() -> Unit) { beginPath(); fn(); linearFill(0f, -90f, 0f, 40f, PAD, PAD_D); fill(); lineWidth = 2.5f; strokeStyle = "#C96F89"; stroke() }
+        pad { moveTo(0f, -30f); bezierCurveTo(16f, -40f, 36f, -26f, 32f, -4f); bezierCurveTo(30f, 16f, 14f, 22f, 0f, 18f); bezierCurveTo(-14f, 22f, -30f, 16f, -32f, -4f); bezierCurveTo(-36f, -26f, -16f, -40f, 0f, -30f); closePath() }
+        for (tt in TOES) pad { ellipse(tt[0], tt[1] - 2, tt[2] * 0.62f, tt[2] * 0.72f, 0f, 0f, TAU) }
+        fillStyle = "rgba(255,255,255,.6)"
+        for (tt in TOES) { beginPath(); ellipse(tt[0] - tt[2] * 0.2f, tt[1] - tt[2] * 0.35f, tt[2] * 0.17f, tt[2] * 0.24f, -0.4f, 0f, TAU); fill() }
+        beginPath(); ellipse(-12f, -18f, 7f, 5f, -0.5f, 0f, TAU); fill()
+    }
+    if (red > 0f) { save(); beginPath(); body(); clip(); globalAlpha = red * 0.85f; radialFill(0f, -14f, 4f, 52f, listOf(0f to "#FF3D57", 1f to "rgba(255,61,87,0)")); fillRect(-80f, -130f, 160f, 200f); restore() }
+    beginPath(); roundRect(-33f, 84f, 66f, 16f, 8f); fillStyle = band; fill(); lineWidth = 3f; strokeStyle = "rgba(0,0,0,.35)"; stroke()
+    beginPath(); roundRect(-26f, 87f, 22f, 5f, 3f); fillStyle = "rgba(255,255,255,.45)"; fill()
+    beginPath(); moveTo(-28f, 100f); lineTo(-30f, 160f); lineTo(30f, 160f); lineTo(28f, 100f); closePath(); fillStyle = if (palm) "#B4BBC6" else PFUR_D; fill(); lineWidth = 4.5f; strokeStyle = POL; stroke()
+    restore()
+}
+
+// ----- 동전: 앞면 귀여운 늑대 얼굴 / 뒷면 늑대 엉덩이 (웹 coin 과 같음) -----
+private const val CGOLD = "#FFC94A"
+private const val CGOLD_D = "#E0A021"
+private const val CGOLD_DD = "#A86E0C"
+private const val CFUR = "#9AA3AF"
+private const val CFUR_D = "#7C8593"
+private const val CCREAM = "#F1EEE8"
+private const val CPINK = "#F6AFC0"
+
+private fun Ctx.coinWolfFace(r: Float) {
+    for (s in SIDES) {
+        beginPath(); moveTo(s * r * 0.2f, -r * 0.42f); lineTo(s * r * 0.62f, -r * 0.92f); lineTo(s * r * 0.72f, -r * 0.22f); closePath(); fillStyle = CFUR_D; fill()
+        beginPath(); moveTo(s * r * 0.34f, -r * 0.42f); lineTo(s * r * 0.58f, -r * 0.74f); lineTo(s * r * 0.62f, -r * 0.32f); closePath(); fillStyle = CPINK; fill()
+    }
+    beginPath(); ellipse(0f, r * 0.02f, r * 0.66f, r * 0.58f, 0f, 0f, TAU); fillStyle = CFUR; fill()
+    for (s in SIDES) { beginPath(); moveTo(s * r * 0.62f, r * 0.05f); lineTo(s * r * 0.8f, r * 0.18f); lineTo(s * r * 0.6f, r * 0.28f); closePath(); fillStyle = CFUR; fill() }
+    beginPath(); ellipse(0f, r * 0.24f, r * 0.34f, r * 0.26f, 0f, 0f, TAU); fillStyle = CCREAM; fill()
+    for (s in SIDES) {
+        beginPath(); ellipse(s * r * 0.26f, -r * 0.08f, r * 0.11f, r * 0.13f, 0f, 0f, TAU); fillStyle = INK; fill()
+        beginPath(); arc(s * r * 0.23f, -r * 0.13f, r * 0.045f, 0f, TAU); fillStyle = "#fff"; fill()
+        beginPath(); ellipse(s * r * 0.44f, r * 0.16f, r * 0.1f, r * 0.06f, 0f, 0f, TAU); fillStyle = "rgba(255,130,150,.55)"; fill()
+    }
+    beginPath(); ellipse(0f, r * 0.13f, r * 0.09f, r * 0.065f, 0f, 0f, TAU); fillStyle = INK; fill()
+    beginPath(); moveTo(-r * 0.12f, r * 0.28f); quadraticCurveTo(-r * 0.06f, r * 0.36f, 0f, r * 0.28f); quadraticCurveTo(r * 0.06f, r * 0.36f, r * 0.12f, r * 0.28f); strokeStyle = INK; lineWidth = r * 0.04f; stroke()
+    beginPath(); ellipse(0f, r * 0.36f, r * 0.05f, r * 0.06f, 0f, 0f, PIf); fillStyle = "#F48FB1"; fill()
+}
+private fun Ctx.coinWolfButt(r: Float) {
+    beginPath(); moveTo(-r * 0.08f, -r * 0.18f); bezierCurveTo(-r * 0.3f, -r * 0.7f, r * 0.3f, -r * 0.95f, r * 0.34f, -r * 0.52f); bezierCurveTo(r * 0.36f, -r * 0.3f, r * 0.14f, -r * 0.24f, r * 0.1f, -r * 0.16f); closePath(); fillStyle = CFUR_D; fill()
+    beginPath(); ellipse(r * 0.24f, -r * 0.62f, r * 0.13f, r * 0.11f, 0.5f, 0f, TAU); fillStyle = CCREAM; fill()
+    for (s in SIDES) {
+        beginPath(); ellipse(s * r * 0.3f, r * 0.5f, r * 0.16f, r * 0.12f, 0f, 0f, TAU); fillStyle = CFUR_D; fill()
+        beginPath(); ellipse(s * r * 0.3f, r * 0.52f, r * 0.08f, r * 0.06f, 0f, 0f, TAU); fillStyle = CPINK; fill()
+    }
+    for (s in SIDES) { beginPath(); arc(s * r * 0.24f, r * 0.12f, r * 0.34f, 0f, TAU); fillStyle = CFUR; fill() }
+    beginPath(); moveTo(0f, -r * 0.1f); quadraticCurveTo(r * 0.03f, r * 0.15f, 0f, r * 0.4f); strokeStyle = "rgba(60,66,78,.6)"; lineWidth = r * 0.04f; stroke()
+    for (s in SIDES) {
+        beginPath(); ellipse(s * r * 0.3f, r * 0.02f, r * 0.1f, r * 0.06f, s * 0.4f, 0f, TAU); fillStyle = "rgba(255,255,255,.35)"; fill()
+        beginPath(); ellipse(s * r * 0.36f, r * 0.24f, r * 0.09f, r * 0.05f, 0f, 0f, TAU); fillStyle = "rgba(255,130,150,.45)"; fill()
+    }
+}
+/** 동전 (face: 1 앞, -1 뒤). sy: 세로로 눌림(뒤집히는 중) */
+fun Ctx.coin(x: Float, y: Float, r: Float, face: Int, sy: Float = 1f) {
+    save(); translate(x, y); scale(1f, max(0.04f, sy))
+    beginPath(); arc(0f, r * 0.07f / max(0.2f, sy), r, 0f, TAU); fillStyle = CGOLD_DD; fill()
+    beginPath(); arc(0f, 0f, r, 0f, TAU); radialFill(-r * 0.15f, -r * 0.18f, r * 0.1f, r, listOf(0f to "#FFE9A6", 0.6f to CGOLD, 1f to CGOLD_D)); fill(); lineWidth = r * 0.06f; strokeStyle = CGOLD_DD; stroke()
+    beginPath(); arc(0f, 0f, r * 0.84f, 0f, TAU); lineWidth = r * 0.035f; strokeStyle = "rgba(168,110,12,.55)"; stroke()
+    fillStyle = "rgba(168,110,12,.5)"
+    for (k in 0 until 24) { val a = k / 24f * 2 * PIf; beginPath(); arc(cos(a) * r * 0.92f, sin(a) * r * 0.92f, r * 0.025f, 0f, TAU); fill() }
+    save(); beginPath(); arc(0f, 0f, r * 0.8f, 0f, TAU); clip(); translate(0f, r * 0.02f); if (face > 0) coinWolfFace(r * 0.95f) else coinWolfButt(r * 0.95f); restore()
+    beginPath(); ellipse(-r * 0.45f, -r * 0.5f, r * 0.22f, r * 0.09f, -0.7f, 0f, TAU); fillStyle = "rgba(255,255,255,.35)"; fill()
+    restore()
+}
+/** 옆에서 본 동전 (세로로 선 모습) */
+fun Ctx.coinEdge(x: Float, y: Float, r: Float, wob: Float) {
+    save(); translate(x, y); rotate(wob)
+    val w = r * 0.26f; val h = r * 2
+    beginPath(); roundRect(-w / 2, -h, w, h, w * 0.45f); fillStyle = CGOLD_D; fill(); lineWidth = 3f; strokeStyle = CGOLD_DD; stroke()
+    strokeStyle = "rgba(168,110,12,.6)"; lineWidth = 1.5f
+    for (k in 1 until 14) { beginPath(); moveTo(-w / 2 + 2, -h + k * h / 14); lineTo(w / 2 - 2, -h + k * h / 14); stroke() }
+    beginPath(); roundRect(-w / 2 + 3, -h + 6, w * 0.3f, h - 12, 3f); fillStyle = "rgba(255,240,190,.6)"; fill()
+    restore()
+    beginPath(); ellipse(x, y + 2, r * 0.5f, r * 0.1f, 0f, 0f, TAU); fillStyle = "rgba(0,0,0,.35)"; fill()
+}

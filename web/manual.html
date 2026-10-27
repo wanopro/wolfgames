@@ -144,7 +144,7 @@ function render(lang) {
   <p class="illu" style="font-size:15px;color:var(--text)">${t.howIntro}</p>
   ${t.howKeys.map(([shot, key], k) => `
     <div class="step"><img src="${img(shot)}" alt="${s[key]}" loading="lazy"><div>
-      <h3>${t.howEmoji[k] ? t.howEmoji[k] + ' ' : ''}${s[key]}</h3>
+      <h3>${t.howEmoji[k] ? (t.howEmoji[k].startsWith('icons/') ? `<img src="${t.howEmoji[k]}" alt="" style="width:1.2em;height:1.2em;vertical-align:-0.22em"> ` : t.howEmoji[k] + ' ') : ''}${s[key]}</h3>
       <ol class="list">${t.steps[k].map((x) => `<li>${x}</li>`).join('')}</ol>
     </div></div>`).join('')}
   <h2 id="new">${t.hNew}</h2>

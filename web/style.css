@@ -215,3 +215,26 @@ canvas { display: block; touch-action: none; }
 .alanes { display: flex; gap: 6px; width: 100%; flex: none; flex-wrap: wrap; }
 .alanes div { flex: 1 1 60px; background: var(--surface); border-radius: 12px; padding: 6px 0; display: flex; flex-direction: column; align-items: center; }
 .alanes small { font-size: 11px; color: var(--sub); white-space: nowrap; }
+
+/* ---------- v1.5: 연락처 QR ---------- */
+.qrfull { position: absolute; inset: 0; background: #fff; color: #111; display: flex; flex-direction: column; align-items: center; padding: calc(18px + env(safe-area-inset-top)) 16px calc(16px + env(safe-area-inset-bottom)); overflow: auto; touch-action: pan-y; }
+.qrtabs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.qrtab { padding: 8px 14px; border-radius: 20px; background: #eee; color: #222; font-weight: 800; font-size: 14px; border: 0; }
+.qrtab.on { color: #fff; }
+.qrbox { margin-top: 18px; width: min(78vw, 46vh, 340px); aspect-ratio: 1; border: 7px solid #E1306C; border-radius: 24px; padding: 14px; box-sizing: border-box; background: #fff; }
+.qrwho { font-weight: 900; font-size: 26px; margin-top: 16px; word-break: break-all; text-align: center; }
+.qrhint { color: #666; font-size: 14px; margin-top: 6px; text-align: center; }
+.qrdots { display: flex; gap: 6px; margin-top: 14px; }
+.qrdots i { width: 8px; height: 8px; border-radius: 4px; background: #ccc; }
+.qrdots i.on { width: 20px; background: #333; }
+.qrbar { margin-top: auto; padding-top: 18px; display: flex; gap: 10px; width: 100%; max-width: 420px; }
+.qrbtn, .qrbtn2 { flex: 1; height: 50px; border-radius: 26px; font-weight: 800; font-size: 16px; border: 0; }
+.qrbtn { background: #111; color: #fff; }
+.qrbtn2 { background: #eee; color: #222; }
+.qrow { display: flex; align-items: center; gap: 10px; background: var(--surface); border-radius: 14px; padding: 10px 12px; }
+.qic { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font-weight: 900; font-size: 17px; flex: none; }
+.qrow input { flex: 1; min-width: 0; background: var(--bg); border: 1px solid #333; border-radius: 10px; color: var(--text); padding: 10px; font-size: 15px; }
+.qtog { width: 42px; height: 24px; border-radius: 12px; background: #444; border: 0; position: relative; flex: none; }
+.qtog::after { content: ''; position: absolute; left: 3px; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: #999; transition: left .15s; }
+.qtog.on { background: var(--accent); }
+.qtog.on::after { left: 21px; background: #000; }

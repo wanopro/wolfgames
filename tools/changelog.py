@@ -3,6 +3,64 @@
 # 각 항목: (이모지, 6개 언어 문장)
 
 CHANGELOG = [
+    dict(ver='1.5', date='2026-10-27', items=[
+        ('🎀', dict(
+            ko='🎀 탭 줄다리기 추가 (대결게임): 위·아래로 마주 앉아 연타해서 깃발을 상대 쪽 선까지 밀어내기',
+            en='New 🎀 Tap Tug of War (Battle): sit face to face and mash to push the flag past the other side\'s line',
+            ja='🎀 タップ綱引き追加（対決ゲーム）：上下に向かい合って連打し、旗を相手側の線まで押し込む',
+            zh='新增🎀 点击拔河（对战游戏）：上下面对面狂点，把旗推过对方的线',
+            th='เพิ่ม 🎀 ชักเย่อแตะรัว (เกมดวล): นั่งหันหน้าเข้าหากัน แตะรัวดันธงไปถึงเส้นฝั่งตรงข้าม',
+            vi='Thêm 🎀 Kéo co chạm (Đối kháng): ngồi đối diện, chạm thật nhanh đẩy cờ qua vạch bên kia',
+        )),
+        ('🐾', dict(
+            ko='🐾 슬랩 대결 추가 (대결게임): 귀여운 늑대 앞발로 하는 손등 때리기 — 수비는 꾹 누르고 있다가 피하기!',
+            en='New 🐾 Slap Duel (Battle): Red Hands with cute wolf paws — the defender holds, then lifts to dodge!',
+            ja='🐾 スラップ対決追加（対決ゲーム）：かわいいオオカミの前足で手の甲たたき — 守りは押さえておいて離してよける！',
+            zh='新增🐾 拍手背对决（对战游戏）：用可爱的狼爪玩拍手背 — 防守方按住，松开就能躲！',
+            th='เพิ่ม 🐾 ดวลตบมือ (เกมดวล): ตบหลังมือด้วยอุ้งเท้าหมาป่าน่ารัก ฝ่ายรับกดค้างแล้วยกหลบ!',
+            vi='Thêm 🐾 Đấu đập tay (Đối kháng): trò đập mu bàn tay bằng chân sói dễ thương — phòng thủ giữ tay rồi nhấc lên để né!',
+        )),
+        ('👑', dict(
+            ko='👑 글로벌 킹스컵 추가 (카드): 카드마다 그림으로 할 일 표시, K가 나올 때마다 킹스컵 잔이 차고 4번째 K는 원샷',
+            en="New 👑 Global King's Cup (Cards): every card shows its rule as a picture; the cup fills with each King and the 4th King drinks it",
+            ja='👑 グローバル・キングスカップ追加（カード）：カードごとにやることを絵で表示、Kが出るたびに杯が満ち4枚目のKで一気',
+            zh='新增👑 全球国王杯（扑克）：每张牌用图显示规则，每出一张K杯子就满一点，第4张K干杯',
+            th='เพิ่ม 👑 คิงส์คัพสากล (ไพ่): ทุกใบบอกกติกาเป็นรูป ได้ K แก้วจะเต็มขึ้น K ใบที่ 4 หมดแก้ว',
+            vi="Thêm 👑 King's Cup toàn cầu (Bài): mỗi lá hiện luật bằng hình, mỗi lá K làm ly đầy thêm, lá K thứ 4 phải cạn ly",
+        )),
+        ('🍺', dict(
+            ko='🍺 맥주 거품 채우기 추가 (순발력게임): 점점 빨리 차오르는 맥주를 선에 맞춰 멈추기, 넘치면 꼴찌',
+            en='New 🍺 Beer Pour (Quick Games): stop the ever-faster beer right at the line — overflow means last place',
+            ja='🍺 ビール注ぎ追加（反射神経ゲーム）：どんどん速くなるビールを線で止める、あふれたらビリ',
+            zh='新增🍺 倒啤酒（反应游戏）：越倒越快的啤酒要停在线上，溢出就垫底',
+            th='เพิ่ม 🍺 รินเบียร์ (เกมไหวพริบ): หยุดเบียร์ที่เติมเร็วขึ้นเรื่อยๆ ให้ตรงเส้น ล้นแก้วได้ที่โหล่',
+            vi='Thêm 🍺 Rót bia (Phản xạ): dừng bia đang rót ngày càng nhanh đúng vạch — tràn là bét',
+        )),
+        ('🪙', dict(
+            ko='🪙 동전 던지기 추가 (운빨게임): 최대 8명이 앞(늑대 얼굴)·뒤(늑대 엉덩이)를 고르고 동전이 빙글빙글, 가끔(15%) 세로로 서면 전원 틀림',
+            en='New 🪙 Coin Toss (Luck Games): up to 8 players pick heads (wolf face) or tails (wolf butt); sometimes (15%) it lands on its edge and everyone loses',
+            ja='🪙 コイントス追加（運ゲー）：最大8人が表（オオカミの顔）・裏（おしり）を選んでコインがくるくる、ときどき（15%）立つと全員はずれ',
+            zh='新增🪙 抛硬币（拼手气）：最多8人选正面（狼脸）或反面（狼屁股），有时（15%）硬币立起来全员猜错',
+            th='เพิ่ม 🪙 โยนเหรียญ (เกมดวง): สูงสุด 8 คนเลือกหัว (หน้าหมาป่า) หรือก้อย (ก้น) บางครั้ง (15%) เหรียญตั้งขึ้นผิดทุกคน',
+            vi='Thêm 🪙 Tung đồng xu (May rủi): tối đa 8 người chọn sấp (mặt sói) hoặc ngửa (mông sói); thỉnh thoảng (15%) đồng xu đứng thẳng và tất cả đều sai',
+        )),
+        ('▦', dict(
+            ko='▦ 내 연락처 QR: 메인 화면 QR 버튼 → 인스타·왓츠앱·틱톡·라인·카톡 등 내 SNS를 풀화면 QR로 (정보는 내 폰에만 저장)',
+            en='▦ My Contact QR: QR button on the main screen → show your Instagram, WhatsApp, TikTok, LINE and more as a full-screen QR (saved only on your phone)',
+            ja='▦ 連絡先QR：メイン画面のQRボタン → インスタ・WhatsApp・TikTok・LINEなど自分のSNSを全画面QRで（情報は自分のスマホだけに保存）',
+            zh='▦ 我的联系方式二维码：主界面 QR 按钮 → 把 Instagram、WhatsApp、TikTok、LINE 等变成全屏二维码（只保存在自己手机上）',
+            th='▦ QR ติดต่อของฉัน: ปุ่ม QR ที่หน้าหลัก → โชว์ IG, WhatsApp, TikTok, LINE ฯลฯ เป็น QR เต็มจอ (เก็บไว้ในมือถือตัวเองเท่านั้น)',
+            vi='▦ QR liên hệ: nút QR ở màn hình chính → hiện Instagram, WhatsApp, TikTok, LINE… thành QR toàn màn hình (chỉ lưu trên điện thoại của bạn)',
+        )),
+        ('💁', dict(
+            ko='💁 계산기에 팁 계산 추가 (N빵과 환전 사이): 5~30% 골라서 팁과 팁 포함 합계 보기, 팁 포함 N빵도 바로',
+            en='💁 Tip calculator added (between Split and Exchange): pick 5–30% to see the tip and total, then split it right away',
+            ja='💁 電卓にチップ計算を追加（割り勘と両替の間）：5〜30%を選んでチップとチップ込み合計、そのまま割り勘も',
+            zh='💁 计算器新增小费计算（AA 和汇率之间）：选 5~30% 查看小费和合计，还能直接含小费 AA',
+            th='💁 เพิ่มคำนวณทิปในเครื่องคิดเลข (ระหว่างหารบิลกับแลกเงิน): เลือก 5–30% ดูทิปและยอดรวม หารบิลรวมทิปได้เลย',
+            vi='💁 Thêm tính tiền tip trong máy tính (giữa Chia tiền và Đổi tiền): chọn 5–30% để xem tip và tổng, chia luôn kèm tip',
+        )),
+    ]),
     dict(ver='1.4', date='2026-10-23', items=[
         ('⚡', dict(
             ko='⚡ 순발력게임 카테고리 추가: 반응속도 대결 · 색 반응 대결 · 스탑워치 (화면이 원형으로 같은 크기로 나뉘어 각자 터치)',

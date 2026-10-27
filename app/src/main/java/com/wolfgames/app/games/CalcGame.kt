@@ -164,6 +164,8 @@ fun CalculatorScreen(onBack: () -> Unit, onExchange: () -> Unit) {
     val s = LocalStrings.current
     val vibe = LocalVibe.current
     var splitOpen by remember { mutableStateOf(false) }
+    var tipOpen by remember { mutableStateOf(false) }
+    var splitAmount by remember { mutableStateOf<Double?>(null) }
     val t = CalcState.tokens
 
     GameScaffold(s.calcTitle, onBack) {
@@ -182,7 +184,8 @@ fun CalculatorScreen(onBack: () -> Unit, onExchange: () -> Unit) {
                 Text(main, color = WG.Text, fontSize = if (main.length > 12) 34.sp else 52.sp, fontWeight = FontWeight.Light, textAlign = TextAlign.End)
             }
             Row(Modifier.fillMaxWidth().padding(bottom = 10.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                BigButton(s.splitBtn, Modifier.weight(1f), color = WG.Surface2, contentColor = WG.Accent) { splitOpen = true }
+                BigButton(s.splitBtn, Modifier.weight(1f), color = WG.Surface2, contentColor = WG.Accent) { splitAmount = null; splitOpen = true }
+                BigButton(s.tipBtn, Modifier.weight(1f), color = WG.Surface2, contentColor = WG.Accent) { tipOpen = true }
                 BigButton(s.fxBtn, Modifier.weight(1f), color = WG.Surface2, contentColor = WG.Accent) { onExchange() }
             }
             val keys = listOf("C", "⌫", "%", "÷", "7", "8", "9", "×", "4", "5", "6", "−", "1", "2", "3", "+", "00", "0", ".", "=")
@@ -212,7 +215,8 @@ fun CalculatorScreen(onBack: () -> Unit, onExchange: () -> Unit) {
             }
         }
     }
-    if (splitOpen) SplitDialog(CalcState.value()) { splitOpen = false }
+    if (splitOpen) SplitDialog(splitAmount ?: CalcState.value()) { splitOpen = false }
+    if (tipOpen) TipDialog(CalcState.value(), onSplit = { splitAmount = it; tipOpen = false; splitOpen = true }) { tipOpen = false }
 }
 
 // ---------------- 🍻 N빵 ----------------
@@ -261,6 +265,54 @@ private fun SplitDialog(total: Double, onClose: () -> Unit) {
                 }
             }
             BigButton("OK", Modifier.fillMaxWidth()) { onClose() }
+        }
+    }
+}
+
+// ---------------- 💁 팁 ----------------
+@Composable
+private fun TipDialog(total: Double, onSplit: (Double) -> Unit, onClose: () -> Unit) {
+    val s = LocalStrings.current
+    val vibe = LocalVibe.current
+    val prefs = LocalContext.current.getSharedPreferences("wolfgames", Context.MODE_PRIVATE)
+    var pct by remember { mutableIntStateOf(prefs.getInt("tip_pct", 15)) }
+    Dialog(onDismissRequest = onClose) {
+        Column(
+            Modifier.fillMaxWidth().clip(RoundedCornerShape(24.dp)).background(WG.Surface).padding(18.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            Text(s.tipTitle, color = WG.Text, fontSize = 22.sp, fontWeight = FontWeight.Black, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+            Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(WG.Bg).padding(horizontal = 16.dp, vertical = 12.dp)) {
+                Text(s.tipAmount, color = WG.SubText, fontSize = 18.sp, modifier = Modifier.weight(1f))
+                Text(fmt(total, 2), color = WG.Text, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            }
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                for (p in listOf(5, 10, 15, 20, 25, 30)) {
+                    Box(
+                        Modifier.weight(1f).height(46.dp).clip(RoundedCornerShape(12.dp))
+                            .background(if (pct == p) WG.Accent else WG.Surface2)
+                            .clickable { vibe.tap(); pct = p; prefs.edit().putInt("tip_pct", p).apply() },
+                        contentAlignment = Alignment.Center,
+                    ) { Text("$p%", color = if (pct == p) Color.Black else WG.Text, fontWeight = FontWeight.ExtraBold, fontSize = 15.sp) }
+                }
+            }
+            if (total <= 0) {
+                Text(s.splitNeedTotal, color = WG.SubText, fontSize = 16.sp, modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp), textAlign = TextAlign.Center)
+            } else {
+                val tip = total * pct / 100
+                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(s.tipLabel(pct), color = WG.SubText, fontSize = 15.sp)
+                    Text(fmt(tip, 2), color = WG.Accent, fontSize = 44.sp, fontWeight = FontWeight.Black)
+                }
+                Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(WG.Bg).padding(horizontal = 16.dp, vertical = 12.dp)) {
+                    Text(s.tipTotal, color = WG.SubText, fontSize = 18.sp, modifier = Modifier.weight(1f))
+                    Text(fmt(total + tip, 2), color = WG.Text, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                }
+            }
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                BigButton(s.tipSplit, Modifier.weight(1f), color = WG.Surface2, contentColor = WG.Accent) { onSplit(total * (1 + pct / 100.0)) }
+                BigButton("OK", Modifier.weight(1f)) { onClose() }
+            }
         }
     }
 }

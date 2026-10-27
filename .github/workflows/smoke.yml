@@ -1,4 +1,4 @@
-name: 실행 점검 (에뮬레이터)
+name: 화면 점검 (에뮬레이터)
 
 on:
   workflow_dispatch:
@@ -25,25 +25,12 @@ jobs:
           api-level: 34
           arch: x86_64
           target: google_apis
+          profile: pixel_5
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim
-          script: |
-            adb install -r app/build/outputs/apk/debug/app-debug.apk
-            adb logcat -c
-            adb shell monkey -p com.wolfgames.app -c android.intent.category.LAUNCHER 1
-            sleep 20
-            adb logcat -d -b crash > crash.txt || true
-            adb logcat -d | grep -E "AndroidRuntime|FATAL|wolfgames" | tail -200 > log.txt || true
-            adb shell pidof com.wolfgames.app || echo "NOT RUNNING"
-            adb exec-out screencap -p > shot.png
-            (adb shell pidof com.wolfgames.app || echo "NOT RUNNING") > status.txt
-            cat crash.txt
+          script: bash tools/smoke.sh
       - name: 결과를 smoke-results 브랜치에 저장
         if: always()
         run: |
-          mkdir -p /tmp/r && cp crash.txt log.txt status.txt shot.png /tmp/r/ 2>/dev/null || true
-          cd /tmp/r && git init -q && git checkout -q -b smoke-results && git add -A
-          git -c user.name=bot -c user.email=bot@x commit -qm "smoke ${{ github.run_number }}"
+          mkdir -p out && cd out && git init -q && git checkout -q -b smoke-results && git add -A
+          git -c user.name=bot -c user.email=bot@x commit -qm "smoke ${{ github.run_number }}" --allow-empty
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" smoke-results
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with: { name: smoke, path: "crash.txt\nlog.txt\nshot.png" }

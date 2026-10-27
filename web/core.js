@@ -1,7 +1,7 @@
 // 공통: 요소 생성, 진동, 화면 부품, 캔버스, 시간 기반 애니메이션
 import { STRINGS } from './i18n.js';
 
-export const VERSION = '1.4';
+export const VERSION = '1.5';
 
 export const C = {
   bg: '#12121A', surface: '#1E1E2A', surface2: '#2C2C3E', accent: '#FFB300',

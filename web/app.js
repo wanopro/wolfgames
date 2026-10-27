@@ -9,8 +9,12 @@ import { race, pirate, arrow } from './games-fun.js';
 import { four } from './games-four.js';
 import { calculator, exchange } from './calc.js';
 import { CHANGELOG } from './changelog.js';
+import { tugWar, slapDuel, beerPour, coinToss, kingsCup } from './games-v15.js';
+import { qrScreen, qrEdit } from './qr.js';
 
 const HOMEPAGE = 'https://wolf.community';
+// 이모지가 폰마다 다르게(또는 네모로) 나오는 것 대신 직접 그린 아이콘
+const icon = (name) => h('img', { src: `icons/${name}.png`, alt: '', style: 'width:44px;height:44px;display:block' });
 const app = document.getElementById('app');
 let cleanup = null;
 
@@ -46,8 +50,15 @@ const SCREENS = {
   fx: exchange,
   lang: langScreen,
   log: logScreen,
+  tug: tugWar,
+  slap: slapDuel,
+  beer: beerPour,
+  coin: coinToss,
+  kings: kingsCup,
+  qr: (root, b) => qrScreen(root, b, go),
+  qredit: (root, b) => qrEdit(root, b, go),
 };
-const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', duel: 'dice', react: 'quick', color: 'quick', stop: 'quick', bomb: 'luck', updown: 'cards', hcm: 'cards', finger: 'fingers', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle' };
+const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', duel: 'dice', react: 'quick', color: 'quick', stop: 'quick', bomb: 'luck', updown: 'cards', hcm: 'cards', finger: 'fingers', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle', tug: 'battle', slap: 'battle', beer: 'quick', coin: 'luck', kings: 'cards' };
 
 // ---------- 화면 이동 (휴대폰 뒤로가기 버튼과 연동) ----------
 function show(name) {
@@ -80,7 +91,8 @@ function homeScreen(root) {
         h('p', {}, s.appSubtitle),
         h('div', { style: 'display:flex;gap:6px;flex-wrap:wrap' },
           btn([h('span', { class: 'flag' }, cur.flag), `🌐 ${s.language}`], () => go('lang'), 'chip'),
-          btn(`🧮 ${s.calcTitle}`, () => go('calc'), 'chip')))),
+          btn(`🧮 ${s.calcTitle}`, () => go('calc'), 'chip'),
+          btn('▦ QR', () => go('qr'), 'chip')))),
     h('div', { style: 'height:4px' }),
     card('🎲', s.menuDice, s.menuDiceSub, () => go('dice')),
     card('🃏', s.menuCards, s.menuCardsSub, () => go('cards')),
@@ -179,26 +191,31 @@ function quickMenu(root) {
   root.append(top(`⚡ ${s.menuQuick}`, back), h('div', { class: 'scroll' },
     card('🟢', s.reactTitle, s.reactSub, () => go('react')),
     card('🎨', s.colorTitle, s.colorSub, () => go('color')),
-    card('⏱️', s.stopTitle, s.stopSub, () => go('stop'))));
+    card('⏱️', s.stopTitle, s.stopSub, () => go('stop')),
+    card('🍺', s.beerTitle, s.beerSub, () => go('beer'))));
 }
 function luckMenu(root) {
   const s = S();
   root.append(top(`🍀 ${s.menuLuck}`, back), h('div', { class: 'scroll' },
-    card('🪜', s.menuLadder, s.menuLadderSub, () => go('ladder')),
+    card(icon('ladder'), s.menuLadder, s.menuLadderSub, () => go('ladder')),
     card('🎡', s.menuRoulette, s.menuRouletteSub, () => go('roulette')),
-    card('💣', s.bombTitle, s.bombSub, () => go('bomb'))));
+    card('💣', s.bombTitle, s.bombSub, () => go('bomb')),
+    card(icon('coin'), s.coinTitle, s.coinSub, () => go('coin'))));
 }
 function battleMenu(root) {
   const s = S();
   root.append(top(`⚔️ ${s.menuBattle}`, back), h('div', { class: 'scroll' },
-    card('🔴', s.menuFour, s.menuFourSub, () => go('four'))));
+    card('🔴', s.menuFour, s.menuFourSub, () => go('four')),
+    card('🎀', s.tugTitle, s.tugSub, () => go('tug')),
+    card('🐾', s.slapTitle, s.slapSub, () => go('slap'))));
 }
 
 function cardMenu(root) {
   const s = S();
   root.append(top(`🃏 ${s.menuCards}`, back), h('div', { class: 'scroll' },
     card('↕️', s.udTitle, s.udSub, () => go('updown')),
-    card('🇻🇳', s.hcmTitle, s.hcmSub, () => go('hcm'))));
+    card('🇻🇳', s.hcmTitle, s.hcmSub, () => go('hcm')),
+    card('👑', s.kcTitle, s.kcSub, () => go('kings'))));
 }
 
 function langScreen(root) {

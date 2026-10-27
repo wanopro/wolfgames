@@ -128,6 +128,8 @@ interface SplitGame {
     val n: Int
     fun draw(ctx: Ctx, w: Float, h: Float, t: Float, secs: List<Sector>, s: Strings)
     fun tap(i: Int, t: Float)
+    /** 터치 위치까지 필요한 게임용 (x, y = 화면 좌표 dp) */
+    fun tapAt(i: Int, t: Float, x: Float, y: Float, sec: Sector) = tap(i, t)
     fun hub(t: Float) {}
 }
 
@@ -153,7 +155,7 @@ fun SplitCanvas(game: SplitGame, modifier: Modifier = Modifier.fillMaxSize()) {
                         val t = (System.nanoTime() - t0) / 1e9f
                         val w = sizeHolder[0]; val h = sizeHolder[1]
                         if (hypot(x - w / 2, y - h / 2) < 48f) game.hub(t)
-                        else holder[0]?.indexOfFirst { inPoly(x, y, it.poly) }?.takeIf { it >= 0 }?.let { game.tap(it, t) }
+                        else holder[0]?.let { secs -> secs.indexOfFirst { inPoly(x, y, it.poly) }.takeIf { it >= 0 }?.let { game.tapAt(it, t, x, y, secs[it]) } }
                         ch.consume()
                     }
                 }

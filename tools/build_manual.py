@@ -210,6 +210,11 @@ def game_shots(b, lang):
     # 호치민 (3명): 카드 한 장 바꾼 뒤
     home(); card(1); card(1); start(); pg.wait_for_timeout(300)
     pg.locator('.mid2 .pcard').nth(0).click(); pg.wait_for_timeout(900); shot('how-hcm')
+    # 글로벌 킹스컵: 카드 두 장 뽑은 뒤
+    home(); card(1); card(2)
+    for _ in range(2):
+        pg.mouse.click(196, 420); pg.wait_for_timeout(900)
+    shot('how-kings')
     # 손가락선택 (걸릴 인원 2명, 5명 터치)
     home(); card(2); card(0); pg.click('.stepper button:last-of-type'); start(); pg.wait_for_timeout(300)
     pts = [(1, 90, 230), (2, 290, 200), (3, 200, 420), (4, 100, 620), (5, 300, 650)]
@@ -242,8 +247,19 @@ def game_shots(b, lang):
     # 스탑워치 (2명, 7초): 결과
     home(); card(3); card(2); start(); pg.wait_for_timeout(3000 + 6880)
     area_tap(0.5, 0.85, 80); pg.wait_for_timeout(430); area_tap(0.5, 0.15, 81); pg.wait_for_timeout(500); shot('how-stop')
+    # 맥주 거품 채우기 (2명): 둘 다 멈춘 뒤
+    home(); card(3); card(3); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.5"); start(); pg.wait_for_timeout(4300)
+    area_tap(0.5, 0.85, 82); pg.wait_for_timeout(350); area_tap(0.5, 0.15, 83); pg.wait_for_timeout(900); shot('how-beer')
+    pg.evaluate("Math.random = Math.__r")
     # 폭탄돌리기 (4명): 심지 타는 중
     home(); card(5); card(2); start(); pg.wait_for_timeout(1500); shot('how-bomb')
+    # 동전 던지기 (4명): 결과 (앞면으로 고정)
+    home(); card(5); card(3); start(); pg.wait_for_timeout(300)
+    pg.evaluate("Math.__r = Math.random; Math.random = () => 0.3")
+    for k, (fx, fy) in enumerate([(0.42, 0.86), (0.1, 0.42), (0.58, 0.14), (0.9, 0.58)]):
+        area_tap(fx, fy, 84 + k); pg.wait_for_timeout(150)
+    pg.evaluate("Math.random = Math.__r")
+    pg.wait_for_timeout(3000 + 2400 + 900); shot('how-coin')
     # 늑대이빨 (당첨 2)
     home(); card(4); card(0); pg.click('.stepper button:last-of-type'); start()
     for k in rnd.sample(range(20), 20):
@@ -274,14 +290,29 @@ def game_shots(b, lang):
     for c in [3, 3, 4, 2, 2, 4, 5]:
         pg.mouse.click(bb['x'] + left + (c + .5) * cell, bb['y'] + h * .5); pg.wait_for_timeout(750)
     shot('how-four')
+    # 탭 줄다리기: 아래(P1) 승리
+    home(); card(6); card(1); start(); pg.wait_for_timeout(1800)
+    for k in range(34):
+        area_tap(0.3 + (k % 5) * 0.1, 0.8, 100 + k); pg.wait_for_timeout(25)
+        if k % 4 == 0: area_tap(0.6, 0.2, 200 + k); pg.wait_for_timeout(25)
+    pg.wait_for_timeout(1100); shot('how-tug')
+    # 슬랩 대결: 아래(P1) 공격, 위(P2) 수비 → 명중 순간
+    home(); card(6); card(2); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.1"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(400)
+    area_tap(0.5, 0.25, 300); pg.wait_for_timeout(500); area_tap(0.5, 0.75, 301); pg.wait_for_timeout(330); shot('how-slap')
     # 계산기 → N빵 → 환전
     home(); pg.locator('.hero .chip').nth(1).click(); pg.wait_for_timeout(200)
     for k in ['1', '8', '7', '5', '0', '0', '=']:
         pg.click(f'.body.pad > div:last-child button:text-is("{k}")')
     pg.locator('.row .btn').nth(0).click(); pg.wait_for_timeout(150); pg.locator('.overlay .stepper button').last.click(); pg.wait_for_timeout(200)
     shot('how-split')
-    pg.locator('.overlay .btn').last.click(); pg.locator('.row .btn').nth(1).click(); pg.wait_for_timeout(500)
+    pg.locator('.overlay .btn').last.click(); pg.locator('.row .btn').nth(1).click(); pg.wait_for_timeout(250)
+    pg.locator('.overlay button:text-is("15%")').click(); pg.wait_for_timeout(200); shot('how-tip')
+    pg.locator('.overlay .btn').last.click(); pg.locator('.row .btn').nth(2).click(); pg.wait_for_timeout(500)
     shot('how-fx')
+    # 연락처 QR (예시 아이디)
+    pg.evaluate("""localStorage.setItem('wg-qr', JSON.stringify({instagram: {v: '@wolf.games', on: true}, whatsapp: {v: '+82 10-1234-5678', on: true}, tiktok: {v: 'wolfgames', on: true}}))""")
+    home(); pg.locator('.hero .chip').nth(2).click(); pg.wait_for_timeout(600); shot('how-qr')
+    pg.evaluate("localStorage.removeItem('wg-qr')")
     ctx.close()
 
 

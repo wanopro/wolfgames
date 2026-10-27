@@ -101,6 +101,7 @@ export function calculator(root, back, go) {
   }
   const actions = h('div', { class: 'row', style: 'margin-bottom:10px' },
     btn(s.splitBtn, () => openSplit(root, calcValue()), 'btn alt accent-text'),
+    btn(s.tipBtn, () => openTip(root, calcValue()), 'btn alt accent-text'),
     btn(s.fxBtn, () => go('fx'), 'btn alt accent-text'));
   root.append(top(s.calcTitle, back), h('div', { class: 'body pad' }, disp, actions, pad));
   render();
@@ -144,6 +145,34 @@ function openSplit(root, total) {
     btn('OK', () => ov.remove()));
   root.append(ov);
   draw();
+}
+
+// ---------- 💁 팁 ----------
+const TIPS = [5, 10, 15, 20, 25, 30];
+let tipPct = 15;
+try { tipPct = Number(localStorage.getItem('wg-tip')) || 15; } catch (_) { /* 무시 */ }
+function openTip(root, total) {
+  const s = S();
+  const ov = h('div', { class: 'overlay', style: 'align-items:flex-end;padding:0' });
+  ov.addEventListener('click', (e) => { if (e.target === ov) ov.remove(); });
+  const sheet = h('div', { style: 'width:100%;background:var(--surface);border-radius:24px 24px 0 0;padding:20px 18px calc(18px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:12px' });
+  ov.append(sheet);
+  const res = h('div', { style: 'text-align:center;padding:4px 0' });
+  const row = h('div', { style: 'display:grid;grid-template-columns:repeat(6,1fr);gap:6px' });
+  const draw = () => {
+    row.replaceChildren(...TIPS.map((p) => { const b = h('button', { style: `height:46px;border-radius:12px;font-weight:800;font-size:16px;background:${tipPct === p ? C.accent : C.surface2};color:${tipPct === p ? '#000' : C.text}` }, `${p}%`); b.onclick = () => { vibe.tap(); tipPct = p; try { localStorage.setItem('wg-tip', String(p)); } catch (_) { /* 무시 */ } draw(); }; return b; }));
+    if (!(total > 0)) { res.innerHTML = `<div style="color:var(--sub);font-size:16px">${s.splitNeedTotal}</div>`; return; }
+    const tip = total * tipPct / 100;
+    res.innerHTML = `<div style="color:var(--sub);font-size:15px">${s.tipLabel(tipPct)}</div>
+      <div style="font-size:44px;font-weight:900;color:var(--accent)">${fmt(tip, 2)}</div>
+      <div style="display:flex;justify-content:space-between;background:var(--bg);border-radius:14px;padding:12px 16px;font-size:18px;margin-top:8px"><span style="color:var(--sub)">${s.tipTotal}</span><b>${fmt(total + tip, 2)}</b></div>`;
+  };
+  sheet.append(
+    h('div', { style: 'font-size:22px;font-weight:900;text-align:center' }, s.tipTitle),
+    h('div', { style: 'display:flex;justify-content:space-between;background:var(--bg);border-radius:14px;padding:12px 16px;font-size:18px' }, h('span', { style: 'color:var(--sub)' }, s.tipAmount), h('b', {}, fmt(total, 2))),
+    row, res,
+    h('div', { class: 'row' }, btn(s.tipSplit, () => { ov.remove(); openSplit(root, total * (1 + tipPct / 100)); }, 'btn alt accent-text'), btn('OK', () => ov.remove())));
+  root.append(ov); draw();
 }
 
 // ---------- 💱 환전 ----------

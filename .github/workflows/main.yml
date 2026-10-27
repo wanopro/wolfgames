@@ -24,7 +24,17 @@ jobs:
           gradle-version: '8.11.1'
 
       - name: APK 만들기
-        run: gradle assembleDebug --no-daemon --stacktrace
+        run: |
+          set -o pipefail
+          gradle assembleDebug --no-daemon 2>&1 | tee build.log
+
+      - name: 빌드 오류 기록 (build-log 브랜치)
+        if: failure()
+        run: |
+          mkdir -p /tmp/r && grep -E "^e: |error:|FAILURE|What went wrong" -A3 build.log | head -300 > /tmp/r/errors.txt || true
+          cd /tmp/r && git init -q && git checkout -q -b build-log && git add -A
+          git -c user.name=bot -c user.email=bot@x commit -qm "build ${{ github.run_number }}"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" build-log
 
       - name: 파일 이름 정리
         run: cp app/build/outputs/apk/debug/app-debug.apk WolfGames.apk
