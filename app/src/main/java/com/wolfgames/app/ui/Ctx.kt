@@ -107,6 +107,13 @@ class Ctx(val c: Canvas, density: Float) {
         val pos = stops.map { (r0 + (r1 - r0) * it.first) / r1 }.toFloatArray()
         fillShader = RadialGradient(x, y, r1, cols, pos, Shader.TileMode.CLAMP)
     }
+    /** 여러 색 직선 그라데이션 (stops: 위치 to 색) */
+    fun linearStops(x0: Float, y0: Float, x1: Float, y1: Float, stops: List<Pair<Float, String>>) {
+        fillShader = LinearGradient(x0, y0, x1, y1, stops.map { parseColor(it.second) }.toIntArray(), stops.map { it.first }.toFloatArray(), Shader.TileMode.CLAMP)
+    }
+    /** 모서리마다 다른 둥글기 (왼위, 오른위, 오른아래, 왼아래) */
+    fun roundRect4(x: Float, y: Float, w: Float, h: Float, tl: Float, tr: Float, br: Float, bl: Float) =
+        path.addRoundRect(RectF(x, y, x + w, y + h), floatArrayOf(tl, tl, tr, tr, br, br, bl, bl), Path.Direction.CW)
     fun linearFill(x0: Float, y0: Float, x1: Float, y1: Float, a: String, b: String) {
         fillShader = LinearGradient(x0, y0, x1, y1, parseColor(a), parseColor(b), Shader.TileMode.CLAMP)
     }

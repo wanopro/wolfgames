@@ -1,112 +1,82 @@
 // 늑대이빨 / 사다리게임 / 돌림판
 import { C, S, h, btn, top, stepper, setupPanel, liveCanvas, vibe, animate, shuffle, rnd } from './core.js';
 import { ladderWolf } from './art.js';
+import { TW, TH, teethLayout, openMouth, closedFace, RESTART } from './teeth-art.js';
 
 // ===================== 2. 늑대이빨 =====================
 export function wolfTeeth(root, back) {
   const s = S();
-  let prizes = 1;
+  let prizes = 1, cv = null;
   root.append(top(s.menuCroc, back));
   const body = h('div', { class: 'body' });
   root.append(body);
 
-  const setup = () => body.replaceChildren(setupPanel(s.teethDesc, play, stepper(s.prizes, prizes, 1, 10, (v) => { prizes = v; })));
+  const setup = () => { if (cv) { cv.stop(); cv = null; } body.replaceChildren(setupPanel(s.teethDesc, play, stepper(s.prizes, prizes, 1, 10, (v) => { prizes = v; }))); };
 
+  // 화면 가득 벌린 늑대 입 (큰 이빨 20개) → 당첨이면 콱 닫히고 늑대 얼굴 + 다시 버튼
   const play = () => {
     const TEETH = 20;
-    let traps, pressed, bitten, found;
-    const wrap = h('div', { class: 'body pad center' });
-    body.replaceChildren(wrap);
-    const title = h('div', { class: 'h-title' });
-    const sub = h('div', { class: 'h-sub' });
-    const wolf = h('div', { class: 'wolf' });
-    const actions = h('div', { style: 'width:100%' });
-    wrap.append(title, sub, h('div', { class: 'grow' }), wolf, h('div', { class: 'grow' }), actions, btn(s.changePrizes, setup, 'tbtn'));
-
-    // 귀 + 얼굴 + 입 (앱과 같은 비율)
-    const W = 361, IW = 329;
-    const ears = () => {
-      let g = '';
-      for (const cx of [W * 0.24, W * 0.76]) {
-        const half = W * 0.15, sk = cx < W / 2 ? -half * 0.15 : half * 0.15, ih = half * 0.55, sk2 = cx < W / 2 ? -ih * 0.15 : ih * 0.15;
-        g += `<polygon points="${cx - half},80 ${cx + sk},0 ${cx + half},80" fill="#6E7A8A"/><polygon points="${cx - ih},80 ${cx + sk2},24 ${cx + ih},80" fill="#F6AFC0"/>`;
+    let traps, pressed, found, bitAt = -1, ripples = [];
+    const t0 = performance.now(), now = () => (performance.now() - t0) / 1000;
+    const stage = h('div', { style: 'position:relative;flex:1;min-height:0;touch-action:manipulation' });
+    const bar = h('div', { class: 'row', style: 'padding:6px 12px calc(10px + env(safe-area-inset-bottom))' },
+      btn(`🔀 ${s.shuffle}`, () => { vibe.tap(); newRound(); }, 'tbtn'), btn(s.changePrizes, setup, 'tbtn'));
+    body.replaceChildren(h('div', { style: 'display:flex;flex-direction:column;height:100%' }, stage, bar));
+    let view = { k: 1, ox: 0, oy: 0 };
+    cv = liveCanvas(stage, (c, W, H) => {
+      const t = now();
+      const k = Math.min(W / TW, H / TH), ox = (W - TW * k) / 2, oy = (H - TH * k) / 2; view = { k, ox, oy };
+      c.fillStyle = C.bg; c.fillRect(0, 0, W, H);
+      c.save(); c.translate(ox, oy); c.scale(k, k);
+      const lay = teethLayout(TW, TH), sc = 1;
+      lay.pressed = new Set(pressed.map((v, i) => (v ? i : -1)).filter((i) => i >= 0));
+      lay.red = new Set([...lay.pressed].filter((i) => traps.has(i)));
+      const bt = bitAt >= 0 ? t - bitAt : -1, count = lay.pressed.size, all = found >= prizes;
+      if (bt < 0 || bt < 0.1) {
+        openMouth(c, TW, TH, lay, sc);
+        c.font = '800 15px -apple-system, "Noto Sans KR", sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillStyle = '#FFD740';
+        c.fillText(bt < 0 ? s.teethLeft(TEETH - count, prizes - found) : '', TW / 2, TH * 0.035);
+        for (const [tt, i] of ripples) { const u = (t - tt) / 0.4; if (u < 0 || u > 1) continue; const [x, y] = lay.t[i]; c.beginPath(); c.arc(x, y, 26 + 26 * u, 0, 7); c.strokeStyle = `rgba(255,255,255,${0.8 * (1 - u)})`; c.lineWidth = 4; c.stroke(); }
+      } else if (bt < 0.22) {
+        const u = (bt - 0.1) / 0.12; c.save(); c.translate(0, lay.mid); c.scale(1, 1 - 0.8 * u); c.translate(0, -lay.mid); openMouth(c, TW, TH, lay, sc); c.restore();
+      } else {
+        const sh = bt < 0.7 ? Math.sin(bt * 70) * 5 * (1 - (bt - 0.22) / 0.5) : 0;
+        c.save(); c.translate(sh, 0); closedFace(c, TW, TH, sc, bt < 0.6 ? 1 : 0); c.restore();
+        if (bt < 0.4) { c.fillStyle = `rgba(255,40,60,${0.4 * (1 - (bt - 0.22) / 0.18)})`; c.fillRect(0, 0, TW, TH); }
+        const u = Math.min(1, (bt - 0.22) / 0.2);
+        c.save(); c.translate(TW / 2, TH * 0.08); c.scale(0.6 + 0.4 * u, 0.6 + 0.4 * u);
+        c.font = '900 34px -apple-system, "Noto Sans KR", sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.lineWidth = 8; c.strokeStyle = '#fff';
+        const ttl = s.bitten; c.strokeText(ttl, 0, 0); c.fillStyle = '#FF3D5A'; c.fillText(ttl, 0, 0); c.restore();
+        c.font = '700 15px -apple-system, "Noto Sans KR", sans-serif'; c.fillStyle = '#bbb'; c.textAlign = 'center'; c.fillText(all && prizes > 1 ? s.allFound : s.bittenAt(count), TW / 2, TH * 0.14);
+        c.font = '800 17px -apple-system, "Noto Sans KR", sans-serif'; c.fillStyle = '#fff';
+        c.fillText(all ? s.playAgain : s.continueN(prizes - found), TW / 2, RESTART.y + RESTART.r + 26);
       }
-      return `<svg viewBox="0 0 ${W} 80" width="100%" style="position:absolute;top:0;left:0">${g}</svg>`;
-    };
-    const upper = (closed) => {
-      const w = IW, hh = 120, ey = hh * 0.38, er = hh * 0.13;
-      let g = `<polygon points="${w * .42},0 ${w * .5},${hh * .32} ${w * .58},0" fill="#F4ECE1" fill-opacity=".7"/>`;
-      g += `<ellipse cx="${w / 2}" cy="${hh * 0.83}" rx="${w * 0.23}" ry="${hh * 0.35}" fill="#F4ECE1"/>`;
-      for (const ex of [w * 0.3, w * 0.7]) {
-        if (closed) {
-          const d = er * 0.9, sg = ex < w / 2 ? 1 : -1;
-          g += `<polyline points="${ex - d * sg},${ey - d} ${ex + d * sg},${ey} ${ex - d * sg},${ey + d}" fill="none" stroke="#2B2B33" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;
-        } else {
-          g += `<circle cx="${ex}" cy="${ey}" r="${er}" fill="#2B2B33"/><circle cx="${ex - er * .3}" cy="${ey - er * .35}" r="${er * .38}" fill="#fff"/><circle cx="${ex + er * .35}" cy="${ey + er * .3}" r="${er * .16}" fill="#fff"/>`;
-        }
-        const off = ex < w / 2 ? -er * 0.6 : er * 0.6;
-        g += `<ellipse cx="${ex + off}" cy="${ey + er * 2}" rx="${er * 1.4}" ry="${er * 0.7}" fill="#FF8FA3" fill-opacity=".4"/>`;
+      c.restore();
+    });
+    // 이빨 위치 (화면 좌표) — 설명서 그림 만들 때도 씀
+    cv.canvas.teethAt = () => teethLayout(TW, TH).t.map(([x, y]) => [view.ox + x * view.k, view.oy + y * view.k]);
+    cv.canvas.addEventListener('pointerdown', (e) => {
+      const r = cv.canvas.getBoundingClientRect(), x = (e.clientX - r.left - view.ox) / view.k, y = (e.clientY - r.top - view.oy) / view.k, t = now();
+      if (bitAt >= 0) {
+        if (t - bitAt > 0.6 && Math.hypot(x - RESTART.x, y - RESTART.y) < RESTART.r + 14) { vibe.tap(); if (found >= prizes) newRound(); else bitAt = -1; }
+        return;
       }
-      const nw = w * 0.13, nh = hh * 0.14;
-      g += `<ellipse cx="${w / 2}" cy="${hh * .62 + nh / 2}" rx="${nw / 2}" ry="${nh / 2}" fill="#2B2B33"/><ellipse cx="${w / 2 - nw * .1}" cy="${hh * .665}" rx="${nw * .15}" ry="${nh * .15}" fill="#fff" fill-opacity=".5"/>`;
-      g += `<line x1="${w / 2}" y1="${hh * .62 + nh}" x2="${w / 2}" y2="${hh}" stroke="#2B2B33" stroke-width="2.5" stroke-linecap="round"/>`;
-      return `<svg viewBox="0 0 ${w} ${hh}" width="100%">${g}</svg>`;
-    };
-    const tooth = (i, down) => {
-      const tw = (IW - 12) / 10, th = 46, x = (i % 10) * tw, ins = tw * 0.06;
-      const pr = pressed[i], tip = pr ? 0.5 : 1;
-      const col = pr && traps.has(i) ? C.win : pr ? '#5E5E66' : '#FFFDF5';
-      const d = down
-        ? `M${x + ins},0 L${x + tw - ins},0 Q${x + tw * .62},${th * tip * .75} ${x + tw / 2},${th * tip} Q${x + tw * .38},${th * tip * .75} ${x + ins},0Z`
-        : `M${x + ins},${th} L${x + tw - ins},${th} Q${x + tw * .62},${th - th * tip * .75} ${x + tw / 2},${th - th * tip} Q${x + tw * .38},${th - th * tip * .75} ${x + ins},${th}Z`;
-      return `<rect class="tooth" data-i="${i}" x="${x}" y="0" width="${tw}" height="${th}" fill="transparent"/><path class="tooth" data-i="${i}" d="${d}" fill="${col}"/>`;
-    };
-    const row = (from, down) => {
-      let g = '';
-      for (let i = from; i < from + 10; i++) g += tooth(i, down);
-      return `<svg viewBox="0 0 ${IW - 12} 46" style="width:calc(100% - 12px);margin:0 6px">${g}</svg>`;
-    };
-    const drawWolf = () => {
-      wolf.classList.toggle('bit', bitten);
-      wolf.innerHTML = ears() + `<div class="face">${upper(bitten)}<div class="mouth">${row(0, true)}<div class="gap"><div class="tongue"></div></div>${row(10, false)}</div>` +
-        `<div style="height:40px;position:relative;overflow:hidden"><div style="position:absolute;left:20%;width:60%;top:-16px;height:44px;border-radius:50%;background:#F4ECE1"></div></div></div>`;
-    };
-    // 입이 닫히는 애니메이션을 위해 바뀐 부분만 갱신
-    const refresh = () => {
-      const count = pressed.filter(Boolean).length;
-      const all = found >= prizes;
-      title.textContent = bitten && all ? s.allFound : bitten ? s.bitten : s.pressTeeth;
-      title.classList.toggle('win', bitten);
-      sub.textContent = bitten ? s.bittenAt(count) : s.teethLeft(TEETH - count, prizes - found);
-      wolf.classList.toggle('bit', bitten);
-      wolf.querySelector('.face > svg').outerHTML = upper(bitten);
-      const rows = wolf.querySelectorAll('.mouth > svg');
-      rows[0].outerHTML = row(0, true);
-      rows[1].outerHTML = row(10, false);
-      actions.replaceChildren(
-        bitten && !all ? btn(s.continueN(prizes - found), () => { bitten = false; refresh(); })
-          : bitten ? btn(s.playAgain, newRound)
-            : btn(s.shuffle, newRound, 'btn alt'));
-    };
-    wolf.addEventListener('click', (e) => {
-      const t = e.target.closest('.tooth');
-      if (!t || bitten) return;
-      const i = +t.dataset.i;
-      if (pressed[i]) return;
-      pressed[i] = true;
-      if (traps.has(i)) { found++; bitten = true; vibe.strong(); } else vibe.tap();
-      refresh();
+      const lay = teethLayout(TW, TH);
+      let best = -1, bd = 46; // 손가락이 닿은 곳에서 가장 가까운 이빨 (넉넉하게)
+      lay.t.forEach(([tx, ty], i) => { if (pressed[i]) return; const d = Math.hypot(x - tx, y - ty); if (d < bd) { bd = d; best = i; } });
+      if (best < 0) return;
+      pressed[best] = true; ripples.push([t, best]); if (ripples.length > 8) ripples.shift();
+      if (traps.has(best)) { found++; bitAt = t; vibe.strong(); } else vibe.tap();
     });
     const newRound = () => {
       traps = new Set(shuffle([...Array(TEETH).keys()]).slice(0, prizes));
-      pressed = Array(TEETH).fill(false); bitten = false; found = 0;
-      drawWolf(); refresh();
+      pressed = Array(TEETH).fill(false); found = 0; bitAt = -1; ripples = [];
     };
     newRound();
   };
 
   setup();
-  return () => {};
+  return () => { if (cv) cv.stop(); };
 }
 
 // ===================== 3. 사다리게임 =====================

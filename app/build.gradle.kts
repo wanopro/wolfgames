@@ -12,8 +12,8 @@ android {
         applicationId = "com.wolfgames.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 7
-        versionName = "1.5.1"
+        versionCode = 8
+        versionName = "1.5.2"
     }
 
     // 고정 서명키: 새 버전을 설치할 때 기존 앱을 지우지 않고 바로 업데이트됨

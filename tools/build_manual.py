@@ -260,12 +260,13 @@ def game_shots(b, lang):
         area_tap(fx, fy, 84 + k); pg.wait_for_timeout(150)
     pg.evaluate("Math.random = Math.__r")
     pg.wait_for_timeout(3000 + 2400 + 900); shot('how-coin')
-    # 늑대이빨 (당첨 2)
-    home(); card(4); card(0); pg.click('.stepper button:last-of-type'); start()
-    for k in rnd.sample(range(20), 20):
-        pg.click(f'path.tooth[data-i="{k}"]')
-        if pg.query_selector('.wolf.bit'): break
-    pg.wait_for_timeout(400); shot('how-teeth')
+    # 늑대이빨 (당첨 2): 화면 가득 벌린 입에서 이빨 3개 누른 모습 (당첨은 0·1번으로 고정)
+    home(); card(4); card(0); pg.click('.stepper button:last-of-type')
+    pg.evaluate("Math.__r = Math.random; Math.random = () => 0.999"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(300)
+    pts = pg.evaluate("document.querySelector('canvas').teethAt()"); bb = pg.query_selector('canvas').bounding_box()
+    for k in [5, 9, 14]:
+        pg.mouse.click(bb['x'] + pts[k][0], bb['y'] + pts[k][1]); pg.wait_for_timeout(150)
+    pg.wait_for_timeout(500); shot('how-teeth')
     # 사다리 (5명)
     home(); card(5); card(0); pg.locator('.stepper').first.locator('button').last.click(); start()
     pg.locator('.lnums button').nth(0).click(); pg.wait_for_timeout(5300)

@@ -6,6 +6,9 @@ data class ChangeItem(val emoji: String, val text: Map<String, String>)
 data class Release(val version: String, val date: String, val items: List<ChangeItem>)
 
 val CHANGELOG = listOf(
+    Release("1.5.2", "2026-10-27", listOf(
+        ChangeItem("🐺", mapOf("ko" to "🐺 늑대이빨 새 디자인: 화면 가득 벌린 늑대 입에 이빨이 크고 넓게 (네일해도 누르기 쉽게), 당첨이면 입이 콱 닫히고 🔄 버튼으로 계속", "en" to "🐺 Wolf Teeth redesign: a wolf mouth opened across the whole screen with big, well-spaced teeth (easy even with long nails); on a bite the mouth snaps shut — tap 🔄 to continue", "ja" to "🐺 オオカミの歯を新デザインに：画面いっぱいに開いた口、大きくて間隔の広い歯（ネイルしていても押しやすい）。当たりで口がガブッと閉じ、🔄で続ける", "zh" to "🐺 狼牙齿新设计：狼嘴张满整个屏幕，牙齿又大间距又宽（做了美甲也好按）；中了嘴巴啪地合上，点🔄继续", "th" to "🐺 ฟันหมาป่าดีไซน์ใหม่: ปากหมาป่าอ้าเต็มจอ ฟันใหญ่และห่างกัน (ทำเล็บก็กดง่าย) โดนแล้วปากงับปิด แตะ 🔄 เพื่อเล่นต่อ", "vi" to "🐺 Răng sói thiết kế mới: miệng sói há rộng cả màn hình, răng to và cách xa nhau (làm móng vẫn bấm dễ); trúng thì miệng ngoạm lại, chạm 🔄 để chơi tiếp")),
+    )),
     Release("1.5.1", "2026-10-27", listOf(
         ChangeItem("🎀", mapOf("ko" to "🎀 탭 줄다리기 → 연타 땅따먹기로 이름 변경 (당기는 게 아니라 밀어낸 만큼 내 땅이 넓어지니까!)", "en" to "🎀 Tap Tug of War is now Tap Turf War (you push, not pull — the more you push, the more turf you own!)", "ja" to "🎀 タップ綱引き → 連打陣取りに名前変更（引くんじゃなくて、押した分だけ自分の陣地が広がる！）", "zh" to "🎀 点击拔河改名为狂点抢地盘（不是拉而是推，推得越多地盘越大！）", "th" to "🎀 เปลี่ยนชื่อ ชักเย่อแตะรัว → แตะรัวยึดพื้นที่ (ไม่ได้ดึงแต่ดัน ยิ่งดันพื้นที่เรายิ่งกว้าง!)", "vi" to "🎀 Đổi tên Kéo co chạm → Chạm nhanh giành đất (không kéo mà đẩy — đẩy càng nhiều, đất càng rộng!)")),
         ChangeItem("🍺", mapOf("ko" to "🍺 맥주 거품 채우기: 맥주가 빨라졌다 느려졌다 하면서 차올라요 (판마다 다르게)", "en" to "🍺 Beer Pour: the beer now speeds up and slows down as it fills (different every round)", "ja" to "🍺 ビール注ぎ：ビールが速くなったり遅くなったりしながら注がれます（毎回ちがう）", "zh" to "🍺 倒啤酒：啤酒忽快忽慢地往上涨（每局都不一样）", "th" to "🍺 รินเบียร์: เบียร์จะเติมเร็วบ้างช้าบ้าง (แต่ละรอบไม่เหมือนกัน)", "vi" to "🍺 Rót bia: bia rót lúc nhanh lúc chậm (mỗi ván một kiểu)")),

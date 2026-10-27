@@ -3,6 +3,16 @@
 # 각 항목: (이모지, 6개 언어 문장)
 
 CHANGELOG = [
+    dict(ver='1.5.2', date='2026-10-27', items=[
+        ('🐺', dict(
+            ko='🐺 늑대이빨 새 디자인: 화면 가득 벌린 늑대 입에 이빨이 크고 넓게 (네일해도 누르기 쉽게), 당첨이면 입이 콱 닫히고 🔄 버튼으로 계속',
+            en='🐺 Wolf Teeth redesign: a wolf mouth opened across the whole screen with big, well-spaced teeth (easy even with long nails); on a bite the mouth snaps shut — tap 🔄 to continue',
+            ja='🐺 オオカミの歯を新デザインに：画面いっぱいに開いた口、大きくて間隔の広い歯（ネイルしていても押しやすい）。当たりで口がガブッと閉じ、🔄で続ける',
+            zh='🐺 狼牙齿新设计：狼嘴张满整个屏幕，牙齿又大间距又宽（做了美甲也好按）；中了嘴巴啪地合上，点🔄继续',
+            th='🐺 ฟันหมาป่าดีไซน์ใหม่: ปากหมาป่าอ้าเต็มจอ ฟันใหญ่และห่างกัน (ทำเล็บก็กดง่าย) โดนแล้วปากงับปิด แตะ 🔄 เพื่อเล่นต่อ',
+            vi='🐺 Răng sói thiết kế mới: miệng sói há rộng cả màn hình, răng to và cách xa nhau (làm móng vẫn bấm dễ); trúng thì miệng ngoạm lại, chạm 🔄 để chơi tiếp',
+        )),
+    ]),
     dict(ver='1.5.1', date='2026-10-27', items=[
         ('🎀', dict(
             ko='🎀 탭 줄다리기 → 연타 땅따먹기로 이름 변경 (당기는 게 아니라 밀어낸 만큼 내 땅이 넓어지니까!)',

@@ -41,5 +41,8 @@ open Qr; shot 08_qr_show
 adb shell input swipe $(px 800) $(py 500) $(px 200) $(py 500) 200; sleep 1; shot 08_qr_swipe
 # 계산기 팁
 open Calc; for k in 8 5 0 0 0; do tapExact "$k"; done; tapText "Tip"; sleep 1; shot 09_tip
+# 늑대이빨: 이빨 여러 개 누르기
+open Croc true; for xy in "190 214" "390 201" "110 290" "890 367" "135 560" "610 805"; do set -- $xy; tap $1 $(( 60 + $2 * 92 / 100 )); sleep 0.3; done; shot 10_teeth_open
+for xy in "810 214" "110 367" "890 290" "865 560" "120 637" "880 637" "115 712" "885 712" "190 790" "390 805" "810 790" "110 444" "890 444" "610 201"; do set -- $xy; tap $1 $(( 60 + $2 * 92 / 100 )); sleep 0.25; done; sleep 1.2; shot 10_teeth_bitten
 adb logcat -d -b crash > out/crash.txt
 echo done >> out/log.txt

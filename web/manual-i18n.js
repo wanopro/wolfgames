@@ -5,7 +5,7 @@ export const MANUAL = {
   "lead": "술자리 게임 모음 · 설치 안내",
   "navAndroid": "🤖 안드로이드 설치",
   "navIphone": "🍎 아이폰 홈 화면 추가",
-  "navNew": "🆕 v1.5.1 구성",
+  "navNew": "🆕 v1.5.2 구성",
   "navUpdate": "🔄 업데이트",
   "navFaq": "❓ 자주 묻는 질문",
   "qAndroid": "🤖 안드로이드 앱",
@@ -100,9 +100,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 메인 화면",
-  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.5.1</b>)을 확인할 수 있어요.",
-  "hNew": "🆕 v1.5.1 구성",
-  "newIntro": "울프 게임즈 v1.5.1에는 아래 게임과 기능이 들어 있어요.",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.5.2</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v1.5.2 구성",
+  "newIntro": "울프 게임즈 v1.5.2에는 아래 게임과 기능이 들어 있어요.",
   "newFeat": [
    "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎀 연타 땅따먹기 · 🐾 슬랩 대결 · 👑 글로벌 킹스컵 · 🍺 맥주 거품 채우기 · 🪙 동전 던지기",
@@ -117,6 +117,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 최근 수정 내용",
   "changes": [
+   "🐺 늑대이빨 새 디자인: 화면 가득 벌린 늑대 입에 이빨이 크고 넓게 (네일해도 누르기 쉽게), 당첨이면 입이 콱 닫히고 🔄 버튼으로 계속",
    "🎀 탭 줄다리기 → 연타 땅따먹기로 이름 변경 (당기는 게 아니라 밀어낸 만큼 내 땅이 넓어지니까!)",
    "🍺 맥주 거품 채우기: 맥주가 빨라졌다 느려졌다 하면서 차올라요 (판마다 다르게)",
    "🎀 탭 줄다리기 추가 (대결게임): 위·아래로 마주 앉아 연타해서 깃발을 상대 쪽 선까지 밀어내기",
@@ -224,9 +225,9 @@ export const MANUAL = {
     "선에 제일 가깝게 멈춘 사람 <b>👑 1등</b>, 선을 넘기면 <b>💦 넘쳤다 → 💀 꼴찌</b>. 가운데 원을 누르면 다시."
    ],
    [
-    "당첨 이빨 개수(1~10개)를 정하고 시작해요.",
-    "돌아가며 이빨을 하나씩 눌러요. 당첨이면 늑대가 <b>\"앙!\"</b> 하고 물어요.",
-    "<b>계속하기</b>로 남은 당첨을 이어서 찾고, <b>새로 섞기</b>로 새 판을 시작해요."
+    "당첨 이빨 개수(1~10개)를 정하고 시작해요. 화면 가득 늑대가 입을 쩍 벌려요.",
+    "돌아가며 큰 이빨을 하나씩 눌러요. 누른 이빨은 쏙 들어가요. 당첨이면 입이 <b>콱 닫히면서 \"앙!\"</b>",
+    "아래 빨간 <b>🔄</b>를 누르면 남은 당첨을 이어서 찾고(다 찾으면 다시 하기), <b>🔀 새로 섞기</b>로 새 판을 시작해요."
    ],
    [
     "참가 인원(2~10명)과 당첨 개수를 정해요.",
@@ -449,7 +450,7 @@ export const MANUAL = {
   "lead": "Drinking game collection · Install guide",
   "navAndroid": "🤖 Android install",
   "navIphone": "🍎 iPhone home screen",
-  "navNew": "🆕 What's in v1.5.1",
+  "navNew": "🆕 What's in v1.5.2",
   "navUpdate": "🔄 Updates",
   "navFaq": "❓ FAQ",
   "qAndroid": "🤖 Android app",
@@ -544,9 +545,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Main screen",
-  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.5.1</b>) is shown at the bottom.",
-  "hNew": "🆕 What's in v1.5.1",
-  "newIntro": "Wolf Games v1.5.1 includes these games and features.",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.5.2</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v1.5.2",
+  "newIntro": "Wolf Games v1.5.2 includes these games and features.",
   "newFeat": [
    "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎀 Tap Turf War · 🐾 Slap Duel · 👑 Global King's Cup · 🍺 Beer Pour · 🪙 Coin Toss",
@@ -561,6 +562,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Latest changes",
   "changes": [
+   "🐺 Wolf Teeth redesign: a wolf mouth opened across the whole screen with big, well-spaced teeth (easy even with long nails); on a bite the mouth snaps shut — tap 🔄 to continue",
    "🎀 Tap Tug of War is now Tap Turf War (you push, not pull — the more you push, the more turf you own!)",
    "🍺 Beer Pour: the beer now speeds up and slows down as it fills (different every round)",
    "New 🎀 Tap Tug of War (Battle): sit face to face and mash to push the flag past the other side's line",
@@ -668,9 +670,9 @@ export const MANUAL = {
     "Closest to the line is <b>👑 1st</b>; go past it and it <b>💦 overflows → 💀 last</b>. Tap the center to play again."
    ],
    [
-    "Choose how many biting teeth (1–10) and start.",
-    "Take turns pressing one tooth at a time. Hit a biting tooth and the wolf goes <b>\"chomp!\"</b>",
-    "Tap <b>Continue</b> to keep looking for the rest, or <b>Shuffle</b> for a new round."
+    "Choose 1–10 biting teeth and start. The wolf opens its mouth across the whole screen.",
+    "Take turns pressing the big teeth one by one — a pressed tooth sinks in. Hit a biting one and the mouth <b>snaps shut: \"Chomp!\"</b>",
+    "Tap the red <b>🔄</b> below to keep looking for the rest (or play again when all are found). <b>🔀 Shuffle</b> starts a new round."
    ],
    [
     "Choose players (2–10) and the number of prizes.",
@@ -893,7 +895,7 @@ export const MANUAL = {
   "lead": "飲み会ゲーム集 · インストール案内",
   "navAndroid": "🤖 Androidにインストール",
   "navIphone": "🍎 iPhoneのホーム画面に追加",
-  "navNew": "🆕 v1.5.1の内容",
+  "navNew": "🆕 v1.5.2の内容",
   "navUpdate": "🔄 アップデート",
   "navFaq": "❓ よくある質問",
   "qAndroid": "🤖 Androidアプリ",
@@ -987,9 +989,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 メイン画面",
-  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.5.1</b>）を確認できます。",
-  "hNew": "🆕 v1.5.1の内容",
-  "newIntro": "ウルフゲームズv1.5.1には次のゲームと機能が入っています。",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.5.2</b>）を確認できます。",
+  "hNew": "🆕 v1.5.2の内容",
+  "newIntro": "ウルフゲームズv1.5.2には次のゲームと機能が入っています。",
   "newFeat": [
    "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎀 連打陣取り · 🐾 スラップ対決 · 👑 グローバル・キングスカップ · 🍺 ビール注ぎ · 🪙 コイントス",
@@ -1004,6 +1006,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近の変更",
   "changes": [
+   "🐺 オオカミの歯を新デザインに：画面いっぱいに開いた口、大きくて間隔の広い歯（ネイルしていても押しやすい）。当たりで口がガブッと閉じ、🔄で続ける",
    "🎀 タップ綱引き → 連打陣取りに名前変更（引くんじゃなくて、押した分だけ自分の陣地が広がる！）",
    "🍺 ビール注ぎ：ビールが速くなったり遅くなったりしながら注がれます（毎回ちがう）",
    "🎀 タップ綱引き追加（対決ゲーム）：上下に向かい合って連打し、旗を相手側の線まで押し込む",
@@ -1111,9 +1114,9 @@ export const MANUAL = {
     "線に一番近い人が<b>👑 1位</b>、線を超えると<b>💦 あふれた → 💀 ビリ</b>。真ん中の円でもう一度。"
    ],
    [
-    "当たりの歯の数（1〜10）を決めて始めます。",
-    "順番に歯を1本ずつ押します。当たりだとオオカミが<b>「ガブッ！」</b>とかみます。",
-    "<b>続ける</b>で残りの当たりを探し、<b>シャッフル</b>で新しいゲームを始めます。"
+    "当たりの歯の数（1〜10本）を決めてスタート。画面いっぱいにオオカミが口を開けます。",
+    "順番に大きな歯を1本ずつ押します。押した歯は引っ込みます。当たりなら口が<b>ガブッと閉じて「ガブッ！」</b>",
+    "下の赤い<b>🔄</b>で残りの当たりを続けて探し（全部見つけたらもう一度）、<b>🔀 シャッフル</b>で新しいゲーム。"
    ],
    [
     "参加人数（2〜10人）と当たりの数を決めます。",
@@ -1336,7 +1339,7 @@ export const MANUAL = {
   "lead": "酒桌游戏合集 · 安装说明",
   "navAndroid": "🤖 安卓安装",
   "navIphone": "🍎 iPhone添加到主屏幕",
-  "navNew": "🆕 v1.5.1内容",
+  "navNew": "🆕 v1.5.2内容",
   "navUpdate": "🔄 更新",
   "navFaq": "❓ 常见问题",
   "qAndroid": "🤖 安卓应用",
@@ -1430,9 +1433,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 主界面",
-  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.5.1</b>）。",
-  "hNew": "🆕 v1.5.1内容",
-  "newIntro": "沃夫游戏v1.5.1包含以下游戏和功能。",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.5.2</b>）。",
+  "hNew": "🆕 v1.5.2内容",
+  "newIntro": "沃夫游戏v1.5.2包含以下游戏和功能。",
   "newFeat": [
    "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎀 狂点抢地盘 · 🐾 拍手背对决 · 👑 全球国王杯 · 🍺 倒啤酒 · 🪙 抛硬币",
@@ -1447,6 +1450,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近修改",
   "changes": [
+   "🐺 狼牙齿新设计：狼嘴张满整个屏幕，牙齿又大间距又宽（做了美甲也好按）；中了嘴巴啪地合上，点🔄继续",
    "🎀 点击拔河改名为狂点抢地盘（不是拉而是推，推得越多地盘越大！）",
    "🍺 倒啤酒：啤酒忽快忽慢地往上涨（每局都不一样）",
    "新增🎀 点击拔河（对战游戏）：上下面对面狂点，把旗推过对方的线",
@@ -1554,9 +1558,9 @@ export const MANUAL = {
     "最接近线的人<b>👑 第一</b>，超过线就<b>💦 溢出 → 💀 垫底</b>。点中间的圆再来一局。"
    ],
    [
-    "选好中奖牙齿数量（1~10颗）开始。",
-    "轮流一颗一颗按牙齿。按到中奖，狼会<b>\"啊呜！\"</b>咬一口。",
-    "点<b>继续</b>找剩下的中奖，点<b>重新洗牌</b>开始新一局。"
+    "选中奖牙齿数（1~10颗）后开始。狼把嘴张满整个屏幕。",
+    "轮流一颗一颗按大牙齿，按过的会缩进去。按中了嘴巴<b>啪地合上：“嗷呜！”</b>",
+    "点下面红色<b>🔄</b>继续找剩下的（全找到就再来一局），<b>🔀 重新洗牌</b>开新局。"
    ],
    [
     "选择人数（2~10人）和中奖数量。",
@@ -1779,7 +1783,7 @@ export const MANUAL = {
   "lead": "รวมเกมวงเหล้า · วิธีติดตั้ง",
   "navAndroid": "🤖 ติดตั้งบน Android",
   "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
-  "navNew": "🆕 มีอะไรใน v1.5.1",
+  "navNew": "🆕 มีอะไรใน v1.5.2",
   "navUpdate": "🔄 อัปเดต",
   "navFaq": "❓ คำถามที่พบบ่อย",
   "qAndroid": "🤖 แอป Android",
@@ -1873,9 +1877,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 หน้าหลัก",
-  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.5.1</b>) ได้ที่ด้านล่างสุด",
-  "hNew": "🆕 มีอะไรใน v1.5.1",
-  "newIntro": "Wolf Games v1.5.1 มีเกมและฟีเจอร์ต่อไปนี้",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.5.2</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v1.5.2",
+  "newIntro": "Wolf Games v1.5.2 มีเกมและฟีเจอร์ต่อไปนี้",
   "newFeat": [
    "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎀 แตะรัวยึดพื้นที่ · 🐾 ดวลตบมือ · 👑 คิงส์คัพสากล · 🍺 รินเบียร์ · 🪙 โยนเหรียญ",
@@ -1890,6 +1894,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 การแก้ไขล่าสุด",
   "changes": [
+   "🐺 ฟันหมาป่าดีไซน์ใหม่: ปากหมาป่าอ้าเต็มจอ ฟันใหญ่และห่างกัน (ทำเล็บก็กดง่าย) โดนแล้วปากงับปิด แตะ 🔄 เพื่อเล่นต่อ",
    "🎀 เปลี่ยนชื่อ ชักเย่อแตะรัว → แตะรัวยึดพื้นที่ (ไม่ได้ดึงแต่ดัน ยิ่งดันพื้นที่เรายิ่งกว้าง!)",
    "🍺 รินเบียร์: เบียร์จะเติมเร็วบ้างช้าบ้าง (แต่ละรอบไม่เหมือนกัน)",
    "เพิ่ม 🎀 ชักเย่อแตะรัว (เกมดวล): นั่งหันหน้าเข้าหากัน แตะรัวดันธงไปถึงเส้นฝั่งตรงข้าม",
@@ -1997,9 +2002,9 @@ export const MANUAL = {
     "ใกล้เส้นที่สุด <b>👑 ที่ 1</b> เลยเส้น <b>💦 ล้น → 💀 ที่โหล่</b> แตะวงกลมตรงกลางเพื่อเล่นใหม่"
    ],
    [
-    "เลือกจำนวนฟันที่งับ (1–10 ซี่) แล้วเริ่ม",
-    "ผลัดกันกดฟันทีละซี่ ถ้าโดน หมาป่าจะ <b>\"งับ!\"</b>",
-    "กด <b>เล่นต่อ</b> เพื่อหาที่เหลือ หรือ <b>สุ่มใหม่</b> เพื่อเริ่มรอบใหม่"
+    "เลือกจำนวนฟันโดน (1–10 ซี่) แล้วเริ่ม หมาป่าจะอ้าปากเต็มจอ",
+    "ผลัดกันกดฟันซี่ใหญ่ทีละซี่ ฟันที่กดจะยุบลง ถ้าโดน ปากจะ<b>งับปิด \"งับ!\"</b>",
+    "แตะ <b>🔄</b> สีแดงด้านล่างเพื่อหาต่อ (หาครบแล้วเล่นใหม่) <b>🔀 สับใหม่</b> เพื่อเริ่มรอบใหม่"
    ],
    [
     "เลือกจำนวนคน (2–10) และจำนวนรางวัล",
@@ -2222,7 +2227,7 @@ export const MANUAL = {
   "lead": "Bộ trò chơi nhậu · Hướng dẫn cài đặt",
   "navAndroid": "🤖 Cài trên Android",
   "navIphone": "🍎 Thêm vào MH chính iPhone",
-  "navNew": "🆕 Có gì trong v1.5.1",
+  "navNew": "🆕 Có gì trong v1.5.2",
   "navUpdate": "🔄 Cập nhật",
   "navFaq": "❓ Câu hỏi thường gặp",
   "qAndroid": "🤖 Ứng dụng Android",
@@ -2316,9 +2321,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Màn hình chính",
-  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.5.1</b>) hiện ở dưới cùng.",
-  "hNew": "🆕 Có gì trong v1.5.1",
-  "newIntro": "Wolf Games v1.5.1 gồm các trò chơi và tính năng sau.",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.5.2</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v1.5.2",
+  "newIntro": "Wolf Games v1.5.2 gồm các trò chơi và tính năng sau.",
   "newFeat": [
    "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎀 Chạm nhanh giành đất · 🐾 Đấu đập tay · 👑 King's Cup toàn cầu · 🍺 Rót bia · 🪙 Tung đồng xu",
@@ -2333,6 +2338,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Thay đổi gần đây",
   "changes": [
+   "🐺 Răng sói thiết kế mới: miệng sói há rộng cả màn hình, răng to và cách xa nhau (làm móng vẫn bấm dễ); trúng thì miệng ngoạm lại, chạm 🔄 để chơi tiếp",
    "🎀 Đổi tên Kéo co chạm → Chạm nhanh giành đất (không kéo mà đẩy — đẩy càng nhiều, đất càng rộng!)",
    "🍺 Rót bia: bia rót lúc nhanh lúc chậm (mỗi ván một kiểu)",
    "Thêm 🎀 Kéo co chạm (Đối kháng): ngồi đối diện, chạm thật nhanh đẩy cờ qua vạch bên kia",
@@ -2440,9 +2446,9 @@ export const MANUAL = {
     "Gần vạch nhất là <b>👑 nhất</b>, vượt vạch là <b>💦 tràn → 💀 bét</b>. Chạm vòng tròn giữa để chơi lại."
    ],
    [
-    "Chọn số răng cắn (1–10) rồi bắt đầu.",
-    "Lần lượt nhấn từng cái răng. Trúng răng cắn thì sói sẽ <b>\"phập!\"</b>",
-    "Bấm <b>Tiếp tục</b> để tìm răng còn lại, hoặc <b>Xáo lại</b> để chơi ván mới."
+    "Chọn số răng trúng (1–10 cái) rồi bắt đầu. Sói há miệng rộng cả màn hình.",
+    "Lần lượt bấm từng chiếc răng to — răng đã bấm sẽ lún xuống. Trúng thì miệng <b>ngoạm lại: \"Ngoạm!\"</b>",
+    "Chạm <b>🔄</b> màu đỏ bên dưới để tìm tiếp (tìm hết thì chơi lại), <b>🔀 Xáo lại</b> để chơi ván mới."
    ],
    [
     "Chọn số người (2–10) và số giải.",
