@@ -35,17 +35,17 @@ function furFrame(c, x, y, w, h, r) {
 function ears(c, W, y, s = 1, droop = 0, cx = W / 2) {
   for (const sd of [-1, 1]) {
     const x = cx + sd * W * 0.3;
-    c.save(); c.translate(x, y); c.rotate(sd * droop);
-    c.beginPath(); c.moveTo(-58 * s, 20); c.quadraticCurveTo(sd * 10 * s, -100 * s, sd * 22 * s, -96 * s); c.quadraticCurveTo(sd * 40 * s, -60 * s, 58 * s, 20); c.closePath();
+    c.save(); c.translate(x, y); c.scale(sd, 1); c.rotate(droop); // 왼쪽 귀는 오른쪽 귀를 좌우로 뒤집어서 그림
+    c.beginPath(); c.moveTo(-58 * s, 20); c.quadraticCurveTo(-4 * s, -92 * s, 22 * s, -96 * s); c.quadraticCurveTo(46 * s, -50 * s, 58 * s, 20); c.closePath();
     c.fillStyle = FUR_D; c.fill(); c.lineWidth = 5; c.strokeStyle = OL; c.stroke();
-    c.beginPath(); c.moveTo(-30 * s, 10); c.quadraticCurveTo(sd * 10 * s, -66 * s, sd * 18 * s, -64 * s); c.quadraticCurveTo(sd * 28 * s, -40 * s, 30 * s, 10); c.closePath(); c.fillStyle = '#F6AFC0'; c.fill();
+    c.beginPath(); c.moveTo(-30 * s, 12); c.quadraticCurveTo(0, -60 * s, 18 * s, -62 * s); c.quadraticCurveTo(32 * s, -34 * s, 30 * s, 12); c.closePath(); c.fillStyle = '#F6AFC0'; c.fill();
     c.restore();
   }
 }
 // ---------- 벌린 입 ----------
 function openMouth(c, W, H, lay, s) {
   const { X, Y } = lay;
-  ears(c, W, Y(0.11), 1);
+  ears(c, W, Y(0.122), 0.86);
   furFrame(c, X(0.005), Y(0.085), X(0.99), Y(0.915) - Y(0.085), X(0.2));
   // 코 (위쪽 털 위)
   c.save(); c.translate(W / 2, Y(0.12));
