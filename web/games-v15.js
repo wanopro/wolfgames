@@ -158,8 +158,12 @@ export function beerPour(root, back) {
   const setup = () => { if (cv) { cv.stop(); cv = null; } root.replaceChildren(top(s.beerTitle, back), h('div', { class: 'body' }, setupPanel(s.beerDesc, play, stepper(s.players, n, 2, 6, (v) => { n = v; })))); };
   const play = () => {
     const g = {};
-    const level = (t) => { const x = Math.max(0, t - g.startAt) * g.k; return Math.min(1.12, 0.06 * x + 0.055 * x * x); };
-    const round = (t) => Object.assign(g, { startAt: t + 1.4, k: 0.85 + Math.random() * 0.35, stop: Array(n).fill(null), doneAt: 0 });
+    // 차오르는 속도 = 점점 빨라지는 기본 속도 × (1 + 물결 두 개) → 빨라졌다 느려졌다 (멈추거나 줄지는 않음)
+    const A = 0.06, B = 0.055;
+    const wave = (x, amp, w, p) => { const F = (u) => -(A + 2 * B * u) * Math.cos(w * u + p) / w + 2 * B * Math.sin(w * u + p) / (w * w); return amp * (F(x) - F(0)); };
+    const level = (t) => { const x = Math.max(0, t - g.startAt) * g.k; return Math.min(1.12, A * x + B * x * x + g.waves.reduce((sum, [amp, w, p]) => sum + wave(x, amp, w, p), 0)); };
+    const rw = (a, b) => a + Math.random() * (b - a);
+    const round = (t) => Object.assign(g, { startAt: t + 1.4, k: 0.85 + Math.random() * 0.35, waves: [[rw(0.35, 0.5), rw(2.2, 3.6), rw(0, 6.28)], [rw(0.2, 0.35), rw(4.5, 7), rw(0, 6.28)]], stop: Array(n).fill(null), doneAt: 0 });
     round(0);
     const overT = () => { let lo = g.startAt, hi = g.startAt + 30; for (let q = 0; q < 40; q++) { const m = (lo + hi) / 2; if (level(m) >= 1.06) hi = m; else lo = m; } return hi; };
     const game = {

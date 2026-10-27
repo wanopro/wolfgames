@@ -1,8 +1,8 @@
 # v1.5 새 문구 (ko, en, ja, zh, th, vi). 함수형은 ('fn', 'Kotlin 타입', [람다 6개])
 S = {
- # ---- 탭 줄다리기 ----
- 'tugTitle': ['탭 줄다리기', 'Tap Tug of War', 'タップ綱引き', '点击拔河', 'ชักเย่อแตะรัว', 'Kéo co chạm'],
- 'tugSub': ['연타해서 깃발을 상대 쪽으로!', 'Mash to push the flag to their side!', '連打で旗を相手側へ！', '狂点把旗推向对方！', 'แตะรัวๆ ดันธงไปฝั่งตรงข้าม!', 'Chạm thật nhanh đẩy cờ sang đối thủ!'],
+ # ---- 연타 땅따먹기 ----
+ 'tugTitle': ['연타 땅따먹기', 'Tap Turf War', '連打陣取り', '狂点抢地盘', 'แตะรัวยึดพื้นที่', 'Chạm nhanh giành đất'],
+ 'tugSub': ['연타해서 내 땅을 넓혀라!', 'Mash to grab more turf!', '連打で陣地を広げろ！', '狂点扩大地盘！', 'แตะรัวขยายพื้นที่ของเรา!', 'Chạm nhanh để mở rộng đất!'],
  'tugDesc': ['2명이 휴대폰을 사이에 두고 위·아래로 마주 앉아요.\nGO! 하면 내 쪽 화면을 미친 듯이 연타!\n가운데 깃발(🎀)을 상대편 끝 선까지 밀어내면 승리, 진 사람은 원샷!',
              'Two players sit facing each other, phone in the middle.\nOn GO!, mash your half of the screen like crazy!\nPush the flag (🎀) past the line on their side to win. Loser drinks!',
              '2人でスマホをはさんで上下に向かい合って座ります。\nGO!で自分側の画面をひたすら連打！\n真ん中の旗(🎀)を相手側の線まで押し込んだら勝ち、負けた人は一気！',
@@ -67,12 +67,12 @@ S = {
  # ---- 맥주 거품 채우기 ----
  'beerTitle': ['맥주 거품 채우기', 'Beer Pour', 'ビール注ぎ', '倒啤酒', 'รินเบียร์', 'Rót bia'],
  'beerSub': ['넘치기 직전에 멈춰!', 'Stop right before it overflows!', 'あふれる直前で止めて！', '快溢出来前停下！', 'หยุดก่อนล้นแก้ว!', 'Dừng ngay trước khi tràn!'],
- 'beerDesc': ['각자 내 맥주잔을 지켜봐요. 맥주가 점점 빨리 차올라요!\n빨간 점선(여기까지!)에 맞춰서 터치해 멈추기.\n선에 제일 가깝게 멈춘 사람 1등, 넘치면 바로 꼴찌!',
-              'Watch your own glass. The beer fills faster and faster!\nTap to stop it at the red dashed line.\nClosest to the line wins. Overflow = last place!',
-              'それぞれ自分のジョッキを見ていてね。ビールがどんどん速く注がれる！\n赤い点線（ここまで！）に合わせてタップで止める。\n線に一番近い人が1位、あふれたら即ビリ！',
-              '盯好自己的啤酒杯，啤酒会越倒越快！\n对准红色虚线（到这里！）点一下停下。\n最接近线的人第一，溢出来直接垫底！',
-              'ดูแก้วเบียร์ของตัวเองไว้ เบียร์จะเติมเร็วขึ้นเรื่อยๆ!\nแตะให้หยุดตรงเส้นประสีแดง\nใครหยุดใกล้เส้นที่สุดชนะ ล้นแก้ว = ที่โหล่ทันที!',
-              'Mỗi người nhìn ly bia của mình. Bia rót ngày càng nhanh!\nChạm để dừng đúng vạch đứt màu đỏ.\nGần vạch nhất thắng, tràn ly = bét ngay!'],
+ 'beerDesc': ['각자 내 맥주잔을 지켜봐요. 맥주가 빨라졌다 느려졌다 하면서 차올라요!\n빨간 점선(여기까지!)에 맞춰서 터치해 멈추기.\n선에 제일 가깝게 멈춘 사람 1등, 넘치면 바로 꼴찌!',
+              'Watch your own glass. The beer speeds up and slows down as it fills!\nTap to stop it at the red dashed line.\nClosest to the line wins. Overflow = last place!',
+              'それぞれ自分のジョッキを見ていてね。ビールが速くなったり遅くなったりしながら注がれる！\n赤い点線（ここまで！）に合わせてタップで止める。\n線に一番近い人が1位、あふれたら即ビリ！',
+              '盯好自己的啤酒杯，啤酒忽快忽慢地往上涨！\n对准红色虚线（到这里！）点一下停下。\n最接近线的人第一，溢出来直接垫底！',
+              'ดูแก้วเบียร์ของตัวเองไว้ เบียร์จะเติมเร็วบ้างช้าบ้าง!\nแตะให้หยุดตรงเส้นประสีแดง\nใครหยุดใกล้เส้นที่สุดชนะ ล้นแก้ว = ที่โหล่ทันที!',
+              'Mỗi người nhìn ly bia của mình. Bia rót lúc nhanh lúc chậm!\nChạm để dừng đúng vạch đứt màu đỏ.\nGần vạch nhất thắng, tràn ly = bét ngay!'],
  'beerLine': ['여기까지!', 'Stop here!', 'ここまで！', '到这里！', 'ถึงตรงนี้!', 'Đến đây!'],
  'beerTap': ['터치해서 멈춰!', 'Tap to stop!', 'タップで止めて！', '点一下停下！', 'แตะเพื่อหยุด!', 'Chạm để dừng!'],
  'beerOver': ['넘쳤다! 💦', 'Overflow! 💦', 'あふれた! 💦', '溢出来了! 💦', 'ล้นแล้ว! 💦', 'Tràn rồi! 💦'],
@@ -117,7 +117,7 @@ S = {
 MENU = {
  'menuCardsSub': ['Up/Down · 호치민 · 킹스컵', "Up/Down · Ho Chi Minh · King's Cup", 'Up/Down · ホーチミン · キングスカップ', 'Up/Down · 胡志明 · 国王杯', 'Up/Down · โฮจิมินห์ · คิงส์คัพ', "Up/Down · Hồ Chí Minh · King's Cup"],
  'menuLuckSub': ['사다리게임 · 돌림판 · 폭탄돌리기 · 동전 던지기', 'Ladder Game · Roulette · Hot Bomb · Coin Toss', 'あみだくじ · ルーレット · 爆弾回し · コイントス', '爬梯子 · 转盘 · 传炸弹 · 抛硬币', 'เกมบันได · วงล้อ · ส่งระเบิด · โยนเหรียญ', 'Leo thang · Vòng quay · Chuyền bom · Tung đồng xu'],
- 'menuBattleSub': ['4목 · 탭 줄다리기 · 슬랩 대결', 'Connect 4 · Tap Tug of War · Slap Duel', '4目並べ · タップ綱引き · スラップ対決', '四子棋 · 点击拔河 · 拍手背对决', 'เรียง 4 · ชักเย่อแตะรัว · ดวลตบมือ', 'Nối 4 · Kéo co chạm · Đấu đập tay'],
+ 'menuBattleSub': ['4목 · 연타 땅따먹기 · 슬랩 대결', 'Connect 4 · Tap Turf War · Slap Duel', '4目並べ · 連打陣取り · スラップ対決', '四子棋 · 狂点抢地盘 · 拍手背对决', 'เรียง 4 · แตะรัวยึดพื้นที่ · ดวลตบมือ', 'Nối 4 · Chạm nhanh giành đất · Đấu đập tay'],
  'menuQuickSub': ['반응속도 대결 · 색 반응 대결 · 스탑워치 · 맥주 거품 채우기', 'Reaction Duel · Color Reaction · Stopwatch · Beer Pour', '反応速度対決 · 色反応対決 · ストップウォッチ · ビール注ぎ', '反应速度对决 · 颜色反应对决 · 秒表 · 倒啤酒', 'ดวลความไว · ดวลสี · นาฬิกาจับเวลา · รินเบียร์', 'Đấu phản xạ · Đấu màu · Bấm giờ · Rót bia'],
 }
 if __name__ == '__main__':

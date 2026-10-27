@@ -273,9 +273,19 @@ fun SlapDuelScreen(onBack: () -> Unit) {
 // ===================== 🍺 맥주 거품 채우기 =====================
 private class BeerGame(override val n: Int, val vibe: Vibe) : SplitGame {
     var startAt = 0f; var k = 1f; var stop = arrayOfNulls<Float>(n); var doneAt = 0f
+    // 차오르는 속도 = 점점 빨라지는 기본 속도 × (1 + 물결 두 개) → 빨라졌다 느려졌다 (멈추거나 줄지는 않음) — 웹과 같음
+    var waves = listOf<FloatArray>()
+    private fun rw(a: Float, b: Float) = a + Random.nextFloat() * (b - a)
+    fun round(t: Float) {
+        startAt = t + 1.4f; k = 0.85f + Random.nextFloat() * 0.35f; stop = arrayOfNulls(n); doneAt = 0f
+        waves = listOf(floatArrayOf(rw(0.35f, 0.5f), rw(2.2f, 3.6f), rw(0f, 6.28f)), floatArrayOf(rw(0.2f, 0.35f), rw(4.5f, 7f), rw(0f, 6.28f)))
+    }
+    private fun wave(x: Float, amp: Float, w: Float, p: Float): Float {
+        fun f(u: Float) = -(0.06f + 0.11f * u) * cos(w * u + p) / w + 0.11f * sin(w * u + p) / (w * w)
+        return amp * (f(x) - f(0f))
+    }
+    fun level(t: Float): Float { val x = max(0f, t - startAt) * k; return min(1.12f, 0.06f * x + 0.055f * x * x + waves.sumOf { wave(x, it[0], it[1], it[2]).toDouble() }.toFloat()) }
     init { round(0f) }
-    fun round(t: Float) { startAt = t + 1.4f; k = 0.85f + Random.nextFloat() * 0.35f; stop = arrayOfNulls(n); doneAt = 0f }
-    fun level(t: Float): Float { val x = max(0f, t - startAt) * k; return min(1.12f, 0.06f * x + 0.055f * x * x) }
     fun overT(): Float { var lo = startAt; var hi = startAt + 30; repeat(40) { val m = (lo + hi) / 2; if (level(m) >= 1.06f) hi = m else lo = m }; return hi }
     override fun tap(i: Int, t: Float) { if (doneAt > 0 || t < startAt || stop[i] != null) return; stop[i] = level(t); vibe.tap() }
     override fun hub(t: Float) { if (doneAt > 0 && t - doneAt > 0.6f) { round(t); vibe.tap() } }

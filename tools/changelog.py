@@ -3,6 +3,24 @@
 # 각 항목: (이모지, 6개 언어 문장)
 
 CHANGELOG = [
+    dict(ver='1.5.1', date='2026-10-27', items=[
+        ('🎀', dict(
+            ko='🎀 탭 줄다리기 → 연타 땅따먹기로 이름 변경 (당기는 게 아니라 밀어낸 만큼 내 땅이 넓어지니까!)',
+            en='🎀 Tap Tug of War is now Tap Turf War (you push, not pull — the more you push, the more turf you own!)',
+            ja='🎀 タップ綱引き → 連打陣取りに名前変更（引くんじゃなくて、押した分だけ自分の陣地が広がる！）',
+            zh='🎀 点击拔河改名为狂点抢地盘（不是拉而是推，推得越多地盘越大！）',
+            th='🎀 เปลี่ยนชื่อ ชักเย่อแตะรัว → แตะรัวยึดพื้นที่ (ไม่ได้ดึงแต่ดัน ยิ่งดันพื้นที่เรายิ่งกว้าง!)',
+            vi='🎀 Đổi tên Kéo co chạm → Chạm nhanh giành đất (không kéo mà đẩy — đẩy càng nhiều, đất càng rộng!)',
+        )),
+        ('🍺', dict(
+            ko='🍺 맥주 거품 채우기: 맥주가 빨라졌다 느려졌다 하면서 차올라요 (판마다 다르게)',
+            en='🍺 Beer Pour: the beer now speeds up and slows down as it fills (different every round)',
+            ja='🍺 ビール注ぎ：ビールが速くなったり遅くなったりしながら注がれます（毎回ちがう）',
+            zh='🍺 倒啤酒：啤酒忽快忽慢地往上涨（每局都不一样）',
+            th='🍺 รินเบียร์: เบียร์จะเติมเร็วบ้างช้าบ้าง (แต่ละรอบไม่เหมือนกัน)',
+            vi='🍺 Rót bia: bia rót lúc nhanh lúc chậm (mỗi ván một kiểu)',
+        )),
+    ]),
     dict(ver='1.5', date='2026-10-27', items=[
         ('🎀', dict(
             ko='🎀 탭 줄다리기 추가 (대결게임): 위·아래로 마주 앉아 연타해서 깃발을 상대 쪽 선까지 밀어내기',

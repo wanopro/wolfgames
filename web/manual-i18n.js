@@ -5,7 +5,7 @@ export const MANUAL = {
   "lead": "술자리 게임 모음 · 설치 안내",
   "navAndroid": "🤖 안드로이드 설치",
   "navIphone": "🍎 아이폰 홈 화면 추가",
-  "navNew": "🆕 v1.5 구성",
+  "navNew": "🆕 v1.5.1 구성",
   "navUpdate": "🔄 업데이트",
   "navFaq": "❓ 자주 묻는 질문",
   "qAndroid": "🤖 안드로이드 앱",
@@ -100,12 +100,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 메인 화면",
-  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.5</b>)을 확인할 수 있어요.",
-  "hNew": "🆕 v1.5 구성",
-  "newIntro": "울프 게임즈 v1.5에는 아래 게임과 기능이 들어 있어요.",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.5.1</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v1.5.1 구성",
+  "newIntro": "울프 게임즈 v1.5.1에는 아래 게임과 기능이 들어 있어요.",
   "newFeat": [
    "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🎀 탭 줄다리기 · 🐾 슬랩 대결 · 👑 글로벌 킹스컵 · 🍺 맥주 거품 채우기 · 🪙 동전 던지기",
+   "🆕 🎀 연타 땅따먹기 · 🐾 슬랩 대결 · 👑 글로벌 킹스컵 · 🍺 맥주 거품 채우기 · 🪙 동전 던지기",
    "⚡ 순발력게임 (반응속도 대결 · 색 반응 대결 · 스탑워치) · 💣 폭탄돌리기 · ⚔️ 주사위 대결",
    "👆 손가락게임 (손가락선택) · 🐺 늑대게임 · 🍀 운빨게임 · ⚔️ 대결게임 카테고리",
    "🃏 카드 게임 (Up/Down · 호치민) · 🍶 789",
@@ -117,6 +117,8 @@ export const MANUAL = {
   ],
   "hChange": "🛠 최근 수정 내용",
   "changes": [
+   "🎀 탭 줄다리기 → 연타 땅따먹기로 이름 변경 (당기는 게 아니라 밀어낸 만큼 내 땅이 넓어지니까!)",
+   "🍺 맥주 거품 채우기: 맥주가 빨라졌다 느려졌다 하면서 차올라요 (판마다 다르게)",
    "🎀 탭 줄다리기 추가 (대결게임): 위·아래로 마주 앉아 연타해서 깃발을 상대 쪽 선까지 밀어내기",
    "🐾 슬랩 대결 추가 (대결게임): 귀여운 늑대 앞발로 하는 손등 때리기 — 수비는 꾹 누르고 있다가 피하기!",
    "👑 글로벌 킹스컵 추가 (카드): 카드마다 그림으로 할 일 표시, K가 나올 때마다 킹스컵 잔이 차고 4번째 K는 원샷",
@@ -218,7 +220,7 @@ export const MANUAL = {
    ],
    [
     "인원(2~6명)을 정하고 폰을 가운데 둬요. 화면이 인원수만큼 나뉘고 각자 맥주잔이 하나씩 생겨요.",
-    "맥주가 점점 빨리 차올라요. 빨간 점선 <b>\"여기까지!\"</b>에 맞춰서 내 영역을 터치하면 멈춰요.",
+    "맥주가 빨라졌다 느려졌다 하면서 차올라요. 빨간 점선 <b>\"여기까지!\"</b>에 맞춰서 내 영역을 터치하면 멈춰요.",
     "선에 제일 가깝게 멈춘 사람 <b>👑 1등</b>, 선을 넘기면 <b>💦 넘쳤다 → 💀 꼴찌</b>. 가운데 원을 누르면 다시."
    ],
    [
@@ -447,7 +449,7 @@ export const MANUAL = {
   "lead": "Drinking game collection · Install guide",
   "navAndroid": "🤖 Android install",
   "navIphone": "🍎 iPhone home screen",
-  "navNew": "🆕 What's in v1.5",
+  "navNew": "🆕 What's in v1.5.1",
   "navUpdate": "🔄 Updates",
   "navFaq": "❓ FAQ",
   "qAndroid": "🤖 Android app",
@@ -542,12 +544,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Main screen",
-  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.5</b>) is shown at the bottom.",
-  "hNew": "🆕 What's in v1.5",
-  "newIntro": "Wolf Games v1.5 includes these games and features.",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.5.1</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v1.5.1",
+  "newIntro": "Wolf Games v1.5.1 includes these games and features.",
   "newFeat": [
    "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🎀 Tap Tug of War · 🐾 Slap Duel · 👑 Global King's Cup · 🍺 Beer Pour · 🪙 Coin Toss",
+   "🆕 🎀 Tap Turf War · 🐾 Slap Duel · 👑 Global King's Cup · 🍺 Beer Pour · 🪙 Coin Toss",
    "⚡ Quick Games (Reaction Duel · Color Reaction · Stopwatch) · 💣 Hot Bomb · ⚔️ Dice Duel",
    "👆 Finger Games (Finger Pick) · 🐺 Wolf Games · 🍀 Luck Games · ⚔️ Versus Games",
    "🃏 Card games (Up/Down · Ho Chi Minh) · 🍶 789",
@@ -559,6 +561,8 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Latest changes",
   "changes": [
+   "🎀 Tap Tug of War is now Tap Turf War (you push, not pull — the more you push, the more turf you own!)",
+   "🍺 Beer Pour: the beer now speeds up and slows down as it fills (different every round)",
    "New 🎀 Tap Tug of War (Battle): sit face to face and mash to push the flag past the other side's line",
    "New 🐾 Slap Duel (Battle): Red Hands with cute wolf paws — the defender holds, then lifts to dodge!",
    "New 👑 Global King's Cup (Cards): every card shows its rule as a picture; the cup fills with each King and the 4th King drinks it",
@@ -660,7 +664,7 @@ export const MANUAL = {
    ],
    [
     "Choose 2–6 players and put the phone in the middle. The screen splits and everyone gets a beer glass.",
-    "The beer fills faster and faster. Tap your area to stop it right at the red dashed line <b>\"Stop here!\"</b>.",
+    "The beer speeds up and slows down as it fills. Tap your area to stop it right at the red dashed line <b>\"Stop here!\"</b>.",
     "Closest to the line is <b>👑 1st</b>; go past it and it <b>💦 overflows → 💀 last</b>. Tap the center to play again."
    ],
    [
@@ -889,7 +893,7 @@ export const MANUAL = {
   "lead": "飲み会ゲーム集 · インストール案内",
   "navAndroid": "🤖 Androidにインストール",
   "navIphone": "🍎 iPhoneのホーム画面に追加",
-  "navNew": "🆕 v1.5の内容",
+  "navNew": "🆕 v1.5.1の内容",
   "navUpdate": "🔄 アップデート",
   "navFaq": "❓ よくある質問",
   "qAndroid": "🤖 Androidアプリ",
@@ -983,12 +987,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 メイン画面",
-  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.5</b>）を確認できます。",
-  "hNew": "🆕 v1.5の内容",
-  "newIntro": "ウルフゲームズv1.5には次のゲームと機能が入っています。",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.5.1</b>）を確認できます。",
+  "hNew": "🆕 v1.5.1の内容",
+  "newIntro": "ウルフゲームズv1.5.1には次のゲームと機能が入っています。",
   "newFeat": [
    "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🎀 タップ綱引き · 🐾 スラップ対決 · 👑 グローバル・キングスカップ · 🍺 ビール注ぎ · 🪙 コイントス",
+   "🆕 🎀 連打陣取り · 🐾 スラップ対決 · 👑 グローバル・キングスカップ · 🍺 ビール注ぎ · 🪙 コイントス",
    "⚡ 反射神経ゲーム（反応速度対決・色反応対決・ストップウォッチ）・💣 爆弾回し・⚔️ サイコロ対決",
    "👆 指ゲーム（指えらび）・🐺 オオカミゲーム・🍀 運ゲー・⚔️ 対決ゲーム",
    "🃏 カードゲーム（Up/Down・ホーチミン）・🍶 789",
@@ -1000,6 +1004,8 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近の変更",
   "changes": [
+   "🎀 タップ綱引き → 連打陣取りに名前変更（引くんじゃなくて、押した分だけ自分の陣地が広がる！）",
+   "🍺 ビール注ぎ：ビールが速くなったり遅くなったりしながら注がれます（毎回ちがう）",
    "🎀 タップ綱引き追加（対決ゲーム）：上下に向かい合って連打し、旗を相手側の線まで押し込む",
    "🐾 スラップ対決追加（対決ゲーム）：かわいいオオカミの前足で手の甲たたき — 守りは押さえておいて離してよける！",
    "👑 グローバル・キングスカップ追加（カード）：カードごとにやることを絵で表示、Kが出るたびに杯が満ち4枚目のKで一気",
@@ -1101,7 +1107,7 @@ export const MANUAL = {
    ],
    [
     "人数（2〜6人）を決めてスマホを真ん中に置きます。画面が人数分に分かれ、それぞれジョッキが1つずつ。",
-    "ビールがどんどん速く注がれます。赤い点線<b>「ここまで！」</b>に合わせて自分のエリアをタップして止めます。",
+    "ビールが速くなったり遅くなったりしながら注がれます。赤い点線<b>「ここまで！」</b>に合わせて自分のエリアをタップして止めます。",
     "線に一番近い人が<b>👑 1位</b>、線を超えると<b>💦 あふれた → 💀 ビリ</b>。真ん中の円でもう一度。"
    ],
    [
@@ -1330,7 +1336,7 @@ export const MANUAL = {
   "lead": "酒桌游戏合集 · 安装说明",
   "navAndroid": "🤖 安卓安装",
   "navIphone": "🍎 iPhone添加到主屏幕",
-  "navNew": "🆕 v1.5内容",
+  "navNew": "🆕 v1.5.1内容",
   "navUpdate": "🔄 更新",
   "navFaq": "❓ 常见问题",
   "qAndroid": "🤖 安卓应用",
@@ -1424,12 +1430,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 主界面",
-  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.5</b>）。",
-  "hNew": "🆕 v1.5内容",
-  "newIntro": "沃夫游戏v1.5包含以下游戏和功能。",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.5.1</b>）。",
+  "hNew": "🆕 v1.5.1内容",
+  "newIntro": "沃夫游戏v1.5.1包含以下游戏和功能。",
   "newFeat": [
    "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🎀 点击拔河 · 🐾 拍手背对决 · 👑 全球国王杯 · 🍺 倒啤酒 · 🪙 抛硬币",
+   "🆕 🎀 狂点抢地盘 · 🐾 拍手背对决 · 👑 全球国王杯 · 🍺 倒啤酒 · 🪙 抛硬币",
    "⚡ 反应游戏（反应速度对决 · 颜色反应对决 · 秒表）· 💣 传炸弹 · ⚔️ 骰子对决",
    "👆 手指游戏（手指选人）· 🐺 狼游戏 · 🍀 拼手气 · ⚔️ 对战游戏",
    "🃏 纸牌游戏（Up/Down · 胡志明）· 🍶 789",
@@ -1441,6 +1447,8 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近修改",
   "changes": [
+   "🎀 点击拔河改名为狂点抢地盘（不是拉而是推，推得越多地盘越大！）",
+   "🍺 倒啤酒：啤酒忽快忽慢地往上涨（每局都不一样）",
    "新增🎀 点击拔河（对战游戏）：上下面对面狂点，把旗推过对方的线",
    "新增🐾 拍手背对决（对战游戏）：用可爱的狼爪玩拍手背 — 防守方按住，松开就能躲！",
    "新增👑 全球国王杯（扑克）：每张牌用图显示规则，每出一张K杯子就满一点，第4张K干杯",
@@ -1542,7 +1550,7 @@ export const MANUAL = {
    ],
    [
     "选人数（2~6人），把手机放中间。屏幕按人数分开，每人一个啤酒杯。",
-    "啤酒越倒越快。对准红色虚线<b>「到这里！」</b>点自己的区域停下。",
+    "啤酒忽快忽慢地往上涨。对准红色虚线<b>「到这里！」</b>点自己的区域停下。",
     "最接近线的人<b>👑 第一</b>，超过线就<b>💦 溢出 → 💀 垫底</b>。点中间的圆再来一局。"
    ],
    [
@@ -1771,7 +1779,7 @@ export const MANUAL = {
   "lead": "รวมเกมวงเหล้า · วิธีติดตั้ง",
   "navAndroid": "🤖 ติดตั้งบน Android",
   "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
-  "navNew": "🆕 มีอะไรใน v1.5",
+  "navNew": "🆕 มีอะไรใน v1.5.1",
   "navUpdate": "🔄 อัปเดต",
   "navFaq": "❓ คำถามที่พบบ่อย",
   "qAndroid": "🤖 แอป Android",
@@ -1865,12 +1873,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 หน้าหลัก",
-  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.5</b>) ได้ที่ด้านล่างสุด",
-  "hNew": "🆕 มีอะไรใน v1.5",
-  "newIntro": "Wolf Games v1.5 มีเกมและฟีเจอร์ต่อไปนี้",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.5.1</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v1.5.1",
+  "newIntro": "Wolf Games v1.5.1 มีเกมและฟีเจอร์ต่อไปนี้",
   "newFeat": [
    "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🎀 ชักเย่อแตะรัว · 🐾 ดวลตบมือ · 👑 คิงส์คัพสากล · 🍺 รินเบียร์ · 🪙 โยนเหรียญ",
+   "🆕 🎀 แตะรัวยึดพื้นที่ · 🐾 ดวลตบมือ · 👑 คิงส์คัพสากล · 🍺 รินเบียร์ · 🪙 โยนเหรียญ",
    "⚡ เกมไหวพริบ (ดวลความไว · ดวลสี · นาฬิกาจับเวลา) · 💣 ส่งระเบิด · ⚔️ ดวลลูกเต๋า",
    "👆 เกมนิ้ว (จิ้มนิ้วเลือกคน) · 🐺 เกมหมาป่า · 🍀 เกมดวง · ⚔️ เกมดวล",
    "🃏 เกมไพ่ (Up/Down · โฮจิมินห์) · 🍶 789",
@@ -1882,6 +1890,8 @@ export const MANUAL = {
   ],
   "hChange": "🛠 การแก้ไขล่าสุด",
   "changes": [
+   "🎀 เปลี่ยนชื่อ ชักเย่อแตะรัว → แตะรัวยึดพื้นที่ (ไม่ได้ดึงแต่ดัน ยิ่งดันพื้นที่เรายิ่งกว้าง!)",
+   "🍺 รินเบียร์: เบียร์จะเติมเร็วบ้างช้าบ้าง (แต่ละรอบไม่เหมือนกัน)",
    "เพิ่ม 🎀 ชักเย่อแตะรัว (เกมดวล): นั่งหันหน้าเข้าหากัน แตะรัวดันธงไปถึงเส้นฝั่งตรงข้าม",
    "เพิ่ม 🐾 ดวลตบมือ (เกมดวล): ตบหลังมือด้วยอุ้งเท้าหมาป่าน่ารัก ฝ่ายรับกดค้างแล้วยกหลบ!",
    "เพิ่ม 👑 คิงส์คัพสากล (ไพ่): ทุกใบบอกกติกาเป็นรูป ได้ K แก้วจะเต็มขึ้น K ใบที่ 4 หมดแก้ว",
@@ -1983,7 +1993,7 @@ export const MANUAL = {
    ],
    [
     "เลือกผู้เล่น 2–6 คน วางมือถือไว้ตรงกลาง หน้าจอแบ่งตามจำนวนคน ทุกคนมีแก้วเบียร์ของตัวเอง",
-    "เบียร์จะเติมเร็วขึ้นเรื่อยๆ แตะช่องของตัวเองให้หยุดตรงเส้นประสีแดง <b>\"ถึงตรงนี้!\"</b>",
+    "เบียร์จะเติมเร็วบ้างช้าบ้าง แตะช่องของตัวเองให้หยุดตรงเส้นประสีแดง <b>\"ถึงตรงนี้!\"</b>",
     "ใกล้เส้นที่สุด <b>👑 ที่ 1</b> เลยเส้น <b>💦 ล้น → 💀 ที่โหล่</b> แตะวงกลมตรงกลางเพื่อเล่นใหม่"
    ],
    [
@@ -2212,7 +2222,7 @@ export const MANUAL = {
   "lead": "Bộ trò chơi nhậu · Hướng dẫn cài đặt",
   "navAndroid": "🤖 Cài trên Android",
   "navIphone": "🍎 Thêm vào MH chính iPhone",
-  "navNew": "🆕 Có gì trong v1.5",
+  "navNew": "🆕 Có gì trong v1.5.1",
   "navUpdate": "🔄 Cập nhật",
   "navFaq": "❓ Câu hỏi thường gặp",
   "qAndroid": "🤖 Ứng dụng Android",
@@ -2306,12 +2316,12 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Màn hình chính",
-  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.5</b>) hiện ở dưới cùng.",
-  "hNew": "🆕 Có gì trong v1.5",
-  "newIntro": "Wolf Games v1.5 gồm các trò chơi và tính năng sau.",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.5.1</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v1.5.1",
+  "newIntro": "Wolf Games v1.5.1 gồm các trò chơi và tính năng sau.",
   "newFeat": [
    "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🎀 Kéo co chạm · 🐾 Đấu đập tay · 👑 King's Cup toàn cầu · 🍺 Rót bia · 🪙 Tung đồng xu",
+   "🆕 🎀 Chạm nhanh giành đất · 🐾 Đấu đập tay · 👑 King's Cup toàn cầu · 🍺 Rót bia · 🪙 Tung đồng xu",
    "⚡ Phản xạ (Đấu phản xạ · Đấu màu · Bấm giờ) · 💣 Chuyền bom · ⚔️ Đấu xúc xắc",
    "👆 Ngón tay (Chọn ngón tay) · 🐺 Sói · 🍀 May rủi · ⚔️ Đối kháng",
    "🃏 Trò chơi bài (Up/Down · Hồ Chí Minh) · 🍶 789",
@@ -2323,6 +2333,8 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Thay đổi gần đây",
   "changes": [
+   "🎀 Đổi tên Kéo co chạm → Chạm nhanh giành đất (không kéo mà đẩy — đẩy càng nhiều, đất càng rộng!)",
+   "🍺 Rót bia: bia rót lúc nhanh lúc chậm (mỗi ván một kiểu)",
    "Thêm 🎀 Kéo co chạm (Đối kháng): ngồi đối diện, chạm thật nhanh đẩy cờ qua vạch bên kia",
    "Thêm 🐾 Đấu đập tay (Đối kháng): trò đập mu bàn tay bằng chân sói dễ thương — phòng thủ giữ tay rồi nhấc lên để né!",
    "Thêm 👑 King's Cup toàn cầu (Bài): mỗi lá hiện luật bằng hình, mỗi lá K làm ly đầy thêm, lá K thứ 4 phải cạn ly",
@@ -2424,7 +2436,7 @@ export const MANUAL = {
    ],
    [
     "Chọn 2–6 người và đặt điện thoại ở giữa. Màn hình chia theo số người, mỗi người một ly bia.",
-    "Bia rót ngày càng nhanh. Chạm phần của mình để dừng đúng vạch đỏ <b>\"Đến đây!\"</b>.",
+    "Bia rót lúc nhanh lúc chậm. Chạm phần của mình để dừng đúng vạch đỏ <b>\"Đến đây!\"</b>.",
     "Gần vạch nhất là <b>👑 nhất</b>, vượt vạch là <b>💦 tràn → 💀 bét</b>. Chạm vòng tròn giữa để chơi lại."
    ],
    [
