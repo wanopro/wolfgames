@@ -15,7 +15,7 @@ import { plinko, ticTacToe, gomoku } from './games-v16.js';
 import { hotelScreen, hotelEdit } from './hotel.js';
 
 const HOMEPAGE = 'https://wolf.community';
-const FEEDBACK = 'https://wolf.community/traveltalk/6817682';
+const FEEDBACK = 'https://wolf.community/traveltalk/6829263';
 // 이모지가 폰마다 다르게(또는 네모로) 나오는 것 대신 직접 그린 아이콘
 const icon = (name) => h('img', { src: `icons/${name}.png`, alt: '', style: 'width:44px;height:44px;display:block' });
 const app = document.getElementById('app');
