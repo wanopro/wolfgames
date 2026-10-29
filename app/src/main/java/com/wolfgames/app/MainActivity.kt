@@ -199,7 +199,7 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
             Screen.ColorReact -> ColorGameScreen(onBack = back)
             Screen.Stopwatch -> StopwatchScreen(onBack = back)
             Screen.Bomb -> BombGameScreen(onBack = back)
-            Screen.BattleMenu -> CategoryScreen("⚔️ ${s.menuBattle}", back, listOf(MenuItem("🔴", s.menuFour, s.menuFourSub, Screen.Four), MenuItem("🎀", s.tugTitle, s.tugSub, Screen.Tug), MenuItem("🐾", s.slapTitle, s.slapSub, Screen.Slap), MenuItem("🟢", s.tttTitle, s.tttSub, Screen.Ttt), MenuItem("⚫", s.gomokuTitle, s.gomokuSub, Screen.Gomoku))) { screen = it }
+            Screen.BattleMenu -> CategoryScreen("⚔️ ${s.menuBattle}", back, listOf(MenuItem("🟢", s.tttTitle, s.tttSub, Screen.Ttt), MenuItem("🔴", s.menuFour, s.menuFourSub, Screen.Four), MenuItem("⚫", s.gomokuTitle, s.gomokuSub, Screen.Gomoku), MenuItem("🎀", s.tugTitle, s.tugSub, Screen.Tug), MenuItem("🐾", s.slapTitle, s.slapSub, Screen.Slap))) { screen = it }
             Screen.Croc -> WolfTeethGame(onBack = back)
             Screen.Ladder -> LadderGame(onBack = back)
             Screen.Roulette -> RouletteGame(onBack = back)

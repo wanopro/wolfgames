@@ -217,11 +217,11 @@ function luckMenu(root) {
 function battleMenu(root) {
   const s = S();
   root.append(top(`⚔️ ${s.menuBattle}`, back), h('div', { class: 'scroll' },
-    card('🔴', s.menuFour, s.menuFourSub, () => go('four')),
-    card('🎀', s.tugTitle, s.tugSub, () => go('tug')),
-    card('🐾', s.slapTitle, s.slapSub, () => go('slap')),
     card('🟢', s.tttTitle, s.tttSub, () => go('ttt')),
-    card('⚫', s.gomokuTitle, s.gomokuSub, () => go('gomoku'))));
+    card('🔴', s.menuFour, s.menuFourSub, () => go('four')),
+    card('⚫', s.gomokuTitle, s.gomokuSub, () => go('gomoku')),
+    card('🎀', s.tugTitle, s.tugSub, () => go('tug')),
+    card('🐾', s.slapTitle, s.slapSub, () => go('slap'))));
 }
 
 function cardMenu(root) {
