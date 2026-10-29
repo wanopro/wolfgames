@@ -15,6 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.sp
 import com.wolfgames.app.i18n.SEP
 
 /**
@@ -47,6 +48,9 @@ fun Text(
         return
     }
     val parts = text.split(SEP)
+    // 줄 간격이 좁게 정해진 큰 글자는 두 줄이 겹치지 않게 넓힘
+    val fs = if (fontSize.isSp) fontSize else style.fontSize
+    val lh = if (fs.isSp && lineHeight.isSp && lineHeight.value < fs.value * 1.3f) (fs.value * 1.3f).sp else lineHeight
     // 보조 줄은 같은 크기, 투명도만 낮춤
     val base = if (color != Color.Unspecified) color else style.color.takeIf { it != Color.Unspecified } ?: androidx.compose.material3.LocalContentColor.current
     val two = buildAnnotatedString {
@@ -56,7 +60,7 @@ fun Text(
     }
     androidx.compose.material3.Text(
         two, modifier = modifier, color = color, fontSize = fontSize, fontStyle = fontStyle, fontWeight = fontWeight, fontFamily = fontFamily,
-        letterSpacing = letterSpacing, textDecoration = textDecoration, textAlign = textAlign, lineHeight = lineHeight, overflow = overflow, softWrap = softWrap,
+        letterSpacing = letterSpacing, textDecoration = textDecoration, textAlign = textAlign, lineHeight = lh, overflow = overflow, softWrap = softWrap,
         maxLines = if (maxLines == Int.MAX_VALUE || inline) maxLines else maxLines * 2, minLines = minLines, style = style,
     )
 }

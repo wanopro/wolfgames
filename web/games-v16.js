@@ -57,7 +57,7 @@ function bothSides(c, W, H, str, size, color, pad = 26) {
 function eachSide(c, W, H, msgs, size, cols, pad = 26) {
   msgs.forEach((m, i) => {
     let sz = size; while (wide(c, m, sz) > W - 72 && sz > 10) sz -= 0.5;
-    const off = m.includes(SEP) ? sz * 0.6 : 0;
+    const off = m.includes(SEP) ? sz * 0.95 : 0;
     c.save(); if (i) { c.translate(W, H); c.rotate(Math.PI); }
     txtBig(c, m, W / 2, H - pad - off, sz, cols[i]); c.restore();
   });
@@ -225,7 +225,7 @@ export function ticTacToe(root, back) {
           // 아래 사람 = 초록, 위 사람 = 빨강. 각자 쪽에 "나: 초록" + 지금 상황
           const tu = t - g.timeUpAt < 1;
           eachSide(c, W, H, [0, 1].map((p) => cat(s.youAre(names[p]), '  ·  ', msg)), 19, [0, 1].map((p) => (tu ? RED : p === g.turn ? TTT_COL[p] : '#8A8FA0')));
-          for (const p of [0, 1]) { c.save(); if (p) { c.translate(W, H); c.rotate(Math.PI); } coin(c, 30, H - 26 - (msg.includes(SEP) ? 11 : 0), 13, 1, 1, p ? 'red' : 'green'); c.restore(); }
+          for (const p of [0, 1]) { c.save(); if (p) { c.translate(W, H); c.rotate(Math.PI); } coin(c, 30, H - 26 - (msg.includes(SEP) ? 18 : 0), 13, 1, 1, p ? 'red' : 'green'); c.restore(); }
         } else {
           const msg = g.win === -1 ? s.drawWord : cat(s.winsOf(names[g.win]), '  ·  ', names[1 - g.win], ' ', s.shotWord);
           eachSide(c, W, H, [0, 1].map((p) => cat(s.youAre(names[p]), '  ·  ', msg)), 19, [0, 1].map(() => (g.win === -1 ? GOLD : TTT_COL[g.win])));
@@ -350,7 +350,7 @@ export function gomoku(root, back) {
         eachSide(c, W, H, [0, 1].map((p) => cat(s.youAre(names[p]), '  ·  ', msg)), 19, [0, 1].map((p) => (g.win || t - g.banAt < 1.2 ? col : p === g.turn - 1 ? '#fff' : '#8A8FA0')), pd);
         for (const p of [0, 1]) {
           c.save(); if (p) { c.translate(W, H); c.rotate(Math.PI); }
-          const sy = H - pd - (msg.includes(SEP) ? 11 : 0);
+          const sy = H - pd - (msg.includes(SEP) ? 18 : 0);
           c.beginPath(); c.arc(28, sy, 11, 0, 7); c.fillStyle = p ? '#eee' : '#111'; c.fill(); c.lineWidth = 2; c.strokeStyle = !g.win && p === g.turn - 1 ? GOLD : '#888'; c.stroke(); c.restore();
         }
         if (!g.win) { /* 차례 표시는 위 글자로 */ } else if (t - g.endAt > 0.8) { c.fillStyle = 'rgba(0,0,0,.6)'; c.beginPath(); c.roundRect(W / 2 - 110, H / 2 - 22, 220, 44, 22); c.fill(); fitLabel(c, s.playAgain, W / 2, H / 2, 200, 17, '#fff'); }

@@ -127,7 +127,7 @@ private fun Ctx.eachSide(w: Float, h: Float, msgs: List<String>, size: Float, co
         // 자리가 넉넉해서 두 언어도 원래 크기 그대로 두 줄
         val parts = m.split(SEP)
         var sz = size; while (sz > 10 && parts.maxOf { font(sz); measureText(it) } > w - 72) sz -= 0.5f
-        val off = if (parts.size > 1) sz * 0.6f else 0f
+        val off = if (parts.size > 1) sz * 0.95f else 0f
         save(); if (i == 1) { translate(w, h); rotate(PIf) }
         val yc = h - pad - off
         if (parts.size > 1) { text(parts[0], w / 2, yc - sz * 0.58f, sz, cols[i]); val al = globalAlpha; globalAlpha = al * 0.85f; text(parts[1], w / 2, yc + sz * 0.58f, sz, cols[i]); globalAlpha = al }
@@ -316,7 +316,7 @@ private class TttGame(val vibe: Vibe) : PadGame {
             val msg = if (tu) s.timeUp else if (t < turnAt) s.colorTurn(names[turn]) else cat(s.colorTurn(names[turn]), "  " + String.format(java.util.Locale.US, "%.1f", left))
             // 아래 사람 = 초록, 위 사람 = 빨강. 각자 쪽에 "나: 초록" + 지금 상황
             eachSide(w, h, listOf(0, 1).map { cat(s.youAre(names[it]), "  ·  ", msg) }, 19f, listOf(0, 1).map { if (tu) RED else if (it == turn) TTT_COL[it] else "#8A8FA0" })
-            for (p in 0..1) { save(); if (p == 1) { translate(w, h); rotate(PIf) }; coin(30f, h - 26 - (if (SEP in msg) 11f else 0f), 13f, 1, 1f, if (p == 1) "red" else "green"); restore() }
+            for (p in 0..1) { save(); if (p == 1) { translate(w, h); rotate(PIf) }; coin(30f, h - 26 - (if (SEP in msg) 18f else 0f), 13f, 1, 1f, if (p == 1) "red" else "green"); restore() }
         } else {
             val msg = if (win == -1) s.drawWord else cat(s.winsOf(names[win]), "  ·  ", names[1 - win], " ", s.shotWord)
             eachSide(w, h, listOf(0, 1).map { cat(s.youAre(names[it]), "  ·  ", msg) }, 19f, listOf(0, 1).map { if (win == -1) GOLD else TTT_COL[win] })
@@ -439,7 +439,7 @@ private class GomokuGame(val vibe: Vibe) : PadGame {
         eachSide(w, h, listOf(0, 1).map { cat(s.youAre(names[it]), "  ·  ", msg) }, 19f, listOf(0, 1).map { if (win != 0 || t - banAt < 1.2f) col else if (it == turn - 1) "#ffffff" else "#8A8FA0" }, pd)
         for (p in 0..1) {
             save(); if (p == 1) { translate(w, h); rotate(PIf) }
-            val sy = h - pd - (if (SEP in msg) 10f else 0f)
+            val sy = h - pd - (if (SEP in msg) 18f else 0f)
             beginPath(); arc(28f, sy, 11f, 0f, TAU); fillStyle = if (p == 1) "#eeeeee" else "#111111"; fill(); lineWidth = 2f; strokeStyle = if (win == 0 && p == turn - 1) GOLD else "#888888"; stroke(); restore()
         }
         if (win != 0 && t - endAt > 0.8f) againPill(w, h, s)
