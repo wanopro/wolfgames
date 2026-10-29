@@ -374,13 +374,20 @@ private fun Ctx.coinWolfButt(r: Float) {
         beginPath(); ellipse(s * r * 0.36f, r * 0.24f, r * 0.09f, r * 0.05f, 0f, 0f, TAU); fillStyle = "rgba(255,130,150,.45)"; fill()
     }
 }
-/** 동전 (face: 1 앞, -1 뒤). sy: 세로로 눌림(뒤집히는 중) */
-fun Ctx.coin(x: Float, y: Float, r: Float, face: Int, sy: Float = 1f) {
+/** 코인 색 (금색 기본 · 삼목용 초록/빨강): 밝은, 기본, 진한, 테두리, 무늬 */
+private val COIN_PAL = mapOf(
+    "gold" to listOf("#FFE9A6", CGOLD, CGOLD_D, CGOLD_DD, "rgba(168,110,12,.55)"),
+    "green" to listOf("#C8F7C5", "#4CD964", "#23A33E", "#146B27", "rgba(20,107,39,.55)"),
+    "red" to listOf("#FFC9C9", "#FF5A5A", "#D32F2F", "#8E1414", "rgba(142,20,20,.55)"),
+)
+/** 동전 (face: 1 앞, -1 뒤). sy: 세로로 눌림(뒤집히는 중). pal: gold | green | red */
+fun Ctx.coin(x: Float, y: Float, r: Float, face: Int, sy: Float = 1f, pal: String = "gold") {
+    val (p0, p1, p2, p3, p4) = COIN_PAL[pal] ?: COIN_PAL.getValue("gold")
     save(); translate(x, y); scale(1f, max(0.04f, sy))
-    beginPath(); arc(0f, r * 0.07f / max(0.2f, sy), r, 0f, TAU); fillStyle = CGOLD_DD; fill()
-    beginPath(); arc(0f, 0f, r, 0f, TAU); radialFill(-r * 0.15f, -r * 0.18f, r * 0.1f, r, listOf(0f to "#FFE9A6", 0.6f to CGOLD, 1f to CGOLD_D)); fill(); lineWidth = r * 0.06f; strokeStyle = CGOLD_DD; stroke()
-    beginPath(); arc(0f, 0f, r * 0.84f, 0f, TAU); lineWidth = r * 0.035f; strokeStyle = "rgba(168,110,12,.55)"; stroke()
-    fillStyle = "rgba(168,110,12,.5)"
+    beginPath(); arc(0f, r * 0.07f / max(0.2f, sy), r, 0f, TAU); fillStyle = p3; fill()
+    beginPath(); arc(0f, 0f, r, 0f, TAU); radialFill(-r * 0.15f, -r * 0.18f, r * 0.1f, r, listOf(0f to p0, 0.6f to p1, 1f to p2)); fill(); lineWidth = r * 0.06f; strokeStyle = p3; stroke()
+    beginPath(); arc(0f, 0f, r * 0.84f, 0f, TAU); lineWidth = r * 0.035f; strokeStyle = p4; stroke()
+    fillStyle = p4
     for (k in 0 until 24) { val a = k / 24f * 2 * PIf; beginPath(); arc(cos(a) * r * 0.92f, sin(a) * r * 0.92f, r * 0.025f, 0f, TAU); fill() }
     save(); beginPath(); arc(0f, 0f, r * 0.8f, 0f, TAU); clip(); translate(0f, r * 0.02f); if (face > 0) coinWolfFace(r * 0.95f) else coinWolfButt(r * 0.95f); restore()
     beginPath(); ellipse(-r * 0.45f, -r * 0.5f, r * 0.22f, r * 0.09f, -0.7f, 0f, TAU); fillStyle = "rgba(255,255,255,.35)"; fill()

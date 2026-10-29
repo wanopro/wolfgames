@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
+import com.wolfgames.app.ui.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -104,10 +104,10 @@ private fun RoulettePlay(m: Int, k: Int, onSetup: () -> Unit) {
     }
     val layouts = remember(wins, m, s) {
         val style = TextStyle(color = Color.White, fontSize = fontSize, fontWeight = FontWeight.Bold)
-        List(m) { i -> tm.measure(if (wins[i]) s.win else "${i + 1}", style) }
+        List(m) { i -> tm.measure(if (wins[i]) s.win.replace(com.wolfgames.app.i18n.SEP, '\n') else "${i + 1}", style) }
     }
     val hubLayout = remember(s) {
-        tm.measure(s.spinHub, TextStyle(color = Color.Black, fontSize = 16.sp, fontWeight = FontWeight.Black))
+        tm.measure(s.spinHub.replace(com.wolfgames.app.i18n.SEP, '\n'), TextStyle(color = Color.Black, fontSize = 16.sp, fontWeight = FontWeight.Black))
     }
 
     fun spin() {

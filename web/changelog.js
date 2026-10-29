@@ -1,6 +1,89 @@
 // 자동 생성 파일: tools/changelog.py 를 고친 뒤  python3 tools/gen_changelog.py
 export const CHANGELOG = [
  {
+  "ver": "1.6",
+  "date": "2026-10-29",
+  "items": [
+   [
+    "🌐",
+    {
+     "ko": "🌐 두 언어 같이 보기: 언어를 2개까지 고르면 (① 메인 · ② 보조) 게임 설명부터 게임 화면까지 두 언어로 같이 나와요 — 외국인 친구랑 할 때 좋아요",
+     "en": "🌐 Two languages at once: pick up to 2 languages (① main · ② second) and everything from game rules to game screens shows both — great with friends from abroad",
+     "ja": "🌐 2言語同時表示：言語を2つまで選ぶと（① メイン · ② サブ）ゲーム説明からゲーム画面まで2言語で表示 — 外国の友だちと遊ぶときに便利",
+     "zh": "🌐 双语同时显示：最多选2种语言（① 主语言 · ② 第二语言），从游戏说明到游戏画面都会同时显示两种语言 — 和外国朋友玩正合适",
+     "th": "🌐 แสดงสองภาษาพร้อมกัน: เลือกได้สูงสุด 2 ภาษา (① ภาษาหลัก · ② ภาษารอง) ตั้งแต่กติกาจนถึงหน้าเกมจะแสดงทั้งสองภาษา — เหมาะกับเล่นกับเพื่อนต่างชาติ",
+     "vi": "🌐 Hiển thị hai ngôn ngữ: chọn tối đa 2 ngôn ngữ (① chính · ② phụ), từ luật chơi đến màn hình trò chơi đều hiện cả hai — hợp khi chơi với bạn nước ngoài"
+    }
+   ],
+   [
+    "🔻",
+    {
+     "ko": "🔻 플링코 추가 (운빨게임): 위쪽을 터치하면 늑대 코인이 핀 사이를 튕기며 떨어져요 — 1잔 · 반 잔 · 다시 · 오른쪽 사람 · 왼쪽 사람 · 다 같이 · 통과, 칸 순서는 판마다 섞여요",
+     "en": "🔻 New Plinko (Luck Games): tap the top and a wolf coin bounces down through the pins — 1 drink · Half · Again · Right person · Left person · Everyone · Pass, and the slots shuffle every round",
+     "ja": "🔻 プリンコ追加（運ゲーム）：上をタッチするとオオカミコインがピンの間を跳ねて落ちる — 1杯 · 半分 · もう一回 · 右の人 · 左の人 · みんな · セーフ、マスの順番は毎回シャッフル",
+     "zh": "🔻 新增弹珠台（运气游戏）：点上方，狼币在钉子间弹跳落下 — 1杯 · 半杯 · 再来 · 右边的人 · 左边的人 · 大家一起 · 过，格子顺序每局都会打乱",
+     "th": "🔻 เพิ่มพลิงโก (เกมดวง): แตะด้านบน เหรียญหมาป่าจะเด้งผ่านหมุดลงมา — 1 แก้ว · ครึ่งแก้ว · อีกรอบ · คนขวา · คนซ้าย · ทุกคน · รอด ช่องจะสลับทุกรอบ",
+     "vi": "🔻 Thêm Plinko (Trò may rủi): chạm phía trên, đồng xu sói nảy qua các chốt rơi xuống — 1 ly · Nửa ly · Lại · Người bên phải · Người bên trái · Cả bàn · Qua, thứ tự ô đổi mỗi ván"
+    }
+   ],
+   [
+    "🟢",
+    {
+     "ko": "🟢 삼목 추가 (대결게임): 초록 vs 빨강 늑대 코인, 한 수 2초! 코인은 한 사람 3개까지 — 4번째를 놓으면 가장 오래된 코인이 사라져요",
+     "en": "🟢 New Tic-Tac-Toe (Versus Games): green vs red wolf coins, 2 seconds a move! Only 3 coins each — placing a 4th removes your oldest",
+     "ja": "🟢 三目並べ追加（対戦ゲーム）：緑 vs 赤のオオカミコイン、1手2秒！コインは1人3個まで — 4個目で一番古いコインが消える",
+     "zh": "🟢 新增井字棋（对战游戏）：绿 vs 红狼币，每步2秒！每人最多3个 — 放第4个时最早的会消失",
+     "th": "🟢 เพิ่มโอเอ็กซ์ (เกมดวล): เหรียญหมาป่าเขียว vs แดง ตาละ 2 วิ! คนละ 3 เหรียญ — วางอันที่ 4 อันเก่าสุดจะหายไป",
+     "vi": "🟢 Thêm Cờ ba (Trò đối kháng): xu sói xanh vs đỏ, 2 giây một lượt! Mỗi người 3 xu — đặt xu thứ 4 thì xu cũ nhất biến mất"
+    }
+   ],
+   [
+    "⚫",
+    {
+     "ko": "⚫ 오목 추가 (대결게임): 15×15 바둑판, 흑이 먼저, 흑은 33 금지 — 각자 쪽에 내 돌 색이 보여요",
+     "en": "⚫ New Gomoku (Versus Games): 15×15 board, black goes first, no double-three for black — each side shows your stone color",
+     "ja": "⚫ 五目並べ追加（対戦ゲーム）：15×15の盤、黒が先手、黒は三三禁止 — それぞれの側に自分の石の色を表示",
+     "zh": "⚫ 新增五子棋（对战游戏）：15×15棋盘，黑先，黑禁三三 — 各自一边显示自己的棋子颜色",
+     "th": "⚫ เพิ่มโกะโมะกุ (เกมดวล): กระดาน 15×15 ดำเดินก่อน ดำห้ามสามสาม — แต่ละฝั่งแสดงสีหมากของตัวเอง",
+     "vi": "⚫ Thêm Cờ năm (Trò đối kháng): bàn 15×15, đen đi trước, đen cấm 3-3 — mỗi bên hiện màu quân của mình"
+    }
+   ],
+   [
+    "🏨",
+    {
+     "ko": "🏨 숙소 주소 카드 (QR 옆): 택시 기사님께 보여줄 큰 글씨 주소 + 구글 지도 QR + 바로 전화, 숙소 여러 개 저장 (인터넷 없어도 돼요)",
+     "en": "🏨 Hotel Address Card (next to QR): big-text address to show a taxi driver + Google Maps QR + one-tap call, save several hotels (works offline)",
+     "ja": "🏨 宿の住所カード（QRの隣）：タクシーの運転手さんに見せる大きな文字の住所 + Googleマップ QR + すぐ電話、複数の宿を保存（ネットなしでOK）",
+     "zh": "🏨 住处地址卡（二维码旁）：给出租车司机看的大字地址 + 谷歌地图二维码 + 一键拨号，可保存多个住处（没网也能用）",
+     "th": "🏨 การ์ดที่อยู่ที่พัก (ข้าง QR): ที่อยู่ตัวใหญ่ให้คนขับแท็กซี่ดู + QR Google Maps + โทรได้ทันที บันทึกได้หลายที่ (ไม่มีเน็ตก็ใช้ได้)",
+     "vi": "🏨 Thẻ địa chỉ chỗ ở (cạnh QR): địa chỉ chữ to cho tài xế taxi xem + QR Google Maps + gọi ngay, lưu nhiều chỗ ở (không cần mạng)"
+    }
+   ],
+   [
+    "💬",
+    {
+     "ko": "💬 피드백 링크: 메인 화면 \"술자리 게임 모음\" 옆을 누르면 게시판 글로 가요 — 의견 남겨 주세요!",
+     "en": "💬 Feedback link: tap it next to \"Drinking game collection\" on the home screen to open the board post — tell us what you think!",
+     "ja": "💬 フィードバックリンク：ホームの「飲み会ゲーム集」の隣をタップすると掲示板の投稿へ — ご意見ください！",
+     "zh": "💬 反馈链接：点主页“酒桌游戏合集”旁边就能打开论坛帖子 — 欢迎留言！",
+     "th": "💬 ลิงก์ความคิดเห็น: แตะข้าง \"รวมเกมวงเหล้า\" ที่หน้าหลักเพื่อไปที่โพสต์ — บอกความเห็นกันได้!",
+     "vi": "💬 Liên kết góp ý: chạm cạnh \"Bộ trò chơi nhậu\" ở màn hình chính để mở bài viết — hãy góp ý nhé!"
+    }
+   ],
+   [
+    "🔧",
+    {
+     "ko": "🔧 고친 것: 연락처 QR·업다운에서 \"null\" 글자가 보이던 문제, 고르기 버튼(방향·계산 방법)이 동그랗게 커지던 문제",
+     "en": "🔧 Fixes: a stray \"null\" text in Contact QR and Up/Down, and choice buttons (direction, calc mode) showing as oversized circles",
+     "ja": "🔧 修正：連絡先QR・アップダウンで「null」と表示される問題、選択ボタン（方向・計算方法）が大きな丸になる問題",
+     "zh": "🔧 修复：联系方式二维码和大小猜中出现“null”文字的问题、选择按钮（方向、计算方式）变成大圆的问题",
+     "th": "🔧 แก้ไข: ข้อความ \"null\" ที่โผล่ใน QR ติดต่อและอัป/ดาวน์ และปุ่มตัวเลือก (ทิศทาง วิธีคิด) ที่กลายเป็นวงกลมใหญ่",
+     "vi": "🔧 Sửa lỗi: chữ \"null\" hiện ra ở QR liên hệ và Lên/Xuống, nút chọn (hướng, cách tính) bị thành hình tròn to"
+    }
+   ]
+  ]
+ },
+ {
   "ver": "1.5.3",
   "date": "2026-10-27",
   "items": [

@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -28,7 +29,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.Text
+import com.wolfgames.app.ui.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -43,6 +44,7 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -120,10 +122,14 @@ fun GameScaffold(
                 Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = LocalStrings.current.back, tint = WG.Text)
             }
             Text(
-                title,
+                com.wolfgames.app.i18n.part(title, 0), // 화면 제목은 메인 언어만
                 color = WG.Text,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
+                lineHeight = 23.sp,
+                inline = true,
                 modifier = Modifier.weight(1f),
             )
             actions()
@@ -145,7 +151,7 @@ fun BigButton(
     Button(
         onClick = { vibe.tap(); onClick() },
         enabled = enabled,
-        modifier = modifier.height(56.dp),
+        modifier = modifier.heightIn(min = 56.dp),
         shape = RoundedCornerShape(16.dp),
         colors = ButtonDefaults.buttonColors(containerColor = color, contentColor = contentColor),
     ) {
@@ -211,8 +217,9 @@ fun MenuCard(emoji: String, title: String, subtitle: String, onClick: () -> Unit
         else Text(emoji, fontSize = 40.sp)
         Spacer(Modifier.width(16.dp))
         Column(Modifier.weight(1f)) {
-            Text(title, color = WG.Text, fontSize = 22.sp, fontWeight = FontWeight.Bold)
-            Text(subtitle, color = WG.SubText, fontSize = 14.sp)
+            // 메뉴는 메인 언어만 (두 언어로 쓰면 너무 커짐)
+            Text(com.wolfgames.app.i18n.part(title, 0), color = WG.Text, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+            Text(com.wolfgames.app.i18n.part(subtitle, 0), color = WG.SubText, fontSize = 14.sp)
         }
         Text("›", color = WG.SubText, fontSize = 32.sp)
     }
@@ -328,7 +335,7 @@ fun ChoiceRow(label: String, options: List<String>, selected: Int, onChange: (In
             options.forEachIndexed { i, o ->
                 val on = i == selected
                 Box(
-                    Modifier.weight(1f).height(44.dp).clip(RoundedCornerShape(12.dp)).background(if (on) WG.Accent else WG.Surface2)
+                    Modifier.weight(1f).heightIn(min = 44.dp).clip(RoundedCornerShape(12.dp)).background(if (on) WG.Accent else WG.Surface2)
                         .clickable { vibe.tap(); onChange(i) },
                     contentAlignment = Alignment.Center,
                 ) { Text(o, color = if (on) Color.Black else WG.Text, fontSize = 14.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center, maxLines = 1) }

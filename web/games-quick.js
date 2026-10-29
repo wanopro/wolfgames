@@ -1,8 +1,10 @@
 // 순발력게임 3종(반응속도 대결 · 색 반응 대결 · 스탑워치) + 폭탄돌리기
 // 모두 원형 화면 분할: 화면 가운데를 중심으로 인원수만큼 같은 넓이로 둘러앉은 모양
-import { C, S, h, btn, top, stepper, setupPanel, liveCanvas, vibe, rnd } from './core.js';
+import { C, S, h, btn, top, stepper, setupPanel, liveCanvas, vibe, rnd, SEP } from './core.js';
 import { sectors, region, lines, text, badge, inPoly } from './split.js';
 import { bombArt, chompWolf } from './art.js';
+// 두 언어일 때 위아래로 붙은 글자 사이를 조금 더 벌림
+const DU = () => (String(S().start).includes(SEP) ? 9 : 0);
 
 const GOLD = '#FFC107', RED = '#FF3D5A';
 const PC = C.players;
@@ -70,10 +72,10 @@ export function reaction(root, back) {
           const fill = v === 'foul' ? '#4A1820' : !go ? '#3B2A2E' : v !== null ? '#1F6B43' : '#2ECC71';
           region(ctx, sec, fill, (c, sc) => {
             pname(c, i, sc);
-            if (v === 'foul') { text(c, s.reactFoul, 0, -10 * sc, 30 * sc, '#FF8A80', 900); text(c, s.reactFoulSub, 0, 30 * sc, 16 * sc, '#FFCDD2', 600); }
+            if (v === 'foul') { text(c, s.reactFoul, 0, (-10 - DU()) * sc, 30 * sc, '#FF8A80', 900); text(c, s.reactFoulSub, 0, (30 + DU()) * sc, 16 * sc, '#FFCDD2', 600); }
             else if (v !== null) text(c, s.secs(fmt(v, 3)), 0, -6 * sc, 44 * sc, '#fff', 900);
             else if (go) text(c, s.reactGo, 0, -6 * sc, 40 * sc, '#0B3D22', 900);
-            else { text(c, s.reactWait, 0, -10 * sc, 30 * sc, '#F2C9CF', 800); text(c, s.reactWaitSub, 0, 28 * sc, 16 * sc, '#C9A3AA', 600); }
+            else { text(c, s.reactWait, 0, (-10 - DU()) * sc, 30 * sc, '#F2C9CF', 800); text(c, s.reactWaitSub, 0, (28 + DU()) * sc, 16 * sc, '#C9A3AA', 600); }
             if (st) badge(c, st.tag, 0, 52 * sc, sc, st.bg, st.fg);
           }, st ? st.glow : null);
         });
@@ -136,7 +138,7 @@ export function colorGame(root, back) {
             if (v === 'wrong') text(c, s.colorWrong, 0, -6 * sc, 32 * sc, '#FF8A80', 900);
             else if (v === 'miss') text(c, s.colorMiss, 0, -6 * sc, 32 * sc, '#FF8A80', 900);
             else if (typeof v === 'number') text(c, s.secs(fmt(v, 3)), 0, -6 * sc, 42 * sc, '#fff', 900);
-            else { c.save(); c.shadowColor = 'rgba(0,0,0,.55)'; c.shadowBlur = 6; text(c, s.colorWhen(names[g.target]), 0, -22 * sc, 26 * sc, '#fff', 900); text(c, s.colorTap, 0, 16 * sc, 34 * sc, '#fff', 900); c.restore(); }
+            else { c.save(); c.shadowColor = 'rgba(0,0,0,.55)'; c.shadowBlur = 6; text(c, s.colorWhen(names[g.target]), 0, (-22 - DU()) * sc, 26 * sc, '#fff', 900); text(c, s.colorTap, 0, (16 + DU()) * sc, 34 * sc, '#fff', 900); c.restore(); }
             if (st) badge(c, st.tag, 0, 52 * sc, sc, st.bg, st.fg);
           }, st ? st.glow : null);
         });
@@ -182,7 +184,7 @@ export function stopwatch(root, back) {
             pname(c, i, sc);
             if (done) { text(c, s.secs(fmt(v, 2)), 0, -14 * sc, 44 * sc, '#fff', 900); const d = v - target; text(c, s.secs(`${d >= 0 ? '+' : ''}${fmt(d, 2)}`), 0, 24 * sc, 20 * sc, Math.abs(d) < 0.3 ? '#69F0AE' : '#FFAB91', 800); }
             else if (v !== null) text(c, s.stopDone, 0, -6 * sc, 26 * sc, '#BBDEFB', 800);
-            else if (started) { text(c, s.stopCount(target), 0, -20 * sc, 24 * sc, '#fff', 900); text(c, s.stopTapNow, 0, 14 * sc, 34 * sc, '#FFD740', 900); }
+            else if (started) { text(c, s.stopCount(target), 0, (-20 - DU()) * sc, 24 * sc, '#fff', 900); text(c, s.stopTapNow, 0, (14 + DU()) * sc, 34 * sc, '#FFD740', 900); }
             else text(c, String(cd), 0, -6 * sc, 56 * sc, '#fff', 900);
             if (st) badge(c, st.tag, 0, 58 * sc, sc, st.bg, st.fg);
           }, st ? st.glow : null);

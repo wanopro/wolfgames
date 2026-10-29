@@ -1,5 +1,5 @@
 // 📇 연락처 QR: 내 SNS 링크를 풀화면 QR로 (정보는 이 기기에만 저장, QR은 기기 안에서 만듦)
-import { S, h, btn, top, vibe } from './core.js';
+import { S, h, btn, top, vibe, one } from './core.js';
 
 /* global qrcode */
 const KEY = 'wg-qr';
@@ -36,14 +36,14 @@ export function qrScreen(root, back, go) {
   const wrap = h('div', { class: 'qrfull' });
   const draw = () => {
     const r = list[k], v = d[r[0]].v;
-    wrap.replaceChildren(
+    wrap.replaceChildren(...[
       h('div', { class: 'qrtabs' }, list.map((x, i) => btn(x[1], () => { k = i; vibe.tap(); draw(); }, 'qrtab' + (i === k ? ' on' : ''), {}))),
       h('div', { class: 'qrbox', style: `border-color:${r[2].startsWith('linear') ? '#DD2A7B' : r[2] === '#000' ? '#FE2C55' : r[2]}` }, qrSvg(snsLink(r, v))),
       h('div', { class: 'qrwho' }, r[4] === 'link' ? r[1] : v),
       h('div', { class: 'qrhint' }, s.qrScan),
       list.length > 1 ? h('div', { class: 'qrdots' }, list.map((_, i) => h('i', { class: i === k ? 'on' : '' }))) : null,
       list.length > 1 ? h('div', { class: 'qrhint', style: 'margin-top:10px' }, s.qrSwipe) : null,
-      h('div', { class: 'qrbar' }, btn(s.qrEdit, () => go('qredit'), 'qrbtn2'), btn(s.qrClose, back, 'qrbtn')));
+      h('div', { class: 'qrbar' }, btn(s.qrEdit, () => go('qredit'), 'qrbtn2'), btn(s.qrClose, back, 'qrbtn'))].filter(Boolean));
     const tab = wrap.querySelectorAll('.qrtab')[k]; if (tab) tab.style.background = r[2];
   };
   let sx = null;
@@ -58,7 +58,7 @@ export function qrEdit(root, back, go, first = false) {
   const ph = { phone: s.qrPhone, id: s.qrId, link: s.qrLink };
   const rows = SNS.map((r) => {
     const cur = d[r[0]] || { v: '', on: true };
-    const inp = h('input', { value: cur.v, placeholder: `${r[1]} · ${ph[r[4]]}`, inputmode: r[4] === 'phone' ? 'tel' : 'text', autocapitalize: 'off', autocomplete: 'off', spellcheck: 'false' });
+    const inp = h('input', { value: cur.v, placeholder: `${r[1]} · ${one(ph[r[4]])}`, inputmode: r[4] === 'phone' ? 'tel' : 'text', autocapitalize: 'off', autocomplete: 'off', spellcheck: 'false' });
     const tg = h('button', { class: 'qtog' + (cur.on !== false && cur.v ? ' on' : '') });
     tg.onclick = () => { vibe.tap(); tg.classList.toggle('on'); };
     inp.addEventListener('input', () => { if (inp.value.trim()) tg.classList.add('on'); });

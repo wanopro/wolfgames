@@ -5,7 +5,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
+import com.wolfgames.app.ui.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -173,7 +173,7 @@ private fun FingerPlay(losers: Int, onExit: () -> Unit) {
                                 color = android.graphics.Color.WHITE; textSize = 15.sp.toPx(); textAlign = android.graphics.Paint.Align.CENTER
                                 typeface = android.graphics.Typeface.DEFAULT_BOLD
                             }
-                            c.nativeCanvas.drawText(s.fingerPass, p.pos.x, p.pos.y + paint.textSize * 0.35f, paint)
+                            c.nativeCanvas.drawText(com.wolfgames.app.i18n.one(s.fingerPass), p.pos.x, p.pos.y + paint.textSize * 0.35f, paint)
                         }
                         continue
                     }
@@ -287,7 +287,7 @@ private fun DrawScope.drawTauntWolf(x: Float, y: Float, r: Float, t: Float, ring
                 textSize = r * 0.42f; typeface = android.graphics.Typeface.create(android.graphics.Typeface.DEFAULT, android.graphics.Typeface.BOLD)
                 textAlign = android.graphics.Paint.Align.CENTER; color = 0xFFE53950.toInt()
             }
-            val bw = tp.measureText(word) + r * 0.4f; val bh = r * 0.6f
+            val word = com.wolfgames.app.i18n.one(word); val bw = tp.measureText(word) + r * 0.4f; val bh = r * 0.6f
             fill.color = android.graphics.Color.WHITE
             c.drawRoundRect(android.graphics.RectF(-bw / 2, -bh / 2, bw / 2, bh / 2), bh / 2, bh / 2, fill)
             c.drawPath(android.graphics.Path().apply { moveTo(-bw * 0.25f, bh / 2 - 2); lineTo(-bw * 0.4f, bh / 2 + r * 0.22f); lineTo(-bw * 0.05f, bh / 2 - 2); close() }, fill)
