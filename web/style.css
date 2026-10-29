@@ -238,3 +238,38 @@ canvas { display: block; touch-action: none; }
 .qtog::after { content: ''; position: absolute; left: 3px; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: #999; transition: left .15s; }
 .qtog.on { background: var(--accent); }
 .qtog.on::after { left: 21px; background: #000; }
+
+/* 두 언어 보기: 보조 언어는 같은 크기로 아래 한 줄 (살짝 흐리게) */
+.dual { display: block; opacity: .85; margin-top: 2px; }
+.desc .dual { margin-top: 10px; }
+.chip .dual, .linkbtn .dual { display: inline; margin: 0 0 0 4px; }
+
+.fb { color: var(--accent); font-size: 13px; font-weight: 700; text-decoration: underline; margin-left: 4px; white-space: nowrap; }
+.lang .num { font-size: 22px; color: var(--accent); }
+.btn:has(.dual), .tbtn:has(.dual), .chip:has(.dual) { height: auto; min-height: 56px; padding-top: 6px; padding-bottom: 6px; line-height: 1.2; }
+.chip:has(.dual) { min-height: 0; }
+.hotelfull { gap: 0; }
+.htake { font-size: 22px; font-weight: 800; color: #E65100; margin-top: 14px; text-align: center; }
+.htake.en { font-size: 18px; margin-top: 2px; color: #BF360C; }
+.hname { font-size: 34px; font-weight: 900; margin-top: 14px; text-align: center; line-height: 1.2; word-break: break-word; }
+.haddr { font-size: 26px; font-weight: 800; margin-top: 10px; text-align: center; line-height: 1.35; word-break: break-word; max-width: 560px; }
+.hnote { font-size: 18px; color: #444; margin-top: 8px; text-align: center; }
+.hqr { width: min(52vw, 30vh, 230px); margin-top: 16px; border-color: #E65100; }
+.hcall { margin-top: 14px; display: inline-block; padding: 12px 22px; border-radius: 26px; background: #2E7D32; color: #fff; font-weight: 800; font-size: 17px; text-decoration: none; }
+.hrow { display: flex; flex-direction: column; gap: 8px; background: var(--surface); border-radius: 14px; padding: 12px; }
+.hrow input, .hrow textarea { background: var(--bg); border: 1px solid #333; border-radius: 10px; color: var(--text); padding: 10px; font-size: 15px; font-family: inherit; resize: vertical; }
+.hdel { align-self: flex-end; color: #FF8A80; }
+/* 큰 제목은 두 언어를 한 줄에 (보조 언어는 오른쪽) */
+.card .t .dual, .top .title .dual { display: inline; margin: 0 0 0 10px; }
+.top .title:has(.dual) { white-space: normal; line-height: 1.15; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+/* 두 언어 글자가 든 칸은 높이가 늘어남 (글자가 칸 밖으로 안 나가게) */
+.cbtn:has(.dual) { height: auto; min-height: 44px; padding-top: 5px; padding-bottom: 5px; line-height: 1.2; }
+.lres div:has(.dual) { height: auto; min-height: 52px; padding: 4px 2px; }
+.agrid .a:has(.dual) { height: auto; min-height: 70px; padding: 6px 4px; }
+.qrbtn:has(.dual), .qrbtn2:has(.dual) { height: auto; min-height: 50px; padding: 6px 8px; line-height: 1.2; }
+.fd .bar:has(.dual) { height: auto; min-height: 64px; }
+.msg .dual, .bigres .dual { display: block; }
+/* 고르기 버튼(choice)은 stepper 안에 있어도 둥근 숫자 버튼 모양을 따르지 않게 */
+.stepper .cbtn { width: auto; border-radius: 12px; font-size: 14px; }
+.stepper .cbtn:has(.dual) { height: auto; min-height: 44px; padding: 5px 6px; line-height: 1.2; }
+.h-title:has(.dual) { flex-direction: column; justify-content: center; height: auto !important; min-height: 54px; line-height: 1.2; }

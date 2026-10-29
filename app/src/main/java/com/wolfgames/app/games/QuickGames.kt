@@ -40,6 +40,9 @@ import kotlin.math.pow
 import kotlin.math.sin
 import kotlin.random.Random
 
+// 두 언어일 때 위아래로 붙은 글자 사이를 조금 더 벌림
+private fun du(s: com.wolfgames.app.i18n.Strings) = if (com.wolfgames.app.i18n.SEP in s.start) 9f else 0f
+
 // 순발력게임 3종(반응속도 대결 · 색 반응 대결 · 스탑워치) + 폭탄돌리기 + 주사위 대결
 // 모두 원형 화면 분할 (웹 games-quick.js 와 같은 규칙)
 
@@ -93,10 +96,10 @@ private class ReactionGame(override val n: Int, val vibe: Vibe) : SplitGame {
             ctx.region(sec, fill, st?.glow) { sc ->
                 pname(i, sc)
                 when {
-                    foul[i] -> { text(s.reactFoul, 0f, -10 * sc, 30 * sc, "#FF8A80"); text(s.reactFoulSub, 0f, 30 * sc, 16 * sc, "#FFCDD2", false) }
+                    foul[i] -> { text(s.reactFoul, 0f, (-10 - du(s)) * sc, 30 * sc, "#FF8A80"); text(s.reactFoulSub, 0f, (30 + du(s)) * sc, 16 * sc, "#FFCDD2", false) }
                     tap[i] != null -> text(s.secs(f(tap[i]!!, 3)), 0f, -6 * sc, 44 * sc, "#fff")
                     go -> text(s.reactGo, 0f, -6 * sc, 40 * sc, "#0B3D22")
-                    else -> { text(s.reactWait, 0f, -10 * sc, 30 * sc, "#F2C9CF"); text(s.reactWaitSub, 0f, 28 * sc, 16 * sc, "#C9A3AA", false) }
+                    else -> { text(s.reactWait, 0f, (-10 - du(s)) * sc, 30 * sc, "#F2C9CF"); text(s.reactWaitSub, 0f, (28 + du(s)) * sc, 16 * sc, "#C9A3AA", false) }
                 }
                 if (st != null) badge(st.tag, 0f, 52 * sc, sc, st.bg, st.fg)
             }
@@ -151,7 +154,7 @@ private class ColorGame(override val n: Int, val vibe: Vibe) : SplitGame {
                     bad[i] == "wrong" -> text(s.colorWrong, 0f, -6 * sc, 32 * sc, "#FF8A80")
                     bad[i] == "miss" -> text(s.colorMiss, 0f, -6 * sc, 32 * sc, "#FF8A80")
                     tap[i] != null -> text(s.secs(f(tap[i]!!, 3)), 0f, -6 * sc, 42 * sc, "#fff")
-                    else -> { text(s.colorWhen(names[target]), 0f, -22 * sc, 26 * sc, "#fff"); text(s.colorTap, 0f, 16 * sc, 34 * sc, "#fff") }
+                    else -> { text(s.colorWhen(names[target]), 0f, (-22 - du(s)) * sc, 26 * sc, "#fff"); text(s.colorTap, 0f, (16 + du(s)) * sc, 34 * sc, "#fff") }
                 }
                 if (st != null) badge(st.tag, 0f, 52 * sc, sc, st.bg, st.fg)
             }
@@ -191,7 +194,7 @@ private class StopGame(override val n: Int, val target: Int, val vibe: Vibe) : S
                 when {
                     done && v != null -> { text(s.secs(f(v, 2)), 0f, -14 * sc, 44 * sc, "#fff"); val d = v - target; text(s.secs((if (d >= 0) "+" else "") + f(d, 2)), 0f, 24 * sc, 20 * sc, if (abs(d) < 0.3f) "#69F0AE" else "#FFAB91") }
                     v != null -> text(s.stopDone, 0f, -6 * sc, 26 * sc, "#BBDEFB")
-                    started -> { text(s.stopCount(target), 0f, -20 * sc, 24 * sc, "#fff"); text(s.stopTapNow, 0f, 14 * sc, 34 * sc, "#FFD740") }
+                    started -> { text(s.stopCount(target), 0f, (-20 - du(s)) * sc, 24 * sc, "#fff"); text(s.stopTapNow, 0f, (14 + du(s)) * sc, 34 * sc, "#FFD740") }
                     else -> text("$cd", 0f, -6 * sc, 56 * sc, "#fff")
                 }
                 if (st != null) badge(st.tag, 0f, 58 * sc, sc, st.bg, st.fg)

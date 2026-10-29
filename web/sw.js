@@ -3,7 +3,7 @@
 const VERSION = 'wg-__BUILD__';
 const FILES = [
   './', 'index.html', 'style.css', 'app.js', 'core.js', 'i18n.js',
-  'games-dice.js', 'games-pick.js', 'games-fun.js', 'games-four.js', 'games-cards.js', 'games-finger.js', 'games-quick.js', 'split.js', 'art.js', 'games-v15.js', 'qr.js', 'qrcode.js', 'teeth-art.js', 'changelog.js', 'calc.js', 'manual.html', 'manual-i18n.js', 'manifest.webmanifest',
+  'games-dice.js', 'games-pick.js', 'games-fun.js', 'games-four.js', 'games-cards.js', 'games-finger.js', 'games-quick.js', 'split.js', 'art.js', 'games-v15.js', 'qr.js', 'qrcode.js', 'games-v16.js', 'hotel.js', 'teeth-art.js', 'changelog.js', 'calc.js', 'manual.html', 'manual-i18n.js', 'manifest.webmanifest',
   'icons/logo.png', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png', 'icons/favicon.png', 'icons/coin.png', 'icons/ladder.png',
 ];
 

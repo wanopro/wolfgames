@@ -386,6 +386,43 @@ class Strings {
     lateinit var tipLabel: (Int) -> String
     lateinit var tipTotal: String
     lateinit var tipSplit: String
+    lateinit var feedback: String
+    lateinit var langPickTwo: String
+    lateinit var plinkoTitle: String
+    lateinit var plinkoSub: String
+    lateinit var plinkoDesc: String
+    lateinit var plinkoTap: String
+    lateinit var plinkoShuffling: String
+    lateinit var plinkoSlots: String
+    lateinit var tttTitle: String
+    lateinit var tttSub: String
+    lateinit var tttDesc: String
+    lateinit var green: String
+    lateinit var red: String
+    lateinit var winsOf: (String) -> String
+    lateinit var drawWord: String
+    lateinit var timeUp: String
+    lateinit var gomokuTitle: String
+    lateinit var gomokuSub: String
+    lateinit var gomokuDesc: String
+    lateinit var black: String
+    lateinit var white: String
+    lateinit var banned33: String
+    lateinit var hotelBtn: String
+    lateinit var hotelTitle: String
+    lateinit var hotelName: String
+    lateinit var hotelAddr: String
+    lateinit var hotelPhone: String
+    lateinit var hotelNote: String
+    lateinit var hotelAdd: String
+    lateinit var hotelDelete: String
+    lateinit var hotelEmpty: String
+    lateinit var hotelTakeMe: String
+    lateinit var hotelMap: String
+    lateinit var hotelCall: String
+    lateinit var hotelEditBtn: String
+    lateinit var colorTurn: (String) -> String
+    lateinit var youAre: (String) -> String
 }
 
 val KoStrings = Strings().apply {
@@ -562,9 +599,9 @@ val KoStrings = Strings().apply {
     menuWolf = "늑대게임"
     menuWolfSub = "늑대이빨 · 늑대달리기 · 늑대 룰렛 · 늑대 돌리기"
     menuLuck = "운빨게임"
-    menuLuckSub = "사다리게임 · 돌림판 · 폭탄돌리기 · 동전 던지기"
+    menuLuckSub = "사다리게임 · 돌림판 · 폭탄돌리기 · 동전 던지기 · 플링코"
     menuBattle = "대결게임"
-    menuBattleSub = "4목 · 연타 땅따먹기 · 슬랩 대결"
+    menuBattleSub = "4목 · 연타 땅따먹기 · 슬랩 대결 · 삼목 · 오목"
     fingerTitle = "손가락선택"
     fingerSub = "손가락 올리고 떼면 늑대가 메롱!"
     fingerDesc = "걸릴 인원을 정하고 다 같이 화면에 손가락을 하나씩 올려요.\n모두 손을 떼고 0.5초가 지나면, 걸린 사람 자리에 늑대가 나타나 메롱~ 하고 약올려요."
@@ -724,6 +761,43 @@ val KoStrings = Strings().apply {
     tipLabel = { "팁 ${it}%" }
     tipTotal = "팁 포함 합계"
     tipSplit = "🍻 팁 포함 N빵"
+    feedback = "💬 피드백"
+    langPickTwo = "최대 2개까지 고를 수 있어요. ① 메인 언어 · ② 보조 언어 (그 아래에 같이 나와요). 누른 걸 다시 누르면 빠져요."
+    plinkoTitle = "플링코"
+    plinkoSub = "늑대 코인을 떨어뜨려 봐!"
+    plinkoDesc = "위쪽 아무 데나 터치하면 그 자리에서 늑대 코인이 떨어져요.\n핀 사이를 톡톡 튕기다 아래 칸에 들어가면 그 칸이 걸려요!\n칸 순서는 판마다 섞여요."
+    plinkoTap = "위쪽 아무 데나 터치해서 떨어뜨리기"
+    plinkoShuffling = "🔀 칸 섞는 중…"
+    plinkoSlots = "1잔|반 잔|다시|오른쪽 사람|왼쪽 사람|다 같이|통과"
+    tttTitle = "삼목"
+    tttSub = "3×3 늑대 코인 · 3개까지만 · 한 수 2초!"
+    tttDesc = "초록과 빨강이 번갈아 늑대 코인을 놓아요.\n가로·세로·대각선 3개를 먼저 이으면 승리!\n코인은 한 사람당 3개까지 — 4번째를 놓으면 내 가장 오래된 코인이 사라져요 (사라질 코인은 깜빡여요).\n한 수에 2초, 넘기면 차례가 넘어가요. 진 사람은 원샷!"
+    green = "초록"
+    red = "빨강"
+    winsOf = { "${it} 승리!" }
+    drawWord = "무승부!"
+    timeUp = "⏰ 시간 초과! 차례 넘김"
+    gomokuTitle = "오목"
+    gomokuSub = "15×15 바둑판 · 33 금지"
+    gomokuDesc = "흑과 백이 번갈아 돌을 놓아요 (흑이 먼저).\n가로·세로·대각선 5개를 먼저 이으면 승리!\n흑은 33 (열린 3이 두 줄 동시에 생기는 자리)에 둘 수 없어요. 진 사람은 원샷!"
+    black = "흑"
+    white = "백"
+    banned33 = "🚫 33 금지!"
+    hotelBtn = "🏨 숙소"
+    hotelTitle = "숙소 주소 카드"
+    hotelName = "숙소 이름"
+    hotelAddr = "주소 (현지어로 복사해서 붙여넣기)"
+    hotelPhone = "전화번호 (선택)"
+    hotelNote = "메모 (선택, 예: 편의점 옆 골목)"
+    hotelAdd = "➕ 숙소 추가"
+    hotelDelete = "🗑️ 삭제"
+    hotelEmpty = "아직 저장한 숙소가 없어요"
+    hotelTakeMe = "여기로 가 주세요"
+    hotelMap = "📍 지도 QR — 찍으면 바로 길 안내"
+    hotelCall = "📞 전화하기"
+    hotelEditBtn = "✏️ 숙소 수정"
+    colorTurn = { "${it} 차례" }
+    youAre = { "나: ${it}" }
 }
 
 val EnStrings = Strings().apply {
@@ -900,9 +974,9 @@ val EnStrings = Strings().apply {
     menuWolf = "Wolf Games"
     menuWolfSub = "Wolf Teeth · Wolf Race · Wolf Roulette · Wolf Spin"
     menuLuck = "Luck Games"
-    menuLuckSub = "Ladder Game · Roulette · Hot Bomb · Coin Toss"
+    menuLuckSub = "Ladder Game · Roulette · Hot Bomb · Coin Toss · Plinko"
     menuBattle = "Versus Games"
-    menuBattleSub = "Connect 4 · Tap Turf War · Slap Duel"
+    menuBattleSub = "Connect 4 · Tap Turf War · Slap Duel · Tic-Tac-Toe · Gomoku"
     fingerTitle = "Finger Pick"
     fingerSub = "Put fingers down, lift — the wolf teases!"
     fingerDesc = "Choose how many get picked, then everyone puts one finger on the screen.\nWhen all fingers are lifted, after 0.5 sec a wolf pops up on the picked spots and sticks its tongue out."
@@ -1062,6 +1136,43 @@ val EnStrings = Strings().apply {
     tipLabel = { "Tip $it%" }
     tipTotal = "Total with tip"
     tipSplit = "🍻 Split with tip"
+    feedback = "💬 Feedback"
+    langPickTwo = "Pick up to 2. ① main language · ② second language (shown underneath). Tap again to remove."
+    plinkoTitle = "Plinko"
+    plinkoSub = "Drop the wolf coin!"
+    plinkoDesc = "Tap anywhere at the top to drop a wolf coin from there.\nIt bounces between the pins — whatever slot it lands in is yours!\nThe slots are shuffled every round."
+    plinkoTap = "Tap anywhere at the top to drop"
+    plinkoShuffling = "🔀 Shuffling slots…"
+    plinkoSlots = "1 drink|Half|Again|Right person|Left person|Everyone|Pass"
+    tttTitle = "Tic-Tac-Toe"
+    tttSub = "3×3 wolf coins · only 3 each · 2 s a move!"
+    tttDesc = "Green and red take turns placing wolf coins.\nThree in a row (across, down or diagonal) wins!\nEach player can have only 3 coins — placing a 4th removes your oldest one (it blinks before it goes).\n2 seconds per move — run out and your turn passes. Loser drinks!"
+    green = "Green"
+    red = "Red"
+    winsOf = { "$it wins!" }
+    drawWord = "Draw!"
+    timeUp = "⏰ Time's up! Turn passes"
+    gomokuTitle = "Gomoku"
+    gomokuSub = "15×15 board · no double-three"
+    gomokuDesc = "Black and white take turns placing stones (black first).\nFive in a row (across, down or diagonal) wins!\nBlack may not play a double-three (two open threes at once). Loser drinks!"
+    black = "Black"
+    white = "White"
+    banned33 = "🚫 Double-three not allowed!"
+    hotelBtn = "🏨 Hotel"
+    hotelTitle = "Hotel Address Card"
+    hotelName = "Hotel name"
+    hotelAddr = "Address (paste it in the local language)"
+    hotelPhone = "Phone (optional)"
+    hotelNote = "Note (optional, e.g. alley next to the convenience store)"
+    hotelAdd = "➕ Add hotel"
+    hotelDelete = "🗑️ Delete"
+    hotelEmpty = "No hotel saved yet"
+    hotelTakeMe = "Please take me here"
+    hotelMap = "📍 Map QR — scan for directions"
+    hotelCall = "📞 Call"
+    hotelEditBtn = "✏️ Edit hotels"
+    colorTurn = { "$it's turn" }
+    youAre = { "You: $it" }
 }
 
 val JaStrings = Strings().apply {
@@ -1238,9 +1349,9 @@ val JaStrings = Strings().apply {
     menuWolf = "オオカミゲーム"
     menuWolfSub = "オオカミの歯 · ウルフレース · オオカミルーレット · オオカミ回し"
     menuLuck = "運ゲー"
-    menuLuckSub = "あみだくじ · ルーレット · 爆弾回し · コイントス"
+    menuLuckSub = "あみだくじ · ルーレット · 爆弾回し · コイントス · プリンコ"
     menuBattle = "対決ゲーム"
-    menuBattleSub = "4目並べ · 連打陣取り · スラップ対決"
+    menuBattleSub = "4目並べ · 連打陣取り · スラップ対決 · 三目並べ · 五目並べ"
     fingerTitle = "指えらび"
     fingerSub = "指を置いて離すとオオカミがあっかんべー！"
     fingerDesc = "当たる人数を決めて、みんなで画面に指を1本ずつ置きます。\n全員が指を離して0.5秒たつと、当たった人の場所にオオカミが出てきて、あっかんべーとからかいます。"
@@ -1400,6 +1511,43 @@ val JaStrings = Strings().apply {
     tipLabel = { "チップ $it%" }
     tipTotal = "チップ込み合計"
     tipSplit = "🍻 チップ込みで割り勘"
+    feedback = "💬 フィードバック"
+    langPickTwo = "最大2つまで選べます。① メイン言語 · ② サブ言語（下に一緒に表示）。もう一度押すと外れます。"
+    plinkoTitle = "プリンコ"
+    plinkoSub = "オオカミコインを落とそう！"
+    plinkoDesc = "上のどこかをタップすると、そこからオオカミコインが落ちます。\nピンの間を跳ねて、入ったマスが当たり！\nマスの順番は毎回シャッフルされます。"
+    plinkoTap = "上のどこかをタップして落とす"
+    plinkoShuffling = "🔀 シャッフル中…"
+    plinkoSlots = "1杯|半分|もう一回|右の人|左の人|みんなで|セーフ"
+    tttTitle = "三目並べ"
+    tttSub = "3×3 オオカミコイン · 3個まで · 1手2秒！"
+    tttDesc = "緑と赤が交互にオオカミコインを置きます。\n縦・横・斜めに3つ先にそろえたら勝ち！\nコインは1人3個まで — 4個目を置くと自分の一番古いコインが消えます（消えるコインは点滅）。\n1手2秒、過ぎると相手の番に。負けたら一気！"
+    green = "緑"
+    red = "赤"
+    winsOf = { "${it}の勝ち！" }
+    drawWord = "引き分け！"
+    timeUp = "⏰ 時間切れ！相手の番"
+    gomokuTitle = "五目並べ"
+    gomokuSub = "15×15 · 三三禁止"
+    gomokuDesc = "黒と白が交互に石を置きます（黒が先）。\n縦・横・斜めに5つ先にそろえたら勝ち！\n黒は三三（開いた三が同時に2つ）に置けません。負けたら一気！"
+    black = "黒"
+    white = "白"
+    banned33 = "🚫 三三禁止！"
+    hotelBtn = "🏨 宿"
+    hotelTitle = "宿の住所カード"
+    hotelName = "宿の名前"
+    hotelAddr = "住所（現地の言葉でコピペ）"
+    hotelPhone = "電話番号（任意）"
+    hotelNote = "メモ（任意、例：コンビニ横の路地）"
+    hotelAdd = "➕ 宿を追加"
+    hotelDelete = "🗑️ 削除"
+    hotelEmpty = "まだ宿が登録されていません"
+    hotelTakeMe = "ここへ行ってください"
+    hotelMap = "📍 地図QR — 読み取るとすぐ道案内"
+    hotelCall = "📞 電話する"
+    hotelEditBtn = "✏️ 宿を編集"
+    colorTurn = { "${it}の番" }
+    youAre = { "あなた: ${it}" }
 }
 
 val ZhStrings = Strings().apply {
@@ -1576,9 +1724,9 @@ val ZhStrings = Strings().apply {
     menuWolf = "狼游戏"
     menuWolfSub = "狼牙齿 · 群狼赛跑 · 狼轮盘 · 转狼"
     menuLuck = "拼手气"
-    menuLuckSub = "爬梯子 · 转盘 · 传炸弹 · 抛硬币"
+    menuLuckSub = "爬梯子 · 转盘 · 传炸弹 · 抛硬币 · 弹珠台"
     menuBattle = "对战游戏"
-    menuBattleSub = "四子棋 · 狂点抢地盘 · 拍手背对决"
+    menuBattleSub = "四子棋 · 狂点抢地盘 · 拍手背对决 · 井字棋 · 五子棋"
     fingerTitle = "手指选人"
     fingerSub = "手指放上再松开，小狼来吐舌头！"
     fingerDesc = "先选要抽中几个人，大家各放一根手指在屏幕上。\n所有人松开手指0.5秒后，被抽中的位置会冒出小狼吐舌头气你。"
@@ -1738,6 +1886,43 @@ val ZhStrings = Strings().apply {
     tipLabel = { "小费 $it%" }
     tipTotal = "含小费合计"
     tipSplit = "🍻 含小费AA"
+    feedback = "💬 反馈"
+    langPickTwo = "最多可选2种。① 主语言 · ② 第二语言（显示在下面）。再点一次取消。"
+    plinkoTitle = "弹珠台"
+    plinkoSub = "投下狼币！"
+    plinkoDesc = "点上方任意位置，狼币就从那里落下。\n在钉子间弹来弹去，落进哪个格子就是哪个！\n每一局格子顺序都会打乱。"
+    plinkoTap = "点上方任意位置投下"
+    plinkoShuffling = "🔀 正在洗牌…"
+    plinkoSlots = "1杯|半杯|再来|右边的人|左边的人|大家一起|过"
+    tttTitle = "井字棋"
+    tttSub = "3×3 狼币 · 每人3个 · 每步2秒！"
+    tttDesc = "绿和红轮流放狼币。\n横、竖、斜先连成3个就赢！\n每人最多3个狼币 — 放第4个时，自己最早的那个会消失（要消失的会闪烁）。\n每步2秒，超时就轮到对方。输的人干杯！"
+    green = "绿"
+    red = "红"
+    winsOf = { "${it}胜！" }
+    drawWord = "平局！"
+    timeUp = "⏰ 超时！轮到对方"
+    gomokuTitle = "五子棋"
+    gomokuSub = "15×15 棋盘 · 禁双三"
+    gomokuDesc = "黑白轮流落子（黑先）。\n横、竖、斜先连成5个就赢！\n黑棋不能下双三（同时形成两个活三）。输的人干杯！"
+    black = "黑"
+    white = "白"
+    banned33 = "🚫 禁止双三！"
+    hotelBtn = "🏨 住处"
+    hotelTitle = "住处地址卡"
+    hotelName = "住处名称"
+    hotelAddr = "地址（复制当地语言粘贴）"
+    hotelPhone = "电话（可选）"
+    hotelNote = "备注（可选，如：便利店旁边的小巷）"
+    hotelAdd = "➕ 添加住处"
+    hotelDelete = "🗑️ 删除"
+    hotelEmpty = "还没有保存住处"
+    hotelTakeMe = "请带我去这里"
+    hotelMap = "📍 地图二维码 — 扫码即可导航"
+    hotelCall = "📞 打电话"
+    hotelEditBtn = "✏️ 编辑住处"
+    colorTurn = { "轮到${it}" }
+    youAre = { "你: ${it}" }
 }
 
 val ThStrings = Strings().apply {
@@ -1914,9 +2099,9 @@ val ThStrings = Strings().apply {
     menuWolf = "เกมหมาป่า"
     menuWolfSub = "ฟันหมาป่า · วิ่งแข่งหมาป่า · รูเล็ตหมาป่า · หมุนหมาป่า"
     menuLuck = "เกมดวง"
-    menuLuckSub = "เกมบันได · วงล้อ · ส่งระเบิด · โยนเหรียญ"
+    menuLuckSub = "เกมบันได · วงล้อ · ส่งระเบิด · โยนเหรียญ · พลิงโก"
     menuBattle = "เกมดวล"
-    menuBattleSub = "เรียง 4 · แตะรัวยึดพื้นที่ · ดวลตบมือ"
+    menuBattleSub = "เรียง 4 · แตะรัวยึดพื้นที่ · ดวลตบมือ · โอเอ็กซ์ · โกะโมะกุ"
     fingerTitle = "จิ้มนิ้วเลือกคน"
     fingerSub = "วางนิ้วแล้วยก หมาป่าแลบลิ้นใส่!"
     fingerDesc = "เลือกจำนวนคนที่จะโดน แล้วทุกคนวางนิ้วบนหน้าจอคนละนิ้ว\nเมื่อทุกคนยกนิ้วออกครบ 0.5 วินาที หมาป่าจะโผล่ตรงตำแหน่งคนที่โดนแล้วแลบลิ้นแซว"
@@ -2076,6 +2261,43 @@ val ThStrings = Strings().apply {
     tipLabel = { "ทิป $it%" }
     tipTotal = "รวมทิป"
     tipSplit = "🍻 หารบิลรวมทิป"
+    feedback = "💬 ความคิดเห็น"
+    langPickTwo = "เลือกได้สูงสุด 2 ภาษา ① ภาษาหลัก · ② ภาษารอง (แสดงด้านล่าง) แตะอีกครั้งเพื่อเอาออก"
+    plinkoTitle = "พลิงโก"
+    plinkoSub = "ปล่อยเหรียญหมาป่า!"
+    plinkoDesc = "แตะตรงไหนก็ได้ด้านบน เหรียญหมาป่าจะตกลงจากตรงนั้น\nเด้งไปมาระหว่างหมุด ตกช่องไหนก็ได้อันนั้น!\nลำดับช่องจะสลับทุกรอบ"
+    plinkoTap = "แตะด้านบนตรงไหนก็ได้เพื่อปล่อย"
+    plinkoShuffling = "🔀 กำลังสลับช่อง…"
+    plinkoSlots = "1 แก้ว|ครึ่งแก้ว|อีกรอบ|คนขวา|คนซ้าย|ทุกคน|รอด"
+    tttTitle = "โอเอ็กซ์"
+    tttSub = "3×3 เหรียญหมาป่า · คนละ 3 อัน · ตาละ 2 วิ!"
+    tttDesc = "เขียวกับแดงผลัดกันวางเหรียญหมาป่า\nเรียง 3 อันก่อน (แนวนอน ตั้ง ทแยง) ชนะ!\nแต่ละคนมีได้แค่ 3 เหรียญ — วางอันที่ 4 เหรียญที่เก่าที่สุดของเราจะหายไป (อันที่จะหายจะกะพริบ)\nตาละ 2 วินาที หมดเวลาเสียตา คนแพ้หมดแก้ว!"
+    green = "เขียว"
+    red = "แดง"
+    winsOf = { "${it}ชนะ!" }
+    drawWord = "เสมอ!"
+    timeUp = "⏰ หมดเวลา! เสียตา"
+    gomokuTitle = "โกะโมะกุ"
+    gomokuSub = "กระดาน 15×15 · ห้ามสามสองแถว"
+    gomokuDesc = "ดำกับขาวผลัดกันวางหมาก (ดำเริ่มก่อน)\nเรียง 5 เม็ดก่อน (แนวนอน ตั้ง ทแยง) ชนะ!\nดำห้ามวางจุดที่เกิดสามเปิดสองแถวพร้อมกัน คนแพ้หมดแก้ว!"
+    black = "ดำ"
+    white = "ขาว"
+    banned33 = "🚫 ห้ามสามสองแถว!"
+    hotelBtn = "🏨 ที่พัก"
+    hotelTitle = "การ์ดที่อยู่ที่พัก"
+    hotelName = "ชื่อที่พัก"
+    hotelAddr = "ที่อยู่ (คัดลอกภาษาท้องถิ่นมาวาง)"
+    hotelPhone = "เบอร์โทร (ไม่บังคับ)"
+    hotelNote = "โน้ต (ไม่บังคับ เช่น ซอยข้างร้านสะดวกซื้อ)"
+    hotelAdd = "➕ เพิ่มที่พัก"
+    hotelDelete = "🗑️ ลบ"
+    hotelEmpty = "ยังไม่ได้บันทึกที่พัก"
+    hotelTakeMe = "ช่วยไปส่งที่นี่หน่อย"
+    hotelMap = "📍 QR แผนที่ — สแกนเพื่อนำทาง"
+    hotelCall = "📞 โทร"
+    hotelEditBtn = "✏️ แก้ไขที่พัก"
+    colorTurn = { "ตา${it}" }
+    youAre = { "คุณ: ${it}" }
 }
 
 val ViStrings = Strings().apply {
@@ -2252,9 +2474,9 @@ val ViStrings = Strings().apply {
     menuWolf = "Trò chơi sói"
     menuWolfSub = "Răng sói · Sói chạy đua · Sói may rủi · Quay sói"
     menuLuck = "Trò may rủi"
-    menuLuckSub = "Leo thang · Vòng quay · Chuyền bom · Tung đồng xu"
+    menuLuckSub = "Leo thang · Vòng quay · Chuyền bom · Tung đồng xu · Plinko"
     menuBattle = "Trò đối kháng"
-    menuBattleSub = "Nối 4 · Chạm nhanh giành đất · Đấu đập tay"
+    menuBattleSub = "Nối 4 · Chạm nhanh giành đất · Đấu đập tay · Cờ ba · Cờ năm"
     fingerTitle = "Chọn ngón tay"
     fingerSub = "Đặt ngón tay rồi nhấc, sói lè lưỡi trêu!"
     fingerDesc = "Chọn số người bị chọn, rồi mỗi người đặt một ngón tay lên màn hình.\nKhi mọi người nhấc tay ra được 0,5 giây, sói sẽ hiện ra ở chỗ người bị chọn và lè lưỡi trêu."
@@ -2414,6 +2636,43 @@ val ViStrings = Strings().apply {
     tipLabel = { "Tip $it%" }
     tipTotal = "Tổng kèm tip"
     tipSplit = "🍻 Chia kèm tip"
+    feedback = "💬 Góp ý"
+    langPickTwo = "Chọn tối đa 2. ① ngôn ngữ chính · ② ngôn ngữ phụ (hiện bên dưới). Chạm lại để bỏ."
+    plinkoTitle = "Plinko"
+    plinkoSub = "Thả đồng xu sói!"
+    plinkoDesc = "Chạm vào bất kỳ đâu ở phía trên để thả đồng xu sói.\nNó nảy giữa các chốt — rơi vào ô nào thì trúng ô đó!\nThứ tự các ô được xáo mỗi ván."
+    plinkoTap = "Chạm phía trên để thả"
+    plinkoShuffling = "🔀 Đang xáo ô…"
+    plinkoSlots = "1 ly|Nửa ly|Lại|Người bên phải|Người bên trái|Cả bàn|Qua"
+    tttTitle = "Cờ ba"
+    tttSub = "3×3 xu sói · mỗi người 3 xu · 2 giây một lượt!"
+    tttDesc = "Xanh và đỏ lần lượt đặt đồng xu sói.\nNối 3 hàng (ngang, dọc, chéo) trước là thắng!\nMỗi người chỉ có 3 xu — đặt xu thứ 4 thì xu cũ nhất của bạn biến mất (xu sắp mất sẽ nhấp nháy).\nMỗi lượt 2 giây, hết giờ thì mất lượt. Người thua cạn ly!"
+    green = "Xanh"
+    red = "Đỏ"
+    winsOf = { "$it thắng!" }
+    drawWord = "Hòa!"
+    timeUp = "⏰ Hết giờ! Mất lượt"
+    gomokuTitle = "Cờ năm"
+    gomokuSub = "Bàn 15×15 · cấm 3-3"
+    gomokuDesc = "Đen và trắng lần lượt đặt quân (đen đi trước).\nNối 5 quân (ngang, dọc, chéo) trước là thắng!\nĐen không được đi nước 3-3 (hai hàng ba mở cùng lúc). Người thua cạn ly!"
+    black = "Đen"
+    white = "Trắng"
+    banned33 = "🚫 Cấm 3-3!"
+    hotelBtn = "🏨 Chỗ ở"
+    hotelTitle = "Thẻ địa chỉ chỗ ở"
+    hotelName = "Tên chỗ ở"
+    hotelAddr = "Địa chỉ (dán bằng tiếng địa phương)"
+    hotelPhone = "Số điện thoại (tùy chọn)"
+    hotelNote = "Ghi chú (tùy chọn, vd: hẻm cạnh cửa hàng tiện lợi)"
+    hotelAdd = "➕ Thêm chỗ ở"
+    hotelDelete = "🗑️ Xóa"
+    hotelEmpty = "Chưa lưu chỗ ở nào"
+    hotelTakeMe = "Làm ơn chở tôi đến đây"
+    hotelMap = "📍 QR bản đồ — quét để chỉ đường"
+    hotelCall = "📞 Gọi"
+    hotelEditBtn = "✏️ Sửa chỗ ở"
+    colorTurn = { "Lượt $it" }
+    youAre = { "Bạn: $it" }
 }
 
 fun stringsFor(lang: Lang): Strings = when (lang) {

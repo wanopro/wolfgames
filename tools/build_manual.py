@@ -286,19 +286,19 @@ def game_shots(b, lang):
     # 늑대 돌리기 (도는 중)
     home(); card(4); card(3); pg.locator('.btn').last.click(); pg.wait_for_timeout(1500); shot('how-arrow')
     # 4목
-    home(); card(6); card(0)
+    home(); card(6); card(1)
     bb = pg.query_selector('canvas').bounding_box(); w, h = bb['width'], bb['height']; cell = min(w / 7, h / 7.15); left = (w - cell * 7) / 2
     for c in [3, 3, 4, 2, 2, 4, 5]:
         pg.mouse.click(bb['x'] + left + (c + .5) * cell, bb['y'] + h * .5); pg.wait_for_timeout(750)
     shot('how-four')
     # 탭 줄다리기: 아래(P1) 승리
-    home(); card(6); card(1); start(); pg.wait_for_timeout(1800)
+    home(); card(6); card(3); start(); pg.wait_for_timeout(1800)
     for k in range(34):
         area_tap(0.3 + (k % 5) * 0.1, 0.8, 100 + k); pg.wait_for_timeout(25)
         if k % 4 == 0: area_tap(0.6, 0.2, 200 + k); pg.wait_for_timeout(25)
     pg.wait_for_timeout(1100); shot('how-tug')
     # 슬랩 대결: 아래(P1) 공격, 위(P2) 수비 → 명중 순간
-    home(); card(6); card(2); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.1"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(400)
+    home(); card(6); card(4); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.1"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(400)
     area_tap(0.5, 0.25, 300); pg.wait_for_timeout(500); area_tap(0.5, 0.75, 301); pg.wait_for_timeout(330); shot('how-slap')
     # 계산기 → N빵 → 환전
     home(); pg.locator('.hero .chip').nth(1).click(); pg.wait_for_timeout(200)
@@ -314,6 +314,39 @@ def game_shots(b, lang):
     pg.evaluate("""localStorage.setItem('wg-qr', JSON.stringify({instagram: {v: '@wolf.games', on: true}, whatsapp: {v: '+82 10-1234-5678', on: true}, tiktok: {v: 'wolfgames', on: true}}))""")
     home(); pg.locator('.hero .chip').nth(2).click(); pg.wait_for_timeout(600); shot('how-qr')
     pg.evaluate("localStorage.removeItem('wg-qr')")
+    # 숙소 주소 카드 (예시 숙소)
+    pg.evaluate("""localStorage.setItem('wg-hotels', JSON.stringify([{name: 'Hotel Nikko Saigon', addr: '235 Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh', phone: '+84 28 3925 7777', note: ''}, {name: 'Sukhumvit 11 Hostel', addr: 'Soi Sukhumvit 11, Khlong Toei Nuea, Bangkok', phone: '', note: ''}]))""")
+    home(); pg.locator('.hero .chip').nth(3).click(); pg.wait_for_timeout(600); shot('how-hotel')
+    pg.evaluate("localStorage.removeItem('wg-hotels')")
+    # 플링코: 위쪽 터치 → 칸에 들어간 결과 (길은 고정)
+    home(); card(5); card(4); start(); pg.wait_for_timeout(500)
+    pg.evaluate("Math.__r = Math.random; Math.random = () => 0.37")
+    bb = pg.query_selector('canvas').bounding_box(); pg.mouse.click(bb['x'] + bb['width'] * 0.42, bb['y'] + 40)
+    pg.evaluate("Math.random = Math.__r")
+    for _ in range(140):
+        if pg.evaluate("window.__plinkoPhase") == 'result': break
+        pg.wait_for_timeout(50)
+    pg.wait_for_timeout(500); shot('how-plinko')
+    # 삼목: 초록 0·8·6, 빨강 4·2·3 → 초록 차례 (0번 코인이 깜빡임)
+    home(); card(6); card(0); start(); pg.wait_for_timeout(1400)
+    bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']; sz = min(W - 40, H - 190, 420); x0 = bb['x'] + (W - sz) / 2; y0 = bb['y'] + (H - sz) / 2; cl = sz / 3
+    for k in [0, 4, 8, 2, 6, 3]:
+        pg.mouse.click(x0 + (k % 3 + .5) * cl, y0 + (k // 3 + .5) * cl); pg.wait_for_timeout(180)
+    pg.wait_for_timeout(250); shot('how-ttt')
+    # 오목: 몇 수 둔 뒤
+    home(); card(6); card(2); start(); pg.wait_for_timeout(400)
+    bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']; sz = min(W - 16, H - 130, 640); x0 = bb['x'] + (W - sz) / 2; y0 = bb['y'] + (H - sz) / 2; pad = sz / 15.2 * 0.6; st = (sz - pad * 2) / 14
+    for gx, gy in [(7, 7), (8, 8), (8, 7), (6, 7), (7, 6), (9, 9), (6, 8), (7, 9), (9, 6)]:
+        pg.mouse.click(x0 + pad + gx * st, y0 + pad + gy * st); pg.wait_for_timeout(120)
+    pg.wait_for_timeout(300); shot('how-gomoku')
+    # 두 언어 같이 보기: 보조 언어(영어, 영어면 한국어)로 삼목 화면
+    pg.evaluate(f"localStorage.setItem('wg-lang2', '{'ko' if lang == 'en' else 'en'}')")
+    home(); card(6); card(0); start(); pg.wait_for_timeout(1400)
+    bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']; sz = min(W - 40, H - 190, 420); x0 = bb['x'] + (W - sz) / 2; y0 = bb['y'] + (H - sz) / 2; cl = sz / 3
+    for k in [4, 0]:
+        pg.mouse.click(x0 + (k % 3 + .5) * cl, y0 + (k // 3 + .5) * cl); pg.wait_for_timeout(180)
+    pg.wait_for_timeout(250); shot('how-dual')
+    pg.evaluate("localStorage.removeItem('wg-lang2')")
     ctx.close()
 
 

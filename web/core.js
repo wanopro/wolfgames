@@ -1,7 +1,7 @@
 // 공통: 요소 생성, 진동, 화면 부품, 캔버스, 시간 기반 애니메이션
 import { STRINGS } from './i18n.js';
 
-export const VERSION = '1.5.3';
+export const VERSION = '1.6';
 
 export const C = {
   bg: '#12121A', surface: '#1E1E2A', surface2: '#2C2C3E', accent: '#FFB300',
@@ -30,8 +30,70 @@ export const lang = {
     return STRINGS[sys] ? sys : 'en';
   },
   set(p) { this.pref = p; store('wg-lang', p); document.documentElement.lang = this.current; },
+  /** 두 번째 언어 (없으면 null) */
+  get second() { const v = store('wg-lang2'); return v && STRINGS[v] && v !== this.current ? v : null; },
+  setSecond(v) { try { if (v) localStorage.setItem('wg-lang2', v); else localStorage.removeItem('wg-lang2'); } catch (_) { /* 무시 */ } },
 };
-export const S = () => STRINGS[lang.current];
+
+// ---------- 두 언어 같이 보기 ----------
+// 문구를 "메인 SEP 보조" 로 묶어서 넘기고, 화면에 그릴 때 둘로 나눔 (같은 글씨 크기, 보조만 살짝 흐리게)
+export const SEP = '\u2063';
+const LISTS = { kcNames: '|', kcDescs: '|', plinkoSlots: '|', colorNames: ',', animalNames: ',' };
+const lead = (p, r) => { let i = 0; while (i < p.length && i < r.length && p[i] === r[i] && !/[\p{L}\p{N}]/u.test(p[i])) i++; return i; };
+export const join2 = (p, r) => { if (p === r || r == null) return p; const i = lead(p, r); return p + SEP + r.slice(i).trimStart(); };
+const part = (v, k) => (typeof v === 'string' && v.includes(SEP) ? v.split(SEP)[k] : v);
+let dualCache = null;
+export const S = () => {
+  const a = STRINGS[lang.current], sec = lang.second;
+  if (!sec) return a;
+  if (dualCache && dualCache.k === lang.current + sec) return dualCache.v;
+  const b = STRINGS[sec], v = {};
+  for (const k of Object.keys(a)) {
+    const x = a[k], y = b[k];
+    if (typeof x === 'function') v[k] = (...q) => join2(x(...q.map((u) => part(u, 0))), y(...q.map((u) => part(u, 1))));
+    else if (LISTS[k]) { const xs = x.split(LISTS[k]), ys = y.split(LISTS[k]); v[k] = xs.map((u, i) => join2(u, ys[i])).join(LISTS[k]); }
+    else v[k] = typeof x === 'string' ? join2(x, y) : x;
+  }
+  dualCache = { k: lang.current + sec, v }; return v;
+};
+/** 두 언어 문구 여러 개를 이어 붙이기 (언어별로 따로 이어서 다시 묶음) */
+export const cat = (...xs) => { xs = xs.map(String); if (!xs.some((x) => x.includes(SEP))) return xs.join(''); const pick = (k) => xs.map((x) => { const q = x.split(SEP); return q.length > 1 ? q[k] : q[0]; }).join(''); return pick(0) + SEP + pick(1); };
+/** 한 줄만 필요한 곳 (예: 입력칸 안내) */
+export const one = (str) => String(str).split(SEP).join(' / ');
+// 캔버스: 두 언어 문구는 두 줄로 (같은 크기)
+{
+  const P = CanvasRenderingContext2D.prototype, F = P.fillText, ST = P.strokeText, M = P.measureText;
+  // 두 줄이 원래 한 줄 자리 정도에 들어가도록 같이 줄임 (너무 작아지지 않게 11px 까지만)
+  const two = (ctx, str, x, y, fn) => {
+    const [m, sub] = str.split(SEP), f0 = ctx.font, px = parseFloat((/(\d+(?:\.\d+)?)px/.exec(f0) || [0, 16])[1]);
+    const lp = Math.max(px * 0.62, Math.min(px, 11)), dy = lp * 0.56;
+    ctx.font = f0.replace(/(\d+(?:\.\d+)?)px/, `${lp}px`);
+    const bl = ctx.textBaseline; ctx.textBaseline = 'middle';
+    const yc = bl === 'middle' ? y : bl === 'alphabetic' || bl === 'bottom' ? y - px * 0.35 : y + px * 0.5;
+    fn.call(ctx, m, x, yc - dy); const al = ctx.globalAlpha; ctx.globalAlpha = al * 0.85; fn.call(ctx, sub, x, yc + dy); ctx.globalAlpha = al;
+    ctx.textBaseline = bl; ctx.font = f0;
+  };
+  P.fillText = function (str, x, y, ...r) { if (typeof str === 'string' && str.includes(SEP)) return two(this, str, x, y, F); return F.call(this, str, x, y, ...r); };
+  P.strokeText = function (str, x, y, ...r) { if (typeof str === 'string' && str.includes(SEP)) return two(this, str, x, y, ST); return ST.call(this, str, x, y, ...r); };
+  P.measureText = function (str) {
+    if (typeof str === 'string' && str.includes(SEP)) {
+      const f0 = this.font, px = parseFloat((/(\d+(?:\.\d+)?)px/.exec(f0) || [0, 16])[1]), lp = Math.max(px * 0.62, Math.min(px, 11));
+      this.font = f0.replace(/(\d+(?:\.\d+)?)px/, `${lp}px`); const ws = str.split(SEP).map((q) => M.call(this, q)); this.font = f0;
+      return ws[0].width >= ws[1].width ? ws[0] : ws[1];
+    }
+    return M.call(this, str);
+  };
+}
+// 글자(DOM): SEP 가 든 글자는 "메인 + 보조 한 줄" 로 바꿈 (textContent 로 넣은 것도 자동으로)
+export function dualize(root) {
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), list = [];
+  for (let n = w.nextNode(); n; n = w.nextNode()) if (n.nodeValue.includes(SEP)) list.push(n);
+  for (const n of list) {
+    const [m, sub] = n.nodeValue.split(SEP);
+    const span = document.createElement('span'); span.className = 'dual'; span.textContent = sub;
+    n.nodeValue = m; n.after(span);
+  }
+}
 
 // ---------- 진동 (아이폰 사파리는 지원 안 함 → 조용히 무시) ----------
 const canVibe = typeof navigator !== 'undefined' && 'vibrate' in navigator;
@@ -65,10 +127,12 @@ export function btn(text, onClick, cls = 'btn', opts = {}) {
 }
 
 /** 상단 뒤로가기 + 제목 */
+/** 메뉴 · 화면 제목은 메인 언어만 (두 언어로 쓰면 너무 커짐) */
+export const main1 = (str) => String(str).split(SEP)[0];
 export function top(title, onBack, ...actions) {
   return h('div', { class: 'top' },
     btn('←', onBack, 'back'),
-    h('div', { class: 'title' }, title),
+    h('div', { class: 'title' }, main1(title)),
     ...actions);
 }
 
@@ -94,7 +158,7 @@ export function toggle(label, value, onChange) {
 }
 
 export function card(emo, title, sub, onClick) {
-  return btn([h('span', { class: 'emo' }, emo), h('div', {}, h('div', { class: 't' }, title), h('div', { class: 's' }, sub)), h('span', { class: 'chev' }, '›')], onClick, 'card');
+  return btn([h('span', { class: 'emo' }, emo), h('div', {}, h('div', { class: 't' }, main1(title)), h('div', { class: 's' }, main1(sub))), h('span', { class: 'chev' }, '›')], onClick, 'card');
 }
 
 /** 시작 전 설정 화면 */

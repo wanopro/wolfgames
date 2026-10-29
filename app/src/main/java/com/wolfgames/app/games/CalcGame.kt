@@ -21,7 +21,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Text
+import com.wolfgames.app.ui.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -197,7 +197,7 @@ fun CalculatorScreen(onBack: () -> Unit, onExchange: () -> Unit) {
                         Box(
                             Modifier
                                 .weight(1f)
-                                .height(64.dp)
+                                .heightIn(min = 64.dp)
                                 .clip(RoundedCornerShape(18.dp))
                                 .background(if (k == "=") WG.Accent else if (isOp) WG.Surface2 else if (fn) Color(0xFF3A3A50) else WG.Surface)
                                 .clickable { vibe.tap(); press(k) },
@@ -242,7 +242,7 @@ private fun SplitDialog(total: Double, onClose: () -> Unit) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 for (u in listOf(0, 10, 100, 1000)) {
                     Box(
-                        Modifier.weight(1f).height(42.dp).clip(RoundedCornerShape(12.dp))
+                        Modifier.weight(1f).heightIn(min = 42.dp).clip(RoundedCornerShape(12.dp))
                             .background(if (unit == u) WG.Accent else WG.Surface2)
                             .clickable { vibe.tap(); unit = u; prefs.edit().putInt("split_unit", u).apply() },
                         contentAlignment = Alignment.Center,
@@ -289,7 +289,7 @@ private fun TipDialog(total: Double, onSplit: (Double) -> Unit, onClose: () -> U
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 for (p in listOf(5, 10, 15, 20, 25, 30)) {
                     Box(
-                        Modifier.weight(1f).height(46.dp).clip(RoundedCornerShape(12.dp))
+                        Modifier.weight(1f).heightIn(min = 46.dp).clip(RoundedCornerShape(12.dp))
                             .background(if (pct == p) WG.Accent else WG.Surface2)
                             .clickable { vibe.tap(); pct = p; prefs.edit().putInt("tip_pct", p).apply() },
                         contentAlignment = Alignment.Center,

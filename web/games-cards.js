@@ -37,7 +37,7 @@ export function upDown(root, back) {
     const render = () => {
       const color = C.players[turn % C.players.length];
       turnEl.replaceChildren(h('span', { style: `color:${color}` }, s.playerN(turn + 1)), h('small', {}, s.udGuess));
-      info.replaceChildren(h('span', { class: 'pill' }, s.udLeft(deck.length)), stack ? h('span', { class: 'pill hot' }, s.udPot(pot)) : null);
+      info.replaceChildren(...[h('span', { class: 'pill' }, s.udLeft(deck.length)), stack ? h('span', { class: 'pill hot' }, s.udPot(pot)) : null].filter(Boolean));
       if (waiting) { ctl.replaceChildren(btn(s.udNext, next)); return; }
       resEl.replaceChildren();
       const ak = base.r === 1 || base.r === 13;
@@ -57,7 +57,7 @@ export function upDown(root, back) {
       last = { r, c };
       if (r === 'ok') {
         vibe.tap();
-        resEl.replaceChildren(h('div', { class: 'pops', style: 'color:#69F0AE' }, `⭕ ${s.udSuccess}`), stack ? h('small', {}, s.udPot(pot + 1)) : null);
+        resEl.replaceChildren(...[h('div', { class: 'pops', style: 'color:#69F0AE' }, `⭕ ${s.udSuccess}`), stack ? h('small', {}, s.udPot(pot + 1)) : null].filter(Boolean));
         if (stack) pot++;
       } else if (r === 'same') {
         vibe.strong();

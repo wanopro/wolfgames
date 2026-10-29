@@ -357,13 +357,16 @@ function wolfButt(c, r) {
     c.beginPath(); c.ellipse(s * r * 0.36, r * 0.24, r * 0.09, r * 0.05, 0, 0, 7); c.fillStyle = 'rgba(255,130,150,.45)'; c.fill(); } // 볼터치(?)
 }
 // 동전 (face: 1 앞, -1 뒤). sy: 세로 눌림(뒤집히는 중), 크기 r
-export function coin(c, x, y, r, face, sy = 1) {
+// 코인 색 (금색 기본 · 삼목용 초록/빨강)
+export const COIN_PAL = { gold: ['#FFE9A6', CGOLD, CGOLD_D, CGOLD_DD, 'rgba(168,110,12,.55)'], green: ['#C8F7C5', '#4CD964', '#23A33E', '#146B27', 'rgba(20,107,39,.55)'], red: ['#FFC9C9', '#FF5A5A', '#D32F2F', '#8E1414', 'rgba(142,20,20,.55)'] };
+export function coin(c, x, y, r, face, sy = 1, pal = 'gold') {
+  const [P0, P1, P2, P3, P4] = COIN_PAL[pal] || COIN_PAL.gold;
   c.save(); c.translate(x, y); c.scale(1, Math.max(0.04, sy));
-  c.beginPath(); c.arc(0, r * 0.07 / Math.max(0.2, sy), r, 0, 7); c.fillStyle = CGOLD_DD; c.fill(); // 두께
-  const g = c.createRadialGradient(-r * 0.3, -r * 0.35, r * 0.1, 0, 0, r); g.addColorStop(0, '#FFE9A6'); g.addColorStop(0.6, CGOLD); g.addColorStop(1, CGOLD_D);
-  c.beginPath(); c.arc(0, 0, r, 0, 7); c.fillStyle = g; c.fill(); c.lineWidth = r * 0.06; c.strokeStyle = CGOLD_DD; c.stroke();
-  c.beginPath(); c.arc(0, 0, r * 0.84, 0, 7); c.lineWidth = r * 0.035; c.strokeStyle = 'rgba(168,110,12,.55)'; c.stroke();
-  for (let k = 0; k < 24; k++) { const a = k / 24 * Math.PI * 2; c.beginPath(); c.arc(Math.cos(a) * r * 0.92, Math.sin(a) * r * 0.92, r * 0.025, 0, 7); c.fillStyle = 'rgba(168,110,12,.5)'; c.fill(); }
+  c.beginPath(); c.arc(0, r * 0.07 / Math.max(0.2, sy), r, 0, 7); c.fillStyle = P3; c.fill(); // 두께
+  const g = c.createRadialGradient(-r * 0.3, -r * 0.35, r * 0.1, 0, 0, r); g.addColorStop(0, P0); g.addColorStop(0.6, P1); g.addColorStop(1, P2);
+  c.beginPath(); c.arc(0, 0, r, 0, 7); c.fillStyle = g; c.fill(); c.lineWidth = r * 0.06; c.strokeStyle = P3; c.stroke();
+  c.beginPath(); c.arc(0, 0, r * 0.84, 0, 7); c.lineWidth = r * 0.035; c.strokeStyle = P4; c.stroke();
+  for (let k = 0; k < 24; k++) { const a = k / 24 * Math.PI * 2; c.beginPath(); c.arc(Math.cos(a) * r * 0.92, Math.sin(a) * r * 0.92, r * 0.025, 0, 7); c.fillStyle = P4; c.fill(); }
   c.save(); c.beginPath(); c.arc(0, 0, r * 0.8, 0, 7); c.clip(); c.translate(0, r * 0.02); if (face > 0) wolfFace(c, r * 0.95); else wolfButt(c, r * 0.95); c.restore();
   c.beginPath(); c.ellipse(-r * 0.45, -r * 0.5, r * 0.22, r * 0.09, -0.7, 0, 7); c.fillStyle = 'rgba(255,255,255,.35)'; c.fill();
   c.restore();

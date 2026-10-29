@@ -9,12 +9,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Text
+import com.wolfgames.app.ui.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -184,7 +185,7 @@ fun RaceGame(onBack: () -> Unit) {
                             val j = picks.indexOf(i)
                             Box(Modifier.weight(1f)) {
                                 Column(
-                                    Modifier.fillMaxWidth().height(72.dp).clip(RoundedCornerShape(14.dp))
+                                    Modifier.fillMaxWidth().heightIn(min = 72.dp).clip(RoundedCornerShape(14.dp))
                                         .background(if (j >= 0) Color(0xFF2C2A1E) else WG.Surface)
                                         .border(2.dp, if (j >= 0) WG.Accent else Color.Transparent, RoundedCornerShape(14.dp))
                                         .clickable { vibe.tap(); if (j >= 0) picks.removeAt(j) else if (picks.size < n) picks.add(i) },
@@ -258,7 +259,7 @@ private fun RacePlay(n: Int, secs: Int, picks: List<Int>, onSetup: () -> Unit) {
             RacePhase.Done -> s.raceResultNames(names[picks[finished.first()]], names[picks[finished.last()]])
         }
         Text(title, color = if (phase == RacePhase.Done) WG.Accent else WG.Text, fontSize = if (phase == RacePhase.Countdown) 40.sp else 21.sp,
-            fontWeight = FontWeight.Black, textAlign = TextAlign.Center, modifier = Modifier.height(54.dp))
+            fontWeight = FontWeight.Black, textAlign = TextAlign.Center, modifier = Modifier.heightIn(min = 54.dp))
         Canvas(Modifier.fillMaxWidth().weight(1f).clip(RoundedCornerShape(16.dp))) {
             idle.let { }
             drawIntoCanvas { cc ->
