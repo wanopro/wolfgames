@@ -27,6 +27,7 @@ export function simulate(W, H, x0, seed) {
   return { path, slot: Math.max(0, Math.min(SLOTS.length - 1, Math.floor((x - 12) / b.sw))) };
 }
 const txt = (c, s, x, y, size, color, w = 900) => { c.font = `${w} ${size}px -apple-system, "Noto Sans KR", sans-serif`; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillStyle = color; c.fillText(s, x, y); };
+const spinMsg = (g, t) => g.drops.some((d, i) => i > 0 && t < d.at && t > d.at - 0.6);
 export class Plinko {
   constructor(drops) { this.drops = drops; } // [{at, x, seed, p}]
   draw(c, W, H, t) {
@@ -39,7 +40,7 @@ export class Plinko {
     // 지금 상태 찾기
     let cur = null, done = [];
     for (const d of this.drops) { if (t >= d.at) { const u = Math.floor((t - d.at) * 60); if (u >= d.sim.path.length + 95) done.push(d); else cur = { d, u }; } }
-    txt(c, '위쪽 아무 데나 터치해서 떨어뜨리기', W / 2, 88, 15, '#FFD740', 800);
+    txt(c, spinMsg(this, t) ? '🔀 칸 섞는 중…' : '위쪽 아무 데나 터치해서 떨어뜨리기', W / 2, 88, 15, '#FFD740', 800);
     const turn = cur ? -1 : 0;
     // 떨어뜨리는 곳 표시
     if (turn >= 0 && !cur) { c.setLineDash([6, 6]); c.strokeStyle = 'rgba(255,255,255,.25)'; c.beginPath(); c.moveTo(18, 112); c.lineTo(W - 18, 112); c.stroke(); c.setLineDash([]); }
@@ -47,10 +48,15 @@ export class Plinko {
     for (const [px, py] of b.pegs) { c.beginPath(); c.arc(px, py, 5, 0, 7); c.fillStyle = '#CFD8DC'; c.fill(); c.beginPath(); c.arc(px - 1.5, py - 1.5, 1.8, 0, 7); c.fillStyle = '#fff'; c.fill(); }
     // 칸
     const hitSlot = cur && cur.u >= cur.d.sim.path.length ? cur.d.sim.slot : -1;
-    SLOTS.forEach(([ic, lab, col], i) => {
-      const x = 12 + i * b.sw, glow = i === hitSlot && Math.floor(t * 8) % 2 === 0;
+    const active = cur ? cur.d : this.drops.find((d) => t < d.at) || this.drops[this.drops.length - 1];
+    const order = active.order, prev = this.drops[this.drops.indexOf(active) - 1];
+    // 새 판 시작 0.6초 전부터 칸이 빙글 섞임
+    const sh = !cur && prev ? Math.max(0, 1 - (active.at - t) / 0.6) : 1, spin = sh < 1 && sh > 0;
+    order.forEach((si, i) => { const [ic, lab, col] = SLOTS[spin && sh < 0.5 ? prev.order[i] : si];
+      const x = 12 + i * b.sw, glow = i === hitSlot && Math.floor(t * 8) % 2 === 0, sq = spin ? Math.abs(Math.cos(sh * Math.PI)) : 1;
+      c.save(); c.translate(x + b.sw / 2, 0); c.scale(Math.max(0.05, sq), 1); c.translate(-(x + b.sw / 2), 0);
       c.beginPath(); c.roundRect(x + 2, b.slotTop + 20, b.sw - 4, b.slotBot - b.slotTop - 18, 8); c.fillStyle = glow ? col : col + '40'; c.fill();
-      txt(c, ic, x + b.sw / 2, b.slotBot - 62, 22, '#fff'); lab.split('\n').forEach((ln, j, a) => txt(c, ln, x + b.sw / 2, b.slotBot - 34 + (j - (a.length - 1) / 2) * 15, 12.5, '#fff', 800));
+      txt(c, ic, x + b.sw / 2, b.slotBot - 62, 22, '#fff'); lab.split('\n').forEach((ln, j, a) => txt(c, ln, x + b.sw / 2, b.slotBot - 34 + (j - (a.length - 1) / 2) * 15, 12.5, '#fff', 800)); c.restore();
       if (i) { c.beginPath(); c.moveTo(x, b.slotTop); c.lineTo(x, b.slotBot + 4); c.strokeStyle = '#CFD8DC'; c.lineWidth = 4; c.stroke(); }
     });
     // 이미 끝난 코인은 칸 안에
@@ -59,7 +65,7 @@ export class Plinko {
       coin(c, p[0], p[1], 12, 1, 1);
       if (cur.u < 8) { c.beginPath(); c.arc(cur.d.x, 112, 14 + cur.u * 3, 0, 7); c.strokeStyle = `rgba(255,255,255,${0.7 - cur.u * 0.08})`; c.lineWidth = 3; c.stroke(); }
       if (hitSlot >= 0) {
-        const [ic, lab, col] = SLOTS[hitSlot], k = cur.u - cur.d.sim.path.length, pop = Math.min(1, k / 8);
+        const [ic, lab, col] = SLOTS[cur.d.order[hitSlot]], k = cur.u - cur.d.sim.path.length, pop = Math.min(1, k / 8);
         c.save(); c.translate(W / 2, H * 0.42); c.scale(0.6 + 0.4 * pop, 0.6 + 0.4 * pop);
         c.beginPath(); c.roundRect(-140, -46, 280, 92, 22); c.fillStyle = 'rgba(0,0,0,.75)'; c.fill(); c.lineWidth = 4; c.strokeStyle = col; c.stroke();
         txt(c, `${ic} ${lab.replace('\n', ' ')}!`, 0, 2, 34, col); c.restore();
