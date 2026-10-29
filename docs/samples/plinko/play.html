@@ -4,7 +4,7 @@ import { Plinko, simulate } from './plinko.js';
 const x = document.getElementById('c').getContext('2d'); x.scale(2, 2); const W = 393, H = 760; let G;
 const find = (x0, want) => { for (let s = 1; s < 5000; s++) { const r = simulate(W, H, x0, s * 7919); if (r.slot === want && r.path.length < 300) return r; } return simulate(W, H, x0, 1); };
 window.setup = () => {
-  const drops = [{ at: 0.8, x: 120, p: 0, want: 3 }, { at: 6.2, x: 260, p: 1, want: 0 }, { at: 11.8, x: 196, p: 2, want: 6 }];
+  const drops = [{ x: 120, p: 0, want: 3 }, { x: 260, p: 0, want: 5 }];
   let at = 0.8; for (const d of drops) { d.sim = find(d.x, d.want); d.at = at; at += (d.sim.path.length + 95) / 60 + 1.0; } window.total = at + 2.5;
   G = new Plinko(drops); window.len = drops.map((d) => d.sim.path.length);
 };

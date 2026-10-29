@@ -1,6 +1,6 @@
 // 플링코 시안: 위에서 늑대 코인을 떨어뜨리면 핀 사이를 튕기며 내려가 아래 칸에 들어감
 import { coin, chompWolf } from './art.js';
-export const SLOTS = [['💀', '원샷', '#FF3D5A'], ['🍺', '1잔', '#FF9800'], ['👉', '지목', '#AB47BC'], ['✅', '통과', '#43A047'], ['🥃', '반 잔', '#29B6F6'], ['🔄', '다시', '#78909C'], ['🍻', '다 같이', '#FFB300']];
+export const SLOTS = [['🍺', '1잔', '#FF7043'], ['🥃', '반 잔', '#29B6F6'], ['🔄', '다시', '#78909C'], ['👉', '오른쪽\n사람', '#AB47BC'], ['👈', '왼쪽\n사람', '#EC407A'], ['🍻', '다 같이', '#FFB300'], ['✅', '통과', '#43A047']];
 const PC = ['#FF5252', '#448AFF', '#69F0AE', '#FFD740'];
 export function board(W, H) {
   const top = 150, rows = 11, gapY = 36, n = SLOTS.length, sw = (W - 24) / n, pegs = [];
@@ -39,8 +39,8 @@ export class Plinko {
     // 지금 상태 찾기
     let cur = null, done = [];
     for (const d of this.drops) { if (t >= d.at) { const u = Math.floor((t - d.at) * 60); if (u >= d.sim.path.length + 95) done.push(d); else cur = { d, u }; } }
-    const turn = cur ? cur.d.p : this.drops.find((d) => t < d.at)?.p ?? -1;
-    txt(c, turn >= 0 ? `P${turn + 1} 차례 · 위쪽을 터치해서 떨어뜨리기` : '결과', W / 2, 88, 15, turn >= 0 ? PC[turn] : '#FFD740', 800);
+    txt(c, '위쪽 아무 데나 터치해서 떨어뜨리기', W / 2, 88, 15, '#FFD740', 800);
+    const turn = cur ? -1 : 0;
     // 떨어뜨리는 곳 표시
     if (turn >= 0 && !cur) { c.setLineDash([6, 6]); c.strokeStyle = 'rgba(255,255,255,.25)'; c.beginPath(); c.moveTo(18, 112); c.lineTo(W - 18, 112); c.stroke(); c.setLineDash([]); }
     // 핀
@@ -50,11 +50,10 @@ export class Plinko {
     SLOTS.forEach(([ic, lab, col], i) => {
       const x = 12 + i * b.sw, glow = i === hitSlot && Math.floor(t * 8) % 2 === 0;
       c.beginPath(); c.roundRect(x + 2, b.slotTop + 20, b.sw - 4, b.slotBot - b.slotTop - 18, 8); c.fillStyle = glow ? col : col + '40'; c.fill();
-      txt(c, ic, x + b.sw / 2, b.slotBot - 56, 22, '#fff'); txt(c, lab, x + b.sw / 2, b.slotBot - 30, 12.5, '#fff', 800);
+      txt(c, ic, x + b.sw / 2, b.slotBot - 62, 22, '#fff'); lab.split('\n').forEach((ln, j, a) => txt(c, ln, x + b.sw / 2, b.slotBot - 34 + (j - (a.length - 1) / 2) * 15, 12.5, '#fff', 800));
       if (i) { c.beginPath(); c.moveTo(x, b.slotTop); c.lineTo(x, b.slotBot + 4); c.strokeStyle = '#CFD8DC'; c.lineWidth = 4; c.stroke(); }
     });
     // 이미 끝난 코인은 칸 안에
-    for (const d of done) { const [x, y] = d.sim.path[d.sim.path.length - 1]; coin(c, x, y, 12, 1); txt(c, `P${d.p + 1}`, x, y - 20, 11, PC[d.p], 900); }
     if (cur) {
       const p = cur.d.sim.path[Math.min(cur.u, cur.d.sim.path.length - 1)];
       coin(c, p[0], p[1], 12, 1, 1);
@@ -63,13 +62,8 @@ export class Plinko {
         const [ic, lab, col] = SLOTS[hitSlot], k = cur.u - cur.d.sim.path.length, pop = Math.min(1, k / 8);
         c.save(); c.translate(W / 2, H * 0.42); c.scale(0.6 + 0.4 * pop, 0.6 + 0.4 * pop);
         c.beginPath(); c.roundRect(-140, -46, 280, 92, 22); c.fillStyle = 'rgba(0,0,0,.75)'; c.fill(); c.lineWidth = 4; c.strokeStyle = col; c.stroke();
-        txt(c, `P${cur.d.p + 1}  ${ic} ${lab}!`, 0, 2, 34, col); c.restore();
-        if (lab === '원샷') chompWolf(c, W / 2, H * 0.42 - 90, 34, Math.abs(Math.sin(k / 6)), pop);
+        txt(c, `${ic} ${lab.replace('\n', ' ')}!`, 0, 2, 34, col); c.restore();
       }
-    }
-    if (!cur && turn < 0) { // 모아 보기
-      c.beginPath(); c.roundRect(40, H * 0.3, W - 80, 40 + done.length * 40, 18); c.fillStyle = 'rgba(0,0,0,.8)'; c.fill();
-      done.forEach((d, i) => { const [ic, lab, col] = SLOTS[d.sim.slot]; txt(c, `P${d.p + 1}`, 90, H * 0.3 + 40 + i * 40, 20, PC[d.p]); txt(c, `${ic} ${lab}`, W / 2 + 30, H * 0.3 + 40 + i * 40, 20, col); });
     }
   }
 }
