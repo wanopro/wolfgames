@@ -5,7 +5,7 @@ export const MANUAL = {
   "lead": "술자리 게임 모음 · 설치 안내",
   "navAndroid": "🤖 안드로이드 설치",
   "navIphone": "🍎 아이폰 홈 화면 추가",
-  "navNew": "🆕 v1.6 구성",
+  "navNew": "🆕 v1.7 구성",
   "navUpdate": "🔄 업데이트",
   "navFaq": "❓ 자주 묻는 질문",
   "qAndroid": "🤖 안드로이드 앱",
@@ -100,15 +100,16 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 메인 화면",
-  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.6</b>)을 확인할 수 있어요.",
-  "hNew": "🆕 v1.6 구성",
-  "newIntro": "울프 게임즈 v1.6에는 아래 게임과 기능이 들어 있어요.",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.7</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v1.7 구성",
+  "newIntro": "울프 게임즈 v1.7에는 아래 게임과 기능이 들어 있어요.",
   "newFeat": [
    "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🔻 플링코 · 🟢 삼목 · ⚫ 오목 · 🏨 숙소 주소 카드 · 🌐 두 언어 같이 보기",
+   "🆕 🔢 숫자 폭탄 · 🎈 풍선 불기 · 🗣️ 회화 카드 · 🧾 여행 정산",
+   "✨ v1.6: 🔻 플링코 · 🟢 삼목 · ⚫ 오목 · 🏨 숙소 주소 카드 · 🌐 두 언어 같이 보기",
    "✨ v1.5: 🎀 연타 땅따먹기 · 🐾 슬랩 대결 · 👑 글로벌 킹스컵 · 🍺 맥주 거품 채우기 · 🪙 동전 던지기",
    "⚡ 순발력게임 (반응속도 대결 · 색 반응 대결 · 스탑워치) · 💣 폭탄돌리기 · ⚔️ 주사위 대결",
-   "👆 손가락게임 (손가락선택) · 🐺 늑대게임 · 🍀 운빨게임 · ⚔️ 대결게임 카테고리",
+   "🐺 늑대게임 · 🍀 운빨게임 · ⚔️ 대결게임 카테고리",
    "🃏 카드 게임 (Up/Down · 호치민) · 🍶 789",
    "🧮 계산기 · 🍻 N빵(술값 나누기) · 💱 환전 (메인 화면 로고 옆)",
    "▦ 내 연락처 QR · 💁 팁",
@@ -118,13 +119,11 @@ export const MANUAL = {
   ],
   "hChange": "🛠 최근 수정 내용",
   "changes": [
-   "🌐 두 언어 같이 보기: 언어를 2개까지 고르면 (① 메인 · ② 보조) 게임 설명부터 게임 화면까지 두 언어로 같이 나와요 — 외국인 친구랑 할 때 좋아요",
-   "🔻 플링코 추가 (운빨게임): 위쪽을 터치하면 늑대 코인이 핀 사이를 튕기며 떨어져요 — 1잔 · 반 잔 · 다시 · 오른쪽 사람 · 왼쪽 사람 · 다 같이 · 통과, 칸 순서는 판마다 섞여요",
-   "🟢 삼목 추가 (대결게임): 초록 vs 빨강 늑대 코인, 한 수 2초! 코인은 한 사람 3개까지 — 4번째를 놓으면 가장 오래된 코인이 사라져요",
-   "⚫ 오목 추가 (대결게임): 15×15 바둑판, 흑이 먼저, 흑은 33 금지 — 각자 쪽에 내 돌 색이 보여요",
-   "🏨 숙소 주소 카드 (QR 옆): 택시 기사님께 보여줄 큰 글씨 주소 + 구글 지도 QR + 바로 전화, 숙소 여러 개 저장 (인터넷 없어도 돼요)",
-   "💬 피드백 링크: 메인 화면 \"술자리 게임 모음\" 옆을 누르면 게시판 글로 가요 — 의견 남겨 주세요!",
-   "🔧 고친 것: 연락처 QR·업다운에서 \"null\" 글자가 보이던 문제, 고르기 버튼(방향·계산 방법)이 동그랗게 커지던 문제"
+   "🔢 숫자 폭탄 추가 (운빨게임): 숨은 폭탄 숫자를 피해 돌아가면서 숫자 입력 — ⬆️ UP · ⬇️ DOWN으로 범위가 좁아지고, 폭탄 숫자를 누르면 펑! 그을린 늑대가 헤롱헤롱 😵‍💫",
+   "🎈 풍선 불기 추가 (운빨게임): 폰을 돌리면서 1~3번씩 터치해 늑대 풍선에 바람을 넣고, 터뜨린 사람이 원샷",
+   "🗣️ 회화 카드 (메인 화면): 👋 인사 · 🚕 교통 · 🍜 식당 · 🏨 숙소 · 🍻 술집 · 🛍️ 쇼핑·도움 · 🤬 장난 욕으로 나눈 94개 문장을 고른 나라 말 큰 글씨로, 🔊 버튼으로 읽어줘요",
+   "🧾 여행 정산 (메인 화면): 누가 얼마 냈는지만 넣으면 \"누가 누구한테 얼마\" 보내면 되는지 알려줘요",
+   "☝️ 손가락선택을 🍀 운빨게임으로 옮겼어요 (손가락게임 칸은 없어졌어요)"
   ],
   "hUpdate": "🔄 업데이트",
   "updA": "<b>안드로이드</b>: 같은 QR이나 같은 버튼으로 새 APK를 받아 설치하면 됩니다. <b>기존 앱을 지우지 않고</b> 덮어 설치돼요.",
@@ -198,11 +197,6 @@ export const MANUAL = {
     "K가 나올 때마다 오른쪽 위 잔이 차올라요. <b>4번째 K를 뽑은 사람이 킹스컵 원샷!</b> <b>🔀 새로 섞기</b>로 새 판."
    ],
    [
-    "걸릴 인원(1~9명)을 정하고 시작해요.",
-    "다 같이 화면에 손가락을 하나씩 올려요. 손가락마다 다른 색 원이 생겨요.",
-    "모두 손을 떼고 0.5초가 지나면 걸린 사람 자리에만 늑대가 나타나 <b>메롱~</b> 하고 약올려요. 화면을 탭하면 다시 해요."
-   ],
-   [
     "인원(2~4명)을 정하고 폰을 가운데 둬요. 화면이 인원수만큼 똑같이 나뉘어요.",
     "\"기다리세요...\" 화면이 <b>초록색으로 바뀌는 순간</b> 자기 영역을 터치!",
     "반응 시간이 나오고 <b>👑 1등 · 💀 꼴찌</b>가 표시돼요. 초록 전에 누르면 🚫 부정출발."
@@ -251,6 +245,21 @@ export const MANUAL = {
     "🍀 운빨게임 → <b>🔻 플링코</b>. 인원 정할 필요 없이 바로 시작해요.",
     "위쪽 아무 데나 터치하면 그 자리에서 늑대 코인이 떨어져요. 핀 사이를 톡톡 튕기다가 아래 칸에 쏙!",
     "들어간 칸이 걸려요: <b>1잔 · 반 잔 · 다시 · 오른쪽 사람 · 왼쪽 사람 · 다 같이 · 통과</b>. 칸 순서는 판마다 <b>🔀 섞여요</b>."
+   ],
+   [
+    "🍀 운빨게임 → <b>🔢 숫자 폭탄</b>. 최대 숫자(30 · 50 · 100 · 200)를 고르고 시작하면 1부터 그 숫자 사이에 폭탄 숫자가 하나 숨어요.",
+    "폰을 돌리면서 숫자를 하나씩 눌러요. 폭탄보다 작으면 <b>⬆️ UP</b>, 크면 <b>⬇️ DOWN</b> — 범위가 점점 좁아지고 폭탄 심지도 짧아져요.",
+    "폭탄 숫자를 누르면 <b>💥 펑!</b> 그을린 늑대가 헤롱헤롱 😵‍💫 그 사람이 <b>💀 원샷</b>. \"다시 하기\"로 새 판."
+   ],
+   [
+    "🍀 운빨게임 → <b>🎈 풍선 불기</b>. 인원 정할 필요 없이 바로 시작해요.",
+    "폰을 돌리면서 한 사람이 <b>1~3번</b> 화면을 터치하고 넘겨요. 누를 때마다 늑대 얼굴 풍선이 커져요.",
+    "언제 터질지는 아무도 몰라요 (판마다 달라요). 풍선을 터뜨린 사람이 <b>💥 💀 원샷</b>. 화면을 누르면 새 풍선."
+   ],
+   [
+    "🍀 운빨게임 → <b>☝️ 손가락선택</b>. 걸릴 인원(1~9명)을 정하고 시작해요.",
+    "다 같이 화면에 손가락을 하나씩 올려요. 손가락마다 다른 색 원이 생겨요.",
+    "모두 손을 떼고 0.5초가 지나면 걸린 사람 자리에만 늑대가 나타나 <b>메롱~</b> 하고 약올려요. 화면을 탭하면 다시 해요."
    ],
    [
     "인원(2~9명)과 결과 시간(3~30초)을 정하고, <b>각자 동물을 골라요</b> (12종, 누른 순서대로 레인 번호).",
@@ -318,6 +327,16 @@ export const MANUAL = {
     "<b>📍 지도 QR</b>을 찍으면 구글 지도로 바로 길 안내, <b>📞 전화하기</b>로 숙소에 바로 전화. 정보는 내 폰에만 저장되고 인터넷 없어도 돼요."
    ],
    [
+    "메인 화면 <b>🗣️ 회화</b> 버튼. 먼저 <b>보여줄 언어</b>(상대방 나라 말)를 고르고, 아래 묶음 — 👋 인사 · 🚕 교통 · 🍜 식당 · 🏨 숙소 · 🍻 술집 · 🛍️ 쇼핑·도움 · 🤬 장난 욕 — 중 하나를 골라요.",
+    "문장을 누르면 <b>흰 화면에 큰 글씨</b>로 상대방 말이 나와요 (아래엔 내 말 작게). ‹ › 로 같은 묶음 안에서 넘겨요.",
+    "<b>🔊 들려주기</b>를 누르면 그 나라 말로 읽어줘요. 문장 94개, 인터넷 없이 돼요 (음성은 휴대폰에 그 언어 음성이 있어야 해요)."
+   ],
+   [
+    "메인 화면 <b>🧾 정산</b> 버튼. 같이 간 사람 이름을 넣어요 (2~12명, ➕ 사람 · ✕ 빼기).",
+    "돈을 쓸 때마다 <b>금액 · 메모</b>를 넣고, <b>낸 사람</b>과 <b>같이 쓴 사람</b>을 고른 뒤 <b>➕ 쓴 돈 추가</b>.",
+    "<b>정산 결과</b>에 \"A → B 얼마\"처럼 누가 누구한테 얼마 보내면 되는지 나와요 (사람별 쓴 몫도). 기록은 이 휴대폰에만 저장돼요."
+   ],
+   [
     "로고 옆 <b>🌐 언어</b>에서 언어를 <b>2개까지</b> 골라요. 처음 고른 게 <b>① 메인</b>, 두 번째가 <b>② 보조</b>예요. 누른 걸 다시 누르면 빠져요.",
     "게임 설명부터 게임 화면, 결과까지 <b>메인 아래에 보조 언어</b>가 같이 나와요 (같은 크기, 보조만 살짝 흐리게). 메뉴와 제목은 메인 언어만.",
     "외국인 친구랑 같이 할 때 좋아요. 다시 한 언어로 돌리려면 ② 보조 언어를 한 번 더 누르면 돼요."
@@ -355,10 +374,6 @@ export const MANUAL = {
    [
     "how-kings",
     "kcTitle"
-   ],
-   [
-    "how-finger",
-    "fingerTitle"
    ],
    [
     "how-react",
@@ -399,6 +414,18 @@ export const MANUAL = {
    [
     "how-plinko",
     "plinkoTitle"
+   ],
+   [
+    "how-nbomb",
+    "nbTitle"
+   ],
+   [
+    "how-balloon",
+    "blTitle"
+   ],
+   [
+    "how-finger",
+    "fingerTitle"
    ],
    [
     "how-race",
@@ -453,6 +480,14 @@ export const MANUAL = {
     "hotelTitle"
    ],
    [
+    "how-phrase",
+    "phTitle"
+   ],
+   [
+    "how-settle",
+    "stTitle"
+   ],
+   [
     "how-dual",
     "language"
    ]
@@ -466,7 +501,6 @@ export const MANUAL = {
    "↕️",
    "🇻🇳",
    "👑",
-   "☝️",
    "🟢",
    "🎨",
    "⏱️",
@@ -477,6 +511,9 @@ export const MANUAL = {
    "💣",
    "icons/coin.png",
    "🔻",
+   "🔢",
+   "🎈",
+   "☝️",
    "🏁",
    "🗡️",
    "🔄",
@@ -490,6 +527,8 @@ export const MANUAL = {
    "",
    "▦",
    "🏨",
+   "🗣️",
+   "🧾",
    "🌐"
   ]
  },
@@ -498,7 +537,7 @@ export const MANUAL = {
   "lead": "Drinking game collection · Install guide",
   "navAndroid": "🤖 Android install",
   "navIphone": "🍎 iPhone home screen",
-  "navNew": "🆕 What's in v1.6",
+  "navNew": "🆕 What's in v1.7",
   "navUpdate": "🔄 Updates",
   "navFaq": "❓ FAQ",
   "qAndroid": "🤖 Android app",
@@ -593,15 +632,16 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Main screen",
-  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.6</b>) is shown at the bottom.",
-  "hNew": "🆕 What's in v1.6",
-  "newIntro": "Wolf Games v1.6 includes these games and features.",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.7</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v1.7",
+  "newIntro": "Wolf Games v1.7 includes these games and features.",
   "newFeat": [
    "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🔻 Plinko · 🟢 Tic-Tac-Toe · ⚫ Gomoku · 🏨 Hotel Address Card · 🌐 Two languages at once",
+   "🆕 🔢 Number Bomb · 🎈 Balloon Pump · 🗣️ Phrase Cards · 🧾 Trip Split",
+   "✨ v1.6: 🔻 Plinko · 🟢 Tic-Tac-Toe · ⚫ Gomoku · 🏨 Hotel Address Card · 🌐 Two languages at once",
    "✨ v1.5: 🎀 Tap Turf War · 🐾 Slap Duel · 👑 Global King's Cup · 🍺 Beer Pour · 🪙 Coin Toss",
    "⚡ Quick Games (Reaction Duel · Color Reaction · Stopwatch) · 💣 Hot Bomb · ⚔️ Dice Duel",
-   "👆 Finger Games (Finger Pick) · 🐺 Wolf Games · 🍀 Luck Games · ⚔️ Versus Games",
+   "🐺 Wolf Games · 🍀 Luck Games · ⚔️ Versus Games",
    "🃏 Card games (Up/Down · Ho Chi Minh) · 🍶 789",
    "🧮 Calculator · 🍻 Bill split · 💱 Currency exchange (next to the logo)",
    "▦ My Contact QR · 💁 Tip",
@@ -611,13 +651,11 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Latest changes",
   "changes": [
-   "🌐 Two languages at once: pick up to 2 languages (① main · ② second) and everything from game rules to game screens shows both — great with friends from abroad",
-   "🔻 New Plinko (Luck Games): tap the top and a wolf coin bounces down through the pins — 1 drink · Half · Again · Right person · Left person · Everyone · Pass, and the slots shuffle every round",
-   "🟢 New Tic-Tac-Toe (Versus Games): green vs red wolf coins, 2 seconds a move! Only 3 coins each — placing a 4th removes your oldest",
-   "⚫ New Gomoku (Versus Games): 15×15 board, black goes first, no double-three for black — each side shows your stone color",
-   "🏨 Hotel Address Card (next to QR): big-text address to show a taxi driver + Google Maps QR + one-tap call, save several hotels (works offline)",
-   "💬 Feedback link: tap it next to \"Drinking game collection\" on the home screen to open the board post — tell us what you think!",
-   "🔧 Fixes: a stray \"null\" text in Contact QR and Up/Down, and choice buttons (direction, calc mode) showing as oversized circles"
+   "🔢 New Number Bomb (Luck Games): take turns entering numbers to dodge the hidden bomb — ⬆️ UP · ⬇️ DOWN shrink the range; hit the bomb and BOOM! A singed wolf goes dizzy 😵‍💫",
+   "🎈 New Balloon Pump (Luck Games): pass the phone and tap 1–3 times to pump the wolf balloon — whoever pops it drinks",
+   "🗣️ Phrase Cards (home screen): 94 phrases in 7 groups — 👋 Hello · 🚕 Getting around · 🍜 Restaurant · 🏨 Hotel · 🍻 Bar · 🛍️ Shopping & help · 🤬 Swears — shown big in the language you pick, and 🔊 reads them aloud",
+   "🧾 Trip Split (home screen): enter who paid what and it tells you who should send how much to whom",
+   "☝️ Finger Pick moved into 🍀 Luck Games (the Finger Games category is gone)"
   ],
   "hUpdate": "🔄 Updates",
   "updA": "<b>Android</b>: download the new APK with the same QR code or button and install it. It installs <b>over the old app</b> — no need to delete it.",
@@ -691,11 +729,6 @@ export const MANUAL = {
     "Each King fills the cup at the top right. <b>Whoever draws the 4th King drinks the King's Cup!</b> <b>🔀 Reshuffle</b> starts over."
    ],
    [
-    "Choose how many get picked (1–9) and start.",
-    "Everyone puts one finger on the screen. Each finger gets its own colored circle.",
-    "When all fingers are lifted, after 0.5 sec a wolf pops up only on the picked spots and goes <b>Nyah~</b>. Tap the screen to play again."
-   ],
-   [
     "Choose players (2–4) and put the phone in the middle. The screen splits evenly.",
     "Tap your area <b>the moment the screen turns green</b>!",
     "Reaction times are shown with <b>👑 1st · 💀 Last</b>. Tapping before green is a 🚫 false start."
@@ -744,6 +777,21 @@ export const MANUAL = {
     "🍀 Luck Games → <b>🔻 Plinko</b>. No player count — just start.",
     "Tap anywhere at the top and a wolf coin drops from there, bouncing off the pins into a slot below.",
     "Whatever slot it lands in is yours: <b>1 drink · Half · Again · Right person · Left person · Everyone · Pass</b>. The slots <b>🔀 shuffle</b> every round."
+   ],
+   [
+    "🍀 Luck Games → <b>🔢 Number Bomb</b>. Pick the max (30 · 50 · 100 · 200); a bomb number hides between 1 and that number.",
+    "Pass the phone and enter one number each. Lower than the bomb → <b>⬆️ UP</b>, higher → <b>⬇️ DOWN</b> — the range shrinks and so does the fuse.",
+    "Hit the bomb number and it goes <b>💥 BOOM!</b> — a singed wolf gets dizzy 😵‍💫 and you <b>💀 drink</b>. \"Play again\" for a new round."
+   ],
+   [
+    "🍀 Luck Games → <b>🎈 Balloon Pump</b>. No player count — just start.",
+    "Pass the phone; each person taps <b>1–3 times</b> and passes it on. Every tap pumps up the wolf-face balloon.",
+    "Nobody knows when it pops (different every round). Whoever pops it — <b>💥 💀 drink</b>. Tap the screen for a new balloon."
+   ],
+   [
+    "🍀 Luck Games → <b>☝️ Finger Pick</b>. Choose how many get picked (1–9) and start.",
+    "Everyone puts one finger on the screen. Each finger gets its own colored circle.",
+    "When all fingers are lifted, after 0.5 sec a wolf pops up only on the picked spots and goes <b>Nyah~</b>. Tap the screen to play again."
    ],
    [
     "Choose players (2–9) and race time (3–30 sec), then <b>each pick an animal</b> (12 kinds, lane number in the order you tap).",
@@ -811,6 +859,16 @@ export const MANUAL = {
     "Scan the <b>📍 map QR</b> for Google Maps directions, or tap <b>📞 Call</b> to phone the hotel. Info stays only on your phone and works offline."
    ],
    [
+    "Tap <b>🗣️ Phrases</b> on the main screen. First pick the <b>language to show</b> (theirs), then a group — 👋 Hello · 🚕 Getting around · 🍜 Restaurant · 🏨 Hotel · 🍻 Bar · 🛍️ Shopping & help · 🤬 Swears.",
+    "Tap a phrase to show it <b>big on white</b> in their language (yours in small below). Use ‹ › to move within the group.",
+    "Tap <b>🔊 Play sound</b> to hear it read aloud. 94 phrases, all offline (sound needs that language's voice on the phone)."
+   ],
+   [
+    "Tap <b>🧾 Split bill</b> on the main screen. Enter the travelers' names (2–12, ➕ Person · ✕ to remove).",
+    "For each expense, enter the <b>amount · note</b>, pick <b>Paid by</b> and <b>Split between</b>, then <b>➕ Add expense</b>.",
+    "<b>Who pays whom</b> shows lines like \"A → B amount\" (plus everyone's share). Everything stays only on this phone."
+   ],
+   [
     "In <b>🌐 Language</b> next to the logo, pick <b>up to 2</b> languages. The first is <b>① main</b>, the second <b>② second</b>. Tap one again to remove it.",
     "From game rules to game screens and results, the <b>second language shows under the main one</b> (same size, slightly dimmer). Menus and titles stay in the main language.",
     "Great when playing with friends from abroad. To go back to one language, tap the ② second language again."
@@ -848,10 +906,6 @@ export const MANUAL = {
    [
     "how-kings",
     "kcTitle"
-   ],
-   [
-    "how-finger",
-    "fingerTitle"
    ],
    [
     "how-react",
@@ -892,6 +946,18 @@ export const MANUAL = {
    [
     "how-plinko",
     "plinkoTitle"
+   ],
+   [
+    "how-nbomb",
+    "nbTitle"
+   ],
+   [
+    "how-balloon",
+    "blTitle"
+   ],
+   [
+    "how-finger",
+    "fingerTitle"
    ],
    [
     "how-race",
@@ -946,6 +1012,14 @@ export const MANUAL = {
     "hotelTitle"
    ],
    [
+    "how-phrase",
+    "phTitle"
+   ],
+   [
+    "how-settle",
+    "stTitle"
+   ],
+   [
     "how-dual",
     "language"
    ]
@@ -959,7 +1033,6 @@ export const MANUAL = {
    "↕️",
    "🇻🇳",
    "👑",
-   "☝️",
    "🟢",
    "🎨",
    "⏱️",
@@ -970,6 +1043,9 @@ export const MANUAL = {
    "💣",
    "icons/coin.png",
    "🔻",
+   "🔢",
+   "🎈",
+   "☝️",
    "🏁",
    "🗡️",
    "🔄",
@@ -983,6 +1059,8 @@ export const MANUAL = {
    "",
    "▦",
    "🏨",
+   "🗣️",
+   "🧾",
    "🌐"
   ]
  },
@@ -991,7 +1069,7 @@ export const MANUAL = {
   "lead": "飲み会ゲーム集 · インストール案内",
   "navAndroid": "🤖 Androidにインストール",
   "navIphone": "🍎 iPhoneのホーム画面に追加",
-  "navNew": "🆕 v1.6の内容",
+  "navNew": "🆕 v1.7の内容",
   "navUpdate": "🔄 アップデート",
   "navFaq": "❓ よくある質問",
   "qAndroid": "🤖 Androidアプリ",
@@ -1085,15 +1163,16 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 メイン画面",
-  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.6</b>）を確認できます。",
-  "hNew": "🆕 v1.6の内容",
-  "newIntro": "ウルフゲームズv1.6には次のゲームと機能が入っています。",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.7</b>）を確認できます。",
+  "hNew": "🆕 v1.7の内容",
+  "newIntro": "ウルフゲームズv1.7には次のゲームと機能が入っています。",
   "newFeat": [
    "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🔻 プリンコ · 🟢 三目並べ · ⚫ 五目並べ · 🏨 宿の住所カード · 🌐 2言語同時表示",
+   "🆕 🔢 数字爆弾 · 🎈 風船ふくらまし · 🗣️ 会話カード · 🧾 旅行の精算",
+   "✨ v1.6: 🔻 プリンコ · 🟢 三目並べ · ⚫ 五目並べ · 🏨 宿の住所カード · 🌐 2言語同時表示",
    "✨ v1.5: 🎀 連打陣取り · 🐾 スラップ対決 · 👑 グローバル・キングスカップ · 🍺 ビール注ぎ · 🪙 コイントス",
    "⚡ 反射神経ゲーム（反応速度対決・色反応対決・ストップウォッチ）・💣 爆弾回し・⚔️ サイコロ対決",
-   "👆 指ゲーム（指えらび）・🐺 オオカミゲーム・🍀 運ゲー・⚔️ 対決ゲーム",
+   "🐺 オオカミゲーム・🍀 運ゲー・⚔️ 対決ゲーム",
    "🃏 カードゲーム（Up/Down・ホーチミン）・🍶 789",
    "🧮 電卓 · 🍻 割り勘 · 💱 両替（ロゴの横）",
    "▦ 連絡先QR · 💁 チップ",
@@ -1103,13 +1182,11 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近の変更",
   "changes": [
-   "🌐 2言語同時表示：言語を2つまで選ぶと（① メイン · ② サブ）ゲーム説明からゲーム画面まで2言語で表示 — 外国の友だちと遊ぶときに便利",
-   "🔻 プリンコ追加（運ゲーム）：上をタッチするとオオカミコインがピンの間を跳ねて落ちる — 1杯 · 半分 · もう一回 · 右の人 · 左の人 · みんな · セーフ、マスの順番は毎回シャッフル",
-   "🟢 三目並べ追加（対戦ゲーム）：緑 vs 赤のオオカミコイン、1手2秒！コインは1人3個まで — 4個目で一番古いコインが消える",
-   "⚫ 五目並べ追加（対戦ゲーム）：15×15の盤、黒が先手、黒は三三禁止 — それぞれの側に自分の石の色を表示",
-   "🏨 宿の住所カード（QRの隣）：タクシーの運転手さんに見せる大きな文字の住所 + Googleマップ QR + すぐ電話、複数の宿を保存（ネットなしでOK）",
-   "💬 フィードバックリンク：ホームの「飲み会ゲーム集」の隣をタップすると掲示板の投稿へ — ご意見ください！",
-   "🔧 修正：連絡先QR・アップダウンで「null」と表示される問題、選択ボタン（方向・計算方法）が大きな丸になる問題"
+   "🔢 数字爆弾追加（運ゲーム）：隠れた爆弾の数字をよけながら順番に入力 — ⬆️ UP・⬇️ DOWNで範囲が狭まり、爆弾の数字でドカン！焦げたオオカミがフラフラ 😵‍💫",
+   "🎈 風船ふくらまし追加（運ゲーム）：スマホを回して1〜3回ずつタッチ、オオカミ風船を割った人が一気",
+   "🗣️ 会話カード（ホーム）：👋 あいさつ・🚕 交通・🍜 食堂・🏨 宿・🍻 飲み屋・🛍️ 買い物・助け・🤬 悪口に分けた94文を選んだ言語で大きく表示、🔊で読み上げ",
+   "🧾 旅行の精算（ホーム）：誰がいくら払ったかを入れるだけで「誰が誰にいくら」送ればいいか表示",
+   "☝️ 指選びを🍀 運ゲームに移動しました（指ゲームの項目はなくなりました）"
   ],
   "hUpdate": "🔄 アップデート",
   "updA": "<b>Android</b>：同じQRコードかボタンで新しいAPKをダウンロードしてインストールします。<b>古いアプリを消さずに</b>上書きされます。",
@@ -1183,11 +1260,6 @@ export const MANUAL = {
     "Kが出るたびに右上の杯が満ちていきます。<b>4枚目のKを引いた人がキングスカップを一気！</b> <b>🔀 シャッフル</b>で新しいゲーム。"
    ],
    [
-    "当たる人数（1〜9人）を決めてスタート。",
-    "みんなで画面に指を1本ずつ置きます。指ごとに違う色の円が出ます。",
-    "全員が指を離して0.5秒たつと、当たった人の場所にだけオオカミが出てきて<b>あっかんべー</b>。画面をタップするともう一度。"
-   ],
-   [
     "人数（2〜4人）を決めてスマホを真ん中に。画面が人数分に同じ大きさで分かれます。",
     "「待って...」の画面が<b>緑に変わった瞬間</b>に自分のエリアをタッチ！",
     "反応時間が出て<b>👑 1位・💀 ビリ</b>が表示されます。緑の前に押すと🚫 フライング。"
@@ -1236,6 +1308,21 @@ export const MANUAL = {
     "🍀 運ゲーム → <b>🔻 プリンコ</b>。人数を決めずにすぐスタート。",
     "上のどこかをタッチするとそこからオオカミコインが落ちて、ピンの間を跳ねながら下のマスにスポッ！",
     "入ったマスが当たり：<b>1杯・半分・もう一回・右の人・左の人・みんな・セーフ</b>。マスの順番は毎回<b>🔀 シャッフル</b>。"
+   ],
+   [
+    "🍀 運ゲーム → <b>🔢 数字爆弾</b>。最大の数字（30・50・100・200）を選んで始めると、1からその数字の間に爆弾の数字が1つ隠れます。",
+    "スマホを回して数字を1つずつ入力。爆弾より小さければ<b>⬆️ UP</b>、大きければ<b>⬇️ DOWN</b> — 範囲が狭まり、導火線も短くなります。",
+    "爆弾の数字を押すと<b>💥ドカン！</b>焦げたオオカミがフラフラ😵‍💫 その人が<b>💀一気</b>。「もう一回」で新しいゲーム。"
+   ],
+   [
+    "🍀 運ゲーム → <b>🎈 風船ふくらまし</b>。人数を決めずにすぐスタート。",
+    "スマホを回して1人<b>1〜3回</b>タッチしたら次の人へ。押すたびにオオカミ顔の風船がふくらみます。",
+    "いつ割れるかは誰にもわかりません（毎回ちがう）。割った人が<b>💥💀一気</b>。画面タップで新しい風船。"
+   ],
+   [
+    "🍀 運ゲー → <b>☝️ 指えらび</b>. 当たる人数（1〜9人）を決めてスタート。",
+    "みんなで画面に指を1本ずつ置きます。指ごとに違う色の円が出ます。",
+    "全員が指を離して0.5秒たつと、当たった人の場所にだけオオカミが出てきて<b>あっかんべー</b>。画面をタップするともう一度。"
    ],
    [
     "人数（2〜9人）と結果時間（3〜30秒）を決め、<b>それぞれ動物を選びます</b>（12種、押した順にレーン番号）。",
@@ -1303,6 +1390,16 @@ export const MANUAL = {
     "<b>📍 地図QR</b>を読み取るとGoogleマップで道案内、<b>📞 電話する</b>で宿にすぐ電話。情報は自分のスマホだけに保存、ネットなしでOK。"
    ],
    [
+    "メイン画面の<b>🗣️ 会話</b>ボタン。まず<b>見せる言語</b>（相手の国の言葉）を選び、下のグループ — 👋 あいさつ・🚕 交通・🍜 食堂・🏨 宿・🍻 飲み屋・🛍️ 買い物・助け・🤬 悪口 — から1つ選びます。",
+    "文をタップすると<b>白い画面に大きな文字</b>で相手の言葉が出ます（下に自分の言葉を小さく）。‹ › で同じグループ内を移動。",
+    "<b>🔊 読み上げる</b>でその国の言葉で読み上げ。全94文、ネットなしでOK（音声はスマホにその言語の音声が必要）。"
+   ],
+   [
+    "メイン画面の<b>🧾 精算</b>ボタン。一緒に行く人の名前を入れます（2〜12人、➕ 人・✕ で削除）。",
+    "お金を使うたびに<b>金額・メモ</b>を入れ、<b>払った人</b>と<b>一緒に使った人</b>を選んで<b>➕ 支出を追加</b>。",
+    "<b>精算結果</b>に「A → B いくら」のように誰が誰にいくら送ればいいか表示（一人ずつの使った分も）。記録はこのスマホだけに保存。"
+   ],
+   [
     "ロゴ横の<b>🌐 言語</b>で言語を<b>2つまで</b>選べます。最初が<b>① メイン</b>、2つ目が<b>② サブ</b>。もう一度押すと外れます。",
     "ゲーム説明からゲーム画面・結果まで<b>メインの下にサブ言語</b>が出ます（同じ大きさ、サブだけ少し薄く）。メニューとタイトルはメイン言語だけ。",
     "外国の友だちと遊ぶときに便利。1言語に戻すには② サブ言語をもう一度押せばOK。"
@@ -1340,10 +1437,6 @@ export const MANUAL = {
    [
     "how-kings",
     "kcTitle"
-   ],
-   [
-    "how-finger",
-    "fingerTitle"
    ],
    [
     "how-react",
@@ -1384,6 +1477,18 @@ export const MANUAL = {
    [
     "how-plinko",
     "plinkoTitle"
+   ],
+   [
+    "how-nbomb",
+    "nbTitle"
+   ],
+   [
+    "how-balloon",
+    "blTitle"
+   ],
+   [
+    "how-finger",
+    "fingerTitle"
    ],
    [
     "how-race",
@@ -1438,6 +1543,14 @@ export const MANUAL = {
     "hotelTitle"
    ],
    [
+    "how-phrase",
+    "phTitle"
+   ],
+   [
+    "how-settle",
+    "stTitle"
+   ],
+   [
     "how-dual",
     "language"
    ]
@@ -1451,7 +1564,6 @@ export const MANUAL = {
    "↕️",
    "🇻🇳",
    "👑",
-   "☝️",
    "🟢",
    "🎨",
    "⏱️",
@@ -1462,6 +1574,9 @@ export const MANUAL = {
    "💣",
    "icons/coin.png",
    "🔻",
+   "🔢",
+   "🎈",
+   "☝️",
    "🏁",
    "🗡️",
    "🔄",
@@ -1475,6 +1590,8 @@ export const MANUAL = {
    "",
    "▦",
    "🏨",
+   "🗣️",
+   "🧾",
    "🌐"
   ]
  },
@@ -1483,7 +1600,7 @@ export const MANUAL = {
   "lead": "酒桌游戏合集 · 安装说明",
   "navAndroid": "🤖 安卓安装",
   "navIphone": "🍎 iPhone添加到主屏幕",
-  "navNew": "🆕 v1.6内容",
+  "navNew": "🆕 v1.7内容",
   "navUpdate": "🔄 更新",
   "navFaq": "❓ 常见问题",
   "qAndroid": "🤖 安卓应用",
@@ -1577,15 +1694,16 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 主界面",
-  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.6</b>）。",
-  "hNew": "🆕 v1.6内容",
-  "newIntro": "沃夫游戏v1.6包含以下游戏和功能。",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.7</b>）。",
+  "hNew": "🆕 v1.7内容",
+  "newIntro": "沃夫游戏v1.7包含以下游戏和功能。",
   "newFeat": [
    "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🔻 弹珠台 · 🟢 井字棋 · ⚫ 五子棋 · 🏨 住处地址卡 · 🌐 双语同时显示",
+   "🆕 🔢 数字炸弹 · 🎈 吹气球 · 🗣️ 会话卡片 · 🧾 旅行结算",
+   "✨ v1.6: 🔻 弹珠台 · 🟢 井字棋 · ⚫ 五子棋 · 🏨 住处地址卡 · 🌐 双语同时显示",
    "✨ v1.5: 🎀 狂点抢地盘 · 🐾 拍手背对决 · 👑 全球国王杯 · 🍺 倒啤酒 · 🪙 抛硬币",
    "⚡ 反应游戏（反应速度对决 · 颜色反应对决 · 秒表）· 💣 传炸弹 · ⚔️ 骰子对决",
-   "👆 手指游戏（手指选人）· 🐺 狼游戏 · 🍀 拼手气 · ⚔️ 对战游戏",
+   "🐺 狼游戏 · 🍀 拼手气 · ⚔️ 对战游戏",
    "🃏 纸牌游戏（Up/Down · 胡志明）· 🍶 789",
    "🧮 计算器 · 🍻 AA分摊 · 💱 汇率换算（标志旁边）",
    "▦ 我的联系方式二维码 · 💁 小费",
@@ -1595,13 +1713,11 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近修改",
   "changes": [
-   "🌐 双语同时显示：最多选2种语言（① 主语言 · ② 第二语言），从游戏说明到游戏画面都会同时显示两种语言 — 和外国朋友玩正合适",
-   "🔻 新增弹珠台（运气游戏）：点上方，狼币在钉子间弹跳落下 — 1杯 · 半杯 · 再来 · 右边的人 · 左边的人 · 大家一起 · 过，格子顺序每局都会打乱",
-   "🟢 新增井字棋（对战游戏）：绿 vs 红狼币，每步2秒！每人最多3个 — 放第4个时最早的会消失",
-   "⚫ 新增五子棋（对战游戏）：15×15棋盘，黑先，黑禁三三 — 各自一边显示自己的棋子颜色",
-   "🏨 住处地址卡（二维码旁）：给出租车司机看的大字地址 + 谷歌地图二维码 + 一键拨号，可保存多个住处（没网也能用）",
-   "💬 反馈链接：点主页“酒桌游戏合集”旁边就能打开论坛帖子 — 欢迎留言！",
-   "🔧 修复：联系方式二维码和大小猜中出现“null”文字的问题、选择按钮（方向、计算方式）变成大圆的问题"
+   "🔢 新增数字炸弹（运气游戏）：轮流输入数字躲开隐藏的炸弹 — ⬆️ UP · ⬇️ DOWN 缩小范围，按到炸弹就砰！烤焦的小狼晕乎乎 😵‍💫",
+   "🎈 新增吹气球（运气游戏）：手机轮流传，每人点1~3下给狼气球打气，弄爆的人干杯",
+   "🗣️ 会话卡片（主页）：按 👋 问候 · 🚕 交通 · 🍜 餐厅 · 🏨 住宿 · 🍻 酒吧 · 🛍️ 购物·求助 · 🤬 脏话 分好的94句，用选好的语言大字显示，🔊 可朗读",
+   "🧾 旅行结算（主页）：只要输入谁付了多少，就会告诉你“谁该转给谁多少”",
+   "☝️ 手指选人移到了 🍀 运气游戏（手指游戏分类已取消）"
   ],
   "hUpdate": "🔄 更新",
   "updA": "<b>安卓</b>：用同一个二维码或按钮下载新的APK并安装即可。<b>不用删除旧应用</b>，直接覆盖安装。",
@@ -1675,11 +1791,6 @@ export const MANUAL = {
     "每出一张K右上角的杯子就满一点。<b>抽到第4张K的人把国王杯干了！</b> <b>🔀 重新洗牌</b>开新局。"
    ],
    [
-    "选好抽中人数（1~9人）后开始。",
-    "大家各放一根手指在屏幕上，每根手指会出现不同颜色的圆。",
-    "所有人松开0.5秒后，只有被抽中的位置会冒出小狼<b>吐舌头</b>气你。点屏幕再来一次。"
-   ],
-   [
     "选择人数（2~4人），把手机放在中间，屏幕平均分开。",
     "屏幕<b>变绿的瞬间</b>点自己的区域！",
     "显示反应时间和<b>👑 第1名 · 💀 最后</b>。变绿前点就是🚫 抢跑。"
@@ -1728,6 +1839,21 @@ export const MANUAL = {
     "🍀 运气游戏 → <b>🔻 弹珠台</b>。不用选人数，直接开始。",
     "点上方任意位置，狼币就从那里落下，在钉子间弹来弹去掉进下面的格子！",
     "落进哪个格子就是哪个：<b>1杯 · 半杯 · 再来 · 右边的人 · 左边的人 · 大家一起 · 过</b>。格子顺序每局<b>🔀 打乱</b>。"
+   ],
+   [
+    "🍀 运气游戏 → <b>🔢 数字炸弹</b>。选好最大数字（30 · 50 · 100 · 200）开始，1到这个数字之间藏着一个炸弹数字。",
+    "手机轮流传，每人输入一个数字。比炸弹小 → <b>⬆️ UP</b>，比炸弹大 → <b>⬇️ DOWN</b> — 范围越来越小，导火线也越来越短。",
+    "按到炸弹数字就 <b>💥 砰！</b> 烤焦的小狼晕乎乎 😵‍💫 那个人 <b>💀 干杯</b>。点“再来一局”重新开始。"
+   ],
+   [
+    "🍀 运气游戏 → <b>🎈 吹气球</b>。不用选人数，直接开始。",
+    "手机轮流传，每人点<b>1~3下</b>再传下去。每点一下，狼脸气球就大一点。",
+    "谁也不知道什么时候爆（每局不一样）。把气球弄爆的人 <b>💥 💀 干杯</b>。点屏幕换新气球。"
+   ],
+   [
+    "🍀 拼手气 → <b>☝️ 手指选人</b>. 选好抽中人数（1~9人）后开始。",
+    "大家各放一根手指在屏幕上，每根手指会出现不同颜色的圆。",
+    "所有人松开0.5秒后，只有被抽中的位置会冒出小狼<b>吐舌头</b>气你。点屏幕再来一次。"
    ],
    [
     "选择人数（2~9人）和时间（3~30秒），<b>每人选一只动物</b>（12种，按点的顺序分跑道）。",
@@ -1795,6 +1921,16 @@ export const MANUAL = {
     "扫<b>📍 地图二维码</b>直接用谷歌地图导航，点<b>📞 打电话</b>直接拨给住处。信息只存在自己手机里，没网也能用。"
    ],
    [
+    "点主界面<b>🗣️ 会话</b>按钮。先选<b>显示语言</b>（对方的语言），再选一个分组 — 👋 问候 · 🚕 交通 · 🍜 餐厅 · 🏨 住宿 · 🍻 酒吧 · 🛍️ 购物·求助 · 🤬 脏话。",
+    "点句子就会用对方的语言<b>白底大字</b>显示（下面小字是自己的语言）。用 ‹ › 在同一分组里切换。",
+    "点<b>🔊 朗读</b>就用那种语言读出来。共94句，没网也能用（朗读需要手机里有该语言的语音）。"
+   ],
+   [
+    "点主界面<b>🧾 结算</b>按钮。输入同行人的名字（2~12人，➕ 添加 · ✕ 删除）。",
+    "每次花钱都输入<b>金额 · 备注</b>，选好<b>付款人</b>和<b>一起分摊的人</b>，再点<b>➕ 添加支出</b>。",
+    "<b>结算结果</b>会显示“A → B 多少钱”，告诉你谁该转给谁多少（还有每人应摊的钱）。记录只保存在这部手机里。"
+   ],
+   [
     "在标志旁的<b>🌐 语言</b>里最多选<b>2种</b>语言。先选的是<b>① 主语言</b>，第二个是<b>② 第二语言</b>。再点一次就取消。",
     "从游戏说明到游戏画面和结果，<b>主语言下面会同时显示第二语言</b>（同样大小，第二语言稍淡）。菜单和标题只显示主语言。",
     "和外国朋友一起玩正合适。想换回一种语言，再点一次 ② 第二语言就行。"
@@ -1832,10 +1968,6 @@ export const MANUAL = {
    [
     "how-kings",
     "kcTitle"
-   ],
-   [
-    "how-finger",
-    "fingerTitle"
    ],
    [
     "how-react",
@@ -1876,6 +2008,18 @@ export const MANUAL = {
    [
     "how-plinko",
     "plinkoTitle"
+   ],
+   [
+    "how-nbomb",
+    "nbTitle"
+   ],
+   [
+    "how-balloon",
+    "blTitle"
+   ],
+   [
+    "how-finger",
+    "fingerTitle"
    ],
    [
     "how-race",
@@ -1930,6 +2074,14 @@ export const MANUAL = {
     "hotelTitle"
    ],
    [
+    "how-phrase",
+    "phTitle"
+   ],
+   [
+    "how-settle",
+    "stTitle"
+   ],
+   [
     "how-dual",
     "language"
    ]
@@ -1943,7 +2095,6 @@ export const MANUAL = {
    "↕️",
    "🇻🇳",
    "👑",
-   "☝️",
    "🟢",
    "🎨",
    "⏱️",
@@ -1954,6 +2105,9 @@ export const MANUAL = {
    "💣",
    "icons/coin.png",
    "🔻",
+   "🔢",
+   "🎈",
+   "☝️",
    "🏁",
    "🗡️",
    "🔄",
@@ -1967,6 +2121,8 @@ export const MANUAL = {
    "",
    "▦",
    "🏨",
+   "🗣️",
+   "🧾",
    "🌐"
   ]
  },
@@ -1975,7 +2131,7 @@ export const MANUAL = {
   "lead": "รวมเกมวงเหล้า · วิธีติดตั้ง",
   "navAndroid": "🤖 ติดตั้งบน Android",
   "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
-  "navNew": "🆕 มีอะไรใน v1.6",
+  "navNew": "🆕 มีอะไรใน v1.7",
   "navUpdate": "🔄 อัปเดต",
   "navFaq": "❓ คำถามที่พบบ่อย",
   "qAndroid": "🤖 แอป Android",
@@ -2069,15 +2225,16 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 หน้าหลัก",
-  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.6</b>) ได้ที่ด้านล่างสุด",
-  "hNew": "🆕 มีอะไรใน v1.6",
-  "newIntro": "Wolf Games v1.6 มีเกมและฟีเจอร์ต่อไปนี้",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.7</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v1.7",
+  "newIntro": "Wolf Games v1.7 มีเกมและฟีเจอร์ต่อไปนี้",
   "newFeat": [
    "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🔻 พลิงโก · 🟢 โอเอ็กซ์ · ⚫ โกะโมะกุ · 🏨 การ์ดที่อยู่ที่พัก · 🌐 แสดงสองภาษาพร้อมกัน",
+   "🆕 🔢 ระเบิดตัวเลข · 🎈 เป่าลูกโป่ง · 🗣️ การ์ดประโยค · 🧾 แบ่งจ่ายทริป",
+   "✨ v1.6: 🔻 พลิงโก · 🟢 โอเอ็กซ์ · ⚫ โกะโมะกุ · 🏨 การ์ดที่อยู่ที่พัก · 🌐 แสดงสองภาษาพร้อมกัน",
    "✨ v1.5: 🎀 แตะรัวยึดพื้นที่ · 🐾 ดวลตบมือ · 👑 คิงส์คัพสากล · 🍺 รินเบียร์ · 🪙 โยนเหรียญ",
    "⚡ เกมไหวพริบ (ดวลความไว · ดวลสี · นาฬิกาจับเวลา) · 💣 ส่งระเบิด · ⚔️ ดวลลูกเต๋า",
-   "👆 เกมนิ้ว (จิ้มนิ้วเลือกคน) · 🐺 เกมหมาป่า · 🍀 เกมดวง · ⚔️ เกมดวล",
+   "🐺 เกมหมาป่า · 🍀 เกมดวง · ⚔️ เกมดวล",
    "🃏 เกมไพ่ (Up/Down · โฮจิมินห์) · 🍶 789",
    "🧮 เครื่องคิดเลข · 🍻 หารบิล · 💱 แลกเงิน (ข้างโลโก้)",
    "▦ QR ติดต่อของฉัน · 💁 ทิป",
@@ -2087,13 +2244,11 @@ export const MANUAL = {
   ],
   "hChange": "🛠 การแก้ไขล่าสุด",
   "changes": [
-   "🌐 แสดงสองภาษาพร้อมกัน: เลือกได้สูงสุด 2 ภาษา (① ภาษาหลัก · ② ภาษารอง) ตั้งแต่กติกาจนถึงหน้าเกมจะแสดงทั้งสองภาษา — เหมาะกับเล่นกับเพื่อนต่างชาติ",
-   "🔻 เพิ่มพลิงโก (เกมดวง): แตะด้านบน เหรียญหมาป่าจะเด้งผ่านหมุดลงมา — 1 แก้ว · ครึ่งแก้ว · อีกรอบ · คนขวา · คนซ้าย · ทุกคน · รอด ช่องจะสลับทุกรอบ",
-   "🟢 เพิ่มโอเอ็กซ์ (เกมดวล): เหรียญหมาป่าเขียว vs แดง ตาละ 2 วิ! คนละ 3 เหรียญ — วางอันที่ 4 อันเก่าสุดจะหายไป",
-   "⚫ เพิ่มโกะโมะกุ (เกมดวล): กระดาน 15×15 ดำเดินก่อน ดำห้ามสามสาม — แต่ละฝั่งแสดงสีหมากของตัวเอง",
-   "🏨 การ์ดที่อยู่ที่พัก (ข้าง QR): ที่อยู่ตัวใหญ่ให้คนขับแท็กซี่ดู + QR Google Maps + โทรได้ทันที บันทึกได้หลายที่ (ไม่มีเน็ตก็ใช้ได้)",
-   "💬 ลิงก์ความคิดเห็น: แตะข้าง \"รวมเกมวงเหล้า\" ที่หน้าหลักเพื่อไปที่โพสต์ — บอกความเห็นกันได้!",
-   "🔧 แก้ไข: ข้อความ \"null\" ที่โผล่ใน QR ติดต่อและอัป/ดาวน์ และปุ่มตัวเลือก (ทิศทาง วิธีคิด) ที่กลายเป็นวงกลมใหญ่"
+   "🔢 เพิ่มระเบิดตัวเลข (เกมดวง): ผลัดกันใส่เลขหลบเลขระเบิด ⬆️ UP · ⬇️ DOWN ช่วงจะแคบลง กดโดนระเบิดตูม! หมาป่าไหม้เกรียมมึนตึ้บ 😵‍💫",
+   "🎈 เพิ่มเป่าลูกโป่ง (เกมดวง): ส่งมือถือวนกัน แตะคนละ 1–3 ครั้ง ใครทำลูกโป่งหมาป่าแตกหมดแก้ว",
+   "🗣️ การ์ดประโยค (หน้าหลัก): 94 ประโยค แบ่งเป็น 👋 ทักทาย · 🚕 เดินทาง · 🍜 ร้านอาหาร · 🏨 ที่พัก · 🍻 บาร์ · 🛍️ ช้อปปิ้ง·ขอความช่วยเหลือ · 🤬 คำด่า แสดงตัวใหญ่ในภาษาที่เลือก และ 🔊 อ่านออกเสียงได้",
+   "🧾 แบ่งจ่ายทริป (หน้าหลัก): ใส่ว่าใครจ่ายเท่าไหร่ จะบอกว่า \"ใครต้องโอนให้ใครเท่าไหร่\"",
+   "☝️ ย้ายนิ้วเลือกคนไปไว้ใน 🍀 เกมดวง (หมวดเกมนิ้วไม่มีแล้ว)"
   ],
   "hUpdate": "🔄 อัปเดต",
   "updA": "<b>Android</b>: ดาวน์โหลด APK ใหม่ด้วย QR หรือปุ่มเดิมแล้วติดตั้ง จะติดตั้ง <b>ทับแอปเดิม</b> โดยไม่ต้องลบ",
@@ -2167,11 +2322,6 @@ export const MANUAL = {
     "ทุกครั้งที่ได้ K แก้วมุมขวาบนจะเต็มขึ้น <b>ใครจั่ว K ใบที่ 4 หมดแก้วคิงส์คัพ!</b> <b>🔀 สับไพ่ใหม่</b> เพื่อเริ่มใหม่"
    ],
    [
-    "เลือกจำนวนคนที่จะโดน (1–9 คน) แล้วเริ่ม",
-    "ทุกคนวางนิ้วบนหน้าจอคนละนิ้ว แต่ละนิ้วจะมีวงกลมคนละสี",
-    "เมื่อทุกคนยกนิ้วออก 0.5 วินาที หมาป่าจะโผล่เฉพาะตรงคนที่โดนแล้ว<b>แลบลิ้นแบร่~</b> แตะหน้าจอเพื่อเล่นใหม่"
-   ],
-   [
     "เลือกจำนวนคน (2–4) แล้ววางโทรศัพท์ไว้ตรงกลาง หน้าจอจะแบ่งเท่า ๆ กัน",
     "<b>ทันทีที่หน้าจอเป็นสีเขียว</b> ให้แตะพื้นที่ของตัวเอง!",
     "จะแสดงเวลาตอบสนอง <b>👑 ที่ 1 · 💀 ที่โหล่</b> แตะก่อนเขียวคือ 🚫 ออกตัวก่อน"
@@ -2220,6 +2370,21 @@ export const MANUAL = {
     "🍀 เกมดวง → <b>🔻 พลิงโก</b> ไม่ต้องเลือกจำนวนคน เริ่มได้เลย",
     "แตะตรงไหนก็ได้ด้านบน เหรียญหมาป่าจะตกจากตรงนั้น เด้งผ่านหมุดลงไปในช่องด้านล่าง!",
     "ตกช่องไหนได้ช่องนั้น: <b>1 แก้ว · ครึ่งแก้ว · อีกรอบ · คนขวา · คนซ้าย · ทุกคน · รอด</b> ลำดับช่อง<b>🔀 สลับ</b>ทุกรอบ"
+   ],
+   [
+    "🍀 เกมดวง → <b>🔢 ระเบิดตัวเลข</b> เลือกเลขสูงสุด (30 · 50 · 100 · 200) แล้วเริ่ม จะมีเลขระเบิดซ่อนอยู่ระหว่าง 1 ถึงเลขนั้น",
+    "ส่งมือถือวนกันแล้วใส่เลขทีละคน น้อยกว่าระเบิด → <b>⬆️ UP</b> มากกว่า → <b>⬇️ DOWN</b> ช่วงจะแคบลงและสายชนวนก็สั้นลง",
+    "กดโดนเลขระเบิด <b>💥 ตูม!</b> หมาป่าไหม้เกรียมมึนตึ้บ 😵‍💫 คนนั้น <b>💀 หมดแก้ว</b> กด \"เล่นอีกครั้ง\" เพื่อเริ่มใหม่"
+   ],
+   [
+    "🍀 เกมดวง → <b>🎈 เป่าลูกโป่ง</b> ไม่ต้องเลือกจำนวนคน เริ่มได้เลย",
+    "ส่งมือถือวนกัน คนละ <b>1–3 ครั้ง</b> แล้วส่งต่อ แตะทีไรลูกโป่งหน้าหมาป่าก็ใหญ่ขึ้น",
+    "ไม่มีใครรู้ว่าจะแตกตอนไหน (แต่ละรอบไม่เหมือนกัน) ใครทำแตก <b>💥 💀 หมดแก้ว</b> แตะจอเพื่อเริ่มลูกใหม่"
+   ],
+   [
+    "🍀 เกมดวง → <b>☝️ จิ้มนิ้วเลือกคน</b>. เลือกจำนวนคนที่จะโดน (1–9 คน) แล้วเริ่ม",
+    "ทุกคนวางนิ้วบนหน้าจอคนละนิ้ว แต่ละนิ้วจะมีวงกลมคนละสี",
+    "เมื่อทุกคนยกนิ้วออก 0.5 วินาที หมาป่าจะโผล่เฉพาะตรงคนที่โดนแล้ว<b>แลบลิ้นแบร่~</b> แตะหน้าจอเพื่อเล่นใหม่"
    ],
    [
     "เลือกจำนวนคน (2–9) และเวลา (3–30 วินาที) แล้ว<b>แต่ละคนเลือกสัตว์</b> (12 ชนิด ลำดับที่แตะ = เลขลู่)",
@@ -2287,6 +2452,16 @@ export const MANUAL = {
     "สแกน <b>📍 QR แผนที่</b> เพื่อนำทางด้วย Google Maps หรือแตะ <b>📞 โทร</b> โทรหาที่พักได้ทันที ข้อมูลเก็บในมือถือเราเท่านั้น ไม่มีเน็ตก็ใช้ได้"
    ],
    [
+    "แตะปุ่ม <b>🗣️ ประโยค</b> ที่หน้าหลัก เลือก<b>ภาษาที่จะให้ดู</b> (ภาษาของอีกฝ่าย) ก่อน แล้วเลือกหมวด — 👋 ทักทาย · 🚕 เดินทาง · 🍜 ร้านอาหาร · 🏨 ที่พัก · 🍻 บาร์ · 🛍️ ช้อปปิ้ง·ขอความช่วยเหลือ · 🤬 คำด่า",
+    "แตะประโยคเพื่อแสดง<b>ตัวใหญ่บนพื้นขาว</b>เป็นภาษาของอีกฝ่าย (ข้างล่างเป็นภาษาเราตัวเล็ก) ใช้ ‹ › เลื่อนในหมวดเดียวกัน",
+    "แตะ <b>🔊 เปิดเสียง</b> เพื่อฟังการอ่านออกเสียง มีทั้งหมด 94 ประโยค ไม่ต้องใช้เน็ต (เสียงต้องมีเสียงภาษานั้นในมือถือ)"
+   ],
+   [
+    "แตะปุ่ม <b>🧾 แบ่งจ่าย</b> ที่หน้าหลัก ใส่ชื่อคนที่ไปด้วยกัน (2–12 คน ➕ คน · ✕ เพื่อลบ)",
+    "ทุกครั้งที่จ่ายเงิน ใส่<b>จำนวนเงิน · โน้ต</b> เลือก<b>คนจ่าย</b>และ<b>หารกับใคร</b> แล้วแตะ <b>➕ เพิ่มค่าใช้จ่าย</b>",
+    "<b>ผลการแบ่งจ่าย</b>จะบอกเป็น \"A → B เท่าไหร่\" ว่าใครต้องโอนให้ใคร (พร้อมส่วนที่แต่ละคนใช้) ข้อมูลเก็บในมือถือเครื่องนี้เท่านั้น"
+   ],
+   [
     "ที่ <b>🌐 ภาษา</b> ข้างโลโก้ เลือกได้ <b>สูงสุด 2 ภาษา</b> อันแรกคือ <b>① ภาษาหลัก</b> อันที่สองคือ <b>② ภาษารอง</b> แตะซ้ำเพื่อเอาออก",
     "ตั้งแต่กติกา หน้าเกม จนถึงผลลัพธ์ จะมี<b>ภาษารองอยู่ใต้ภาษาหลัก</b> (ขนาดเท่ากัน ภาษารองจางลงนิดหน่อย) เมนูและชื่อหัวข้อเป็นภาษาหลักอย่างเดียว",
     "เหมาะกับเล่นกับเพื่อนต่างชาติ ถ้าจะกลับเป็นภาษาเดียว แตะ ② ภาษารองอีกครั้ง"
@@ -2324,10 +2499,6 @@ export const MANUAL = {
    [
     "how-kings",
     "kcTitle"
-   ],
-   [
-    "how-finger",
-    "fingerTitle"
    ],
    [
     "how-react",
@@ -2368,6 +2539,18 @@ export const MANUAL = {
    [
     "how-plinko",
     "plinkoTitle"
+   ],
+   [
+    "how-nbomb",
+    "nbTitle"
+   ],
+   [
+    "how-balloon",
+    "blTitle"
+   ],
+   [
+    "how-finger",
+    "fingerTitle"
    ],
    [
     "how-race",
@@ -2422,6 +2605,14 @@ export const MANUAL = {
     "hotelTitle"
    ],
    [
+    "how-phrase",
+    "phTitle"
+   ],
+   [
+    "how-settle",
+    "stTitle"
+   ],
+   [
     "how-dual",
     "language"
    ]
@@ -2435,7 +2626,6 @@ export const MANUAL = {
    "↕️",
    "🇻🇳",
    "👑",
-   "☝️",
    "🟢",
    "🎨",
    "⏱️",
@@ -2446,6 +2636,9 @@ export const MANUAL = {
    "💣",
    "icons/coin.png",
    "🔻",
+   "🔢",
+   "🎈",
+   "☝️",
    "🏁",
    "🗡️",
    "🔄",
@@ -2459,6 +2652,8 @@ export const MANUAL = {
    "",
    "▦",
    "🏨",
+   "🗣️",
+   "🧾",
    "🌐"
   ]
  },
@@ -2467,7 +2662,7 @@ export const MANUAL = {
   "lead": "Bộ trò chơi nhậu · Hướng dẫn cài đặt",
   "navAndroid": "🤖 Cài trên Android",
   "navIphone": "🍎 Thêm vào MH chính iPhone",
-  "navNew": "🆕 Có gì trong v1.6",
+  "navNew": "🆕 Có gì trong v1.7",
   "navUpdate": "🔄 Cập nhật",
   "navFaq": "❓ Câu hỏi thường gặp",
   "qAndroid": "🤖 Ứng dụng Android",
@@ -2561,15 +2756,16 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Màn hình chính",
-  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.6</b>) hiện ở dưới cùng.",
-  "hNew": "🆕 Có gì trong v1.6",
-  "newIntro": "Wolf Games v1.6 gồm các trò chơi và tính năng sau.",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.7</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v1.7",
+  "newIntro": "Wolf Games v1.7 gồm các trò chơi và tính năng sau.",
   "newFeat": [
    "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🔻 Plinko · 🟢 Cờ ba · ⚫ Cờ năm · 🏨 Thẻ địa chỉ chỗ ở · 🌐 Hiển thị hai ngôn ngữ",
+   "🆕 🔢 Bom số · 🎈 Thổi bóng bay · 🗣️ Thẻ câu nói · 🧾 Chia tiền chuyến đi",
+   "✨ v1.6: 🔻 Plinko · 🟢 Cờ ba · ⚫ Cờ năm · 🏨 Thẻ địa chỉ chỗ ở · 🌐 Hiển thị hai ngôn ngữ",
    "✨ v1.5: 🎀 Chạm nhanh giành đất · 🐾 Đấu đập tay · 👑 King's Cup toàn cầu · 🍺 Rót bia · 🪙 Tung đồng xu",
    "⚡ Phản xạ (Đấu phản xạ · Đấu màu · Bấm giờ) · 💣 Chuyền bom · ⚔️ Đấu xúc xắc",
-   "👆 Ngón tay (Chọn ngón tay) · 🐺 Sói · 🍀 May rủi · ⚔️ Đối kháng",
+   "🐺 Sói · 🍀 May rủi · ⚔️ Đối kháng",
    "🃏 Trò chơi bài (Up/Down · Hồ Chí Minh) · 🍶 789",
    "🧮 Máy tính · 🍻 Chia tiền · 💱 Đổi tiền (cạnh logo)",
    "▦ QR liên hệ của tôi · 💁 Tip",
@@ -2579,13 +2775,11 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Thay đổi gần đây",
   "changes": [
-   "🌐 Hiển thị hai ngôn ngữ: chọn tối đa 2 ngôn ngữ (① chính · ② phụ), từ luật chơi đến màn hình trò chơi đều hiện cả hai — hợp khi chơi với bạn nước ngoài",
-   "🔻 Thêm Plinko (Trò may rủi): chạm phía trên, đồng xu sói nảy qua các chốt rơi xuống — 1 ly · Nửa ly · Lại · Người bên phải · Người bên trái · Cả bàn · Qua, thứ tự ô đổi mỗi ván",
-   "🟢 Thêm Cờ ba (Trò đối kháng): xu sói xanh vs đỏ, 2 giây một lượt! Mỗi người 3 xu — đặt xu thứ 4 thì xu cũ nhất biến mất",
-   "⚫ Thêm Cờ năm (Trò đối kháng): bàn 15×15, đen đi trước, đen cấm 3-3 — mỗi bên hiện màu quân của mình",
-   "🏨 Thẻ địa chỉ chỗ ở (cạnh QR): địa chỉ chữ to cho tài xế taxi xem + QR Google Maps + gọi ngay, lưu nhiều chỗ ở (không cần mạng)",
-   "💬 Liên kết góp ý: chạm cạnh \"Bộ trò chơi nhậu\" ở màn hình chính để mở bài viết — hãy góp ý nhé!",
-   "🔧 Sửa lỗi: chữ \"null\" hiện ra ở QR liên hệ và Lên/Xuống, nút chọn (hướng, cách tính) bị thành hình tròn to"
+   "🔢 Thêm Bom số (Trò may rủi): lần lượt nhập số để né số bom ẩn — ⬆️ UP · ⬇️ DOWN thu hẹp khoảng, chạm số bom là BÙM! Sói cháy xém choáng váng 😵‍💫",
+   "🎈 Thêm Thổi bóng bay (Trò may rủi): chuyền điện thoại, mỗi người chạm 1–3 lần bơm bóng sói — ai làm nổ thì cạn ly",
+   "🗣️ Thẻ câu nói (màn hình chính): 94 câu chia 7 nhóm — 👋 Chào hỏi · 🚕 Đi lại · 🍜 Nhà hàng · 🏨 Khách sạn · 🍻 Quán nhậu · 🛍️ Mua sắm·Giúp đỡ · 🤬 Chửi vui — hiện chữ to bằng ngôn ngữ đã chọn, 🔊 đọc thành tiếng",
+   "🧾 Chia tiền chuyến đi (màn hình chính): nhập ai đã trả bao nhiêu, sẽ biết \"ai chuyển cho ai bao nhiêu\"",
+   "☝️ Chọn ngón tay đã chuyển vào 🍀 Trò may rủi (mục Trò ngón tay đã bỏ)"
   ],
   "hUpdate": "🔄 Cập nhật",
   "updA": "<b>Android</b>: tải APK mới bằng cùng mã QR hoặc nút rồi cài. Ứng dụng được cài <b>đè lên bản cũ</b>, không cần xóa.",
@@ -2659,11 +2853,6 @@ export const MANUAL = {
     "Mỗi lá K làm ly ở góc phải đầy thêm. <b>Ai rút lá K thứ 4 phải uống cạn King's Cup!</b> <b>🔀 Xáo lại</b> để chơi ván mới."
    ],
    [
-    "Chọn số người bị chọn (1–9) rồi bắt đầu.",
-    "Mỗi người đặt một ngón tay lên màn hình. Mỗi ngón có một vòng tròn màu riêng.",
-    "Khi mọi người nhấc tay ra 0,5 giây, sói chỉ hiện ở chỗ người bị chọn và <b>lè lưỡi lêu lêu</b>. Chạm màn hình để chơi lại."
-   ],
-   [
     "Chọn số người (2–4) và đặt điện thoại giữa bàn. Màn hình chia đều.",
     "Chạm vào phần của mình <b>ngay khi màn hình chuyển xanh</b>!",
     "Hiện thời gian phản xạ và <b>👑 Hạng 1 · 💀 Bét</b>. Chạm trước khi xanh là 🚫 phạm quy."
@@ -2712,6 +2901,21 @@ export const MANUAL = {
     "🍀 Trò may rủi → <b>🔻 Plinko</b>. Không cần chọn số người, bắt đầu luôn.",
     "Chạm bất kỳ đâu phía trên, đồng xu sói rơi từ đó, nảy qua các chốt rồi lọt vào ô bên dưới!",
     "Rơi vào ô nào thì trúng ô đó: <b>1 ly · Nửa ly · Lại · Người bên phải · Người bên trái · Cả bàn · Qua</b>. Thứ tự ô <b>🔀 đổi</b> mỗi ván."
+   ],
+   [
+    "🍀 Trò may rủi → <b>🔢 Bom số</b>. Chọn số lớn nhất (30 · 50 · 100 · 200); một số bom ẩn giữa 1 và số đó.",
+    "Chuyền điện thoại, mỗi người nhập một số. Nhỏ hơn bom → <b>⬆️ UP</b>, lớn hơn → <b>⬇️ DOWN</b> — khoảng số hẹp dần, ngòi nổ cũng ngắn dần.",
+    "Chạm đúng số bom là <b>💥 BÙM!</b> sói cháy xém choáng váng 😵‍💫 người đó <b>💀 cạn ly</b>. \"Chơi lại\" để bắt đầu ván mới."
+   ],
+   [
+    "🍀 Trò may rủi → <b>🎈 Thổi bóng bay</b>. Không cần chọn số người, bắt đầu luôn.",
+    "Chuyền điện thoại, mỗi người chạm <b>1–3 lần</b> rồi chuyền đi. Mỗi lần chạm, bóng mặt sói to thêm.",
+    "Không ai biết khi nào nổ (mỗi ván một khác). Ai làm nổ — <b>💥 💀 cạn ly</b>. Chạm màn hình để có bóng mới."
+   ],
+   [
+    "🍀 Trò may rủi → <b>☝️ Chọn ngón tay</b>. Chọn số người bị chọn (1–9) rồi bắt đầu.",
+    "Mỗi người đặt một ngón tay lên màn hình. Mỗi ngón có một vòng tròn màu riêng.",
+    "Khi mọi người nhấc tay ra 0,5 giây, sói chỉ hiện ở chỗ người bị chọn và <b>lè lưỡi lêu lêu</b>. Chạm màn hình để chơi lại."
    ],
    [
     "Chọn số người (2–9) và thời gian (3–30 giây), rồi <b>mỗi người chọn một con vật</b> (12 loại, thứ tự chạm = số làn).",
@@ -2779,6 +2983,16 @@ export const MANUAL = {
     "Quét <b>📍 QR bản đồ</b> để Google Maps chỉ đường, hoặc chạm <b>📞 Gọi</b> để gọi chỗ ở. Thông tin chỉ lưu trên điện thoại của bạn, không cần mạng."
    ],
    [
+    "Chạm nút <b>🗣️ Câu nói</b> ở màn hình chính. Chọn <b>ngôn ngữ hiển thị</b> (tiếng của người kia) trước, rồi chọn nhóm — 👋 Chào hỏi · 🚕 Đi lại · 🍜 Nhà hàng · 🏨 Khách sạn · 🍻 Quán nhậu · 🛍️ Mua sắm·Giúp đỡ · 🤬 Chửi vui.",
+    "Chạm một câu để hiện <b>chữ to trên nền trắng</b> bằng tiếng của họ (bên dưới là tiếng của mình, chữ nhỏ). Dùng ‹ › để chuyển trong cùng nhóm.",
+    "Chạm <b>🔊 Phát âm</b> để nghe đọc to. 94 câu, không cần mạng (phát âm cần có giọng đọc của ngôn ngữ đó trên điện thoại)."
+   ],
+   [
+    "Chạm nút <b>🧾 Chia tiền</b> ở màn hình chính. Nhập tên những người đi cùng (2–12 người, ➕ Người · ✕ để bỏ).",
+    "Mỗi lần chi tiền, nhập <b>số tiền · ghi chú</b>, chọn <b>Người trả</b> và <b>Chia cho</b>, rồi chạm <b>➕ Thêm khoản chi</b>.",
+    "<b>Kết quả</b> hiện dạng \"A → B bao nhiêu\" để biết ai chuyển cho ai bao nhiêu (kèm phần chi của từng người). Mọi thứ chỉ lưu trên điện thoại này."
+   ],
+   [
     "Trong <b>🌐 Ngôn ngữ</b> cạnh logo, chọn <b>tối đa 2</b> ngôn ngữ. Cái đầu là <b>① chính</b>, cái thứ hai là <b>② phụ</b>. Chạm lại để bỏ.",
     "Từ luật chơi đến màn hình trò chơi và kết quả, <b>ngôn ngữ phụ hiện dưới ngôn ngữ chính</b> (cùng cỡ, hơi mờ hơn). Menu và tiêu đề chỉ hiện ngôn ngữ chính.",
     "Rất hợp khi chơi với bạn nước ngoài. Muốn về một ngôn ngữ, chạm lại ② ngôn ngữ phụ."
@@ -2816,10 +3030,6 @@ export const MANUAL = {
    [
     "how-kings",
     "kcTitle"
-   ],
-   [
-    "how-finger",
-    "fingerTitle"
    ],
    [
     "how-react",
@@ -2860,6 +3070,18 @@ export const MANUAL = {
    [
     "how-plinko",
     "plinkoTitle"
+   ],
+   [
+    "how-nbomb",
+    "nbTitle"
+   ],
+   [
+    "how-balloon",
+    "blTitle"
+   ],
+   [
+    "how-finger",
+    "fingerTitle"
    ],
    [
     "how-race",
@@ -2914,6 +3136,14 @@ export const MANUAL = {
     "hotelTitle"
    ],
    [
+    "how-phrase",
+    "phTitle"
+   ],
+   [
+    "how-settle",
+    "stTitle"
+   ],
+   [
     "how-dual",
     "language"
    ]
@@ -2927,7 +3157,6 @@ export const MANUAL = {
    "↕️",
    "🇻🇳",
    "👑",
-   "☝️",
    "🟢",
    "🎨",
    "⏱️",
@@ -2938,6 +3167,9 @@ export const MANUAL = {
    "💣",
    "icons/coin.png",
    "🔻",
+   "🔢",
+   "🎈",
+   "☝️",
    "🏁",
    "🗡️",
    "🔄",
@@ -2951,6 +3183,8 @@ export const MANUAL = {
    "",
    "▦",
    "🏨",
+   "🗣️",
+   "🧾",
    "🌐"
   ]
  }
