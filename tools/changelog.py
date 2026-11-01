@@ -21,12 +21,12 @@ CHANGELOG = [
             vi='🎈 Thêm Thổi bóng bay (Trò may rủi): chuyền điện thoại, mỗi người chạm 1–3 lần bơm bóng sói — ai làm nổ thì cạn ly',
         )),
         ('🗣️', dict(
-            ko='🗣️ 회화 카드 (메인 화면): 👋 인사 · 🚕 교통 · 🍜 식당 · 🏨 숙소 · 🍻 술집 · 🛍️ 쇼핑·도움 · 🤬 장난 욕으로 나눈 94개 문장을 고른 나라 말 큰 글씨로, 🔊 버튼으로 읽어줘요',
-            en='🗣️ Phrase Cards (home screen): 94 phrases in 7 groups — 👋 Hello · 🚕 Getting around · 🍜 Restaurant · 🏨 Hotel · 🍻 Bar · 🛍️ Shopping & help · 🤬 Swears — shown big in the language you pick, and 🔊 reads them aloud',
-            ja='🗣️ 会話カード（ホーム）：👋 あいさつ・🚕 交通・🍜 食堂・🏨 宿・🍻 飲み屋・🛍️ 買い物・助け・🤬 悪口に分けた94文を選んだ言語で大きく表示、🔊で読み上げ',
-            zh='🗣️ 会话卡片（主页）：按 👋 问候 · 🚕 交通 · 🍜 餐厅 · 🏨 住宿 · 🍻 酒吧 · 🛍️ 购物·求助 · 🤬 脏话 分好的94句，用选好的语言大字显示，🔊 可朗读',
-            th='🗣️ การ์ดประโยค (หน้าหลัก): 94 ประโยค แบ่งเป็น 👋 ทักทาย · 🚕 เดินทาง · 🍜 ร้านอาหาร · 🏨 ที่พัก · 🍻 บาร์ · 🛍️ ช้อปปิ้ง·ขอความช่วยเหลือ · 🤬 คำด่า แสดงตัวใหญ่ในภาษาที่เลือก และ 🔊 อ่านออกเสียงได้',
-            vi='🗣️ Thẻ câu nói (màn hình chính): 94 câu chia 7 nhóm — 👋 Chào hỏi · 🚕 Đi lại · 🍜 Nhà hàng · 🏨 Khách sạn · 🍻 Quán nhậu · 🛍️ Mua sắm·Giúp đỡ · 🤬 Chửi vui — hiện chữ to bằng ngôn ngữ đã chọn, 🔊 đọc thành tiếng',
+            ko='🗣️ 회화 카드 (메인 화면): 👋 인사 · 🚕 교통 · 🍜 식당 · 🏨 숙소 · 🍻 술집 · 🛍️ 쇼핑·도움 · 🤬 장난 욕으로 나눈 95개 문장을 고른 나라 말 큰 글씨로, 🔊 버튼으로 읽어줘요',
+            en='🗣️ Phrase Cards (home screen): 95 phrases in 7 groups — 👋 Hello · 🚕 Getting around · 🍜 Restaurant · 🏨 Hotel · 🍻 Bar · 🛍️ Shopping & help · 🤬 Swears — shown big in the language you pick, and 🔊 reads them aloud',
+            ja='🗣️ 会話カード（ホーム）：👋 あいさつ・🚕 交通・🍜 食堂・🏨 宿・🍻 飲み屋・🛍️ 買い物・助け・🤬 悪口に分けた95文を選んだ言語で大きく表示、🔊で読み上げ',
+            zh='🗣️ 会话卡片（主页）：按 👋 问候 · 🚕 交通 · 🍜 餐厅 · 🏨 住宿 · 🍻 酒吧 · 🛍️ 购物·求助 · 🤬 脏话 分好的95句，用选好的语言大字显示，🔊 可朗读',
+            th='🗣️ การ์ดประโยค (หน้าหลัก): 95 ประโยค แบ่งเป็น 👋 ทักทาย · 🚕 เดินทาง · 🍜 ร้านอาหาร · 🏨 ที่พัก · 🍻 บาร์ · 🛍️ ช้อปปิ้ง·ขอความช่วยเหลือ · 🤬 คำด่า แสดงตัวใหญ่ในภาษาที่เลือก และ 🔊 อ่านออกเสียงได้',
+            vi='🗣️ Thẻ câu nói (màn hình chính): 95 câu chia 7 nhóm — 👋 Chào hỏi · 🚕 Đi lại · 🍜 Nhà hàng · 🏨 Khách sạn · 🍻 Quán nhậu · 🛍️ Mua sắm·Giúp đỡ · 🤬 Chửi vui — hiện chữ to bằng ngôn ngữ đã chọn, 🔊 đọc thành tiếng',
         )),
         ('🧾', dict(
             ko='🧾 여행 정산 (메인 화면): 누가 얼마 냈는지만 넣으면 "누가 누구한테 얼마" 보내면 되는지 알려줘요',
