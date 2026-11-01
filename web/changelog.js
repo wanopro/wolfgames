@@ -1,6 +1,67 @@
 // 자동 생성 파일: tools/changelog.py 를 고친 뒤  python3 tools/gen_changelog.py
 export const CHANGELOG = [
  {
+  "ver": "1.7",
+  "date": "2026-11-01",
+  "items": [
+   [
+    "🔢",
+    {
+     "ko": "🔢 숫자 폭탄 추가 (운빨게임): 숨은 폭탄 숫자를 피해 돌아가면서 숫자 입력 — ⬆️ UP · ⬇️ DOWN으로 범위가 좁아지고, 폭탄 숫자를 누르면 펑! 그을린 늑대가 헤롱헤롱 😵‍💫",
+     "en": "🔢 New Number Bomb (Luck Games): take turns entering numbers to dodge the hidden bomb — ⬆️ UP · ⬇️ DOWN shrink the range; hit the bomb and BOOM! A singed wolf goes dizzy 😵‍💫",
+     "ja": "🔢 数字爆弾追加（運ゲーム）：隠れた爆弾の数字をよけながら順番に入力 — ⬆️ UP・⬇️ DOWNで範囲が狭まり、爆弾の数字でドカン！焦げたオオカミがフラフラ 😵‍💫",
+     "zh": "🔢 新增数字炸弹（运气游戏）：轮流输入数字躲开隐藏的炸弹 — ⬆️ UP · ⬇️ DOWN 缩小范围，按到炸弹就砰！烤焦的小狼晕乎乎 😵‍💫",
+     "th": "🔢 เพิ่มระเบิดตัวเลข (เกมดวง): ผลัดกันใส่เลขหลบเลขระเบิด ⬆️ UP · ⬇️ DOWN ช่วงจะแคบลง กดโดนระเบิดตูม! หมาป่าไหม้เกรียมมึนตึ้บ 😵‍💫",
+     "vi": "🔢 Thêm Bom số (Trò may rủi): lần lượt nhập số để né số bom ẩn — ⬆️ UP · ⬇️ DOWN thu hẹp khoảng, chạm số bom là BÙM! Sói cháy xém choáng váng 😵‍💫"
+    }
+   ],
+   [
+    "🎈",
+    {
+     "ko": "🎈 풍선 불기 추가 (운빨게임): 폰을 돌리면서 1~3번씩 터치해 늑대 풍선에 바람을 넣고, 터뜨린 사람이 원샷",
+     "en": "🎈 New Balloon Pump (Luck Games): pass the phone and tap 1–3 times to pump the wolf balloon — whoever pops it drinks",
+     "ja": "🎈 風船ふくらまし追加（運ゲーム）：スマホを回して1〜3回ずつタッチ、オオカミ風船を割った人が一気",
+     "zh": "🎈 新增吹气球（运气游戏）：手机轮流传，每人点1~3下给狼气球打气，弄爆的人干杯",
+     "th": "🎈 เพิ่มเป่าลูกโป่ง (เกมดวง): ส่งมือถือวนกัน แตะคนละ 1–3 ครั้ง ใครทำลูกโป่งหมาป่าแตกหมดแก้ว",
+     "vi": "🎈 Thêm Thổi bóng bay (Trò may rủi): chuyền điện thoại, mỗi người chạm 1–3 lần bơm bóng sói — ai làm nổ thì cạn ly"
+    }
+   ],
+   [
+    "🗣️",
+    {
+     "ko": "🗣️ 회화 카드 (메인 화면): 👋 인사 · 🚕 교통 · 🍜 식당 · 🏨 숙소 · 🍻 술집 · 🛍️ 쇼핑·도움 · 🤬 장난 욕으로 나눈 94개 문장을 고른 나라 말 큰 글씨로, 🔊 버튼으로 읽어줘요",
+     "en": "🗣️ Phrase Cards (home screen): 94 phrases in 7 groups — 👋 Hello · 🚕 Getting around · 🍜 Restaurant · 🏨 Hotel · 🍻 Bar · 🛍️ Shopping & help · 🤬 Swears — shown big in the language you pick, and 🔊 reads them aloud",
+     "ja": "🗣️ 会話カード（ホーム）：👋 あいさつ・🚕 交通・🍜 食堂・🏨 宿・🍻 飲み屋・🛍️ 買い物・助け・🤬 悪口に分けた94文を選んだ言語で大きく表示、🔊で読み上げ",
+     "zh": "🗣️ 会话卡片（主页）：按 👋 问候 · 🚕 交通 · 🍜 餐厅 · 🏨 住宿 · 🍻 酒吧 · 🛍️ 购物·求助 · 🤬 脏话 分好的94句，用选好的语言大字显示，🔊 可朗读",
+     "th": "🗣️ การ์ดประโยค (หน้าหลัก): 94 ประโยค แบ่งเป็น 👋 ทักทาย · 🚕 เดินทาง · 🍜 ร้านอาหาร · 🏨 ที่พัก · 🍻 บาร์ · 🛍️ ช้อปปิ้ง·ขอความช่วยเหลือ · 🤬 คำด่า แสดงตัวใหญ่ในภาษาที่เลือก และ 🔊 อ่านออกเสียงได้",
+     "vi": "🗣️ Thẻ câu nói (màn hình chính): 94 câu chia 7 nhóm — 👋 Chào hỏi · 🚕 Đi lại · 🍜 Nhà hàng · 🏨 Khách sạn · 🍻 Quán nhậu · 🛍️ Mua sắm·Giúp đỡ · 🤬 Chửi vui — hiện chữ to bằng ngôn ngữ đã chọn, 🔊 đọc thành tiếng"
+    }
+   ],
+   [
+    "🧾",
+    {
+     "ko": "🧾 여행 정산 (메인 화면): 누가 얼마 냈는지만 넣으면 \"누가 누구한테 얼마\" 보내면 되는지 알려줘요",
+     "en": "🧾 Trip Split (home screen): enter who paid what and it tells you who should send how much to whom",
+     "ja": "🧾 旅行の精算（ホーム）：誰がいくら払ったかを入れるだけで「誰が誰にいくら」送ればいいか表示",
+     "zh": "🧾 旅行结算（主页）：只要输入谁付了多少，就会告诉你“谁该转给谁多少”",
+     "th": "🧾 แบ่งจ่ายทริป (หน้าหลัก): ใส่ว่าใครจ่ายเท่าไหร่ จะบอกว่า \"ใครต้องโอนให้ใครเท่าไหร่\"",
+     "vi": "🧾 Chia tiền chuyến đi (màn hình chính): nhập ai đã trả bao nhiêu, sẽ biết \"ai chuyển cho ai bao nhiêu\""
+    }
+   ],
+   [
+    "☝️",
+    {
+     "ko": "☝️ 손가락선택을 🍀 운빨게임으로 옮겼어요 (손가락게임 칸은 없어졌어요)",
+     "en": "☝️ Finger Pick moved into 🍀 Luck Games (the Finger Games category is gone)",
+     "ja": "☝️ 指選びを🍀 運ゲームに移動しました（指ゲームの項目はなくなりました）",
+     "zh": "☝️ 手指选人移到了 🍀 运气游戏（手指游戏分类已取消）",
+     "th": "☝️ ย้ายนิ้วเลือกคนไปไว้ใน 🍀 เกมดวง (หมวดเกมนิ้วไม่มีแล้ว)",
+     "vi": "☝️ Chọn ngón tay đã chuyển vào 🍀 Trò may rủi (mục Trò ngón tay đã bỏ)"
+    }
+   ]
+  ]
+ },
+ {
   "ver": "1.6",
   "date": "2026-10-29",
   "items": [

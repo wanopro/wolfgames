@@ -13,6 +13,9 @@ import { tugWar, slapDuel, beerPour, coinToss, kingsCup } from './games-v15.js';
 import { qrScreen, qrEdit } from './qr.js';
 import { plinko, ticTacToe, gomoku } from './games-v16.js';
 import { hotelScreen, hotelEdit } from './hotel.js';
+import { numberBomb, balloon } from './games-v17.js';
+import { phraseScreen } from './phrase.js';
+import { settleScreen } from './settle.js';
 
 const HOMEPAGE = 'https://wolf.community';
 const FEEDBACK = 'https://wolf.community/traveltalk/6829263';
@@ -66,8 +69,12 @@ const SCREENS = {
   gomoku,
   hotel: (root, b) => hotelScreen(root, b, go),
   hoteledit: (root, b) => hotelEdit(root, b, go),
+  nbomb: numberBomb,
+  balloon,
+  phrase: phraseScreen,
+  settle: settleScreen,
 };
-const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', duel: 'dice', react: 'quick', color: 'quick', stop: 'quick', bomb: 'luck', updown: 'cards', hcm: 'cards', finger: 'fingers', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle', tug: 'battle', slap: 'battle', ttt: 'battle', gomoku: 'battle', plinko: 'luck', beer: 'quick', coin: 'luck', kings: 'cards' };
+const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', duel: 'dice', react: 'quick', color: 'quick', stop: 'quick', bomb: 'luck', updown: 'cards', hcm: 'cards', finger: 'luck', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle', tug: 'battle', slap: 'battle', ttt: 'battle', gomoku: 'battle', plinko: 'luck', nbomb: 'luck', balloon: 'luck', beer: 'quick', coin: 'luck', kings: 'cards' };
 
 // ---------- 화면 이동 (휴대폰 뒤로가기 버튼과 연동) ----------
 function show(name) {
@@ -103,11 +110,12 @@ function homeScreen(root) {
           btn([h('span', { class: 'flag' }, cur.flag), `🌐 ${m(s.language)}`], () => go('lang'), 'chip'),
           btn(`🧮 ${m(s.calcTitle)}`, () => go('calc'), 'chip'),
           btn('▦ QR', () => go('qr'), 'chip'),
-          btn(m(s.hotelBtn), () => go('hotel'), 'chip')))),
+          btn(m(s.hotelBtn), () => go('hotel'), 'chip'),
+          btn(m(s.phraseBtn), () => go('phrase'), 'chip'),
+          btn(m(s.settleBtn), () => go('settle'), 'chip')))),
     h('div', { style: 'height:4px' }),
     card('🎲', s.menuDice, s.menuDiceSub, () => go('dice')),
     card('🃏', s.menuCards, s.menuCardsSub, () => go('cards')),
-    card('👆', s.menuFinger, s.menuFingerSub, () => go('fingers')),
     card('⚡', s.menuQuick, s.menuQuickSub, () => go('quick')),
     card('🐺', s.menuWolf, s.menuWolfSub, () => go('wolves')),
     card('🍀', s.menuLuck, s.menuLuckSub, () => go('luck')),
@@ -212,7 +220,10 @@ function luckMenu(root) {
     card('🎡', s.menuRoulette, s.menuRouletteSub, () => go('roulette')),
     card('💣', s.bombTitle, s.bombSub, () => go('bomb')),
     card(icon('coin'), s.coinTitle, s.coinSub, () => go('coin')),
-    card('🔻', s.plinkoTitle, s.plinkoSub, () => go('plinko'))));
+    card('🔻', s.plinkoTitle, s.plinkoSub, () => go('plinko')),
+    card('🔢', s.nbTitle, s.nbSub, () => go('nbomb')),
+    card('🎈', s.blTitle, s.blSub, () => go('balloon')),
+    card('☝️', s.fingerTitle, s.fingerSub, () => go('finger'))));
 }
 function battleMenu(root) {
   const s = S();

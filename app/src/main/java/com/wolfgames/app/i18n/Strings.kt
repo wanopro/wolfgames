@@ -423,6 +423,52 @@ class Strings {
     lateinit var hotelEditBtn: String
     lateinit var colorTurn: (String) -> String
     lateinit var youAre: (String) -> String
+    lateinit var phraseBtn: String
+    lateinit var settleBtn: String
+    lateinit var nbTitle: String
+    lateinit var nbSub: String
+    lateinit var nbDesc: String
+    lateinit var nbMax: String
+    lateinit var nbEnter: String
+    lateinit var nbUp: String
+    lateinit var nbDown: String
+    lateinit var nbBoom: String
+    lateinit var nbOut: String
+    lateinit var nbPass: String
+    lateinit var nbOk: String
+    lateinit var blTitle: String
+    lateinit var blSub: String
+    lateinit var blDesc: String
+    lateinit var blTap: String
+    lateinit var blPumps: (Int) -> String
+    lateinit var blPop: String
+    lateinit var phTitle: String
+    lateinit var phDesc: String
+    lateinit var phTo: String
+    lateinit var phrases: String
+    lateinit var stTitle: String
+    lateinit var stDesc: String
+    lateinit var stPeople: String
+    lateinit var stAddPerson: String
+    lateinit var stAmount: String
+    lateinit var stMemo: String
+    lateinit var stPaidBy: String
+    lateinit var stFor: String
+    lateinit var stAdd: String
+    lateinit var stList: String
+    lateinit var stEmpty: String
+    lateinit var stResult: String
+    lateinit var stEven: String
+    lateinit var stTotal: (String) -> String
+    lateinit var stSpent: (String) -> String
+    lateinit var stReset: String
+    lateinit var stResetAsk: String
+    lateinit var nbDazed: String
+    lateinit var phSpeak: String
+    lateinit var phNoVoice: String
+    lateinit var phFun: String
+    lateinit var phSwear: String
+    lateinit var phCats: String
 }
 
 val KoStrings = Strings().apply {
@@ -599,9 +645,9 @@ val KoStrings = Strings().apply {
     menuWolf = "늑대게임"
     menuWolfSub = "늑대이빨 · 늑대달리기 · 늑대 룰렛 · 늑대 돌리기"
     menuLuck = "운빨게임"
-    menuLuckSub = "사다리게임 · 돌림판 · 폭탄돌리기 · 동전 던지기 · 플링코"
+    menuLuckSub = "사다리게임 · 돌림판 · 폭탄돌리기 · 동전 던지기 · 플링코 · 숫자 폭탄 · 풍선 불기 · 손가락선택"
     menuBattle = "대결게임"
-    menuBattleSub = "4목 · 연타 땅따먹기 · 슬랩 대결 · 삼목 · 오목"
+    menuBattleSub = "삼목 · 4목 · 오목 · 연타 땅따먹기 · 슬랩 대결"
     fingerTitle = "손가락선택"
     fingerSub = "손가락 올리고 떼면 늑대가 메롱!"
     fingerDesc = "걸릴 인원을 정하고 다 같이 화면에 손가락을 하나씩 올려요.\n모두 손을 떼고 0.5초가 지나면, 걸린 사람 자리에 늑대가 나타나 메롱~ 하고 약올려요."
@@ -798,6 +844,55 @@ val KoStrings = Strings().apply {
     hotelEditBtn = "✏️ 숙소 수정"
     colorTurn = { "${it} 차례" }
     youAre = { "나: ${it}" }
+    phraseBtn = "🗣️ 회화"
+    settleBtn = "🧾 정산"
+    nbTitle = "숫자 폭탄"
+    nbSub = "숨은 폭탄 숫자를 피해라! UP · DOWN"
+    nbDesc = "1부터 최대 숫자 사이에 폭탄 숫자가 하나 숨어 있어요.\n돌아가면서 숫자를 하나씩 눌러요. 폭탄보다 작으면 ⬆️ UP, 크면 ⬇️ DOWN — 범위가 점점 좁아져요.\n폭탄 숫자를 누른 사람이 💥 펑! 원샷!"
+    nbMax = "최대 숫자"
+    nbEnter = "숫자를 누르고 확인!"
+    nbUp = "⬆️ UP! 더 큰 숫자"
+    nbDown = "⬇️ DOWN! 더 작은 숫자"
+    nbBoom = "💥 펑! 폭탄 숫자"
+    nbOut = "범위 안의 숫자를 눌러요"
+    nbPass = "다음 사람에게 넘겨요 👉"
+    nbOk = "확인"
+    blTitle = "풍선 불기"
+    blSub = "언제 터질지 몰라! 펑!"
+    blDesc = "폰을 돌리면서 풍선에 바람을 넣어요.\n한 사람이 1~3번 화면을 터치하고 다음 사람에게 넘겨요.\n풍선은 언제 터질지 몰라요. 터뜨린 사람이 💥 원샷!"
+    blTap = "터치해서 바람 넣기 (1~3번)"
+    blPumps = { "${it}번 불었어요" }
+    blPop = "💥 펑! 터졌다!"
+    phTitle = "회화 카드"
+    phDesc = "보여줄 나라 말을 고르고, 문장을 누르면 크게 보여줘요. 인터넷 없어도 돼요."
+    phTo = "보여줄 언어"
+    phrases = "화장실 어디예요?|이거 주세요|계산해 주세요|얼마예요?|맵지 않게 해 주세요|고수는 빼 주세요|얼음은 빼 주세요|물 좀 주세요|맥주 하나 더 주세요|포장해 주세요|카드 돼요?|조금 깎아 주세요|영수증 주세요|사진 좀 찍어 주실래요?|와이파이 비밀번호가 뭐예요?|약국 어디예요?|도와주세요!|땅콩 알레르기가 있어요|건배! 원샷!|오늘 밤은 안 끝나!|와, 진짜 잘생기셨다/예쁘시다!|나 안 취했어! (취함)|사장님, 이건 서비스죠?|우리 친구 해요!|젠장!|헐, 대박!|아 씨…|이 바보야!|미쳤다 ㅋㅋ 개웃겨|안녕하세요|감사합니다|실례합니다|천천히 말해 주세요|이 주소로 가 주세요|공항으로 가 주세요|여기서 세워 주세요|얼마나 걸려요?|체크인할게요|짐 좀 맡아 주세요|수건 좀 더 주세요|에어컨이 안 돼요|네 / 아니요|괜찮아요|잘 모르겠어요|영어 할 줄 아세요?|여기에 적어 주세요|만나서 반가워요|좋아요!|안녕히 계세요, 또 봐요!|정말 죄송해요|제 잘못이에요|됐어요, 고마워요|필요 없어요|그냥 구경만 할게요|관심 없어요|다음에 할게요|그만하세요!|역은 어디예요?|이거 여기 가요?|표 한 장 주세요|미터기 켜 주세요|천천히 가 주세요|조금 서둘러 주세요|오른쪽이요|왼쪽이요|쭉 가 주세요|맛있어요!|메뉴판 주세요|뭐가 제일 맛있어요?|체크아웃할게요|체크아웃은 몇 시예요?|아침은 몇 시예요?|방 열쇠를 잃어버렸어요|뜨거운 물이 안 나와요|방 청소해 주세요|모닝콜 부탁해요|제일 센 술 주세요|안주는 뭐 있어요?|노래 한 곡 해요!|오늘은 내가 쏠게!|토할 것 같아…|이제 집에 갈래|입어 봐도 돼요?|더 큰 거 있어요?|현금만 돼요?|ATM 어디 있어요?|충전 좀 해도 돼요?|경찰을 불러 주세요|병원에 데려다 주세요|뭐래~|아 짜증나!|너 진짜 웃긴다|마셔, 이 겁쟁이야!|꺼져! (장난이야)"
+    stTitle = "여행 정산"
+    stDesc = "누가 얼마 냈는지만 넣으면, 마지막에 누가 누구한테 얼마 보내면 되는지 알려줘요. 이 휴대폰에만 저장돼요."
+    stPeople = "같이 간 사람"
+    stAddPerson = "➕ 사람"
+    stAmount = "금액"
+    stMemo = "메모 (예: 저녁, 택시)"
+    stPaidBy = "낸 사람"
+    stFor = "같이 쓴 사람"
+    stAdd = "➕ 쓴 돈 추가"
+    stList = "쓴 돈"
+    stEmpty = "아직 쓴 돈이 없어요"
+    stResult = "정산 결과"
+    stEven = "보낼 돈 없음! 딱 맞아요 👍"
+    stTotal = { "총 $it" }
+    stSpent = { "쓴 몫 $it" }
+    stReset = "🗑️ 전부 지우기"
+    stResetAsk = "정말 전부 지울까요?"
+
+    nbDazed = "헤롱헤롱~ 😵‍💫"
+    phSpeak = "🔊 들려주기"
+    phNoVoice = "이 휴대폰에 이 언어 음성이 없어요. 휴대폰 설정 → 음성(텍스트 음성 변환)에서 받을 수 있어요."
+    phFun = "😆 재미있는 말"
+    phSwear = "🤬 장난 욕 (친한 사이에만!)"
+    phCats = "👋 인사|🚕 교통|🍜 식당|🏨 숙소|🍻 술집|🛍️ 쇼핑·도움|🤬 장난 욕"
+
+
 }
 
 val EnStrings = Strings().apply {
@@ -974,9 +1069,9 @@ val EnStrings = Strings().apply {
     menuWolf = "Wolf Games"
     menuWolfSub = "Wolf Teeth · Wolf Race · Wolf Roulette · Wolf Spin"
     menuLuck = "Luck Games"
-    menuLuckSub = "Ladder Game · Roulette · Hot Bomb · Coin Toss · Plinko"
+    menuLuckSub = "Ladder Game · Roulette · Hot Bomb · Coin Toss · Plinko · Number Bomb · Balloon Pump · Finger Pick"
     menuBattle = "Versus Games"
-    menuBattleSub = "Connect 4 · Tap Turf War · Slap Duel · Tic-Tac-Toe · Gomoku"
+    menuBattleSub = "Tic-Tac-Toe · Connect 4 · Gomoku · Tap Turf War · Slap Duel"
     fingerTitle = "Finger Pick"
     fingerSub = "Put fingers down, lift — the wolf teases!"
     fingerDesc = "Choose how many get picked, then everyone puts one finger on the screen.\nWhen all fingers are lifted, after 0.5 sec a wolf pops up on the picked spots and sticks its tongue out."
@@ -1173,6 +1268,55 @@ val EnStrings = Strings().apply {
     hotelEditBtn = "✏️ Edit hotels"
     colorTurn = { "$it's turn" }
     youAre = { "You: $it" }
+    phraseBtn = "🗣️ Phrases"
+    settleBtn = "🧾 Split bill"
+    nbTitle = "Number Bomb"
+    nbSub = "Dodge the hidden bomb number! UP · DOWN"
+    nbDesc = "A bomb number is hidden between 1 and the max.\nTake turns entering a number. Lower than the bomb → ⬆️ UP, higher → ⬇️ DOWN — the range keeps shrinking.\nWhoever hits the bomb number goes 💥 BOOM — drink!"
+    nbMax = "Max number"
+    nbEnter = "Enter a number and tap OK!"
+    nbUp = "⬆️ UP! Higher"
+    nbDown = "⬇️ DOWN! Lower"
+    nbBoom = "💥 BOOM! The bomb number"
+    nbOut = "Pick a number inside the range"
+    nbPass = "Pass it to the next person 👉"
+    nbOk = "OK"
+    blTitle = "Balloon Pump"
+    blSub = "Who knows when it pops! BANG!"
+    blDesc = "Pass the phone around and pump up the balloon.\nEach person taps 1–3 times, then passes it on.\nNobody knows when it pops. Whoever pops it — 💥 drink!"
+    blTap = "Tap to pump (1–3 times)"
+    blPumps = { "$it pumps" }
+    blPop = "💥 BANG! It popped!"
+    phTitle = "Phrase Cards"
+    phDesc = "Pick the language to show, then tap a phrase to show it big. Works offline."
+    phTo = "Show in"
+    phrases = "Where is the restroom?|This one, please|Check, please|How much is it?|Not spicy, please|No cilantro, please|No ice, please|Some water, please|One more beer, please|To go, please|Can I pay by card?|Can you give me a discount?|Receipt, please|Could you take a photo of us?|What is the Wi-Fi password?|Where is the pharmacy?|Help!|I am allergic to peanuts|Cheers! Bottoms up!|The night is still young!|Wow, you're so good-looking!|I'm not drunk! (I'm drunk)|This one's on the house, right?|Let's be friends!|Damn it!|Holy crap!|Oh shit…|You idiot!|LOL, that's insane!|Hello|Thank you|Excuse me|Please speak slowly|Please take me to this address|To the airport, please|Please stop here|How long does it take?|I'd like to check in|Can you keep my luggage?|More towels, please|The air conditioner isn't working|Yes / No|It's okay|I don't understand|Do you speak English?|Please write it down here|Nice to meet you|Sounds good!|Goodbye, see you!|I'm really sorry|It's my fault|No, thank you|I don't need it|I'm just looking|I'm not interested|Maybe next time|Please stop!|Where is the station?|Does this go here?|One ticket, please|Please turn on the meter|Please drive slowly|Please hurry a little|Turn right, please|Turn left, please|Go straight, please|Delicious!|Menu, please|What do you recommend?|I'd like to check out|What time is check-out?|What time is breakfast?|I lost my room key|There's no hot water|Please clean my room|Wake-up call, please|Your strongest drink, please|What snacks do you have?|Let's sing a song!|Tonight's on me!|I think I'm gonna throw up…|I want to go home now|Can I try this on?|Do you have a bigger size?|Cash only?|Where is an ATM?|Can I charge my phone?|Please call the police|Please take me to a hospital|Whatever~|Ugh, so annoying!|You're such a clown|Drink, you chicken!|Get lost! (just kidding)"
+    stTitle = "Trip Split"
+    stDesc = "Just enter who paid what — it tells you who should send how much to whom. Saved only on this phone."
+    stPeople = "Travelers"
+    stAddPerson = "➕ Person"
+    stAmount = "Amount"
+    stMemo = "Note (e.g. dinner, taxi)"
+    stPaidBy = "Paid by"
+    stFor = "Split between"
+    stAdd = "➕ Add expense"
+    stList = "Expenses"
+    stEmpty = "No expenses yet"
+    stResult = "Who pays whom"
+    stEven = "All square — nothing to send 👍"
+    stTotal = { "Total $it" }
+    stSpent = { "Share $it" }
+    stReset = "🗑️ Clear all"
+    stResetAsk = "Really clear everything?"
+
+    nbDazed = "Dizzy~ 😵‍💫"
+    phSpeak = "🔊 Play sound"
+    phNoVoice = "This phone has no voice for this language. You can download one in phone Settings → Text-to-speech."
+    phFun = "😆 Fun phrases"
+    phSwear = "🤬 Playful swears (close friends only!)"
+    phCats = "👋 Hello|🚕 Getting around|🍜 Restaurant|🏨 Hotel|🍻 Bar|🛍️ Shopping & help|🤬 Swears"
+
+
 }
 
 val JaStrings = Strings().apply {
@@ -1349,9 +1493,9 @@ val JaStrings = Strings().apply {
     menuWolf = "オオカミゲーム"
     menuWolfSub = "オオカミの歯 · ウルフレース · オオカミルーレット · オオカミ回し"
     menuLuck = "運ゲー"
-    menuLuckSub = "あみだくじ · ルーレット · 爆弾回し · コイントス · プリンコ"
+    menuLuckSub = "あみだくじ · ルーレット · 爆弾回し · コイントス · プリンコ · 数字爆弾 · 風船ふくらまし · 指えらび"
     menuBattle = "対決ゲーム"
-    menuBattleSub = "4目並べ · 連打陣取り · スラップ対決 · 三目並べ · 五目並べ"
+    menuBattleSub = "三目並べ · 4目並べ · 五目並べ · 連打陣取り · スラップ対決"
     fingerTitle = "指えらび"
     fingerSub = "指を置いて離すとオオカミがあっかんべー！"
     fingerDesc = "当たる人数を決めて、みんなで画面に指を1本ずつ置きます。\n全員が指を離して0.5秒たつと、当たった人の場所にオオカミが出てきて、あっかんべーとからかいます。"
@@ -1548,6 +1692,55 @@ val JaStrings = Strings().apply {
     hotelEditBtn = "✏️ 宿を編集"
     colorTurn = { "${it}の番" }
     youAre = { "あなた: ${it}" }
+    phraseBtn = "🗣️ 会話"
+    settleBtn = "🧾 精算"
+    nbTitle = "数字爆弾"
+    nbSub = "隠れた爆弾の数字をよけろ！UP・DOWN"
+    nbDesc = "1から最大の数字の間に爆弾の数字が1つ隠れています。\n順番に数字を1つずつ入力。爆弾より小さければ⬆️ UP、大きければ⬇️ DOWN — 範囲がどんどん狭くなります。\n爆弾の数字を押した人は💥ドカン！一気！"
+    nbMax = "最大の数字"
+    nbEnter = "数字を入れてOK！"
+    nbUp = "⬆️ UP！もっと大きい"
+    nbDown = "⬇️ DOWN！もっと小さい"
+    nbBoom = "💥 ドカン！爆弾の数字"
+    nbOut = "範囲内の数字を入れてね"
+    nbPass = "次の人に渡して 👉"
+    nbOk = "OK"
+    blTitle = "風船ふくらまし"
+    blSub = "いつ割れるかわからない！パン！"
+    blDesc = "スマホを回しながら風船に空気を入れます。\n1人1〜3回タッチして次の人に渡します。\n風船はいつ割れるかわかりません。割った人は💥一気！"
+    blTap = "タッチで空気を入れる（1〜3回）"
+    blPumps = { "${it}回ふくらませた" }
+    blPop = "💥 パン！割れた！"
+    phTitle = "会話カード"
+    phDesc = "見せる言語を選んで、文をタップすると大きく表示します。ネットなしでOK。"
+    phTo = "見せる言語"
+    phrases = "トイレはどこですか？|これをください|お会計お願いします|いくらですか？|辛くしないでください|パクチー抜きでお願いします|氷なしでお願いします|お水をください|ビールもう一杯ください|持ち帰りでお願いします|カードは使えますか？|少し安くしてください|領収書をください|写真を撮ってもらえますか？|Wi-Fiのパスワードは何ですか？|薬局はどこですか？|助けてください！|ピーナッツアレルギーがあります|乾杯！一気！|夜はまだこれから！|わあ、めっちゃかっこいい／かわいい！|酔ってないよ！（酔ってる）|これ、サービスですよね？|友だちになろう！|くそっ！|マジかよ！|ちくしょう…|このバカ！|ヤバい、ウケる！|こんにちは|ありがとうございます|すみません|ゆっくり話してください|この住所までお願いします|空港までお願いします|ここで止めてください|どのくらいかかりますか？|チェックインお願いします|荷物を預かってもらえますか？|タオルをもう少しください|エアコンが動きません|はい / いいえ|大丈夫です|よくわかりません|英語は話せますか？|ここに書いてください|はじめまして|いいですね！|さようなら、またね！|本当にすみません|私のせいです|結構です、ありがとう|いりません|見ているだけです|興味ありません|また今度にします|やめてください！|駅はどこですか？|これはここに行きますか？|切符を1枚ください|メーターを使ってください|ゆっくり走ってください|少し急いでください|右に曲がってください|左に曲がってください|まっすぐ行ってください|おいしいです！|メニューをください|おすすめは何ですか？|チェックアウトします|チェックアウトは何時ですか？|朝食は何時ですか？|部屋の鍵をなくしました|お湯が出ません|部屋を掃除してください|モーニングコールをお願いします|一番強いお酒をください|おつまみは何がありますか？|一曲歌おう！|今日は僕のおごり！|吐きそう…|もう帰りたい|試着してもいいですか？|もっと大きいサイズはありますか？|現金だけですか？|ATMはどこですか？|充電してもいいですか？|警察を呼んでください|病院に連れて行ってください|何言ってんの〜|あー、ムカつく！|お前ほんとウケる|飲めよ、この弱虫！|消えろ！（冗談だよ）"
+    stTitle = "旅行の精算"
+    stDesc = "誰がいくら払ったかを入れるだけで、最後に誰が誰にいくら送ればいいか教えてくれます。このスマホだけに保存。"
+    stPeople = "一緒に行く人"
+    stAddPerson = "➕ 人"
+    stAmount = "金額"
+    stMemo = "メモ（例：夕食、タクシー）"
+    stPaidBy = "払った人"
+    stFor = "一緒に使った人"
+    stAdd = "➕ 支出を追加"
+    stList = "支出"
+    stEmpty = "まだ支出がありません"
+    stResult = "精算結果"
+    stEven = "送金なし！ぴったり 👍"
+    stTotal = { "合計 $it" }
+    stSpent = { "使った分 $it" }
+    stReset = "🗑️ 全部消す"
+    stResetAsk = "本当に全部消しますか？"
+
+    nbDazed = "フラフラ〜 😵‍💫"
+    phSpeak = "🔊 読み上げる"
+    phNoVoice = "このスマホにはこの言語の音声がありません。スマホの設定 → テキスト読み上げで追加できます。"
+    phFun = "😆 おもしろフレーズ"
+    phSwear = "🤬 ふざけた悪口（仲良しだけ！）"
+    phCats = "👋 あいさつ|🚕 交通|🍜 食堂|🏨 宿|🍻 飲み屋|🛍️ 買い物・助け|🤬 悪口"
+
+
 }
 
 val ZhStrings = Strings().apply {
@@ -1724,9 +1917,9 @@ val ZhStrings = Strings().apply {
     menuWolf = "狼游戏"
     menuWolfSub = "狼牙齿 · 群狼赛跑 · 狼轮盘 · 转狼"
     menuLuck = "拼手气"
-    menuLuckSub = "爬梯子 · 转盘 · 传炸弹 · 抛硬币 · 弹珠台"
+    menuLuckSub = "爬梯子 · 转盘 · 传炸弹 · 抛硬币 · 弹珠台 · 数字炸弹 · 吹气球 · 手指选人"
     menuBattle = "对战游戏"
-    menuBattleSub = "四子棋 · 狂点抢地盘 · 拍手背对决 · 井字棋 · 五子棋"
+    menuBattleSub = "井字棋 · 四子棋 · 五子棋 · 狂点抢地盘 · 拍手背对决"
     fingerTitle = "手指选人"
     fingerSub = "手指放上再松开，小狼来吐舌头！"
     fingerDesc = "先选要抽中几个人，大家各放一根手指在屏幕上。\n所有人松开手指0.5秒后，被抽中的位置会冒出小狼吐舌头气你。"
@@ -1923,6 +2116,55 @@ val ZhStrings = Strings().apply {
     hotelEditBtn = "✏️ 编辑住处"
     colorTurn = { "轮到${it}" }
     youAre = { "你: ${it}" }
+    phraseBtn = "🗣️ 会话"
+    settleBtn = "🧾 结算"
+    nbTitle = "数字炸弹"
+    nbSub = "躲开隐藏的炸弹数字！UP · DOWN"
+    nbDesc = "1到最大数字之间藏着一个炸弹数字。\n轮流输入一个数字。比炸弹小 → ⬆️ UP，比炸弹大 → ⬇️ DOWN — 范围越来越小。\n按到炸弹数字的人 💥 砰！干杯！"
+    nbMax = "最大数字"
+    nbEnter = "输入数字点确定！"
+    nbUp = "⬆️ UP！再大一点"
+    nbDown = "⬇️ DOWN！再小一点"
+    nbBoom = "💥 砰！炸弹数字"
+    nbOut = "请输入范围内的数字"
+    nbPass = "传给下一个人 👉"
+    nbOk = "确定"
+    blTitle = "吹气球"
+    blSub = "不知道什么时候爆！砰！"
+    blDesc = "手机轮流传，给气球打气。\n每人点1~3下，然后传给下一个人。\n谁也不知道气球什么时候爆。弄爆的人 💥 干杯！"
+    blTap = "点击打气（1~3下）"
+    blPumps = { "已经吹了${it}下" }
+    blPop = "💥 砰！爆了！"
+    phTitle = "会话卡片"
+    phDesc = "选好要给对方看的语言，点句子就会放大显示。没网也能用。"
+    phTo = "显示语言"
+    phrases = "洗手间在哪里？|我要这个|买单|多少钱？|不要辣|不要香菜|不要加冰|请给我一杯水|再来一瓶啤酒|打包|可以刷卡吗？|便宜一点吧|请给我收据|可以帮我们拍张照吗？|Wi-Fi密码是多少？|药店在哪里？|救命！|我对花生过敏|干杯！一口闷！|今晚不醉不归！|哇，你长得真好看！|我没醉！（其实醉了）|老板，这个是送的吧？|我们做朋友吧！|该死！|我去！|靠……|你个笨蛋！|笑死我了！|你好|谢谢|不好意思|请说慢一点|请去这个地址|请去机场|请在这里停车|要多长时间？|我要办理入住|可以寄存行李吗？|请再给我几条毛巾|空调坏了|是 / 不是|没关系|我听不懂|你会说英语吗？|请写在这里|很高兴认识你|好啊！|再见，回头见！|真的很抱歉|是我的错|不用了，谢谢|我不需要|我只是看看|我不感兴趣|下次吧|请别这样！|车站在哪里？|这个去这里吗？|请给我一张票|请打表|请开慢一点|请快一点|请右转|请左转|请直走|好吃！|请给我菜单|有什么推荐的？|我要退房|几点退房？|早餐几点？|我的房卡丢了|没有热水|请打扫一下房间|请提供叫醒服务|来最烈的酒|有什么下酒菜？|来唱一首歌吧！|今天我请客！|我想吐……|我想回家了|可以试穿吗？|有大一点的吗？|只收现金吗？|哪里有ATM？|可以充一下电吗？|请叫警察|请带我去医院|说什么呢~|烦死了！|你真是个活宝|喝啊，胆小鬼！|滚！（开玩笑的）"
+    stTitle = "旅行结算"
+    stDesc = "只要输入谁付了多少钱，最后会告诉你谁该转给谁多少。只保存在这部手机里。"
+    stPeople = "同行的人"
+    stAddPerson = "➕ 添加"
+    stAmount = "金额"
+    stMemo = "备注（如：晚饭、打车）"
+    stPaidBy = "付款人"
+    stFor = "一起分摊的人"
+    stAdd = "➕ 添加支出"
+    stList = "支出"
+    stEmpty = "还没有支出"
+    stResult = "结算结果"
+    stEven = "刚好扯平，不用转账 👍"
+    stTotal = { "合计 $it" }
+    stSpent = { "应摊 $it" }
+    stReset = "🗑️ 全部清空"
+    stResetAsk = "确定全部清空吗？"
+
+    nbDazed = "晕乎乎~ 😵‍💫"
+    phSpeak = "🔊 朗读"
+    phNoVoice = "这部手机没有这种语言的语音。可以在手机设置 → 文字转语音里下载。"
+    phFun = "😆 搞笑用语"
+    phSwear = "🤬 开玩笑的脏话（只对好朋友！）"
+    phCats = "👋 问候|🚕 交通|🍜 餐厅|🏨 住宿|🍻 酒吧|🛍️ 购物·求助|🤬 脏话"
+
+
 }
 
 val ThStrings = Strings().apply {
@@ -2099,9 +2341,9 @@ val ThStrings = Strings().apply {
     menuWolf = "เกมหมาป่า"
     menuWolfSub = "ฟันหมาป่า · วิ่งแข่งหมาป่า · รูเล็ตหมาป่า · หมุนหมาป่า"
     menuLuck = "เกมดวง"
-    menuLuckSub = "เกมบันได · วงล้อ · ส่งระเบิด · โยนเหรียญ · พลิงโก"
+    menuLuckSub = "เกมบันได · วงล้อ · ส่งระเบิด · โยนเหรียญ · พลิงโก · ระเบิดตัวเลข · เป่าลูกโป่ง · จิ้มนิ้วเลือกคน"
     menuBattle = "เกมดวล"
-    menuBattleSub = "เรียง 4 · แตะรัวยึดพื้นที่ · ดวลตบมือ · โอเอ็กซ์ · โกะโมะกุ"
+    menuBattleSub = "โอเอ็กซ์ · เรียง 4 · โกะโมะกุ · แตะรัวยึดพื้นที่ · ดวลตบมือ"
     fingerTitle = "จิ้มนิ้วเลือกคน"
     fingerSub = "วางนิ้วแล้วยก หมาป่าแลบลิ้นใส่!"
     fingerDesc = "เลือกจำนวนคนที่จะโดน แล้วทุกคนวางนิ้วบนหน้าจอคนละนิ้ว\nเมื่อทุกคนยกนิ้วออกครบ 0.5 วินาที หมาป่าจะโผล่ตรงตำแหน่งคนที่โดนแล้วแลบลิ้นแซว"
@@ -2298,6 +2540,55 @@ val ThStrings = Strings().apply {
     hotelEditBtn = "✏️ แก้ไขที่พัก"
     colorTurn = { "ตา${it}" }
     youAre = { "คุณ: ${it}" }
+    phraseBtn = "🗣️ ประโยค"
+    settleBtn = "🧾 แบ่งจ่าย"
+    nbTitle = "ระเบิดตัวเลข"
+    nbSub = "หลบเลขระเบิดที่ซ่อนอยู่! UP · DOWN"
+    nbDesc = "มีเลขระเบิดซ่อนอยู่ 1 ตัว ระหว่าง 1 ถึงเลขสูงสุด\nผลัดกันใส่ตัวเลขทีละตัว น้อยกว่าระเบิด → ⬆️ UP มากกว่า → ⬇️ DOWN ช่วงจะแคบลงเรื่อยๆ\nใครกดโดนเลขระเบิด 💥 ตูม! หมดแก้ว!"
+    nbMax = "เลขสูงสุด"
+    nbEnter = "ใส่ตัวเลขแล้วกดตกลง!"
+    nbUp = "⬆️ UP! มากกว่านี้"
+    nbDown = "⬇️ DOWN! น้อยกว่านี้"
+    nbBoom = "💥 ตูม! เลขระเบิด"
+    nbOut = "ใส่เลขที่อยู่ในช่วง"
+    nbPass = "ส่งให้คนถัดไป 👉"
+    nbOk = "ตกลง"
+    blTitle = "เป่าลูกโป่ง"
+    blSub = "ไม่รู้จะแตกตอนไหน! ปัง!"
+    blDesc = "ส่งมือถือวนกันแล้วเป่าลมเข้าลูกโป่ง\nแต่ละคนแตะ 1–3 ครั้งแล้วส่งต่อ\nไม่มีใครรู้ว่าจะแตกตอนไหน ใครทำแตก 💥 หมดแก้ว!"
+    blTap = "แตะเพื่อเป่าลม (1–3 ครั้ง)"
+    blPumps = { "เป่าไปแล้ว $it ครั้ง" }
+    blPop = "💥 ปัง! แตกแล้ว!"
+    phTitle = "การ์ดประโยค"
+    phDesc = "เลือกภาษาที่จะให้ดู แล้วแตะประโยคเพื่อแสดงตัวใหญ่ ไม่มีเน็ตก็ใช้ได้"
+    phTo = "ภาษาที่จะให้ดู"
+    phrases = "ห้องน้ำอยู่ที่ไหน|เอาอันนี้|เช็คบิลด้วย|ราคาเท่าไหร่|ไม่เอาเผ็ด|ไม่ใส่ผักชี|ไม่ใส่น้ำแข็ง|ขอน้ำเปล่าหน่อย|ขอเบียร์อีกขวด|ใส่ถุงกลับบ้าน|จ่ายบัตรได้ไหม|ลดหน่อยได้ไหม|ขอใบเสร็จด้วย|ช่วยถ่ายรูปให้หน่อยได้ไหม|รหัสไวไฟคืออะไร|ร้านขายยาอยู่ที่ไหน|ช่วยด้วย!|แพ้ถั่วลิสง|ชนแก้ว! หมดแก้ว!|คืนนี้ยังอีกยาว!|ว้าว หน้าตาดีมากเลย!|ยังไม่เมา! (เมาแล้ว)|อันนี้แถมใช่ไหม?|มาเป็นเพื่อนกันนะ!|ให้ตายสิ!|เชี่ย! สุดยอด!|ชิบหายแล้ว…|ไอ้บ้า!|ขำฉิบหาย!|สวัสดี|ขอบคุณ|ขอโทษนะ|พูดช้าๆ หน่อยได้ไหม|ไปที่อยู่นี้|ไปสนามบิน|จอดตรงนี้|ใช้เวลานานเท่าไหร่|ขอเช็คอิน|ฝากกระเป๋าได้ไหม|ขอผ้าเช็ดตัวเพิ่ม|แอร์เสีย|ใช่ / ไม่ใช่|ไม่เป็นไร|ไม่เข้าใจ|พูดภาษาอังกฤษได้ไหม|ช่วยเขียนตรงนี้หน่อย|ยินดีที่ได้รู้จัก|ได้เลย!|ลาก่อน แล้วเจอกันนะ|ขอโทษจริงๆ|เป็นความผิดของฉันเอง|ไม่เป็นไร ขอบคุณ|ไม่ต้องการ|แค่ดูเฉยๆ|ไม่สนใจ|ไว้คราวหน้านะ|หยุดได้แล้ว!|สถานีอยู่ที่ไหน|อันนี้ไปที่นี่ไหม|ขอตั๋วหนึ่งใบ|เปิดมิเตอร์ด้วย|ขับช้าๆ หน่อย|รีบหน่อยนะ|เลี้ยวขวา|เลี้ยวซ้าย|ตรงไปเลย|อร่อยมาก!|ขอเมนูหน่อย|แนะนำเมนูไหนดี|ขอเช็คเอาท์|เช็คเอาท์กี่โมง|อาหารเช้ากี่โมง|ทำกุญแจห้องหาย|ไม่มีน้ำร้อน|ช่วยทำความสะอาดห้องด้วย|ขอโทรปลุกตอนเช้าด้วย|ขอเหล้าที่แรงที่สุด|มีกับแกล้มอะไรบ้าง|มาร้องเพลงกัน!|วันนี้ฉันเลี้ยงเอง!|จะอ้วกแล้ว…|อยากกลับบ้านแล้ว|ลองใส่ได้ไหม|มีไซส์ใหญ่กว่านี้ไหม|รับแต่เงินสดเหรอ|ตู้ ATM อยู่ที่ไหน|ขอชาร์จแบตหน่อยได้ไหม|ช่วยเรียกตำรวจหน่อย|ช่วยพาไปโรงพยาบาลหน่อย|พูดอะไรเนี่ย~|น่ารำคาญชะมัด!|แกนี่ตลกจริงๆ|ดื่มสิ ไอ้ขี้ขลาด!|ไปไกลๆ เลย! (ล้อเล่น)"
+    stTitle = "แบ่งจ่ายทริป"
+    stDesc = "แค่ใส่ว่าใครจ่ายไปเท่าไหร่ ตอนท้ายจะบอกว่าใครต้องโอนให้ใครเท่าไหร่ เก็บไว้ในมือถือเครื่องนี้เท่านั้น"
+    stPeople = "คนที่ไปด้วยกัน"
+    stAddPerson = "➕ คน"
+    stAmount = "จำนวนเงิน"
+    stMemo = "โน้ต (เช่น มื้อเย็น แท็กซี่)"
+    stPaidBy = "คนจ่าย"
+    stFor = "หารกับใคร"
+    stAdd = "➕ เพิ่มค่าใช้จ่าย"
+    stList = "ค่าใช้จ่าย"
+    stEmpty = "ยังไม่มีค่าใช้จ่าย"
+    stResult = "ผลการแบ่งจ่าย"
+    stEven = "พอดีเป๊ะ ไม่ต้องโอน 👍"
+    stTotal = { "รวม $it" }
+    stSpent = { "ส่วนที่ใช้ $it" }
+    stReset = "🗑️ ล้างทั้งหมด"
+    stResetAsk = "ล้างทั้งหมดจริงไหม?"
+
+    nbDazed = "มึนตึ้บ~ 😵‍💫"
+    phSpeak = "🔊 เปิดเสียง"
+    phNoVoice = "มือถือเครื่องนี้ไม่มีเสียงภาษานี้ ดาวน์โหลดได้ที่ ตั้งค่า → การอ่านออกเสียงข้อความ"
+    phFun = "😆 ประโยคฮาๆ"
+    phSwear = "🤬 คำด่าขำๆ (เฉพาะเพื่อนสนิท!)"
+    phCats = "👋 ทักทาย|🚕 เดินทาง|🍜 ร้านอาหาร|🏨 ที่พัก|🍻 บาร์|🛍️ ช้อปปิ้ง·ขอความช่วยเหลือ|🤬 คำด่า"
+
+
 }
 
 val ViStrings = Strings().apply {
@@ -2474,9 +2765,9 @@ val ViStrings = Strings().apply {
     menuWolf = "Trò chơi sói"
     menuWolfSub = "Răng sói · Sói chạy đua · Sói may rủi · Quay sói"
     menuLuck = "Trò may rủi"
-    menuLuckSub = "Leo thang · Vòng quay · Chuyền bom · Tung đồng xu · Plinko"
+    menuLuckSub = "Leo thang · Vòng quay · Chuyền bom · Tung đồng xu · Plinko · Bom số · Thổi bóng bay · Chọn ngón tay"
     menuBattle = "Trò đối kháng"
-    menuBattleSub = "Nối 4 · Chạm nhanh giành đất · Đấu đập tay · Cờ ba · Cờ năm"
+    menuBattleSub = "Cờ ba · Nối 4 · Cờ năm · Chạm nhanh giành đất · Đấu đập tay"
     fingerTitle = "Chọn ngón tay"
     fingerSub = "Đặt ngón tay rồi nhấc, sói lè lưỡi trêu!"
     fingerDesc = "Chọn số người bị chọn, rồi mỗi người đặt một ngón tay lên màn hình.\nKhi mọi người nhấc tay ra được 0,5 giây, sói sẽ hiện ra ở chỗ người bị chọn và lè lưỡi trêu."
@@ -2673,6 +2964,55 @@ val ViStrings = Strings().apply {
     hotelEditBtn = "✏️ Sửa chỗ ở"
     colorTurn = { "Lượt $it" }
     youAre = { "Bạn: $it" }
+    phraseBtn = "🗣️ Câu nói"
+    settleBtn = "🧾 Chia tiền"
+    nbTitle = "Bom số"
+    nbSub = "Né con số bom ẩn! UP · DOWN"
+    nbDesc = "Có một con số bom ẩn giữa 1 và số lớn nhất.\nLần lượt nhập một số. Nhỏ hơn bom → ⬆️ UP, lớn hơn → ⬇️ DOWN — khoảng số hẹp dần.\nAi chạm đúng số bom thì 💥 BÙM! Cạn ly!"
+    nbMax = "Số lớn nhất"
+    nbEnter = "Nhập số rồi bấm OK!"
+    nbUp = "⬆️ UP! Lớn hơn"
+    nbDown = "⬇️ DOWN! Nhỏ hơn"
+    nbBoom = "💥 BÙM! Số bom"
+    nbOut = "Chọn số trong khoảng"
+    nbPass = "Chuyền cho người kế tiếp 👉"
+    nbOk = "OK"
+    blTitle = "Thổi bóng bay"
+    blSub = "Không biết khi nào nổ! Bụp!"
+    blDesc = "Chuyền điện thoại và bơm bóng bay.\nMỗi người chạm 1–3 lần rồi chuyền đi.\nKhông ai biết khi nào bóng nổ. Ai làm nổ — 💥 cạn ly!"
+    blTap = "Chạm để bơm (1–3 lần)"
+    blPumps = { "Đã bơm $it lần" }
+    blPop = "💥 BỤP! Nổ rồi!"
+    phTitle = "Thẻ câu nói"
+    phDesc = "Chọn ngôn ngữ muốn đưa xem, chạm câu để hiện chữ to. Không cần mạng."
+    phTo = "Hiển thị bằng"
+    phrases = "Nhà vệ sinh ở đâu ạ?|Cho tôi cái này|Tính tiền ạ|Bao nhiêu tiền?|Đừng cho cay ạ|Không cho rau mùi ạ|Không đá ạ|Cho tôi xin nước|Cho thêm một bia nữa|Cho mang về ạ|Trả bằng thẻ được không?|Bớt chút được không?|Cho tôi hóa đơn|Chụp giúp tôi tấm ảnh được không?|Mật khẩu Wi-Fi là gì?|Nhà thuốc ở đâu ạ?|Cứu tôi với!|Tôi bị dị ứng đậu phộng|Dô! 100% nào!|Đêm nay còn dài!|Wow, bạn đẹp quá!|Tôi chưa say! (say rồi)|Cái này là tặng phải không ạ?|Làm bạn nhé!|Chết tiệt!|Vãi thật!|Đù…|Đồ ngốc!|Buồn cười vãi!|Xin chào|Cảm ơn|Xin lỗi|Làm ơn nói chậm thôi|Cho tôi đến địa chỉ này|Cho tôi ra sân bay|Dừng ở đây ạ|Mất bao lâu ạ?|Tôi muốn nhận phòng|Gửi hành lý được không?|Cho thêm khăn tắm ạ|Máy lạnh bị hỏng|Vâng / Không|Không sao đâu|Tôi không hiểu|Bạn nói tiếng Anh được không?|Làm ơn viết ra đây giúp tôi|Rất vui được gặp bạn|Được thôi!|Tạm biệt, hẹn gặp lại!|Tôi thật sự xin lỗi|Là lỗi của tôi|Không cần đâu, cảm ơn|Tôi không cần|Tôi chỉ xem thôi|Tôi không quan tâm|Để lần sau nhé|Làm ơn dừng lại!|Nhà ga ở đâu ạ?|Xe này có đi đến đây không?|Cho tôi một vé|Bật đồng hồ tính tiền giúp tôi|Làm ơn chạy chậm thôi|Làm ơn đi nhanh một chút|Rẽ phải ạ|Rẽ trái ạ|Đi thẳng ạ|Ngon quá!|Cho tôi xem thực đơn|Món nào ngon nhất ạ?|Tôi muốn trả phòng|Mấy giờ trả phòng ạ?|Bữa sáng lúc mấy giờ ạ?|Tôi làm mất chìa khóa phòng|Không có nước nóng|Làm ơn dọn phòng giúp tôi|Cho tôi đặt cuộc gọi báo thức|Cho tôi loại rượu mạnh nhất|Có đồ nhắm gì không?|Hát một bài đi!|Hôm nay tôi bao!|Tôi muốn ói quá…|Giờ tôi muốn về nhà|Tôi mặc thử được không?|Có cỡ lớn hơn không?|Chỉ nhận tiền mặt thôi à?|Cây ATM ở đâu ạ?|Tôi sạc điện thoại được không?|Làm ơn gọi cảnh sát|Làm ơn đưa tôi đến bệnh viện|Nói gì vậy trời~|Bực mình quá!|Mày hài thật đó|Uống đi, đồ nhát gan!|Biến đi! (đùa thôi)"
+    stTitle = "Chia tiền chuyến đi"
+    stDesc = "Chỉ cần nhập ai đã trả bao nhiêu — cuối cùng sẽ biết ai cần chuyển cho ai bao nhiêu. Chỉ lưu trên điện thoại này."
+    stPeople = "Người đi cùng"
+    stAddPerson = "➕ Người"
+    stAmount = "Số tiền"
+    stMemo = "Ghi chú (vd: ăn tối, taxi)"
+    stPaidBy = "Người trả"
+    stFor = "Chia cho"
+    stAdd = "➕ Thêm khoản chi"
+    stList = "Khoản chi"
+    stEmpty = "Chưa có khoản chi nào"
+    stResult = "Kết quả"
+    stEven = "Huề rồi, không cần chuyển 👍"
+    stTotal = { "Tổng $it" }
+    stSpent = { "Phần chi $it" }
+    stReset = "🗑️ Xóa hết"
+    stResetAsk = "Xóa hết thật chứ?"
+
+    nbDazed = "Choáng váng~ 😵‍💫"
+    phSpeak = "🔊 Phát âm"
+    phNoVoice = "Điện thoại này chưa có giọng đọc cho ngôn ngữ này. Có thể tải trong Cài đặt → Chuyển văn bản thành giọng nói."
+    phFun = "😆 Câu vui"
+    phSwear = "🤬 Chửi vui (chỉ với bạn thân!)"
+    phCats = "👋 Chào hỏi|🚕 Đi lại|🍜 Nhà hàng|🏨 Khách sạn|🍻 Quán nhậu|🛍️ Mua sắm·Giúp đỡ|🤬 Chửi vui"
+
+
 }
 
 fun stringsFor(lang: Lang): Strings = when (lang) {

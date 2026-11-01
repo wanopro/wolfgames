@@ -18,7 +18,7 @@ adb logcat -c
 prefs() {
   adb shell am force-stop $PKG
   L2=""; [ -n "$1" ] && L2="<string name=\\\"lang2\\\">$1</string>"
-  adb shell "run-as $PKG sh -c 'mkdir -p shared_prefs; echo \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\" standalone=\\\"yes\\\" ?><map><string name=\\\"lang\\\">ko</string>$L2<string name=\\\"seen_version\\\">1.6</string><string name=\\\"hotels_json\\\">[{&quot;name&quot;:&quot;Hotel Nikko Saigon&quot;,&quot;addr&quot;:&quot;235 Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh&quot;,&quot;phone&quot;:&quot;+84 28 3925 7777&quot;,&quot;note&quot;:&quot;편의점 옆&quot;},{&quot;name&quot;:&quot;두번째 숙소&quot;,&quot;addr&quot;:&quot;Bangkok Sukhumvit 11&quot;,&quot;phone&quot;:&quot;&quot;,&quot;note&quot;:&quot;&quot;}]</string></map>\" > shared_prefs/wolfgames.xml'"
+  adb shell "run-as $PKG sh -c 'mkdir -p shared_prefs; echo \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\" standalone=\\\"yes\\\" ?><map><string name=\\\"lang\\\">ko</string>$L2<string name=\\\"seen_version\\\">1.7</string><string name=\\\"hotels_json\\\">[{&quot;name&quot;:&quot;Hotel Nikko Saigon&quot;,&quot;addr&quot;:&quot;235 Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh&quot;,&quot;phone&quot;:&quot;+84 28 3925 7777&quot;,&quot;note&quot;:&quot;편의점 옆&quot;},{&quot;name&quot;:&quot;두번째 숙소&quot;,&quot;addr&quot;:&quot;Bangkok Sukhumvit 11&quot;,&quot;phone&quot;:&quot;&quot;,&quot;note&quot;:&quot;&quot;}]</string></map>\" > shared_prefs/wolfgames.xml'"
 }
 # 오목 칸 (i,j) → 천분율 좌표 (pixel_5 기준 대략)
 gx() { echo $(( 500 + ($1 - 7) * 63 )); }
@@ -47,12 +47,22 @@ run() { # $1 = 이름 앞글자
   for i in 2 3 4 5 6; do tap $(gx $i) $(gy 2); sleep 0.2; [ $i -lt 6 ] && { tap $(gx $i) $(gy 12); sleep 0.2; }; done
   sleep 1; shot ${P}15_gomoku_win
 }
-# 두 언어(한국어+태국어) 겹침 점검: 모든 화면 설정 → 시작 → 몇 번 눌러 보기
-prefs th
-for sc in Home DiceMenu LuckMenu RollDice ShutBox FiveDice D789 DiceDuel Reaction ColorReact Stopwatch Bomb Finger UpDown HoChiMinh Croc Ladder Roulette Race Pirate Arrow Four Tug Slap Beer Coin Kings Plinko Ttt Gomoku Calc Fx Hotel Changelog Language; do
-  open $sc; shot "t_${sc}_0"
-  open $sc true; sleep 1; shot "t_${sc}_1"
-  tap 500 750; sleep 0.3; tap 500 250; sleep 0.3; tap 500 515; sleep 3; shot "t_${sc}_2"
-done
+# v1.7 새 화면 점검 (한국어 → 한국어+태국어)
+v17() { local P=$1
+  open Home; shot ${P}_home
+  open LuckMenu; shot ${P}_luck; adb shell input swipe $(px 500) $(py 800) $(px 500) $(py 200) 300; sleep 1; shot ${P}_luck2
+  # 숫자 폭탄: 50 → 25 → 범위 밖 숫자
+  open NumberBomb; shot ${P}_nb0
+  open NumberBomb true; sleep 1; tapExact "1"; tapExact "확인"; sleep 0.6; shot ${P}_nb1; sleep 1.6; shot ${P}_nb2
+  # 풍선: 3번, 그다음 30번 (반드시 터짐)
+  open Balloon true; sleep 1; for i in 1 2 3; do tap 500 450; sleep 0.15; done; shot ${P}_bl1
+  for i in $(seq 1 30); do tap 500 450; sleep 0.08; done; sleep 1.2; shot ${P}_bl2
+  # 회화 카드: 목록 → 세 번째 문장 크게
+  open Phrase; shot ${P}_ph0; tapText "계산해"; sleep 1; shot ${P}_ph1; tapText "들려주기"; sleep 1.5; shot ${P}_ph2
+  # 정산: 빈 화면
+  open Settle; shot ${P}_st0
+}
+prefs ""; v17 k
+prefs th; v17 d
 adb logcat -d -b crash > out/crash.txt
 echo done >> out/log.txt

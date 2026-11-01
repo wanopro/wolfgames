@@ -343,7 +343,7 @@ private const val CFUR_D = "#7C8593"
 private const val CCREAM = "#F1EEE8"
 private const val CPINK = "#F6AFC0"
 
-private fun Ctx.coinWolfFace(r: Float) {
+fun Ctx.coinWolfFace(r: Float) {
     for (s in SIDES) {
         beginPath(); moveTo(s * r * 0.2f, -r * 0.42f); lineTo(s * r * 0.62f, -r * 0.92f); lineTo(s * r * 0.72f, -r * 0.22f); closePath(); fillStyle = CFUR_D; fill()
         beginPath(); moveTo(s * r * 0.34f, -r * 0.42f); lineTo(s * r * 0.58f, -r * 0.74f); lineTo(s * r * 0.62f, -r * 0.32f); closePath(); fillStyle = CPINK; fill()
@@ -403,4 +403,70 @@ fun Ctx.coinEdge(x: Float, y: Float, r: Float, wob: Float) {
     beginPath(); roundRect(-w / 2 + 3, -h + 6, w * 0.3f, h - 12, 3f); fillStyle = "rgba(255,240,190,.6)"; fill()
     restore()
     beginPath(); ellipse(x, y + 2, r * 0.5f, r * 0.1f, 0f, 0f, TAU); fillStyle = "rgba(0,0,0,.35)"; fill()
+}
+
+// ----- 숫자 폭탄: 폭탄 터진 뒤 그을린 늑대가 헤롱헤롱 (웹 dazed.js 와 같음) -----
+fun Ctx.dazedWolf(x: Float, y: Float, r: Float, t: Float) {
+    val fur = "#9AA3AF"; val dark = "#6E7784"; val light = "#F1EEE8"; val ink = "#2B2B33"; val pink = "#F6AFC0"
+    val wob = sin(t * 3.2f) * 0.2f; val bob = sin(t * 6.4f) * r * 0.03f
+    save(); translate(x, y + bob); rotate(wob)
+    for (k in 0 until 4) {
+        val u = (t * 0.5f + k / 4f) % 1f; val sx = sin(u * 6 + k) * r * 0.18f + (k - 1.5f) * r * 0.22f
+        globalAlpha = 0.5f * (1 - u); beginPath(); arc(sx, -r * 1.05f - u * r * 0.9f, r * (0.12f + u * 0.2f), 0f, TAU); fillStyle = "#8A8F99"; fill()
+    }
+    globalAlpha = 1f
+    for (k in 0 until 9) {
+        val a = -PIf * 0.95f + k * PIf * 0.9f / 8; val l = r * (0.95f + 0.12f * sin(k * 2.3f + t * 8))
+        beginPath(); moveTo(cos(a - 0.12f) * r * 0.6f, sin(a - 0.12f) * r * 0.6f - r * 0.05f); lineTo(cos(a) * l, sin(a) * l - r * 0.05f); lineTo(cos(a + 0.12f) * r * 0.6f, sin(a + 0.12f) * r * 0.6f - r * 0.05f); closePath()
+        fillStyle = if (k % 2 == 1) "#4A4F58" else "#5E646E"; fill()
+    }
+    for (sd in intArrayOf(-1, 1)) {
+        save(); translate(sd * r * 0.45f, -r * 0.5f); rotate(sd * (if (sd < 0) 0.25f else 1.1f + sin(t * 6) * 0.08f))
+        beginPath(); moveTo(-r * 0.2f, r * 0.1f); lineTo(0f, -r * 0.5f); lineTo(r * 0.2f, r * 0.1f); closePath(); fillStyle = dark; fill()
+        beginPath(); moveTo(-r * 0.1f, r * 0.04f); lineTo(0f, -r * 0.3f); lineTo(r * 0.1f, r * 0.04f); closePath(); fillStyle = pink; fill()
+        beginPath(); moveTo(-r * 0.07f, -r * 0.3f); lineTo(0f, -r * 0.5f); lineTo(r * 0.07f, -r * 0.3f); closePath(); fillStyle = "#26282D"; fill()
+        restore()
+    }
+    beginPath(); ellipse(0f, 0f, r * 0.78f, r * 0.7f, 0f, 0f, TAU); fillStyle = fur; fill()
+    for (sd in intArrayOf(-1, 1)) { beginPath(); moveTo(sd * r * 0.7f, r * 0.05f); lineTo(sd * r * 0.95f, r * 0.25f); lineTo(sd * r * 0.68f, r * 0.35f); closePath(); fillStyle = fur; fill() }
+    for (q in listOf(floatArrayOf(-0.35f, -0.3f, 0.22f, 0.13f), floatArrayOf(0.3f, 0.35f, 0.18f, 0.1f), floatArrayOf(0.4f, -0.15f, 0.12f, 0.08f), floatArrayOf(-0.15f, 0.45f, 0.14f, 0.07f))) {
+        beginPath(); ellipse(q[0] * r, q[1] * r, q[2] * r, q[3] * r, 0.4f, 0f, TAU); fillStyle = "rgba(30,30,35,.55)"; fill()
+    }
+    beginPath(); ellipse(0f, r * 0.3f, r * 0.4f, r * 0.3f, 0f, 0f, TAU); fillStyle = light; fill()
+    beginPath(); ellipse(r * 0.12f, r * 0.38f, r * 0.1f, r * 0.05f, 0f, 0f, TAU); fillStyle = "rgba(30,30,35,.35)"; fill()
+    for (sd in intArrayOf(-1, 1)) {
+        save(); translate(sd * r * 0.3f, -r * 0.08f)
+        beginPath(); arc(0f, 0f, r * 0.17f, 0f, TAU); fillStyle = "#fff"; fill()
+        rotate(t * 7 * sd); beginPath()
+        for (k in 0..40) { val a = k / 40f * PIf * 5; val rr = r * 0.15f * k / 40; if (k == 0) moveTo(0f, 0f) else lineTo(cos(a) * rr, sin(a) * rr) }
+        strokeStyle = ink; lineWidth = r * 0.035f; stroke(); restore()
+    }
+    beginPath(); ellipse(0f, r * 0.15f, r * 0.11f, r * 0.08f, 0f, 0f, TAU); fillStyle = ink; fill()
+    beginPath(); ellipse(-r * 0.03f, r * 0.12f, r * 0.03f, r * 0.02f, 0f, 0f, TAU); fillStyle = "rgba(255,255,255,.6)"; fill()
+    beginPath(); moveTo(-r * 0.18f, r * 0.42f); quadraticCurveTo(0f, r * 0.5f, r * 0.18f, r * 0.42f); strokeStyle = ink; lineWidth = r * 0.04f; stroke()
+    val tl = sin(t * 5) * r * 0.03f
+    beginPath(); ellipse(r * 0.08f, r * 0.58f + tl, r * 0.1f, r * 0.15f, 0.3f, 0f, TAU); fillStyle = "#F48FB1"; fill()
+    beginPath(); moveTo(r * 0.06f, r * 0.5f + tl); lineTo(r * 0.1f, r * 0.66f + tl); strokeStyle = "#D2668B"; lineWidth = r * 0.02f; stroke()
+    restore()
+    save(); translate(x, y + bob - r * 0.95f); rotate(wob * 0.6f)
+    for (k in 0 until 5) {
+        val a = t * 3 + k * PIf * 2 / 5; val ox = cos(a) * r * 0.95f; val oy = sin(a) * r * 0.22f; val front = sin(a) > 0
+        globalAlpha = if (front) 1f else 0.55f
+        if (k % 2 == 0) dzStar(ox, oy, r * (if (front) 0.13f else 0.1f), t * 4 + k) else dzBird(ox, oy, r * (if (front) 0.12f else 0.09f), t * 12 + k)
+    }
+    globalAlpha = 1f; restore()
+}
+private fun Ctx.dzStar(x: Float, y: Float, rr: Float, rot: Float) {
+    save(); translate(x, y); rotate(rot); beginPath()
+    for (k in 0 until 10) { val a = k * PIf / 5 - PIf / 2; val q = if (k % 2 == 1) rr * 0.45f else rr; if (k == 0) moveTo(cos(a) * q, sin(a) * q) else lineTo(cos(a) * q, sin(a) * q) }
+    closePath(); fillStyle = "#FFD740"; fill(); lineWidth = rr * 0.15f; strokeStyle = "#E0A000"; stroke(); restore()
+}
+private fun Ctx.dzBird(x: Float, y: Float, rr: Float, ph: Float) {
+    save(); translate(x, y)
+    beginPath(); ellipse(0f, 0f, rr, rr * 0.8f, 0f, 0f, TAU); fillStyle = "#81D4FA"; fill()
+    val w = sin(ph) * rr * 0.6f
+    beginPath(); moveTo(-rr * 0.2f, 0f); quadraticCurveTo(-rr * 0.6f, -rr * 0.4f - w, -rr * 1.1f, -rr * 0.2f - w); quadraticCurveTo(-rr * 0.6f, rr * 0.1f, -rr * 0.2f, 0f); fillStyle = "#4FC3F7"; fill()
+    beginPath(); arc(rr * 0.35f, -rr * 0.15f, rr * 0.14f, 0f, TAU); fillStyle = "#2B2B33"; fill()
+    beginPath(); moveTo(rr * 0.85f, 0f); lineTo(rr * 1.25f, rr * 0.1f); lineTo(rr * 0.85f, rr * 0.25f); closePath(); fillStyle = "#FFB300"; fill()
+    restore()
 }

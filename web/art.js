@@ -327,7 +327,7 @@ export function wolfPaw(ctx, x, y, s, band, flip, palm, red = 0) {
 
 const CGOLD = '#FFC94A', CGOLD_D = '#E0A021', CGOLD_DD = '#A86E0C', CFUR = '#9AA3AF', CFUR_D = '#7C8593', CCREAM = '#F1EEE8', CINK = '#2B2B33', CPINK = '#F6AFC0';
 // ----- 동전 앞면: 귀여운 늑대 얼굴 -----
-function wolfFace(c, r) {
+export function wolfFace(c, r) {
   for (const s of [-1, 1]) { // 귀
     c.beginPath(); c.moveTo(s * r * 0.2, -r * 0.42); c.lineTo(s * r * 0.62, -r * 0.92); c.lineTo(s * r * 0.72, -r * 0.22); c.closePath(); c.fillStyle = CFUR_D; c.fill();
     c.beginPath(); c.moveTo(s * r * 0.34, -r * 0.42); c.lineTo(s * r * 0.58, -r * 0.74); c.lineTo(s * r * 0.62, -r * 0.32); c.closePath(); c.fillStyle = CPINK; c.fill();

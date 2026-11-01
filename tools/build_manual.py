@@ -216,7 +216,7 @@ def game_shots(b, lang):
         pg.mouse.click(196, 420); pg.wait_for_timeout(900)
     shot('how-kings')
     # 손가락선택 (걸릴 인원 2명, 5명 터치)
-    home(); card(2); card(0); pg.click('.stepper button:last-of-type'); start(); pg.wait_for_timeout(300)
+    home(); card(3); card(7); pg.click('.stepper button:last-of-type'); start(); pg.wait_for_timeout(300)
     pts = [(1, 90, 230), (2, 290, 200), (3, 200, 420), (4, 100, 620), (5, 300, 650)]
     for i, x, y in pts:
         pg.dispatch_event('canvas', 'pointerdown', {'pointerId': i, 'clientX': x, 'clientY': y, 'bubbles': True}); pg.wait_for_timeout(60)
@@ -232,7 +232,7 @@ def game_shots(b, lang):
         area_tap(fx, fy, 60 + k); pg.wait_for_timeout(120)
     pg.wait_for_timeout(1100); shot('how-duel')
     # 반응속도 대결 (3명): 초록 → 모두 터치
-    home(); card(3); card(0); pg.locator('.stepper').first.locator('button').last.click(); start()
+    home(); card(2); card(0); pg.locator('.stepper').first.locator('button').last.click(); start()
     # 화면이 초록색으로 바뀔 때까지 기다림 (P1 영역 색 확인)
     for _ in range(80):
         g = pg.evaluate("(() => { const c = document.querySelector('canvas'); const d = c.getContext('2d').getImageData(c.width / 2, c.height * 0.95, 1, 1).data; return d[1] > 150 && d[0] < 120; })()")
@@ -243,40 +243,40 @@ def game_shots(b, lang):
         area_tap(fx, fy, 70 + k); pg.wait_for_timeout(90 + k * 60)
     pg.wait_for_timeout(400); shot('how-react')
     # 색 반응 대결 (2명): 색이 바뀌는 중
-    home(); card(3); card(1); start(); pg.wait_for_timeout(1800); shot('how-color')
+    home(); card(2); card(1); start(); pg.wait_for_timeout(1800); shot('how-color')
     # 스탑워치 (2명, 7초): 결과
-    home(); card(3); card(2); start(); pg.wait_for_timeout(3000 + 6880)
+    home(); card(2); card(2); start(); pg.wait_for_timeout(3000 + 6880)
     area_tap(0.5, 0.85, 80); pg.wait_for_timeout(430); area_tap(0.5, 0.15, 81); pg.wait_for_timeout(500); shot('how-stop')
     # 맥주 거품 채우기 (2명): 둘 다 멈춘 뒤
-    home(); card(3); card(3); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.5"); start(); pg.wait_for_timeout(4300)
+    home(); card(2); card(3); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.5"); start(); pg.wait_for_timeout(4300)
     area_tap(0.5, 0.85, 82); pg.wait_for_timeout(350); area_tap(0.5, 0.15, 83); pg.wait_for_timeout(900); shot('how-beer')
     pg.evaluate("Math.random = Math.__r")
     # 폭탄돌리기 (4명): 심지 타는 중
-    home(); card(5); card(2); start(); pg.wait_for_timeout(1500); shot('how-bomb')
+    home(); card(4); card(2); start(); pg.wait_for_timeout(1500); shot('how-bomb')
     # 동전 던지기 (4명): 결과 (앞면으로 고정)
-    home(); card(5); card(3); start(); pg.wait_for_timeout(300)
+    home(); card(4); card(3); start(); pg.wait_for_timeout(300)
     pg.evaluate("Math.__r = Math.random; Math.random = () => 0.3")
     for k, (fx, fy) in enumerate([(0.42, 0.86), (0.1, 0.42), (0.58, 0.14), (0.9, 0.58)]):
         area_tap(fx, fy, 84 + k); pg.wait_for_timeout(150)
     pg.evaluate("Math.random = Math.__r")
     pg.wait_for_timeout(3000 + 2400 + 900); shot('how-coin')
     # 늑대이빨 (당첨 2): 화면 가득 벌린 입에서 이빨 3개 누른 모습 (당첨은 0·1번으로 고정)
-    home(); card(4); card(0); pg.click('.stepper button:last-of-type')
+    home(); card(3); card(0); pg.click('.stepper button:last-of-type')
     pg.evaluate("Math.__r = Math.random; Math.random = () => 0.999"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(300)
     pts = pg.evaluate("document.querySelector('canvas').teethAt()"); bb = pg.query_selector('canvas').bounding_box()
     for k in [5, 9, 14]:
         pg.mouse.click(bb['x'] + pts[k][0], bb['y'] + pts[k][1]); pg.wait_for_timeout(150)
     pg.wait_for_timeout(500); shot('how-teeth')
     # 사다리 (5명)
-    home(); card(5); card(0); pg.locator('.stepper').first.locator('button').last.click(); start()
+    home(); card(4); card(0); pg.locator('.stepper').first.locator('button').last.click(); start()
     pg.locator('.lnums button').nth(0).click(); pg.wait_for_timeout(5300)
     pg.locator('.lnums button').nth(3).click(); pg.wait_for_timeout(2600); shot('how-ladder')
     # 돌림판
-    home(); card(5); card(1); start(); pg.locator('.row .btn').first.click(); pg.wait_for_timeout(5400); shot('how-roulette')
+    home(); card(4); card(1); start(); pg.locator('.row .btn').first.click(); pg.wait_for_timeout(5400); shot('how-roulette')
     # 늑대달리기 (5명)
-    home(); card(4); card(1); pg.locator('.stepper').first.locator('button').last.click(); start(); pg.locator('.btn').first.click(); pg.wait_for_timeout(2000 + 7800); shot('how-race')
+    home(); card(3); card(1); pg.locator('.stepper').first.locator('button').last.click(); start(); pg.locator('.btn').first.click(); pg.wait_for_timeout(2000 + 7800); shot('how-race')
     # 늑대 룰렛
-    home(); card(4); card(2)
+    home(); card(3); card(2)
     bb = pg.query_selector('canvas').bounding_box(); w, h = bb['width'], bb['height']; H = w / 0.9; oy = h - H
     for i in rnd.sample(range(20), 20):
         r, c = i // 5, i % 5; bl = 1 + 0.06 * math.sin(math.pi * (r + .5) / 4)
@@ -284,21 +284,21 @@ def game_shots(b, lang):
         if pg.query_selector('.h-title.win'): break
     pg.wait_for_timeout(1000); shot('how-pirate')
     # 늑대 돌리기 (도는 중)
-    home(); card(4); card(3); pg.locator('.btn').last.click(); pg.wait_for_timeout(1500); shot('how-arrow')
+    home(); card(3); card(3); pg.locator('.btn').last.click(); pg.wait_for_timeout(1500); shot('how-arrow')
     # 4목
-    home(); card(6); card(1)
+    home(); card(5); card(1)
     bb = pg.query_selector('canvas').bounding_box(); w, h = bb['width'], bb['height']; cell = min(w / 7, h / 7.15); left = (w - cell * 7) / 2
     for c in [3, 3, 4, 2, 2, 4, 5]:
         pg.mouse.click(bb['x'] + left + (c + .5) * cell, bb['y'] + h * .5); pg.wait_for_timeout(750)
     shot('how-four')
     # 탭 줄다리기: 아래(P1) 승리
-    home(); card(6); card(3); start(); pg.wait_for_timeout(1800)
+    home(); card(5); card(3); start(); pg.wait_for_timeout(1800)
     for k in range(34):
         area_tap(0.3 + (k % 5) * 0.1, 0.8, 100 + k); pg.wait_for_timeout(25)
         if k % 4 == 0: area_tap(0.6, 0.2, 200 + k); pg.wait_for_timeout(25)
     pg.wait_for_timeout(1100); shot('how-tug')
     # 슬랩 대결: 아래(P1) 공격, 위(P2) 수비 → 명중 순간
-    home(); card(6); card(4); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.1"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(400)
+    home(); card(5); card(4); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.1"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(400)
     area_tap(0.5, 0.25, 300); pg.wait_for_timeout(500); area_tap(0.5, 0.75, 301); pg.wait_for_timeout(330); shot('how-slap')
     # 계산기 → N빵 → 환전
     home(); pg.locator('.hero .chip').nth(1).click(); pg.wait_for_timeout(200)
@@ -318,8 +318,34 @@ def game_shots(b, lang):
     pg.evaluate("""localStorage.setItem('wg-hotels', JSON.stringify([{name: 'Hotel Nikko Saigon', addr: '235 Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh', phone: '+84 28 3925 7777', note: ''}, {name: 'Sukhumvit 11 Hostel', addr: 'Soi Sukhumvit 11, Khlong Toei Nuea, Bangkok', phone: '', note: ''}]))""")
     home(); pg.locator('.hero .chip').nth(3).click(); pg.wait_for_timeout(600); shot('how-hotel')
     pg.evaluate("localStorage.removeItem('wg-hotels')")
+    # 회화 카드: 술집 묶음, 보여줄 언어는 영어(영어면 한국어) → 큰 글씨 화면
+    pg.evaluate(f"localStorage.setItem('wg-ph-to', '{'ko' if lang == 'en' else 'en'}'); localStorage.setItem('wg-ph-cat', '4')")
+    home(); pg.locator('.hero .chip').nth(4).click(); pg.wait_for_timeout(500)
+    pg.locator('.phrow').nth(1).click(); pg.wait_for_timeout(400); shot('how-phrase')
+    pg.evaluate("localStorage.removeItem('wg-ph-to'); localStorage.removeItem('wg-ph-cat')")
+    # 여행 정산: 3명, 쓴 돈 3개 → 결과
+    pg.evaluate("localStorage.removeItem('wg-settle')")
+    home(); pg.locator('.hero .chip').nth(5).click(); pg.wait_for_timeout(500)
+    for amt, memo, by, tog in [('90000', '🍽️', 0, []), ('30000', '🚕', 1, []), ('12000', '🍺', 2, [0])]:
+        pg.fill('.stin >> nth=0', amt); pg.fill('.stin >> nth=1', memo)
+        pg.locator('.stcard .strow').nth(0).locator('.chip').nth(by).click()
+        for t in tog: pg.locator('.stcard .strow').nth(1).locator('.chip').nth(t).click()
+        pg.locator('.stcard > .btn').click(); pg.wait_for_timeout(150)
+    pg.evaluate("document.querySelector('.stres').scrollIntoView({block: 'center'})"); pg.wait_for_timeout(250); shot('how-settle')
+    pg.evaluate("localStorage.removeItem('wg-settle')")
+    # 숫자 폭탄 (1~100): 폭탄 42로 고정 → 두 번 맞춰보고 펑 → 헤롱헤롱 늑대
+    pg.evaluate("localStorage.setItem('wg-nb-max', '100')")
+    home(); card(4); card(5); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.41"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(300)
+    for n in ['50', '30', '42']:
+        for ch in n: pg.locator(f'.nbk:text-is("{ch}")').click()
+        pg.locator('.nbk.ok').click(); pg.wait_for_timeout(300)
+    pg.wait_for_timeout(2000); shot('how-nbomb')
+    # 풍선 불기: 14번 분 모습 (터지지 않게 고정)
+    home(); card(4); card(6); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.99"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(400)
+    for _ in range(14): pg.mouse.click(196, 430); pg.wait_for_timeout(90)
+    pg.wait_for_timeout(300); shot('how-balloon')
     # 플링코: 위쪽 터치 → 칸에 들어간 결과 (길은 고정)
-    home(); card(5); card(4); start(); pg.wait_for_timeout(500)
+    home(); card(4); card(4); start(); pg.wait_for_timeout(500)
     pg.evaluate("Math.__r = Math.random; Math.random = () => 0.37")
     bb = pg.query_selector('canvas').bounding_box(); pg.mouse.click(bb['x'] + bb['width'] * 0.42, bb['y'] + 40)
     pg.evaluate("Math.random = Math.__r")
@@ -328,20 +354,20 @@ def game_shots(b, lang):
         pg.wait_for_timeout(50)
     pg.wait_for_timeout(500); shot('how-plinko')
     # 삼목: 초록 0·8·6, 빨강 4·2·3 → 초록 차례 (0번 코인이 깜빡임)
-    home(); card(6); card(0); start(); pg.wait_for_timeout(1400)
+    home(); card(5); card(0); start(); pg.wait_for_timeout(1400)
     bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']; sz = min(W - 40, H - 190, 420); x0 = bb['x'] + (W - sz) / 2; y0 = bb['y'] + (H - sz) / 2; cl = sz / 3
     for k in [0, 4, 8, 2, 6, 3]:
         pg.mouse.click(x0 + (k % 3 + .5) * cl, y0 + (k // 3 + .5) * cl); pg.wait_for_timeout(180)
     pg.wait_for_timeout(250); shot('how-ttt')
     # 오목: 몇 수 둔 뒤
-    home(); card(6); card(2); start(); pg.wait_for_timeout(400)
+    home(); card(5); card(2); start(); pg.wait_for_timeout(400)
     bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']; sz = min(W - 16, H - 130, 640); x0 = bb['x'] + (W - sz) / 2; y0 = bb['y'] + (H - sz) / 2; pad = sz / 15.2 * 0.6; st = (sz - pad * 2) / 14
     for gx, gy in [(7, 7), (8, 8), (8, 7), (6, 7), (7, 6), (9, 9), (6, 8), (7, 9), (9, 6)]:
         pg.mouse.click(x0 + pad + gx * st, y0 + pad + gy * st); pg.wait_for_timeout(120)
     pg.wait_for_timeout(300); shot('how-gomoku')
     # 두 언어 같이 보기: 보조 언어(영어, 영어면 한국어)로 삼목 화면
     pg.evaluate(f"localStorage.setItem('wg-lang2', '{'ko' if lang == 'en' else 'en'}')")
-    home(); card(6); card(0); start(); pg.wait_for_timeout(1400)
+    home(); card(5); card(0); start(); pg.wait_for_timeout(1400)
     bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']; sz = min(W - 40, H - 190, 420); x0 = bb['x'] + (W - sz) / 2; y0 = bb['y'] + (H - sz) / 2; cl = sz / 3
     for k in [4, 0]:
         pg.mouse.click(x0 + (k % 3 + .5) * cl, y0 + (k // 3 + .5) * cl); pg.wait_for_timeout(180)

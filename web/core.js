@@ -1,7 +1,7 @@
 // 공통: 요소 생성, 진동, 화면 부품, 캔버스, 시간 기반 애니메이션
 import { STRINGS } from './i18n.js';
 
-export const VERSION = '1.6';
+export const VERSION = '1.7';
 
 export const C = {
   bg: '#12121A', surface: '#1E1E2A', surface2: '#2C2C3E', accent: '#FFB300',
@@ -38,7 +38,7 @@ export const lang = {
 // ---------- 두 언어 같이 보기 ----------
 // 문구를 "메인 SEP 보조" 로 묶어서 넘기고, 화면에 그릴 때 둘로 나눔 (같은 글씨 크기, 보조만 살짝 흐리게)
 export const SEP = '\u2063';
-const LISTS = { kcNames: '|', kcDescs: '|', plinkoSlots: '|', colorNames: ',', animalNames: ',' };
+const LISTS = { kcNames: '|', kcDescs: '|', plinkoSlots: '|', phrases: '|', phCats: '|', colorNames: ',', animalNames: ',' };
 const lead = (p, r) => { let i = 0; while (i < p.length && i < r.length && p[i] === r[i] && !/[\p{L}\p{N}]/u.test(p[i])) i++; return i; };
 export const join2 = (p, r) => { if (p === r || r == null) return p; const i = lead(p, r); return p + SEP + r.slice(i).trimStart(); };
 const part = (v, k) => (typeof v === 'string' && v.includes(SEP) ? v.split(SEP)[k] : v);
