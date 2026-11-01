@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>숫자 폭탄 — 헤롱헤롱 늑대 시안</title>
+<style>html,body{margin:0;background:#12121A;font-family:-apple-system,"Noto Sans KR",sans-serif}canvas{display:block;margin:0 auto}</style></head><body>
+<canvas id="c" width="390" height="780"></canvas>
+<script type="module">
+import { dazedWolf } from './dazed.js';
+const cv = document.getElementById('c'), c = cv.getContext('2d'), W = 390, H = 780, dpr = 2;
+cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px'; c.scale(dpr, dpr);
+const ease = (u) => 1 - Math.pow(1 - Math.min(1, Math.max(0, u)), 3);
+const T = (s, x, y, size, col, w = 900) => { c.font = `${w} ${size}px -apple-system,"Noto Sans KR",sans-serif`; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillStyle = col; c.fillText(s, x, y); };
+window.frame = (t) => {
+  c.fillStyle = '#12121A'; c.fillRect(0, 0, W, H);
+  T('←  숫자 폭탄', 70, 28, 18, '#fff', 700);
+  const cx = W / 2, cy = 250, R = 105, u = t % 3.6;
+  // 💥 → 연기 속에서 그을린 늑대 등장
+  if (u < 0.55) {
+    for (let k = 0; k < 18; k++) { const a = k / 18 * Math.PI * 2, d = ease(u / 0.55) * 150 * (0.6 + 0.3 * (k % 3)); c.beginPath(); c.arc(cx + Math.cos(a) * d, cy + Math.sin(a) * d, 10 - (k % 3) * 2, 0, 7); c.fillStyle = ['#FFD740', '#FF7043', '#FF3D5A'][k % 3]; c.fill(); }
+    T('💥', cx, cy, 200 * (0.6 + 0.4 * ease(u / 0.2)), '#fff');
+  } else {
+    const p = ease((u - 0.55) / 0.35);
+    c.save(); c.globalAlpha = p; c.translate(cx, cy); c.scale(0.7 + 0.3 * p, 0.7 + 0.3 * p); dazedWolf(c, 0, 0, R, t); c.restore();
+    c.globalAlpha = Math.max(0, 1 - (u - 0.55) / 0.5); c.beginPath(); c.arc(cx, cy, 160, 0, 7); c.fillStyle = '#9097A3'; c.fill(); c.globalAlpha = 1;
+    if (u > 1) T('헤롱헤롱~ 😵‍💫', cx + Math.sin(t * 3) * 6, cy + 175, 24, '#FFD740');
+  }
+  T('51 ~ 51', cx, 470, 44, '#FFB300');
+  T('💥 펑! 폭탄 숫자 51', cx, 525, 24, '#FF8A80');
+  T('💀 원샷!', cx, 565, 28, '#FF3D5A');
+  c.beginPath(); c.roundRect(40, 620, W - 80, 54, 16); c.fillStyle = '#FFB300'; c.fill(); T('다시 하기', cx, 647, 18, '#000', 800);
+  c.beginPath(); c.roundRect(40, 684, W - 80, 54, 16); c.fillStyle = '#2C2C3E'; c.fill(); T('다시', cx, 711, 18, '#fff', 800);
+};
+let t0 = performance.now(); const loop = () => { frame((performance.now() - t0) / 1000); requestAnimationFrame(loop); };
+if (!location.search.includes('still')) loop();
+</script></body></html>
