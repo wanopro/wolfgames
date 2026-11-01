@@ -273,3 +273,54 @@ canvas { display: block; touch-action: none; }
 .stepper .cbtn { width: auto; border-radius: 12px; font-size: 14px; }
 .stepper .cbtn:has(.dual) { height: auto; min-height: 44px; padding: 5px 6px; line-height: 1.2; }
 .h-title:has(.dual) { flex-direction: column; justify-content: center; height: auto !important; min-height: 54px; line-height: 1.2; }
+/* 🔢 숫자 폭탄 */
+.nb { padding: 8px 16px calc(12px + env(safe-area-inset-bottom)); gap: 6px; align-items: stretch; }
+.nb-art { position: relative; flex: 1; min-height: 120px; }
+.nb-range { text-align: center; font-size: 44px; font-weight: 900; color: var(--accent); letter-spacing: 1px; }
+.nb-msg { text-align: center; font-size: 17px; font-weight: 800; min-height: 24px; }
+.nb-msg.up { color: #69F0AE; } .nb-msg.down { color: #FF8A80; } .nb-msg.warn { color: #FFD740; }
+.nb-hist { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; min-height: 22px; }
+.nb-hist span { background: var(--surface); border-radius: 10px; padding: 2px 8px; font-size: 13px; font-weight: 700; }
+.nb-typed { text-align: center; font-size: 34px; font-weight: 900; background: var(--surface); border-radius: 14px; padding: 6px; }
+.nb-keys { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.nbk { height: 54px; border-radius: 14px; background: var(--surface2); color: var(--text); font-size: 24px; font-weight: 800; }
+.nbk.ok { background: var(--accent); color: #000; font-size: 18px; }
+.nbk:has(.dual) { height: auto; min-height: 54px; line-height: 1.15; }
+/* 🗣️ 회화 카드 */
+.phlangs { display: flex; flex-wrap: wrap; gap: 6px; }
+.phlangs .chip { margin-top: 0; }
+.chip.on { background: var(--accent); color: #000; }
+.phrow { display: flex; align-items: center; gap: 12px; background: var(--surface); border-radius: 14px; padding: 12px 14px; text-align: left; width: 100%; color: var(--text); }
+.phic { font-size: 26px; flex: none; }
+.phtx { display: flex; flex-direction: column; gap: 2px; font-size: 16px; }
+.phtx span { color: var(--sub); font-size: 15px; }
+.phfull { justify-content: center; gap: 14px; }
+.phbig-ic { font-size: 64px; margin-top: auto; }
+.phbig { font-size: 40px; font-weight: 900; text-align: center; line-height: 1.25; word-break: break-word; max-width: 600px; }
+.phsmall { font-size: 18px; color: #666; text-align: center; }
+.phfull .qrbar { margin-top: auto; }
+/* 🧾 여행 정산 */
+.stl { color: var(--sub); font-size: 14px; font-weight: 700; margin-top: 4px; }
+.strow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.strow .chip { margin-top: 0; }
+.stp { display: flex; align-items: center; background: var(--surface); border-radius: 12px; padding: 2px 4px 2px 8px; }
+.stname { width: 76px; background: transparent; border: 0; color: var(--text); font-size: 15px; font-weight: 700; padding: 6px 2px; }
+.stx { background: transparent; color: var(--sub); font-size: 15px; padding: 4px 8px; }
+.stcard { display: flex; flex-direction: column; gap: 8px; background: var(--surface); border-radius: 16px; padding: 12px; }
+.stin { background: var(--bg); border: 1px solid #333; border-radius: 10px; color: var(--text); padding: 10px; font-size: 16px; }
+.stres { background: #1F3A2C; border-radius: 16px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; }
+.stpay { display: flex; gap: 6px; align-items: center; font-size: 18px; }
+.stpay span { margin-left: auto; font-weight: 900; color: #69F0AE; }
+.stshare { color: var(--sub); font-size: 13px; line-height: 1.5; }
+.stex { display: flex; flex-wrap: wrap; align-items: center; background: var(--surface); border-radius: 12px; padding: 8px 4px 8px 12px; }
+.stex-t { flex: 1; font-size: 16px; }
+.stex-s { width: 100%; order: 3; color: var(--sub); font-size: 13px; }
+.nb-end { display: flex; flex-direction: column; gap: 8px; }
+.nb-shot { background: transparent !important; color: #FF3D5A; font-size: 26px !important; font-weight: 900; }
+.phspeak { margin-top: 8px; padding: 12px 26px; border-radius: 26px; background: #1565C0; color: #fff; font-size: 18px; font-weight: 800; border: 0; }
+.phspeak:has(.dual) { line-height: 1.2; }
+.phnote { color: #C62828; font-size: 14px; text-align: center; max-width: 420px; min-height: 18px; }
+.phhead { color: var(--accent); font-size: 15px; font-weight: 800; margin-top: 10px; }
+.phcats { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px 0 2px; }
+.phcats::-webkit-scrollbar { display: none; }
+.phcats .chip { margin-top: 0; flex: none; font-weight: 800; }

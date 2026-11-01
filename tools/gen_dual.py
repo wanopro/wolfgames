@@ -3,7 +3,7 @@ import re, pathlib
 root = pathlib.Path(__file__).resolve().parent.parent
 src = (root / 'app/src/main/java/com/wolfgames/app/i18n/Strings.kt').read_text()
 decl = re.findall(r'lateinit var (\w+): (.+)', src)
-LISTS = {'kcNames': '|', 'kcDescs': '|', 'plinkoSlots': '|', 'colorNames': ',', 'animalNames': ','}
+LISTS = {'kcNames': '|', 'kcDescs': '|', 'plinkoSlots': '|', 'phrases': '|', 'phCats': '|', 'colorNames': ',', 'animalNames': ','}
 lines = []
 for name, typ in decl:
     typ = typ.strip()
