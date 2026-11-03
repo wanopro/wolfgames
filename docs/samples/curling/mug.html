@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><title>늑대 맥주잔</title><style>html,body{margin:0;background:#12121A}</style></head><body><canvas id="c"></canvas>
+<script type="module">
+import { wolfMug } from './wolfmug.js';
+const cv = document.getElementById('c'), c = cv.getContext('2d'), W = 780, H = 420, dpr = 2;
+cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px'; c.scale(dpr, dpr);
+c.fillStyle = '#8D5A34'; c.fillRect(0, 300, W, 120); c.fillStyle = '#12121A'; c.fillRect(0, 0, W, 300);
+wolfMug(c, 160, 330, 150, '#FF5A6E', '1', 0); wolfMug(c, 410, 330, 150, '#4FC3F7', '2', 0.6); wolfMug(c, 650, 330, 150, '#FFD54F', '3', -0.6);
+</script></body></html>
