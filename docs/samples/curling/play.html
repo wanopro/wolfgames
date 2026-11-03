@@ -41,22 +41,16 @@ function stopped(p, y, label = true) {
 // 뒤로 당겼다가 놓기 (새총처럼): 당긴 길이 = 힘
 function pull(u, x, p, maxPull) {
   const k = ease(Math.min(1, u / 0.75)), d = k * maxPull, my = START + 40 + d;
-  const strong = d / 90;
   // 고무줄 기둥 + 줄
   for (const sx of [-1, 1]) { c.beginPath(); c.arc(x + sx * 58, START + 4, 7, 0, 7); c.fillStyle = '#5D4037'; c.fill(); }
   c.beginPath(); c.moveTo(x - 58, START + 4); c.lineTo(x - 26, my - 6); c.moveTo(x + 58, START + 4); c.lineTo(x + 26, my - 6);
   c.strokeStyle = '#FF7043'; c.lineWidth = 4; c.lineCap = 'round'; c.stroke();
   wolfMug(c, x, my, size(START), p.col, p.n, Math.sin(u * 30) * 0.3 * k);
-  // 날아갈 방향 화살표 (당길수록 길게)
-  c.setLineDash([6, 8]); c.beginPath(); c.moveTo(x, START - 60); c.lineTo(x, START - 60 - d * 2.6); c.strokeStyle = 'rgba(255,255,255,.55)'; c.lineWidth = 3; c.stroke(); c.setLineDash([]);
-  c.beginPath(); c.moveTo(x - 10, START - 50 - d * 2.6); c.lineTo(x, START - 66 - d * 2.6); c.lineTo(x + 10, START - 50 - d * 2.6); c.strokeStyle = 'rgba(255,255,255,.7)'; c.stroke();
+  // 날아갈 방향 화살표 (힘은 안 보여줌 — 길이 고정)
+  c.setLineDash([6, 8]); c.beginPath(); c.moveTo(x, START - 60); c.lineTo(x, START - 60 - 120 * k); c.strokeStyle = 'rgba(255,255,255,.55)'; c.lineWidth = 3; c.stroke(); c.setLineDash([]);
+  c.beginPath(); c.moveTo(x - 10, START - 50 - 120 * k); c.lineTo(x, START - 66 - 120 * k); c.lineTo(x + 10, START - 50 - 120 * k); c.strokeStyle = 'rgba(255,255,255,.7)'; c.stroke();
   // 손가락 (잔을 잡고 아래로)
   T('👆', x + 6, my + 30, 38, '#fff');
-  // 힘 막대
-  const bx = 22, by = START + 60, bh = 150;
-  c.beginPath(); c.roundRect(bx - 8, by - bh, 16, bh, 8); c.fillStyle = 'rgba(255,255,255,.15)'; c.fill();
-  c.beginPath(); c.roundRect(bx - 8, by - bh * strong, 16, bh * strong, 8); c.fillStyle = strong > 0.85 ? '#FF3D5A' : strong > 0.5 ? '#FFB300' : '#69F0AE'; c.fill();
-  T('💪', bx, by + 18, 18, '#fff');
 }
 window.frame = (t) => {
   t %= 9.8;
