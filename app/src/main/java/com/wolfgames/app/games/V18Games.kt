@@ -329,12 +329,20 @@ private class SimonGame(val vibe: Vibe) {
         text(s.smLevel(seq.size), w / 2, 38f, 30f, "#fff")
         val msg = when (phase) { 0 -> s.smWatch; 1 -> s.smGo; 2 -> s.smOk; else -> s.smWrong }
         val my = min(h - 110, l.y0 + l.p * 2 + l.gap + 34)
-        text(msg, w / 2, my, 22f, when (phase) { 3 -> "#FF5A6E"; 2 -> "#FFD740"; else -> "#fff" })
+        if (phase != 3) text(msg, w / 2, my, 22f, if (phase == 2) "#FFD740" else "#fff")
         if (phase == 1) {
             val n = seq.size; val dw = min(14f, (w - 40) / n)
             for (i in 0 until n) { beginPath(); arc(w / 2 + (i - (n - 1) / 2f) * dw, 74f, min(4f, dw * 0.35f), 0f, TAU); fillStyle = if (i < inp) "#FFD740" else "rgba(255,255,255,.25)"; fill() }
         }
-        if (phase == 3) { text(s.shotWord, w / 2, my + 40, 26f, "#FF5A6E"); if (t - pt > 1.2f) pill18(w, h, s.playAgain) }
+        if (phase == 3) { // ❌ 틀렸다! 가운데 크게
+            val u = t - pt; val k = 0.6f + 0.4f * ease18(u / 0.25f); val sh = if (u < 0.4f) sin(u * 60) * 8 * (1 - u / 0.4f) else 0f
+            val cy = l.y0 + l.p + l.gap / 2; val bw = min(w - 40, 300f); val bh = 210f
+            save(); translate(w / 2 + sh, cy); scale(k, k)
+            beginPath(); roundRect(-bw / 2, -bh / 2, bw, bh, 26f); fillStyle = "rgba(12,12,18,.9)"; fill(); strokeStyle = "#FF5A6E"; lineWidth = 4f; stroke()
+            text("❌", 0f, -bh / 2 + 52, 60f, "#fff"); text(s.smWrong.replace("❌ ", ""), 0f, 18f, 34f, "#FF5A6E"); text(s.shotWord, 0f, 66f, 30f, "#FFD740")
+            restore()
+            if (u > 1.2f) pill18(w, h, s.playAgain)
+        }
     }
 }
 

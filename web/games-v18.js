@@ -226,14 +226,19 @@ export function simon(root, back) {
       txt(c, s.smLevel(g.seq.length), W / 2, 38, 30, '#fff');
       const msg = g.phase === 'show' ? s.smWatch : g.phase === 'input' ? s.smGo : g.phase === 'ok' ? s.smOk : s.smWrong;
       const my = L.y0 + L.p * 2 + L.gap + 34;
-      txt(c, msg, W / 2, Math.min(H - 110, my), 22, g.phase === 'wrong' ? '#FF5A6E' : g.phase === 'ok' ? '#FFD740' : '#fff');
+      if (g.phase !== 'wrong') txt(c, msg, W / 2, Math.min(H - 110, my), 22, g.phase === 'ok' ? '#FFD740' : '#fff');
       if (g.phase === 'input') { // 진행 점
         const n = g.seq.length, dw = Math.min(14, (W - 40) / n);
         for (let i = 0; i < n; i++) { c.beginPath(); c.arc(W / 2 + (i - (n - 1) / 2) * dw, 74, Math.min(4, dw * 0.35), 0, Math.PI * 2); c.fillStyle = i < g.inp ? '#FFD740' : 'rgba(255,255,255,.25)'; c.fill(); }
       }
-      if (g.phase === 'wrong') {
-        txt(c, s.shotWord, W / 2, Math.min(H - 110, my) + 40, 26, '#FF5A6E');
-        if (t - g.pt > 1.2) pill(c, W, H, s.playAgain);
+      if (g.phase === 'wrong') { // ❌ 틀렸다! 가운데 크게
+        const u = t - g.pt, k = 0.6 + 0.4 * ease(u / 0.25), sh = u < 0.4 ? Math.sin(u * 60) * 8 * (1 - u / 0.4) : 0;
+        const cx = W / 2 + sh, cy = L.y0 + L.p + L.gap / 2, bw = Math.min(W - 40, 300), bh = 210;
+        c.save(); c.translate(cx, cy); c.scale(k, k);
+        c.beginPath(); c.roundRect(-bw / 2, -bh / 2, bw, bh, 26); c.fillStyle = 'rgba(12,12,18,.9)'; c.fill(); c.strokeStyle = '#FF5A6E'; c.lineWidth = 4; c.stroke();
+        txt(c, '❌', 0, -bh / 2 + 52, 60, '#fff'); txt(c, s.smWrong.replace(/❌\s*/g, ''), 0, 18, 34, '#FF5A6E'); txt(c, s.shotWord, 0, 66, 30, '#FFD740');
+        c.restore();
+        if (u > 1.2) pill(c, W, H, s.playAgain);
       }
     }, (x, y, t, W, H) => {
       if (g.phase === 'wrong') { if (t - g.pt > 1.2) { fresh(t); vibe.tap(); } return; }
