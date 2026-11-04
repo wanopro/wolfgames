@@ -43,7 +43,7 @@ const SLOT = []; ROWS.forEach((cnt, r) => { const y = ROWS.length === 1 ? 400 : 
 const slotX = (k) => SLOT[k].x, slotY = (k) => SLOT[k].y;
 const EAT = [...Array(N).keys()].filter((k) => k !== EMPTY), STEP = 1.6 / Math.max(1, EAT.length);
 // 섞기 순서 (고정): [a, b, 걸리는 시간]
-const SW = []; { let s = 7, d = 0.62; const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647); while (d > 0.1) { let a = Math.floor(rnd() * N), b = Math.floor(rnd() * (N - 1)); if (b >= a) b++; SW.push([a, b, d]); d *= 0.88; } for (let k = 0; k < 6; k++) { let a = Math.floor(rnd() * N), b = Math.floor(rnd() * (N - 1)); if (b >= a) b++; SW.push([a, b, 0.1]); } }
+const SW = []; { let s = 7, d = 0.62; const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647); while (d > 0.1) { let a = Math.floor(rnd() * N), b = Math.floor(rnd() * (N - 1)); if (b >= a) b++; SW.push([a, b, d]); d *= 0.92; } for (let k = 0; k < 12; k++) { let a = Math.floor(rnd() * N), b = Math.floor(rnd() * (N - 1)); if (b >= a) b++; SW.push([a, b, 0.1]); } }
 const SH0 = 3.0, SHT = SW.reduce((a, s) => a + s[2], 0), SH1 = SH0 + SHT;
 function slots(t) { // 늑대 k → (x, y)
   const pos = [...Array(N).keys()]; let tt = SH0;
@@ -62,7 +62,7 @@ function slots(t) { // 늑대 k → (x, y)
 }
 const PICK1 = EAT[0], PICK2 = EMPTY; // 1번 사람은 코인 늑대, 2번 사람은 빈 늑대를 고름
 window.frame = (t) => {
-  const L = SH1 + 5.2; t %= L;
+  const L = SH1 + 6.2; t %= L;
   c.fillStyle = '#12121A'; c.fillRect(0, 0, W, H);
   T('←  늑대 야바위', 76, 26, 18, '#fff', 700);
   const { out, fast } = slots(t);
@@ -83,11 +83,12 @@ window.frame = (t) => {
     if (t > P2 && k === PICK2) { open = Math.min(1, (t - P2) / 0.25); mood = -1; }
     if (fast && t >= SH0 && t < SH1) { c.globalAlpha = 0.25; yWolf(p.x + (Math.random() - 0.5) * 16, p.y + (Math.random() - 0.5) * 16, R, 0); c.globalAlpha = 1; }
     const bob = t > SH1 ? Math.sin(t * 5 + k) * 3 : 0;
-    yWolf(p.x, p.y + bob, R, open, mood, t);
+    const P2b = SH1 + 3.0, big = (k === PICK2 && t > P2b) ? 1 + 0.25 * Math.min(1, (t - P2b) / 0.3) + Math.sin(t * 10) * 0.03 : 1;
+    yWolf(p.x, p.y + bob, R * big, open, mood, t);
     // 입 안 코인
     if (t > P1 && k === PICK1) coin(c, p.x, p.y + R * 0.55 - Math.min(1, (t - P1) / 0.4) * 30, 16, 1);
     if (t > P1 && k === PICK1 && t > P1 + 0.3) T('✅', p.x, p.y - R * 1.75, 28, '#fff');
-    if (t > P2 && k === PICK2 && t > P2 + 0.3) T('💀', p.x, p.y - R * 1.75, 28, '#fff');
+    
   }
   // 날아가는 코인
   for (const k of EAT) {
@@ -100,14 +101,20 @@ window.frame = (t) => {
   if (t < SH0) msg = '🪙 냠! 코인 먹는 중… (한 마리는 굶음)';
   else if (t < SH1) msg = '🔀 섞는 중…'; else if (t < SH1 + 1.3) msg = '👆 1번 사람, 늑대를 골라요!';
   else if (t < SH1 + 3.0) { msg = '🪙 코인! 1번 통과 ✅'; msgC = '#69F0AE'; } else { msg = '💀 빈 입! 2번 원샷!'; msgC = '#FF5A6E'; }
-  T(msg, W / 2, H - 70, 18, msgC);
+  if (t > SH1 + 3.4) { // 💀 당첨! 크게
+    const u = t - SH1 - 3.4, k2 = 0.6 + 0.4 * Math.min(1, u / 0.25), sh = u < 0.4 ? Math.sin(u * 60) * 7 * (1 - u / 0.4) : 0;
+    c.save(); c.translate(W / 2 + sh, H - 120); c.scale(k2, k2);
+    c.beginPath(); c.roundRect(-165, -82, 330, 164, 26); c.fillStyle = 'rgba(12,12,18,.94)'; c.fill(); c.strokeStyle = '#FF5A6E'; c.lineWidth = 4; c.stroke();
+    T('💀 당첨!', 0, -34, 40, '#FF5A6E'); T('2번 원샷! 🍺', 0, 30, 34, '#FFD740');
+    c.restore();
+  } else T(msg, W / 2, H - 70, 18, msgC);
   // 손가락
   const P1 = SH1 + 1.3, P2 = SH1 + 3.0;
   for (const [tp, k] of [[P1, PICK1], [P2, PICK2]]) { const u = (tp - t) / 0.5; if (u >= 0 && u < 1) T('👆', out[k].x + 8, out[k].y + R * 1.6 + u * 40, 40, '#fff'); }
   // 사람 점
   for (let i = 0; i < N; i++) { const x = W / 2 + (i - (N - 1) / 2) * 34; c.beginPath(); c.arc(x, 66, 12, 0, 7); c.fillStyle = ['#FF5A6E', '#4FC3F7', '#FFD54F', '#69F0AE', '#BA68C8', '#FF9800'][i]; c.globalAlpha = (t > SH1 && ((t < P2 && i === 0) || (t >= P2 && i === 1))) ? 1 : 0.4; c.fill(); c.globalAlpha = 1; T(String(i + 1), x, 67, 12, '#000'); }
 };
-window.LOOP = SH1 + 5.2;
+window.LOOP = SH1 + 6.2;
 let t0 = performance.now(); const loop = () => { frame((performance.now() - t0) / 1000); requestAnimationFrame(loop); };
 if (!location.search.includes('still')) loop();
 </script></body></html>
