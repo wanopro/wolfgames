@@ -3,6 +3,32 @@
 # 각 항목: (이모지, 6개 언어 문장)
 
 CHANGELOG = [
+    dict(ver='1.8.1', date='2026-11-04', items=[
+        ('🔴', dict(
+            ko='🔴 따라 하기: 틀렸을 때 ❌ 틀렸다! · 💀 원샷을 화면 가운데에 크게 보여줘요',
+            en="🔴 Copy Me: a miss now shows ❌ Wrong! · 💀 Bottoms up big in the middle of the screen",
+            ja='🔴 まねっこ：間違えたら ❌ 間違い！・💀 一気 を画面の真ん中に大きく表示',
+            zh='🔴 跟着按：按错时会在屏幕中间大大地显示 ❌ 按错了！· 💀 干杯',
+            th='🔴 ทำตาม: กดผิดแล้วจะขึ้น ❌ ผิด! · 💀 หมดแก้ว ตัวใหญ่กลางจอ',
+            vi='🔴 Bắt chước: bấm sai sẽ hiện ❌ Sai rồi! · 💀 Cạn ly thật to ở giữa màn hình',
+        )),
+        ('🍺', dict(
+            ko='🍺 늑대컬링: 마지막 🏆 결과를 크게 — 순위 · 거리(cm) · 원샷할 사람이 한눈에',
+            en='🍺 Wolf Curling: the final 🏆 result is bigger — ranking, distance (cm) and who drinks at a glance',
+            ja='🍺 オオカミカーリング：最後の🏆結果を大きく — 順位・距離（cm）・飲む人がひと目で',
+            zh='🍺 狼冰壶：最后的 🏆 结果变大了 — 排名、距离（cm）和要喝的人一目了然',
+            th='🍺 เคิร์ลลิงหมาป่า: ผล 🏆 ตอนจบตัวใหญ่ขึ้น — อันดับ · ระยะ (cm) · ใครต้องดื่ม เห็นชัดในทีเดียว',
+            vi='🍺 Bi đá sói: kết quả 🏆 cuối ván to hơn — thứ hạng, khoảng cách (cm) và ai phải uống nhìn là thấy',
+        )),
+        ('🧾', dict(
+            ko='🧾 여행 정산 버튼을 메인 화면에서 빼고 🧮 계산기 안으로 옮겼어요 (메인 화면 정리)',
+            en='🧾 The Split bill button moved off the main screen into the 🧮 calculator (tidier main screen)',
+            ja='🧾 旅行の精算ボタンをメイン画面から🧮電卓の中へ移動（メイン画面をすっきり）',
+            zh='🧾 旅行结算按钮从主页移到 🧮 计算器里（主页更简洁）',
+            th='🧾 ย้ายปุ่มแบ่งจ่ายทริปจากหน้าหลักเข้าไปใน 🧮 เครื่องคิดเลข (หน้าหลักโล่งขึ้น)',
+            vi='🧾 Nút Chia tiền chuyến đi đã chuyển từ màn hình chính vào 🧮 máy tính (màn hình chính gọn hơn)',
+        )),
+    ]),
     dict(ver='1.8', date='2026-11-04', items=[
         ('🏗️', dict(
             ko='🏗️ 탑 쌓기 추가 (순발력게임): 좌우로 움직이는 블록을 터치해서 쌓고, 삐져나간 부분은 잘려요. 딱 맞으면 ✨PERFECT — 탑을 무너뜨린 사람이 마셔요',

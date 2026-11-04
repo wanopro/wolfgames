@@ -596,16 +596,22 @@ private class CurlingGame(val n: Int, val vibe: Vibe) {
             val fallen = (0 until n).filter { r[it] < 0 }
             val losers = if (fallen.isNotEmpty()) fallen else listOf((0 until n).maxByOrNull { r[it] }!!)
             val order = (0 until n).sortedWith(compareBy({ if (r[it] < 0) 1 else 0 }, { r[it] }))
-            val py = h * 0.42f
-            beginPath(); roundRect(18f, py, w - 36, 200f, 22f); fillStyle = "rgba(10,10,16,.9)"; fill()
-            text("🏆", w / 2, py + 30, 30f, "#fff")
-            val cw = min(70f, (w - 60) / n)
+            // 🏆 결과: 크게 (가운데)
+            val ph = 330f; val py = max(50f, h * 0.42f - ph / 2); val sc = 0.7f + 0.3f * ease18((t - doneT) / 0.3f)
+            fillStyle = "rgba(0,0,0,${0.5f * v})"; fillRect(0f, 0f, w, h)
+            save(); translate(w / 2, py + ph / 2); scale(sc, sc); translate(-w / 2, -(py + ph / 2))
+            beginPath(); roundRect(14f, py, w - 28, ph, 26f); fillStyle = "rgba(14,14,22,.96)"; fill(); strokeStyle = "#FFD740"; lineWidth = 3f; stroke()
+            text("🏆", w / 2, py + 46, 50f, "#fff")
+            val cw = min(96f, (w - 48) / n); val cr = min(26f, cw * 0.36f)
             order.forEachIndexed { j, k ->
-                val rx = w / 2 + (j - (n - 1) / 2f) * cw
-                beginPath(); arc(rx, py + 80, 15f, 0f, TAU); fillStyle = CU_COLS[k]; fill(); text("${k + 1}", rx, py + 81, 14f, "#000")
-                text(if (r[k] < 0) "💦" else (if (j == 0) "🥇" else "") + "${r[k]}", rx, py + 112, 13f, "#fff")
+                val rx = w / 2 + (j - (n - 1) / 2f) * cw; val ry = py + 140
+                if (j == 0 && r[k] >= 0) text("🥇", rx, ry - cr - 18, 26f, "#fff")
+                beginPath(); arc(rx, ry, cr, 0f, TAU); fillStyle = CU_COLS[k]; fill(); text("${k + 1}", rx, ry + 1, cr * 0.95f, "#000")
+                text(if (r[k] < 0) "💦" else "${r[k]}cm", rx, ry + cr + 22, if (r[k] < 0) 26f else 18f, "#fff")
             }
-            text(losers.joinToString(" · ") { "${it + 1}" } + " → " + s.shotWord, w / 2, py + 160, 22f, "#FF5A6E")
+            text(losers.joinToString(" · ") { "${it + 1}" } + " →", w / 2, py + 248, 34f, "#fff")
+            text(s.shotWord, w / 2, py + 292, 36f, "#FF5A6E")
+            restore()
             globalAlpha = 1f
             if (t - doneT > 1.2f) pill18(w, h, s.playAgain)
         }

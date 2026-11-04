@@ -474,12 +474,22 @@ export function curling(root, back) {
         const fallen = g.res.map((r, k) => (r < 0 ? k : -1)).filter((k) => k >= 0);
         const losers = fallen.length ? fallen : [g.res.reduce((b, r, k) => (r > g.res[b] ? k : b), 0)];
         const order = [...g.res.keys()].sort((a, b) => (g.res[a] < 0) - (g.res[b] < 0) || g.res[a] - g.res[b]);
-        const ph = 200, py = H * 0.42;
-        c.beginPath(); c.roundRect(18, py, W - 36, ph, 22); c.fillStyle = 'rgba(10,10,16,.9)'; c.fill();
-        txt(c, '🏆', W / 2, py + 30, 30, '#fff');
-        const cw = Math.min(70, (W - 60) / n);
-        order.forEach((k, j) => { const rx = W / 2 + (j - (n - 1) / 2) * cw; c.beginPath(); c.arc(rx, py + 80, 15, 0, 7); c.fillStyle = CU_COLS[k]; c.fill(); txt(c, String(k + 1), rx, py + 81, 14, '#000'); txt(c, g.res[k] < 0 ? '💦' : `${j === 0 ? '🥇' : ''}${g.res[k]}`, rx, py + 112, 13, '#fff', 800); });
-        txt(c, `${losers.map((k) => k + 1).join(' · ')} → ${s.shotWord}`, W / 2, py + 160, 22, '#FF5A6E');
+        // 🏆 결과: 크게 (가운데)
+        const ph = 330, py = Math.max(50, H * 0.42 - ph / 2), sc = 0.7 + 0.3 * ease((t - g.doneT) / 0.3);
+        c.save(); c.translate(W / 2, py + ph / 2); c.scale(sc, sc); c.translate(-W / 2, -(py + ph / 2));
+        c.fillStyle = `rgba(0,0,0,${0.5 * v})`; c.fillRect(-W, -H, W * 3, H * 3);
+        c.beginPath(); c.roundRect(14, py, W - 28, ph, 26); c.fillStyle = 'rgba(14,14,22,.96)'; c.fill(); c.strokeStyle = '#FFD740'; c.lineWidth = 3; c.stroke();
+        txt(c, '🏆', W / 2, py + 46, 50, '#fff');
+        const cw = Math.min(96, (W - 48) / n), cr = Math.min(26, cw * 0.36);
+        order.forEach((k, j) => {
+          const rx = W / 2 + (j - (n - 1) / 2) * cw, ry = py + 140;
+          if (j === 0 && g.res[k] >= 0) txt(c, '🥇', rx, ry - cr - 18, 26, '#fff');
+          c.beginPath(); c.arc(rx, ry, cr, 0, 7); c.fillStyle = CU_COLS[k]; c.fill(); txt(c, String(k + 1), rx, ry + 1, cr * 0.95, '#000');
+          txt(c, g.res[k] < 0 ? '💦' : `${g.res[k]}cm`, rx, ry + cr + 22, g.res[k] < 0 ? 26 : 18, '#fff', 800);
+        });
+        txt(c, `${losers.map((k) => k + 1).join(' · ')} →`, W / 2, py + 248, 34, '#fff');
+        txt(c, s.shotWord, W / 2, py + 292, 36, '#FF5A6E');
+        c.restore();
         c.globalAlpha = 1;
         if (t - g.doneT > 1.2) pill(c, W, H, s.playAgain);
       }
