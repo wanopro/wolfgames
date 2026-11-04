@@ -165,7 +165,7 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
             Screen.Croc, Screen.Race, Screen.Pirate, Screen.Arrow -> Screen.WolfMenu
             Screen.Ladder, Screen.Roulette, Screen.Bomb -> Screen.LuckMenu
             Screen.Four -> Screen.BattleMenu
-            Screen.Fx, Screen.Sizes, Screen.CalcSettle -> Screen.Calc
+            Screen.Fx, Screen.Sizes, Screen.CalcSettle, Screen.Settle -> Screen.Calc
             else -> Screen.Home
         }
     }
@@ -353,16 +353,6 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                             verticalAlignment = Alignment.CenterVertically,
                         ) {
                             Text(m.phraseBtn, color = WG.Text, fontSize = 14.sp)
-                        }
-                        Row(
-                            Modifier
-                                .clip(RoundedCornerShape(20.dp))
-                                .background(WG.Surface)
-                                .clickable { vibe.tap(); onSelect(Screen.Settle) }
-                                .padding(horizontal = 12.dp, vertical = 6.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Text(m.settleBtn, color = WG.Text, fontSize = 14.sp)
                         }
                     }
                 }
