@@ -325,7 +325,7 @@ def game_shots(b, lang):
     pg.evaluate("localStorage.removeItem('wg-ph-to'); localStorage.removeItem('wg-ph-cat')")
     # 여행 정산: 3명, 쓴 돈 3개 → 결과
     pg.evaluate("localStorage.removeItem('wg-settle')")
-    home(); pg.locator('.hero .chip').nth(5).click(); pg.wait_for_timeout(500)
+    home(); pg.locator('.hero .chip').nth(1).click(); pg.wait_for_timeout(400); pg.locator('.body.pad .btn').nth(3).click(); pg.wait_for_timeout(500)
     for amt, memo, by, tog in [('90000', '🍽️', 0, []), ('30000', '🚕', 1, []), ('12000', '🍺', 2, [0])]:
         pg.fill('.stin >> nth=0', amt); pg.fill('.stin >> nth=1', memo)
         pg.locator('.stcard .strow').nth(0).locator('.chip').nth(by).click()
@@ -366,8 +366,8 @@ def game_shots(b, lang):
         pg.mouse.click(x0 + pad + gx * st, y0 + pad + gy * st); pg.wait_for_timeout(120)
     pg.wait_for_timeout(300); shot('how-gomoku')
     # 🏗️ 탑 쌓기: 몇 층 쌓은 모습
-    home(); card(2); card(4); start(); pg.wait_for_timeout(600)
-    for k in range(6): pg.mouse.click(196, 500); pg.wait_for_timeout(520 + k * 60)
+    home(); card(2); card(4); start(); pg.wait_for_timeout(200)
+    for dt in [1000, 940, 890, 840, 795, 750]: pg.wait_for_timeout(dt); pg.mouse.click(196, 500)
     pg.wait_for_timeout(250); shot('how-tower')
     # 🔴 따라 하기: 첫 늑대가 반짝이는 순간
     home(); card(2); card(5); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.3"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(1000); shot('how-simon')

@@ -5,7 +5,7 @@ export const MANUAL = {
   "lead": "술자리 게임 모음 · 설치 안내",
   "navAndroid": "🤖 안드로이드 설치",
   "navIphone": "🍎 아이폰 홈 화면 추가",
-  "navNew": "🆕 v1.8 구성",
+  "navNew": "🆕 v1.8.1 구성",
   "navUpdate": "🔄 업데이트",
   "navFaq": "❓ 자주 묻는 질문",
   "qAndroid": "🤖 안드로이드 앱",
@@ -100,9 +100,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 메인 화면",
-  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.8</b>)을 확인할 수 있어요.",
-  "hNew": "🆕 v1.8 구성",
-  "newIntro": "울프 게임즈 v1.8에는 아래 게임과 기능이 들어 있어요.",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.8.1</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v1.8.1 구성",
+  "newIntro": "울프 게임즈 v1.8.1에는 아래 게임과 기능이 들어 있어요.",
   "newFeat": [
    "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🏗️ 탑 쌓기 · 🔴 따라 하기 · 🍺 늑대컬링 · ✂️ 폭탄 선 자르기 · 📏 사이즈 변환표 · 💰 중간 정산 · 📤 내보내기 · 🔄 업데이트 확인",
@@ -120,6 +120,9 @@ export const MANUAL = {
   ],
   "hChange": "🛠 최근 수정 내용",
   "changes": [
+   "🔴 따라 하기: 틀렸을 때 ❌ 틀렸다! · 💀 원샷을 화면 가운데에 크게 보여줘요",
+   "🍺 늑대컬링: 마지막 🏆 결과를 크게 — 순위 · 거리(cm) · 원샷할 사람이 한눈에",
+   "🧾 여행 정산 버튼을 메인 화면에서 빼고 🧮 계산기 안으로 옮겼어요 (메인 화면 정리)",
    "🏗️ 탑 쌓기 추가 (순발력게임): 좌우로 움직이는 블록을 터치해서 쌓고, 삐져나간 부분은 잘려요. 딱 맞으면 ✨PERFECT — 탑을 무너뜨린 사람이 마셔요",
    "🔴 따라 하기 추가 (순발력게임): 색 버튼 4개(●▲■★)가 소리와 함께 반짝인 순서를 돌아가며 똑같이 누르기 — 성공할 때마다 하나씩 늘어나고, 틀린 사람이 마셔요",
    "✂️ 폭탄 선 자르기 추가 (운빨게임): 폭탄에 달린 색깔 선(4·5·6·8개) 중 하나만 진짜 — 돌아가며 하나씩 자르고, 진짜 선을 자르면 💥 펑! 헤롱헤롱 늑대와 원샷",
@@ -127,7 +130,7 @@ export const MANUAL = {
    "🐺 따라 하기 버튼이 액세서리 늑대 4마리로: 😎 선글라스 · 🎀 리본 · 🧢 모자 · 👑 왕관 — 반짝일 때 폴짝 뛰면서 \"아우~\"",
    "📤 여행 정산 내보내기: 정산 기록을 엑셀(.csv)·메모장(.txt) 파일로 저장하거나 카톡 등으로 바로 공유 — 전부 지우기 전에 \"먼저 저장할래?\" 물어봐요",
    "💰 중간 정산: 보낼 돈을 100·500·1,000 단위로 반올림해서 받고(예: 5,900 → 6,000), 남은 차이는 다음 정산으로 자동으로 넘어가요",
-   "🧮 계산기에 🧾 정산 · 📏 사이즈 버튼 추가 — 사이즈 변환표: 신발(남·여) · 상의(남·여) · 바지 허리 · 반지를 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 기준으로, 내 사이즈 ⭐ 저장",
+   "🧮 계산기에 🧾 정산 · 📏 사이즈 버튼 추가 (메인 화면의 정산 버튼은 계산기 안으로 옮겼어요) — 사이즈 변환표: 신발(남·여) · 상의(남·여) · 바지 허리 · 반지를 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 기준으로, 내 사이즈 ⭐ 저장",
    "🔄 앱 안에서 업데이트 (안드로이드): 새 버전이 나오면 앱을 켤 때 알려주고, 누르면 받아서 설치 화면까지 열어줘요. 업데이트 내역 화면에서 직접 확인도 돼요",
    "🌏 넷 다 글자 없이 그림·색·숫자만으로 할 수 있어서 외국인 친구랑 같이 하기 좋아요"
   ],
@@ -358,7 +361,7 @@ export const MANUAL = {
     "<b>🔊 들려주기</b>를 누르면 그 나라 말로 읽어줘요. 문장 95개, 인터넷 없이 돼요 (음성은 휴대폰에 그 언어 음성이 있어야 해요)."
    ],
    [
-    "메인 화면 <b>🧾 정산</b> 버튼. 같이 간 사람 이름을 넣어요 (2~12명, ➕ 사람 · ✕ 빼기).",
+    "🧮 계산기 → <b>🧾 정산</b> 버튼. 같이 간 사람 이름을 넣어요 (2~12명, ➕ 사람 · ✕ 빼기).",
     "돈을 쓸 때마다 <b>금액 · 메모</b>를 넣고, <b>낸 사람</b>과 <b>같이 쓴 사람</b>을 고른 뒤 <b>➕ 쓴 돈 추가</b>.",
     "<b>정산 결과</b>에 \"A → B 얼마\"처럼 누가 누구한테 얼마 보내면 되는지 나와요 (사람별 쓴 몫도). 기록은 이 휴대폰에만 저장돼요. <b>💰 중간 정산</b>: 1,000원 단위 등으로 반올림해서 받고 남은 차이는 다음으로. <b>📤 내보내기</b>: 엑셀(.csv) · 메모장(.txt)으로 저장하거나 카톡으로 공유."
    ],
@@ -593,7 +596,7 @@ export const MANUAL = {
   "lead": "Drinking game collection · Install guide",
   "navAndroid": "🤖 Android install",
   "navIphone": "🍎 iPhone home screen",
-  "navNew": "🆕 What's in v1.8",
+  "navNew": "🆕 What's in v1.8.1",
   "navUpdate": "🔄 Updates",
   "navFaq": "❓ FAQ",
   "qAndroid": "🤖 Android app",
@@ -688,9 +691,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Main screen",
-  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.8</b>) is shown at the bottom.",
-  "hNew": "🆕 What's in v1.8",
-  "newIntro": "Wolf Games v1.8 includes these games and features.",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.8.1</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v1.8.1",
+  "newIntro": "Wolf Games v1.8.1 includes these games and features.",
   "newFeat": [
    "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🏗️ Tower Stack · 🔴 Copy Me · 🍺 Wolf Curling · ✂️ Cut the Wire · 📏 Size Chart · 💰 Settle now · 📤 Export · 🔄 Check for updates",
@@ -708,6 +711,9 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Latest changes",
   "changes": [
+   "🔴 Copy Me: a miss now shows ❌ Wrong! · 💀 Bottoms up big in the middle of the screen",
+   "🍺 Wolf Curling: the final 🏆 result is bigger — ranking, distance (cm) and who drinks at a glance",
+   "🧾 The Split bill button moved off the main screen into the 🧮 calculator (tidier main screen)",
    "🏗️ New Tower Stack (Quick Games): tap to drop the sliding block — overhangs get cut off, a perfect fit gets ✨PERFECT. Whoever topples the tower drinks",
    "🔴 New Copy Me (Quick Games): 4 color buttons (●▲■★) flash in order with sounds — take turns repeating it; it grows by one each time, and whoever misses drinks",
    "✂️ New Cut the Wire (Luck Games): only one of the bomb's colored wires (4·5·6·8) is real — take turns cutting one; cut the real one and 💥 BOOM, a dizzy wolf and a shot",
@@ -715,7 +721,7 @@ export const MANUAL = {
    "🐺 Copy Me buttons are now 4 wolves with accessories: 😎 sunglasses · 🎀 bow · 🧢 cap · 👑 crown — they hop and howl when they light up",
    "📤 Trip Split export: save the record as an Excel (.csv) or text (.txt) file, or share it straight to a messenger — \"Save first?\" before Clear all",
    "💰 Settle now: collect rounded amounts (100 · 500 · 1,000 — e.g. 5,900 → 6,000); the leftover difference carries over to the next settle-up automatically",
-   "🧮 Calculator gets 🧾 Split bill and 📏 Sizes buttons — Size Chart: shoes (men/women), tops (men/women), waist and rings in 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 sizes, ⭐ save yours",
+   "🧮 Calculator gets 🧾 Split bill and 📏 Sizes buttons (Split bill moved off the main screen into the calculator) — Size Chart: shoes (men/women), tops (men/women), waist and rings in 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 sizes, ⭐ save yours",
    "🔄 In-app update (Android): when a new version is out, the app tells you on launch, downloads it and opens the installer. You can also check from the update history screen",
    "🌏 All four work with pictures, colors and numbers only — no reading needed, great with friends from other countries"
   ],
@@ -946,7 +952,7 @@ export const MANUAL = {
     "Tap <b>🔊 Play sound</b> to hear it read aloud. 95 phrases, all offline (sound needs that language's voice on the phone)."
    ],
    [
-    "Tap <b>🧾 Split bill</b> on the main screen. Enter the travelers' names (2–12, ➕ Person · ✕ to remove).",
+    "🧮 Calculator → <b>🧾 Split bill</b> button. Enter the travelers' names (2–12, ➕ Person · ✕ to remove).",
     "For each expense, enter the <b>amount · note</b>, pick <b>Paid by</b> and <b>Split between</b>, then <b>➕ Add expense</b>.",
     "<b>Who pays whom</b> shows lines like \"A → B amount\" (plus everyone's share). Everything stays only on this phone. <b>💰 Settle now</b>: collect rounded amounts (e.g. to 1,000); the leftover carries over. <b>📤 Export</b>: save as Excel (.csv) / text (.txt) or share to a messenger."
    ],
@@ -1181,7 +1187,7 @@ export const MANUAL = {
   "lead": "飲み会ゲーム集 · インストール案内",
   "navAndroid": "🤖 Androidにインストール",
   "navIphone": "🍎 iPhoneのホーム画面に追加",
-  "navNew": "🆕 v1.8の内容",
+  "navNew": "🆕 v1.8.1の内容",
   "navUpdate": "🔄 アップデート",
   "navFaq": "❓ よくある質問",
   "qAndroid": "🤖 Androidアプリ",
@@ -1275,9 +1281,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 メイン画面",
-  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.8</b>）を確認できます。",
-  "hNew": "🆕 v1.8の内容",
-  "newIntro": "ウルフゲームズv1.8には次のゲームと機能が入っています。",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.8.1</b>）を確認できます。",
+  "hNew": "🆕 v1.8.1の内容",
+  "newIntro": "ウルフゲームズv1.8.1には次のゲームと機能が入っています。",
   "newFeat": [
    "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🏗️ タワー積み · 🔴 まねっこ · 🍺 オオカミカーリング · ✂️ 爆弾の線切り · 📏 サイズ換算表 · 💰 途中精算 · 📤 書き出し · 🔄 アップデート確認",
@@ -1295,6 +1301,9 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近の変更",
   "changes": [
+   "🔴 まねっこ：間違えたら ❌ 間違い！・💀 一気 を画面の真ん中に大きく表示",
+   "🍺 オオカミカーリング：最後の🏆結果を大きく — 順位・距離（cm）・飲む人がひと目で",
+   "🧾 旅行の精算ボタンをメイン画面から🧮電卓の中へ移動（メイン画面をすっきり）",
    "🏗️ タワー積み追加（反射神経ゲーム）：左右に動くブロックをタッチして積む。はみ出た部分は切れ、ぴったりなら✨PERFECT — 崩した人が飲む",
    "🔴 まねっこ追加（反射神経ゲーム）：4つの色ボタン（●▲■★）が音と一緒に光った順番を交代でまねして押す — 成功ごとに1つ増え、間違えた人が飲む",
    "✂️ 爆弾の線切り追加（運ゲーム）：爆弾の色の線（4・5・6・8本）のうち本物は1本 — 順番に1本ずつ切って、本物を切ったら💥ドカン！フラフラのオオカミと一気",
@@ -1302,7 +1311,7 @@ export const MANUAL = {
    "🐺 まねっこのボタンがアクセサリーをつけたオオカミ4匹に：😎 サングラス・🎀 リボン・🧢 帽子・👑 王冠 — 光るとぴょんと跳ねて「アオーン」",
    "📤 旅行の精算を書き出し：記録をExcel（.csv）・メモ帳（.txt）で保存、またはLINEなどでそのまま共有 — 全部消す前に「先に保存する？」と確認",
    "💰 途中精算：送るお金を100・500・1,000単位で丸めて受け取り（例：5,900 → 6,000）、残った差額は次の精算に自動で回ります",
-   "🧮 電卓に🧾精算・📏サイズボタンを追加 — サイズ換算表：靴（男・女）・トップス（男・女）・ウエスト・指輪を🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳で、自分のサイズを⭐保存",
+   "🧮 電卓に🧾精算・📏サイズボタンを追加（メイン画面の精算ボタンは電卓の中へ移動） — サイズ換算表：靴（男・女）・トップス（男・女）・ウエスト・指輪を🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳で、自分のサイズを⭐保存",
    "🔄 アプリ内アップデート（Android）：新しいバージョンが出たら起動時にお知らせ、押すとダウンロードしてインストール画面まで開きます。更新履歴画面から手動確認も可能",
    "🌏 4つとも文字なしで絵・色・数字だけで遊べるので、外国の友だちとも一緒に楽しめます"
   ],
@@ -1533,7 +1542,7 @@ export const MANUAL = {
     "<b>🔊 読み上げる</b>でその国の言葉で読み上げ。全95文、ネットなしでOK（音声はスマホにその言語の音声が必要）。"
    ],
    [
-    "メイン画面の<b>🧾 精算</b>ボタン。一緒に行く人の名前を入れます（2〜12人、➕ 人・✕ で削除）。",
+    "🧮 電卓 → <b>🧾 精算</b>ボタン。一緒に行く人の名前を入れます（2〜12人、➕ 人・✕ で削除）。",
     "お金を使うたびに<b>金額・メモ</b>を入れ、<b>払った人</b>と<b>一緒に使った人</b>を選んで<b>➕ 支出を追加</b>。",
     "<b>精算結果</b>に「A → B いくら」のように誰が誰にいくら送ればいいか表示（一人ずつの使った分も）。記録はこのスマホだけに保存。 <b>💰 途中精算</b>：1,000単位などに丸めて受け取り、残りの差額は次へ。<b>📤 書き出し</b>：Excel（.csv）・メモ帳（.txt）で保存、またはLINEなどで共有。"
    ],
@@ -1768,7 +1777,7 @@ export const MANUAL = {
   "lead": "酒桌游戏合集 · 安装说明",
   "navAndroid": "🤖 安卓安装",
   "navIphone": "🍎 iPhone添加到主屏幕",
-  "navNew": "🆕 v1.8内容",
+  "navNew": "🆕 v1.8.1内容",
   "navUpdate": "🔄 更新",
   "navFaq": "❓ 常见问题",
   "qAndroid": "🤖 安卓应用",
@@ -1862,9 +1871,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 主界面",
-  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.8</b>）。",
-  "hNew": "🆕 v1.8内容",
-  "newIntro": "沃夫游戏v1.8包含以下游戏和功能。",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.8.1</b>）。",
+  "hNew": "🆕 v1.8.1内容",
+  "newIntro": "沃夫游戏v1.8.1包含以下游戏和功能。",
   "newFeat": [
    "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🏗️ 叠高塔 · 🔴 跟着按 · 🍺 狼冰壶 · ✂️ 剪炸弹线 · 📏 尺码对照表 · 💰 中途结算 · 📤 导出 · 🔄 检查更新",
@@ -1882,6 +1891,9 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近修改",
   "changes": [
+   "🔴 跟着按：按错时会在屏幕中间大大地显示 ❌ 按错了！· 💀 干杯",
+   "🍺 狼冰壶：最后的 🏆 结果变大了 — 排名、距离（cm）和要喝的人一目了然",
+   "🧾 旅行结算按钮从主页移到 🧮 计算器里（主页更简洁）",
    "🏗️ 新增叠高塔（反应游戏）：点击放下左右移动的方块，超出的部分会被切掉，完全对准就 ✨PERFECT — 把塔弄倒的人喝",
    "🔴 新增跟着按（反应游戏）：4个彩色按钮（●▲■★）随声音按顺序亮起，大家轮流照着按 — 每次成功多一个，按错的人喝",
    "✂️ 新增剪炸弹线（运气游戏）：炸弹上的彩色线（4·5·6·8根）只有一根是真的 — 轮流剪一根，剪到真线就 💥 砰！晕乎乎的小狼和干杯",
@@ -1889,7 +1901,7 @@ export const MANUAL = {
    "🐺 跟着按的按钮变成戴配饰的4只狼：😎 墨镜 · 🎀 蝴蝶结 · 🧢 帽子 · 👑 皇冠 — 亮起时会跳一下“嗷呜~”",
    "📤 旅行结算导出：可存成 Excel（.csv）或文本（.txt），也能直接分享到聊天软件 — 全部清空前会问“先保存吗？”",
    "💰 中途结算：把要转的钱按100·500·1,000取整先收（如5,900 → 6,000），剩下的差额自动留到下次结算",
-   "🧮 计算器新增 🧾 结算 · 📏 尺码按钮 — 尺码对照表：鞋（男女）· 上衣（男女）· 裤腰 · 戒指，按 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 对照，⭐ 保存自己的尺码",
+   "🧮 计算器新增 🧾 结算 · 📏 尺码按钮（主页的结算按钮移到计算器里） — 尺码对照表：鞋（男女）· 上衣（男女）· 裤腰 · 戒指，按 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 对照，⭐ 保存自己的尺码",
    "🔄 应用内更新（安卓）：有新版本时启动就会提示，点一下就下载并打开安装界面。也可以在更新记录页手动检查",
    "🌏 这四个游戏只靠图案、颜色和数字就能玩，不用看字，和外国朋友一起玩也没问题"
   ],
@@ -2120,7 +2132,7 @@ export const MANUAL = {
     "点<b>🔊 朗读</b>就用那种语言读出来。共95句，没网也能用（朗读需要手机里有该语言的语音）。"
    ],
    [
-    "点主界面<b>🧾 结算</b>按钮。输入同行人的名字（2~12人，➕ 添加 · ✕ 删除）。",
+    "🧮 计算器 → <b>🧾 结算</b>按钮。输入同行人的名字（2~12人，➕ 添加 · ✕ 删除）。",
     "每次花钱都输入<b>金额 · 备注</b>，选好<b>付款人</b>和<b>一起分摊的人</b>，再点<b>➕ 添加支出</b>。",
     "<b>结算结果</b>会显示“A → B 多少钱”，告诉你谁该转给谁多少（还有每人应摊的钱）。记录只保存在这部手机里。 <b>💰 中途结算</b>：按1,000等单位取整先收，剩下的差额留到下次。<b>📤 导出</b>：存成 Excel（.csv）或文本（.txt），或分享到聊天软件。"
    ],
@@ -2355,7 +2367,7 @@ export const MANUAL = {
   "lead": "รวมเกมวงเหล้า · วิธีติดตั้ง",
   "navAndroid": "🤖 ติดตั้งบน Android",
   "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
-  "navNew": "🆕 มีอะไรใน v1.8",
+  "navNew": "🆕 มีอะไรใน v1.8.1",
   "navUpdate": "🔄 อัปเดต",
   "navFaq": "❓ คำถามที่พบบ่อย",
   "qAndroid": "🤖 แอป Android",
@@ -2449,9 +2461,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 หน้าหลัก",
-  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.8</b>) ได้ที่ด้านล่างสุด",
-  "hNew": "🆕 มีอะไรใน v1.8",
-  "newIntro": "Wolf Games v1.8 มีเกมและฟีเจอร์ต่อไปนี้",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.8.1</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v1.8.1",
+  "newIntro": "Wolf Games v1.8.1 มีเกมและฟีเจอร์ต่อไปนี้",
   "newFeat": [
    "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🏗️ ต่อตึก · 🔴 ทำตาม · 🍺 เคิร์ลลิงหมาป่า · ✂️ ตัดสายระเบิด · 📏 ตารางเทียบไซซ์ · 💰 เคลียร์ระหว่างทาง · 📤 ส่งออก · 🔄 ตรวจหาอัปเดต",
@@ -2469,6 +2481,9 @@ export const MANUAL = {
   ],
   "hChange": "🛠 การแก้ไขล่าสุด",
   "changes": [
+   "🔴 ทำตาม: กดผิดแล้วจะขึ้น ❌ ผิด! · 💀 หมดแก้ว ตัวใหญ่กลางจอ",
+   "🍺 เคิร์ลลิงหมาป่า: ผล 🏆 ตอนจบตัวใหญ่ขึ้น — อันดับ · ระยะ (cm) · ใครต้องดื่ม เห็นชัดในทีเดียว",
+   "🧾 ย้ายปุ่มแบ่งจ่ายทริปจากหน้าหลักเข้าไปใน 🧮 เครื่องคิดเลข (หน้าหลักโล่งขึ้น)",
    "🏗️ เพิ่มต่อตึก (เกมความไว): แตะปล่อยบล็อกที่เลื่อนไปมา ส่วนที่ล้นจะถูกตัด ถ้าตรงเป๊ะได้ ✨PERFECT — ใครทำตึกพังต้องดื่ม",
    "🔴 เพิ่มทำตาม (เกมความไว): ปุ่มสี 4 ปุ่ม (●▲■★) กะพริบตามลำดับพร้อมเสียง ผลัดกันกดตาม — ถูกแล้วลำดับยาวขึ้นทีละหนึ่ง ใครผิดต้องดื่ม",
    "✂️ เพิ่มตัดสายระเบิด (เกมดวง): สายสีของระเบิด (4·5·6·8 เส้น) มีสายจริงแค่เส้นเดียว — ผลัดกันตัดทีละเส้น ตัดโดนสายจริง 💥 ตูม! หมาป่ามึนตึ้บแล้วหมดแก้ว",
@@ -2476,7 +2491,7 @@ export const MANUAL = {
    "🐺 ปุ่มของทำตามกลายเป็นหมาป่า 4 ตัวใส่เครื่องประดับ: 😎 แว่นกันแดด · 🎀 โบว์ · 🧢 หมวก · 👑 มงกุฎ — กะพริบเมื่อไหร่จะกระโดดแล้วหอน \"อาวู~\"",
    "📤 ส่งออกแบ่งจ่ายทริป: บันทึกเป็นไฟล์ Excel (.csv) หรือข้อความ (.txt) หรือแชร์ไปแชทได้เลย — ก่อนล้างทั้งหมดจะถามว่า \"บันทึกก่อนไหม?\"",
    "💰 เคลียร์ระหว่างทาง: ปัดยอดโอนทีละ 100 · 500 · 1,000 (เช่น 5,900 → 6,000) ส่วนต่างที่เหลือยกไปรอบหน้าอัตโนมัติ",
-   "🧮 เครื่องคิดเลขเพิ่มปุ่ม 🧾 แบ่งจ่าย · 📏 ไซซ์ — ตารางเทียบไซซ์: รองเท้า (ชาย/หญิง) · เสื้อ (ชาย/หญิง) · เอว · แหวน ตาม 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 แล้ว ⭐ บันทึกไซซ์ของเรา",
+   "🧮 เครื่องคิดเลขเพิ่มปุ่ม 🧾 แบ่งจ่าย · 📏 ไซซ์ (ย้ายปุ่มแบ่งจ่ายจากหน้าหลักเข้าไปในเครื่องคิดเลข) — ตารางเทียบไซซ์: รองเท้า (ชาย/หญิง) · เสื้อ (ชาย/หญิง) · เอว · แหวน ตาม 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 แล้ว ⭐ บันทึกไซซ์ของเรา",
    "🔄 อัปเดตในแอป (Android): มีเวอร์ชันใหม่จะแจ้งตอนเปิดแอป แตะแล้วดาวน์โหลดและเปิดหน้าติดตั้งให้เลย ตรวจเองได้ที่หน้าประวัติอัปเดตด้วย",
    "🌏 ทั้ง 4 เกมเล่นได้ด้วยรูป สี และตัวเลขเท่านั้น ไม่ต้องอ่าน เล่นกับเพื่อนต่างชาติได้สบาย"
   ],
@@ -2707,7 +2722,7 @@ export const MANUAL = {
     "แตะ <b>🔊 เปิดเสียง</b> เพื่อฟังการอ่านออกเสียง มีทั้งหมด 95 ประโยค ไม่ต้องใช้เน็ต (เสียงต้องมีเสียงภาษานั้นในมือถือ)"
    ],
    [
-    "แตะปุ่ม <b>🧾 แบ่งจ่าย</b> ที่หน้าหลัก ใส่ชื่อคนที่ไปด้วยกัน (2–12 คน ➕ คน · ✕ เพื่อลบ)",
+    "🧮 เครื่องคิดเลข → ปุ่ม <b>🧾 แบ่งจ่าย</b> ใส่ชื่อคนที่ไปด้วยกัน (2–12 คน ➕ คน · ✕ เพื่อลบ)",
     "ทุกครั้งที่จ่ายเงิน ใส่<b>จำนวนเงิน · โน้ต</b> เลือก<b>คนจ่าย</b>และ<b>หารกับใคร</b> แล้วแตะ <b>➕ เพิ่มค่าใช้จ่าย</b>",
     "<b>ผลการแบ่งจ่าย</b>จะบอกเป็น \"A → B เท่าไหร่\" ว่าใครต้องโอนให้ใคร (พร้อมส่วนที่แต่ละคนใช้) ข้อมูลเก็บในมือถือเครื่องนี้เท่านั้น <b>💰 เคลียร์ระหว่างทาง</b>: ปัดเป็นหลัก 1,000 ฯลฯ แล้วเก็บก่อน ส่วนต่างยกไปรอบหน้า <b>📤 ส่งออก</b>: บันทึกเป็น Excel (.csv) / ข้อความ (.txt) หรือแชร์ไปแชท"
    ],
@@ -2942,7 +2957,7 @@ export const MANUAL = {
   "lead": "Bộ trò chơi nhậu · Hướng dẫn cài đặt",
   "navAndroid": "🤖 Cài trên Android",
   "navIphone": "🍎 Thêm vào MH chính iPhone",
-  "navNew": "🆕 Có gì trong v1.8",
+  "navNew": "🆕 Có gì trong v1.8.1",
   "navUpdate": "🔄 Cập nhật",
   "navFaq": "❓ Câu hỏi thường gặp",
   "qAndroid": "🤖 Ứng dụng Android",
@@ -3036,9 +3051,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Màn hình chính",
-  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.8</b>) hiện ở dưới cùng.",
-  "hNew": "🆕 Có gì trong v1.8",
-  "newIntro": "Wolf Games v1.8 gồm các trò chơi và tính năng sau.",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.8.1</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v1.8.1",
+  "newIntro": "Wolf Games v1.8.1 gồm các trò chơi và tính năng sau.",
   "newFeat": [
    "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🏗️ Xếp tháp · 🔴 Bắt chước · 🍺 Bi đá sói · ✂️ Cắt dây bom · 📏 Bảng quy đổi cỡ · 💰 Chốt giữa chừng · 📤 Xuất ra · 🔄 Kiểm tra cập nhật",
@@ -3056,6 +3071,9 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Thay đổi gần đây",
   "changes": [
+   "🔴 Bắt chước: bấm sai sẽ hiện ❌ Sai rồi! · 💀 Cạn ly thật to ở giữa màn hình",
+   "🍺 Bi đá sói: kết quả 🏆 cuối ván to hơn — thứ hạng, khoảng cách (cm) và ai phải uống nhìn là thấy",
+   "🧾 Nút Chia tiền chuyến đi đã chuyển từ màn hình chính vào 🧮 máy tính (màn hình chính gọn hơn)",
    "🏗️ Thêm Xếp tháp (Trò phản xạ): chạm để thả khối đang trượt — phần thò ra bị cắt, khớp hoàn hảo được ✨PERFECT. Ai làm đổ tháp thì uống",
    "🔴 Thêm Bắt chước (Trò phản xạ): 4 nút màu (●▲■★) nháy theo thứ tự kèm âm thanh — lần lượt bấm lại; mỗi lần đúng dài thêm một, ai sai thì uống",
    "✂️ Thêm Cắt dây bom (Trò may rủi): chỉ một trong các dây màu (4·5·6·8) của quả bom là thật — lần lượt cắt từng dây; cắt trúng dây thật là 💥 BÙM, sói choáng váng và cạn ly",
@@ -3063,7 +3081,7 @@ export const MANUAL = {
    "🐺 Nút của Bắt chước giờ là 4 chú sói đeo phụ kiện: 😎 kính râm · 🎀 nơ · 🧢 mũ lưỡi trai · 👑 vương miện — sáng lên là nhảy và hú \"Awoo~\"",
    "📤 Xuất Chia tiền chuyến đi: lưu thành tệp Excel (.csv) hoặc văn bản (.txt), hoặc chia sẻ ngay qua ứng dụng chat — trước khi Xóa hết sẽ hỏi \"Lưu trước nhé?\"",
    "💰 Chốt giữa chừng: làm tròn số tiền theo 100 · 500 · 1,000 rồi thu (vd 5,900 → 6,000), phần chênh lệch tự chuyển sang lần chốt sau",
-   "🧮 Máy tính có thêm nút 🧾 Chia tiền · 📏 Cỡ — Bảng quy đổi cỡ: giày (nam/nữ) · áo (nam/nữ) · vòng eo · nhẫn theo 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳, ⭐ lưu cỡ của bạn",
+   "🧮 Máy tính có thêm nút 🧾 Chia tiền · 📏 Cỡ (nút Chia tiền ở màn hình chính đã chuyển vào máy tính) — Bảng quy đổi cỡ: giày (nam/nữ) · áo (nam/nữ) · vòng eo · nhẫn theo 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳, ⭐ lưu cỡ của bạn",
    "🔄 Cập nhật trong ứng dụng (Android): có bản mới sẽ báo khi mở app, bấm là tải và mở màn hình cài đặt. Cũng có thể tự kiểm tra ở màn hình lịch sử cập nhật",
    "🌏 Cả bốn chỉ dùng hình, màu và số — không cần đọc chữ, chơi cùng bạn nước ngoài rất hợp"
   ],
@@ -3294,7 +3312,7 @@ export const MANUAL = {
     "Chạm <b>🔊 Phát âm</b> để nghe đọc to. 95 câu, không cần mạng (phát âm cần có giọng đọc của ngôn ngữ đó trên điện thoại)."
    ],
    [
-    "Chạm nút <b>🧾 Chia tiền</b> ở màn hình chính. Nhập tên những người đi cùng (2–12 người, ➕ Người · ✕ để bỏ).",
+    "🧮 Máy tính → nút <b>🧾 Chia tiền</b>. Nhập tên những người đi cùng (2–12 người, ➕ Người · ✕ để bỏ).",
     "Mỗi lần chi tiền, nhập <b>số tiền · ghi chú</b>, chọn <b>Người trả</b> và <b>Chia cho</b>, rồi chạm <b>➕ Thêm khoản chi</b>.",
     "<b>Kết quả</b> hiện dạng \"A → B bao nhiêu\" để biết ai chuyển cho ai bao nhiêu (kèm phần chi của từng người). Mọi thứ chỉ lưu trên điện thoại này. <b>💰 Chốt giữa chừng</b>: làm tròn (vd theo 1,000) rồi thu, phần chênh lệch chuyển sang lần sau. <b>📤 Xuất ra</b>: lưu Excel (.csv) / văn bản (.txt) hoặc chia sẻ qua chat."
    ],
