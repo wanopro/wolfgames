@@ -18,7 +18,7 @@ adb logcat -c
 prefs() {
   adb shell am force-stop $PKG
   L2=""; [ -n "$1" ] && L2="<string name=\\\"lang2\\\">$1</string>"
-  adb shell "run-as $PKG sh -c 'mkdir -p shared_prefs; echo \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\" standalone=\\\"yes\\\" ?><map><string name=\\\"lang\\\">ko</string>$L2<string name=\\\"seen_version\\\">1.7</string><string name=\\\"hotels_json\\\">[{&quot;name&quot;:&quot;Hotel Nikko Saigon&quot;,&quot;addr&quot;:&quot;235 Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh&quot;,&quot;phone&quot;:&quot;+84 28 3925 7777&quot;,&quot;note&quot;:&quot;편의점 옆&quot;},{&quot;name&quot;:&quot;두번째 숙소&quot;,&quot;addr&quot;:&quot;Bangkok Sukhumvit 11&quot;,&quot;phone&quot;:&quot;&quot;,&quot;note&quot;:&quot;&quot;}]</string></map>\" > shared_prefs/wolfgames.xml'"
+  adb shell "run-as $PKG sh -c 'mkdir -p shared_prefs; echo \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\" standalone=\\\"yes\\\" ?><map><string name=\\\"lang\\\">ko</string>$L2<string name=\\\"seen_version\\\">1.8</string><string name=\\\"hotels_json\\\">[{&quot;name&quot;:&quot;Hotel Nikko Saigon&quot;,&quot;addr&quot;:&quot;235 Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh&quot;,&quot;phone&quot;:&quot;+84 28 3925 7777&quot;,&quot;note&quot;:&quot;편의점 옆&quot;},{&quot;name&quot;:&quot;두번째 숙소&quot;,&quot;addr&quot;:&quot;Bangkok Sukhumvit 11&quot;,&quot;phone&quot;:&quot;&quot;,&quot;note&quot;:&quot;&quot;}]</string></map>\" > shared_prefs/wolfgames.xml'"
 }
 # 오목 칸 (i,j) → 천분율 좌표 (pixel_5 기준 대략)
 gx() { echo $(( 500 + ($1 - 7) * 63 )); }
@@ -47,22 +47,34 @@ run() { # $1 = 이름 앞글자
   for i in 2 3 4 5 6; do tap $(gx $i) $(gy 2); sleep 0.2; [ $i -lt 6 ] && { tap $(gx $i) $(gy 12); sleep 0.2; }; done
   sleep 1; shot ${P}15_gomoku_win
 }
-# v1.7 새 화면 점검 (한국어 → 한국어+태국어)
-v17() { local P=$1
-  open Home; shot ${P}_home
-  open LuckMenu; shot ${P}_luck; adb shell input swipe $(px 500) $(py 800) $(px 500) $(py 200) 300; sleep 1; shot ${P}_luck2
-  # 숫자 폭탄: 50 → 25 → 범위 밖 숫자
-  open NumberBomb; shot ${P}_nb0
-  open NumberBomb true; sleep 1; tapExact "1"; tapExact "확인"; sleep 0.6; shot ${P}_nb1; sleep 1.6; shot ${P}_nb2
-  # 풍선: 3번, 그다음 30번 (반드시 터짐)
-  open Balloon true; sleep 1; for i in 1 2 3; do tap 500 450; sleep 0.15; done; shot ${P}_bl1
-  for i in $(seq 1 30); do tap 500 450; sleep 0.08; done; sleep 1.2; shot ${P}_bl2
-  # 회화 카드: 목록 → 세 번째 문장 크게
-  open Phrase; shot ${P}_ph0; tapText "계산해"; sleep 1; shot ${P}_ph1; tapText "들려주기"; sleep 1.5; shot ${P}_ph2
-  # 정산: 빈 화면
-  open Settle; shot ${P}_st0
+# v1.8 새 화면 점검 (한국어 → 한국어+태국어): 탑 쌓기 · 따라 하기 · 폭탄 선 자르기
+v18() { local P=$1
+  open QuickMenu; shot ${P}_quick
+  open LuckMenu; adb shell input swipe $(px 500) $(py 800) $(px 500) $(py 200) 300; sleep 1; shot ${P}_luck
+  open Tower; shot ${P}_ts0
+  open Tower true; sleep 1; for i in 1 2 3 4 5 6; do tap 500 500; sleep 0.45; done; shot ${P}_ts1
+  for i in $(seq 1 25); do tap 500 500; sleep 0.25; done; sleep 2; shot ${P}_ts2
+  open Simon true; sleep 1.1; shot ${P}_sm1; sleep 1; tap 300 400; tap 700 400; sleep 0.4; shot ${P}_sm2
+  # 늑대컬링 (4명): 잔을 아래로 당겼다 놓기 — 약하게 · 세게(떨어짐)
+  open Curling; shot ${P}_cu0
+  open Curling true; sleep 1; shot ${P}_cu1
+  adb shell input swipe $(px 222) $(py 812) $(px 222) $(py 850) 600; sleep 3.5; shot ${P}_cu2
+  adb shell input swipe $(px 407) $(py 812) $(px 407) $(py 900) 600; sleep 1.2; shot ${P}_cu3; sleep 2.5
+  adb shell input swipe $(px 592) $(py 812) $(px 592) $(py 860) 600; sleep 3.5
+  adb shell input swipe $(px 777) $(py 812) $(px 777) $(py 840) 600; sleep 4; shot ${P}_cu4
+  # 계산기 → 사이즈 · 정산 (중간 정산 · 내보내기)
+  open Calc; shot ${P}_calc
+  open Sizes; tap 500 420; sleep 0.5; shot ${P}_sz
+  open Settle; sleep 1
+  tap 500 362; adb shell input text 35400; adb shell input keyevent 4; sleep 0.6; tapText "쓴 돈 추가"; sleep 0.6
+  tap 500 362; adb shell input text 12000; adb shell input keyevent 4; sleep 0.6; tap 260 548; sleep 0.3; tapText "쓴 돈 추가"; sleep 0.8; shot ${P}_st0
+  tapText "중간 정산"; sleep 1; shot ${P}_mid; tapText "받았어요"; sleep 1; tapText "내보내기"; sleep 1; shot ${P}_exp; tapText "취소"; sleep 0.5
+  adb shell input swipe $(px 500) $(py 800) $(px 500) $(py 200) 300; sleep 0.5; shot ${P}_st
+  open WireCut; shot ${P}_wc0
+  open WireCut true; sleep 1; tap 193 550; sleep 0.5; shot ${P}_wc1
+  for x in 316 439 561 684 807; do tap $x 550; sleep 0.4; done; sleep 1.6; shot ${P}_wc2
 }
-prefs ""; v17 k
-prefs th; v17 d
+prefs ""; v18 k
+prefs th; v18 d
 adb logcat -d -b crash > out/crash.txt
 echo done >> out/log.txt

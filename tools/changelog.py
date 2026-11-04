@@ -3,6 +3,88 @@
 # 각 항목: (이모지, 6개 언어 문장)
 
 CHANGELOG = [
+    dict(ver='1.8', date='2026-11-04', items=[
+        ('🏗️', dict(
+            ko='🏗️ 탑 쌓기 추가 (순발력게임): 좌우로 움직이는 블록을 터치해서 쌓고, 삐져나간 부분은 잘려요. 딱 맞으면 ✨PERFECT — 탑을 무너뜨린 사람이 마셔요',
+            en='🏗️ New Tower Stack (Quick Games): tap to drop the sliding block — overhangs get cut off, a perfect fit gets ✨PERFECT. Whoever topples the tower drinks',
+            ja='🏗️ タワー積み追加（反射神経ゲーム）：左右に動くブロックをタッチして積む。はみ出た部分は切れ、ぴったりなら✨PERFECT — 崩した人が飲む',
+            zh='🏗️ 新增叠高塔（反应游戏）：点击放下左右移动的方块，超出的部分会被切掉，完全对准就 ✨PERFECT — 把塔弄倒的人喝',
+            th='🏗️ เพิ่มต่อตึก (เกมความไว): แตะปล่อยบล็อกที่เลื่อนไปมา ส่วนที่ล้นจะถูกตัด ถ้าตรงเป๊ะได้ ✨PERFECT — ใครทำตึกพังต้องดื่ม',
+            vi='🏗️ Thêm Xếp tháp (Trò phản xạ): chạm để thả khối đang trượt — phần thò ra bị cắt, khớp hoàn hảo được ✨PERFECT. Ai làm đổ tháp thì uống',
+        )),
+        ('🔴', dict(
+            ko='🔴 따라 하기 추가 (순발력게임): 색 버튼 4개(●▲■★)가 소리와 함께 반짝인 순서를 돌아가며 똑같이 누르기 — 성공할 때마다 하나씩 늘어나고, 틀린 사람이 마셔요',
+            en='🔴 New Copy Me (Quick Games): 4 color buttons (●▲■★) flash in order with sounds — take turns repeating it; it grows by one each time, and whoever misses drinks',
+            ja='🔴 まねっこ追加（反射神経ゲーム）：4つの色ボタン（●▲■★）が音と一緒に光った順番を交代でまねして押す — 成功ごとに1つ増え、間違えた人が飲む',
+            zh='🔴 新增跟着按（反应游戏）：4个彩色按钮（●▲■★）随声音按顺序亮起，大家轮流照着按 — 每次成功多一个，按错的人喝',
+            th='🔴 เพิ่มทำตาม (เกมความไว): ปุ่มสี 4 ปุ่ม (●▲■★) กะพริบตามลำดับพร้อมเสียง ผลัดกันกดตาม — ถูกแล้วลำดับยาวขึ้นทีละหนึ่ง ใครผิดต้องดื่ม',
+            vi='🔴 Thêm Bắt chước (Trò phản xạ): 4 nút màu (●▲■★) nháy theo thứ tự kèm âm thanh — lần lượt bấm lại; mỗi lần đúng dài thêm một, ai sai thì uống',
+        )),
+        ('✂️', dict(
+            ko='✂️ 폭탄 선 자르기 추가 (운빨게임): 폭탄에 달린 색깔 선(4·5·6·8개) 중 하나만 진짜 — 돌아가며 하나씩 자르고, 진짜 선을 자르면 💥 펑! 헤롱헤롱 늑대와 원샷',
+            en='✂️ New Cut the Wire (Luck Games): only one of the bomb\'s colored wires (4·5·6·8) is real — take turns cutting one; cut the real one and 💥 BOOM, a dizzy wolf and a shot',
+            ja='✂️ 爆弾の線切り追加（運ゲーム）：爆弾の色の線（4・5・6・8本）のうち本物は1本 — 順番に1本ずつ切って、本物を切ったら💥ドカン！フラフラのオオカミと一気',
+            zh='✂️ 新增剪炸弹线（运气游戏）：炸弹上的彩色线（4·5·6·8根）只有一根是真的 — 轮流剪一根，剪到真线就 💥 砰！晕乎乎的小狼和干杯',
+            th='✂️ เพิ่มตัดสายระเบิด (เกมดวง): สายสีของระเบิด (4·5·6·8 เส้น) มีสายจริงแค่เส้นเดียว — ผลัดกันตัดทีละเส้น ตัดโดนสายจริง 💥 ตูม! หมาป่ามึนตึ้บแล้วหมดแก้ว',
+            vi='✂️ Thêm Cắt dây bom (Trò may rủi): chỉ một trong các dây màu (4·5·6·8) của quả bom là thật — lần lượt cắt từng dây; cắt trúng dây thật là 💥 BÙM, sói choáng váng và cạn ly',
+        )),
+        ('🍺', dict(
+            ko='🍺 늑대컬링 추가 (순발력게임): 늑대 모양 맥주잔을 뒤로 당겼다가 놓으면 테이블 위를 미끄러져요. 끝에 가까울수록 🥇, 끝을 넘으면 💦 떨어져서 원샷 (힘 게이지 없이 감으로!)',
+            en='🍺 New Wolf Curling (Quick Games): pull the wolf-shaped beer mug back and let go to slide it down the table. Closest to the edge gets 🥇, past it and it 💦 falls off — shot! (No power meter, go by feel!)',
+            ja='🍺 オオカミカーリング追加（反射神経ゲーム）：オオカミ形のジョッキを後ろに引いて放すとテーブルを滑ります。端に近いほど🥇、越えたら💦落ちて一気（パワーゲージなし、感覚で！）',
+            zh='🍺 新增狼冰壶（反应游戏）：把狼形啤酒杯往后拉再松手，它会在桌上滑行。离桌边越近越好 🥇，超过就 💦 掉下去要干杯（没有力度条，全凭手感！）',
+            th='🍺 เพิ่มเคิร์ลลิงหมาป่า (เกมความไว): ดึงแก้วเบียร์รูปหมาป่าลงแล้วปล่อยให้ไถลไปบนโต๊ะ ใกล้ขอบที่สุดได้ 🥇 เลยขอบจะ 💦 ตกแล้วต้องดื่ม (ไม่มีเกจแรง ใช้ความรู้สึก!)',
+            vi='🍺 Thêm Bi đá sói (Trò phản xạ): kéo cốc bia hình sói về sau rồi thả cho nó trượt trên bàn. Gần mép nhất được 🥇, vượt mép là 💦 rơi và phải uống (không có thanh lực, dựa vào cảm giác!)',
+        )),
+        ('🐺', dict(
+            ko='🐺 따라 하기 버튼이 액세서리 늑대 4마리로: 😎 선글라스 · 🎀 리본 · 🧢 모자 · 👑 왕관 — 반짝일 때 폴짝 뛰면서 "아우~"',
+            en='🐺 Copy Me buttons are now 4 wolves with accessories: 😎 sunglasses · 🎀 bow · 🧢 cap · 👑 crown — they hop and howl when they light up',
+            ja='🐺 まねっこのボタンがアクセサリーをつけたオオカミ4匹に：😎 サングラス・🎀 リボン・🧢 帽子・👑 王冠 — 光るとぴょんと跳ねて「アオーン」',
+            zh='🐺 跟着按的按钮变成戴配饰的4只狼：😎 墨镜 · 🎀 蝴蝶结 · 🧢 帽子 · 👑 皇冠 — 亮起时会跳一下“嗷呜~”',
+            th='🐺 ปุ่มของทำตามกลายเป็นหมาป่า 4 ตัวใส่เครื่องประดับ: 😎 แว่นกันแดด · 🎀 โบว์ · 🧢 หมวก · 👑 มงกุฎ — กะพริบเมื่อไหร่จะกระโดดแล้วหอน "อาวู~"',
+            vi='🐺 Nút của Bắt chước giờ là 4 chú sói đeo phụ kiện: 😎 kính râm · 🎀 nơ · 🧢 mũ lưỡi trai · 👑 vương miện — sáng lên là nhảy và hú "Awoo~"',
+        )),
+        ('📤', dict(
+            ko='📤 여행 정산 내보내기: 정산 기록을 엑셀(.csv)·메모장(.txt) 파일로 저장하거나 카톡 등으로 바로 공유 — 전부 지우기 전에 "먼저 저장할래?" 물어봐요',
+            en='📤 Trip Split export: save the record as an Excel (.csv) or text (.txt) file, or share it straight to a messenger — "Save first?" before Clear all',
+            ja='📤 旅行の精算を書き出し：記録をExcel（.csv）・メモ帳（.txt）で保存、またはLINEなどでそのまま共有 — 全部消す前に「先に保存する？」と確認',
+            zh='📤 旅行结算导出：可存成 Excel（.csv）或文本（.txt），也能直接分享到聊天软件 — 全部清空前会问“先保存吗？”',
+            th='📤 ส่งออกแบ่งจ่ายทริป: บันทึกเป็นไฟล์ Excel (.csv) หรือข้อความ (.txt) หรือแชร์ไปแชทได้เลย — ก่อนล้างทั้งหมดจะถามว่า "บันทึกก่อนไหม?"',
+            vi='📤 Xuất Chia tiền chuyến đi: lưu thành tệp Excel (.csv) hoặc văn bản (.txt), hoặc chia sẻ ngay qua ứng dụng chat — trước khi Xóa hết sẽ hỏi "Lưu trước nhé?"',
+        )),
+        ('💰', dict(
+            ko='💰 중간 정산: 보낼 돈을 100·500·1,000 단위로 반올림해서 받고(예: 5,900 → 6,000), 남은 차이는 다음 정산으로 자동으로 넘어가요',
+            en='💰 Settle now: collect rounded amounts (100 · 500 · 1,000 — e.g. 5,900 → 6,000); the leftover difference carries over to the next settle-up automatically',
+            ja='💰 途中精算：送るお金を100・500・1,000単位で丸めて受け取り（例：5,900 → 6,000）、残った差額は次の精算に自動で回ります',
+            zh='💰 中途结算：把要转的钱按100·500·1,000取整先收（如5,900 → 6,000），剩下的差额自动留到下次结算',
+            th='💰 เคลียร์ระหว่างทาง: ปัดยอดโอนทีละ 100 · 500 · 1,000 (เช่น 5,900 → 6,000) ส่วนต่างที่เหลือยกไปรอบหน้าอัตโนมัติ',
+            vi='💰 Chốt giữa chừng: làm tròn số tiền theo 100 · 500 · 1,000 rồi thu (vd 5,900 → 6,000), phần chênh lệch tự chuyển sang lần chốt sau',
+        )),
+        ('📏', dict(
+            ko='🧮 계산기에 🧾 정산 · 📏 사이즈 버튼 추가 — 사이즈 변환표: 신발(남·여) · 상의(남·여) · 바지 허리 · 반지를 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 기준으로, 내 사이즈 ⭐ 저장',
+            en="🧮 Calculator gets 🧾 Split bill and 📏 Sizes buttons — Size Chart: shoes (men/women), tops (men/women), waist and rings in 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 sizes, ⭐ save yours",
+            ja='🧮 電卓に🧾精算・📏サイズボタンを追加 — サイズ換算表：靴（男・女）・トップス（男・女）・ウエスト・指輪を🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳で、自分のサイズを⭐保存',
+            zh='🧮 计算器新增 🧾 结算 · 📏 尺码按钮 — 尺码对照表：鞋（男女）· 上衣（男女）· 裤腰 · 戒指，按 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 对照，⭐ 保存自己的尺码',
+            th='🧮 เครื่องคิดเลขเพิ่มปุ่ม 🧾 แบ่งจ่าย · 📏 ไซซ์ — ตารางเทียบไซซ์: รองเท้า (ชาย/หญิง) · เสื้อ (ชาย/หญิง) · เอว · แหวน ตาม 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 แล้ว ⭐ บันทึกไซซ์ของเรา',
+            vi='🧮 Máy tính có thêm nút 🧾 Chia tiền · 📏 Cỡ — Bảng quy đổi cỡ: giày (nam/nữ) · áo (nam/nữ) · vòng eo · nhẫn theo 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳, ⭐ lưu cỡ của bạn',
+        )),
+        ('🔄', dict(
+            ko='🔄 앱 안에서 업데이트 (안드로이드): 새 버전이 나오면 앱을 켤 때 알려주고, 누르면 받아서 설치 화면까지 열어줘요. 업데이트 내역 화면에서 직접 확인도 돼요',
+            en='🔄 In-app update (Android): when a new version is out, the app tells you on launch, downloads it and opens the installer. You can also check from the update history screen',
+            ja='🔄 アプリ内アップデート（Android）：新しいバージョンが出たら起動時にお知らせ、押すとダウンロードしてインストール画面まで開きます。更新履歴画面から手動確認も可能',
+            zh='🔄 应用内更新（安卓）：有新版本时启动就会提示，点一下就下载并打开安装界面。也可以在更新记录页手动检查',
+            th='🔄 อัปเดตในแอป (Android): มีเวอร์ชันใหม่จะแจ้งตอนเปิดแอป แตะแล้วดาวน์โหลดและเปิดหน้าติดตั้งให้เลย ตรวจเองได้ที่หน้าประวัติอัปเดตด้วย',
+            vi='🔄 Cập nhật trong ứng dụng (Android): có bản mới sẽ báo khi mở app, bấm là tải và mở màn hình cài đặt. Cũng có thể tự kiểm tra ở màn hình lịch sử cập nhật',
+        )),
+        ('🌏', dict(
+            ko='🌏 넷 다 글자 없이 그림·색·숫자만으로 할 수 있어서 외국인 친구랑 같이 하기 좋아요',
+            en='🌏 All four work with pictures, colors and numbers only — no reading needed, great with friends from other countries',
+            ja='🌏 4つとも文字なしで絵・色・数字だけで遊べるので、外国の友だちとも一緒に楽しめます',
+            zh='🌏 这四个游戏只靠图案、颜色和数字就能玩，不用看字，和外国朋友一起玩也没问题',
+            th='🌏 ทั้ง 4 เกมเล่นได้ด้วยรูป สี และตัวเลขเท่านั้น ไม่ต้องอ่าน เล่นกับเพื่อนต่างชาติได้สบาย',
+            vi='🌏 Cả bốn chỉ dùng hình, màu và số — không cần đọc chữ, chơi cùng bạn nước ngoài rất hợp',
+        )),
+    ]),
     dict(ver='1.7', date='2026-11-01', items=[
         ('🔢', dict(
             ko='🔢 숫자 폭탄 추가 (운빨게임): 숨은 폭탄 숫자를 피해 돌아가면서 숫자 입력 — ⬆️ UP · ⬇️ DOWN으로 범위가 좁아지고, 폭탄 숫자를 누르면 펑! 그을린 늑대가 헤롱헤롱 😵‍💫',

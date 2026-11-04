@@ -1,3 +1,4 @@
+import { SIZES } from './sizes.js';
 // 🧮 계산기 · 🍻 N빵 · 💱 환전
 import { C, S, h, btn, top, stepper, vibe, lang } from './core.js';
 
@@ -99,11 +100,14 @@ export function calculator(root, back, go) {
     b.addEventListener('click', () => press(k));
     pad.append(b);
   }
-  const actions = h('div', { class: 'row', style: 'margin-bottom:10px' },
+  const actions = h('div', { class: 'row', style: 'margin-bottom:8px' },
     btn(s.splitBtn, () => openSplit(root, calcValue()), 'btn alt accent-text'),
     btn(s.tipBtn, () => openTip(root, calcValue()), 'btn alt accent-text'),
     btn(s.fxBtn, () => go('fx'), 'btn alt accent-text'));
-  root.append(top(s.calcTitle, back), h('div', { class: 'body pad' }, disp, actions, pad));
+  const actions2 = h('div', { class: 'row', style: 'margin-bottom:10px' },
+    btn(s.settleBtn, () => go('settle'), 'btn alt accent-text'),
+    btn(s.szBtn, () => go('sizes'), 'btn alt accent-text'));
+  root.append(top(s.calcTitle, back), h('div', { class: 'body pad' }, disp, actions, actions2, pad));
   render();
 }
 
@@ -282,4 +286,24 @@ export function exchange(root, back) {
       h('a', { href: 'https://www.exchangerate-api.com', target: '_blank', rel: 'noopener', style: 'color:var(--sub)' }, 'Rates By Exchange Rate API')));
   draw();
   refresh(false);
+}
+
+// ---------- 📏 사이즈 변환표 ----------
+export function sizesScreen(root, back) {
+  const s = S();
+  let cat = 0; try { const v = +localStorage.getItem('wg-sz-cat'); if (v >= 0 && v < SIZES.length) cat = v; } catch (_) { /* 무시 */ }
+  const mine = (k) => { try { const v = localStorage.getItem('wg-sz-' + k); return v == null ? -1 : +v; } catch (_) { return -1; } };
+  const chips = h('div', { class: 'phcats' }), table = h('div', { class: 'sztab' });
+  const draw = () => {
+    chips.replaceChildren(...s.szCats.split('|').map((c, k) => btn(c, () => { cat = k; try { localStorage.setItem('wg-sz-cat', String(k)); } catch (_) { /* 무시 */ } vibe.tap(); draw(); }, 'chip' + (k === cat ? ' on' : ''))));
+    const t = SIZES[cat], my = mine(cat);
+    table.style.gridTemplateColumns = `repeat(${t.cols.length}, 1fr)`;
+    table.replaceChildren(...t.cols.map((c) => h('div', { class: 'szh' }, c)), ...t.rows.flatMap((r, i) => r.map((v, j) => {
+      const cell = h('div', { class: 'szc' + (i === my ? ' on' : '') }, j === 0 && i === my ? `⭐ ${v}` : v);
+      cell.addEventListener('click', () => { vibe.tap(); try { localStorage.setItem('wg-sz-' + cat, String(i === my ? -1 : i)); } catch (_) { /* 무시 */ } draw(); });
+      return cell;
+    })));
+  };
+  draw();
+  root.append(top(`📏 ${s.szTitle}`, back), h('div', { class: 'scroll', style: 'gap:10px' }, h('div', { class: 'desc' }, s.szDesc), chips, table));
 }

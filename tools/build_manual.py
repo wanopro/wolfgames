@@ -216,7 +216,7 @@ def game_shots(b, lang):
         pg.mouse.click(196, 420); pg.wait_for_timeout(900)
     shot('how-kings')
     # 손가락선택 (걸릴 인원 2명, 5명 터치)
-    home(); card(4); card(7); pg.click('.stepper button:last-of-type'); start(); pg.wait_for_timeout(300)
+    home(); card(4); card(8); pg.click('.stepper button:last-of-type'); start(); pg.wait_for_timeout(300)
     pts = [(1, 90, 230), (2, 290, 200), (3, 200, 420), (4, 100, 620), (5, 300, 650)]
     for i, x, y in pts:
         pg.dispatch_event('canvas', 'pointerdown', {'pointerId': i, 'clientX': x, 'clientY': y, 'bubbles': True}); pg.wait_for_timeout(60)
@@ -365,6 +365,33 @@ def game_shots(b, lang):
     for gx, gy in [(7, 7), (8, 8), (8, 7), (6, 7), (7, 6), (9, 9), (6, 8), (7, 9), (9, 6)]:
         pg.mouse.click(x0 + pad + gx * st, y0 + pad + gy * st); pg.wait_for_timeout(120)
     pg.wait_for_timeout(300); shot('how-gomoku')
+    # 🏗️ 탑 쌓기: 몇 층 쌓은 모습
+    home(); card(2); card(4); start(); pg.wait_for_timeout(600)
+    for k in range(6): pg.mouse.click(196, 500); pg.wait_for_timeout(520 + k * 60)
+    pg.wait_for_timeout(250); shot('how-tower')
+    # 🔴 따라 하기: 첫 늑대가 반짝이는 순간
+    home(); card(2); card(5); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.3"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(1000); shot('how-simon')
+    # 🍺 늑대컬링 (4명): 1·2번 던지고 3번이 당기는 중
+    home(); card(2); card(6); start(); pg.wait_for_timeout(600)
+    bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']
+    for i, pull in [(0, 48), (1, 62), (2, 55)]:
+        x = bb['x'] + W * 0.13 + W * 0.74 * (i + 0.5) / 4; y = bb['y'] + H - 150 + 30
+        pg.mouse.move(x, y); pg.mouse.down()
+        for k in range(1, 9): pg.mouse.move(x, y + pull * k / 8); pg.wait_for_timeout(25)
+        if i == 2: pg.wait_for_timeout(200); shot('how-curling'); pg.mouse.up(); break
+        pg.mouse.up(); pg.wait_for_timeout(3600)
+    # ✂️ 폭탄 선 자르기 (6개): 진짜 선은 마지막 → 두 개 자르고 "휴~"
+    pg.evaluate("localStorage.setItem('wg-wc-n', '6')")
+    home(); card(4); card(7); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.99"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(500)
+    bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']
+    for i in [1, 3]:
+        pg.mouse.click(bb['x'] + W * 0.1 + W * 0.8 * 0.04 + (i + 0.5) * (W * 0.8 * 0.92 / 6), bb['y'] + H * 0.55); pg.wait_for_timeout(500)
+    pg.wait_for_timeout(200); shot('how-wire')
+    # 📏 사이즈 변환표: 계산기 → 사이즈 → 신발 남, 270 줄 ⭐
+    home(); pg.locator('.hero .chip').nth(1).click(); pg.wait_for_timeout(400)
+    pg.locator('.body.pad .btn').nth(4).click(); pg.wait_for_timeout(400)
+    pg.locator('.szc').nth(6 * 5).click(); pg.wait_for_timeout(250); shot('how-sizes')
+    pg.evaluate("for (const k of Object.keys(localStorage)) if (k.startsWith('wg-sz')) localStorage.removeItem(k)")
     # 두 언어 같이 보기: 보조 언어(영어, 영어면 한국어)로 삼목 화면
     pg.evaluate(f"localStorage.setItem('wg-lang2', '{'ko' if lang == 'en' else 'en'}')")
     home(); card(5); card(0); start(); pg.wait_for_timeout(1400)

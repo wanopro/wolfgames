@@ -160,7 +160,7 @@ private fun press(k: String) {
 
 // ---------------- 🧮 계산기 ----------------
 @Composable
-fun CalculatorScreen(onBack: () -> Unit, onExchange: () -> Unit) {
+fun CalculatorScreen(onBack: () -> Unit, onExchange: () -> Unit, onSettle: () -> Unit = {}, onSizes: () -> Unit = {}) {
     val s = LocalStrings.current
     val vibe = LocalVibe.current
     var splitOpen by remember { mutableStateOf(false) }
@@ -183,10 +183,14 @@ fun CalculatorScreen(onBack: () -> Unit, onExchange: () -> Unit) {
                 }
                 Text(main, color = WG.Text, fontSize = if (main.length > 12) 34.sp else 52.sp, fontWeight = FontWeight.Light, textAlign = TextAlign.End)
             }
-            Row(Modifier.fillMaxWidth().padding(bottom = 10.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            Row(Modifier.fillMaxWidth().padding(bottom = 8.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 BigButton(s.splitBtn, Modifier.weight(1f), color = WG.Surface2, contentColor = WG.Accent) { splitAmount = null; splitOpen = true }
                 BigButton(s.tipBtn, Modifier.weight(1f), color = WG.Surface2, contentColor = WG.Accent) { tipOpen = true }
                 BigButton(s.fxBtn, Modifier.weight(1f), color = WG.Surface2, contentColor = WG.Accent) { onExchange() }
+            }
+            Row(Modifier.fillMaxWidth().padding(bottom = 10.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                BigButton(s.settleBtn, Modifier.weight(1f), color = WG.Surface2, contentColor = WG.Accent) { onSettle() }
+                BigButton(s.szBtn, Modifier.weight(1f), color = WG.Surface2, contentColor = WG.Accent) { onSizes() }
             }
             val keys = listOf("C", "⌫", "%", "÷", "7", "8", "9", "×", "4", "5", "6", "−", "1", "2", "3", "+", "00", "0", ".", "=")
             for (row in keys.chunked(4)) {
