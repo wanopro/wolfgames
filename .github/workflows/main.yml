@@ -39,6 +39,12 @@ jobs:
       - name: 파일 이름 정리
         run: cp app/build/outputs/apk/debug/app-debug.apk WolfGames.apk
 
+      - name: 앱 안 업데이트용 version.json
+        run: |
+          code=$(grep -oP 'versionCode = \K[0-9]+' app/build.gradle.kts); name=$(grep -oP 'versionName = "\K[^"]+' app/build.gradle.kts)
+          echo "{\"versionCode\": $code, \"versionName\": \"$name\", \"apk\": \"https://github.com/${{ github.repository }}/releases/latest/download/WolfGames.apk\"}" > version.json
+          cat version.json
+
       # 에뮬레이터에서 실제로 켜 보고, 켜지자마자 꺼지면 릴리스하지 않음
       - name: KVM 켜기
         run: |
@@ -95,4 +101,6 @@ jobs:
           make_latest: ${{ startsWith(steps.rel.outputs.tag, 'v') }}
           overwrite_files: true
           body_path: ${{ startsWith(steps.rel.outputs.tag, 'v') && 'RELEASE_NOTES.md' || '' }}
-          files: WolfGames.apk
+          files: |
+            WolfGames.apk
+            version.json

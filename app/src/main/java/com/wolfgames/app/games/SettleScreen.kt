@@ -1,6 +1,9 @@
 package com.wolfgames.app.games
 
 import android.content.Context
+import android.content.Intent
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -54,7 +57,7 @@ import kotlin.math.roundToLong
 
 // 🧾 여행 정산: 누가 얼마 냈는지 → 누가 누구한테 얼마 보내면 되는지 (이 휴대폰에만 저장) — 웹 settle.js 와 같음
 
-data class Expense(val amt: Double, val by: Int, val forWho: List<Int>, val memo: String)
+data class Expense(val amt: Double, val by: Int, val forWho: List<Int>, val memo: String, val at: String = "", val mid: Int = 0)
 data class Transfer(val from: Int, val to: Int, val amt: Double)
 
 /** 보낼 돈 계산 (큰 빚부터 큰 받을 돈에 맞춤) */
@@ -75,18 +78,57 @@ fun settleUp(n: Int, ex: List<Expense>): List<Transfer> {
 }
 fun fmtMoney(v: Double): String { val nf = NumberFormat.getInstance(); nf.maximumFractionDigits = 2; return nf.format((v * 100).roundToLong() / 100.0) }
 
+private fun today(): String = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(java.util.Date())
+val ST_UNITS = listOf(100, 500, 1000)
+/** 💰 중간 정산: 보낼 돈을 단위로 반올림 (0 은 뺌) */
+fun roundTransfers(out: List<Transfer>, unit: Int): List<Transfer> = out.map { it.copy(amt = Math.round(it.amt / unit).toDouble() * unit) }.filter { it.amt > 0 }
+private fun paidShare(n: Int, ex: List<Expense>): Pair<DoubleArray, DoubleArray> {
+    val paid = DoubleArray(n); val share = DoubleArray(n)
+    for (e in ex) { if (e.mid > 0) continue; if (e.by < n) paid[e.by] += e.amt; e.forWho.forEach { i -> if (i < n) share[i] += e.amt / e.forWho.size } }
+    return paid to share
+}
+/** 📝 메모장 글 (웹 settleText 와 같음) */
+fun settleText(people: List<String>, ex: List<Expense>, s: com.wolfgames.app.i18n.Strings): String {
+    val c = one(s.stCols).split('|'); val out = settleUp(people.size, ex); val (_, share) = paidShare(people.size, ex)
+    val total = ex.filter { it.mid == 0 }.sumOf { it.amt }
+    fun who(e: Expense) = if (e.forWho.size == people.size) "👥 " + people.joinToString(", ") else e.forWho.joinToString(", ") { people.getOrElse(it) { "?" } }
+    val l = arrayListOf("🧾 ${one(s.stTitle)} — ${today()}", "👥 ${one(s.stPeople)}: ${people.joinToString(", ")}", "", "[${one(s.stList)}]")
+    ex.forEachIndexed { k, e ->
+        l.add(if (e.mid > 0) "${k + 1}. ${if (e.at.isNotEmpty()) e.at + " " else ""}${e.memo}: ${people.getOrElse(e.by) { "?" }} → ${people.getOrElse(e.forWho.firstOrNull() ?: 0) { "?" }} ${fmtMoney(e.amt)}"
+              else "${k + 1}. ${if (e.at.isNotEmpty()) e.at + " " else ""}${e.memo.ifEmpty { "-" }}  ${fmtMoney(e.amt)}  (${c[4]} ${people.getOrElse(e.by) { "?" }} → ${who(e)})")
+    }
+    l.add(""); l.add("[${one(s.stTotal(fmtMoney(total)))}]"); l.add("${c[10]}: " + people.indices.joinToString(" · ") { "${people[it]} ${fmtMoney(share[it])}" }); l.add(""); l.add("[${one(s.stResult)}]")
+    if (out.isEmpty()) l.add(one(s.stEven)) else out.forEach { l.add("${people[it.from]} → ${people[it.to]}  ${fmtMoney(it.amt)}") }
+    l.add(""); l.add("— 🐺 Wolf Games")
+    return l.joinToString("\n")
+}
+/** 📊 엑셀(csv, 한글 안 깨지게 BOM) — 웹 settleCsv 와 같음 */
+fun settleCsv(people: List<String>, ex: List<Expense>, s: com.wolfgames.app.i18n.Strings): String {
+    val c = one(s.stCols).split('|'); val out = settleUp(people.size, ex); val (paid, share) = paidShare(people.size, ex)
+    fun q(v: Any): String { val t = v.toString(); return if (t.contains(',') || t.contains('"') || t.contains('\n')) "\"" + t.replace("\"", "\"\"") + "\"" else t }
+    fun num(v: Double): String { val r = Math.round(v * 100) / 100.0; return if (r == Math.floor(r)) r.toLong().toString() else r.toString() }
+    val rows = arrayListOf(listOf(c[0], c[1], c[2], c[3], c[4], c[5]))
+    ex.forEachIndexed { k, e -> rows.add(listOf("${k + 1}", e.at, e.memo, num(e.amt), people.getOrElse(e.by) { "?" }, e.forWho.joinToString(" / ") { people.getOrElse(it) { "?" } })) }
+    rows.add(emptyList()); rows.add(listOf(c[8], c[9], c[10]))
+    people.forEachIndexed { i, p -> rows.add(listOf(p, num(paid[i]), num(share[i]))) }
+    rows.add(listOf(c[11], num(paid.sum()), num(share.sum())))
+    rows.add(emptyList()); rows.add(listOf(c[6], c[7], c[3]))
+    out.forEach { rows.add(listOf(people[it.from], people[it.to], num(it.amt))) }
+    return "﻿" + rows.joinToString("\r\n") { r -> r.joinToString(",") { q(it) } }
+}
+
 private const val KEY = "settle_json"
 private fun load(ctx: Context): Pair<List<String>, List<Expense>> {
     val raw = ctx.getSharedPreferences("wolfgames", Context.MODE_PRIVATE).getString(KEY, null) ?: return listOf("P1", "P2", "P3") to emptyList()
     return try {
         val o = JSONObject(raw); val p = o.getJSONArray("people"); val e = o.getJSONArray("ex")
         val people = (0 until p.length()).map { p.getString(it) }
-        val ex = (0 until e.length()).map { val x = e.getJSONObject(it); val f = x.getJSONArray("for"); Expense(x.getDouble("amt"), x.getInt("by"), (0 until f.length()).map { k -> f.getInt(k) }, x.optString("memo")) }
+        val ex = (0 until e.length()).map { val x = e.getJSONObject(it); val f = x.getJSONArray("for"); Expense(x.getDouble("amt"), x.getInt("by"), (0 until f.length()).map { k -> f.getInt(k) }, x.optString("memo"), x.optString("at"), x.optInt("mid")) }
         if (people.size < 2) listOf("P1", "P2", "P3") to emptyList() else people to ex
     } catch (_: Exception) { listOf("P1", "P2", "P3") to emptyList() }
 }
 private fun save(ctx: Context, people: List<String>, ex: List<Expense>) {
-    val o = JSONObject().put("people", JSONArray(people)).put("ex", JSONArray(ex.map { JSONObject().put("amt", it.amt).put("by", it.by).put("for", JSONArray(it.forWho)).put("memo", it.memo) }))
+    val o = JSONObject().put("people", JSONArray(people)).put("ex", JSONArray(ex.map { JSONObject().put("amt", it.amt).put("by", it.by).put("for", JSONArray(it.forWho)).put("memo", it.memo).put("at", it.at).put("mid", it.mid) }))
     ctx.getSharedPreferences("wolfgames", Context.MODE_PRIVATE).edit().putString(KEY, o.toString()).apply()
 }
 
@@ -116,10 +158,18 @@ fun SettleScreen(onBack: () -> Unit) {
     var amt by remember { mutableStateOf("") }
     var memo by remember { mutableStateOf("") }
     var ask by remember { mutableStateOf(false) }
+    var showExport by remember { mutableStateOf(false) }
+    var showMid by remember { mutableStateOf(false) }
+    var saved by remember { mutableStateOf("") }
+    val prefs = remember { ctx.getSharedPreferences("wolfgames", Context.MODE_PRIVATE) }
+    var unit by remember { mutableIntStateOf(prefs.getInt("st_unit", 1000).let { if (it in ST_UNITS) it else 1000 }) }
+    fun writeTo(uri: android.net.Uri?, text: String) { if (uri == null) return; try { ctx.contentResolver.openOutputStream(uri)?.use { it.write(text.toByteArray(Charsets.UTF_8)) }; saved = one(s.stSaved) } catch (_: Exception) { } }
+    val csvLauncher = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("text/csv")) { writeTo(it, settleCsv(people.toList(), ex.toList(), s)) }
+    val txtLauncher = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("text/plain")) { writeTo(it, settleText(people.toList(), ex.toList(), s)) }
     fun commit() { save(ctx, people.toList(), ex.toList()) }
     if (by >= people.size) by = 0
-    val total = ex.sumOf { it.amt }
-    val share = DoubleArray(people.size).also { a -> ex.forEach { e -> e.forWho.forEach { i -> if (i < a.size) a[i] += e.amt / e.forWho.size } } }
+    val total = ex.filter { it.mid == 0 }.sumOf { it.amt }
+    val share = paidShare(people.size, ex).second
     val out = settleUp(people.size, ex)
     Box(Modifier.fillMaxSize()) {
         GameScaffold("🧾 ${s.stTitle}", onBack) {
@@ -152,7 +202,7 @@ fun SettleScreen(onBack: () -> Unit) {
                     }
                     BigButton(s.stAdd, Modifier.fillMaxWidth()) {
                         val v = amt.replace(",", "").toDoubleOrNull() ?: 0.0
-                        if (v > 0) { ex.add(Expense(v, by, fr.filter { it < people.size }.ifEmpty { people.indices.toList() }, memo.trim())); amt = ""; memo = ""; commit() }
+                        if (v > 0) { ex.add(Expense(v, by, fr.filter { it < people.size }.ifEmpty { people.indices.toList() }, memo.trim(), today())); amt = ""; memo = ""; commit() }
                     }
                 }
                 Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(Color(0xFF1F3A2C)).padding(horizontal = 14.dp, vertical = 12.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -166,13 +216,17 @@ fun SettleScreen(onBack: () -> Unit) {
                             }
                         }
                         Text(people.indices.joinToString("  ·  ") { "${people[it]} ${s.stSpent(fmtMoney(share.getOrElse(it) { 0.0 }))}" }, color = WG.SubText, fontSize = 13.sp, lineHeight = 19.sp)
+                        Row(Modifier.fillMaxWidth().padding(top = 4.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            if (out.isNotEmpty()) BigButton(s.stMid, Modifier.weight(1f), color = WG.Surface2, contentColor = WG.Accent) { vibe.tap(); showMid = true }
+                            BigButton(s.stExport, Modifier.weight(1f), color = WG.Surface2, contentColor = WG.Accent) { vibe.tap(); saved = ""; showExport = true }
+                        }
                     }
                 }
                 Text(s.stList, color = WG.SubText, fontSize = 14.sp, fontWeight = FontWeight.Bold)
                 if (ex.isEmpty()) Text(s.stEmpty, color = WG.SubText, fontSize = 15.sp)
                 ex.indices.reversed().forEach { k ->
                     val e = ex[k]
-                    Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(WG.Surface).padding(start = 12.dp, top = 8.dp, bottom = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(if (e.mid > 0) Color(0xFF1F3A2C) else WG.Surface).padding(start = 12.dp, top = 8.dp, bottom = 8.dp), verticalAlignment = Alignment.CenterVertically) {
                         Column(Modifier.weight(1f)) {
                             Text("${fmtMoney(e.amt)}  ${e.memo}", color = WG.Text, fontSize = 16.sp, fontWeight = FontWeight.Bold)
                             Text("${people.getOrElse(e.by) { "?" }} → ${if (e.forWho.size == people.size) "👥" else e.forWho.joinToString(", ") { people.getOrElse(it) { "?" } }}", color = WG.SubText, fontSize = 13.sp)
@@ -184,8 +238,53 @@ fun SettleScreen(onBack: () -> Unit) {
                 Spacer(Modifier.padding(8.dp))
             }
         }
-        if (ask) ResultOverlay(s.stResetAsk, null, s.ok, onPrimary = {
+        if (ask) ResultOverlay(s.stResetAsk, s.stResetSub, s.stResetSave, onPrimary = { ask = false; saved = ""; showExport = true }, secondary = s.stResetGo, onSecondary = {
             ask = false; people.clear(); people.addAll(listOf("P1", "P2", "P3")); ex.clear(); fr.clear(); fr.addAll(people.indices); commit()
-        }, secondary = s.cancel, onSecondary = { ask = false })
+        })
+        if (showExport) SheetBox(onClose = { showExport = false }) {
+            Text(s.stExport, color = WG.Text, fontSize = 22.sp, fontWeight = FontWeight.Black)
+            Text(s.stExportDesc, color = WG.SubText, fontSize = 15.sp, lineHeight = 21.sp)
+            BigButton(s.stCsv, Modifier.fillMaxWidth()) { vibe.tap(); csvLauncher.launch("trip-split-${today()}.csv") }
+            BigButton(s.stTxt, Modifier.fillMaxWidth(), color = WG.Surface2, contentColor = WG.Text) { vibe.tap(); txtLauncher.launch("trip-split-${today()}.txt") }
+            BigButton(s.stShare, Modifier.fillMaxWidth(), color = WG.Surface2, contentColor = WG.Text) {
+                vibe.tap()
+                val send = Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_SUBJECT, one(s.stTitle)).putExtra(Intent.EXTRA_TEXT, settleText(people.toList(), ex.toList(), s))
+                ctx.startActivity(Intent.createChooser(send, one(s.stTitle)))
+            }
+            if (saved.isNotEmpty()) Text(saved, color = Color(0xFF69F0AE), fontSize = 15.sp, fontWeight = FontWeight.Bold)
+            BigButton(s.cancel, Modifier.fillMaxWidth(), color = WG.Surface2, contentColor = WG.Text) { showExport = false }
+        }
+        if (showMid) SheetBox(onClose = { showMid = false }) {
+            val rows = roundTransfers(out, unit)
+            Text(s.stMid, color = WG.Text, fontSize = 22.sp, fontWeight = FontWeight.Black)
+            Text(s.stMidDesc, color = WG.SubText, fontSize = 15.sp, lineHeight = 21.sp)
+            Text(s.stUnit, color = WG.SubText, fontSize = 14.sp, fontWeight = FontWeight.Bold)
+            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) { ST_UNITS.forEach { u -> Chip(fmtMoney(u.toDouble()), u == unit) { vibe.tap(); unit = u; prefs.edit().putInt("st_unit", u).apply() } } }
+            if (rows.isEmpty()) Text(s.stEven, color = WG.Text, fontSize = 18.sp)
+            rows.forEach { o ->
+                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                    Text("${people.getOrElse(o.from) { "?" }} → ${people.getOrElse(o.to) { "?" }}", color = WG.Text, fontSize = 18.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
+                    Text(fmtMoney(o.amt), color = Color(0xFF69F0AE), fontSize = 18.sp, fontWeight = FontWeight.Black)
+                }
+            }
+            BigButton(s.stMidDone, Modifier.fillMaxWidth()) {
+                if (rows.isNotEmpty()) {
+                    val k = (ex.maxOfOrNull { it.mid } ?: 0) + 1; val at = today()
+                    rows.forEach { o -> ex.add(Expense(o.amt, o.from, listOf(o.to), one(s.stMidTag(k)), at, k)) }
+                    vibe.strong(); commit()
+                }
+                showMid = false
+            }
+            BigButton(s.cancel, Modifier.fillMaxWidth(), color = WG.Surface2, contentColor = WG.Text) { showMid = false }
+        }
+    }
+}
+
+/** 가운데 뜨는 카드 (바깥 누르면 닫힘) */
+@Composable
+private fun androidx.compose.foundation.layout.BoxScope.SheetBox(onClose: () -> Unit, content: @Composable androidx.compose.foundation.layout.ColumnScope.() -> Unit) {
+    Box(Modifier.matchParentSize().background(Color(0xCC000000)).clickable(interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() }, indication = null) { onClose() }, contentAlignment = Alignment.Center) {
+        Column(Modifier.padding(20.dp).clip(RoundedCornerShape(24.dp)).background(WG.Surface).clickable(interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() }, indication = null) {}.padding(20.dp).verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.spacedBy(10.dp), content = content)
     }
 }
