@@ -1,0 +1,29 @@
+rules_version = '2';
+// 🍜 맛집 지도 보안 규칙 — Firebase 콘솔 > Firestore > 규칙 에 그대로 붙여넣고 '게시'
+// 누구나 읽기·등록 가능, 닉네임 필수, 수정·삭제는 막음 (잘못된 글은 콘솔에서 운영자가 삭제)
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function nick(v) { return v is string && v.size() >= 1 && v.size() <= 20; }
+    match /places/{id} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasOnly(
+                         ['placeId','name','address','lat','lng','mapsUrl','category','addedBy','createdAt'])
+                    && request.resource.data.placeId is string
+                    && request.resource.data.name is string && request.resource.data.name.size() <= 120
+                    && request.resource.data.lat is number && request.resource.data.lng is number
+                    && nick(request.resource.data.addedBy)
+                    && request.resource.data.createdAt == request.time;
+      allow update, delete: if false;
+    }
+    match /reviews/{id} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasOnly(['placeId','menus','comment','nickname','createdAt'])
+                    && request.resource.data.menus is list
+                    && request.resource.data.menus.size() >= 1 && request.resource.data.menus.size() <= 2
+                    && request.resource.data.comment is string && request.resource.data.comment.size() <= 200
+                    && nick(request.resource.data.nickname)
+                    && request.resource.data.createdAt == request.time;
+      allow update, delete: if false;
+    }
+  }
+}
