@@ -47,6 +47,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -78,6 +79,8 @@ import com.wolfgames.app.games.BalloonScreen
 import com.wolfgames.app.games.TowerScreen
 import com.wolfgames.app.games.SimonScreen
 import com.wolfgames.app.games.WireCutScreen
+import com.wolfgames.app.games.YabawiScreen
+import com.wolfgames.app.games.ShareScreen
 import com.wolfgames.app.games.CurlingScreen
 import com.wolfgames.app.games.SizeScreen
 import com.wolfgames.app.games.PhraseScreen
@@ -121,7 +124,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         DebugOpen.screen = intent?.getStringExtra("screen"); DebugOpen.autostart = intent?.getBooleanExtra("autostart", false) ?: false
         enableEdgeToEdge()
-        // 술자리에서 화면이 꺼지지 않도록
+        // 게임 중에 화면이 꺼지지 않도록
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         val prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         val vibe = Vibe.from(this)
@@ -148,7 +151,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, D789, CardMenu, UpDown, HoChiMinh, FingerMenu, Finger, WolfMenu, LuckMenu, BattleMenu, DiceDuel, QuickMenu, Reaction, ColorReact, Stopwatch, Bomb, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language, Changelog, Tug, Slap, Beer, Coin, Kings, Qr, Plinko, Ttt, Gomoku, Hotel, NumberBomb, Balloon, Tower, Simon, WireCut, Curling, Sizes, CalcSettle, Phrase, Settle }
+enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, D789, CardMenu, UpDown, HoChiMinh, FingerMenu, Finger, WolfMenu, LuckMenu, BattleMenu, DiceDuel, QuickMenu, Reaction, ColorReact, Stopwatch, Bomb, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language, Changelog, Tug, Slap, Beer, Coin, Kings, Qr, Plinko, Ttt, Gomoku, Hotel, NumberBomb, Balloon, Tower, Simon, WireCut, Curling, Sizes, CalcSettle, Phrase, Settle, Yabawi, Share }
 
 @Composable
 fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String, String?) -> Unit) {
@@ -157,12 +160,12 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
     val back: () -> Unit = {
         screen = when (screen) {
             Screen.RollDice, Screen.ShutBox, Screen.FiveDice, Screen.D789, Screen.DiceDuel -> Screen.DiceMenu
-            Screen.Reaction, Screen.ColorReact, Screen.Stopwatch, Screen.Beer, Screen.Tower, Screen.Simon, Screen.Curling -> Screen.QuickMenu
+            Screen.Reaction, Screen.ColorReact, Screen.Stopwatch, Screen.Beer, Screen.Tower, Screen.Simon -> Screen.QuickMenu
             Screen.Tug, Screen.Slap, Screen.Ttt, Screen.Gomoku -> Screen.BattleMenu
-            Screen.Coin, Screen.Plinko, Screen.NumberBomb, Screen.Balloon, Screen.WireCut, Screen.Finger -> Screen.LuckMenu
+            Screen.Coin, Screen.Plinko, Screen.NumberBomb, Screen.Balloon, Screen.WireCut, Screen.Yabawi, Screen.Finger -> Screen.LuckMenu
             Screen.Kings -> Screen.CardMenu
             Screen.UpDown, Screen.HoChiMinh -> Screen.CardMenu
-            Screen.Croc, Screen.Race, Screen.Pirate, Screen.Arrow -> Screen.WolfMenu
+            Screen.Croc, Screen.Race, Screen.Pirate, Screen.Arrow, Screen.Curling -> Screen.WolfMenu
             Screen.Ladder, Screen.Roulette, Screen.Bomb -> Screen.LuckMenu
             Screen.Four -> Screen.BattleMenu
             Screen.Fx, Screen.Sizes, Screen.CalcSettle, Screen.Settle -> Screen.Calc
@@ -189,6 +192,7 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
                 MenuItem("🏁", s.menuRace, s.menuRaceSub, Screen.Race),
                 MenuItem("🗡️", s.menuPirate, s.menuPirateSub, Screen.Pirate),
                 MenuItem("🔄", s.menuArrow, s.menuArrowSub, Screen.Arrow),
+                MenuItem("🍺", s.cuTitle, s.cuSub, Screen.Curling),
             )) { screen = it }
             Screen.LuckMenu -> CategoryScreen("🍀 ${s.menuLuck}", back, listOf(
                 MenuItem("@ladder", s.menuLadder, s.menuLadderSub, Screen.Ladder),
@@ -199,6 +203,7 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
                 MenuItem("🔢", s.nbTitle, s.nbSub, Screen.NumberBomb),
                 MenuItem("🎈", s.blTitle, s.blSub, Screen.Balloon),
                 MenuItem("✂️", s.wcTitle, s.wcSub, Screen.WireCut),
+                MenuItem("🐺", s.ybTitle, s.ybSub, Screen.Yabawi),
                 MenuItem("☝️", s.fingerTitle, s.fingerSub, Screen.Finger),
             )) { screen = it }
             Screen.QuickMenu -> CategoryScreen("⚡ ${s.menuQuick}", back, listOf(
@@ -208,7 +213,6 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
                 MenuItem("🍺", s.beerTitle, s.beerSub, Screen.Beer),
                 MenuItem("🏗️", s.tsTitle, s.tsSub, Screen.Tower),
                 MenuItem("🔴", s.smTitle, s.smSub, Screen.Simon),
-                MenuItem("🍺", s.cuTitle, s.cuSub, Screen.Curling),
             )) { screen = it }
             Screen.DiceDuel -> DiceDuelScreen(onBack = back)
             Screen.Reaction -> ReactionGameScreen(onBack = back)
@@ -241,6 +245,8 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
             Screen.Tower -> TowerScreen(onBack = back)
             Screen.Simon -> SimonScreen(onBack = back)
             Screen.WireCut -> WireCutScreen(onBack = back)
+            Screen.Yabawi -> YabawiScreen(onBack = back)
+            Screen.Share -> ShareScreen(onBack = back)
             Screen.Curling -> CurlingScreen(onBack = back)
             Screen.Phrase -> PhraseScreen(onBack = back, mine = currentLang, second = lang2)
             Screen.Settle, Screen.CalcSettle -> SettleScreen(onBack = back)
@@ -354,6 +360,17 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                         ) {
                             Text(m.phraseBtn, color = WG.Text, fontSize = 14.sp)
                         }
+                        // 📤 앱 공유하기 (친구 폰 고르기 → 앱으로 공유 · 링크 복사 · QR)
+                        Row(
+                            Modifier
+                                .clip(RoundedCornerShape(20.dp))
+                                .background(WG.Surface)
+                                .clickable { vibe.tap(); onSelect(Screen.Share) }
+                                .padding(horizontal = 12.dp, vertical = 6.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text(m.shBtn, color = WG.Text, fontSize = 14.sp)
+                        }
                     }
                 }
             }
@@ -396,7 +413,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                         .clickable {
                             vibe.tap()
                             try {
-                                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wanopro.github.io/wolfgames/manual.html?lang=${currentLang.code}")))
+                                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wanopro.github.io/wolfgames_beta/manual.html?lang=${currentLang.code}")))
                             } catch (_: ActivityNotFoundException) {
                             }
                         }
@@ -414,6 +431,15 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                         .padding(horizontal = 4.dp, vertical = 6.dp),
                 )
             }
+            // ⚠️ 면책 안내 (작게)
+            Text(
+                m.disclaimer,
+                color = WG.SubText.copy(alpha = 0.7f),
+                fontSize = 10.sp,
+                lineHeight = 14.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp, top = 2.dp, bottom = 12.dp),
+            )
         }
     }
 
@@ -521,7 +547,7 @@ fun DiceMenuScreen(onBack: () -> Unit, onSelect: (Screen) -> Unit) {
             MenuCard("👆", s.rollTitle, s.rollSub) { onSelect(Screen.RollDice) }
             MenuCard("🔢", s.shutTitle, s.shutSub) { onSelect(Screen.ShutBox) }
             MenuCard("🎲", s.fiveTitle, s.fiveSub) { onSelect(Screen.FiveDice) }
-            MenuCard("🍶", s.d789Title, s.d789Sub) { onSelect(Screen.D789) }
+            MenuCard("🎯", s.d789Title, s.d789Sub) { onSelect(Screen.D789) }
             MenuCard("⚔️", s.duelTitle, s.duelSub) { onSelect(Screen.DiceDuel) }
         }
     }

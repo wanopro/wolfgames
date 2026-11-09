@@ -138,7 +138,7 @@ export function hoChiMinh(root, back) {
       const a = h('div', { class: 'area' + (rotated ? ' rot' : ''), style: `background:${color}${bad ? '66' : my ? '30' : '14'};border-color:${color}${my || bad ? 'ff' : '70'};border-width:${my ? 3 : 2}px;justify-content:space-between` },
         h('div', { class: 'pn', style: `color:${color}` }, s.playerN(i + 1) + (my ? ' 👈' : '')),
         cardEl(mine[i], n === 4 ? 58 : 66),
-        h('div', { class: 'st big' + (bad ? ' win' : ''), style: 'font-size:18px' }, bad ? '💀 🍺' : ''));
+        h('div', { class: 'st big' + (bad ? ' win' : ''), style: 'font-size:18px' }, bad ? '💀' : ''));
       return a;
     };
 

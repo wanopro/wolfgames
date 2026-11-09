@@ -223,7 +223,7 @@ fun CalculatorScreen(onBack: () -> Unit, onExchange: () -> Unit, onSettle: () ->
     if (tipOpen) TipDialog(CalcState.value(), onSplit = { splitAmount = it; tipOpen = false; splitOpen = true }) { tipOpen = false }
 }
 
-// ---------------- 🍻 N빵 ----------------
+// ---------------- 💸 N빵 ----------------
 @Composable
 private fun SplitDialog(total: Double, onClose: () -> Unit) {
     val s = LocalStrings.current

@@ -405,7 +405,7 @@ fun CoinTossScreen(onBack: () -> Unit) {
 }
 
 // ===================== 👑 글로벌 킹스컵 =====================
-val KC_ICONS = listOf("🌊", "👉", "🙋", "🚽", "💃", "🍻", "🙌", "🤝", "🔤", "📚", "📜", "❓", "👑")
+val KC_ICONS = listOf("🌊", "👉", "🙋", "🚽", "💃", "🎉", "🙌", "🤝", "🔤", "📚", "📜", "❓", "👑")
 
 private class KingsState {
     var deck = PCard.deck(); var cur: PCard? = null; var at = 0f; var kings = 0

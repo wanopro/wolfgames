@@ -64,7 +64,7 @@ function eachSide(c, W, H, msgs, size, cols, pad = 26) {
 }
 
 // ===================== 🔻 플링코 =====================
-export const PLINKO_ICONS = ['🍺', '🥃', '🔄', '👉', '👈', '🍻', '✅'];
+export const PLINKO_ICONS = ['💀', '😅', '🔄', '👉', '👈', '🙌', '✅'];
 const PLINKO_COLS = ['#FF7043', '#29B6F6', '#78909C', '#AB47BC', '#EC407A', '#FFB300', '#43A047'];
 const ROWS = 11, CR = 12, PR = 5;
 export function board(W, H) {

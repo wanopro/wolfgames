@@ -58,7 +58,7 @@ import kotlinx.coroutines.launch
 enum class UdGuess { Up, Down, Red, Black }
 enum class UdResult { Ok, Fail, Same }
 
-/** 판정. 기준 카드가 A·K면 색깔로, 아니면 높낮이로. 같은 숫자는 원샷 */
+/** 판정. 기준 카드가 A·K면 색깔로, 아니면 높낮이로. 같은 숫자는 큰 벌칙 */
 fun judgeUpDown(base: PCard, next: PCard, g: UdGuess): UdResult {
     if (base.r == 1 || base.r == 13) return if ((g == UdGuess.Red) == next.red) UdResult.Ok else UdResult.Fail
     if (next.r == base.r) return UdResult.Same
@@ -308,7 +308,7 @@ private fun HcmPlay(n: Int, onExit: () -> Unit) {
         ) {
             Text(s.playerN(i + 1) + if (my) " 👈" else "", color = color, fontSize = 18.sp, fontWeight = FontWeight.Bold)
             if (i < mine.size) PlayingCard(mine[i], if (n == 4) 58.dp else 66.dp)
-            Text(if (bad) "💀 🍺" else " ", fontSize = 18.sp)
+            Text(if (bad) "💀" else " ", fontSize = 18.sp)
         }
     }
 

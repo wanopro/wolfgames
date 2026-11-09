@@ -286,7 +286,7 @@ export function coinToss(root, back) {
 }
 
 // ===================== 👑 글로벌 킹스컵 =====================
-export const KC_ICONS = ['🌊', '👉', '🙋', '🚽', '💃', '🍻', '🙌', '🤝', '🔤', '📚', '📜', '❓', '👑'];
+export const KC_ICONS = ['🌊', '👉', '🙋', '🚽', '💃', '🎉', '🙌', '🤝', '🔤', '📚', '📜', '❓', '👑'];
 const RANK = ['', 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 export function kingsCup(root, back) {
   const s = S();
@@ -334,7 +334,7 @@ export function kingsCup(root, back) {
   cv.canvas.addEventListener('pointerdown', () => {
     if (!deck.length) return;
     if (cur && now() - at < 0.4) return;
-    if (cur && cur.r === 13 && kings === 4) kings = 0; // 킹스컵 마시고 다시 시작
+    if (cur && cur.r === 13 && kings === 4) kings = 0; // 킹스컵 벌칙 뒤 다시 시작
     cur = deck.pop(); at = now(); if (cur.r === 13) kings++;
     vibe.tap(); if (cur.r === 13 && kings === 4) vibe.strong();
   });

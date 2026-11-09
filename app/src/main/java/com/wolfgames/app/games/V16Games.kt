@@ -143,7 +143,7 @@ private fun Ctx.againPill(w: Float, h: Float, s: Strings) {
 }
 
 // ===================== 🔻 플링코 =====================
-val PLINKO_ICONS = listOf("🍺", "🥃", "🔄", "👉", "👈", "🍻", "✅")
+val PLINKO_ICONS = listOf("💀", "😅", "🔄", "👉", "👈", "🙌", "✅")
 private val PLINKO_COLS = listOf("#FF7043", "#29B6F6", "#78909C", "#AB47BC", "#EC407A", "#FFB300", "#43A047")
 private const val ROWS = 11
 private const val CR = 12f

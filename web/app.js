@@ -17,6 +17,8 @@ import { numberBomb, balloon } from './games-v17.js';
 import { tower, simon, wireCut, curling } from './games-v18.js';
 import { phraseScreen } from './phrase.js';
 import { settleScreen } from './settle.js';
+import { yabawi } from './games-v19.js';
+import { shareScreen } from './share.js';
 
 const HOMEPAGE = 'https://wolf.community';
 const FEEDBACK = 'https://wolf.community/traveltalk/6860756';
@@ -76,11 +78,13 @@ const SCREENS = {
   tower,
   simon,
   wire: wireCut,
+  yabawi,
+  share: shareScreen,
   curling,
   phrase: phraseScreen,
   settle: settleScreen,
 };
-const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', duel: 'dice', react: 'quick', color: 'quick', stop: 'quick', bomb: 'luck', updown: 'cards', hcm: 'cards', finger: 'luck', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle', tug: 'battle', slap: 'battle', ttt: 'battle', gomoku: 'battle', plinko: 'luck', nbomb: 'luck', balloon: 'luck', tower: 'quick', simon: 'quick', curling: 'quick', wire: 'luck', beer: 'quick', coin: 'luck', kings: 'cards' };
+const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', duel: 'dice', react: 'quick', color: 'quick', stop: 'quick', bomb: 'luck', updown: 'cards', hcm: 'cards', finger: 'luck', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle', tug: 'battle', slap: 'battle', ttt: 'battle', gomoku: 'battle', plinko: 'luck', nbomb: 'luck', balloon: 'luck', tower: 'quick', simon: 'quick', curling: 'wolves', wire: 'luck', yabawi: 'luck', beer: 'quick', coin: 'luck', kings: 'cards' };
 
 // ---------- 화면 이동 (휴대폰 뒤로가기 버튼과 연동) ----------
 function show(name) {
@@ -117,7 +121,8 @@ function homeScreen(root) {
           btn(`🧮 ${m(s.calcTitle)}`, () => go('calc'), 'chip'),
           btn('▦ QR', () => go('qr'), 'chip'),
           btn(m(s.hotelBtn), () => go('hotel'), 'chip'),
-          btn(m(s.phraseBtn), () => go('phrase'), 'chip')))),
+          btn(m(s.phraseBtn), () => go('phrase'), 'chip'),
+          btn(m(s.shBtn), () => go('share'), 'chip')))),
     h('div', { style: 'height:4px' }),
     card('🎲', s.menuDice, s.menuDiceSub, () => go('dice')),
     card('🃏', s.menuCards, s.menuCardsSub, () => go('cards')),
@@ -126,7 +131,8 @@ function homeScreen(root) {
     card('🍀', s.menuLuck, s.menuLuckSub, () => go('luck')),
     card('⚔️', s.menuBattle, s.menuBattleSub, () => go('battle')),
     h('div', { class: 'footer' }, 'Powered by ', btn('WOLF', ask, ''), '(feat. segna)'),
-    h('div', { class: 'footer', style: 'padding-top:0;font-size:12px' }, h('a', { href: `manual.html?lang=${lang.current}`, style: 'color:var(--sub)' }, `📖 ${m(s.installGuide)}`), h('span', { style: 'opacity:.6' }, '  ·  '), btn(`📜 v${VERSION} ${m(s.logTitle)}`, () => go('log'), 'linkbtn')));
+    h('div', { class: 'footer', style: 'padding-top:0;font-size:12px' }, h('a', { href: `manual.html?lang=${lang.current}`, style: 'color:var(--sub)' }, `📖 ${m(s.installGuide)}`), h('span', { style: 'opacity:.6' }, '  ·  '), btn(`📜 v${VERSION} ${m(s.logTitle)}`, () => go('log'), 'linkbtn')),
+    h('div', { class: 'footer', style: 'padding:2px 20px 14px;font-size:10px;line-height:1.45;opacity:.7' }, m(s.disclaimer)));
   // 누적 방문 수 (GoatCounter에서 '방문자 수 표시 허용'을 켜야 나옴, 못 가져오면 안 보임)
   const visits = h('div', { class: 'footer', style: 'padding-top:0;font-size:12px;opacity:.55;display:none' });
   scroll.append(visits);
@@ -159,9 +165,9 @@ function logScreen(root) {
 /** 새 버전을 처음 열었을 때 한 번만 바뀐 점 보여주기 */
 function whatsNew(root) {
   let seen = null;
-  try { seen = localStorage.getItem('wg-seen'); } catch (_) { return; }
+  try { seen = localStorage.getItem('wgb-seen'); } catch (_) { return; }
   if (seen === VERSION) return;
-  try { localStorage.setItem('wg-seen', VERSION); } catch (_) { /* 무시 */ }
+  try { localStorage.setItem('wgb-seen', VERSION); } catch (_) { /* 무시 */ }
   const s = S(), r = CHANGELOG.find((x) => x.ver === VERSION) || CHANGELOG[0];
   const ov = h('div', { class: 'overlay' });
   ov.addEventListener('click', (e) => { if (e.target === ov) ov.remove(); });
@@ -193,7 +199,7 @@ function diceMenu(root) {
     card('👆', s.rollTitle, s.rollSub, () => go('roll')),
     card('🔢', s.shutTitle, s.shutSub, () => go('shut')),
     card('🎲', s.fiveTitle, s.fiveSub, () => go('five')),
-    card('🍶', s.d789Title, s.d789Sub, () => go('d789')),
+    card('🎯', s.d789Title, s.d789Sub, () => go('d789')),
     card('⚔️', s.duelTitle, s.duelSub, () => go('duel'))));
 }
 
@@ -208,7 +214,8 @@ function wolfMenu(root) {
     card('🐺', s.menuCroc, s.menuCrocSub, () => go('teeth')),
     card('🏁', s.menuRace, s.menuRaceSub, () => go('race')),
     card('🗡️', s.menuPirate, s.menuPirateSub, () => go('pirate')),
-    card('🔄', s.menuArrow, s.menuArrowSub, () => go('arrow'))));
+    card('🔄', s.menuArrow, s.menuArrowSub, () => go('arrow')),
+    card('🍺', s.cuTitle, s.cuSub, () => go('curling'))));
 }
 function quickMenu(root) {
   const s = S();
@@ -218,8 +225,7 @@ function quickMenu(root) {
     card('⏱️', s.stopTitle, s.stopSub, () => go('stop')),
     card('🍺', s.beerTitle, s.beerSub, () => go('beer')),
     card('🏗️', s.tsTitle, s.tsSub, () => go('tower')),
-    card('🔴', s.smTitle, s.smSub, () => go('simon')),
-    card('🍺', s.cuTitle, s.cuSub, () => go('curling'))));
+    card('🔴', s.smTitle, s.smSub, () => go('simon'))));
 }
 function luckMenu(root) {
   const s = S();
@@ -232,6 +238,7 @@ function luckMenu(root) {
     card('🔢', s.nbTitle, s.nbSub, () => go('nbomb')),
     card('🎈', s.blTitle, s.blSub, () => go('balloon')),
     card('✂️', s.wcTitle, s.wcSub, () => go('wire')),
+    card('🐺', s.ybTitle, s.ybSub, () => go('yabawi')),
     card('☝️', s.fingerTitle, s.fingerSub, () => go('finger'))));
 }
 function battleMenu(root) {

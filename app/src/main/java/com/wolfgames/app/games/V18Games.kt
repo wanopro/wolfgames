@@ -49,7 +49,7 @@ import kotlin.math.pow
 import kotlin.math.sin
 import kotlin.random.Random
 
-// v1.8 새 게임 (글 없이 하는 게임): 🏗️ 탑 쌓기 · 🔴 따라 하기 · 🍺 늑대컬링 (⚡ 순발력) · ✂️ 폭탄 선 자르기 (🍀 운빨) — 웹 games-v18.js 와 같음
+// v1.8 새 게임 (글 없이 하는 게임): 🏗️ 탑 쌓기 · 🔴 따라 하기 (⚡ 순발력) · 🍺 늑대컬링 (🐺 늑대게임) · ✂️ 폭탄 선 자르기 (🍀 운빨) — 웹 games-v18.js 와 같음
 
 private fun ease18(u: Float) = 1f - (1f - u.coerceIn(0f, 1f)).pow(3)
 
@@ -77,7 +77,7 @@ object Beep {
 }
 
 @Composable
-private fun SetupThen18(title: String, onBack: () -> Unit, setup: @Composable (start: () -> Unit) -> Unit, game: @Composable () -> Unit) {
+internal fun SetupThen18(title: String, onBack: () -> Unit, setup: @Composable (start: () -> Unit) -> Unit, game: @Composable () -> Unit) {
     var started by rememberSaveable { mutableStateOf(com.wolfgames.app.DebugOpen.autostart) }
     var round by remember { mutableIntStateOf(0) }
     if (!started) GameScaffold(title, onBack) { setup { started = true; round++ } }
@@ -86,7 +86,7 @@ private fun SetupThen18(title: String, onBack: () -> Unit, setup: @Composable (s
 
 /** 매 프레임 다시 그리는 캔버스 + 누른 곳 (x, y, t, w, h) */
 @Composable
-private fun Anim18(key: Any, onDown: (Float, Float, Float, Float, Float) -> Unit, draw: (Ctx, Float, Float, Float) -> Unit) {
+internal fun Anim18(key: Any, onDown: (Float, Float, Float, Float, Float) -> Unit, draw: (Ctx, Float, Float, Float) -> Unit) {
     val density = LocalDensity.current.density
     val t0 = remember(key) { System.nanoTime() }
     val now = { (System.nanoTime() - t0) / 1e9f }

@@ -1,5 +1,5 @@
 import { SIZES } from './sizes.js';
-// 🧮 계산기 · 🍻 N빵 · 💱 환전
+// 🧮 계산기 · 💸 N빵 · 💱 환전
 import { C, S, h, btn, top, stepper, vibe, lang } from './core.js';
 
 // ---------- 숫자 표시 ----------
@@ -111,7 +111,7 @@ export function calculator(root, back, go) {
   render();
 }
 
-// ---------- 🍻 N빵 ----------
+// ---------- 💸 N빵 ----------
 const UNITS = [0, 10, 100, 1000];
 let splitPrefs = { n: 4, unit: 100 };
 try { Object.assign(splitPrefs, JSON.parse(localStorage.getItem('wg-split') || '{}')); } catch (_) { /* 무시 */ }

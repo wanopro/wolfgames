@@ -216,7 +216,7 @@ def game_shots(b, lang):
         pg.mouse.click(196, 420); pg.wait_for_timeout(900)
     shot('how-kings')
     # 손가락선택 (걸릴 인원 2명, 5명 터치)
-    home(); card(4); card(8); pg.click('.stepper button:last-of-type'); start(); pg.wait_for_timeout(300)
+    home(); card(4); card(9); pg.click('.stepper button:last-of-type'); start(); pg.wait_for_timeout(300)
     pts = [(1, 90, 230), (2, 290, 200), (3, 200, 420), (4, 100, 620), (5, 300, 650)]
     for i, x, y in pts:
         pg.dispatch_event('canvas', 'pointerdown', {'pointerId': i, 'clientX': x, 'clientY': y, 'bubbles': True}); pg.wait_for_timeout(60)
@@ -371,8 +371,8 @@ def game_shots(b, lang):
     pg.wait_for_timeout(250); shot('how-tower')
     # 🔴 따라 하기: 첫 늑대가 반짝이는 순간
     home(); card(2); card(5); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.3"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(1000); shot('how-simon')
-    # 🍺 늑대컬링 (4명): 1·2번 던지고 3번이 당기는 중
-    home(); card(2); card(6); start(); pg.wait_for_timeout(600)
+    # 🍺 늑대컬링 (4명, 🐺 늑대게임 맨 아래): 1·2번 던지고 3번이 당기는 중
+    home(); card(3); card(4); start(); pg.wait_for_timeout(600)
     bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']
     for i, pull in [(0, 48), (1, 62), (2, 55)]:
         x = bb['x'] + W * 0.13 + W * 0.74 * (i + 0.5) / 4; y = bb['y'] + H - 150 + 30
@@ -387,6 +387,13 @@ def game_shots(b, lang):
     for i in [1, 3]:
         pg.mouse.click(bb['x'] + W * 0.1 + W * 0.8 * 0.04 + (i + 0.5) * (W * 0.8 * 0.92 / 6), bb['y'] + H * 0.55); pg.wait_for_timeout(500)
     pg.wait_for_timeout(200); shot('how-wire')
+    # 🐺 늑대 야바위 (4명, 꽝 1): 섞기 끝난 뒤 1번이 한 마리 고른 화면
+    pg.evaluate("localStorage.setItem('wg-yb-n', '4'); localStorage.setItem('wg-yb-e', '1')")
+    home(); card(4); card(8); start(); pg.wait_for_timeout(11800)
+    bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']
+    pg.mouse.click(bb['x'] + W / 2 - W * 0.19, bb['y'] + H * 0.36); pg.wait_for_timeout(900); shot('how-yabawi')
+    # 📤 공유하기: 메인 위 버튼 줄 → 공유 (안드로이드 선택 + QR)
+    home(); pg.locator('.hero .chip').nth(5).click(); pg.wait_for_timeout(600); shot('how-share')
     # 📏 사이즈 변환표: 계산기 → 사이즈 → 신발 남, 270 줄 ⭐
     home(); pg.locator('.hero .chip').nth(1).click(); pg.wait_for_timeout(400)
     pg.locator('.body.pad .btn').nth(4).click(); pg.wait_for_timeout(400)

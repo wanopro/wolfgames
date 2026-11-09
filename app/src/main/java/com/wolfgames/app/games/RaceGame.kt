@@ -314,9 +314,19 @@ private fun RacePlay(n: Int, secs: Int, picks: List<Int>, onSetup: () -> Unit) {
                     ctx.cuteWolf(wx, gy, ws, ph, run, open, happy = bt > BITE * 0.6f)
                     if (bt >= 0.25f && bt < 0.9f) { ctx.text(s.biteWord, ax - 6, ay - ar * 1.6f - (bt - 0.25f) * 20, 20f, "#E53950"); ctx.text("💥", ax - ar * 0.9f, ay + ar * 0.4f, 18f, "#fff") }
                     val rank = finished.indexOf(i)
-                    if (rank >= 0 && bt >= BITE * 0.6f) {
-                        ctx.beginPath(); ctx.arc(ax + 2, ay + ar * 1.45f, min(lh * 0.2f, 12f), 0f, TAU); ctx.fillStyle = if (rank == 0) "#FFC107" else if (rank == n - 1) "#FF3D5A" else "#555566"; ctx.fill()
-                        ctx.text("${rank + 1}", ax + 2, ay + ar * 1.45f + 1, 12f, if (rank == 0) "#2B2B33" else "#fff")
+                    if (rank >= 0 && bt >= BITE * 0.6f) { // 🏅 순위: 레인 가운데에 크게 (튀어나오듯)
+                        val u = min(1f, (bt - BITE * 0.6f) / 0.3f); val k = if (u < 0.7f) (u / 0.7f) * 1.15f else 1.15f - 0.15f * (u - 0.7f) / 0.3f
+                        val last = rank == n - 1; val rr = min(lh * 0.36f, 30f); val bx = min(w * 0.36f, finish - 150); val by = i * lh + lh / 2
+                        val bg = if (rank == 0) "#FFC107" else if (last) "#FF3D5A" else if (rank == 1) "#CFD8DC" else if (rank == 2) "#E0A46A" else "#555566"
+                        val fg = if (rank <= 2 && !last) "#2B2B33" else "#fff"
+                        ctx.save(); ctx.translate(bx, by); ctx.scale(k, k)
+                        ctx.beginPath(); ctx.arc(0f, 0f, rr + 3, 0f, TAU); ctx.fillStyle = "#fff"; ctx.fill()
+                        ctx.beginPath(); ctx.arc(0f, 0f, rr, 0f, TAU); ctx.fillStyle = bg; ctx.fill()
+                        ctx.text("${rank + 1}", 0f, rr * 0.06f, rr * 1.15f, fg)
+                        val label = names[picks[i]] + (if (rank == 0) " 👑" else if (last) " 💀" else "")
+                        ctx.font(min(lh * 0.3f, 22f)); val lw = ctx.measureText(label)
+                        ctx.text(label, rr + 10 + lw / 2, 1f, min(lh * 0.3f, 22f), if (last) "#FF3D5A" else "#2B2B33")
+                        ctx.restore()
                     }
                 }
                 ctx.finish()

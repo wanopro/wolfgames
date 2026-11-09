@@ -171,9 +171,17 @@ export function race(root, back) {
         cuteWolf(ctx, wx, gy, s0, ph, { run, open, happy: bt > BITE * 0.6 });
         if (bt >= 0.25 && bt < 0.9) { ctx.font = '900 20px sans-serif'; ctx.fillStyle = '#E53950'; ctx.fillText(s.biteWord, ax - 6, ay - ar * 1.6 - (bt - 0.25) * 20); ctx.font = '18px sans-serif'; ctx.fillText('💥', ax - ar * 0.9, ay + ar * 0.4); }
         const rank = finished.indexOf(i);
-        if (rank >= 0 && bt >= BITE * 0.6) {
-          ctx.beginPath(); ctx.arc(ax + 2, ay + ar * 1.45, Math.min(lh * 0.2, 12), 0, 7); ctx.fillStyle = rank === 0 ? '#FFC107' : rank === n - 1 ? C.win : '#555566'; ctx.fill();
-          ctx.font = '900 12px sans-serif'; ctx.fillStyle = rank === 0 ? INK : '#fff'; ctx.fillText(String(rank + 1), ax + 2, ay + ar * 1.45 + 1);
+        if (rank >= 0 && bt >= BITE * 0.6) { // 🏅 순위: 레인 가운데에 크게 (튀어나오듯)
+          const u = Math.min(1, (bt - BITE * 0.6) / 0.3), k = u < 0.7 ? (u / 0.7) * 1.15 : 1.15 - 0.15 * (u - 0.7) / 0.3;
+          const last = rank === n - 1, R = Math.min(lh * 0.36, 30), bx = Math.min(w * 0.36, finish - 150), by = i * lh + lh / 2;
+          const bg = rank === 0 ? '#FFC107' : last ? C.win : rank === 1 ? '#CFD8DC' : rank === 2 ? '#E0A46A' : '#555566', fg = rank <= 2 && !last ? INK : '#fff';
+          ctx.save(); ctx.translate(bx, by); ctx.scale(k, k);
+          ctx.beginPath(); ctx.arc(0, 0, R + 3, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
+          ctx.beginPath(); ctx.arc(0, 0, R, 0, 7); ctx.fillStyle = bg; ctx.fill();
+          ctx.font = `900 ${Math.round(R * 1.15)}px sans-serif`; ctx.fillStyle = fg; ctx.fillText(String(rank + 1), 0, R * 0.06);
+          ctx.textAlign = 'left'; ctx.font = `900 ${Math.round(Math.min(lh * 0.3, 22))}px -apple-system, "Noto Sans KR", "Noto Sans Thai", sans-serif`;
+          ctx.fillStyle = last ? C.win : INK; ctx.fillText(nm(i) + (rank === 0 ? ' 👑' : last ? ' 💀' : ''), R + 10, 1);
+          ctx.restore(); ctx.textAlign = 'center';
         }
       }
     });

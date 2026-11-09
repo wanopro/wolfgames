@@ -1,4 +1,4 @@
-// v1.8 새 게임 (글 없이 하는 게임): 🏗️ 탑 쌓기 · 🔴 따라 하기 · 🍺 늑대컬링 (⚡ 순발력) · ✂️ 폭탄 선 자르기 (🍀 운빨)
+// v1.8 새 게임 (글 없이 하는 게임): 🏗️ 탑 쌓기 · 🔴 따라 하기 (⚡ 순발력) · 🍺 늑대컬링 (🐺 늑대게임) · ✂️ 폭탄 선 자르기 (🍀 운빨)
 import { S, h, top, setupPanel, liveCanvas, vibe, stepper } from './core.js';
 import { choice } from './games-quick.js';
 import { wolfFace } from './art.js';
@@ -12,7 +12,7 @@ const pill = (c, W, H, label) => { c.fillStyle = 'rgba(0,0,0,.55)'; c.beginPath(
 // 🔊 짧은 소리 (WebAudio, 실패하면 조용히)
 let ac = null;
 function audio() { try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); if (ac.state === 'suspended') ac.resume(); } catch (_) { ac = null; } return ac; }
-function tone(hz, dur, type = 'sine', vol = 0.22) {
+export function tone(hz, dur, type = 'sine', vol = 0.22) {
   const a = audio(); if (!a) return;
   try {
     const o = a.createOscillator(), g = a.createGain(), t = a.currentTime;
@@ -22,7 +22,7 @@ function tone(hz, dur, type = 'sine', vol = 0.22) {
   } catch (_) { /* 무시 */ }
 }
 
-function stage(root, title, setup, draw, onDown) {
+export function stage(root, title, setup, draw, onDown) {
   const body = h('div', { class: 'body', style: 'touch-action:none' });
   root.replaceChildren(top(title, setup), body);
   const t0 = performance.now(), now = () => (performance.now() - t0) / 1000;

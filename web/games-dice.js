@@ -295,8 +295,8 @@ export function d789(root, back) {
     let turn = 0, dir = 1, busy = false;
     let vals = [rnd(1, 6), rnd(1, 6)], anim = null, shown = false, lastRoller = 0;
     const RES = {
-      top: { t: s.d789Top, e: '🍶', c: C.accent },
-      half: { t: s.d789Half, e: '🍺', c: '#FF9800' },
+      top: { t: s.d789Top, e: '😅', c: C.accent },
+      half: { t: s.d789Half, e: '😬', c: '#FF9800' },
       shot: { t: s.d789Shot, e: '🔥', c: C.win },
       rev: { t: s.d789Rev, e: '🔄', c: '#448AFF' },
       pass: { t: s.d789Pass, e: '👉', c: C.sub },

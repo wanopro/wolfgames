@@ -56,7 +56,7 @@ import kotlin.random.Random
 /** 789 결과 종류 */
 enum class R789 { Top, Half, Shot, Rev, Pass }
 
-/** 두 눈의 합 뒷자리로 판정: 7 첨잔 / 8 반 / 9 원샷 / 6 순서 반대(옵션) / 나머지 통과 */
+/** 두 눈의 합 뒷자리로 판정: 7 작은 벌칙 / 8 중간 벌칙 / 9 큰 벌칙 / 6 순서 반대(옵션) / 나머지 통과 */
 fun judge789(sum: Int, rev: Boolean): R789 = when (sum % 10) {
     7 -> R789.Top
     8 -> R789.Half
@@ -169,8 +169,8 @@ private fun D789Play(n: Int, rev: Boolean) {
         Box(Modifier.fillMaxWidth().heightIn(min = 100.dp), contentAlignment = Alignment.Center) {
             result?.let { r ->
                 val (emo, text, col) = when (r) {
-                    R789.Top -> Triple("🍶", s.d789Top, WG.Accent)
-                    R789.Half -> Triple("🍺", s.d789Half, Color(0xFFFF9800))
+                    R789.Top -> Triple("😅", s.d789Top, WG.Accent)
+                    R789.Half -> Triple("😬", s.d789Half, Color(0xFFFF9800))
                     R789.Shot -> Triple("🔥", s.d789Shot, WG.Win)
                     R789.Rev -> Triple("🔄", s.d789Rev, Color(0xFF448AFF))
                     R789.Pass -> Triple("👉", s.d789Pass, WG.SubText)

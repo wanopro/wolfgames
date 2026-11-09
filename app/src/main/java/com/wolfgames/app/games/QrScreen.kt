@@ -97,7 +97,7 @@ private fun saveQr(ctx: Context, m: Map<String, QrEntry>) {
     ctx.getSharedPreferences("wolfgames", Context.MODE_PRIVATE).edit().putString(KEY, j.toString()).apply()
 }
 
-private fun qrBitmap(text: String): Bitmap {
+internal fun qrBitmap(text: String): Bitmap {
     val m = QRCodeWriter().encode(text, BarcodeFormat.QR_CODE, 0, 0, mapOf(EncodeHintType.MARGIN to 0, EncodeHintType.ERROR_CORRECTION to ErrorCorrectionLevel.M, EncodeHintType.CHARACTER_SET to "UTF-8"))
     val bmp = Bitmap.createBitmap(m.width, m.height, Bitmap.Config.ARGB_8888)
     for (y in 0 until m.height) for (x in 0 until m.width) bmp.setPixel(x, y, if (m[x, y]) 0xFF000000.toInt() else 0xFFFFFFFF.toInt())

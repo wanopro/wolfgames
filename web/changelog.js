@@ -1,29 +1,90 @@
 // 자동 생성 파일: tools/changelog.py 를 고친 뒤  python3 tools/gen_changelog.py
 export const CHANGELOG = [
  {
+  "ver": "1.9",
+  "date": "2026-11-10",
+  "items": [
+   [
+    "🎯",
+    {
+     "ko": "🎯 게임 문구를 '벌칙' · '당첨'으로 통일 · 이름을 \"미니 게임 모음\"으로 · 메인 아래에 작은 안내 문구 추가",
+     "en": "🎯 Game text now says \"penalty\" / \"you're it\" everywhere · renamed to \"Mini game collection\" · small notice added at the bottom of the main screen",
+     "ja": "🎯 ゲームの文言を「罰ゲーム」「当たり」に統一 ・ 名前を「ミニゲーム集」に ・ メイン画面の下に小さな注意書きを追加",
+     "zh": "🎯 游戏文字统一为\"惩罚\"·\"中奖\" · 名称改为\"迷你游戏合集\" · 主页底部加了一行小提示",
+     "th": "🎯 ข้อความในเกมใช้คำว่า \"ทำโทษ\" · \"โดน\" ทั้งหมด · เปลี่ยนชื่อเป็น \"รวมมินิเกม\" · เพิ่มข้อความแจ้งเล็กๆ ที่ล่างหน้าหลัก",
+     "vi": "🎯 Chữ trong game thống nhất là \"bị phạt\" · \"trúng\" · đổi tên thành \"Tuyển tập mini game\" · thêm dòng lưu ý nhỏ ở cuối màn hình chính"
+    }
+   ],
+   [
+    "🍺",
+    {
+     "ko": "🍺 늑대컬링을 ⚡ 순발력게임에서 🐺 늑대게임으로 옮김",
+     "en": "🍺 Wolf Curling moved from ⚡ Quick Games to 🐺 Wolf Games",
+     "ja": "🍺 オオカミカーリングを ⚡ 反射神経ゲームから 🐺 オオカミゲームへ移動",
+     "zh": "🍺 狼冰壶从 ⚡ 反应游戏移到 🐺 狼游戏",
+     "th": "🍺 ย้ายเคิร์ลลิงหมาป่าจาก ⚡ เกมความไว ไปที่ 🐺 เกมหมาป่า",
+     "vi": "🍺 Bi đá sói chuyển từ ⚡ Trò phản xạ sang 🐺 Trò chơi sói"
+    }
+   ],
+   [
+    "🐺",
+    {
+     "ko": "🐺 🍀 운빨게임에 늑대 야바위 추가: 늑대들이 코인을 먹는데 꽝 늑대는 굶어요 → 섞이고 나면 한 명씩 골라서 빈 입이면 벌칙 (1~8명, 꽝 늑대 1 ~ 인원-1마리)",
+     "en": "🐺 New 🍀 Luck game, Wolf Shell Game: the wolves eat coins except the empty ones → after the shuffle, take turns picking — empty mouth gets the penalty (1–8 players, 1 to players−1 empty wolves)",
+     "ja": "🐺 🍀 運ゲーに オオカミ当て を追加：オオカミがコインを食べ、ハズレだけおあずけ → シャッフル後に1人ずつ選んで空っぽなら罰ゲーム（1〜8人、ハズレは1〜人数−1匹）",
+     "zh": "🐺 🍀 拼手气新增 狼猜猜猜：狼吃硬币，空嘴狼吃不到 → 洗完后轮流选，选到空嘴的接受惩罚（1~8人，空嘴狼 1~人数−1只）",
+     "th": "🐺 เพิ่มใน 🍀 เกมดวง: หมาป่าซ่อนเหรียญ — หมาป่ากินเหรียญ ยกเว้นตัวปากว่าง → สลับเสร็จผลัดกันเลือก ปากว่างโดนทำโทษ (1–8 คน, ปากว่าง 1 ถึง จำนวนคน−1 ตัว)",
+     "vi": "🐺 Thêm vào 🍀 Trò may rủi: Đoán sói — các con sói ăn xu, trừ con miệng trống → trộn xong lần lượt chọn, trúng miệng trống là bị phạt (1–8 người, 1 đến số người−1 con miệng trống)"
+    }
+   ],
+   [
+    "📤",
+    {
+     "ko": "📤 메인 화면에 공유 버튼: 친구 폰(안드로이드 / 아이폰·PC)을 고르면 맞는 링크로 앱 공유 · 링크만 복사 · QR 바로 찍기",
+     "en": "📤 Share button on the main screen: pick your friend's phone (Android / iPhone·PC) and share the right link via apps, copy just the link, or let them scan the QR",
+     "ja": "📤 メイン画面に共有ボタン：友だちのスマホ（Android / iPhone・PC）を選ぶと合うリンクをアプリで共有・リンクだけコピー・QRをその場で撮影",
+     "zh": "📤 主页新增分享按钮：选朋友的手机（安卓 / iPhone·电脑），用应用分享对应链接、只复制链接，或直接扫二维码",
+     "th": "📤 ปุ่มแชร์ที่หน้าหลัก: เลือกมือถือเพื่อน (Android / iPhone·PC) แล้วแชร์ลิงก์ที่ถูกผ่านแอป คัดลอกลิงก์ หรือสแกน QR ได้เลย",
+     "vi": "📤 Nút Chia sẻ ở màn hình chính: chọn điện thoại của bạn (Android / iPhone·PC) rồi chia sẻ đúng link qua ứng dụng, chỉ sao chép link, hoặc quét mã QR"
+    }
+   ],
+   [
+    "🏁",
+    {
+     "ko": "🏁 늑대달리기: 순위를 레인 가운데에 크게 — 1등 👑 · 2등 · 3등 메달색, 꼴찌 💀 빨간색 + 동물 이름까지",
+     "en": "🏁 Wolf Race: rankings now show big in the middle of each lane — 1st 👑, 2nd and 3rd in medal colors, last 💀 in red, with the animal name",
+     "ja": "🏁 ウルフレース：順位を各レーンの真ん中に大きく — 1位👑・2位・3位はメダル色、最下位は💀赤＋動物の名前",
+     "zh": "🏁 群狼赛跑：名次在每条跑道中间大大地显示 — 第1名 👑、第2·3名奖牌色、最后一名 💀 红色，还有动物名字",
+     "th": "🏁 วิ่งแข่งหมาป่า: อันดับตัวใหญ่กลางลู่ — ที่ 1 👑 ที่ 2·3 สีเหรียญ ที่โหล่ 💀 สีแดง พร้อมชื่อสัตว์",
+     "vi": "🏁 Sói chạy đua: thứ hạng hiện to ở giữa mỗi làn — hạng 1 👑, hạng 2·3 màu huy chương, bét 💀 màu đỏ, kèm tên con vật"
+    }
+   ]
+  ]
+ },
+ {
   "ver": "1.8.1",
   "date": "2026-11-04",
   "items": [
    [
     "🔴",
     {
-     "ko": "🔴 따라 하기: 틀렸을 때 ❌ 틀렸다! · 💀 원샷을 화면 가운데에 크게 보여줘요",
-     "en": "🔴 Copy Me: a miss now shows ❌ Wrong! · 💀 Bottoms up big in the middle of the screen",
-     "ja": "🔴 まねっこ：間違えたら ❌ 間違い！・💀 一気 を画面の真ん中に大きく表示",
-     "zh": "🔴 跟着按：按错时会在屏幕中间大大地显示 ❌ 按错了！· 💀 干杯",
-     "th": "🔴 ทำตาม: กดผิดแล้วจะขึ้น ❌ ผิด! · 💀 หมดแก้ว ตัวใหญ่กลางจอ",
-     "vi": "🔴 Bắt chước: bấm sai sẽ hiện ❌ Sai rồi! · 💀 Cạn ly thật to ở giữa màn hình"
+     "ko": "🔴 따라 하기: 틀렸을 때 ❌ 틀렸다! · 💀 벌칙을 화면 가운데에 크게 보여줘요",
+     "en": "🔴 Copy Me: a miss now shows ❌ Wrong! · 💀 Penalty big in the middle of the screen",
+     "ja": "🔴 まねっこ：間違えたら ❌ 間違い！・💀 罰ゲーム を画面の真ん中に大きく表示",
+     "zh": "🔴 跟着按：按错时会在屏幕中间大大地显示 ❌ 按错了！· 💀 惩罚",
+     "th": "🔴 ทำตาม: กดผิดแล้วจะขึ้น ❌ ผิด! · 💀 โดนทำโทษ ตัวใหญ่กลางจอ",
+     "vi": "🔴 Bắt chước: bấm sai sẽ hiện ❌ Sai rồi! · 💀 Bị phạt thật to ở giữa màn hình"
     }
    ],
    [
     "🍺",
     {
-     "ko": "🍺 늑대컬링: 마지막 🏆 결과를 크게 — 순위 · 거리(cm) · 원샷할 사람이 한눈에",
-     "en": "🍺 Wolf Curling: the final 🏆 result is bigger — ranking, distance (cm) and who drinks at a glance",
-     "ja": "🍺 オオカミカーリング：最後の🏆結果を大きく — 順位・距離（cm）・飲む人がひと目で",
-     "zh": "🍺 狼冰壶：最后的 🏆 结果变大了 — 排名、距离（cm）和要喝的人一目了然",
-     "th": "🍺 เคิร์ลลิงหมาป่า: ผล 🏆 ตอนจบตัวใหญ่ขึ้น — อันดับ · ระยะ (cm) · ใครต้องดื่ม เห็นชัดในทีเดียว",
-     "vi": "🍺 Bi đá sói: kết quả 🏆 cuối ván to hơn — thứ hạng, khoảng cách (cm) và ai phải uống nhìn là thấy"
+     "ko": "🍺 늑대컬링: 마지막 🏆 결과를 크게 — 순위 · 거리(cm) · 벌칙 받을 사람이 한눈에",
+     "en": "🍺 Wolf Curling: the final 🏆 result is bigger — ranking, distance (cm) and who gets the penalty at a glance",
+     "ja": "🍺 オオカミカーリング：最後の🏆結果を大きく — 順位・距離（cm）・罰ゲームの人がひと目で",
+     "zh": "🍺 狼冰壶：最后的 🏆 结果变大了 — 排名、距离（cm）和要受惩罚的人一目了然",
+     "th": "🍺 เคิร์ลลิงหมาป่า: ผล 🏆 ตอนจบตัวใหญ่ขึ้น — อันดับ · ระยะ (cm) · ใครโดนทำโทษ เห็นชัดในทีเดียว",
+     "vi": "🍺 Bi đá sói: kết quả 🏆 cuối ván to hơn — thứ hạng, khoảng cách (cm) và ai bị phạt nhìn là thấy"
     }
    ],
    [
@@ -46,45 +107,45 @@ export const CHANGELOG = [
    [
     "🏗️",
     {
-     "ko": "🏗️ 탑 쌓기 추가 (순발력게임): 좌우로 움직이는 블록을 터치해서 쌓고, 삐져나간 부분은 잘려요. 딱 맞으면 ✨PERFECT — 탑을 무너뜨린 사람이 마셔요",
-     "en": "🏗️ New Tower Stack (Quick Games): tap to drop the sliding block — overhangs get cut off, a perfect fit gets ✨PERFECT. Whoever topples the tower drinks",
-     "ja": "🏗️ タワー積み追加（反射神経ゲーム）：左右に動くブロックをタッチして積む。はみ出た部分は切れ、ぴったりなら✨PERFECT — 崩した人が飲む",
-     "zh": "🏗️ 新增叠高塔（反应游戏）：点击放下左右移动的方块，超出的部分会被切掉，完全对准就 ✨PERFECT — 把塔弄倒的人喝",
-     "th": "🏗️ เพิ่มต่อตึก (เกมความไว): แตะปล่อยบล็อกที่เลื่อนไปมา ส่วนที่ล้นจะถูกตัด ถ้าตรงเป๊ะได้ ✨PERFECT — ใครทำตึกพังต้องดื่ม",
-     "vi": "🏗️ Thêm Xếp tháp (Trò phản xạ): chạm để thả khối đang trượt — phần thò ra bị cắt, khớp hoàn hảo được ✨PERFECT. Ai làm đổ tháp thì uống"
+     "ko": "🏗️ 탑 쌓기 추가 (순발력게임): 좌우로 움직이는 블록을 터치해서 쌓고, 삐져나간 부분은 잘려요. 딱 맞으면 ✨PERFECT — 탑을 무너뜨린 사람이 벌칙",
+     "en": "🏗️ New Tower Stack (Quick Games): tap to drop the sliding block — overhangs get cut off, a perfect fit gets ✨PERFECT. Whoever topples the tower gets the penalty",
+     "ja": "🏗️ タワー積み追加（反射神経ゲーム）：左右に動くブロックをタッチして積む。はみ出た部分は切れ、ぴったりなら✨PERFECT — 崩した人が罰ゲーム",
+     "zh": "🏗️ 新增叠高塔（反应游戏）：点击放下左右移动的方块，超出的部分会被切掉，完全对准就 ✨PERFECT — 把塔弄倒的人受惩罚",
+     "th": "🏗️ เพิ่มต่อตึก (เกมความไว): แตะปล่อยบล็อกที่เลื่อนไปมา ส่วนที่ล้นจะถูกตัด ถ้าตรงเป๊ะได้ ✨PERFECT — ใครทำตึกพังโดนทำโทษ",
+     "vi": "🏗️ Thêm Xếp tháp (Trò phản xạ): chạm để thả khối đang trượt — phần thò ra bị cắt, khớp hoàn hảo được ✨PERFECT. Ai làm đổ tháp thì bị phạt"
     }
    ],
    [
     "🔴",
     {
-     "ko": "🔴 따라 하기 추가 (순발력게임): 색 버튼 4개(●▲■★)가 소리와 함께 반짝인 순서를 돌아가며 똑같이 누르기 — 성공할 때마다 하나씩 늘어나고, 틀린 사람이 마셔요",
-     "en": "🔴 New Copy Me (Quick Games): 4 color buttons (●▲■★) flash in order with sounds — take turns repeating it; it grows by one each time, and whoever misses drinks",
-     "ja": "🔴 まねっこ追加（反射神経ゲーム）：4つの色ボタン（●▲■★）が音と一緒に光った順番を交代でまねして押す — 成功ごとに1つ増え、間違えた人が飲む",
-     "zh": "🔴 新增跟着按（反应游戏）：4个彩色按钮（●▲■★）随声音按顺序亮起，大家轮流照着按 — 每次成功多一个，按错的人喝",
-     "th": "🔴 เพิ่มทำตาม (เกมความไว): ปุ่มสี 4 ปุ่ม (●▲■★) กะพริบตามลำดับพร้อมเสียง ผลัดกันกดตาม — ถูกแล้วลำดับยาวขึ้นทีละหนึ่ง ใครผิดต้องดื่ม",
-     "vi": "🔴 Thêm Bắt chước (Trò phản xạ): 4 nút màu (●▲■★) nháy theo thứ tự kèm âm thanh — lần lượt bấm lại; mỗi lần đúng dài thêm một, ai sai thì uống"
+     "ko": "🔴 따라 하기 추가 (순발력게임): 색 버튼 4개(●▲■★)가 소리와 함께 반짝인 순서를 돌아가며 똑같이 누르기 — 성공할 때마다 하나씩 늘어나고, 틀린 사람이 벌칙",
+     "en": "🔴 New Copy Me (Quick Games): 4 color buttons (●▲■★) flash in order with sounds — take turns repeating it; it grows by one each time, and whoever misses gets the penalty",
+     "ja": "🔴 まねっこ追加（反射神経ゲーム）：4つの色ボタン（●▲■★）が音と一緒に光った順番を交代でまねして押す — 成功ごとに1つ増え、間違えた人が罰ゲーム",
+     "zh": "🔴 新增跟着按（反应游戏）：4个彩色按钮（●▲■★）随声音按顺序亮起，大家轮流照着按 — 每次成功多一个，按错的人受惩罚",
+     "th": "🔴 เพิ่มทำตาม (เกมความไว): ปุ่มสี 4 ปุ่ม (●▲■★) กะพริบตามลำดับพร้อมเสียง ผลัดกันกดตาม — ถูกแล้วลำดับยาวขึ้นทีละหนึ่ง ใครผิดโดนทำโทษ",
+     "vi": "🔴 Thêm Bắt chước (Trò phản xạ): 4 nút màu (●▲■★) nháy theo thứ tự kèm âm thanh — lần lượt bấm lại; mỗi lần đúng dài thêm một, ai sai thì bị phạt"
     }
    ],
    [
     "✂️",
     {
-     "ko": "✂️ 폭탄 선 자르기 추가 (운빨게임): 폭탄에 달린 색깔 선(4·5·6·8개) 중 하나만 진짜 — 돌아가며 하나씩 자르고, 진짜 선을 자르면 💥 펑! 헤롱헤롱 늑대와 원샷",
-     "en": "✂️ New Cut the Wire (Luck Games): only one of the bomb's colored wires (4·5·6·8) is real — take turns cutting one; cut the real one and 💥 BOOM, a dizzy wolf and a shot",
-     "ja": "✂️ 爆弾の線切り追加（運ゲーム）：爆弾の色の線（4・5・6・8本）のうち本物は1本 — 順番に1本ずつ切って、本物を切ったら💥ドカン！フラフラのオオカミと一気",
-     "zh": "✂️ 新增剪炸弹线（运气游戏）：炸弹上的彩色线（4·5·6·8根）只有一根是真的 — 轮流剪一根，剪到真线就 💥 砰！晕乎乎的小狼和干杯",
-     "th": "✂️ เพิ่มตัดสายระเบิด (เกมดวง): สายสีของระเบิด (4·5·6·8 เส้น) มีสายจริงแค่เส้นเดียว — ผลัดกันตัดทีละเส้น ตัดโดนสายจริง 💥 ตูม! หมาป่ามึนตึ้บแล้วหมดแก้ว",
-     "vi": "✂️ Thêm Cắt dây bom (Trò may rủi): chỉ một trong các dây màu (4·5·6·8) của quả bom là thật — lần lượt cắt từng dây; cắt trúng dây thật là 💥 BÙM, sói choáng váng và cạn ly"
+     "ko": "✂️ 폭탄 선 자르기 추가 (운빨게임): 폭탄에 달린 색깔 선(4·5·6·8개) 중 하나만 진짜 — 돌아가며 하나씩 자르고, 진짜 선을 자르면 💥 펑! 헤롱헤롱 늑대와 벌칙",
+     "en": "✂️ New Cut the Wire (Luck Games): only one of the bomb's colored wires (4·5·6·8) is real — take turns cutting one; cut the real one and 💥 BOOM, a dizzy wolf and a penalty",
+     "ja": "✂️ 爆弾の線切り追加（運ゲーム）：爆弾の色の線（4・5・6・8本）のうち本物は1本 — 順番に1本ずつ切って、本物を切ったら💥ドカン！フラフラのオオカミと罰ゲーム",
+     "zh": "✂️ 新增剪炸弹线（运气游戏）：炸弹上的彩色线（4·5·6·8根）只有一根是真的 — 轮流剪一根，剪到真线就 💥 砰！晕乎乎的小狼和惩罚",
+     "th": "✂️ เพิ่มตัดสายระเบิด (เกมดวง): สายสีของระเบิด (4·5·6·8 เส้น) มีสายจริงแค่เส้นเดียว — ผลัดกันตัดทีละเส้น ตัดโดนสายจริง 💥 ตูม! หมาป่ามึนตึ้บแล้วโดนทำโทษ",
+     "vi": "✂️ Thêm Cắt dây bom (Trò may rủi): chỉ một trong các dây màu (4·5·6·8) của quả bom là thật — lần lượt cắt từng dây; cắt trúng dây thật là 💥 BÙM, sói choáng váng và bị phạt"
     }
    ],
    [
     "🍺",
     {
-     "ko": "🍺 늑대컬링 추가 (순발력게임): 늑대 모양 맥주잔을 뒤로 당겼다가 놓으면 테이블 위를 미끄러져요. 끝에 가까울수록 🥇, 끝을 넘으면 💦 떨어져서 원샷 (힘 게이지 없이 감으로!)",
-     "en": "🍺 New Wolf Curling (Quick Games): pull the wolf-shaped beer mug back and let go to slide it down the table. Closest to the edge gets 🥇, past it and it 💦 falls off — shot! (No power meter, go by feel!)",
-     "ja": "🍺 オオカミカーリング追加（反射神経ゲーム）：オオカミ形のジョッキを後ろに引いて放すとテーブルを滑ります。端に近いほど🥇、越えたら💦落ちて一気（パワーゲージなし、感覚で！）",
-     "zh": "🍺 新增狼冰壶（反应游戏）：把狼形啤酒杯往后拉再松手，它会在桌上滑行。离桌边越近越好 🥇，超过就 💦 掉下去要干杯（没有力度条，全凭手感！）",
-     "th": "🍺 เพิ่มเคิร์ลลิงหมาป่า (เกมความไว): ดึงแก้วเบียร์รูปหมาป่าลงแล้วปล่อยให้ไถลไปบนโต๊ะ ใกล้ขอบที่สุดได้ 🥇 เลยขอบจะ 💦 ตกแล้วต้องดื่ม (ไม่มีเกจแรง ใช้ความรู้สึก!)",
-     "vi": "🍺 Thêm Bi đá sói (Trò phản xạ): kéo cốc bia hình sói về sau rồi thả cho nó trượt trên bàn. Gần mép nhất được 🥇, vượt mép là 💦 rơi và phải uống (không có thanh lực, dựa vào cảm giác!)"
+     "ko": "🍺 늑대컬링 추가 (순발력게임): 늑대 모양 맥주잔을 뒤로 당겼다가 놓으면 테이블 위를 미끄러져요. 끝에 가까울수록 🥇, 끝을 넘으면 💦 떨어져서 벌칙 (힘 게이지 없이 감으로!)",
+     "en": "🍺 New Wolf Curling (Quick Games): pull the wolf-shaped beer mug back and let go to slide it down the table. Closest to the edge gets 🥇, past it and it 💦 falls off — penalty! (No power meter, go by feel!)",
+     "ja": "🍺 オオカミカーリング追加（反射神経ゲーム）：オオカミ形のジョッキを後ろに引いて放すとテーブルを滑ります。端に近いほど🥇、越えたら💦落ちて罰ゲーム（パワーゲージなし、感覚で！）",
+     "zh": "🍺 新增狼冰壶（反应游戏）：把狼形啤酒杯往后拉再松手，它会在桌上滑行。离桌边越近越好 🥇，超过就 💦 掉下去要受惩罚（没有力度条，全凭手感！）",
+     "th": "🍺 เพิ่มเคิร์ลลิงหมาป่า (เกมความไว): ดึงแก้วเบียร์รูปหมาป่าลงแล้วปล่อยให้ไถลไปบนโต๊ะ ใกล้ขอบที่สุดได้ 🥇 เลยขอบจะ 💦 ตกแล้วโดนทำโทษ (ไม่มีเกจแรง ใช้ความรู้สึก!)",
+     "vi": "🍺 Thêm Bi đá sói (Trò phản xạ): kéo cốc bia hình sói về sau rồi thả cho nó trượt trên bàn. Gần mép nhất được 🥇, vượt mép là 💦 rơi và bị phạt (không có thanh lực, dựa vào cảm giác!)"
     }
    ],
    [
@@ -173,12 +234,12 @@ export const CHANGELOG = [
    [
     "🎈",
     {
-     "ko": "🎈 풍선 불기 추가 (운빨게임): 폰을 돌리면서 1~3번씩 터치해 늑대 풍선에 바람을 넣고, 터뜨린 사람이 원샷",
-     "en": "🎈 New Balloon Pump (Luck Games): pass the phone and tap 1–3 times to pump the wolf balloon — whoever pops it drinks",
-     "ja": "🎈 風船ふくらまし追加（運ゲーム）：スマホを回して1〜3回ずつタッチ、オオカミ風船を割った人が一気",
-     "zh": "🎈 新增吹气球（运气游戏）：手机轮流传，每人点1~3下给狼气球打气，弄爆的人干杯",
-     "th": "🎈 เพิ่มเป่าลูกโป่ง (เกมดวง): ส่งมือถือวนกัน แตะคนละ 1–3 ครั้ง ใครทำลูกโป่งหมาป่าแตกหมดแก้ว",
-     "vi": "🎈 Thêm Thổi bóng bay (Trò may rủi): chuyền điện thoại, mỗi người chạm 1–3 lần bơm bóng sói — ai làm nổ thì cạn ly"
+     "ko": "🎈 풍선 불기 추가 (운빨게임): 폰을 돌리면서 1~3번씩 터치해 늑대 풍선에 바람을 넣고, 터뜨린 사람이 벌칙",
+     "en": "🎈 New Balloon Pump (Luck Games): pass the phone and tap 1–3 times to pump the wolf balloon — whoever pops it gets the penalty",
+     "ja": "🎈 風船ふくらまし追加（運ゲーム）：スマホを回して1〜3回ずつタッチ、オオカミ風船を割った人が罰ゲーム",
+     "zh": "🎈 新增吹气球（运气游戏）：手机轮流传，每人点1~3下给狼气球打气，弄爆的人受惩罚",
+     "th": "🎈 เพิ่มเป่าลูกโป่ง (เกมดวง): ส่งมือถือวนกัน แตะคนละ 1–3 ครั้ง ใครทำลูกโป่งหมาป่าแตกโดนทำโทษ",
+     "vi": "🎈 Thêm Thổi bóng bay (Trò may rủi): chuyền điện thoại, mỗi người chạm 1–3 lần bơm bóng sói — ai làm nổ thì bị phạt"
     }
    ],
    [
@@ -234,12 +295,12 @@ export const CHANGELOG = [
    [
     "🔻",
     {
-     "ko": "🔻 플링코 추가 (운빨게임): 위쪽을 터치하면 늑대 코인이 핀 사이를 튕기며 떨어져요 — 1잔 · 반 잔 · 다시 · 오른쪽 사람 · 왼쪽 사람 · 다 같이 · 통과, 칸 순서는 판마다 섞여요",
-     "en": "🔻 New Plinko (Luck Games): tap the top and a wolf coin bounces down through the pins — 1 drink · Half · Again · Right person · Left person · Everyone · Pass, and the slots shuffle every round",
-     "ja": "🔻 プリンコ追加（運ゲーム）：上をタッチするとオオカミコインがピンの間を跳ねて落ちる — 1杯 · 半分 · もう一回 · 右の人 · 左の人 · みんな · セーフ、マスの順番は毎回シャッフル",
-     "zh": "🔻 新增弹珠台（运气游戏）：点上方，狼币在钉子间弹跳落下 — 1杯 · 半杯 · 再来 · 右边的人 · 左边的人 · 大家一起 · 过，格子顺序每局都会打乱",
-     "th": "🔻 เพิ่มพลิงโก (เกมดวง): แตะด้านบน เหรียญหมาป่าจะเด้งผ่านหมุดลงมา — 1 แก้ว · ครึ่งแก้ว · อีกรอบ · คนขวา · คนซ้าย · ทุกคน · รอด ช่องจะสลับทุกรอบ",
-     "vi": "🔻 Thêm Plinko (Trò may rủi): chạm phía trên, đồng xu sói nảy qua các chốt rơi xuống — 1 ly · Nửa ly · Lại · Người bên phải · Người bên trái · Cả bàn · Qua, thứ tự ô đổi mỗi ván"
+     "ko": "🔻 플링코 추가 (운빨게임): 위쪽을 터치하면 늑대 코인이 핀 사이를 튕기며 떨어져요 — 벌칙 · 작은 벌칙 · 다시 · 오른쪽 사람 · 왼쪽 사람 · 다 같이 · 통과, 칸 순서는 판마다 섞여요",
+     "en": "🔻 New Plinko (Luck Games): tap the top and a wolf coin bounces down through the pins — Penalty · Small penalty · Again · Right person · Left person · Everyone · Pass, and the slots shuffle every round",
+     "ja": "🔻 プリンコ追加（運ゲーム）：上をタッチするとオオカミコインがピンの間を跳ねて落ちる — 罰ゲーム · 小さい罰ゲーム · もう一回 · 右の人 · 左の人 · みんな · セーフ、マスの順番は毎回シャッフル",
+     "zh": "🔻 新增弹珠台（运气游戏）：点上方，狼币在钉子间弹跳落下 — 惩罚 · 小惩罚 · 再来 · 右边的人 · 左边的人 · 大家一起 · 过，格子顺序每局都会打乱",
+     "th": "🔻 เพิ่มพลิงโก (เกมดวง): แตะด้านบน เหรียญหมาป่าจะเด้งผ่านหมุดลงมา — ทำโทษ · ทำโทษเบา ๆ · อีกรอบ · คนขวา · คนซ้าย · ทุกคน · รอด ช่องจะสลับทุกรอบ",
+     "vi": "🔻 Thêm Plinko (Trò may rủi): chạm phía trên, đồng xu sói nảy qua các chốt rơi xuống — Bị phạt · Phạt nhẹ · Lại · Người bên phải · Người bên trái · Cả bàn · Qua, thứ tự ô đổi mỗi ván"
     }
    ],
    [
@@ -278,12 +339,12 @@ export const CHANGELOG = [
    [
     "💬",
     {
-     "ko": "💬 피드백 링크: 메인 화면 \"술자리 게임 모음\" 옆을 누르면 게시판 글로 가요 — 의견 남겨 주세요!",
-     "en": "💬 Feedback link: tap it next to \"Drinking game collection\" on the home screen to open the board post — tell us what you think!",
-     "ja": "💬 フィードバックリンク：ホームの「飲み会ゲーム集」の隣をタップすると掲示板の投稿へ — ご意見ください！",
-     "zh": "💬 反馈链接：点主页“酒桌游戏合集”旁边就能打开论坛帖子 — 欢迎留言！",
-     "th": "💬 ลิงก์ความคิดเห็น: แตะข้าง \"รวมเกมวงเหล้า\" ที่หน้าหลักเพื่อไปที่โพสต์ — บอกความเห็นกันได้!",
-     "vi": "💬 Liên kết góp ý: chạm cạnh \"Bộ trò chơi nhậu\" ở màn hình chính để mở bài viết — hãy góp ý nhé!"
+     "ko": "💬 피드백 링크: 메인 화면 \"미니 게임 모음\" 옆을 누르면 게시판 글로 가요 — 의견 남겨 주세요!",
+     "en": "💬 Feedback link: tap it next to \"Mini game collection\" on the home screen to open the board post — tell us what you think!",
+     "ja": "💬 フィードバックリンク：ホームの「ミニゲーム集」の隣をタップすると掲示板の投稿へ — ご意見ください！",
+     "zh": "💬 反馈链接：点主页“迷你游戏合集”旁边就能打开论坛帖子 — 欢迎留言！",
+     "th": "💬 ลิงก์ความคิดเห็น: แตะข้าง \"รวมมินิเกม\" ที่หน้าหลักเพื่อไปที่โพสต์ — บอกความเห็นกันได้!",
+     "vi": "💬 Liên kết góp ý: chạm cạnh \"Tuyển tập mini game\" ở màn hình chính để mở bài viết — hãy góp ý nhé!"
     }
    ],
    [
@@ -390,12 +451,12 @@ export const CHANGELOG = [
    [
     "👑",
     {
-     "ko": "👑 글로벌 킹스컵 추가 (카드): 카드마다 그림으로 할 일 표시, K가 나올 때마다 킹스컵 잔이 차고 4번째 K는 원샷",
-     "en": "New 👑 Global King's Cup (Cards): every card shows its rule as a picture; the cup fills with each King and the 4th King drinks it",
-     "ja": "👑 グローバル・キングスカップ追加（カード）：カードごとにやることを絵で表示、Kが出るたびに杯が満ち4枚目のKで一気",
-     "zh": "新增👑 全球国王杯（扑克）：每张牌用图显示规则，每出一张K杯子就满一点，第4张K干杯",
-     "th": "เพิ่ม 👑 คิงส์คัพสากล (ไพ่): ทุกใบบอกกติกาเป็นรูป ได้ K แก้วจะเต็มขึ้น K ใบที่ 4 หมดแก้ว",
-     "vi": "Thêm 👑 King's Cup toàn cầu (Bài): mỗi lá hiện luật bằng hình, mỗi lá K làm ly đầy thêm, lá K thứ 4 phải cạn ly"
+     "ko": "👑 글로벌 킹스컵 추가 (카드): 카드마다 그림으로 할 일 표시, K가 나올 때마다 킹스컵 잔이 차고 4번째 K는 킹스컵 큰 벌칙",
+     "en": "New 👑 Global King's Cup (Cards): every card shows its rule as a picture; the cup fills with each King and the 4th King gets the King's Cup big penalty",
+     "ja": "👑 グローバル・キングスカップ追加（カード）：カードごとにやることを絵で表示、Kが出るたびに杯が満ち4枚目のKはキングスカップの大きな罰ゲーム",
+     "zh": "新增👑 全球国王杯（扑克）：每张牌用图显示规则，每出一张K杯子就满一点，第4张K接受国王杯大惩罚",
+     "th": "เพิ่ม 👑 คิงส์คัพสากล (ไพ่): ทุกใบบอกกติกาเป็นรูป ได้ K แก้วจะเต็มขึ้น K ใบที่ 4 โดนทำโทษใหญ่คิงส์คัพ",
+     "vi": "Thêm 👑 King's Cup toàn cầu (Bài): mỗi lá hiện luật bằng hình, mỗi lá K làm ly đầy thêm, lá K thứ 4 bị phạt nặng King's Cup"
     }
    ],
    [
@@ -582,25 +643,25 @@ export const CHANGELOG = [
     }
    ],
    [
-    "🍶",
+    "🎯",
     {
-     "ko": "789 추가 (주사위 메뉴): 합의 뒷자리 7 첨잔 · 8 반만 마시기 · 9 한번에 다 마시기 · 6 순서 반대로",
-     "en": "New 789 (Dice menu): last digit of the sum — 7 top up · 8 drink half · 9 drink it all · 6 reverse order",
-     "ja": "789追加（サイコロメニュー）：合計の下1桁 7 注ぎ足し・8 半分・9 一気・6 順番逆",
-     "zh": "新增789（骰子菜单）：和的个位 7 加酒 · 8 喝一半 · 9 一口干 · 6 顺序反转",
-     "th": "เพิ่ม 789 (เมนูลูกเต๋า): หลักหน่วยของผลรวม 7 เติมแก้ว · 8 ดื่มครึ่ง · 9 หมดแก้ว · 6 สลับลำดับ",
-     "vi": "Thêm 789 (menu Xúc xắc): chữ số cuối của tổng — 7 rót thêm · 8 uống nửa · 9 uống cạn · 6 đảo chiều"
+     "ko": "789 추가 (주사위 메뉴): 합의 뒷자리 7 작은 벌칙 · 8 중간 벌칙 · 9 큰 벌칙 · 6 순서 반대로",
+     "en": "New 789 (Dice menu): last digit of the sum — 7 small penalty · 8 medium penalty · 9 big penalty · 6 reverse order",
+     "ja": "789追加（サイコロメニュー）：合計の下1桁 7 小さい罰ゲーム・8 中くらいの罰ゲーム・9 大きい罰ゲーム・6 順番逆",
+     "zh": "新增789（骰子菜单）：和的个位 7 小惩罚 · 8 中惩罚 · 9 大惩罚 · 6 顺序反转",
+     "th": "เพิ่ม 789 (เมนูลูกเต๋า): หลักหน่วยของผลรวม 7 ทำโทษเบา · 8 ทำโทษกลาง · 9 ทำโทษหนัก · 6 สลับลำดับ",
+     "vi": "Thêm 789 (menu Xúc xắc): chữ số cuối của tổng — 7 phạt nhẹ · 8 phạt vừa · 9 phạt nặng · 6 đảo chiều"
     }
    ],
    [
     "🃏",
     {
-     "ko": "카드 메뉴 추가: Up/Down (레드/블랙, 같은 숫자 원샷, 누적 옵션) · 호치민",
-     "en": "New Cards menu: Up/Down (red/black, same number = bottoms up, stack option) · Ho Chi Minh",
-     "ja": "カードメニュー追加：Up/Down（赤/黒、同じ数字は一気、累積オプション）・ホーチミン",
-     "zh": "新增纸牌菜单：Up/Down（红/黑、同点干杯、可累积）· 胡志明",
-     "th": "เพิ่มเมนูไพ่: Up/Down (แดง/ดำ, เลขเดียวกันหมดแก้ว, ตัวเลือกสะสม) · โฮจิมินห์",
-     "vi": "Thêm menu Bài: Up/Down (đỏ/đen, cùng số uống cạn, cộng dồn) · Hồ Chí Minh"
+     "ko": "카드 메뉴 추가: Up/Down (레드/블랙, 같은 숫자 벌칙, 누적 옵션) · 호치민",
+     "en": "New Cards menu: Up/Down (red/black, same number = penalty, stack option) · Ho Chi Minh",
+     "ja": "カードメニュー追加：Up/Down（赤/黒、同じ数字は罰ゲーム、累積オプション）・ホーチミン",
+     "zh": "新增纸牌菜单：Up/Down（红/黑、同点受惩罚、可累积）· 胡志明",
+     "th": "เพิ่มเมนูไพ่: Up/Down (แดง/ดำ, เลขเดียวกันโดนทำโทษ, ตัวเลือกสะสม) · โฮจิมินห์",
+     "vi": "Thêm menu Bài: Up/Down (đỏ/đen, cùng số bị phạt, cộng dồn) · Hồ Chí Minh"
     }
    ],
    [
@@ -654,9 +715,9 @@ export const CHANGELOG = [
     }
    ],
    [
-    "🍻",
+    "💸",
     {
-     "ko": "N빵: 술값을 인원수로 나눠 1인당 금액 표시, 10·100·1000 단위 올림, 남는 금액",
+     "ko": "N빵 계산: 금액을 인원수로 나눠 1인당 금액 표시, 10·100·1000 단위 올림, 남는 금액",
      "en": "Bill split: divides the total by the number of people, round up to 10/100/1000, shows the leftover",
      "ja": "割り勘：人数で割って1人あたりの金額を表示、10・100・1000単位で切り上げ、余りも表示",
      "zh": "AA分摊：按人数平分显示每人金额，可按10·100·1000向上取整，显示多出的金额",
