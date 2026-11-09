@@ -2,10 +2,10 @@
 export const MANUAL = {
  "ko": {
   "title": "설치 안내",
-  "lead": "술자리 게임 모음 · 설치 안내",
+  "lead": "미니 게임 모음 · 설치 안내",
   "navAndroid": "🤖 안드로이드 설치",
   "navIphone": "🍎 아이폰 홈 화면 추가",
-  "navNew": "🆕 v1.8.1 구성",
+  "navNew": "🆕 v1.9 구성",
   "navUpdate": "🔄 업데이트",
   "navFaq": "❓ 자주 묻는 질문",
   "qAndroid": "🤖 안드로이드 앱",
@@ -101,19 +101,20 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 메인 화면",
-  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.8.1</b>)을 확인할 수 있어요.",
-  "hNew": "🆕 v1.8.1 구성",
-  "newIntro": "울프 게임즈 v1.8.1에는 아래 게임과 기능이 들어 있어요.",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.9</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v1.9 구성",
+  "newIntro": "울프 게임즈 v1.9에는 아래 게임과 기능이 들어 있어요.",
   "newFeat": [
    "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🏗️ 탑 쌓기 · 🔴 따라 하기 · 🍺 늑대컬링 · ✂️ 폭탄 선 자르기 · 📏 사이즈 변환표 · 💰 중간 정산 · 📤 내보내기 · 🔄 업데이트 확인",
+   "🆕 🐺 늑대 야바위 · 📤 공유 · 🏁 늑대달리기 순위 크게 · 🍺 늑대컬링 → 🐺 늑대게임 · 🎯 \"벌칙\" · \"당첨\"으로 통일",
+   "✨ v1.8: 🏗️ 탑 쌓기 · 🔴 따라 하기 · 🍺 늑대컬링 · ✂️ 폭탄 선 자르기 · 📏 사이즈 변환표 · 💰 중간 정산 · 📤 내보내기 · 🔄 업데이트 확인",
    "✨ v1.7: 🔢 숫자 폭탄 · 🎈 풍선 불기 · 🗣️ 회화 카드 · 🧾 여행 정산",
    "✨ v1.6: 🔻 플링코 · 🟢 삼목 · ⚫ 오목 · 🏨 숙소 주소 카드 · 🌐 두 언어 같이 보기",
    "✨ v1.5: 🎀 연타 땅따먹기 · 🐾 슬랩 대결 · 👑 글로벌 킹스컵 · 🍺 맥주 거품 채우기 · 🪙 동전 던지기",
    "⚡ 순발력게임 (반응속도 대결 · 색 반응 대결 · 스탑워치) · 💣 폭탄돌리기 · ⚔️ 주사위 대결",
    "🐺 늑대게임 · 🍀 운빨게임 · ⚔️ 대결게임 카테고리",
-   "🃏 카드 게임 (Up/Down · 호치민) · 🍶 789",
-   "🧮 계산기 · 🍻 N빵(술값 나누기) · 💱 환전 (메인 화면 로고 옆)",
+   "🃏 카드 게임 (Up/Down · 호치민) · 🎯 789",
+   "🧮 계산기 · 💸 N빵 · 💱 환전 (메인 화면 로고 옆)",
    "▦ 내 연락처 QR · 💁 팁",
    "📳 모든 버튼·게임 터치에 진동 (당첨·승리 땐 강하게)",
    "🔆 게임 중 화면 꺼짐 방지",
@@ -121,19 +122,11 @@ export const MANUAL = {
   ],
   "hChange": "🛠 최근 수정 내용",
   "changes": [
-   "🔴 따라 하기: 틀렸을 때 ❌ 틀렸다! · 💀 원샷을 화면 가운데에 크게 보여줘요",
-   "🍺 늑대컬링: 마지막 🏆 결과를 크게 — 순위 · 거리(cm) · 원샷할 사람이 한눈에",
-   "🧾 여행 정산 버튼을 메인 화면에서 빼고 🧮 계산기 안으로 옮겼어요 (메인 화면 정리)",
-   "🏗️ 탑 쌓기 추가 (순발력게임): 좌우로 움직이는 블록을 터치해서 쌓고, 삐져나간 부분은 잘려요. 딱 맞으면 ✨PERFECT — 탑을 무너뜨린 사람이 마셔요",
-   "🔴 따라 하기 추가 (순발력게임): 색 버튼 4개(●▲■★)가 소리와 함께 반짝인 순서를 돌아가며 똑같이 누르기 — 성공할 때마다 하나씩 늘어나고, 틀린 사람이 마셔요",
-   "✂️ 폭탄 선 자르기 추가 (운빨게임): 폭탄에 달린 색깔 선(4·5·6·8개) 중 하나만 진짜 — 돌아가며 하나씩 자르고, 진짜 선을 자르면 💥 펑! 헤롱헤롱 늑대와 원샷",
-   "🍺 늑대컬링 추가 (순발력게임): 늑대 모양 맥주잔을 뒤로 당겼다가 놓으면 테이블 위를 미끄러져요. 끝에 가까울수록 🥇, 끝을 넘으면 💦 떨어져서 원샷 (힘 게이지 없이 감으로!)",
-   "🐺 따라 하기 버튼이 액세서리 늑대 4마리로: 😎 선글라스 · 🎀 리본 · 🧢 모자 · 👑 왕관 — 반짝일 때 폴짝 뛰면서 \"아우~\"",
-   "📤 여행 정산 내보내기: 정산 기록을 엑셀(.csv)·메모장(.txt) 파일로 저장하거나 카톡 등으로 바로 공유 — 전부 지우기 전에 \"먼저 저장할래?\" 물어봐요",
-   "💰 중간 정산: 보낼 돈을 100·500·1,000 단위로 반올림해서 받고(예: 5,900 → 6,000), 남은 차이는 다음 정산으로 자동으로 넘어가요",
-   "🧮 계산기에 🧾 정산 · 📏 사이즈 버튼 추가 (메인 화면의 정산 버튼은 계산기 안으로 옮겼어요) — 사이즈 변환표: 신발(남·여) · 상의(남·여) · 바지 허리 · 반지를 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 기준으로, 내 사이즈 ⭐ 저장",
-   "🔄 앱 안에서 업데이트 (안드로이드): 새 버전이 나오면 앱을 켤 때 알려주고, 누르면 받아서 설치 화면까지 열어줘요. 업데이트 내역 화면에서 직접 확인도 돼요",
-   "🌏 넷 다 글자 없이 그림·색·숫자만으로 할 수 있어서 외국인 친구랑 같이 하기 좋아요"
+   "🎯 게임 문구를 '벌칙' · '당첨'으로 통일 · 이름을 \"미니 게임 모음\"으로 · 메인 아래에 작은 안내 문구 추가",
+   "🍺 늑대컬링을 ⚡ 순발력게임에서 🐺 늑대게임으로 옮김",
+   "🐺 🍀 운빨게임에 늑대 야바위 추가: 늑대들이 코인을 먹는데 꽝 늑대는 굶어요 → 섞이고 나면 한 명씩 골라서 빈 입이면 벌칙 (1~8명, 꽝 늑대 1 ~ 인원-1마리)",
+   "📤 메인 화면에 공유 버튼: 친구 폰(안드로이드 / 아이폰·PC)을 고르면 맞는 링크로 앱 공유 · 링크만 복사 · QR 바로 찍기",
+   "🏁 늑대달리기: 순위를 레인 가운데에 크게 — 1등 👑 · 2등 · 3등 메달색, 꼴찌 💀 빨간색 + 동물 이름까지"
   ],
   "hUpdate": "🔄 업데이트",
   "updA": "<b>안드로이드</b>: 같은 QR이나 같은 버튼으로 새 APK를 받아 설치하면 됩니다. <b>기존 앱을 지우지 않고</b> 덮어 설치돼요.",
@@ -166,6 +159,7 @@ export const MANUAL = {
    ]
   ],
   "back": "← 게임으로",
+  "disclaimer": "본 게임은 친목 도모를 위한 단순 랜덤 벌칙 게임이며, 과도한 몰입이나 오프라인에서의 무리한 벌칙 수행(음주 강요 등)으로 인한 사고에 대해 개발자는 책임지지 않습니다.",
   "navHow": "🎮 게임 방법",
   "hHow": "🎮 게임 방법",
   "howIntro": "메인 화면에서 게임을 누르면 바로 시작돼요. 설정이 있는 게임은 인원 등을 정한 뒤 <b>게임 시작</b>을 누르세요. 왼쪽 위 <b>←</b>로 언제든 나갈 수 있어요. 메인 화면은 <b>주사위 · 카드 · 손가락게임 · 순발력게임 · 늑대게임 · 운빨게임 · 대결게임</b> 카테고리로 나뉘어 있어요.",
@@ -188,7 +182,7 @@ export const MANUAL = {
    [
     "인원(2~8명)을 정하고, <b>6이 나오면 순서 반대로</b> 옵션을 켜거나 꺼요.",
     "차례인 사람이 화면을 탭하면 주사위 2개가 통통 튀면서 굴러가요.",
-    "합의 뒷자리가 <b>7 첨잔 · 8 반만 마시기 · 9 한번에 다 마시기</b>, 6은 순서 반대로, 나머지는 통과예요."
+    "합의 뒷자리가 <b>7 작은 벌칙 · 8 중간 벌칙 · 9 큰 벌칙</b>, 6은 순서 반대로, 나머지는 통과예요."
    ],
    [
     "인원(2~4명), 주사위 개수(2~4개), 계산 방법(더하기·곱하기)을 정해요.",
@@ -196,19 +190,19 @@ export const MANUAL = {
     "모두 굴리면 <b>👑 최고</b>와 <b>💀 최저</b>가 표시돼요. 가운데 원을 누르면 다시!"
    ],
    [
-    "인원(2~8명)을 정해요. <b>누적</b> 옵션을 켜면 성공할 때마다 벌주가 1잔씩 쌓여요.",
+    "인원(2~8명)을 정해요. <b>누적</b> 옵션을 켜면 성공할 때마다 벌칙이 1개씩 쌓여요.",
     "바닥 카드보다 다음 카드가 높으면 <b>UP</b>, 낮으면 <b>DOWN</b>. A나 K가 기준이면 <b>레드/블랙</b>을 맞혀요.",
-    "성공하면 다음 사람 차례, 실패하면 벌주(누적이면 쌓인 잔 전부)! <b>같은 숫자가 나오면 원샷</b>이에요."
+    "성공하면 다음 사람 차례, 실패하면 벌칙(누적이면 쌓인 벌칙 전부)! <b>같은 숫자가 나오면 큰 벌칙</b>이에요."
    ],
    [
     "인원(2~4명)을 정하고 폰을 테이블 가운데에 둬요. 각자 받은 카드 1장이 내 숫자예요.",
     "차례인 사람이 가운데 카드 2장 중 바꿀 카드를 눌러요. 새 카드가 뒤집혀 올라와요.",
-    "두 장 합의 뒷자리가 내 숫자면 <b>원샷!</b> (A=1, 10·J·Q·K=0) <b>새 게임</b>으로 카드를 다시 나눠요."
+    "두 장 합의 뒷자리가 내 숫자면 <b>벌칙!</b> (A=1, 10·J·Q·K=0) <b>새 게임</b>으로 카드를 다시 나눠요."
    ],
    [
     "카드 더미를 터치하면 한 장씩 뒤집혀 나와요. 카드 한가운데 큰 그림이 할 일이에요.",
-    "A 🌊 폭포 · 2 👉 지목 · 3 🙋 나 · 4 🚽 화장실 프리패스 · 5 💃 댄스 릴레이 · 6 🍻 다 같이 짠 · 7 🙌 하늘 · 8 🤝 짝꿍 · 9 🔤 끝말잇기 · 10 📚 카테고리 · J 📜 규칙 만들기 · Q ❓ 질문 마스터 · K 👑 킹스컵. 아래 <b>📋 규칙 보기</b>에서 언제든 확인!",
-    "K가 나올 때마다 오른쪽 위 잔이 차올라요. <b>4번째 K를 뽑은 사람이 킹스컵 원샷!</b> <b>🔀 새로 섞기</b>로 새 판."
+    "A 🌊 파도 · 2 👉 지목 · 3 🙋 나 · 4 🚽 화장실 프리패스 · 5 💃 댄스 릴레이 · 6 🎉 다 같이 · 7 🙌 하늘 · 8 🤝 짝꿍 · 9 🔤 끝말잇기 · 10 📚 카테고리 · J 📜 규칙 만들기 · Q ❓ 질문 마스터 · K 👑 킹스컵. 아래 <b>📋 규칙 보기</b>에서 언제든 확인!",
+    "K가 나올 때마다 가운데 킹스컵 잔이 조금씩 차올라요. <b>4번째 K를 뽑은 사람이 킹스컵 큰 벌칙!</b> <b>🔀 새로 섞기</b>로 새 판."
    ],
    [
     "인원(2~4명)을 정하고 폰을 가운데 둬요. 화면이 인원수만큼 똑같이 나뉘어요.",
@@ -233,17 +227,12 @@ export const MANUAL = {
    [
     "⚡ 순발력게임 → <b>🏗️ 탑 쌓기</b>. 좌우로 움직이는 블록을 <b>터치</b>하면 떨어져요.",
     "아래 블록 밖으로 삐져나간 부분은 잘려 나가서 점점 좁아져요. 딱 맞으면 <b>✨ PERFECT</b>. 한 번 누르면 폰을 다음 사람에게 👉",
-    "층이 올라갈수록 빨라져요. 블록이 아래 블록을 완전히 벗어나면 와르르 — 무너뜨린 사람이 🍺 원샷!"
+    "층이 올라갈수록 빨라져요. 블록이 아래 블록을 완전히 벗어나면 와르르 — 무너뜨린 사람이 💀 벌칙!"
    ],
    [
     "⚡ 순발력게임 → <b>🔴 따라 하기</b>. 액세서리 늑대 4마리(😎 선글라스 · 🎀 리본 · 🧢 모자 · 👑 왕관)가 있어요.",
     "늑대들이 소리와 함께 <b>순서대로</b> 폴짝 뛰며 반짝여요 (👀). 끝나면 똑같은 순서로 눌러요 (👆).",
-    "맞히면 순서가 하나 늘고 폰을 다음 사람에게 👉 틀리면 정답 늑대가 깜빡이고 🍺 원샷! 칸마다 ● ▲ ■ ★ 모양이 있어서 색이 헷갈려도 돼요."
-   ],
-   [
-    "⚡ 순발력게임 → <b>🍺 늑대컬링</b>. 인원(2~6명)을 고르고 시작해요. 사람마다 두건 색과 숫자가 다른 늑대 맥주잔이 있어요.",
-    "출발선의 잔에 손가락을 대고 <b>뒤로(아래로) 당겼다가 놓으면</b> 미끄러져 나가요. 많이 당길수록 멀리 가요 (힘 게이지 없이 감으로!).",
-    "테이블 끝에 가까울수록 좋아요 (🥇). 끝을 넘으면 💦 떨어져요. 다 던지면 🏆 순위 — 떨어진 사람은 모두, 아무도 안 떨어졌으면 제일 먼 사람이 🍺 원샷!"
+    "맞히면 순서가 하나 늘고 폰을 다음 사람에게 👉 틀리면 정답 늑대가 깜빡이고 💀 벌칙! 칸마다 ● ▲ ■ ★ 모양이 있어서 색이 헷갈려도 돼요."
    ],
    [
     "당첨 이빨 개수(1~10개)를 정하고 시작해요. 화면 가득 늑대가 입을 쩍 벌려요.",
@@ -268,27 +257,32 @@ export const MANUAL = {
    [
     "인원(2~8명)을 정하고 폰을 가운데 둬요. 각자 자리에서 <b>앞(🐺 늑대 얼굴)</b>이나 <b>뒤(🍑 늑대 엉덩이)</b>를 눌러요.",
     "모두 고르면 3·2·1 뒤 동전이 가운데서 튀어 올라 빙글빙글 돌다가 떨어져요.",
-    "맞춘 사람 <b>⭕</b>, 틀린 사람 <b>❌ 원샷</b>. 가끔(15%) 동전이 <b>세로로 서면 전원 틀림!</b> 가운데 원을 누르면 다시."
+    "맞춘 사람 <b>⭕</b>, 틀린 사람 <b>❌ 벌칙</b>. 가끔(15%) 동전이 <b>세로로 서면 전원 틀림!</b> 가운데 원을 누르면 다시."
    ],
    [
     "🍀 운빨게임 → <b>🔻 플링코</b>. 인원 정할 필요 없이 바로 시작해요.",
     "위쪽 아무 데나 터치하면 그 자리에서 늑대 코인이 떨어져요. 핀 사이를 톡톡 튕기다가 아래 칸에 쏙!",
-    "들어간 칸이 걸려요: <b>1잔 · 반 잔 · 다시 · 오른쪽 사람 · 왼쪽 사람 · 다 같이 · 통과</b>. 칸 순서는 판마다 <b>🔀 섞여요</b>."
+    "들어간 칸이 걸려요: <b>벌칙 · 반 벌칙 · 다시 · 오른쪽 사람 · 왼쪽 사람 · 다 같이 · 통과</b>. 칸 순서는 판마다 <b>🔀 섞여요</b>."
    ],
    [
     "🍀 운빨게임 → <b>🔢 숫자 폭탄</b>. 최대 숫자(30 · 50 · 100 · 200)를 고르고 시작하면 1부터 그 숫자 사이에 폭탄 숫자가 하나 숨어요.",
     "폰을 돌리면서 숫자를 하나씩 눌러요. 폭탄보다 작으면 <b>⬆️ UP</b>, 크면 <b>⬇️ DOWN</b> — 범위가 점점 좁아지고 폭탄 심지도 짧아져요.",
-    "폭탄 숫자를 누르면 <b>💥 펑!</b> 그을린 늑대가 헤롱헤롱 😵‍💫 그 사람이 <b>💀 원샷</b>. \"다시 하기\"로 새 판."
+    "폭탄 숫자를 누르면 <b>💥 펑!</b> 그을린 늑대가 헤롱헤롱 😵‍💫 그 사람이 <b>💀 벌칙</b>. \"다시 하기\"로 새 판."
    ],
    [
     "🍀 운빨게임 → <b>🎈 풍선 불기</b>. 인원 정할 필요 없이 바로 시작해요.",
     "폰을 돌리면서 한 사람이 <b>1~3번</b> 화면을 터치하고 넘겨요. 누를 때마다 늑대 얼굴 풍선이 커져요.",
-    "언제 터질지는 아무도 몰라요 (판마다 달라요). 풍선을 터뜨린 사람이 <b>💥 💀 원샷</b>. 화면을 누르면 새 풍선."
+    "언제 터질지는 아무도 몰라요 (판마다 달라요). 풍선을 터뜨린 사람이 <b>💥 💀 벌칙</b>. 화면을 누르면 새 풍선."
    ],
    [
     "🍀 운빨게임 → <b>✂️ 폭탄 선 자르기</b>. 선 개수(4 · 5 · 6 · 8)를 고르고 시작해요. 그중 하나만 진짜 선이에요.",
     "돌아가면서 선을 하나씩 <b>터치해서 잘라요</b> ✂️ 자를 때마다 폭탄 타이머가 빨라져요. 안전하면 \"휴~ 살았다!\" → 다음 사람 👉",
-    "진짜 선을 자르면 💥 펑! 헤롱헤롱 늑대와 함께 🍺 원샷. 다시 하기를 누르면 진짜 선이 새로 숨어요."
+    "진짜 선을 자르면 💥 펑! 헤롱헤롱 늑대와 함께 💀 벌칙! 다시 하기를 누르면 진짜 선이 새로 숨어요."
+   ],
+   [
+    "🍀 운빨게임 → <b>🐺 늑대 야바위</b>. 인원(1~8명)과 <b>꽝 늑대 수</b>(1 ~ 인원−1마리)를 정하고 시작해요.",
+    "늑대들이 입을 벌리고 🪙 코인을 하나씩 먹는데, 꽝 늑대는 굶어요. 그다음 이리저리 섞여요 (점점 빨라져요) — 잘 따라가 봐요 👀",
+    "한 사람씩 늑대를 하나 골라요 👆 코인이 나오면 ✅ 통과, 빈 입이면 <b>💀 벌칙!</b> 꽝 늑대를 다 찾으면 끝."
    ],
    [
     "🍀 운빨게임 → <b>☝️ 손가락선택</b>. 걸릴 인원(1~9명)을 정하고 시작해요.",
@@ -298,7 +292,7 @@ export const MANUAL = {
    [
     "인원(2~9명)과 결과 시간(3~30초)을 정하고, <b>각자 동물을 골라요</b> (12종, 누른 순서대로 레인 번호).",
     "동물들은 결승선에서 덜덜 떨며 기다리고, 늑대가 엎치락뒤치락 달려와요. 가까워지면 늑대가 입을 쩍!",
-    "<b>늑대가 먼저 무는 동물이 1등</b>. \"앙!\" 하고 문 순서대로 순위가 붙어요."
+    "<b>늑대가 먼저 무는 동물이 1등</b>. \"앙!\" 하고 문 순서대로 순위가 붙고, 레인 가운데에 크게 떠요 (1등 👑 · 꼴찌 💀)."
    ],
    [
     "통에 칼 자리가 20개 있고 그중 하나가 당첨이에요. 늑대는 통 안에 숨어 있어요.",
@@ -311,9 +305,14 @@ export const MANUAL = {
     "멈추면서 <b>\"앙!\"</b> 하고 무는 쪽(주둥이 끝)에 있는 사람이 당첨!"
    ],
    [
+    "🐺 늑대게임 → <b>🍺 늑대컬링</b>. 인원(2~6명)을 고르고 시작해요. 사람마다 두건 색과 숫자가 다른 늑대 맥주잔이 있어요.",
+    "출발선의 잔에 손가락을 대고 <b>뒤로(아래로) 당겼다가 놓으면</b> 미끄러져 나가요. 많이 당길수록 멀리 가요 (힘 게이지 없이 감으로!).",
+    "테이블 끝에 가까울수록 좋아요 (🥇). 끝을 넘으면 💦 떨어져요. 다 던지면 🏆 순위 — 떨어진 사람은 모두, 아무도 안 떨어졌으면 제일 먼 사람이 💀 벌칙!"
+   ],
+   [
     "⚔️ 대결게임 → <b>🟢 삼목</b>. 2명이 폰을 사이에 두고 위·아래로 마주 앉아요 (아래 = 초록, 위 = 빨강). 각자 쪽에 <b>\"나: 초록\"</b>처럼 내 색이 보여요.",
     "번갈아 늑대 코인을 놓아요. <b>한 수에 2초</b> — 넘기면 차례가 넘어가요. 가로·세로·대각선 3개를 먼저 이으면 승리!",
-    "코인은 <b>한 사람 3개까지</b>. 4번째를 놓으면 내 가장 오래된 코인이 사라져요 (사라질 코인은 깜빡여요). 진 사람 원샷, 화면을 누르면 다시."
+    "코인은 <b>한 사람 3개까지</b>. 4번째를 놓으면 내 가장 오래된 코인이 사라져요 (사라질 코인은 깜빡여요). 진 사람 벌칙, 화면을 누르면 다시."
    ],
    [
     "2명이 빨강과 노랑으로 번갈아 해요.",
@@ -323,7 +322,7 @@ export const MANUAL = {
    [
     "⚔️ 대결게임 → <b>⚫ 오목</b>. 위·아래로 마주 앉아요 (아래 = 흑, 위 = 백). 각자 쪽에 <b>\"나: 흑\"</b>처럼 내 돌 색이 보이고, 내 차례면 밝게 표시돼요.",
     "흑이 먼저, 번갈아 15×15 바둑판에 돌을 놓아요. 시간 제한은 없어요. 빨간 점이 방금 둔 돌이에요.",
-    "가로·세로·대각선 5개를 먼저 이으면 승리! 흑은 <b>🚫 33 금지</b> (열린 3이 두 줄 동시에 생기는 자리). 진 사람 원샷."
+    "가로·세로·대각선 5개를 먼저 이으면 승리! 흑은 <b>🚫 33 금지</b> (열린 3이 두 줄 동시에 생기는 자리). 진 사람 벌칙."
    ],
    [
     "2명이 폰을 사이에 두고 위·아래로 마주 앉아요.",
@@ -333,17 +332,17 @@ export const MANUAL = {
    [
     "2명이 위·아래로 마주 앉아요. 가운데에 늑대 앞발 두 개가 겹쳐 있어요.",
     "<b>🛡️ 수비</b>는 내 쪽 화면을 꾹 누르고 있다가 공격이 오면 떼서 피하기, <b>🐾 공격</b>은 아무 때나 내 쪽을 터치하면 찰싹!",
-    "맞으면 수비 원샷, 피하면 공수 교대. 공격이 안 왔는데 떼면 <b>움찔 반칙</b>으로 원샷! 💥 숫자는 맞힌 횟수예요."
+    "맞으면 수비 벌칙, 피하면 공수 교대. 공격이 안 왔는데 떼면 <b>움찔 반칙</b>으로 벌칙! 💥 숫자는 맞힌 횟수예요."
    ],
    [
-    "로고 옆 <b>🧮 계산기</b>에서 술값 총액을 계산해요.",
-    "<b>🍻 N빵</b>을 누르고 인원과 올림 단위(없음·10·100·1000)를 골라요.",
+    "로고 옆 <b>🧮 계산기</b>에서 총 금액을 계산해요.",
+    "<b>💸 N빵</b>을 누르고 인원과 올림 단위(없음·10·100·1000)를 골라요.",
     "1인당 금액과, 모두 걷었을 때 남는 금액이 나와요."
    ],
    [
-    "계산기에서 금액을 입력하고 <b>💁 팁</b>을 눌러요 (🍻 N빵과 💱 환전 사이).",
+    "계산기에서 금액을 입력하고 <b>💁 팁</b>을 눌러요 (💸 N빵과 💱 환전 사이).",
     "<b>5 · 10 · 15 · 20 · 25 · 30%</b> 중 하나를 고르면 팁 금액과 <b>팁 포함 합계</b>가 나와요. 고른 %는 기억해 둬요.",
-    "<b>🍻 팁 포함 N빵</b>을 누르면 팁까지 합친 금액으로 바로 나눌 수 있어요."
+    "<b>💸 팁 포함 N빵</b>을 누르면 팁까지 합친 금액으로 바로 나눌 수 있어요."
    ],
    [
     "계산기에서 <b>💱 환전</b>을 눌러요. 계산기 금액이 자동으로 들어가요.",
@@ -354,6 +353,11 @@ export const MANUAL = {
     "메인 화면 로고 옆 <b>▦ QR</b>을 눌러요. 처음엔 인스타·왓츠앱·틱톡·라인·카톡·텔레그램·페이스북·잘로 중 쓰는 걸 입력하고 저장해요.",
     "다음부터는 누르면 바로 <b>흰 배경 풀화면 QR</b>이 나와요. 여러 개면 위 버튼을 누르거나 옆으로 넘겨서 바꿔요.",
     "상대가 폰 카메라로 찍으면 내 프로필·채팅이 바로 열려요. 입력한 정보는 <b>내 폰에만 저장</b>되고, 앱에서는 화면이 최대 밝기가 돼요."
+   ],
+   [
+    "메인 화면 <b>📤 공유</b> 버튼. 먼저 <b>친구 폰이 뭐예요?</b>에서 친구 폰을 골라요.",
+    "<b>🤖 안드로이드</b> → 앱(APK)을 바로 받는 링크, <b>🍎 아이폰 · PC</b> → 웹 링크 (사파리 → 공유 → \"홈 화면에 추가\"하면 앱처럼).",
+    "<b>📲 앱으로 공유</b>로 카톡 등에 보내거나 <b>🔗 링크만 복사</b>. 친구가 옆에 있으면 화면의 QR을 바로 찍으면 돼요 📷"
    ],
    [
     "메인 화면 <b>🏨 숙소</b> 버튼 (QR 옆). 처음엔 숙소 이름, <b>현지어 주소</b>(예약 앱에서 복사해서 붙여넣기), 전화번호·메모(선택)를 넣고 저장. 여러 개 넣을 수 있어요.",
@@ -439,10 +443,6 @@ export const MANUAL = {
     "smTitle"
    ],
    [
-    "how-curling",
-    "cuTitle"
-   ],
-   [
     "how-teeth",
     "menuCroc"
    ],
@@ -479,6 +479,10 @@ export const MANUAL = {
     "wcTitle"
    ],
    [
+    "how-yabawi",
+    "ybTitle"
+   ],
+   [
     "how-finger",
     "fingerTitle"
    ],
@@ -493,6 +497,10 @@ export const MANUAL = {
    [
     "how-arrow",
     "menuArrow"
+   ],
+   [
+    "how-curling",
+    "cuTitle"
    ],
    [
     "how-ttt",
@@ -531,6 +539,10 @@ export const MANUAL = {
     "qrTitle"
    ],
    [
+    "how-share",
+    "shTitle"
+   ],
+   [
     "how-hotel",
     "hotelTitle"
    ],
@@ -555,7 +567,7 @@ export const MANUAL = {
    "👆",
    "🔢",
    "🎲",
-   "🍶",
+   "🎯",
    "⚔️",
    "↕️",
    "🇻🇳",
@@ -566,7 +578,6 @@ export const MANUAL = {
    "🍺",
    "🏗️",
    "🔴",
-   "🍺",
    "🐺",
    "icons/ladder.png",
    "🎡",
@@ -576,10 +587,12 @@ export const MANUAL = {
    "🔢",
    "🎈",
    "✂️",
+   "🐺",
    "☝️",
    "🏁",
    "🗡️",
    "🔄",
+   "🍺",
    "🟢",
    "🔴",
    "⚫",
@@ -589,6 +602,7 @@ export const MANUAL = {
    "",
    "",
    "▦",
+   "",
    "🏨",
    "🗣️",
    "🧾",
@@ -598,10 +612,10 @@ export const MANUAL = {
  },
  "en": {
   "title": "Install guide",
-  "lead": "Drinking game collection · Install guide",
+  "lead": "Mini game collection · Install guide",
   "navAndroid": "🤖 Android install",
   "navIphone": "🍎 iPhone home screen",
-  "navNew": "🆕 What's in v1.8.1",
+  "navNew": "🆕 What's in v1.9",
   "navUpdate": "🔄 Updates",
   "navFaq": "❓ FAQ",
   "qAndroid": "🤖 Android app",
@@ -697,19 +711,20 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Main screen",
-  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.8.1</b>) is shown at the bottom.",
-  "hNew": "🆕 What's in v1.8.1",
-  "newIntro": "Wolf Games v1.8.1 includes these games and features.",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.9</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v1.9",
+  "newIntro": "Wolf Games v1.9 includes these games and features.",
   "newFeat": [
    "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🏗️ Tower Stack · 🔴 Copy Me · 🍺 Wolf Curling · ✂️ Cut the Wire · 📏 Size Chart · 💰 Settle now · 📤 Export · 🔄 Check for updates",
+   "🆕 🐺 Wolf Shell Game · 📤 Share · 🏁 Big Wolf Race rankings · 🍺 Wolf Curling → 🐺 Wolf Games · 🎯 \"penalty\" / \"you're it\" everywhere",
+   "✨ v1.8: 🏗️ Tower Stack · 🔴 Copy Me · 🍺 Wolf Curling · ✂️ Cut the Wire · 📏 Size Chart · 💰 Settle now · 📤 Export · 🔄 Check for updates",
    "✨ v1.7: 🔢 Number Bomb · 🎈 Balloon Pump · 🗣️ Phrase Cards · 🧾 Trip Split",
    "✨ v1.6: 🔻 Plinko · 🟢 Tic-Tac-Toe · ⚫ Gomoku · 🏨 Hotel Address Card · 🌐 Two languages at once",
    "✨ v1.5: 🎀 Tap Turf War · 🐾 Slap Duel · 👑 Global King's Cup · 🍺 Beer Pour · 🪙 Coin Toss",
    "⚡ Quick Games (Reaction Duel · Color Reaction · Stopwatch) · 💣 Hot Bomb · ⚔️ Dice Duel",
    "🐺 Wolf Games · 🍀 Luck Games · ⚔️ Versus Games",
-   "🃏 Card games (Up/Down · Ho Chi Minh) · 🍶 789",
-   "🧮 Calculator · 🍻 Bill split · 💱 Currency exchange (next to the logo)",
+   "🃏 Card games (Up/Down · Ho Chi Minh) · 🎯 789",
+   "🧮 Calculator · 💸 Bill split · 💱 Currency exchange (next to the logo)",
    "▦ My Contact QR · 💁 Tip",
    "📳 Vibration on every button and game tap (stronger on wins)",
    "🔆 Screen stays on while playing",
@@ -717,19 +732,11 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Latest changes",
   "changes": [
-   "🔴 Copy Me: a miss now shows ❌ Wrong! · 💀 Bottoms up big in the middle of the screen",
-   "🍺 Wolf Curling: the final 🏆 result is bigger — ranking, distance (cm) and who drinks at a glance",
-   "🧾 The Split bill button moved off the main screen into the 🧮 calculator (tidier main screen)",
-   "🏗️ New Tower Stack (Quick Games): tap to drop the sliding block — overhangs get cut off, a perfect fit gets ✨PERFECT. Whoever topples the tower drinks",
-   "🔴 New Copy Me (Quick Games): 4 color buttons (●▲■★) flash in order with sounds — take turns repeating it; it grows by one each time, and whoever misses drinks",
-   "✂️ New Cut the Wire (Luck Games): only one of the bomb's colored wires (4·5·6·8) is real — take turns cutting one; cut the real one and 💥 BOOM, a dizzy wolf and a shot",
-   "🍺 New Wolf Curling (Quick Games): pull the wolf-shaped beer mug back and let go to slide it down the table. Closest to the edge gets 🥇, past it and it 💦 falls off — shot! (No power meter, go by feel!)",
-   "🐺 Copy Me buttons are now 4 wolves with accessories: 😎 sunglasses · 🎀 bow · 🧢 cap · 👑 crown — they hop and howl when they light up",
-   "📤 Trip Split export: save the record as an Excel (.csv) or text (.txt) file, or share it straight to a messenger — \"Save first?\" before Clear all",
-   "💰 Settle now: collect rounded amounts (100 · 500 · 1,000 — e.g. 5,900 → 6,000); the leftover difference carries over to the next settle-up automatically",
-   "🧮 Calculator gets 🧾 Split bill and 📏 Sizes buttons (Split bill moved off the main screen into the calculator) — Size Chart: shoes (men/women), tops (men/women), waist and rings in 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 sizes, ⭐ save yours",
-   "🔄 In-app update (Android): when a new version is out, the app tells you on launch, downloads it and opens the installer. You can also check from the update history screen",
-   "🌏 All four work with pictures, colors and numbers only — no reading needed, great with friends from other countries"
+   "🎯 Game text now says \"penalty\" / \"you're it\" everywhere · renamed to \"Mini game collection\" · small notice added at the bottom of the main screen",
+   "🍺 Wolf Curling moved from ⚡ Quick Games to 🐺 Wolf Games",
+   "🐺 New 🍀 Luck game, Wolf Shell Game: the wolves eat coins except the empty ones → after the shuffle, take turns picking — empty mouth gets the penalty (1–8 players, 1 to players−1 empty wolves)",
+   "📤 Share button on the main screen: pick your friend's phone (Android / iPhone·PC) and share the right link via apps, copy just the link, or let them scan the QR",
+   "🏁 Wolf Race: rankings now show big in the middle of each lane — 1st 👑, 2nd and 3rd in medal colors, last 💀 in red, with the animal name"
   ],
   "hUpdate": "🔄 Updates",
   "updA": "<b>Android</b>: download the new APK with the same QR code or button and install it. It installs <b>over the old app</b> — no need to delete it.",
@@ -762,6 +769,7 @@ export const MANUAL = {
    ]
   ],
   "back": "← Back to games",
+  "disclaimer": "This is a simple random-penalty game for having fun with friends. The developer is not responsible for any accidents caused by excessive play or by carrying out unreasonable penalties offline (e.g. forced drinking).",
   "navHow": "🎮 How to play",
   "hHow": "🎮 How to play",
   "howIntro": "Tap a game on the main screen to start. For games with settings, choose the number of players etc. and tap <b>Start</b>. Tap <b>←</b> at the top left to leave at any time. The main screen is grouped into <b>Dice · Cards · Finger Games · Quick Games · Wolf Games · Luck Games · Versus Games</b>.",
@@ -784,7 +792,7 @@ export const MANUAL = {
    [
     "Choose the number of players (2–8) and turn the <b>reverse on 6</b> option on or off.",
     "The player whose turn it is taps the screen and two dice bounce and roll.",
-    "Last digit of the sum: <b>7 top up · 8 drink half · 9 drink it all</b>, 6 reverses the order, anything else passes."
+    "Last digit of the sum: <b>7 small penalty · 8 medium penalty · 9 big penalty</b>, 6 reverses the order, anything else passes."
    ],
    [
     "Choose players (2–4), dice (2–4) and sum or product.",
@@ -792,19 +800,19 @@ export const MANUAL = {
     "When everyone has rolled, <b>👑 Highest</b> and <b>💀 Lowest</b> are shown. Tap the center to play again!"
    ],
    [
-    "Choose the number of players (2–8). With the <b>stack</b> option, 1 drink is added for every success.",
+    "Choose the number of players (2–8). With the <b>stack</b> option, 1 penalty is added to the pot for every success.",
     "Guess whether the next card is higher (<b>UP</b>) or lower (<b>DOWN</b>). If the base card is A or K, guess <b>red/black</b>.",
-    "Right: next player. Wrong: drink (with stack, the whole pot)! <b>Same number: bottoms up.</b>"
+    "Right: next player. Wrong: penalty (with stack, the whole pot)! <b>Same number: big penalty.</b>"
    ],
    [
     "Choose the number of players (2–4) and put the phone in the middle. Your one card is your number.",
     "On your turn, tap one of the two middle cards to replace it. A new card flips up.",
-    "If the last digit of the two cards matches your number, <b>bottoms up!</b> (A=1, 10/J/Q/K=0) <b>New game</b> deals again."
+    "If the last digit of the two cards matches your number, <b>penalty!</b> (A=1, 10/J/Q/K=0) <b>New game</b> deals again."
    ],
    [
     "Tap the deck to flip one card at a time. The big picture in the middle tells you what to do.",
-    "A 🌊 Waterfall · 2 👉 You · 3 🙋 Me · 4 🚽 Toilet pass · 5 💃 Dance relay · 6 🍻 Cheers all · 7 🙌 Heaven · 8 🤝 Mate · 9 🔤 Word chain · 10 📚 Categories · J 📜 Make a rule · Q ❓ Question master · K 👑 King's Cup. Check them any time with <b>📋 Rules</b> at the bottom.",
-    "Each King fills the cup at the top right. <b>Whoever draws the 4th King drinks the King's Cup!</b> <b>🔀 Reshuffle</b> starts over."
+    "A 🌊 Wave · 2 👉 You · 3 🙋 Me · 4 🚽 Toilet pass · 5 💃 Dance relay · 6 🎉 Everyone · 7 🙌 Heaven · 8 🤝 Mate · 9 🔤 Word chain · 10 📚 Categories · J 📜 Make a rule · Q ❓ Question master · K 👑 King's Cup. Check them any time with <b>📋 Rules</b> at the bottom.",
+    "Each King fills the King's Cup in the middle a little more. <b>Whoever draws the 4th King gets the King's Cup big penalty!</b> <b>🔀 Reshuffle</b> starts over."
    ],
    [
     "Choose players (2–4) and put the phone in the middle. The screen splits evenly.",
@@ -829,17 +837,12 @@ export const MANUAL = {
    [
     "⚡ Quick Games → <b>🏗️ Tower Stack</b>. <b>Tap</b> to drop the block sliding left and right.",
     "Whatever hangs over the block below is cut off, so it keeps getting narrower. A perfect fit gets <b>✨ PERFECT</b>. One tap, then pass the phone 👉",
-    "It speeds up as it grows. Miss the block below completely and it all comes crashing down — whoever topples it drinks 🍺!"
+    "It speeds up as it grows. Miss the block below completely and it all comes crashing down — whoever topples it gets a 💀 penalty!"
    ],
    [
     "⚡ Quick Games → <b>🔴 Copy Me</b>. There are 4 wolves with accessories (😎 sunglasses · 🎀 bow · 🧢 cap · 👑 crown).",
     "The wolves hop and light up <b>in order</b> with a sound (👀). When they stop, press them in the same order (👆).",
-    "Get it right and the sequence grows by one — pass the phone 👉 Miss and the right wolf blinks — 🍺 drink! Each square also has a ● ▲ ■ ★ shape, so colors aren't a problem."
-   ],
-   [
-    "⚡ Quick Games → <b>🍺 Wolf Curling</b>. Pick the players (2–6) and start. Each person gets a wolf beer mug with its own bandana color and number.",
-    "Put your finger on the mug at the start line, <b>pull it back (down) and let go</b> — it slides forward. The more you pull, the farther it goes (no power meter — go by feel!).",
-    "The closer to the edge, the better (🥇). Go past it and it 💦 falls. After everyone throws, 🏆 ranking — everyone who fell drinks, or if nobody fell, the farthest one 🍺!"
+    "Get it right and the sequence grows by one — pass the phone 👉 Miss and the right wolf blinks — 💀 penalty! Each square also has a ● ▲ ■ ★ shape, so colors aren't a problem."
    ],
    [
     "Choose 1–10 biting teeth and start. The wolf opens its mouth across the whole screen.",
@@ -864,27 +867,32 @@ export const MANUAL = {
    [
     "Choose 2–8 players and put the phone in the middle. In your spot, tap <b>Heads (🐺 wolf face)</b> or <b>Tails (🍑 wolf butt)</b>.",
     "When everyone has picked, after 3·2·1 the coin flips up from the center, spins and lands.",
-    "Right = <b>⭕</b>, wrong = <b>❌ drink</b>. Sometimes (15%) the coin <b>lands on its edge — everyone is wrong!</b> Tap the center to play again."
+    "Right = <b>⭕</b>, wrong = <b>❌ penalty</b>. Sometimes (15%) the coin <b>lands on its edge — everyone is wrong!</b> Tap the center to play again."
    ],
    [
     "🍀 Luck Games → <b>🔻 Plinko</b>. No player count — just start.",
     "Tap anywhere at the top and a wolf coin drops from there, bouncing off the pins into a slot below.",
-    "Whatever slot it lands in is yours: <b>1 drink · Half · Again · Right person · Left person · Everyone · Pass</b>. The slots <b>🔀 shuffle</b> every round."
+    "Whatever slot it lands in is yours: <b>Penalty · Half penalty · Again · Right person · Left person · Everyone · Pass</b>. The slots <b>🔀 shuffle</b> every round."
    ],
    [
     "🍀 Luck Games → <b>🔢 Number Bomb</b>. Pick the max (30 · 50 · 100 · 200); a bomb number hides between 1 and that number.",
     "Pass the phone and enter one number each. Lower than the bomb → <b>⬆️ UP</b>, higher → <b>⬇️ DOWN</b> — the range shrinks and so does the fuse.",
-    "Hit the bomb number and it goes <b>💥 BOOM!</b> — a singed wolf gets dizzy 😵‍💫 and you <b>💀 drink</b>. \"Play again\" for a new round."
+    "Hit the bomb number and it goes <b>💥 BOOM!</b> — a singed wolf gets dizzy 😵‍💫 and you get a <b>💀 penalty</b>. \"Play again\" for a new round."
    ],
    [
     "🍀 Luck Games → <b>🎈 Balloon Pump</b>. No player count — just start.",
     "Pass the phone; each person taps <b>1–3 times</b> and passes it on. Every tap pumps up the wolf-face balloon.",
-    "Nobody knows when it pops (different every round). Whoever pops it — <b>💥 💀 drink</b>. Tap the screen for a new balloon."
+    "Nobody knows when it pops (different every round). Whoever pops it — <b>💥 💀 penalty</b>. Tap the screen for a new balloon."
    ],
    [
     "🍀 Luck Games → <b>✂️ Cut the Wire</b>. Pick the number of wires (4 · 5 · 6 · 8) and start. Only one of them is real.",
     "Take turns <b>tapping a wire to cut it</b> ✂️ The bomb timer speeds up with every cut. Safe? \"Phew~ safe!\" → next person 👉",
-    "Cut the real one and 💥 BOOM — a dizzy wolf and 🍺 bottoms up. Play again hides a new real wire."
+    "Cut the real one and 💥 BOOM — a dizzy wolf and a 💀 penalty. Play again hides a new real wire."
+   ],
+   [
+    "🍀 Luck Games → <b>🐺 Wolf Shell Game</b>. Choose players (1–8) and the number of <b>empty wolves</b> (1 to players−1), then start.",
+    "The wolves open wide and each eats a 🪙 coin — except the empty ones. Then they shuffle around, faster and faster — keep your eyes on them 👀",
+    "Take turns picking a wolf 👆 Coin = ✅ safe, empty mouth = <b>💀 penalty!</b> The game ends when every empty wolf is found."
    ],
    [
     "🍀 Luck Games → <b>☝️ Finger Pick</b>. Choose how many get picked (1–9) and start.",
@@ -894,7 +902,7 @@ export const MANUAL = {
    [
     "Choose players (2–9) and race time (3–30 sec), then <b>each pick an animal</b> (12 kinds, lane number in the order you tap).",
     "The animals wait trembling at the finish line while the wolves race back and forth. Close to the end, the wolves open wide!",
-    "<b>The animal the wolf bites first is 1st.</b> Ranks follow the order of the bites."
+    "<b>The animal the wolf bites first is 1st.</b> Ranks follow the order of the bites and show big in each lane (1st 👑 · last 💀)."
    ],
    [
     "The barrel has 20 sword slots and one is the trap. The wolf hides inside the barrel.",
@@ -907,9 +915,14 @@ export const MANUAL = {
     "When it stops it goes <b>\"chomp!\"</b> — whoever the snout points to is it!"
    ],
    [
+    "🐺 Wolf Games → <b>🍺 Wolf Curling</b>. Pick the players (2–6) and start. Each person gets a wolf beer mug with its own bandana color and number.",
+    "Put your finger on the mug at the start line, <b>pull it back (down) and let go</b> — it slides forward. The more you pull, the farther it goes (no power meter — go by feel!).",
+    "The closer to the edge, the better (🥇). Go past it and it 💦 falls. After everyone throws, 🏆 ranking — everyone who fell gets a 💀 penalty, or if nobody fell, the farthest one does!"
+   ],
+   [
     "⚔️ Versus Games → <b>🟢 Tic-Tac-Toe</b>. Two players sit facing each other (bottom = green, top = red). Each side shows your color, like <b>\"You: Green\"</b>.",
     "Take turns placing wolf coins. <b>2 seconds a move</b> — run out and your turn passes. Three in a row wins!",
-    "<b>Only 3 coins each</b>. Placing a 4th removes your oldest one (it blinks first). Loser drinks; tap the screen to play again."
+    "<b>Only 3 coins each</b>. Placing a 4th removes your oldest one (it blinks first). Loser gets a penalty; tap the screen to play again."
    ],
    [
     "Two players take turns as red and yellow.",
@@ -919,7 +932,7 @@ export const MANUAL = {
    [
     "⚔️ Versus Games → <b>⚫ Gomoku</b>. Sit facing each other (bottom = black, top = white). Each side shows your stone color, like <b>\"You: Black\"</b>, and lights up on your turn.",
     "Black goes first; take turns placing stones on the 15×15 board. No time limit. The red dot marks the last move.",
-    "Five in a row wins! Black may not make a <b>🚫 double-three</b> (two open threes at once). Loser drinks."
+    "Five in a row wins! Black may not make a <b>🚫 double-three</b> (two open threes at once). Loser gets a penalty."
    ],
    [
     "Two players sit facing each other with the phone between them.",
@@ -929,17 +942,17 @@ export const MANUAL = {
    [
     "Two players sit facing each other. Two wolf paws overlap in the middle.",
     "The <b>🛡️ defender</b> keeps a finger pressed on their half and lifts it to dodge; the <b>🐾 attacker</b> taps their half any time to slap!",
-    "Hit = defender drinks, dodge = swap roles. Lift without an attack = <b>flinch</b>, drink! 💥 counts the hits."
+    "Hit = defender gets a penalty, dodge = swap roles. Lift without an attack = <b>flinch</b> — penalty! 💥 counts the hits."
    ],
    [
     "Work out the total on the <b>🧮 Calculator</b> next to the logo.",
-    "Tap <b>🍻 Split</b> and choose the number of people and the round-up unit (none · 10 · 100 · 1000).",
+    "Tap <b>💸 Split</b> and choose the number of people and the round-up unit (none · 10 · 100 · 1000).",
     "You get the amount per person and how much is left over when everyone pays."
    ],
    [
-    "Enter the amount in the calculator and tap <b>💁 Tip</b> (between 🍻 Split and 💱 Exchange).",
+    "Enter the amount in the calculator and tap <b>💁 Tip</b> (between 💸 Split and 💱 Exchange).",
     "Pick <b>5 · 10 · 15 · 20 · 25 · 30%</b> to see the tip and the <b>total with tip</b>. Your last pick is remembered.",
-    "Tap <b>🍻 Split with tip</b> to split the total including the tip right away."
+    "Tap <b>💸 Split with tip</b> to split the total including the tip right away."
    ],
    [
     "Tap <b>💱 Exchange</b> in the calculator. The calculator amount is filled in automatically.",
@@ -950,6 +963,11 @@ export const MANUAL = {
     "Tap <b>▦ QR</b> next to the logo on the main screen. The first time, enter the ones you use (Instagram, WhatsApp, TikTok, LINE, KakaoTalk, Telegram, Facebook, Zalo) and save.",
     "After that, it opens a <b>full-screen QR on white</b> right away. With several, tap the buttons on top or swipe sideways.",
     "Others scan it with their phone camera to open your profile or chat. It is <b>saved only on your phone</b>, and the app turns the screen to full brightness."
+   ],
+   [
+    "<b>📤 Share</b> button on the main screen. First pick your friend's phone under <b>What phone does your friend have?</b>",
+    "<b>🤖 Android</b> → a link that downloads the app (APK) right away; <b>🍎 iPhone · PC</b> → the web link (Safari → Share → \"Add to Home Screen\" to use it like an app).",
+    "Send it with <b>📲 Share via app</b> or use <b>🔗 Copy link only</b>. If your friend is right there, they can just scan the QR on the screen 📷"
    ],
    [
     "Tap <b>🏨 Hotel</b> on the main screen (next to QR). The first time, enter the name, the <b>address in the local language</b> (copy it from your booking app), and phone/note (optional). You can add several.",
@@ -1035,10 +1053,6 @@ export const MANUAL = {
     "smTitle"
    ],
    [
-    "how-curling",
-    "cuTitle"
-   ],
-   [
     "how-teeth",
     "menuCroc"
    ],
@@ -1075,6 +1089,10 @@ export const MANUAL = {
     "wcTitle"
    ],
    [
+    "how-yabawi",
+    "ybTitle"
+   ],
+   [
     "how-finger",
     "fingerTitle"
    ],
@@ -1089,6 +1107,10 @@ export const MANUAL = {
    [
     "how-arrow",
     "menuArrow"
+   ],
+   [
+    "how-curling",
+    "cuTitle"
    ],
    [
     "how-ttt",
@@ -1127,6 +1149,10 @@ export const MANUAL = {
     "qrTitle"
    ],
    [
+    "how-share",
+    "shTitle"
+   ],
+   [
     "how-hotel",
     "hotelTitle"
    ],
@@ -1151,7 +1177,7 @@ export const MANUAL = {
    "👆",
    "🔢",
    "🎲",
-   "🍶",
+   "🎯",
    "⚔️",
    "↕️",
    "🇻🇳",
@@ -1162,7 +1188,6 @@ export const MANUAL = {
    "🍺",
    "🏗️",
    "🔴",
-   "🍺",
    "🐺",
    "icons/ladder.png",
    "🎡",
@@ -1172,10 +1197,12 @@ export const MANUAL = {
    "🔢",
    "🎈",
    "✂️",
+   "🐺",
    "☝️",
    "🏁",
    "🗡️",
    "🔄",
+   "🍺",
    "🟢",
    "🔴",
    "⚫",
@@ -1185,6 +1212,7 @@ export const MANUAL = {
    "",
    "",
    "▦",
+   "",
    "🏨",
    "🗣️",
    "🧾",
@@ -1194,10 +1222,10 @@ export const MANUAL = {
  },
  "ja": {
   "title": "インストール案内",
-  "lead": "飲み会ゲーム集 · インストール案内",
+  "lead": "ミニゲーム集 · インストール案内",
   "navAndroid": "🤖 Androidにインストール",
   "navIphone": "🍎 iPhoneのホーム画面に追加",
-  "navNew": "🆕 v1.8.1の内容",
+  "navNew": "🆕 v1.9の内容",
   "navUpdate": "🔄 アップデート",
   "navFaq": "❓ よくある質問",
   "qAndroid": "🤖 Androidアプリ",
@@ -1292,19 +1320,20 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 メイン画面",
-  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.8.1</b>）を確認できます。",
-  "hNew": "🆕 v1.8.1の内容",
-  "newIntro": "ウルフゲームズv1.8.1には次のゲームと機能が入っています。",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.9</b>）を確認できます。",
+  "hNew": "🆕 v1.9の内容",
+  "newIntro": "ウルフゲームズv1.9には次のゲームと機能が入っています。",
   "newFeat": [
    "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🏗️ タワー積み · 🔴 まねっこ · 🍺 オオカミカーリング · ✂️ 爆弾の線切り · 📏 サイズ換算表 · 💰 途中精算 · 📤 書き出し · 🔄 アップデート確認",
+   "🆕 🐺 オオカミ当て · 📤 共有 · 🏁 ウルフレースの順位を大きく · 🍺 オオカミカーリング → 🐺 オオカミゲーム · 🎯「罰ゲーム」「当たり」に統一",
+   "✨ v1.8: 🏗️ タワー積み · 🔴 まねっこ · 🍺 オオカミカーリング · ✂️ 爆弾の線切り · 📏 サイズ換算表 · 💰 途中精算 · 📤 書き出し · 🔄 アップデート確認",
    "✨ v1.7: 🔢 数字爆弾 · 🎈 風船ふくらまし · 🗣️ 会話カード · 🧾 旅行の精算",
    "✨ v1.6: 🔻 プリンコ · 🟢 三目並べ · ⚫ 五目並べ · 🏨 宿の住所カード · 🌐 2言語同時表示",
    "✨ v1.5: 🎀 連打陣取り · 🐾 スラップ対決 · 👑 グローバル・キングスカップ · 🍺 ビール注ぎ · 🪙 コイントス",
    "⚡ 反射神経ゲーム（反応速度対決・色反応対決・ストップウォッチ）・💣 爆弾回し・⚔️ サイコロ対決",
    "🐺 オオカミゲーム・🍀 運ゲー・⚔️ 対決ゲーム",
-   "🃏 カードゲーム（Up/Down・ホーチミン）・🍶 789",
-   "🧮 電卓 · 🍻 割り勘 · 💱 両替（ロゴの横）",
+   "🃏 カードゲーム（Up/Down・ホーチミン）・🎯 789",
+   "🧮 電卓 · 💸 割り勘 · 💱 両替（ロゴの横）",
    "▦ 連絡先QR · 💁 チップ",
    "📳 すべてのボタンとゲーム操作で振動（当たり・勝ちは強め）",
    "🔆 ゲーム中は画面が消えない",
@@ -1312,19 +1341,11 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近の変更",
   "changes": [
-   "🔴 まねっこ：間違えたら ❌ 間違い！・💀 一気 を画面の真ん中に大きく表示",
-   "🍺 オオカミカーリング：最後の🏆結果を大きく — 順位・距離（cm）・飲む人がひと目で",
-   "🧾 旅行の精算ボタンをメイン画面から🧮電卓の中へ移動（メイン画面をすっきり）",
-   "🏗️ タワー積み追加（反射神経ゲーム）：左右に動くブロックをタッチして積む。はみ出た部分は切れ、ぴったりなら✨PERFECT — 崩した人が飲む",
-   "🔴 まねっこ追加（反射神経ゲーム）：4つの色ボタン（●▲■★）が音と一緒に光った順番を交代でまねして押す — 成功ごとに1つ増え、間違えた人が飲む",
-   "✂️ 爆弾の線切り追加（運ゲーム）：爆弾の色の線（4・5・6・8本）のうち本物は1本 — 順番に1本ずつ切って、本物を切ったら💥ドカン！フラフラのオオカミと一気",
-   "🍺 オオカミカーリング追加（反射神経ゲーム）：オオカミ形のジョッキを後ろに引いて放すとテーブルを滑ります。端に近いほど🥇、越えたら💦落ちて一気（パワーゲージなし、感覚で！）",
-   "🐺 まねっこのボタンがアクセサリーをつけたオオカミ4匹に：😎 サングラス・🎀 リボン・🧢 帽子・👑 王冠 — 光るとぴょんと跳ねて「アオーン」",
-   "📤 旅行の精算を書き出し：記録をExcel（.csv）・メモ帳（.txt）で保存、またはLINEなどでそのまま共有 — 全部消す前に「先に保存する？」と確認",
-   "💰 途中精算：送るお金を100・500・1,000単位で丸めて受け取り（例：5,900 → 6,000）、残った差額は次の精算に自動で回ります",
-   "🧮 電卓に🧾精算・📏サイズボタンを追加（メイン画面の精算ボタンは電卓の中へ移動） — サイズ換算表：靴（男・女）・トップス（男・女）・ウエスト・指輪を🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳で、自分のサイズを⭐保存",
-   "🔄 アプリ内アップデート（Android）：新しいバージョンが出たら起動時にお知らせ、押すとダウンロードしてインストール画面まで開きます。更新履歴画面から手動確認も可能",
-   "🌏 4つとも文字なしで絵・色・数字だけで遊べるので、外国の友だちとも一緒に楽しめます"
+   "🎯 ゲームの文言を「罰ゲーム」「当たり」に統一 ・ 名前を「ミニゲーム集」に ・ メイン画面の下に小さな注意書きを追加",
+   "🍺 オオカミカーリングを ⚡ 反射神経ゲームから 🐺 オオカミゲームへ移動",
+   "🐺 🍀 運ゲーに オオカミ当て を追加：オオカミがコインを食べ、ハズレだけおあずけ → シャッフル後に1人ずつ選んで空っぽなら罰ゲーム（1〜8人、ハズレは1〜人数−1匹）",
+   "📤 メイン画面に共有ボタン：友だちのスマホ（Android / iPhone・PC）を選ぶと合うリンクをアプリで共有・リンクだけコピー・QRをその場で撮影",
+   "🏁 ウルフレース：順位を各レーンの真ん中に大きく — 1位👑・2位・3位はメダル色、最下位は💀赤＋動物の名前"
   ],
   "hUpdate": "🔄 アップデート",
   "updA": "<b>Android</b>：同じQRコードかボタンで新しいAPKをダウンロードしてインストールします。<b>古いアプリを消さずに</b>上書きされます。",
@@ -1357,6 +1378,7 @@ export const MANUAL = {
    ]
   ],
   "back": "← ゲームに戻る",
+  "disclaimer": "本ゲームは親睦を深めるためのランダムで罰ゲームを決めるシンプルなゲームです。過度な熱中や、オフラインでの無理な罰ゲームの実行（飲酒の強要など）による事故について、開発者は一切責任を負いません。",
   "navHow": "🎮 遊び方",
   "hHow": "🎮 遊び方",
   "howIntro": "メイン画面でゲームを押すとすぐ始まります。設定があるゲームは人数などを決めてから<b>ゲーム開始</b>を押してください。左上の<b>←</b>でいつでも戻れます。 メイン画面は<b>サイコロ・カード・指ゲーム・反射神経ゲーム・オオカミゲーム・運ゲー・対決ゲーム</b>のカテゴリに分かれています。",
@@ -1379,7 +1401,7 @@ export const MANUAL = {
    [
     "人数（2〜8人）を決め、<b>6で順番を逆に</b>のオン・オフを選びます。",
     "順番の人が画面をタップすると、サイコロ2個が跳ねながら転がります。",
-    "合計の下1桁が<b>7 注ぎ足し・8 半分飲む・9 一気に飲む</b>、6は順番を逆に、それ以外はパス。"
+    "合計の下1桁が<b>7 小さい罰ゲーム・8 中くらいの罰ゲーム・9 大きい罰ゲーム</b>、6は順番を逆に、それ以外はパス。"
    ],
    [
     "人数（2〜4人）、サイコロの数（2〜4個）、計算方法（足し算・掛け算）を決めます。",
@@ -1387,19 +1409,19 @@ export const MANUAL = {
     "全員振ると<b>👑 最高</b>と<b>💀 最低</b>が表示されます。真ん中を押すともう一度！"
    ],
    [
-    "人数（2〜8人）を決めます。<b>累積</b>をオンにすると成功するたびに罰杯が1杯ずつ増えます。",
+    "人数（2〜8人）を決めます。<b>累積</b>をオンにすると成功するたびに罰ゲームが1つずつ増えます。",
     "場のカードより次のカードが高ければ<b>UP</b>、低ければ<b>DOWN</b>。AかKが基準なら<b>赤/黒</b>を当てます。",
-    "成功なら次の人、失敗なら罰杯（累積ならたまった分全部）！<b>同じ数字なら一気</b>です。"
+    "成功なら次の人、失敗なら罰ゲーム（累積ならたまった分全部）！<b>同じ数字なら大きい罰ゲーム</b>です。"
    ],
    [
     "人数（2〜4人）を決めてスマホをテーブルの真ん中に置きます。配られた1枚が自分の数字です。",
     "順番の人が真ん中の2枚から替えるカードを押すと、新しいカードがめくられます。",
-    "2枚の合計の下1桁が自分の数字なら<b>一気！</b>（A=1、10・J・Q・K=0）<b>新しいゲーム</b>で配り直します。"
+    "2枚の合計の下1桁が自分の数字なら<b>罰ゲーム！</b>（A=1、10・J・Q・K=0）<b>新しいゲーム</b>で配り直します。"
    ],
    [
     "山札をタップすると1枚ずつめくれて出てきます。カード真ん中の大きな絵がやることです。",
-    "A 🌊 滝 · 2 👉 指名 · 3 🙋 自分 · 4 🚽 トイレ免除券 · 5 💃 ダンスリレー · 6 🍻 みんなで乾杯 · 7 🙌 天 · 8 🤝 相棒 · 9 🔤 しりとり · 10 📚 カテゴリー · J 📜 ルール作り · Q ❓ 質問マスター · K 👑 キングスカップ。下の<b>📋 ルール</b>でいつでも確認！",
-    "Kが出るたびに右上の杯が満ちていきます。<b>4枚目のKを引いた人がキングスカップを一気！</b> <b>🔀 シャッフル</b>で新しいゲーム。"
+    "A 🌊 ウェーブ · 2 👉 指名 · 3 🙋 自分 · 4 🚽 トイレ免除券 · 5 💃 ダンスリレー · 6 🎉 みんなで · 7 🙌 天 · 8 🤝 相棒 · 9 🔤 しりとり · 10 📚 カテゴリー · J 📜 ルール作り · Q ❓ 質問マスター · K 👑 キングスカップ。下の<b>📋 ルール</b>でいつでも確認！",
+    "Kが出るたびに真ん中のキングスカップが少しずつ満ちていきます。<b>4枚目のKを引いた人がキングスカップの大きい罰ゲーム！</b> <b>🔀 シャッフル</b>で新しいゲーム。"
    ],
    [
     "人数（2〜4人）を決めてスマホを真ん中に。画面が人数分に同じ大きさで分かれます。",
@@ -1424,17 +1446,12 @@ export const MANUAL = {
    [
     "⚡ 反射神経ゲーム → <b>🏗️ タワー積み</b>。左右に動くブロックを<b>タッチ</b>すると落ちます。",
     "下のブロックからはみ出た部分は切れて、だんだん細くなります。ぴったりなら<b>✨ PERFECT</b>。1回押したら次の人へ 👉",
-    "高くなるほど速くなります。下のブロックから完全に外れるとガラガラ — 崩した人が🍺一気！"
+    "高くなるほど速くなります。下のブロックから完全に外れるとガラガラ — 崩した人が💀罰ゲーム！"
    ],
    [
     "⚡ 反射神経ゲーム → <b>🔴 まねっこ</b>。アクセサリーをつけたオオカミ4匹（😎 サングラス・🎀 リボン・🧢 帽子・👑 王冠）がいます。",
     "オオカミが音と一緒に<b>順番に</b>ぴょんと光ります（👀）。終わったら同じ順番で押します（👆）。",
-    "正解なら1つ増えて次の人へ 👉 間違えると正解のオオカミが点滅して🍺一気！マスごとに ● ▲ ■ ★ の形もあるので色が苦手でもOK。"
-   ],
-   [
-    "⚡ 反射神経ゲーム → <b>🍺 オオカミカーリング</b>。人数（2〜6人）を選んでスタート。1人ずつバンダナの色と番号が違うオオカミジョッキがあります。",
-    "スタートラインのジョッキに指を当てて<b>後ろ（下）に引いて放す</b>と滑っていきます。たくさん引くほど遠くへ（パワーゲージなし、感覚で！）。",
-    "テーブルの端に近いほど良い（🥇）。越えると💦落ちます。全員投げたら🏆順位 — 落ちた人は全員、誰も落ちなければ一番遠い人が🍺一気！"
+    "正解なら1つ増えて次の人へ 👉 間違えると正解のオオカミが点滅して💀罰ゲーム！マスごとに ● ▲ ■ ★ の形もあるので色が苦手でもOK。"
    ],
    [
     "当たりの歯の数（1〜10本）を決めてスタート。画面いっぱいにオオカミが口を開けます。",
@@ -1459,27 +1476,32 @@ export const MANUAL = {
    [
     "人数（2〜8人）を決めてスマホを真ん中に置きます。自分の場所で<b>表（🐺 オオカミの顔）</b>か<b>裏（🍑 おしり）</b>をタップ。",
     "みんな選んだら3・2・1のあと、コインが真ん中から跳ね上がってくるくる回って落ちます。",
-    "当たりは<b>⭕</b>、はずれは<b>❌ 一気</b>。ときどき（15%）コインが<b>立つと全員はずれ！</b> 真ん中の円でもう一度。"
+    "当たりは<b>⭕</b>、はずれは<b>❌ 罰ゲーム</b>。ときどき（15%）コインが<b>立つと全員はずれ！</b> 真ん中の円でもう一度。"
    ],
    [
     "🍀 運ゲーム → <b>🔻 プリンコ</b>。人数を決めずにすぐスタート。",
     "上のどこかをタッチするとそこからオオカミコインが落ちて、ピンの間を跳ねながら下のマスにスポッ！",
-    "入ったマスが当たり：<b>1杯・半分・もう一回・右の人・左の人・みんな・セーフ</b>。マスの順番は毎回<b>🔀 シャッフル</b>。"
+    "入ったマスが当たり：<b>罰ゲーム・半分罰ゲーム・もう一回・右の人・左の人・みんなで・セーフ</b>。マスの順番は毎回<b>🔀 シャッフル</b>。"
    ],
    [
     "🍀 運ゲーム → <b>🔢 数字爆弾</b>。最大の数字（30・50・100・200）を選んで始めると、1からその数字の間に爆弾の数字が1つ隠れます。",
     "スマホを回して数字を1つずつ入力。爆弾より小さければ<b>⬆️ UP</b>、大きければ<b>⬇️ DOWN</b> — 範囲が狭まり、導火線も短くなります。",
-    "爆弾の数字を押すと<b>💥ドカン！</b>焦げたオオカミがフラフラ😵‍💫 その人が<b>💀一気</b>。「もう一回」で新しいゲーム。"
+    "爆弾の数字を押すと<b>💥ドカン！</b>焦げたオオカミがフラフラ😵‍💫 その人が<b>💀罰ゲーム</b>。「もう一回」で新しいゲーム。"
    ],
    [
     "🍀 運ゲーム → <b>🎈 風船ふくらまし</b>。人数を決めずにすぐスタート。",
     "スマホを回して1人<b>1〜3回</b>タッチしたら次の人へ。押すたびにオオカミ顔の風船がふくらみます。",
-    "いつ割れるかは誰にもわかりません（毎回ちがう）。割った人が<b>💥💀一気</b>。画面タップで新しい風船。"
+    "いつ割れるかは誰にもわかりません（毎回ちがう）。割った人が<b>💥💀罰ゲーム</b>。画面タップで新しい風船。"
    ],
    [
     "🍀 運ゲーム → <b>✂️ 爆弾の線切り</b>。線の数（4・5・6・8）を選んでスタート。本物は1本だけ。",
     "順番に線を1本<b>タッチして切ります</b> ✂️ 切るたびに爆弾のタイマーが速くなります。セーフなら「ふぅ〜セーフ！」→ 次の人 👉",
-    "本物を切ったら💥ドカン！フラフラのオオカミと一緒に🍺一気。もう一度で本物の線が新しく隠れます。"
+    "本物を切ったら💥ドカン！フラフラのオオカミと一緒に💀罰ゲーム。もう一度で本物の線が新しく隠れます。"
+   ],
+   [
+    "🍀 運ゲーム → <b>🐺 オオカミ当て</b>。人数（1〜8人）と<b>ハズレオオカミの数</b>（1〜人数−1匹）を決めてスタート。",
+    "オオカミたちが口を開けて🪙コインを1枚ずつ食べますが、ハズレはおあずけ。そのあとぐるぐる入れ替わります（だんだん速く）— よく見て 👀",
+    "1人ずつオオカミを1匹選びます 👆 コインが出たら✅セーフ、空っぽなら<b>💀罰ゲーム！</b> ハズレを全部見つけたら終わり。"
    ],
    [
     "🍀 運ゲー → <b>☝️ 指えらび</b>. 当たる人数（1〜9人）を決めてスタート。",
@@ -1489,7 +1511,7 @@ export const MANUAL = {
    [
     "人数（2〜9人）と結果時間（3〜30秒）を決め、<b>それぞれ動物を選びます</b>（12種、押した順にレーン番号）。",
     "動物たちはゴールでぶるぶる待ち、オオカミが抜きつ抜かれつ走ってきます。近づくと口をガバッ！",
-    "<b>オオカミが先にかんだ動物が1位</b>。かんだ順に順位がつきます。"
+    "<b>オオカミが先にかんだ動物が1位</b>。かんだ順に順位がつき、各レーンの真ん中に大きく出ます（1位👑・最下位💀）。"
    ],
    [
     "樽に剣を刺す穴が20個あり、そのうち1つが当たり。オオカミは樽の中に隠れています。",
@@ -1502,9 +1524,14 @@ export const MANUAL = {
     "止まると<b>「ガブッ！」</b>。鼻先が向いた人が当たり！"
    ],
    [
+    "🐺 オオカミゲーム → <b>🍺 オオカミカーリング</b>。人数（2〜6人）を選んでスタート。1人ずつバンダナの色と番号が違うオオカミジョッキがあります。",
+    "スタートラインのジョッキに指を当てて<b>後ろ（下）に引いて放す</b>と滑っていきます。たくさん引くほど遠くへ（パワーゲージなし、感覚で！）。",
+    "テーブルの端に近いほど良い（🥇）。越えると💦落ちます。全員投げたら🏆順位 — 落ちた人は全員、誰も落ちなければ一番遠い人が💀罰ゲーム！"
+   ],
+   [
     "⚔️ 対戦ゲーム → <b>🟢 三目並べ</b>。2人でスマホをはさんで上下に向かい合います（下＝緑、上＝赤）。それぞれの側に<b>「あなた: 緑」</b>のように自分の色が出ます。",
     "交互にオオカミコインを置きます。<b>1手2秒</b>、過ぎると相手の番。縦・横・斜めに3つそろえたら勝ち！",
-    "コインは<b>1人3個まで</b>。4個目を置くと自分の一番古いコインが消えます（消えるコインは点滅）。負けたら一気、画面タップでもう一度。"
+    "コインは<b>1人3個まで</b>。4個目を置くと自分の一番古いコインが消えます（消えるコインは点滅）。負けたら罰ゲーム、画面タップでもう一度。"
    ],
    [
     "2人が赤と黄で交互に打ちます。",
@@ -1514,7 +1541,7 @@ export const MANUAL = {
    [
     "⚔️ 対戦ゲーム → <b>⚫ 五目並べ</b>。上下に向かい合って座ります（下＝黒、上＝白）。それぞれの側に<b>「あなた: 黒」</b>のように石の色が出て、自分の番は明るく表示。",
     "黒が先手、交互に15×15の盤に石を置きます。時間制限なし。赤い点が今置いた石です。",
-    "縦・横・斜めに5つ先にそろえたら勝ち！黒は<b>🚫 三三禁止</b>（開いた三が同時に2本できる場所）。負けたら一気。"
+    "縦・横・斜めに5つ先にそろえたら勝ち！黒は<b>🚫 三三禁止</b>（開いた三が同時に2本できる場所）。負けたら罰ゲーム。"
    ],
    [
     "2人でスマホをはさんで上下に向かい合って座ります。",
@@ -1524,17 +1551,17 @@ export const MANUAL = {
    [
     "2人で上下に向かい合って座ります。真ん中にオオカミの前足が2つ重なっています。",
     "<b>🛡️ 守り</b>は自分側を指で押さえておき攻撃が来たら離してよける、<b>🐾 攻め</b>はいつでも自分側をタップでバチン！",
-    "当たったら守りが一気、よけたら攻守交代。攻撃が来てないのに離したら<b>ビクッ反則</b>で一気！💥は当てた回数。"
+    "当たったら守りが罰ゲーム、よけたら攻守交代。攻撃が来てないのに離したら<b>ビクッ反則</b>で罰ゲーム！💥は当てた回数。"
    ],
    [
-    "ロゴ横の<b>🧮 電卓</b>で飲み代の合計を計算します。",
-    "<b>🍻 割り勘</b>を押し、人数と切り上げ単位（なし・10・100・1000）を選びます。",
+    "ロゴ横の<b>🧮 電卓</b>で合計金額を計算します。",
+    "<b>💸 割り勘</b>を押し、人数と切り上げ単位（なし・10・100・1000）を選びます。",
     "1人あたりの金額と、全員から集めたときの余りが表示されます。"
    ],
    [
-    "電卓で金額を入れて<b>💁 チップ</b>をタップ（🍻 割り勘と💱 両替の間）。",
+    "電卓で金額を入れて<b>💁 チップ</b>をタップ（💸 割り勘と💱 両替の間）。",
     "<b>5・10・15・20・25・30%</b>から選ぶとチップ額と<b>チップ込み合計</b>が出ます。選んだ%は覚えておきます。",
-    "<b>🍻 チップ込みで割り勘</b>でチップを足した金額をそのまま割り勘できます。"
+    "<b>💸 チップ込みで割り勘</b>でチップを足した金額をそのまま割り勘できます。"
    ],
    [
     "電卓で<b>💱 両替</b>を押します。電卓の金額が自動で入ります。",
@@ -1545,6 +1572,11 @@ export const MANUAL = {
     "メイン画面のロゴ横の<b>▦ QR</b>をタップ。初回はインスタ・WhatsApp・TikTok・LINE・カカオ・Telegram・Facebook・Zaloの中から使うものを入力して保存。",
     "次からはタップするとすぐ<b>白背景の全画面QR</b>が出ます。複数あるときは上のボタンか横スワイプで切り替え。",
     "相手がスマホのカメラで読み取ると、自分のプロフィールやチャットがすぐ開きます。情報は<b>自分のスマホだけに保存</b>、アプリでは画面が最大の明るさに。"
+   ],
+   [
+    "メイン画面の<b>📤 共有</b>ボタン。まず<b>友だちのスマホは？</b>で友だちのスマホを選びます。",
+    "<b>🤖 Android</b> → アプリ（APK）をすぐダウンロードできるリンク、<b>🍎 iPhone · PC</b> → Webのリンク（Safari → 共有 → 「ホーム画面に追加」でアプリのように）。",
+    "<b>📲 アプリで共有</b>でLINEなどに送るか、<b>🔗 リンクだけコピー</b>。隣にいるなら画面のQRをそのまま撮ればOK 📷"
    ],
    [
     "メイン画面の<b>🏨 宿</b>ボタン（QRの隣）。初回は宿の名前、<b>現地語の住所</b>（予約アプリからコピーして貼り付け）、電話番号・メモ（任意）を入れて保存。複数入れられます。",
@@ -1630,10 +1662,6 @@ export const MANUAL = {
     "smTitle"
    ],
    [
-    "how-curling",
-    "cuTitle"
-   ],
-   [
     "how-teeth",
     "menuCroc"
    ],
@@ -1670,6 +1698,10 @@ export const MANUAL = {
     "wcTitle"
    ],
    [
+    "how-yabawi",
+    "ybTitle"
+   ],
+   [
     "how-finger",
     "fingerTitle"
    ],
@@ -1684,6 +1716,10 @@ export const MANUAL = {
    [
     "how-arrow",
     "menuArrow"
+   ],
+   [
+    "how-curling",
+    "cuTitle"
    ],
    [
     "how-ttt",
@@ -1722,6 +1758,10 @@ export const MANUAL = {
     "qrTitle"
    ],
    [
+    "how-share",
+    "shTitle"
+   ],
+   [
     "how-hotel",
     "hotelTitle"
    ],
@@ -1746,7 +1786,7 @@ export const MANUAL = {
    "👆",
    "🔢",
    "🎲",
-   "🍶",
+   "🎯",
    "⚔️",
    "↕️",
    "🇻🇳",
@@ -1757,7 +1797,6 @@ export const MANUAL = {
    "🍺",
    "🏗️",
    "🔴",
-   "🍺",
    "🐺",
    "icons/ladder.png",
    "🎡",
@@ -1767,10 +1806,12 @@ export const MANUAL = {
    "🔢",
    "🎈",
    "✂️",
+   "🐺",
    "☝️",
    "🏁",
    "🗡️",
    "🔄",
+   "🍺",
    "🟢",
    "🔴",
    "⚫",
@@ -1780,6 +1821,7 @@ export const MANUAL = {
    "",
    "",
    "▦",
+   "",
    "🏨",
    "🗣️",
    "🧾",
@@ -1789,10 +1831,10 @@ export const MANUAL = {
  },
  "zh": {
   "title": "安装说明",
-  "lead": "酒桌游戏合集 · 安装说明",
+  "lead": "迷你游戏合集 · 安装说明",
   "navAndroid": "🤖 安卓安装",
   "navIphone": "🍎 iPhone添加到主屏幕",
-  "navNew": "🆕 v1.8.1内容",
+  "navNew": "🆕 v1.9内容",
   "navUpdate": "🔄 更新",
   "navFaq": "❓ 常见问题",
   "qAndroid": "🤖 安卓应用",
@@ -1887,19 +1929,20 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 主界面",
-  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.8.1</b>）。",
-  "hNew": "🆕 v1.8.1内容",
-  "newIntro": "沃夫游戏v1.8.1包含以下游戏和功能。",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.9</b>）。",
+  "hNew": "🆕 v1.9内容",
+  "newIntro": "沃夫游戏v1.9包含以下游戏和功能。",
   "newFeat": [
    "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🏗️ 叠高塔 · 🔴 跟着按 · 🍺 狼冰壶 · ✂️ 剪炸弹线 · 📏 尺码对照表 · 💰 中途结算 · 📤 导出 · 🔄 检查更新",
+   "🆕 🐺 狼猜猜猜 · 📤 分享 · 🏁 群狼赛跑名次放大 · 🍺 狼冰壶 → 🐺 狼游戏 · 🎯 统一为\"惩罚\"·\"中奖\"",
+   "✨ v1.8: 🏗️ 叠高塔 · 🔴 跟着按 · 🍺 狼冰壶 · ✂️ 剪炸弹线 · 📏 尺码对照表 · 💰 中途结算 · 📤 导出 · 🔄 检查更新",
    "✨ v1.7: 🔢 数字炸弹 · 🎈 吹气球 · 🗣️ 会话卡片 · 🧾 旅行结算",
    "✨ v1.6: 🔻 弹珠台 · 🟢 井字棋 · ⚫ 五子棋 · 🏨 住处地址卡 · 🌐 双语同时显示",
    "✨ v1.5: 🎀 狂点抢地盘 · 🐾 拍手背对决 · 👑 全球国王杯 · 🍺 倒啤酒 · 🪙 抛硬币",
    "⚡ 反应游戏（反应速度对决 · 颜色反应对决 · 秒表）· 💣 传炸弹 · ⚔️ 骰子对决",
    "🐺 狼游戏 · 🍀 拼手气 · ⚔️ 对战游戏",
-   "🃏 纸牌游戏（Up/Down · 胡志明）· 🍶 789",
-   "🧮 计算器 · 🍻 AA分摊 · 💱 汇率换算（标志旁边）",
+   "🃏 纸牌游戏（Up/Down · 胡志明）· 🎯 789",
+   "🧮 计算器 · 💸 AA分摊 · 💱 汇率换算（标志旁边）",
    "▦ 我的联系方式二维码 · 💁 小费",
    "📳 所有按钮和游戏操作都会振动（中奖、获胜时更强）",
    "🔆 游戏中屏幕不会熄灭",
@@ -1907,19 +1950,11 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近修改",
   "changes": [
-   "🔴 跟着按：按错时会在屏幕中间大大地显示 ❌ 按错了！· 💀 干杯",
-   "🍺 狼冰壶：最后的 🏆 结果变大了 — 排名、距离（cm）和要喝的人一目了然",
-   "🧾 旅行结算按钮从主页移到 🧮 计算器里（主页更简洁）",
-   "🏗️ 新增叠高塔（反应游戏）：点击放下左右移动的方块，超出的部分会被切掉，完全对准就 ✨PERFECT — 把塔弄倒的人喝",
-   "🔴 新增跟着按（反应游戏）：4个彩色按钮（●▲■★）随声音按顺序亮起，大家轮流照着按 — 每次成功多一个，按错的人喝",
-   "✂️ 新增剪炸弹线（运气游戏）：炸弹上的彩色线（4·5·6·8根）只有一根是真的 — 轮流剪一根，剪到真线就 💥 砰！晕乎乎的小狼和干杯",
-   "🍺 新增狼冰壶（反应游戏）：把狼形啤酒杯往后拉再松手，它会在桌上滑行。离桌边越近越好 🥇，超过就 💦 掉下去要干杯（没有力度条，全凭手感！）",
-   "🐺 跟着按的按钮变成戴配饰的4只狼：😎 墨镜 · 🎀 蝴蝶结 · 🧢 帽子 · 👑 皇冠 — 亮起时会跳一下“嗷呜~”",
-   "📤 旅行结算导出：可存成 Excel（.csv）或文本（.txt），也能直接分享到聊天软件 — 全部清空前会问“先保存吗？”",
-   "💰 中途结算：把要转的钱按100·500·1,000取整先收（如5,900 → 6,000），剩下的差额自动留到下次结算",
-   "🧮 计算器新增 🧾 结算 · 📏 尺码按钮（主页的结算按钮移到计算器里） — 尺码对照表：鞋（男女）· 上衣（男女）· 裤腰 · 戒指，按 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 对照，⭐ 保存自己的尺码",
-   "🔄 应用内更新（安卓）：有新版本时启动就会提示，点一下就下载并打开安装界面。也可以在更新记录页手动检查",
-   "🌏 这四个游戏只靠图案、颜色和数字就能玩，不用看字，和外国朋友一起玩也没问题"
+   "🎯 游戏文字统一为\"惩罚\"·\"中奖\" · 名称改为\"迷你游戏合集\" · 主页底部加了一行小提示",
+   "🍺 狼冰壶从 ⚡ 反应游戏移到 🐺 狼游戏",
+   "🐺 🍀 拼手气新增 狼猜猜猜：狼吃硬币，空嘴狼吃不到 → 洗完后轮流选，选到空嘴的接受惩罚（1~8人，空嘴狼 1~人数−1只）",
+   "📤 主页新增分享按钮：选朋友的手机（安卓 / iPhone·电脑），用应用分享对应链接、只复制链接，或直接扫二维码",
+   "🏁 群狼赛跑：名次在每条跑道中间大大地显示 — 第1名 👑、第2·3名奖牌色、最后一名 💀 红色，还有动物名字"
   ],
   "hUpdate": "🔄 更新",
   "updA": "<b>安卓</b>：用同一个二维码或按钮下载新的APK并安装即可。<b>不用删除旧应用</b>，直接覆盖安装。",
@@ -1952,6 +1987,7 @@ export const MANUAL = {
    ]
   ],
   "back": "← 返回游戏",
+  "disclaimer": "本游戏是为增进友谊而设计的简单随机惩罚游戏。对于因过度沉迷或在线下勉强执行惩罚（强迫饮酒等）而导致的事故，开发者概不负责。",
   "navHow": "🎮 玩法",
   "hHow": "🎮 玩法",
   "howIntro": "在主界面点游戏即可开始。有设置的游戏先选好人数等再点<b>开始游戏</b>。随时可以点左上角<b>←</b>返回。 主界面分为<b>骰子 · 纸牌 · 手指游戏 · 反应游戏 · 狼游戏 · 拼手气 · 对战游戏</b>几个类别。",
@@ -1974,7 +2010,7 @@ export const MANUAL = {
    [
     "选择人数（2~8人），并开关<b>掷出6时顺序反转</b>选项。",
     "轮到的人点屏幕，两颗骰子会弹跳着滚动。",
-    "点数和的个位：<b>7 加酒 · 8 喝一半 · 9 一口干</b>，6 顺序反转，其他直接过。"
+    "点数和的个位：<b>7 小惩罚 · 8 中惩罚 · 9 大惩罚</b>，6 顺序反转，其他直接过。"
    ],
    [
     "选择人数（2~4人）、骰子数量（2~4颗）、计算方式（加法·乘法）。",
@@ -1982,19 +2018,19 @@ export const MANUAL = {
     "大家都掷完后显示<b>👑 最高</b>和<b>💀 最低</b>。点中间再来一次！"
    ],
    [
-    "选择人数（2~8人）。打开<b>累积</b>后每成功一次罚酒加1杯。",
+    "选择人数（2~8人）。打开<b>累积</b>后每成功一次惩罚累加1个。",
     "猜下一张比桌上的牌大（<b>UP</b>）还是小（<b>DOWN</b>）。基准牌是A或K时猜<b>红/黑</b>。",
-    "猜对轮到下一位，猜错喝罚酒（累积时喝掉全部）！<b>点数相同就干杯</b>。"
+    "猜对轮到下一位，猜错受罚（累积时接受全部惩罚）！<b>点数相同就是大惩罚</b>。"
    ],
    [
     "选择人数（2~4人），把手机放在桌子中间。每人拿到的一张牌就是自己的数字。",
     "轮到的人从中间两张牌里点一张替换，新牌会翻开。",
-    "两张牌之和的个位等于自己的数字就<b>干杯！</b>（A=1，10·J·Q·K=0）点<b>新游戏</b>重新发牌。"
+    "两张牌之和的个位等于自己的数字就<b>受罚！</b>（A=1，10·J·Q·K=0）点<b>新游戏</b>重新发牌。"
    ],
    [
     "点牌堆一张一张翻开。牌中间的大图就是要做的事。",
-    "A 🌊 瀑布 · 2 👉 点名 · 3 🙋 自己 · 4 🚽 厕所通行证 · 5 💃 舞蹈接力 · 6 🍻 一起干杯 · 7 🙌 举手 · 8 🤝 搭档 · 9 🔤 成语接龙 · 10 📚 类别 · J 📜 定规则 · Q ❓ 提问大师 · K 👑 国王杯。随时可以点下面的<b>📋 规则</b>查看！",
-    "每出一张K右上角的杯子就满一点。<b>抽到第4张K的人把国王杯干了！</b> <b>🔀 重新洗牌</b>开新局。"
+    "A 🌊 瀑布 · 2 👉 点名 · 3 🙋 自己 · 4 🚽 厕所通行证 · 5 💃 舞蹈接力 · 6 🎉 大家一起 · 7 🙌 举手 · 8 🤝 搭档 · 9 🔤 成语接龙 · 10 📚 类别 · J 📜 定规则 · Q ❓ 提问大师 · K 👑 国王杯。随时可以点下面的<b>📋 规则</b>查看！",
+    "每出一张K，中间的国王杯就满一点。<b>抽到第4张K的人接受国王杯大惩罚！</b> <b>🔀 重新洗牌</b>开新局。"
    ],
    [
     "选择人数（2~4人），把手机放在中间，屏幕平均分开。",
@@ -2019,17 +2055,12 @@ export const MANUAL = {
    [
     "⚡ 反应游戏 → <b>🏗️ 叠高塔</b>。<b>点击</b>屏幕，左右移动的方块就会落下。",
     "超出下面方块的部分会被切掉，塔会越来越窄。完全对准就是 <b>✨ PERFECT</b>。点一次就把手机传给下一个人 👉",
-    "越高越快。方块完全没落在下面的方块上，塔就哗啦倒了 — 弄倒的人 🍺 干杯！"
+    "越高越快。方块完全没落在下面的方块上，塔就哗啦倒了 — 弄倒的人 💀 受罚！"
    ],
    [
     "⚡ 反应游戏 → <b>🔴 跟着按</b>。有4只戴配饰的狼（😎 墨镜 · 🎀 蝴蝶结 · 🧢 帽子 · 👑 皇冠）。",
     "狼会随着声音<b>按顺序</b>跳起来亮一下（👀）。亮完后按同样的顺序按（👆）。",
-    "答对顺序就多一个，把手机传下去 👉 按错时正确的狼会闪 — 🍺 干杯！每格还有 ● ▲ ■ ★ 形状，分不清颜色也没关系。"
-   ],
-   [
-    "⚡ 反应游戏 → <b>🍺 狼冰壶</b>。选好人数（2~6人）开始。每人有一个头巾颜色和号码不同的狼啤酒杯。",
-    "手指按住起点线上的杯子，<b>往后（往下）拉再松手</b>，它就会滑出去。拉得越多滑得越远（没有力度条，全凭手感！）。",
-    "离桌边越近越好（🥇）。超过桌边就 💦 掉下去。大家都推完后 🏆 排名 — 掉下去的人都要喝，没人掉的话离得最远的人 🍺 干杯！"
+    "答对顺序就多一个，把手机传下去 👉 按错时正确的狼会闪 — 💀 受罚！每格还有 ● ▲ ■ ★ 形状，分不清颜色也没关系。"
    ],
    [
     "选中奖牙齿数（1~10颗）后开始。狼把嘴张满整个屏幕。",
@@ -2054,27 +2085,32 @@ export const MANUAL = {
    [
     "选人数（2~8人），把手机放中间。在自己的位置点<b>正面（🐺 狼脸）</b>或<b>反面（🍑 狼屁股）</b>。",
     "都选好后 3·2·1，硬币从中间弹起，旋转后落下。",
-    "猜对<b>⭕</b>，猜错<b>❌ 干杯</b>。有时（15%）硬币<b>立起来，全员猜错！</b> 点中间的圆再来一局。"
+    "猜对<b>⭕</b>，猜错<b>❌ 受罚</b>。有时（15%）硬币<b>立起来，全员猜错！</b> 点中间的圆再来一局。"
    ],
    [
     "🍀 运气游戏 → <b>🔻 弹珠台</b>。不用选人数，直接开始。",
     "点上方任意位置，狼币就从那里落下，在钉子间弹来弹去掉进下面的格子！",
-    "落进哪个格子就是哪个：<b>1杯 · 半杯 · 再来 · 右边的人 · 左边的人 · 大家一起 · 过</b>。格子顺序每局<b>🔀 打乱</b>。"
+    "落进哪个格子就是哪个：<b>惩罚 · 半惩罚 · 再来 · 右边的人 · 左边的人 · 大家一起 · 过</b>。格子顺序每局<b>🔀 打乱</b>。"
    ],
    [
     "🍀 运气游戏 → <b>🔢 数字炸弹</b>。选好最大数字（30 · 50 · 100 · 200）开始，1到这个数字之间藏着一个炸弹数字。",
     "手机轮流传，每人输入一个数字。比炸弹小 → <b>⬆️ UP</b>，比炸弹大 → <b>⬇️ DOWN</b> — 范围越来越小，导火线也越来越短。",
-    "按到炸弹数字就 <b>💥 砰！</b> 烤焦的小狼晕乎乎 😵‍💫 那个人 <b>💀 干杯</b>。点“再来一局”重新开始。"
+    "按到炸弹数字就 <b>💥 砰！</b> 烤焦的小狼晕乎乎 😵‍💫 那个人 <b>💀 受罚</b>。点“再来一局”重新开始。"
    ],
    [
     "🍀 运气游戏 → <b>🎈 吹气球</b>。不用选人数，直接开始。",
     "手机轮流传，每人点<b>1~3下</b>再传下去。每点一下，狼脸气球就大一点。",
-    "谁也不知道什么时候爆（每局不一样）。把气球弄爆的人 <b>💥 💀 干杯</b>。点屏幕换新气球。"
+    "谁也不知道什么时候爆（每局不一样）。把气球弄爆的人 <b>💥 💀 受罚</b>。点屏幕换新气球。"
    ],
    [
     "🍀 运气游戏 → <b>✂️ 剪炸弹线</b>。选好线的数量（4 · 5 · 6 · 8）开始。只有一根是真的。",
     "轮流<b>点一根线剪断</b> ✂️ 每剪一根，炸弹计时就更快。安全的话“呼~安全！”→ 下一个人 👉",
-    "剪到真线就 💥 砰！和晕乎乎的小狼一起 🍺 干杯。再来一局会重新藏一根真线。"
+    "剪到真线就 💥 砰！和晕乎乎的小狼一起 💀 受罚。再来一局会重新藏一根真线。"
+   ],
+   [
+    "🍀 运气游戏 → <b>🐺 狼猜猜猜</b>。选好人数（1~8人）和<b>空嘴狼数量</b>（1~人数−1只）开始。",
+    "狼们张大嘴每只吃一枚 🪙 硬币，空嘴狼吃不到。然后它们来回交换位置，越来越快 — 好好盯着 👀",
+    "每人轮流选一只狼 👆 有硬币就 ✅ 过关，空嘴的 <b>💀 受罚！</b> 空嘴狼全部找到就结束。"
    ],
    [
     "🍀 拼手气 → <b>☝️ 手指选人</b>. 选好抽中人数（1~9人）后开始。",
@@ -2084,7 +2120,7 @@ export const MANUAL = {
    [
     "选择人数（2~9人）和时间（3~30秒），<b>每人选一只动物</b>（12种，按点的顺序分跑道）。",
     "动物们在终点瑟瑟发抖，小狼你追我赶跑过来，快到时张大嘴！",
-    "<b>小狼先咬到的动物第1名</b>，按咬的顺序排名。"
+    "<b>小狼先咬到的动物第1名</b>，按咬的顺序排名，名次在每条跑道中间大大显示（第1名 👑 · 最后一名 💀）。"
    ],
    [
     "桶上有20个插剑孔，其中一个是中奖。小狼躲在桶里。",
@@ -2097,9 +2133,14 @@ export const MANUAL = {
     "停下时<b>\"啊呜！\"</b>一口咬住，嘴巴指向的人中奖！"
    ],
    [
+    "🐺 狼游戏 → <b>🍺 狼冰壶</b>。选好人数（2~6人）开始。每人有一个头巾颜色和号码不同的狼啤酒杯。",
+    "手指按住起点线上的杯子，<b>往后（往下）拉再松手</b>，它就会滑出去。拉得越多滑得越远（没有力度条，全凭手感！）。",
+    "离桌边越近越好（🥇）。超过桌边就 💦 掉下去。大家都推完后 🏆 排名 — 掉下去的人都受罚，没人掉的话离得最远的人 💀 受罚！"
+   ],
+   [
     "⚔️ 对战游戏 → <b>🟢 井字棋</b>。两个人隔着手机上下面对面坐（下 = 绿，上 = 红）。各自一边会显示<b>“你: 绿”</b>这样的颜色。",
     "轮流放狼币。<b>每步2秒</b>，超时就轮到对方。横、竖、斜先连成3个就赢！",
-    "<b>每人最多3个</b>。放第4个时，自己最早的那个会消失（要消失的会闪烁）。输的人干杯，点屏幕再来。"
+    "<b>每人最多3个</b>。放第4个时，自己最早的那个会消失（要消失的会闪烁）。输的人受罚，点屏幕再来。"
    ],
    [
     "两人用红色和黄色轮流下。",
@@ -2109,7 +2150,7 @@ export const MANUAL = {
    [
     "⚔️ 对战游戏 → <b>⚫ 五子棋</b>。上下面对面坐（下 = 黑，上 = 白）。各自一边显示<b>“你: 黑”</b>这样的棋子颜色，轮到自己时会变亮。",
     "黑先，轮流在15×15棋盘上落子。没有时间限制。红点是刚下的那颗。",
-    "横、竖、斜先连成5个就赢！黑棋<b>🚫 禁三三</b>（同时形成两个活三的位置）。输的人干杯。"
+    "横、竖、斜先连成5个就赢！黑棋<b>🚫 禁三三</b>（同时形成两个活三的位置）。输的人受罚。"
    ],
    [
     "两个人隔着手机上下面对面坐。",
@@ -2119,17 +2160,17 @@ export const MANUAL = {
    [
     "两个人上下面对面坐。中间有两只狼爪叠在一起。",
     "<b>🛡️ 防守</b>一直按住自己这一半，攻击来了就松开躲；<b>🐾 进攻</b>随时点自己这一半就拍下去！",
-    "拍中防守干杯，躲开就攻守互换。没攻击就松手算<b>抖了犯规</b>，干杯！💥是拍中次数。"
+    "拍中防守受罚，躲开就攻守互换。没攻击就松手算<b>抖了犯规</b>，受罚！💥是拍中次数。"
    ],
    [
-    "在标志旁边的<b>🧮 计算器</b>里算出酒钱总额。",
-    "点<b>🍻 AA</b>，选人数和取整单位（不取整·10·100·1000）。",
+    "在标志旁边的<b>🧮 计算器</b>里算出总金额。",
+    "点<b>💸 AA</b>，选人数和取整单位（不取整·10·100·1000）。",
     "会显示每人金额，以及收齐后多出的钱。"
    ],
    [
-    "在计算器输入金额，点<b>💁 小费</b>（🍻 AA 和 💱 汇率之间）。",
+    "在计算器输入金额，点<b>💁 小费</b>（💸 AA 和 💱 汇率之间）。",
     "选<b>5 · 10 · 15 · 20 · 25 · 30%</b>就显示小费和<b>含小费合计</b>。会记住上次选的%。",
-    "点<b>🍻 含小费AA</b>，直接按加上小费的金额平分。"
+    "点<b>💸 含小费AA</b>，直接按加上小费的金额平分。"
    ],
    [
     "在计算器里点<b>💱 汇率</b>，计算器的金额会自动填入。",
@@ -2140,6 +2181,11 @@ export const MANUAL = {
     "点主界面标志旁的<b>▦ QR</b>。第一次先输入常用的（Instagram、WhatsApp、TikTok、LINE、KakaoTalk、Telegram、Facebook、Zalo）并保存。",
     "之后点一下就直接出现<b>白底全屏二维码</b>。有多个时点上面的按钮或左右滑动切换。",
     "对方用手机相机一扫就能打开你的主页或聊天。信息<b>只保存在你的手机上</b>，App 里屏幕会调到最亮。"
+   ],
+   [
+    "主界面的<b>📤 分享</b>按钮。先在<b>朋友用的是什么手机？</b>里选朋友的手机。",
+    "<b>🤖 安卓</b> → 直接下载应用（APK）的链接；<b>🍎 iPhone · 电脑</b> → 网页链接（Safari → 分享 → \"添加到主屏幕\"，就能像应用一样用）。",
+    "点<b>📲 用应用分享</b>发到聊天软件，或<b>🔗 只复制链接</b>。朋友在旁边的话直接扫屏幕上的二维码就行 📷"
    ],
    [
     "点主界面<b>🏨 住处</b>按钮（二维码旁）。第一次填住处名称、<b>当地语言地址</b>（从订房App复制粘贴）、电话和备注（可选）后保存。可以存多个。",
@@ -2225,10 +2271,6 @@ export const MANUAL = {
     "smTitle"
    ],
    [
-    "how-curling",
-    "cuTitle"
-   ],
-   [
     "how-teeth",
     "menuCroc"
    ],
@@ -2265,6 +2307,10 @@ export const MANUAL = {
     "wcTitle"
    ],
    [
+    "how-yabawi",
+    "ybTitle"
+   ],
+   [
     "how-finger",
     "fingerTitle"
    ],
@@ -2279,6 +2325,10 @@ export const MANUAL = {
    [
     "how-arrow",
     "menuArrow"
+   ],
+   [
+    "how-curling",
+    "cuTitle"
    ],
    [
     "how-ttt",
@@ -2317,6 +2367,10 @@ export const MANUAL = {
     "qrTitle"
    ],
    [
+    "how-share",
+    "shTitle"
+   ],
+   [
     "how-hotel",
     "hotelTitle"
    ],
@@ -2341,7 +2395,7 @@ export const MANUAL = {
    "👆",
    "🔢",
    "🎲",
-   "🍶",
+   "🎯",
    "⚔️",
    "↕️",
    "🇻🇳",
@@ -2352,7 +2406,6 @@ export const MANUAL = {
    "🍺",
    "🏗️",
    "🔴",
-   "🍺",
    "🐺",
    "icons/ladder.png",
    "🎡",
@@ -2362,10 +2415,12 @@ export const MANUAL = {
    "🔢",
    "🎈",
    "✂️",
+   "🐺",
    "☝️",
    "🏁",
    "🗡️",
    "🔄",
+   "🍺",
    "🟢",
    "🔴",
    "⚫",
@@ -2375,6 +2430,7 @@ export const MANUAL = {
    "",
    "",
    "▦",
+   "",
    "🏨",
    "🗣️",
    "🧾",
@@ -2384,10 +2440,10 @@ export const MANUAL = {
  },
  "th": {
   "title": "วิธีติดตั้ง",
-  "lead": "รวมเกมวงเหล้า · วิธีติดตั้ง",
+  "lead": "รวมมินิเกม · วิธีติดตั้ง",
   "navAndroid": "🤖 ติดตั้งบน Android",
   "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
-  "navNew": "🆕 มีอะไรใน v1.8.1",
+  "navNew": "🆕 มีอะไรใน v1.9",
   "navUpdate": "🔄 อัปเดต",
   "navFaq": "❓ คำถามที่พบบ่อย",
   "qAndroid": "🤖 แอป Android",
@@ -2482,19 +2538,20 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 หน้าหลัก",
-  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.8.1</b>) ได้ที่ด้านล่างสุด",
-  "hNew": "🆕 มีอะไรใน v1.8.1",
-  "newIntro": "Wolf Games v1.8.1 มีเกมและฟีเจอร์ต่อไปนี้",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.9</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v1.9",
+  "newIntro": "Wolf Games v1.9 มีเกมและฟีเจอร์ต่อไปนี้",
   "newFeat": [
    "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🏗️ ต่อตึก · 🔴 ทำตาม · 🍺 เคิร์ลลิงหมาป่า · ✂️ ตัดสายระเบิด · 📏 ตารางเทียบไซซ์ · 💰 เคลียร์ระหว่างทาง · 📤 ส่งออก · 🔄 ตรวจหาอัปเดต",
+   "🆕 🐺 หมาป่าซ่อนเหรียญ · 📤 แชร์ · 🏁 อันดับวิ่งแข่งหมาป่าตัวใหญ่ · 🍺 เคิร์ลลิงหมาป่า → 🐺 เกมหมาป่า · 🎯 ใช้คำว่า \"ทำโทษ\" · \"โดน\"",
+   "✨ v1.8: 🏗️ ต่อตึก · 🔴 ทำตาม · 🍺 เคิร์ลลิงหมาป่า · ✂️ ตัดสายระเบิด · 📏 ตารางเทียบไซซ์ · 💰 เคลียร์ระหว่างทาง · 📤 ส่งออก · 🔄 ตรวจหาอัปเดต",
    "✨ v1.7: 🔢 ระเบิดตัวเลข · 🎈 เป่าลูกโป่ง · 🗣️ การ์ดประโยค · 🧾 แบ่งจ่ายทริป",
    "✨ v1.6: 🔻 พลิงโก · 🟢 โอเอ็กซ์ · ⚫ โกะโมะกุ · 🏨 การ์ดที่อยู่ที่พัก · 🌐 แสดงสองภาษาพร้อมกัน",
    "✨ v1.5: 🎀 แตะรัวยึดพื้นที่ · 🐾 ดวลตบมือ · 👑 คิงส์คัพสากล · 🍺 รินเบียร์ · 🪙 โยนเหรียญ",
    "⚡ เกมไหวพริบ (ดวลความไว · ดวลสี · นาฬิกาจับเวลา) · 💣 ส่งระเบิด · ⚔️ ดวลลูกเต๋า",
    "🐺 เกมหมาป่า · 🍀 เกมดวง · ⚔️ เกมดวล",
-   "🃏 เกมไพ่ (Up/Down · โฮจิมินห์) · 🍶 789",
-   "🧮 เครื่องคิดเลข · 🍻 หารบิล · 💱 แลกเงิน (ข้างโลโก้)",
+   "🃏 เกมไพ่ (Up/Down · โฮจิมินห์) · 🎯 789",
+   "🧮 เครื่องคิดเลข · 💸 หารเท่า · 💱 แลกเงิน (ข้างโลโก้)",
    "▦ QR ติดต่อของฉัน · 💁 ทิป",
    "📳 สั่นทุกครั้งที่กดปุ่มหรือแตะในเกม (สั่นแรงเมื่อโดนหรือชนะ)",
    "🔆 หน้าจอไม่ดับขณะเล่น",
@@ -2502,19 +2559,11 @@ export const MANUAL = {
   ],
   "hChange": "🛠 การแก้ไขล่าสุด",
   "changes": [
-   "🔴 ทำตาม: กดผิดแล้วจะขึ้น ❌ ผิด! · 💀 หมดแก้ว ตัวใหญ่กลางจอ",
-   "🍺 เคิร์ลลิงหมาป่า: ผล 🏆 ตอนจบตัวใหญ่ขึ้น — อันดับ · ระยะ (cm) · ใครต้องดื่ม เห็นชัดในทีเดียว",
-   "🧾 ย้ายปุ่มแบ่งจ่ายทริปจากหน้าหลักเข้าไปใน 🧮 เครื่องคิดเลข (หน้าหลักโล่งขึ้น)",
-   "🏗️ เพิ่มต่อตึก (เกมความไว): แตะปล่อยบล็อกที่เลื่อนไปมา ส่วนที่ล้นจะถูกตัด ถ้าตรงเป๊ะได้ ✨PERFECT — ใครทำตึกพังต้องดื่ม",
-   "🔴 เพิ่มทำตาม (เกมความไว): ปุ่มสี 4 ปุ่ม (●▲■★) กะพริบตามลำดับพร้อมเสียง ผลัดกันกดตาม — ถูกแล้วลำดับยาวขึ้นทีละหนึ่ง ใครผิดต้องดื่ม",
-   "✂️ เพิ่มตัดสายระเบิด (เกมดวง): สายสีของระเบิด (4·5·6·8 เส้น) มีสายจริงแค่เส้นเดียว — ผลัดกันตัดทีละเส้น ตัดโดนสายจริง 💥 ตูม! หมาป่ามึนตึ้บแล้วหมดแก้ว",
-   "🍺 เพิ่มเคิร์ลลิงหมาป่า (เกมความไว): ดึงแก้วเบียร์รูปหมาป่าลงแล้วปล่อยให้ไถลไปบนโต๊ะ ใกล้ขอบที่สุดได้ 🥇 เลยขอบจะ 💦 ตกแล้วต้องดื่ม (ไม่มีเกจแรง ใช้ความรู้สึก!)",
-   "🐺 ปุ่มของทำตามกลายเป็นหมาป่า 4 ตัวใส่เครื่องประดับ: 😎 แว่นกันแดด · 🎀 โบว์ · 🧢 หมวก · 👑 มงกุฎ — กะพริบเมื่อไหร่จะกระโดดแล้วหอน \"อาวู~\"",
-   "📤 ส่งออกแบ่งจ่ายทริป: บันทึกเป็นไฟล์ Excel (.csv) หรือข้อความ (.txt) หรือแชร์ไปแชทได้เลย — ก่อนล้างทั้งหมดจะถามว่า \"บันทึกก่อนไหม?\"",
-   "💰 เคลียร์ระหว่างทาง: ปัดยอดโอนทีละ 100 · 500 · 1,000 (เช่น 5,900 → 6,000) ส่วนต่างที่เหลือยกไปรอบหน้าอัตโนมัติ",
-   "🧮 เครื่องคิดเลขเพิ่มปุ่ม 🧾 แบ่งจ่าย · 📏 ไซซ์ (ย้ายปุ่มแบ่งจ่ายจากหน้าหลักเข้าไปในเครื่องคิดเลข) — ตารางเทียบไซซ์: รองเท้า (ชาย/หญิง) · เสื้อ (ชาย/หญิง) · เอว · แหวน ตาม 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳 แล้ว ⭐ บันทึกไซซ์ของเรา",
-   "🔄 อัปเดตในแอป (Android): มีเวอร์ชันใหม่จะแจ้งตอนเปิดแอป แตะแล้วดาวน์โหลดและเปิดหน้าติดตั้งให้เลย ตรวจเองได้ที่หน้าประวัติอัปเดตด้วย",
-   "🌏 ทั้ง 4 เกมเล่นได้ด้วยรูป สี และตัวเลขเท่านั้น ไม่ต้องอ่าน เล่นกับเพื่อนต่างชาติได้สบาย"
+   "🎯 ข้อความในเกมใช้คำว่า \"ทำโทษ\" · \"โดน\" ทั้งหมด · เปลี่ยนชื่อเป็น \"รวมมินิเกม\" · เพิ่มข้อความแจ้งเล็กๆ ที่ล่างหน้าหลัก",
+   "🍺 ย้ายเคิร์ลลิงหมาป่าจาก ⚡ เกมความไว ไปที่ 🐺 เกมหมาป่า",
+   "🐺 เพิ่มใน 🍀 เกมดวง: หมาป่าซ่อนเหรียญ — หมาป่ากินเหรียญ ยกเว้นตัวปากว่าง → สลับเสร็จผลัดกันเลือก ปากว่างโดนทำโทษ (1–8 คน, ปากว่าง 1 ถึง จำนวนคน−1 ตัว)",
+   "📤 ปุ่มแชร์ที่หน้าหลัก: เลือกมือถือเพื่อน (Android / iPhone·PC) แล้วแชร์ลิงก์ที่ถูกผ่านแอป คัดลอกลิงก์ หรือสแกน QR ได้เลย",
+   "🏁 วิ่งแข่งหมาป่า: อันดับตัวใหญ่กลางลู่ — ที่ 1 👑 ที่ 2·3 สีเหรียญ ที่โหล่ 💀 สีแดง พร้อมชื่อสัตว์"
   ],
   "hUpdate": "🔄 อัปเดต",
   "updA": "<b>Android</b>: ดาวน์โหลด APK ใหม่ด้วย QR หรือปุ่มเดิมแล้วติดตั้ง จะติดตั้ง <b>ทับแอปเดิม</b> โดยไม่ต้องลบ",
@@ -2547,6 +2596,7 @@ export const MANUAL = {
    ]
   ],
   "back": "← กลับไปที่เกม",
+  "disclaimer": "เกมนี้เป็นเกมสุ่มบทลงโทษง่ายๆ เพื่อความสนุกและกระชับมิตรเท่านั้น ผู้พัฒนาจะไม่รับผิดชอบต่ออุบัติเหตุใดๆ ที่เกิดจากการเล่นหมกมุ่นเกินไป หรือการทำบทลงโทษเกินขอบเขตในชีวิตจริง (เช่น การบังคับให้ดื่มเหล้า ฯลฯ)",
   "navHow": "🎮 วิธีเล่น",
   "hHow": "🎮 วิธีเล่น",
   "howIntro": "กดเกมในหน้าหลักเพื่อเริ่มได้เลย เกมที่มีการตั้งค่าให้เลือกจำนวนคนก่อนแล้วกด <b>เริ่มเกม</b> กด <b>←</b> มุมซ้ายบนเพื่อออกได้ตลอด หน้าหลักแบ่งเป็นหมวด <b>ลูกเต๋า · ไพ่ · เกมนิ้ว · เกมไหวพริบ · เกมหมาป่า · เกมดวง · เกมดวล</b>",
@@ -2569,7 +2619,7 @@ export const MANUAL = {
    [
     "เลือกจำนวนคน (2–8 คน) แล้วเปิดหรือปิดตัวเลือก <b>ออก 6 สลับลำดับ</b>",
     "คนที่ถึงตาแตะหน้าจอ เต๋า 2 ลูกจะเด้งและกลิ้ง",
-    "หลักหน่วยของผลรวม: <b>7 เติมแก้ว · 8 ดื่มครึ่ง · 9 หมดแก้ว</b> 6 สลับลำดับ นอกนั้นผ่าน"
+    "หลักหน่วยของผลรวม: <b>7 ทำโทษเบา · 8 ปานกลาง · 9 ทำโทษหนัก</b> 6 สลับลำดับ นอกนั้นผ่าน"
    ],
    [
     "เลือกจำนวนคน (2–4) จำนวนลูกเต๋า (2–4) และวิธีคิด (บวก·คูณ)",
@@ -2577,19 +2627,19 @@ export const MANUAL = {
     "พอทุกคนทอยแล้วจะแสดง <b>👑 สูงสุด</b> และ <b>💀 ต่ำสุด</b> แตะตรงกลางเพื่อเล่นใหม่!"
    ],
    [
-    "เลือกจำนวนคน (2–8 คน) ถ้าเปิด <b>สะสม</b> ทุกครั้งที่ทายถูกจะเพิ่มแก้วลงโทษ 1 แก้ว",
+    "เลือกจำนวนคน (2–8 คน) ถ้าเปิด <b>สะสม</b> ทุกครั้งที่ทายถูกจะสะสมบทลงโทษเพิ่ม 1 ครั้ง",
     "ทายว่าไพ่ใบต่อไปสูงกว่า (<b>UP</b>) หรือต่ำกว่า (<b>DOWN</b>) ถ้าไพ่ฐานเป็น A หรือ K ให้ทาย <b>แดง/ดำ</b>",
-    "ถูกก็ถึงตาคนต่อไป ผิดดื่มลงโทษ (ถ้าสะสมดื่มทั้งหมด)! <b>ได้เลขเดียวกันหมดแก้ว</b>"
+    "ถูกก็ถึงตาคนต่อไป ผิดโดนทำโทษ (ถ้าสะสมโดนทั้งหมด)! <b>ได้เลขเดียวกันโดนทำโทษหนัก</b>"
    ],
    [
     "เลือกจำนวนคน (2–4 คน) แล้ววางโทรศัพท์กลางโต๊ะ ไพ่ 1 ใบที่ได้คือเลขของเรา",
     "คนที่ถึงตากดเลือกไพ่ 1 ใน 2 ใบตรงกลางเพื่อเปลี่ยน ไพ่ใหม่จะพลิกขึ้น",
-    "ถ้าหลักหน่วยของผลรวมตรงกับเลขของเรา <b>หมดแก้ว!</b> (A=1, 10·J·Q·K=0) กด <b>เกมใหม่</b> เพื่อแจกใหม่"
+    "ถ้าหลักหน่วยของผลรวมตรงกับเลขของเรา <b>โดนทำโทษ!</b> (A=1, 10·J·Q·K=0) กด <b>เกมใหม่</b> เพื่อแจกใหม่"
    ],
    [
     "แตะกองไพ่เพื่อเปิดทีละใบ รูปใหญ่ตรงกลางไพ่คือสิ่งที่ต้องทำ",
-    "A 🌊 น้ำตก · 2 👉 ชี้คน · 3 🙋 ตัวเอง · 4 🚽 บัตรผ่านห้องน้ำ · 5 💃 เต้นต่อกัน · 6 🍻 ชนแก้วทุกคน · 7 🙌 ยกมือ · 8 🤝 คู่หู · 9 🔤 ต่อคำ · 10 📚 หมวดหมู่ · J 📜 ตั้งกฎ · Q ❓ เจ้าแห่งคำถาม · K 👑 คิงส์คัพ ดูได้ตลอดที่ <b>📋 กติกา</b> ด้านล่าง!",
-    "ทุกครั้งที่ได้ K แก้วมุมขวาบนจะเต็มขึ้น <b>ใครจั่ว K ใบที่ 4 หมดแก้วคิงส์คัพ!</b> <b>🔀 สับไพ่ใหม่</b> เพื่อเริ่มใหม่"
+    "A 🌊 คลื่น · 2 👉 ชี้คน · 3 🙋 ตัวเอง · 4 🚽 บัตรผ่านห้องน้ำ · 5 💃 เต้นต่อกัน · 6 🎉 ทุกคน · 7 🙌 ยกมือ · 8 🤝 คู่หู · 9 🔤 ต่อคำ · 10 📚 หมวดหมู่ · J 📜 ตั้งกฎ · Q ❓ เจ้าแห่งคำถาม · K 👑 คิงส์คัพ ดูได้ตลอดที่ <b>📋 กติกา</b> ด้านล่าง!",
+    "ทุกครั้งที่ได้ K แก้วคิงส์คัพตรงกลางจะเต็มขึ้นทีละนิด <b>ใครจั่ว K ใบที่ 4 โดนทำโทษหนักคิงส์คัพ!</b> <b>🔀 สับไพ่ใหม่</b> เพื่อเริ่มใหม่"
    ],
    [
     "เลือกจำนวนคน (2–4) แล้ววางโทรศัพท์ไว้ตรงกลาง หน้าจอจะแบ่งเท่า ๆ กัน",
@@ -2614,17 +2664,12 @@ export const MANUAL = {
    [
     "⚡ เกมความไว → <b>🏗️ ต่อตึก</b> <b>แตะ</b>เพื่อปล่อยบล็อกที่เลื่อนไปมา",
     "ส่วนที่ล้นออกนอกบล็อกข้างล่างจะถูกตัด ตึกจะแคบลงเรื่อยๆ ถ้าตรงเป๊ะได้ <b>✨ PERFECT</b> แตะครั้งเดียวแล้วส่งให้คนถัดไป 👉",
-    "ยิ่งสูงยิ่งเร็ว ถ้าบล็อกพลาดบล็อกข้างล่างทั้งหมด ตึกจะพังโครม — ใครทำพัง 🍺 หมดแก้ว!"
+    "ยิ่งสูงยิ่งเร็ว ถ้าบล็อกพลาดบล็อกข้างล่างทั้งหมด ตึกจะพังโครม — ใครทำพัง 💀 โดนทำโทษ!"
    ],
    [
     "⚡ เกมความไว → <b>🔴 ทำตาม</b> มีหมาป่า 4 ตัวใส่เครื่องประดับ (😎 แว่นกันแดด · 🎀 โบว์ · 🧢 หมวก · 👑 มงกุฎ)",
     "หมาป่าจะกระโดดกะพริบ<b>ตามลำดับ</b>พร้อมเสียง (👀) จบแล้วกดตามลำดับเดิม (👆)",
-    "ถูกแล้วลำดับยาวขึ้นหนึ่ง ส่งมือถือต่อ 👉 ถ้าผิด หมาป่าตัวที่ถูกจะกะพริบ — 🍺 ดื่ม! แต่ละช่องมีรูป ● ▲ ■ ★ ด้วย แยกสีไม่ออกก็เล่นได้"
-   ],
-   [
-    "⚡ เกมความไว → <b>🍺 เคิร์ลลิงหมาป่า</b> เลือกจำนวนคน (2–6) แล้วเริ่ม แต่ละคนมีแก้วเบียร์หมาป่าที่สีผ้าโพกและหมายเลขต่างกัน",
-    "วางนิ้วบนแก้วที่เส้นเริ่ม <b>ดึงลง (ไปข้างหลัง) แล้วปล่อย</b> แก้วจะไถลไป ยิ่งดึงมากยิ่งไปไกล (ไม่มีเกจแรง ใช้ความรู้สึก!)",
-    "ยิ่งใกล้ขอบโต๊ะยิ่งดี (🥇) ถ้าเลยขอบจะ 💦 ตก ทุกคนเล่นครบแล้วดู 🏆 อันดับ — ใครตกต้องดื่มทุกคน ถ้าไม่มีใครตก คนที่ไกลสุด 🍺 หมดแก้ว!"
+    "ถูกแล้วลำดับยาวขึ้นหนึ่ง ส่งมือถือต่อ 👉 ถ้าผิด หมาป่าตัวที่ถูกจะกะพริบ — 💀 โดนทำโทษ! แต่ละช่องมีรูป ● ▲ ■ ★ ด้วย แยกสีไม่ออกก็เล่นได้"
    ],
    [
     "เลือกจำนวนฟันโดน (1–10 ซี่) แล้วเริ่ม หมาป่าจะอ้าปากเต็มจอ",
@@ -2649,27 +2694,32 @@ export const MANUAL = {
    [
     "เลือกผู้เล่น 2–8 คน วางมือถือไว้ตรงกลาง ในช่องตัวเองแตะ <b>หัว (🐺 หน้าหมาป่า)</b> หรือ <b>ก้อย (🍑 ก้นหมาป่า)</b>",
     "พอเลือกครบ 3·2·1 เหรียญจะเด้งขึ้นจากตรงกลาง หมุนติ้วแล้วตกลง",
-    "ทายถูก <b>⭕</b> ทายผิด <b>❌ หมดแก้ว</b> บางครั้ง (15%) เหรียญ<b>ตั้งขึ้น ผิดทุกคน!</b> แตะวงกลมตรงกลางเพื่อเล่นใหม่"
+    "ทายถูก <b>⭕</b> ทายผิด <b>❌ โดนทำโทษ</b> บางครั้ง (15%) เหรียญ<b>ตั้งขึ้น ผิดทุกคน!</b> แตะวงกลมตรงกลางเพื่อเล่นใหม่"
    ],
    [
     "🍀 เกมดวง → <b>🔻 พลิงโก</b> ไม่ต้องเลือกจำนวนคน เริ่มได้เลย",
     "แตะตรงไหนก็ได้ด้านบน เหรียญหมาป่าจะตกจากตรงนั้น เด้งผ่านหมุดลงไปในช่องด้านล่าง!",
-    "ตกช่องไหนได้ช่องนั้น: <b>1 แก้ว · ครึ่งแก้ว · อีกรอบ · คนขวา · คนซ้าย · ทุกคน · รอด</b> ลำดับช่อง<b>🔀 สลับ</b>ทุกรอบ"
+    "ตกช่องไหนได้ช่องนั้น: <b>โดนทำโทษ · ครึ่งโทษ · อีกรอบ · คนขวา · คนซ้าย · ทุกคน · รอด</b> ลำดับช่อง<b>🔀 สลับ</b>ทุกรอบ"
    ],
    [
     "🍀 เกมดวง → <b>🔢 ระเบิดตัวเลข</b> เลือกเลขสูงสุด (30 · 50 · 100 · 200) แล้วเริ่ม จะมีเลขระเบิดซ่อนอยู่ระหว่าง 1 ถึงเลขนั้น",
     "ส่งมือถือวนกันแล้วใส่เลขทีละคน น้อยกว่าระเบิด → <b>⬆️ UP</b> มากกว่า → <b>⬇️ DOWN</b> ช่วงจะแคบลงและสายชนวนก็สั้นลง",
-    "กดโดนเลขระเบิด <b>💥 ตูม!</b> หมาป่าไหม้เกรียมมึนตึ้บ 😵‍💫 คนนั้น <b>💀 หมดแก้ว</b> กด \"เล่นอีกครั้ง\" เพื่อเริ่มใหม่"
+    "กดโดนเลขระเบิด <b>💥 ตูม!</b> หมาป่าไหม้เกรียมมึนตึ้บ 😵‍💫 คนนั้น <b>💀 โดนทำโทษ</b> กด \"เล่นอีกครั้ง\" เพื่อเริ่มใหม่"
    ],
    [
     "🍀 เกมดวง → <b>🎈 เป่าลูกโป่ง</b> ไม่ต้องเลือกจำนวนคน เริ่มได้เลย",
     "ส่งมือถือวนกัน คนละ <b>1–3 ครั้ง</b> แล้วส่งต่อ แตะทีไรลูกโป่งหน้าหมาป่าก็ใหญ่ขึ้น",
-    "ไม่มีใครรู้ว่าจะแตกตอนไหน (แต่ละรอบไม่เหมือนกัน) ใครทำแตก <b>💥 💀 หมดแก้ว</b> แตะจอเพื่อเริ่มลูกใหม่"
+    "ไม่มีใครรู้ว่าจะแตกตอนไหน (แต่ละรอบไม่เหมือนกัน) ใครทำแตก <b>💥 💀 โดนทำโทษ</b> แตะจอเพื่อเริ่มลูกใหม่"
    ],
    [
     "🍀 เกมดวง → <b>✂️ ตัดสายระเบิด</b> เลือกจำนวนสาย (4 · 5 · 6 · 8) แล้วเริ่ม มีสายจริงแค่เส้นเดียว",
     "ผลัดกัน<b>แตะสายเพื่อตัด</b>ทีละเส้น ✂️ ตัดแต่ละครั้งตัวจับเวลาจะเร็วขึ้น ถ้ารอด \"เฮ้อ~ รอด!\" → คนถัดไป 👉",
-    "ตัดโดนสายจริง 💥 ตูม! หมาป่ามึนตึ้บพร้อม 🍺 หมดแก้ว กดเล่นอีกครั้งจะซ่อนสายจริงใหม่"
+    "ตัดโดนสายจริง 💥 ตูม! หมาป่ามึนตึ้บพร้อม 💀 โดนทำโทษ กดเล่นอีกครั้งจะซ่อนสายจริงใหม่"
+   ],
+   [
+    "🍀 เกมดวง → <b>🐺 หมาป่าซ่อนเหรียญ</b> เลือกจำนวนคน (1–8) และ<b>จำนวนหมาป่าปากว่าง</b> (1 ถึง จำนวนคน−1 ตัว) แล้วเริ่ม",
+    "หมาป่าอ้าปากกิน 🪙 เหรียญตัวละเหรียญ ยกเว้นตัวปากว่าง แล้วจะสลับที่ไปมาเร็วขึ้นเรื่อยๆ — ตามดูให้ดี 👀",
+    "ผลัดกันเลือกหมาป่าคนละตัว 👆 มีเหรียญ = ✅ รอด ปากว่าง = <b>💀 โดนทำโทษ!</b> เจอปากว่างครบก็จบ"
    ],
    [
     "🍀 เกมดวง → <b>☝️ จิ้มนิ้วเลือกคน</b>. เลือกจำนวนคนที่จะโดน (1–9 คน) แล้วเริ่ม",
@@ -2679,7 +2729,7 @@ export const MANUAL = {
    [
     "เลือกจำนวนคน (2–9) และเวลา (3–30 วินาที) แล้ว<b>แต่ละคนเลือกสัตว์</b> (12 ชนิด ลำดับที่แตะ = เลขลู่)",
     "สัตว์รอตัวสั่นอยู่ที่เส้นชัย หมาป่าวิ่งแซงกันไปมา ใกล้ถึงก็อ้าปากกว้าง!",
-    "<b>สัตว์ที่หมาป่างับก่อนได้ที่ 1</b> อันดับเรียงตามลำดับที่โดนงับ"
+    "<b>สัตว์ที่หมาป่างับก่อนได้ที่ 1</b> อันดับเรียงตามลำดับที่โดนงับ และขึ้นตัวใหญ่กลางลู่ (ที่ 1 👑 · ที่โหล่ 💀)"
    ],
    [
     "ถังมีช่องเสียบดาบ 20 ช่อง มีช่องโดน 1 ช่อง หมาป่าซ่อนอยู่ในถัง",
@@ -2692,9 +2742,14 @@ export const MANUAL = {
     "เมื่อหยุดจะ <b>\"งับ!\"</b> ใครอยู่ทางปลายจมูกคนนั้นโดน!"
    ],
    [
+    "🐺 เกมหมาป่า → <b>🍺 เคิร์ลลิงหมาป่า</b> เลือกจำนวนคน (2–6) แล้วเริ่ม แต่ละคนมีแก้วเบียร์หมาป่าที่สีผ้าโพกและหมายเลขต่างกัน",
+    "วางนิ้วบนแก้วที่เส้นเริ่ม <b>ดึงลง (ไปข้างหลัง) แล้วปล่อย</b> แก้วจะไถลไป ยิ่งดึงมากยิ่งไปไกล (ไม่มีเกจแรง ใช้ความรู้สึก!)",
+    "ยิ่งใกล้ขอบโต๊ะยิ่งดี (🥇) ถ้าเลยขอบจะ 💦 ตก ทุกคนเล่นครบแล้วดู 🏆 อันดับ — ใครตกโดนทำโทษทุกคน ถ้าไม่มีใครตก คนที่ไกลสุด 💀 โดนทำโทษ!"
+   ],
+   [
     "⚔️ เกมดวล → <b>🟢 โอเอ็กซ์</b> สองคนนั่งหันหน้าเข้าหากัน (ล่าง = เขียว บน = แดง) แต่ละฝั่งแสดงสีของตัวเอง เช่น <b>\"คุณ: เขียว\"</b>",
     "ผลัดกันวางเหรียญหมาป่า <b>ตาละ 2 วิ</b> หมดเวลาเสียตา เรียง 3 อันก่อนชนะ!",
-    "<b>คนละ 3 เหรียญ</b> วางอันที่ 4 เหรียญเก่าสุดของเราจะหายไป (อันที่จะหายจะกะพริบ) คนแพ้หมดแก้ว แตะจอเพื่อเล่นใหม่"
+    "<b>คนละ 3 เหรียญ</b> วางอันที่ 4 เหรียญเก่าสุดของเราจะหายไป (อันที่จะหายจะกะพริบ) คนแพ้โดนทำโทษ แตะจอเพื่อเล่นใหม่"
    ],
    [
     "ผู้เล่น 2 คนผลัดกันเป็นสีแดงและเหลือง",
@@ -2704,7 +2759,7 @@ export const MANUAL = {
    [
     "⚔️ เกมดวล → <b>⚫ โกะโมะกุ</b> นั่งหันหน้าเข้าหากัน (ล่าง = ดำ บน = ขาว) แต่ละฝั่งแสดงสีหมากของตัวเอง เช่น <b>\"คุณ: ดำ\"</b> ถึงตาเราจะสว่างขึ้น",
     "ดำเดินก่อน ผลัดกันวางหมากบนกระดาน 15×15 ไม่จำกัดเวลา จุดแดงคือหมากที่เพิ่งวาง",
-    "เรียง 5 ก่อนชนะ! ดำ<b>🚫 ห้ามสามสาม</b> (จุดที่เกิดสามเปิดสองแถวพร้อมกัน) คนแพ้หมดแก้ว"
+    "เรียง 5 ก่อนชนะ! ดำ<b>🚫 ห้ามสามสาม</b> (จุดที่เกิดสามเปิดสองแถวพร้อมกัน) คนแพ้โดนทำโทษ"
    ],
    [
     "สองคนนั่งหันหน้าเข้าหากัน วางมือถือไว้ตรงกลาง",
@@ -2714,17 +2769,17 @@ export const MANUAL = {
    [
     "สองคนนั่งหันหน้าเข้าหากัน ตรงกลางมีอุ้งเท้าหมาป่าสองข้างซ้อนกัน",
     "<b>🛡️ ฝ่ายรับ</b> กดฝั่งตัวเองค้างไว้ พอโดนโจมตีให้ยกหลบ <b>🐾 ฝ่ายรุก</b> แตะฝั่งตัวเองเมื่อไหร่ก็ได้เพื่อตบ!",
-    "โดนตบฝ่ายรับหมดแก้ว หลบได้สลับฝั่ง ยกนิ้วทั้งที่ยังไม่โดนโจมตี = <b>สะดุ้ง</b> หมดแก้ว! 💥 คือจำนวนครั้งที่ตบโดน"
+    "โดนตบฝ่ายรับโดนทำโทษ หลบได้สลับฝั่ง ยกนิ้วทั้งที่ยังไม่โดนโจมตี = <b>สะดุ้ง</b> โดนทำโทษ! 💥 คือจำนวนครั้งที่ตบโดน"
    ],
    [
-    "คิดยอดรวมค่าเหล้าใน <b>🧮 เครื่องคิดเลข</b> ข้างโลโก้",
-    "กด <b>🍻 หารบิล</b> แล้วเลือกจำนวนคนและหน่วยปัดขึ้น (ไม่ปัด · 10 · 100 · 1000)",
+    "คิดยอดรวมใน <b>🧮 เครื่องคิดเลข</b> ข้างโลโก้",
+    "กด <b>💸 หารเท่า</b> แล้วเลือกจำนวนคนและหน่วยปัดขึ้น (ไม่ปัด · 10 · 100 · 1000)",
     "จะแสดงยอดต่อคน และเงินที่เหลือเมื่อเก็บครบ"
    ],
    [
-    "ใส่จำนวนเงินในเครื่องคิดเลขแล้วแตะ <b>💁 ทิป</b> (ระหว่าง 🍻 หารบิล กับ 💱 แลกเงิน)",
+    "ใส่จำนวนเงินในเครื่องคิดเลขแล้วแตะ <b>💁 ทิป</b> (ระหว่าง 💸 หารเท่า กับ 💱 แลกเงิน)",
     "เลือก <b>5 · 10 · 15 · 20 · 25 · 30%</b> จะเห็นทิปและ<b>ยอดรวมทิป</b> จำ % ที่เลือกล่าสุดไว้",
-    "แตะ <b>🍻 หารบิลรวมทิป</b> เพื่อหารยอดที่รวมทิปแล้วได้เลย"
+    "แตะ <b>💸 หารเท่ารวมทิป</b> เพื่อหารยอดที่รวมทิปแล้วได้เลย"
    ],
    [
     "กด <b>💱 แลกเงิน</b> ในเครื่องคิดเลข ยอดในเครื่องคิดเลขจะถูกใส่อัตโนมัติ",
@@ -2735,6 +2790,11 @@ export const MANUAL = {
     "แตะ <b>▦ QR</b> ข้างโลโก้ที่หน้าหลัก ครั้งแรกให้ใส่ที่ใช้ (IG, WhatsApp, TikTok, LINE, KakaoTalk, Telegram, Facebook, Zalo) แล้วบันทึก",
     "ครั้งต่อไปแตะแล้วจะขึ้น <b>QR เต็มจอพื้นขาว</b> ทันที ถ้ามีหลายอันให้แตะปุ่มด้านบนหรือปัดซ้ายขวา",
     "อีกฝ่ายสแกนด้วยกล้องมือถือก็เปิดโปรไฟล์หรือแชทของเราได้เลย ข้อมูล<b>เก็บไว้ในมือถือเราเท่านั้น</b> ในแอปหน้าจอจะสว่างสุด"
+   ],
+   [
+    "ปุ่ม <b>📤 แชร์</b> ที่หน้าหลัก เลือกมือถือของเพื่อนที่ <b>เพื่อนใช้มือถืออะไร?</b> ก่อน",
+    "<b>🤖 Android</b> → ลิงก์ดาวน์โหลดแอป (APK) ทันที <b>🍎 iPhone · PC</b> → ลิงก์เว็บ (Safari → แชร์ → \"เพิ่มไปยังหน้าจอโฮม\" ใช้ได้เหมือนแอป)",
+    "กด <b>📲 แชร์ผ่านแอป</b> เพื่อส่งทางแชท หรือ <b>🔗 คัดลอกลิงก์</b> ถ้าเพื่อนอยู่ข้างๆ สแกน QR บนจอได้เลย 📷"
    ],
    [
     "แตะปุ่ม <b>🏨 ที่พัก</b> ที่หน้าหลัก (ข้าง QR) ครั้งแรกใส่ชื่อที่พัก <b>ที่อยู่ภาษาท้องถิ่น</b> (คัดลอกจากแอปจอง) และเบอร์โทร·โน้ต (ไม่บังคับ) แล้วบันทึก ใส่ได้หลายที่",
@@ -2820,10 +2880,6 @@ export const MANUAL = {
     "smTitle"
    ],
    [
-    "how-curling",
-    "cuTitle"
-   ],
-   [
     "how-teeth",
     "menuCroc"
    ],
@@ -2860,6 +2916,10 @@ export const MANUAL = {
     "wcTitle"
    ],
    [
+    "how-yabawi",
+    "ybTitle"
+   ],
+   [
     "how-finger",
     "fingerTitle"
    ],
@@ -2874,6 +2934,10 @@ export const MANUAL = {
    [
     "how-arrow",
     "menuArrow"
+   ],
+   [
+    "how-curling",
+    "cuTitle"
    ],
    [
     "how-ttt",
@@ -2912,6 +2976,10 @@ export const MANUAL = {
     "qrTitle"
    ],
    [
+    "how-share",
+    "shTitle"
+   ],
+   [
     "how-hotel",
     "hotelTitle"
    ],
@@ -2936,7 +3004,7 @@ export const MANUAL = {
    "👆",
    "🔢",
    "🎲",
-   "🍶",
+   "🎯",
    "⚔️",
    "↕️",
    "🇻🇳",
@@ -2947,7 +3015,6 @@ export const MANUAL = {
    "🍺",
    "🏗️",
    "🔴",
-   "🍺",
    "🐺",
    "icons/ladder.png",
    "🎡",
@@ -2957,10 +3024,12 @@ export const MANUAL = {
    "🔢",
    "🎈",
    "✂️",
+   "🐺",
    "☝️",
    "🏁",
    "🗡️",
    "🔄",
+   "🍺",
    "🟢",
    "🔴",
    "⚫",
@@ -2970,6 +3039,7 @@ export const MANUAL = {
    "",
    "",
    "▦",
+   "",
    "🏨",
    "🗣️",
    "🧾",
@@ -2979,10 +3049,10 @@ export const MANUAL = {
  },
  "vi": {
   "title": "Hướng dẫn cài đặt",
-  "lead": "Bộ trò chơi nhậu · Hướng dẫn cài đặt",
+  "lead": "Tuyển tập mini game · Hướng dẫn cài đặt",
   "navAndroid": "🤖 Cài trên Android",
   "navIphone": "🍎 Thêm vào MH chính iPhone",
-  "navNew": "🆕 Có gì trong v1.8.1",
+  "navNew": "🆕 Có gì trong v1.9",
   "navUpdate": "🔄 Cập nhật",
   "navFaq": "❓ Câu hỏi thường gặp",
   "qAndroid": "🤖 Ứng dụng Android",
@@ -3077,19 +3147,20 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Màn hình chính",
-  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.8.1</b>) hiện ở dưới cùng.",
-  "hNew": "🆕 Có gì trong v1.8.1",
-  "newIntro": "Wolf Games v1.8.1 gồm các trò chơi và tính năng sau.",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.9</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v1.9",
+  "newIntro": "Wolf Games v1.9 gồm các trò chơi và tính năng sau.",
   "newFeat": [
    "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
-   "🆕 🏗️ Xếp tháp · 🔴 Bắt chước · 🍺 Bi đá sói · ✂️ Cắt dây bom · 📏 Bảng quy đổi cỡ · 💰 Chốt giữa chừng · 📤 Xuất ra · 🔄 Kiểm tra cập nhật",
+   "🆕 🐺 Đoán sói · 📤 Chia sẻ · 🏁 Thứ hạng Sói chạy đua hiện to · 🍺 Bi đá sói → 🐺 Trò chơi sói · 🎯 Thống nhất \"bị phạt\" · \"trúng\"",
+   "✨ v1.8: 🏗️ Xếp tháp · 🔴 Bắt chước · 🍺 Bi đá sói · ✂️ Cắt dây bom · 📏 Bảng quy đổi cỡ · 💰 Chốt giữa chừng · 📤 Xuất ra · 🔄 Kiểm tra cập nhật",
    "✨ v1.7: 🔢 Bom số · 🎈 Thổi bóng bay · 🗣️ Thẻ câu nói · 🧾 Chia tiền chuyến đi",
    "✨ v1.6: 🔻 Plinko · 🟢 Cờ ba · ⚫ Cờ năm · 🏨 Thẻ địa chỉ chỗ ở · 🌐 Hiển thị hai ngôn ngữ",
    "✨ v1.5: 🎀 Chạm nhanh giành đất · 🐾 Đấu đập tay · 👑 King's Cup toàn cầu · 🍺 Rót bia · 🪙 Tung đồng xu",
    "⚡ Phản xạ (Đấu phản xạ · Đấu màu · Bấm giờ) · 💣 Chuyền bom · ⚔️ Đấu xúc xắc",
    "🐺 Sói · 🍀 May rủi · ⚔️ Đối kháng",
-   "🃏 Trò chơi bài (Up/Down · Hồ Chí Minh) · 🍶 789",
-   "🧮 Máy tính · 🍻 Chia tiền · 💱 Đổi tiền (cạnh logo)",
+   "🃏 Trò chơi bài (Up/Down · Hồ Chí Minh) · 🎯 789",
+   "🧮 Máy tính · 💸 Chia đều · 💱 Đổi tiền (cạnh logo)",
    "▦ QR liên hệ của tôi · 💁 Tip",
    "📳 Rung khi bấm nút và chạm trong trò chơi (rung mạnh khi trúng, thắng)",
    "🔆 Màn hình không tắt khi đang chơi",
@@ -3097,19 +3168,11 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Thay đổi gần đây",
   "changes": [
-   "🔴 Bắt chước: bấm sai sẽ hiện ❌ Sai rồi! · 💀 Cạn ly thật to ở giữa màn hình",
-   "🍺 Bi đá sói: kết quả 🏆 cuối ván to hơn — thứ hạng, khoảng cách (cm) và ai phải uống nhìn là thấy",
-   "🧾 Nút Chia tiền chuyến đi đã chuyển từ màn hình chính vào 🧮 máy tính (màn hình chính gọn hơn)",
-   "🏗️ Thêm Xếp tháp (Trò phản xạ): chạm để thả khối đang trượt — phần thò ra bị cắt, khớp hoàn hảo được ✨PERFECT. Ai làm đổ tháp thì uống",
-   "🔴 Thêm Bắt chước (Trò phản xạ): 4 nút màu (●▲■★) nháy theo thứ tự kèm âm thanh — lần lượt bấm lại; mỗi lần đúng dài thêm một, ai sai thì uống",
-   "✂️ Thêm Cắt dây bom (Trò may rủi): chỉ một trong các dây màu (4·5·6·8) của quả bom là thật — lần lượt cắt từng dây; cắt trúng dây thật là 💥 BÙM, sói choáng váng và cạn ly",
-   "🍺 Thêm Bi đá sói (Trò phản xạ): kéo cốc bia hình sói về sau rồi thả cho nó trượt trên bàn. Gần mép nhất được 🥇, vượt mép là 💦 rơi và phải uống (không có thanh lực, dựa vào cảm giác!)",
-   "🐺 Nút của Bắt chước giờ là 4 chú sói đeo phụ kiện: 😎 kính râm · 🎀 nơ · 🧢 mũ lưỡi trai · 👑 vương miện — sáng lên là nhảy và hú \"Awoo~\"",
-   "📤 Xuất Chia tiền chuyến đi: lưu thành tệp Excel (.csv) hoặc văn bản (.txt), hoặc chia sẻ ngay qua ứng dụng chat — trước khi Xóa hết sẽ hỏi \"Lưu trước nhé?\"",
-   "💰 Chốt giữa chừng: làm tròn số tiền theo 100 · 500 · 1,000 rồi thu (vd 5,900 → 6,000), phần chênh lệch tự chuyển sang lần chốt sau",
-   "🧮 Máy tính có thêm nút 🧾 Chia tiền · 📏 Cỡ (nút Chia tiền ở màn hình chính đã chuyển vào máy tính) — Bảng quy đổi cỡ: giày (nam/nữ) · áo (nam/nữ) · vòng eo · nhẫn theo 🇰🇷🇺🇸🇬🇧🇪🇺🇯🇵🇨🇳, ⭐ lưu cỡ của bạn",
-   "🔄 Cập nhật trong ứng dụng (Android): có bản mới sẽ báo khi mở app, bấm là tải và mở màn hình cài đặt. Cũng có thể tự kiểm tra ở màn hình lịch sử cập nhật",
-   "🌏 Cả bốn chỉ dùng hình, màu và số — không cần đọc chữ, chơi cùng bạn nước ngoài rất hợp"
+   "🎯 Chữ trong game thống nhất là \"bị phạt\" · \"trúng\" · đổi tên thành \"Tuyển tập mini game\" · thêm dòng lưu ý nhỏ ở cuối màn hình chính",
+   "🍺 Bi đá sói chuyển từ ⚡ Trò phản xạ sang 🐺 Trò chơi sói",
+   "🐺 Thêm vào 🍀 Trò may rủi: Đoán sói — các con sói ăn xu, trừ con miệng trống → trộn xong lần lượt chọn, trúng miệng trống là bị phạt (1–8 người, 1 đến số người−1 con miệng trống)",
+   "📤 Nút Chia sẻ ở màn hình chính: chọn điện thoại của bạn (Android / iPhone·PC) rồi chia sẻ đúng link qua ứng dụng, chỉ sao chép link, hoặc quét mã QR",
+   "🏁 Sói chạy đua: thứ hạng hiện to ở giữa mỗi làn — hạng 1 👑, hạng 2·3 màu huy chương, bét 💀 màu đỏ, kèm tên con vật"
   ],
   "hUpdate": "🔄 Cập nhật",
   "updA": "<b>Android</b>: tải APK mới bằng cùng mã QR hoặc nút rồi cài. Ứng dụng được cài <b>đè lên bản cũ</b>, không cần xóa.",
@@ -3142,6 +3205,7 @@ export const MANUAL = {
    ]
   ],
   "back": "← Quay lại trò chơi",
+  "disclaimer": "Đây là trò chơi hình phạt ngẫu nhiên đơn giản nhằm gắn kết bạn bè. Nhà phát triển không chịu trách nhiệm cho mọi sự cố do quá nhập tâm hoặc thực hiện hình phạt quá mức ngoài đời thực (ép uống rượu, v.v.).",
   "navHow": "🎮 Cách chơi",
   "hHow": "🎮 Cách chơi",
   "howIntro": "Bấm vào trò chơi ở màn hình chính để bắt đầu. Trò chơi có cài đặt thì chọn số người… rồi bấm <b>Bắt đầu</b>. Bấm <b>←</b> góc trên bên trái để thoát bất cứ lúc nào. Màn hình chính chia thành các mục <b>Xúc xắc · Bài · Ngón tay · Phản xạ · Sói · May rủi · Đối kháng</b>.",
@@ -3164,7 +3228,7 @@ export const MANUAL = {
    [
     "Chọn số người (2–8) và bật/tắt tùy chọn <b>ra 6 thì đảo chiều</b>.",
     "Người đến lượt chạm màn hình, 2 xúc xắc nảy lên và lăn.",
-    "Chữ số cuối của tổng: <b>7 rót thêm · 8 uống nửa · 9 uống cạn</b>, 6 đảo chiều, còn lại thì qua."
+    "Chữ số cuối của tổng: <b>7 phạt nhẹ · 8 phạt vừa · 9 phạt nặng</b>, 6 đảo chiều, còn lại thì qua."
    ],
    [
     "Chọn số người (2–4), số xúc xắc (2–4) và cách tính (cộng·nhân).",
@@ -3172,19 +3236,19 @@ export const MANUAL = {
     "Ai cũng lắc xong sẽ hiện <b>👑 Cao nhất</b> và <b>💀 Thấp nhất</b>. Chạm giữa để chơi lại!"
    ],
    [
-    "Chọn số người (2–8). Bật <b>cộng dồn</b> thì mỗi lần đoán đúng thêm 1 ly phạt.",
+    "Chọn số người (2–8). Bật <b>cộng dồn</b> thì mỗi lần đoán đúng dồn thêm 1 hình phạt.",
     "Đoán lá tiếp theo cao hơn (<b>UP</b>) hay thấp hơn (<b>DOWN</b>). Nếu lá gốc là A hoặc K thì đoán <b>đỏ/đen</b>.",
-    "Đúng thì đến người kế, sai thì uống phạt (cộng dồn thì uống hết)! <b>Ra cùng số thì uống cạn.</b>"
+    "Đúng thì đến người kế, sai thì bị phạt (cộng dồn thì nhận hết)! <b>Ra cùng số thì phạt nặng.</b>"
    ],
    [
     "Chọn số người (2–4) và đặt điện thoại giữa bàn. Lá bài mỗi người nhận là số của mình.",
     "Người đến lượt chạm 1 trong 2 lá ở giữa để thay, lá mới sẽ lật lên.",
-    "Nếu chữ số cuối của tổng hai lá trùng số của mình thì <b>uống cạn!</b> (A=1, 10·J·Q·K=0) Bấm <b>Ván mới</b> để chia lại."
+    "Nếu chữ số cuối của tổng hai lá trùng số của mình thì <b>bị phạt!</b> (A=1, 10·J·Q·K=0) Bấm <b>Ván mới</b> để chia lại."
    ],
    [
     "Chạm vào chồng bài để lật từng lá. Hình lớn ở giữa lá bài là việc cần làm.",
-    "A 🌊 Thác nước · 2 👉 Chỉ định · 3 🙋 Tôi · 4 🚽 Vé đi vệ sinh · 5 💃 Nhảy tiếp sức · 6 🍻 Cùng cụng ly · 7 🙌 Giơ tay · 8 🤝 Bạn đồng hành · 9 🔤 Nối từ · 10 📚 Chủ đề · J 📜 Đặt luật · Q ❓ Vua câu hỏi · K 👑 King's Cup. Xem lại bất cứ lúc nào ở <b>📋 Luật</b> bên dưới!",
-    "Mỗi lá K làm ly ở góc phải đầy thêm. <b>Ai rút lá K thứ 4 phải uống cạn King's Cup!</b> <b>🔀 Xáo lại</b> để chơi ván mới."
+    "A 🌊 Làn sóng · 2 👉 Chỉ định · 3 🙋 Tôi · 4 🚽 Vé đi vệ sinh · 5 💃 Nhảy tiếp sức · 6 🎉 Tất cả cùng · 7 🙌 Giơ tay · 8 🤝 Bạn đồng hành · 9 🔤 Nối từ · 10 📚 Chủ đề · J 📜 Đặt luật · Q ❓ Vua câu hỏi · K 👑 King's Cup. Xem lại bất cứ lúc nào ở <b>📋 Luật</b> bên dưới!",
+    "Mỗi lá K làm ly King's Cup ở giữa đầy thêm một chút. <b>Ai rút lá K thứ 4 nhận phạt nặng King's Cup!</b> <b>🔀 Xáo lại</b> để chơi ván mới."
    ],
    [
     "Chọn số người (2–4) và đặt điện thoại giữa bàn. Màn hình chia đều.",
@@ -3209,17 +3273,12 @@ export const MANUAL = {
    [
     "⚡ Trò phản xạ → <b>🏗️ Xếp tháp</b>. <b>Chạm</b> để thả khối đang trượt qua lại.",
     "Phần thò ra ngoài khối bên dưới bị cắt, nên tháp hẹp dần. Khớp hoàn hảo được <b>✨ PERFECT</b>. Chạm một lần rồi chuyền điện thoại 👉",
-    "Càng cao càng nhanh. Trượt hẳn khỏi khối bên dưới là tháp đổ ầm — ai làm đổ thì 🍺 uống!"
+    "Càng cao càng nhanh. Trượt hẳn khỏi khối bên dưới là tháp đổ ầm — ai làm đổ thì 💀 bị phạt!"
    ],
    [
     "⚡ Trò phản xạ → <b>🔴 Bắt chước</b>. Có 4 chú sói đeo phụ kiện (😎 kính râm · 🎀 nơ · 🧢 mũ · 👑 vương miện).",
     "Các chú sói nhảy lên và sáng <b>theo thứ tự</b> kèm âm thanh (👀). Xong thì bấm lại đúng thứ tự đó (👆).",
-    "Đúng thì chuỗi dài thêm một, chuyền điện thoại 👉 Sai thì chú sói đúng nhấp nháy — 🍺 uống! Mỗi ô còn có hình ● ▲ ■ ★ nên khó phân biệt màu cũng chơi được."
-   ],
-   [
-    "⚡ Trò phản xạ → <b>🍺 Bi đá sói</b>. Chọn số người (2–6) rồi bắt đầu. Mỗi người có một cốc bia sói với màu khăn và số riêng.",
-    "Đặt ngón tay lên cốc ở vạch xuất phát, <b>kéo về sau (xuống dưới) rồi thả</b> — cốc trượt đi. Kéo càng nhiều càng đi xa (không có thanh lực, dựa vào cảm giác!).",
-    "Càng sát mép bàn càng tốt (🥇). Vượt mép là 💦 rơi. Ném hết thì xem 🏆 xếp hạng — ai rơi đều uống, nếu không ai rơi thì người xa nhất 🍺 cạn ly!"
+    "Đúng thì chuỗi dài thêm một, chuyền điện thoại 👉 Sai thì chú sói đúng nhấp nháy — 💀 bị phạt! Mỗi ô còn có hình ● ▲ ■ ★ nên khó phân biệt màu cũng chơi được."
    ],
    [
     "Chọn số răng trúng (1–10 cái) rồi bắt đầu. Sói há miệng rộng cả màn hình.",
@@ -3244,27 +3303,32 @@ export const MANUAL = {
    [
     "Chọn 2–8 người và đặt điện thoại ở giữa. Ở chỗ của mình, chạm <b>Sấp (🐺 mặt sói)</b> hoặc <b>Ngửa (🍑 mông sói)</b>.",
     "Khi tất cả đã chọn, sau 3·2·1 đồng xu bật lên từ giữa, xoay tít rồi rơi xuống.",
-    "Đúng <b>⭕</b>, sai <b>❌ cạn ly</b>. Thỉnh thoảng (15%) đồng xu <b>đứng thẳng — tất cả đều sai!</b> Chạm vòng tròn giữa để chơi lại."
+    "Đúng <b>⭕</b>, sai <b>❌ bị phạt</b>. Thỉnh thoảng (15%) đồng xu <b>đứng thẳng — tất cả đều sai!</b> Chạm vòng tròn giữa để chơi lại."
    ],
    [
     "🍀 Trò may rủi → <b>🔻 Plinko</b>. Không cần chọn số người, bắt đầu luôn.",
     "Chạm bất kỳ đâu phía trên, đồng xu sói rơi từ đó, nảy qua các chốt rồi lọt vào ô bên dưới!",
-    "Rơi vào ô nào thì trúng ô đó: <b>1 ly · Nửa ly · Lại · Người bên phải · Người bên trái · Cả bàn · Qua</b>. Thứ tự ô <b>🔀 đổi</b> mỗi ván."
+    "Rơi vào ô nào thì trúng ô đó: <b>Bị phạt · Nửa phạt · Lại · Người bên phải · Người bên trái · Cả bàn · Qua</b>. Thứ tự ô <b>🔀 đổi</b> mỗi ván."
    ],
    [
     "🍀 Trò may rủi → <b>🔢 Bom số</b>. Chọn số lớn nhất (30 · 50 · 100 · 200); một số bom ẩn giữa 1 và số đó.",
     "Chuyền điện thoại, mỗi người nhập một số. Nhỏ hơn bom → <b>⬆️ UP</b>, lớn hơn → <b>⬇️ DOWN</b> — khoảng số hẹp dần, ngòi nổ cũng ngắn dần.",
-    "Chạm đúng số bom là <b>💥 BÙM!</b> sói cháy xém choáng váng 😵‍💫 người đó <b>💀 cạn ly</b>. \"Chơi lại\" để bắt đầu ván mới."
+    "Chạm đúng số bom là <b>💥 BÙM!</b> sói cháy xém choáng váng 😵‍💫 người đó <b>💀 bị phạt</b>. \"Chơi lại\" để bắt đầu ván mới."
    ],
    [
     "🍀 Trò may rủi → <b>🎈 Thổi bóng bay</b>. Không cần chọn số người, bắt đầu luôn.",
     "Chuyền điện thoại, mỗi người chạm <b>1–3 lần</b> rồi chuyền đi. Mỗi lần chạm, bóng mặt sói to thêm.",
-    "Không ai biết khi nào nổ (mỗi ván một khác). Ai làm nổ — <b>💥 💀 cạn ly</b>. Chạm màn hình để có bóng mới."
+    "Không ai biết khi nào nổ (mỗi ván một khác). Ai làm nổ — <b>💥 💀 bị phạt</b>. Chạm màn hình để có bóng mới."
    ],
    [
     "🍀 Trò may rủi → <b>✂️ Cắt dây bom</b>. Chọn số dây (4 · 5 · 6 · 8) rồi bắt đầu. Chỉ một dây là thật.",
     "Lần lượt <b>chạm một dây để cắt</b> ✂️ Mỗi lần cắt, đồng hồ bom chạy nhanh hơn. An toàn thì \"Phù~ thoát!\" → người kế tiếp 👉",
-    "Cắt trúng dây thật là 💥 BÙM! Sói choáng váng và 🍺 cạn ly. Chơi lại sẽ giấu một dây thật mới."
+    "Cắt trúng dây thật là 💥 BÙM! Sói choáng váng và 💀 bị phạt. Chơi lại sẽ giấu một dây thật mới."
+   ],
+   [
+    "🍀 Trò may rủi → <b>🐺 Đoán sói</b>. Chọn số người (1–8) và <b>số sói miệng trống</b> (1 đến số người−1) rồi bắt đầu.",
+    "Các con sói há miệng, mỗi con ăn một 🪙 xu — trừ con miệng trống. Rồi chúng đổi chỗ qua lại, càng lúc càng nhanh — nhìn theo kỹ nhé 👀",
+    "Lần lượt mỗi người chọn một con 👆 Có xu = ✅ thoát, miệng trống = <b>💀 bị phạt!</b> Tìm hết sói miệng trống là xong."
    ],
    [
     "🍀 Trò may rủi → <b>☝️ Chọn ngón tay</b>. Chọn số người bị chọn (1–9) rồi bắt đầu.",
@@ -3274,7 +3338,7 @@ export const MANUAL = {
    [
     "Chọn số người (2–9) và thời gian (3–30 giây), rồi <b>mỗi người chọn một con vật</b> (12 loại, thứ tự chạm = số làn).",
     "Các con vật run rẩy chờ ở vạch đích, sói thay nhau dẫn đầu chạy tới, gần đến thì há to miệng!",
-    "<b>Con vật bị sói ngoạm trước là hạng 1</b>, xếp hạng theo thứ tự bị ngoạm."
+    "<b>Con vật bị sói ngoạm trước là hạng 1</b>, xếp hạng theo thứ tự bị ngoạm và hiện to giữa mỗi làn (hạng 1 👑 · bét 💀)."
    ],
    [
     "Thùng có 20 lỗ cắm kiếm, một lỗ là trúng. Sói trốn trong thùng.",
@@ -3287,9 +3351,14 @@ export const MANUAL = {
     "Khi dừng sói cắn <b>\"phập!\"</b> — mõm chỉ vào ai người đó trúng!"
    ],
    [
+    "🐺 Trò chơi sói → <b>🍺 Bi đá sói</b>. Chọn số người (2–6) rồi bắt đầu. Mỗi người có một cốc bia sói với màu khăn và số riêng.",
+    "Đặt ngón tay lên cốc ở vạch xuất phát, <b>kéo về sau (xuống dưới) rồi thả</b> — cốc trượt đi. Kéo càng nhiều càng đi xa (không có thanh lực, dựa vào cảm giác!).",
+    "Càng sát mép bàn càng tốt (🥇). Vượt mép là 💦 rơi. Ném hết thì xem 🏆 xếp hạng — ai rơi đều bị phạt, nếu không ai rơi thì người xa nhất 💀 bị phạt!"
+   ],
+   [
     "⚔️ Trò đối kháng → <b>🟢 Cờ ba</b>. Hai người ngồi đối diện (dưới = xanh, trên = đỏ). Mỗi bên hiện màu của mình, như <b>\"Bạn: Xanh\"</b>.",
     "Lần lượt đặt đồng xu sói. <b>2 giây một lượt</b> — hết giờ thì mất lượt. Nối 3 hàng trước là thắng!",
-    "<b>Mỗi người chỉ 3 xu</b>. Đặt xu thứ 4 thì xu cũ nhất biến mất (xu sắp mất sẽ nhấp nháy). Người thua cạn ly, chạm màn hình để chơi lại."
+    "<b>Mỗi người chỉ 3 xu</b>. Đặt xu thứ 4 thì xu cũ nhất biến mất (xu sắp mất sẽ nhấp nháy). Người thua bị phạt, chạm màn hình để chơi lại."
    ],
    [
     "Hai người lần lượt chơi màu đỏ và vàng.",
@@ -3299,7 +3368,7 @@ export const MANUAL = {
    [
     "⚔️ Trò đối kháng → <b>⚫ Cờ năm</b>. Ngồi đối diện (dưới = đen, trên = trắng). Mỗi bên hiện màu quân của mình, như <b>\"Bạn: Đen\"</b>, sáng lên khi tới lượt.",
     "Đen đi trước, lần lượt đặt quân trên bàn 15×15. Không giới hạn thời gian. Chấm đỏ là nước vừa đi.",
-    "Nối 5 quân trước là thắng! Đen <b>🚫 cấm 3-3</b> (hai hàng ba mở cùng lúc). Người thua cạn ly."
+    "Nối 5 quân trước là thắng! Đen <b>🚫 cấm 3-3</b> (hai hàng ba mở cùng lúc). Người thua bị phạt."
    ],
    [
     "Hai người ngồi đối diện, điện thoại ở giữa.",
@@ -3309,17 +3378,17 @@ export const MANUAL = {
    [
     "Hai người ngồi đối diện. Ở giữa có hai chân sói chồng lên nhau.",
     "<b>🛡️ Phòng thủ</b> giữ ngón tay trên nửa của mình, bị đánh thì nhấc lên để né; <b>🐾 Tấn công</b> chạm nửa của mình bất cứ lúc nào để đập!",
-    "Trúng = phòng thủ cạn ly, né được = đổi vai. Nhấc tay khi chưa bị đánh = <b>giật mình</b>, cạn ly! 💥 là số lần đập trúng."
+    "Trúng = phòng thủ bị phạt, né được = đổi vai. Nhấc tay khi chưa bị đánh = <b>giật mình</b>, bị phạt! 💥 là số lần đập trúng."
    ],
    [
-    "Tính tổng tiền nhậu bằng <b>🧮 Máy tính</b> cạnh logo.",
-    "Bấm <b>🍻 Chia tiền</b>, chọn số người và đơn vị làm tròn (không · 10 · 100 · 1000).",
+    "Tính tổng tiền bằng <b>🧮 Máy tính</b> cạnh logo.",
+    "Bấm <b>💸 Chia đều</b>, chọn số người và đơn vị làm tròn (không · 10 · 100 · 1000).",
     "Hiện số tiền mỗi người và số tiền dư khi thu đủ."
    ],
    [
-    "Nhập số tiền trong máy tính rồi chạm <b>💁 Tip</b> (giữa 🍻 Chia tiền và 💱 Đổi tiền).",
+    "Nhập số tiền trong máy tính rồi chạm <b>💁 Tip</b> (giữa 💸 Chia đều và 💱 Đổi tiền).",
     "Chọn <b>5 · 10 · 15 · 20 · 25 · 30%</b> để xem tiền tip và <b>tổng kèm tip</b>. Lựa chọn gần nhất được ghi nhớ.",
-    "Chạm <b>🍻 Chia kèm tip</b> để chia luôn tổng tiền đã cộng tip."
+    "Chạm <b>💸 Chia đều kèm tip</b> để chia luôn tổng tiền đã cộng tip."
    ],
    [
     "Bấm <b>💱 Đổi tiền</b> trong máy tính. Số tiền trong máy tính được điền tự động.",
@@ -3330,6 +3399,11 @@ export const MANUAL = {
     "Chạm <b>▦ QR</b> cạnh logo ở màn hình chính. Lần đầu, nhập những mạng bạn dùng (Instagram, WhatsApp, TikTok, LINE, KakaoTalk, Telegram, Facebook, Zalo) rồi lưu.",
     "Từ lần sau, chạm là hiện ngay <b>QR toàn màn hình nền trắng</b>. Có nhiều thì chạm nút phía trên hoặc vuốt ngang.",
     "Người khác quét bằng camera điện thoại là mở ngay trang cá nhân hoặc chat của bạn. Thông tin <b>chỉ lưu trên điện thoại của bạn</b>, ứng dụng sẽ tăng độ sáng tối đa."
+   ],
+   [
+    "Nút <b>📤 Chia sẻ</b> ở màn hình chính. Trước tiên chọn điện thoại của bạn mình ở <b>Bạn của bạn dùng điện thoại gì?</b>",
+    "<b>🤖 Android</b> → link tải ứng dụng (APK) ngay; <b>🍎 iPhone · PC</b> → link web (Safari → Chia sẻ → \"Thêm vào MH chính\" là dùng như ứng dụng).",
+    "Gửi bằng <b>📲 Chia sẻ qua ứng dụng</b> hoặc <b>🔗 Chỉ sao chép link</b>. Nếu bạn ở ngay cạnh, quét mã QR trên màn hình là xong 📷"
    ],
    [
     "Chạm nút <b>🏨 Chỗ ở</b> ở màn hình chính (cạnh QR). Lần đầu nhập tên, <b>địa chỉ bằng tiếng địa phương</b> (sao chép từ app đặt phòng), số điện thoại·ghi chú (tùy chọn) rồi lưu. Có thể lưu nhiều chỗ.",
@@ -3415,10 +3489,6 @@ export const MANUAL = {
     "smTitle"
    ],
    [
-    "how-curling",
-    "cuTitle"
-   ],
-   [
     "how-teeth",
     "menuCroc"
    ],
@@ -3455,6 +3525,10 @@ export const MANUAL = {
     "wcTitle"
    ],
    [
+    "how-yabawi",
+    "ybTitle"
+   ],
+   [
     "how-finger",
     "fingerTitle"
    ],
@@ -3469,6 +3543,10 @@ export const MANUAL = {
    [
     "how-arrow",
     "menuArrow"
+   ],
+   [
+    "how-curling",
+    "cuTitle"
    ],
    [
     "how-ttt",
@@ -3507,6 +3585,10 @@ export const MANUAL = {
     "qrTitle"
    ],
    [
+    "how-share",
+    "shTitle"
+   ],
+   [
     "how-hotel",
     "hotelTitle"
    ],
@@ -3531,7 +3613,7 @@ export const MANUAL = {
    "👆",
    "🔢",
    "🎲",
-   "🍶",
+   "🎯",
    "⚔️",
    "↕️",
    "🇻🇳",
@@ -3542,7 +3624,6 @@ export const MANUAL = {
    "🍺",
    "🏗️",
    "🔴",
-   "🍺",
    "🐺",
    "icons/ladder.png",
    "🎡",
@@ -3552,10 +3633,12 @@ export const MANUAL = {
    "🔢",
    "🎈",
    "✂️",
+   "🐺",
    "☝️",
    "🏁",
    "🗡️",
    "🔄",
+   "🍺",
    "🟢",
    "🔴",
    "⚫",
@@ -3565,6 +3648,7 @@ export const MANUAL = {
    "",
    "",
    "▦",
+   "",
    "🏨",
    "🗣️",
    "🧾",
