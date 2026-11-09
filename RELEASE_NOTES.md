@@ -29,3 +29,4 @@
 - 아래 **WolfGames.apk**를 받아 설치하세요. 기존 앱 위에 그대로 덮어 설치돼요.
 - 아이폰·PC: https://wanopro.github.io/wolfgames/
 - 설치·게임 방법(6개 언어): https://wanopro.github.io/wolfgames/manual.html
+
