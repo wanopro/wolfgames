@@ -160,7 +160,7 @@ function render(lang) {
     <ul>${r.items.map(([e, tx]) => `<li><span class="e">${e}</span><span>${tx[lang] || tx.en}</span></li>`).join('')}</ul></div>`).join('')}
   <h2 id="faq">${t.hFaq}</h2>
   <div class="faq">${t.faq.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('')}</div>
-  <footer>Powered by <a href="https://wolf.community" target="_blank" rel="noopener">WOLF</a>(feat. segna) · ${s.appName} v${V}</footer>`;
+  <footer>Powered by <a href="https://wolf.community" target="_blank" rel="noopener">WOLF</a>(feat. segna) · ${s.appName} v${V}${t.disclaimer ? `<div style="font-size:11px;margin-top:10px;opacity:.75;line-height:1.5">${t.disclaimer}</div>` : ''}</footer>`;
   document.querySelectorAll('.langbar button').forEach((b) => b.addEventListener('click', () => {
     put('wg-lang', b.dataset.l);
     const u = new URL(location.href); u.searchParams.set('lang', b.dataset.l); history.replaceState(null, '', u);
