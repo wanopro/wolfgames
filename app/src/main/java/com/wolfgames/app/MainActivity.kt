@@ -413,7 +413,7 @@ fun HomeScreen(currentLang: Lang, onSelect: (Screen) -> Unit) {
                         .clickable {
                             vibe.tap()
                             try {
-                                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wanopro.github.io/wolfgames_beta/manual.html?lang=${currentLang.code}")))
+                                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wanopro.github.io/wolfgames/manual.html?lang=${currentLang.code}")))
                             } catch (_: ActivityNotFoundException) {
                             }
                         }

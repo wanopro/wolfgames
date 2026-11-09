@@ -165,9 +165,9 @@ function logScreen(root) {
 /** 새 버전을 처음 열었을 때 한 번만 바뀐 점 보여주기 */
 function whatsNew(root) {
   let seen = null;
-  try { seen = localStorage.getItem('wgb-seen'); } catch (_) { return; }
+  try { seen = localStorage.getItem('wg-seen'); } catch (_) { return; }
   if (seen === VERSION) return;
-  try { localStorage.setItem('wgb-seen', VERSION); } catch (_) { /* 무시 */ }
+  try { localStorage.setItem('wg-seen', VERSION); } catch (_) { /* 무시 */ }
   const s = S(), r = CHANGELOG.find((x) => x.ver === VERSION) || CHANGELOG[0];
   const ov = h('div', { class: 'overlay' });
   ov.addEventListener('click', (e) => { if (e.target === ov) ov.remove(); });
