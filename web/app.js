@@ -84,7 +84,7 @@ const SCREENS = {
   phrase: phraseScreen,
   settle: settleScreen,
 };
-const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', duel: 'dice', react: 'quick', color: 'quick', stop: 'quick', bomb: 'luck', updown: 'cards', hcm: 'cards', finger: 'luck', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle', tug: 'battle', slap: 'battle', ttt: 'battle', gomoku: 'battle', plinko: 'luck', nbomb: 'luck', balloon: 'luck', tower: 'quick', simon: 'quick', curling: 'wolves', wire: 'luck', yabawi: 'luck', beer: 'quick', coin: 'luck', kings: 'cards' };
+const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', duel: 'dice', react: 'quick', color: 'quick', stop: 'quick', bomb: 'luck', updown: 'cards', hcm: 'cards', finger: 'luck', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle', tug: 'battle', slap: 'battle', ttt: 'battle', gomoku: 'battle', plinko: 'luck', nbomb: 'luck', balloon: 'luck', tower: 'quick', simon: 'quick', curling: 'wolves', wire: 'luck', yabawi: 'wolves', beer: 'quick', coin: 'luck', kings: 'cards' };
 
 // ---------- 화면 이동 (휴대폰 뒤로가기 버튼과 연동) ----------
 function show(name) {
@@ -215,7 +215,8 @@ function wolfMenu(root) {
     card('🏁', s.menuRace, s.menuRaceSub, () => go('race')),
     card('🗡️', s.menuPirate, s.menuPirateSub, () => go('pirate')),
     card('🔄', s.menuArrow, s.menuArrowSub, () => go('arrow')),
-    card('🍺', s.cuTitle, s.cuSub, () => go('curling'))));
+    card('🍺', s.cuTitle, s.cuSub, () => go('curling')),
+    card('🐺', s.ybTitle, s.ybSub, () => go('yabawi'))));
 }
 function quickMenu(root) {
   const s = S();
@@ -238,7 +239,6 @@ function luckMenu(root) {
     card('🔢', s.nbTitle, s.nbSub, () => go('nbomb')),
     card('🎈', s.blTitle, s.blSub, () => go('balloon')),
     card('✂️', s.wcTitle, s.wcSub, () => go('wire')),
-    card('🐺', s.ybTitle, s.ybSub, () => go('yabawi')),
     card('☝️', s.fingerTitle, s.fingerSub, () => go('finger'))));
 }
 function battleMenu(root) {

@@ -21,12 +21,12 @@ CHANGELOG = [
             vi='🍺 Bi đá sói chuyển từ ⚡ Trò phản xạ sang 🐺 Trò chơi sói',
         )),
         ('🐺', dict(
-            ko='🐺 🍀 운빨게임에 늑대 야바위 추가: 늑대들이 코인을 먹는데 꽝 늑대는 굶어요 → 섞이고 나면 한 명씩 골라서 빈 입이면 벌칙 (1~8명, 꽝 늑대 1 ~ 인원-1마리)',
-            en="🐺 New 🍀 Luck game, Wolf Shell Game: the wolves eat coins except the empty ones → after the shuffle, take turns picking — empty mouth gets the penalty (1–8 players, 1 to players−1 empty wolves)",
-            ja='🐺 🍀 運ゲーに オオカミ当て を追加：オオカミがコインを食べ、ハズレだけおあずけ → シャッフル後に1人ずつ選んで空っぽなら罰ゲーム（1〜8人、ハズレは1〜人数−1匹）',
-            zh='🐺 🍀 拼手气新增 狼猜猜猜：狼吃硬币，空嘴狼吃不到 → 洗完后轮流选，选到空嘴的接受惩罚（1~8人，空嘴狼 1~人数−1只）',
-            th='🐺 เพิ่มใน 🍀 เกมดวง: หมาป่าซ่อนเหรียญ — หมาป่ากินเหรียญ ยกเว้นตัวปากว่าง → สลับเสร็จผลัดกันเลือก ปากว่างโดนทำโทษ (1–8 คน, ปากว่าง 1 ถึง จำนวนคน−1 ตัว)',
-            vi='🐺 Thêm vào 🍀 Trò may rủi: Đoán sói — các con sói ăn xu, trừ con miệng trống → trộn xong lần lượt chọn, trúng miệng trống là bị phạt (1–8 người, 1 đến số người−1 con miệng trống)',
+            ko='🐺 늑대게임에 늑대 야바위 추가: 늑대들이 코인을 먹는데 꽝 늑대는 굶어요 → 섞이고 나면 한 명씩 골라서 빈 입이면 벌칙 (1~8명, 꽝 늑대 1 ~ 인원-1마리)',
+            en="🐺 New in Wolf Games — Wolf Shell Game: the wolves eat coins except the empty ones → after the shuffle, take turns picking — empty mouth gets the penalty (1–8 players, 1 to players−1 empty wolves)",
+            ja='🐺 オオカミゲームに オオカミ当て を追加：オオカミがコインを食べ、ハズレだけおあずけ → シャッフル後に1人ずつ選んで空っぽなら罰ゲーム（1〜8人、ハズレは1〜人数−1匹）',
+            zh='🐺 狼游戏新增 狼猜猜猜：狼吃硬币，空嘴狼吃不到 → 洗完后轮流选，选到空嘴的接受惩罚（1~8人，空嘴狼 1~人数−1只）',
+            th='🐺 เพิ่มใน เกมหมาป่า: หมาป่าซ่อนเหรียญ — หมาป่ากินเหรียญ ยกเว้นตัวปากว่าง → สลับเสร็จผลัดกันเลือก ปากว่างโดนทำโทษ (1–8 คน, ปากว่าง 1 ถึง จำนวนคน−1 ตัว)',
+            vi='🐺 Thêm vào Trò chơi sói: Đoán sói — các con sói ăn xu, trừ con miệng trống → trộn xong lần lượt chọn, trúng miệng trống là bị phạt (1–8 người, 1 đến số người−1 con miệng trống)',
         )),
         ('📤', dict(
             ko='📤 메인 화면에 공유 버튼: 친구 폰(안드로이드 / 아이폰·PC)을 고르면 맞는 링크로 앱 공유 · 링크만 복사 · QR 바로 찍기',

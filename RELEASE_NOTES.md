@@ -1,6 +1,6 @@
 ## 🐺 울프 게임즈 v1.9
 
-- 🐺 **늑대 야바위** 추가 (🍀 운빨게임, 1~8명): 꽝 늑대 수 고르기 → 늑대들이 코인을 먹고(꽝 늑대는 못 먹음) 약 8초 섞여요(점점 빨라짐) → 한 명씩 골라서 코인이면 통과, 빈 입이면 💀 벌칙. 꽝을 다 찾으면 "2 · 5번 벌칙!"처럼 모아서 크게
+- 🐺 **늑대 야바위** 추가 (🐺 늑대게임, 1~8명): 꽝 늑대 수 고르기 → 늑대들이 코인을 먹고(꽝 늑대는 못 먹음) 약 8초 섞여요(점점 빨라짐) → 한 명씩 골라서 코인이면 통과, 빈 입이면 💀 벌칙. 꽝을 다 찾으면 "2 · 5번 벌칙!"처럼 모아서 크게
 - 📤 **앱 공유하기**: 메인 위 버튼 줄의 📤 공유 → 친구 폰 고르기 (🤖 안드로이드 = APK 링크 · 🍎 아이폰·PC = 웹 링크) → 📲 앱으로 공유 · 🔗 링크만 복사 · QR 바로 찍기
 - 🏁 **늑대달리기**: 결승 후 순위를 각 레인 가운데에 크게 (1등 금색 👑 · 2·3등 메달색 · 꼴찌 빨간 💀 + 동물 이름)
 - 🎯 게임 문구를 **'벌칙' · '당첨'**으로 통일, 앱 소개는 **'미니 게임 모음'**으로, 메인 화면 맨 아래에 작은 면책 안내
@@ -19,7 +19,7 @@
 - 🧾 **여행 정산** 버튼을 메인 화면에서 빼고 🧮 계산기 안으로
 
 ### Wolf Games v1.9 (English)
-- 🐺 New: Wolf Shell Game (Luck games, 1–8 players) — wolves eat coins, shuffle, pick an empty mouth = 💀 penalty
+- 🐺 New: Wolf Shell Game (Wolf games, 1–8 players) — wolves eat coins, shuffle, pick an empty mouth = 💀 penalty
 - 📤 Share the app: pick your friend's phone (Android = APK link · iPhone/PC = web link) → share, copy link or scan the QR
 - 🏁 Wolf Race: big rankings in the middle of each lane after the finish
 - 🎯 Wording unified to "penalty" · "winner", app subtitle is now "Mini game collection", small disclaimer at the bottom of the home screen

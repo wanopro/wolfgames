@@ -216,7 +216,7 @@ def game_shots(b, lang):
         pg.mouse.click(196, 420); pg.wait_for_timeout(900)
     shot('how-kings')
     # 손가락선택 (걸릴 인원 2명, 5명 터치)
-    home(); card(4); card(9); pg.click('.stepper button:last-of-type'); start(); pg.wait_for_timeout(300)
+    home(); card(4); card(8); pg.click('.stepper button:last-of-type'); start(); pg.wait_for_timeout(300)
     pts = [(1, 90, 230), (2, 290, 200), (3, 200, 420), (4, 100, 620), (5, 300, 650)]
     for i, x, y in pts:
         pg.dispatch_event('canvas', 'pointerdown', {'pointerId': i, 'clientX': x, 'clientY': y, 'bubbles': True}); pg.wait_for_timeout(60)
@@ -387,9 +387,9 @@ def game_shots(b, lang):
     for i in [1, 3]:
         pg.mouse.click(bb['x'] + W * 0.1 + W * 0.8 * 0.04 + (i + 0.5) * (W * 0.8 * 0.92 / 6), bb['y'] + H * 0.55); pg.wait_for_timeout(500)
     pg.wait_for_timeout(200); shot('how-wire')
-    # 🐺 늑대 야바위 (4명, 꽝 1): 섞기 끝난 뒤 1번이 한 마리 고른 화면
+    # 🐺 늑대 야바위 (🐺 늑대게임 맨 아래, 4명, 꽝 1): 섞기 끝난 뒤 1번이 한 마리 고른 화면
     pg.evaluate("localStorage.setItem('wg-yb-n', '4'); localStorage.setItem('wg-yb-e', '1')")
-    home(); card(4); card(8); start(); pg.wait_for_timeout(11800)
+    home(); card(3); card(5); start(); pg.wait_for_timeout(11800)
     bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']
     pg.mouse.click(bb['x'] + W / 2 - W * 0.19, bb['y'] + H * 0.36); pg.wait_for_timeout(900); shot('how-yabawi')
     # 📤 공유하기: 메인 위 버튼 줄 → 공유 (안드로이드 선택 + QR)

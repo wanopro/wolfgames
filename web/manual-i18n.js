@@ -124,7 +124,7 @@ export const MANUAL = {
   "changes": [
    "🎯 게임 문구를 '벌칙' · '당첨'으로 통일 · 이름을 \"미니 게임 모음\"으로 · 메인 아래에 작은 안내 문구 추가",
    "🍺 늑대컬링을 ⚡ 순발력게임에서 🐺 늑대게임으로 옮김",
-   "🐺 🍀 운빨게임에 늑대 야바위 추가: 늑대들이 코인을 먹는데 꽝 늑대는 굶어요 → 섞이고 나면 한 명씩 골라서 빈 입이면 벌칙 (1~8명, 꽝 늑대 1 ~ 인원-1마리)",
+   "🐺 늑대게임에 늑대 야바위 추가: 늑대들이 코인을 먹는데 꽝 늑대는 굶어요 → 섞이고 나면 한 명씩 골라서 빈 입이면 벌칙 (1~8명, 꽝 늑대 1 ~ 인원-1마리)",
    "📤 메인 화면에 공유 버튼: 친구 폰(안드로이드 / 아이폰·PC)을 고르면 맞는 링크로 앱 공유 · 링크만 복사 · QR 바로 찍기",
    "🏁 늑대달리기: 순위를 레인 가운데에 크게 — 1등 👑 · 2등 · 3등 메달색, 꼴찌 💀 빨간색 + 동물 이름까지"
   ],
@@ -280,7 +280,7 @@ export const MANUAL = {
     "진짜 선을 자르면 💥 펑! 헤롱헤롱 늑대와 함께 💀 벌칙! 다시 하기를 누르면 진짜 선이 새로 숨어요."
    ],
    [
-    "🍀 운빨게임 → <b>🐺 늑대 야바위</b>. 인원(1~8명)과 <b>꽝 늑대 수</b>(1 ~ 인원−1마리)를 정하고 시작해요.",
+    "🐺 늑대게임 → <b>🐺 늑대 야바위</b>. 인원(1~8명)과 <b>꽝 늑대 수</b>(1 ~ 인원−1마리)를 정하고 시작해요.",
     "늑대들이 입을 벌리고 🪙 코인을 하나씩 먹는데, 꽝 늑대는 굶어요. 그다음 이리저리 섞여요 (점점 빨라져요) — 잘 따라가 봐요 👀",
     "한 사람씩 늑대를 하나 골라요 👆 코인이 나오면 ✅ 통과, 빈 입이면 <b>💀 벌칙!</b> 꽝 늑대를 다 찾으면 끝."
    ],
@@ -479,10 +479,6 @@ export const MANUAL = {
     "wcTitle"
    ],
    [
-    "how-yabawi",
-    "ybTitle"
-   ],
-   [
     "how-finger",
     "fingerTitle"
    ],
@@ -501,6 +497,10 @@ export const MANUAL = {
    [
     "how-curling",
     "cuTitle"
+   ],
+   [
+    "how-yabawi",
+    "ybTitle"
    ],
    [
     "how-ttt",
@@ -734,7 +734,7 @@ export const MANUAL = {
   "changes": [
    "🎯 Game text now says \"penalty\" / \"you're it\" everywhere · renamed to \"Mini game collection\" · small notice added at the bottom of the main screen",
    "🍺 Wolf Curling moved from ⚡ Quick Games to 🐺 Wolf Games",
-   "🐺 New 🍀 Luck game, Wolf Shell Game: the wolves eat coins except the empty ones → after the shuffle, take turns picking — empty mouth gets the penalty (1–8 players, 1 to players−1 empty wolves)",
+   "🐺 New in Wolf Games — Wolf Shell Game: the wolves eat coins except the empty ones → after the shuffle, take turns picking — empty mouth gets the penalty (1–8 players, 1 to players−1 empty wolves)",
    "📤 Share button on the main screen: pick your friend's phone (Android / iPhone·PC) and share the right link via apps, copy just the link, or let them scan the QR",
    "🏁 Wolf Race: rankings now show big in the middle of each lane — 1st 👑, 2nd and 3rd in medal colors, last 💀 in red, with the animal name"
   ],
@@ -890,7 +890,7 @@ export const MANUAL = {
     "Cut the real one and 💥 BOOM — a dizzy wolf and a 💀 penalty. Play again hides a new real wire."
    ],
    [
-    "🍀 Luck Games → <b>🐺 Wolf Shell Game</b>. Choose players (1–8) and the number of <b>empty wolves</b> (1 to players−1), then start.",
+    "🐺 Wolf Games → <b>🐺 Wolf Shell Game</b>. Choose players (1–8) and the number of <b>empty wolves</b> (1 to players−1), then start.",
     "The wolves open wide and each eats a 🪙 coin — except the empty ones. Then they shuffle around, faster and faster — keep your eyes on them 👀",
     "Take turns picking a wolf 👆 Coin = ✅ safe, empty mouth = <b>💀 penalty!</b> The game ends when every empty wolf is found."
    ],
@@ -1089,10 +1089,6 @@ export const MANUAL = {
     "wcTitle"
    ],
    [
-    "how-yabawi",
-    "ybTitle"
-   ],
-   [
     "how-finger",
     "fingerTitle"
    ],
@@ -1111,6 +1107,10 @@ export const MANUAL = {
    [
     "how-curling",
     "cuTitle"
+   ],
+   [
+    "how-yabawi",
+    "ybTitle"
    ],
    [
     "how-ttt",
@@ -1343,7 +1343,7 @@ export const MANUAL = {
   "changes": [
    "🎯 ゲームの文言を「罰ゲーム」「当たり」に統一 ・ 名前を「ミニゲーム集」に ・ メイン画面の下に小さな注意書きを追加",
    "🍺 オオカミカーリングを ⚡ 反射神経ゲームから 🐺 オオカミゲームへ移動",
-   "🐺 🍀 運ゲーに オオカミ当て を追加：オオカミがコインを食べ、ハズレだけおあずけ → シャッフル後に1人ずつ選んで空っぽなら罰ゲーム（1〜8人、ハズレは1〜人数−1匹）",
+   "🐺 オオカミゲームに オオカミ当て を追加：オオカミがコインを食べ、ハズレだけおあずけ → シャッフル後に1人ずつ選んで空っぽなら罰ゲーム（1〜8人、ハズレは1〜人数−1匹）",
    "📤 メイン画面に共有ボタン：友だちのスマホ（Android / iPhone・PC）を選ぶと合うリンクをアプリで共有・リンクだけコピー・QRをその場で撮影",
    "🏁 ウルフレース：順位を各レーンの真ん中に大きく — 1位👑・2位・3位はメダル色、最下位は💀赤＋動物の名前"
   ],
@@ -1499,7 +1499,7 @@ export const MANUAL = {
     "本物を切ったら💥ドカン！フラフラのオオカミと一緒に💀罰ゲーム。もう一度で本物の線が新しく隠れます。"
    ],
    [
-    "🍀 運ゲーム → <b>🐺 オオカミ当て</b>。人数（1〜8人）と<b>ハズレオオカミの数</b>（1〜人数−1匹）を決めてスタート。",
+    "🐺 オオカミゲーム → <b>🐺 オオカミ当て</b>。人数（1〜8人）と<b>ハズレオオカミの数</b>（1〜人数−1匹）を決めてスタート。",
     "オオカミたちが口を開けて🪙コインを1枚ずつ食べますが、ハズレはおあずけ。そのあとぐるぐる入れ替わります（だんだん速く）— よく見て 👀",
     "1人ずつオオカミを1匹選びます 👆 コインが出たら✅セーフ、空っぽなら<b>💀罰ゲーム！</b> ハズレを全部見つけたら終わり。"
    ],
@@ -1698,10 +1698,6 @@ export const MANUAL = {
     "wcTitle"
    ],
    [
-    "how-yabawi",
-    "ybTitle"
-   ],
-   [
     "how-finger",
     "fingerTitle"
    ],
@@ -1720,6 +1716,10 @@ export const MANUAL = {
    [
     "how-curling",
     "cuTitle"
+   ],
+   [
+    "how-yabawi",
+    "ybTitle"
    ],
    [
     "how-ttt",
@@ -1952,7 +1952,7 @@ export const MANUAL = {
   "changes": [
    "🎯 游戏文字统一为\"惩罚\"·\"中奖\" · 名称改为\"迷你游戏合集\" · 主页底部加了一行小提示",
    "🍺 狼冰壶从 ⚡ 反应游戏移到 🐺 狼游戏",
-   "🐺 🍀 拼手气新增 狼猜猜猜：狼吃硬币，空嘴狼吃不到 → 洗完后轮流选，选到空嘴的接受惩罚（1~8人，空嘴狼 1~人数−1只）",
+   "🐺 狼游戏新增 狼猜猜猜：狼吃硬币，空嘴狼吃不到 → 洗完后轮流选，选到空嘴的接受惩罚（1~8人，空嘴狼 1~人数−1只）",
    "📤 主页新增分享按钮：选朋友的手机（安卓 / iPhone·电脑），用应用分享对应链接、只复制链接，或直接扫二维码",
    "🏁 群狼赛跑：名次在每条跑道中间大大地显示 — 第1名 👑、第2·3名奖牌色、最后一名 💀 红色，还有动物名字"
   ],
@@ -2108,7 +2108,7 @@ export const MANUAL = {
     "剪到真线就 💥 砰！和晕乎乎的小狼一起 💀 受罚。再来一局会重新藏一根真线。"
    ],
    [
-    "🍀 运气游戏 → <b>🐺 狼猜猜猜</b>。选好人数（1~8人）和<b>空嘴狼数量</b>（1~人数−1只）开始。",
+    "🐺 狼游戏 → <b>🐺 狼猜猜猜</b>。选好人数（1~8人）和<b>空嘴狼数量</b>（1~人数−1只）开始。",
     "狼们张大嘴每只吃一枚 🪙 硬币，空嘴狼吃不到。然后它们来回交换位置，越来越快 — 好好盯着 👀",
     "每人轮流选一只狼 👆 有硬币就 ✅ 过关，空嘴的 <b>💀 受罚！</b> 空嘴狼全部找到就结束。"
    ],
@@ -2307,10 +2307,6 @@ export const MANUAL = {
     "wcTitle"
    ],
    [
-    "how-yabawi",
-    "ybTitle"
-   ],
-   [
     "how-finger",
     "fingerTitle"
    ],
@@ -2329,6 +2325,10 @@ export const MANUAL = {
    [
     "how-curling",
     "cuTitle"
+   ],
+   [
+    "how-yabawi",
+    "ybTitle"
    ],
    [
     "how-ttt",
@@ -2561,7 +2561,7 @@ export const MANUAL = {
   "changes": [
    "🎯 ข้อความในเกมใช้คำว่า \"ทำโทษ\" · \"โดน\" ทั้งหมด · เปลี่ยนชื่อเป็น \"รวมมินิเกม\" · เพิ่มข้อความแจ้งเล็กๆ ที่ล่างหน้าหลัก",
    "🍺 ย้ายเคิร์ลลิงหมาป่าจาก ⚡ เกมความไว ไปที่ 🐺 เกมหมาป่า",
-   "🐺 เพิ่มใน 🍀 เกมดวง: หมาป่าซ่อนเหรียญ — หมาป่ากินเหรียญ ยกเว้นตัวปากว่าง → สลับเสร็จผลัดกันเลือก ปากว่างโดนทำโทษ (1–8 คน, ปากว่าง 1 ถึง จำนวนคน−1 ตัว)",
+   "🐺 เพิ่มใน เกมหมาป่า: หมาป่าซ่อนเหรียญ — หมาป่ากินเหรียญ ยกเว้นตัวปากว่าง → สลับเสร็จผลัดกันเลือก ปากว่างโดนทำโทษ (1–8 คน, ปากว่าง 1 ถึง จำนวนคน−1 ตัว)",
    "📤 ปุ่มแชร์ที่หน้าหลัก: เลือกมือถือเพื่อน (Android / iPhone·PC) แล้วแชร์ลิงก์ที่ถูกผ่านแอป คัดลอกลิงก์ หรือสแกน QR ได้เลย",
    "🏁 วิ่งแข่งหมาป่า: อันดับตัวใหญ่กลางลู่ — ที่ 1 👑 ที่ 2·3 สีเหรียญ ที่โหล่ 💀 สีแดง พร้อมชื่อสัตว์"
   ],
@@ -2717,7 +2717,7 @@ export const MANUAL = {
     "ตัดโดนสายจริง 💥 ตูม! หมาป่ามึนตึ้บพร้อม 💀 โดนทำโทษ กดเล่นอีกครั้งจะซ่อนสายจริงใหม่"
    ],
    [
-    "🍀 เกมดวง → <b>🐺 หมาป่าซ่อนเหรียญ</b> เลือกจำนวนคน (1–8) และ<b>จำนวนหมาป่าปากว่าง</b> (1 ถึง จำนวนคน−1 ตัว) แล้วเริ่ม",
+    "🐺 เกมหมาป่า → <b>🐺 หมาป่าซ่อนเหรียญ</b> เลือกจำนวนคน (1–8) และ<b>จำนวนหมาป่าปากว่าง</b> (1 ถึง จำนวนคน−1 ตัว) แล้วเริ่ม",
     "หมาป่าอ้าปากกิน 🪙 เหรียญตัวละเหรียญ ยกเว้นตัวปากว่าง แล้วจะสลับที่ไปมาเร็วขึ้นเรื่อยๆ — ตามดูให้ดี 👀",
     "ผลัดกันเลือกหมาป่าคนละตัว 👆 มีเหรียญ = ✅ รอด ปากว่าง = <b>💀 โดนทำโทษ!</b> เจอปากว่างครบก็จบ"
    ],
@@ -2916,10 +2916,6 @@ export const MANUAL = {
     "wcTitle"
    ],
    [
-    "how-yabawi",
-    "ybTitle"
-   ],
-   [
     "how-finger",
     "fingerTitle"
    ],
@@ -2938,6 +2934,10 @@ export const MANUAL = {
    [
     "how-curling",
     "cuTitle"
+   ],
+   [
+    "how-yabawi",
+    "ybTitle"
    ],
    [
     "how-ttt",
@@ -3170,7 +3170,7 @@ export const MANUAL = {
   "changes": [
    "🎯 Chữ trong game thống nhất là \"bị phạt\" · \"trúng\" · đổi tên thành \"Tuyển tập mini game\" · thêm dòng lưu ý nhỏ ở cuối màn hình chính",
    "🍺 Bi đá sói chuyển từ ⚡ Trò phản xạ sang 🐺 Trò chơi sói",
-   "🐺 Thêm vào 🍀 Trò may rủi: Đoán sói — các con sói ăn xu, trừ con miệng trống → trộn xong lần lượt chọn, trúng miệng trống là bị phạt (1–8 người, 1 đến số người−1 con miệng trống)",
+   "🐺 Thêm vào Trò chơi sói: Đoán sói — các con sói ăn xu, trừ con miệng trống → trộn xong lần lượt chọn, trúng miệng trống là bị phạt (1–8 người, 1 đến số người−1 con miệng trống)",
    "📤 Nút Chia sẻ ở màn hình chính: chọn điện thoại của bạn (Android / iPhone·PC) rồi chia sẻ đúng link qua ứng dụng, chỉ sao chép link, hoặc quét mã QR",
    "🏁 Sói chạy đua: thứ hạng hiện to ở giữa mỗi làn — hạng 1 👑, hạng 2·3 màu huy chương, bét 💀 màu đỏ, kèm tên con vật"
   ],
@@ -3326,7 +3326,7 @@ export const MANUAL = {
     "Cắt trúng dây thật là 💥 BÙM! Sói choáng váng và 💀 bị phạt. Chơi lại sẽ giấu một dây thật mới."
    ],
    [
-    "🍀 Trò may rủi → <b>🐺 Đoán sói</b>. Chọn số người (1–8) và <b>số sói miệng trống</b> (1 đến số người−1) rồi bắt đầu.",
+    "🐺 Trò chơi sói → <b>🐺 Đoán sói</b>. Chọn số người (1–8) và <b>số sói miệng trống</b> (1 đến số người−1) rồi bắt đầu.",
     "Các con sói há miệng, mỗi con ăn một 🪙 xu — trừ con miệng trống. Rồi chúng đổi chỗ qua lại, càng lúc càng nhanh — nhìn theo kỹ nhé 👀",
     "Lần lượt mỗi người chọn một con 👆 Có xu = ✅ thoát, miệng trống = <b>💀 bị phạt!</b> Tìm hết sói miệng trống là xong."
    ],
@@ -3525,10 +3525,6 @@ export const MANUAL = {
     "wcTitle"
    ],
    [
-    "how-yabawi",
-    "ybTitle"
-   ],
-   [
     "how-finger",
     "fingerTitle"
    ],
@@ -3547,6 +3543,10 @@ export const MANUAL = {
    [
     "how-curling",
     "cuTitle"
+   ],
+   [
+    "how-yabawi",
+    "ybTitle"
    ],
    [
     "how-ttt",

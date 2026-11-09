@@ -162,10 +162,10 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
             Screen.RollDice, Screen.ShutBox, Screen.FiveDice, Screen.D789, Screen.DiceDuel -> Screen.DiceMenu
             Screen.Reaction, Screen.ColorReact, Screen.Stopwatch, Screen.Beer, Screen.Tower, Screen.Simon -> Screen.QuickMenu
             Screen.Tug, Screen.Slap, Screen.Ttt, Screen.Gomoku -> Screen.BattleMenu
-            Screen.Coin, Screen.Plinko, Screen.NumberBomb, Screen.Balloon, Screen.WireCut, Screen.Yabawi, Screen.Finger -> Screen.LuckMenu
+            Screen.Coin, Screen.Plinko, Screen.NumberBomb, Screen.Balloon, Screen.WireCut, Screen.Finger -> Screen.LuckMenu
             Screen.Kings -> Screen.CardMenu
             Screen.UpDown, Screen.HoChiMinh -> Screen.CardMenu
-            Screen.Croc, Screen.Race, Screen.Pirate, Screen.Arrow, Screen.Curling -> Screen.WolfMenu
+            Screen.Croc, Screen.Race, Screen.Pirate, Screen.Arrow, Screen.Curling, Screen.Yabawi -> Screen.WolfMenu
             Screen.Ladder, Screen.Roulette, Screen.Bomb -> Screen.LuckMenu
             Screen.Four -> Screen.BattleMenu
             Screen.Fx, Screen.Sizes, Screen.CalcSettle, Screen.Settle -> Screen.Calc
@@ -193,6 +193,7 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
                 MenuItem("🗡️", s.menuPirate, s.menuPirateSub, Screen.Pirate),
                 MenuItem("🔄", s.menuArrow, s.menuArrowSub, Screen.Arrow),
                 MenuItem("🍺", s.cuTitle, s.cuSub, Screen.Curling),
+                MenuItem("🐺", s.ybTitle, s.ybSub, Screen.Yabawi),
             )) { screen = it }
             Screen.LuckMenu -> CategoryScreen("🍀 ${s.menuLuck}", back, listOf(
                 MenuItem("@ladder", s.menuLadder, s.menuLadderSub, Screen.Ladder),
@@ -203,7 +204,6 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
                 MenuItem("🔢", s.nbTitle, s.nbSub, Screen.NumberBomb),
                 MenuItem("🎈", s.blTitle, s.blSub, Screen.Balloon),
                 MenuItem("✂️", s.wcTitle, s.wcSub, Screen.WireCut),
-                MenuItem("🐺", s.ybTitle, s.ybSub, Screen.Yabawi),
                 MenuItem("☝️", s.fingerTitle, s.fingerSub, Screen.Finger),
             )) { screen = it }
             Screen.QuickMenu -> CategoryScreen("⚡ ${s.menuQuick}", back, listOf(
