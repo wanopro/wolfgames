@@ -1,6 +1,23 @@
 // 자동 생성 파일: tools/changelog.py 를 고친 뒤  python3 tools/gen_changelog.py
 export const CHANGELOG = [
  {
+  "ver": "1.9.1",
+  "date": "2026-11-10",
+  "items": [
+   [
+    "🐺",
+    {
+     "ko": "🐺 늑대 야바위를 🍀 운빨게임에서 🐺 늑대게임으로 옮김 (늑대컬링 다음)",
+     "en": "🐺 Wolf Shell Game moved from 🍀 Luck Games to 🐺 Wolf Games (after Wolf Curling)",
+     "ja": "🐺 オオカミ当てを 🍀 運ゲーから 🐺 オオカミゲームへ移動（オオカミカーリングの次）",
+     "zh": "🐺 狼猜猜猜从 🍀 拼手气移到 🐺 狼游戏（狼冰壶后面）",
+     "th": "🐺 ย้ายหมาป่าซ่อนเหรียญจาก 🍀 เกมดวง ไปที่ 🐺 เกมหมาป่า (ต่อจากเคิร์ลลิงหมาป่า)",
+     "vi": "🐺 Đoán sói chuyển từ 🍀 Trò may rủi sang 🐺 Trò chơi sói (sau Bi đá sói)"
+    }
+   ]
+  ]
+ },
+ {
   "ver": "1.9",
   "date": "2026-11-10",
   "items": [

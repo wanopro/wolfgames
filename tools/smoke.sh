@@ -18,7 +18,7 @@ adb logcat -c
 prefs() {
   adb shell am force-stop $PKG
   L2=""; [ -n "$1" ] && L2="<string name=\\\"lang2\\\">$1</string>"
-  adb shell "run-as $PKG sh -c 'mkdir -p shared_prefs; echo \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\" standalone=\\\"yes\\\" ?><map><string name=\\\"lang\\\">ko</string>$L2<string name=\\\"seen_version\\\">1.9</string><string name=\\\"hotels_json\\\">[{&quot;name&quot;:&quot;Hotel Nikko Saigon&quot;,&quot;addr&quot;:&quot;235 Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh&quot;,&quot;phone&quot;:&quot;+84 28 3925 7777&quot;,&quot;note&quot;:&quot;편의점 옆&quot;},{&quot;name&quot;:&quot;두번째 숙소&quot;,&quot;addr&quot;:&quot;Bangkok Sukhumvit 11&quot;,&quot;phone&quot;:&quot;&quot;,&quot;note&quot;:&quot;&quot;}]</string></map>\" > shared_prefs/wolfgames.xml'"
+  adb shell "run-as $PKG sh -c 'mkdir -p shared_prefs; echo \"<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\" standalone=\\\"yes\\\" ?><map><string name=\\\"lang\\\">ko</string>$L2<string name=\\\"seen_version\\\">1.9.1</string><string name=\\\"hotels_json\\\">[{&quot;name&quot;:&quot;Hotel Nikko Saigon&quot;,&quot;addr&quot;:&quot;235 Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh&quot;,&quot;phone&quot;:&quot;+84 28 3925 7777&quot;,&quot;note&quot;:&quot;편의점 옆&quot;},{&quot;name&quot;:&quot;두번째 숙소&quot;,&quot;addr&quot;:&quot;Bangkok Sukhumvit 11&quot;,&quot;phone&quot;:&quot;&quot;,&quot;note&quot;:&quot;&quot;}]</string></map>\" > shared_prefs/wolfgames.xml'"
 }
 # 오목 칸 (i,j) → 천분율 좌표 (pixel_5 기준 대략)
 gx() { echo $(( 500 + ($1 - 7) * 63 )); }

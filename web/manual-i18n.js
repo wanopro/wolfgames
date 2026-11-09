@@ -5,7 +5,7 @@ export const MANUAL = {
   "lead": "미니 게임 모음 · 설치 안내",
   "navAndroid": "🤖 안드로이드 설치",
   "navIphone": "🍎 아이폰 홈 화면 추가",
-  "navNew": "🆕 v1.9 구성",
+  "navNew": "🆕 v1.9.1 구성",
   "navUpdate": "🔄 업데이트",
   "navFaq": "❓ 자주 묻는 질문",
   "qAndroid": "🤖 안드로이드 앱",
@@ -101,9 +101,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 메인 화면",
-  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.9</b>)을 확인할 수 있어요.",
-  "hNew": "🆕 v1.9 구성",
-  "newIntro": "울프 게임즈 v1.9에는 아래 게임과 기능이 들어 있어요.",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v1.9.1</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v1.9.1 구성",
+  "newIntro": "울프 게임즈 v1.9.1에는 아래 게임과 기능이 들어 있어요.",
   "newFeat": [
    "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🐺 늑대 야바위 · 📤 공유 · 🏁 늑대달리기 순위 크게 · 🍺 늑대컬링 → 🐺 늑대게임 · 🎯 \"벌칙\" · \"당첨\"으로 통일",
@@ -122,6 +122,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 최근 수정 내용",
   "changes": [
+   "🐺 늑대 야바위를 🍀 운빨게임에서 🐺 늑대게임으로 옮김 (늑대컬링 다음)",
    "🎯 게임 문구를 '벌칙' · '당첨'으로 통일 · 이름을 \"미니 게임 모음\"으로 · 메인 아래에 작은 안내 문구 추가",
    "🍺 늑대컬링을 ⚡ 순발력게임에서 🐺 늑대게임으로 옮김",
    "🐺 늑대게임에 늑대 야바위 추가: 늑대들이 코인을 먹는데 꽝 늑대는 굶어요 → 섞이고 나면 한 명씩 골라서 빈 입이면 벌칙 (1~8명, 꽝 늑대 1 ~ 인원-1마리)",
@@ -615,7 +616,7 @@ export const MANUAL = {
   "lead": "Mini game collection · Install guide",
   "navAndroid": "🤖 Android install",
   "navIphone": "🍎 iPhone home screen",
-  "navNew": "🆕 What's in v1.9",
+  "navNew": "🆕 What's in v1.9.1",
   "navUpdate": "🔄 Updates",
   "navFaq": "❓ FAQ",
   "qAndroid": "🤖 Android app",
@@ -711,9 +712,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Main screen",
-  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.9</b>) is shown at the bottom.",
-  "hNew": "🆕 What's in v1.9",
-  "newIntro": "Wolf Games v1.9 includes these games and features.",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v1.9.1</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v1.9.1",
+  "newIntro": "Wolf Games v1.9.1 includes these games and features.",
   "newFeat": [
    "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🐺 Wolf Shell Game · 📤 Share · 🏁 Big Wolf Race rankings · 🍺 Wolf Curling → 🐺 Wolf Games · 🎯 \"penalty\" / \"you're it\" everywhere",
@@ -732,6 +733,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Latest changes",
   "changes": [
+   "🐺 Wolf Shell Game moved from 🍀 Luck Games to 🐺 Wolf Games (after Wolf Curling)",
    "🎯 Game text now says \"penalty\" / \"you're it\" everywhere · renamed to \"Mini game collection\" · small notice added at the bottom of the main screen",
    "🍺 Wolf Curling moved from ⚡ Quick Games to 🐺 Wolf Games",
    "🐺 New in Wolf Games — Wolf Shell Game: the wolves eat coins except the empty ones → after the shuffle, take turns picking — empty mouth gets the penalty (1–8 players, 1 to players−1 empty wolves)",
@@ -1225,7 +1227,7 @@ export const MANUAL = {
   "lead": "ミニゲーム集 · インストール案内",
   "navAndroid": "🤖 Androidにインストール",
   "navIphone": "🍎 iPhoneのホーム画面に追加",
-  "navNew": "🆕 v1.9の内容",
+  "navNew": "🆕 v1.9.1の内容",
   "navUpdate": "🔄 アップデート",
   "navFaq": "❓ よくある質問",
   "qAndroid": "🤖 Androidアプリ",
@@ -1320,9 +1322,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 メイン画面",
-  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.9</b>）を確認できます。",
-  "hNew": "🆕 v1.9の内容",
-  "newIntro": "ウルフゲームズv1.9には次のゲームと機能が入っています。",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v1.9.1</b>）を確認できます。",
+  "hNew": "🆕 v1.9.1の内容",
+  "newIntro": "ウルフゲームズv1.9.1には次のゲームと機能が入っています。",
   "newFeat": [
    "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🐺 オオカミ当て · 📤 共有 · 🏁 ウルフレースの順位を大きく · 🍺 オオカミカーリング → 🐺 オオカミゲーム · 🎯「罰ゲーム」「当たり」に統一",
@@ -1341,6 +1343,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近の変更",
   "changes": [
+   "🐺 オオカミ当てを 🍀 運ゲーから 🐺 オオカミゲームへ移動（オオカミカーリングの次）",
    "🎯 ゲームの文言を「罰ゲーム」「当たり」に統一 ・ 名前を「ミニゲーム集」に ・ メイン画面の下に小さな注意書きを追加",
    "🍺 オオカミカーリングを ⚡ 反射神経ゲームから 🐺 オオカミゲームへ移動",
    "🐺 オオカミゲームに オオカミ当て を追加：オオカミがコインを食べ、ハズレだけおあずけ → シャッフル後に1人ずつ選んで空っぽなら罰ゲーム（1〜8人、ハズレは1〜人数−1匹）",
@@ -1834,7 +1837,7 @@ export const MANUAL = {
   "lead": "迷你游戏合集 · 安装说明",
   "navAndroid": "🤖 安卓安装",
   "navIphone": "🍎 iPhone添加到主屏幕",
-  "navNew": "🆕 v1.9内容",
+  "navNew": "🆕 v1.9.1内容",
   "navUpdate": "🔄 更新",
   "navFaq": "❓ 常见问题",
   "qAndroid": "🤖 安卓应用",
@@ -1929,9 +1932,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 主界面",
-  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.9</b>）。",
-  "hNew": "🆕 v1.9内容",
-  "newIntro": "沃夫游戏v1.9包含以下游戏和功能。",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v1.9.1</b>）。",
+  "hNew": "🆕 v1.9.1内容",
+  "newIntro": "沃夫游戏v1.9.1包含以下游戏和功能。",
   "newFeat": [
    "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🐺 狼猜猜猜 · 📤 分享 · 🏁 群狼赛跑名次放大 · 🍺 狼冰壶 → 🐺 狼游戏 · 🎯 统一为\"惩罚\"·\"中奖\"",
@@ -1950,6 +1953,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近修改",
   "changes": [
+   "🐺 狼猜猜猜从 🍀 拼手气移到 🐺 狼游戏（狼冰壶后面）",
    "🎯 游戏文字统一为\"惩罚\"·\"中奖\" · 名称改为\"迷你游戏合集\" · 主页底部加了一行小提示",
    "🍺 狼冰壶从 ⚡ 反应游戏移到 🐺 狼游戏",
    "🐺 狼游戏新增 狼猜猜猜：狼吃硬币，空嘴狼吃不到 → 洗完后轮流选，选到空嘴的接受惩罚（1~8人，空嘴狼 1~人数−1只）",
@@ -2443,7 +2447,7 @@ export const MANUAL = {
   "lead": "รวมมินิเกม · วิธีติดตั้ง",
   "navAndroid": "🤖 ติดตั้งบน Android",
   "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
-  "navNew": "🆕 มีอะไรใน v1.9",
+  "navNew": "🆕 มีอะไรใน v1.9.1",
   "navUpdate": "🔄 อัปเดต",
   "navFaq": "❓ คำถามที่พบบ่อย",
   "qAndroid": "🤖 แอป Android",
@@ -2538,9 +2542,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 หน้าหลัก",
-  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.9</b>) ได้ที่ด้านล่างสุด",
-  "hNew": "🆕 มีอะไรใน v1.9",
-  "newIntro": "Wolf Games v1.9 มีเกมและฟีเจอร์ต่อไปนี้",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v1.9.1</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v1.9.1",
+  "newIntro": "Wolf Games v1.9.1 มีเกมและฟีเจอร์ต่อไปนี้",
   "newFeat": [
    "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🐺 หมาป่าซ่อนเหรียญ · 📤 แชร์ · 🏁 อันดับวิ่งแข่งหมาป่าตัวใหญ่ · 🍺 เคิร์ลลิงหมาป่า → 🐺 เกมหมาป่า · 🎯 ใช้คำว่า \"ทำโทษ\" · \"โดน\"",
@@ -2559,6 +2563,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 การแก้ไขล่าสุด",
   "changes": [
+   "🐺 ย้ายหมาป่าซ่อนเหรียญจาก 🍀 เกมดวง ไปที่ 🐺 เกมหมาป่า (ต่อจากเคิร์ลลิงหมาป่า)",
    "🎯 ข้อความในเกมใช้คำว่า \"ทำโทษ\" · \"โดน\" ทั้งหมด · เปลี่ยนชื่อเป็น \"รวมมินิเกม\" · เพิ่มข้อความแจ้งเล็กๆ ที่ล่างหน้าหลัก",
    "🍺 ย้ายเคิร์ลลิงหมาป่าจาก ⚡ เกมความไว ไปที่ 🐺 เกมหมาป่า",
    "🐺 เพิ่มใน เกมหมาป่า: หมาป่าซ่อนเหรียญ — หมาป่ากินเหรียญ ยกเว้นตัวปากว่าง → สลับเสร็จผลัดกันเลือก ปากว่างโดนทำโทษ (1–8 คน, ปากว่าง 1 ถึง จำนวนคน−1 ตัว)",
@@ -3052,7 +3057,7 @@ export const MANUAL = {
   "lead": "Tuyển tập mini game · Hướng dẫn cài đặt",
   "navAndroid": "🤖 Cài trên Android",
   "navIphone": "🍎 Thêm vào MH chính iPhone",
-  "navNew": "🆕 Có gì trong v1.9",
+  "navNew": "🆕 Có gì trong v1.9.1",
   "navUpdate": "🔄 Cập nhật",
   "navFaq": "❓ Câu hỏi thường gặp",
   "qAndroid": "🤖 Ứng dụng Android",
@@ -3147,9 +3152,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Màn hình chính",
-  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.9</b>) hiện ở dưới cùng.",
-  "hNew": "🆕 Có gì trong v1.9",
-  "newIntro": "Wolf Games v1.9 gồm các trò chơi và tính năng sau.",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v1.9.1</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v1.9.1",
+  "newIntro": "Wolf Games v1.9.1 gồm các trò chơi và tính năng sau.",
   "newFeat": [
    "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🐺 Đoán sói · 📤 Chia sẻ · 🏁 Thứ hạng Sói chạy đua hiện to · 🍺 Bi đá sói → 🐺 Trò chơi sói · 🎯 Thống nhất \"bị phạt\" · \"trúng\"",
@@ -3168,6 +3173,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Thay đổi gần đây",
   "changes": [
+   "🐺 Đoán sói chuyển từ 🍀 Trò may rủi sang 🐺 Trò chơi sói (sau Bi đá sói)",
    "🎯 Chữ trong game thống nhất là \"bị phạt\" · \"trúng\" · đổi tên thành \"Tuyển tập mini game\" · thêm dòng lưu ý nhỏ ở cuối màn hình chính",
    "🍺 Bi đá sói chuyển từ ⚡ Trò phản xạ sang 🐺 Trò chơi sói",
    "🐺 Thêm vào Trò chơi sói: Đoán sói — các con sói ăn xu, trừ con miệng trống → trộn xong lần lượt chọn, trúng miệng trống là bị phạt (1–8 người, 1 đến số người−1 con miệng trống)",

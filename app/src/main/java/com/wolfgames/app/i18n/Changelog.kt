@@ -6,6 +6,9 @@ data class ChangeItem(val emoji: String, val text: Map<String, String>)
 data class Release(val version: String, val date: String, val items: List<ChangeItem>)
 
 val CHANGELOG = listOf(
+    Release("1.9.1", "2026-11-10", listOf(
+        ChangeItem("🐺", mapOf("ko" to "🐺 늑대 야바위를 🍀 운빨게임에서 🐺 늑대게임으로 옮김 (늑대컬링 다음)", "en" to "🐺 Wolf Shell Game moved from 🍀 Luck Games to 🐺 Wolf Games (after Wolf Curling)", "ja" to "🐺 オオカミ当てを 🍀 運ゲーから 🐺 オオカミゲームへ移動（オオカミカーリングの次）", "zh" to "🐺 狼猜猜猜从 🍀 拼手气移到 🐺 狼游戏（狼冰壶后面）", "th" to "🐺 ย้ายหมาป่าซ่อนเหรียญจาก 🍀 เกมดวง ไปที่ 🐺 เกมหมาป่า (ต่อจากเคิร์ลลิงหมาป่า)", "vi" to "🐺 Đoán sói chuyển từ 🍀 Trò may rủi sang 🐺 Trò chơi sói (sau Bi đá sói)")),
+    )),
     Release("1.9", "2026-11-10", listOf(
         ChangeItem("🎯", mapOf("ko" to "🎯 게임 문구를 '벌칙' · '당첨'으로 통일 · 이름을 \"미니 게임 모음\"으로 · 메인 아래에 작은 안내 문구 추가", "en" to "🎯 Game text now says \"penalty\" / \"you're it\" everywhere · renamed to \"Mini game collection\" · small notice added at the bottom of the main screen", "ja" to "🎯 ゲームの文言を「罰ゲーム」「当たり」に統一 ・ 名前を「ミニゲーム集」に ・ メイン画面の下に小さな注意書きを追加", "zh" to "🎯 游戏文字统一为\"惩罚\"·\"中奖\" · 名称改为\"迷你游戏合集\" · 主页底部加了一行小提示", "th" to "🎯 ข้อความในเกมใช้คำว่า \"ทำโทษ\" · \"โดน\" ทั้งหมด · เปลี่ยนชื่อเป็น \"รวมมินิเกม\" · เพิ่มข้อความแจ้งเล็กๆ ที่ล่างหน้าหลัก", "vi" to "🎯 Chữ trong game thống nhất là \"bị phạt\" · \"trúng\" · đổi tên thành \"Tuyển tập mini game\" · thêm dòng lưu ý nhỏ ở cuối màn hình chính")),
         ChangeItem("🍺", mapOf("ko" to "🍺 늑대컬링을 ⚡ 순발력게임에서 🐺 늑대게임으로 옮김", "en" to "🍺 Wolf Curling moved from ⚡ Quick Games to 🐺 Wolf Games", "ja" to "🍺 オオカミカーリングを ⚡ 反射神経ゲームから 🐺 オオカミゲームへ移動", "zh" to "🍺 狼冰壶从 ⚡ 反应游戏移到 🐺 狼游戏", "th" to "🍺 ย้ายเคิร์ลลิงหมาป่าจาก ⚡ เกมความไว ไปที่ 🐺 เกมหมาป่า", "vi" to "🍺 Bi đá sói chuyển từ ⚡ Trò phản xạ sang 🐺 Trò chơi sói")),
