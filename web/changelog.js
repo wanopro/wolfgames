@@ -1,6 +1,56 @@
 // 자동 생성 파일: tools/changelog.py 를 고친 뒤  python3 tools/gen_changelog.py
 export const CHANGELOG = [
  {
+  "ver": "2.0",
+  "date": "2026-11-27",
+  "items": [
+   [
+    "🎰",
+    {
+     "ko": "🎰 🍀 운빨게임에 늑대 슬롯머신 추가: 레버 당기면 그림 3개가 하나씩 멈춰요 — 💀 나오면 벌칙, 🐺 3개면 다 같이, 같은 그림 3개면 지목",
+     "en": "🎰 New 🍀 Luck game, Wolf Slots: pull the lever and 3 reels stop one by one — 💀 = penalty, 🐺🐺🐺 = everyone, three of a kind = pick someone",
+     "ja": "🎰 🍀 運ゲーに オオカミスロット 追加：レバーを引くと絵が3つ順番に止まる — 💀で罰ゲーム、🐺3つでみんな、同じ絵3つで指名",
+     "zh": "🎰 🍀 拼手气新增 狼老虎机：拉下拉杆3个图案依次停下 — 💀受罚，3个🐺大家一起，3个相同就指定一人",
+     "th": "🎰 เพิ่ม สล็อตหมาป่า ใน 🍀 เกมดวง: ดึงคันโยกแล้วรูป 3 ช่องหยุดทีละช่อง — 💀 โดนทำโทษ, 🐺 3 ตัว ทุกคน, รูปเหมือนกัน 3 อัน ชี้คน",
+     "vi": "🎰 Thêm Máy quay sói vào 🍀 Trò may rủi: kéo cần, 3 ô dừng lần lượt — 💀 bị phạt, 🐺 3 con cả nhóm, 3 hình giống nhau thì chỉ định"
+    }
+   ],
+   [
+    "🧱",
+    {
+     "ko": "🧱 ⚡ 순발력게임에 늑대 젠가 추가: 블록을 꾹 눌러 바깥으로 끌어서 빼기 — 빨리 빼거나 빼는 중에 손이 위아래로 흔들리면 흔들림 게이지가 차고, 꽉 차면 와르르 벌칙",
+     "en": "🧱 New ⚡ Quick game, Wolf Jenga: press and drag blocks out — pull too fast or let your finger drift up or down and the wobble gauge fills; full gauge = it falls, penalty",
+     "ja": "🧱 ⚡ 反射神経ゲームに オオカミジェンガ 追加：ブロックを押して外へ引き抜く — 速すぎたり指が上下にぶれると揺れゲージが溜まり、満タンで崩壊・罰ゲーム",
+     "zh": "🧱 ⚡ 反应游戏新增 狼叠叠乐：按住积木往外拖 — 拖太快或手指上下晃，摇晃计量条就会上涨，满了就倒，受罚",
+     "th": "🧱 เพิ่ม เจงก้าหมาป่า ใน ⚡ เกมไหวพริบ: กดบล็อกแล้วลากออก — ลากเร็วหรือนิ้วขยับขึ้นลง เกจโยกจะเพิ่ม เกจเต็มหอถล่ม โดนทำโทษ",
+     "vi": "🧱 Thêm Jenga sói vào ⚡ Trò phản xạ: giữ và kéo khối ra — kéo nhanh hoặc ngón tay lệch lên xuống thì thanh lắc tăng, đầy là đổ, bị phạt"
+    }
+   ],
+   [
+    "⚖️",
+    {
+     "ko": "⚖️ ⚡ 순발력게임에 늑대 균형 잡기 추가: 폰을 기울여서 늑대를 접시 위에 — 6초 버티면 \"넘겨!\" (3초 동안 늑대 멈춤), 넘길 때마다 🔥 Lv 업 (접시 작고 미끄럽게·바람 세고 계속 밀기), 떨어뜨리면 벌칙",
+     "en": "⚖️ New ⚡ Quick game, Wolf Balance: tilt the phone to keep the wolf on the plate — after 6s \"Pass!\" (wolf freezes 3s), every pass is 🔥 Lv up (smaller, slipperier plate, stronger and steady wind), drop it = penalty",
+     "ja": "⚖️ ⚡ 反射神経ゲームに オオカミバランス 追加：スマホを傾けてオオカミをお皿の上に — 6秒で「次へ！」（3秒間オオカミ停止）、渡すたびに 🔥 Lvアップ（お皿は小さく滑りやすく、風は強く押し続ける）、落としたら罰ゲーム",
+     "zh": "⚖️ ⚡ 反应游戏新增 狼平衡：倾斜手机让狼留在盘子上 — 坚持6秒出现\"传！\"（狼停3秒），每传一次 🔥 Lv 升级（盘子更小更滑、风更强还一直推），掉下去就受罚",
+     "th": "⚖️ เพิ่ม ทรงตัวหมาป่า ใน ⚡ เกมไหวพริบ: เอียงมือถือให้หมาป่าอยู่บนจาน — 6 วินาทีขึ้น \"ส่งต่อ!\" (หมาป่าหยุด 3 วิ) ส่งต่อแต่ละครั้ง 🔥 Lv เพิ่ม (จานเล็กและลื่นขึ้น ลมแรงและดันตลอด) ทำตกโดนทำโทษ",
+     "vi": "⚖️ Thêm Giữ thăng bằng sói vào ⚡ Trò phản xạ: nghiêng máy giữ sói trên đĩa — 6 giây hiện \"Chuyền!\" (sói dừng 3 giây), mỗi lần chuyền 🔥 lên Lv (đĩa nhỏ và trơn hơn, gió mạnh và đẩy liên tục), làm rơi là bị phạt"
+    }
+   ],
+   [
+    "🃏",
+    {
+     "ko": "🃏 ⚔️ 대결게임에 늑대 짝 맞추기 추가: 카드 2장씩 뒤집어 같은 늑대 찾기 (2~6명, 4~10쌍) — 점수 제일 낮은 사람이 벌칙",
+     "en": "🃏 New ⚔️ Versus game, Wolf Memory: flip 2 cards to find matching wolves (2–6 players, 4–10 pairs) — lowest score gets the penalty",
+     "ja": "🃏 ⚔️ 対決ゲームに オオカミ神経衰弱 追加：カードを2枚めくって同じオオカミ探し（2〜6人、4〜10ペア）— 最低点の人が罰ゲーム",
+     "zh": "🃏 ⚔️ 对战游戏新增 狼狼配对：每次翻两张找一样的狼（2~6人，4~10对）— 分数最低的人受罚",
+     "th": "🃏 เพิ่ม จับคู่หมาป่า ใน ⚔️ เกมดวล: เปิดการ์ดทีละ 2 ใบหาหมาป่าที่เหมือนกัน (2–6 คน, 4–10 คู่) — แต้มน้อยสุดโดนทำโทษ",
+     "vi": "🃏 Thêm Lật hình sói vào ⚔️ Trò đối kháng: lật 2 lá tìm sói giống nhau (2–6 người, 4–10 cặp) — ít điểm nhất bị phạt"
+    }
+   ]
+  ]
+ },
+ {
   "ver": "1.9.1",
   "date": "2026-11-10",
   "items": [

@@ -551,6 +551,26 @@ class Strings {
     lateinit var disclaimer: String
     lateinit var ybEatingN: (Int) -> String
     lateinit var ybShotN: (String) -> String
+    lateinit var turnN: (Int) -> String
+    lateinit var slTitle: String
+    lateinit var slSub: String
+    lateinit var slDesc: String
+    lateinit var slPass: String
+    lateinit var slAll: String
+    lateinit var slPick: String
+    lateinit var jgTitle: String
+    lateinit var jgSub: String
+    lateinit var jgDesc: String
+    lateinit var mmTitle: String
+    lateinit var mmSub: String
+    lateinit var mmDesc: String
+    lateinit var mmPairs: String
+    lateinit var bbTitle: String
+    lateinit var bbSub: String
+    lateinit var bbDesc: String
+    lateinit var bbPass: String
+    lateinit var bbHold: (Int) -> String
+    lateinit var bbNoSensor: String
 }
 
 val KoStrings = Strings().apply {
@@ -727,9 +747,9 @@ val KoStrings = Strings().apply {
     menuWolf = "늑대게임"
     menuWolfSub = "늑대이빨 · 늑대달리기 · 늑대 룰렛 · 늑대 돌리기 · 늑대컬링 · 늑대 야바위"
     menuLuck = "운빨게임"
-    menuLuckSub = "사다리게임 · 돌림판 · 폭탄돌리기 · 동전 던지기 · 플링코 · 숫자 폭탄 · 풍선 불기 · 폭탄 선 자르기 · 손가락선택"
+    menuLuckSub = "사다리게임 · 돌림판 · 폭탄돌리기 · 동전 던지기 · 플링코 · 숫자 폭탄 · 풍선 불기 · 폭탄 선 자르기 · 늑대 슬롯머신 · 손가락선택"
     menuBattle = "대결게임"
-    menuBattleSub = "삼목 · 4목 · 오목 · 연타 땅따먹기 · 슬랩 대결"
+    menuBattleSub = "삼목 · 4목 · 오목 · 연타 땅따먹기 · 슬랩 대결 · 늑대 짝 맞추기"
     fingerTitle = "손가락선택"
     fingerSub = "손가락 올리고 떼면 늑대가 메롱!"
     fingerDesc = "걸릴 인원을 정하고 다 같이 화면에 손가락을 하나씩 올려요.\n모두 손을 떼고 0.5초가 지나면, 걸린 사람 자리에 늑대가 나타나 메롱~ 하고 약올려요."
@@ -741,7 +761,7 @@ val KoStrings = Strings().apply {
     fingerMerong = "메롱~"
     fingerAgain = "화면을 탭하면 다시 해요"
     menuQuick = "순발력게임"
-    menuQuickSub = "반응속도 대결 · 색 반응 대결 · 스탑워치 · 맥주 거품 채우기 · 탑 쌓기 · 따라 하기"
+    menuQuickSub = "반응속도 대결 · 색 반응 대결 · 스탑워치 · 맥주 거품 채우기 · 탑 쌓기 · 따라 하기 · 늑대 젠가 · 늑대 균형 잡기"
     rankFirst = "👑 1등"
     rankLast = "💀 꼴찌"
     hiTag = "👑 최고"
@@ -1057,6 +1077,26 @@ val KoStrings = Strings().apply {
     ybEatingN = { "🪙 냠냠… ${it}마리는 굶어요" }
     ybShotN = { "${it}번 벌칙! 🎯" }
     disclaimer = "본 게임은 친목 도모를 위한 단순 랜덤 벌칙 게임이며, 과도한 몰입이나 오프라인에서의 무리한 벌칙 수행(음주 강요 등)으로 인한 사고에 대해 개발자는 책임지지 않습니다."
+    turnN = { "👆 ${it}번 차례" }
+    slTitle = "늑대 슬롯머신"
+    slSub = "레버를 당겨라! 💀 나오면 벌칙"
+    slDesc = "한 사람씩 레버를 당겨요 (화면 아무 데나 눌러도 돼요). 그림 3개가 하나씩 멈춰요!\n💀 해골이 하나라도 나오면 → 벌칙\n🐺 늑대 3개 → 🙌 다 같이 벌칙\n같은 그림 3개 → 👉 벌칙 받을 사람 지목\n나머지 → ✅ 통과, 다음 사람에게 👉"
+    slPass = "✅ 통과"
+    slAll = "🙌 다 같이 벌칙!"
+    slPick = "👉 지목!"
+    jgTitle = "늑대 젠가"
+    jgSub = "블록을 빼다 무너뜨리면 벌칙"
+    jgDesc = "블록을 꾹 누른 채 바깥쪽으로 쭉 끌어서 빼요. 빨리 빼면 탑이 흔들려요 (위 게이지 〰️)\n빼는 동안 손가락이 위아래로 흔들리면 안 돼요 — 점이 🔴 되면 게이지가 차요\n걸리는 곳에서 덜컹하면 아주 천천히! 게이지가 꽉 차면 와르르 → 💀 벌칙\n끝까지 빼면 맨 위로 올라가고 다음 사람 👉 (중간에 손 떼면 다시 들어가요 · 맨 위 줄은 못 빼요)"
+    mmTitle = "늑대 짝 맞추기"
+    mmSub = "같은 늑대 2장을 찾아라!"
+    mmDesc = "카드를 2장씩 뒤집어서 같은 늑대를 찾아요.\n맞히면 1점 + 한 번 더! 틀리면 다음 사람 👉\n카드가 다 없어지면 끝! 점수가 제일 낮은 사람이 💀 벌칙"
+    mmPairs = "카드 쌍 수"
+    bbTitle = "늑대 균형 잡기"
+    bbSub = "폰을 기울여 늑대를 접시 위에!"
+    bbDesc = "폰을 평평하게 들고 살살 기울여서 늑대가 접시에서 떨어지지 않게 해요.\n6초 버티면 \"👉 넘겨!\" — 3초 동안 늑대가 멈추니까 그때 폰을 다음 사람에게\n한 턴 넘길 때마다 🔥 Lv 업: 접시는 더 작고 미끄럽게, 바람은 더 세고 자주, 계속 미는 바람(파란 화살표)까지 🌬️\n늑대를 떨어뜨린 사람이 💀 벌칙! (PC는 마우스를 움직여서 기울여요)"
+    bbPass = "👉 넘겨!"
+    bbHold = { "✋ ${it}번, 버텨!" }
+    bbNoSensor = "📱 기울기 센서를 쓸 수 없어서 손가락으로 기울여요"
 }
 
 val EnStrings = Strings().apply {
@@ -1233,9 +1273,9 @@ val EnStrings = Strings().apply {
     menuWolf = "Wolf Games"
     menuWolfSub = "Wolf Teeth · Wolf Race · Wolf Roulette · Wolf Spin · Wolf Curling · Wolf Shell Game"
     menuLuck = "Luck Games"
-    menuLuckSub = "Ladder Game · Roulette · Hot Bomb · Coin Toss · Plinko · Number Bomb · Balloon Pump · Cut the Wire · Finger Pick"
+    menuLuckSub = "Ladder Game · Roulette · Hot Bomb · Coin Toss · Plinko · Number Bomb · Balloon Pump · Cut the Wire · Wolf Slots · Finger Pick"
     menuBattle = "Versus Games"
-    menuBattleSub = "Tic-Tac-Toe · Connect 4 · Gomoku · Tap Turf War · Slap Duel"
+    menuBattleSub = "Tic-Tac-Toe · Connect 4 · Gomoku · Tap Turf War · Slap Duel · Wolf Memory"
     fingerTitle = "Finger Pick"
     fingerSub = "Put fingers down, lift — the wolf teases!"
     fingerDesc = "Choose how many get picked, then everyone puts one finger on the screen.\nWhen all fingers are lifted, after 0.5 sec a wolf pops up on the picked spots and sticks its tongue out."
@@ -1247,7 +1287,7 @@ val EnStrings = Strings().apply {
     fingerMerong = "Nyah~"
     fingerAgain = "Tap the screen to play again"
     menuQuick = "Quick Games"
-    menuQuickSub = "Reaction Duel · Color Reaction · Stopwatch · Beer Pour · Tower Stack · Copy Me"
+    menuQuickSub = "Reaction Duel · Color Reaction · Stopwatch · Beer Pour · Tower Stack · Copy Me · Wolf Jenga · Wolf Balance"
     rankFirst = "👑 1st"
     rankLast = "💀 Last"
     hiTag = "👑 Highest"
@@ -1563,6 +1603,26 @@ val EnStrings = Strings().apply {
     ybEatingN = { "🪙 Nom nom… $it go hungry" }
     ybShotN = { "No. $it — penalty! 🎯" }
     disclaimer = "This is a simple random-penalty game for having fun with friends. The developer is not responsible for any accidents caused by excessive play or by carrying out unreasonable penalties offline (e.g. forced drinking)."
+    turnN = { "👆 Player $it's turn" }
+    slTitle = "Wolf Slots"
+    slSub = "Pull the lever! 💀 = penalty"
+    slDesc = "Take turns pulling the lever (or tap anywhere). The 3 reels stop one by one!\nAny 💀 skull → penalty\n🐺🐺🐺 three wolves → 🙌 everyone gets a penalty\nThree of a kind → 👉 pick who gets the penalty\nAnything else → ✅ safe, pass it on 👉"
+    slPass = "✅ Safe"
+    slAll = "🙌 Everyone — penalty!"
+    slPick = "👉 Pick someone!"
+    jgTitle = "Wolf Jenga"
+    jgSub = "Topple the tower = penalty"
+    jgDesc = "Press and hold a block, then drag it outward. Pull too fast and the tower wobbles (gauge on top 〰️)\nKeep your finger level while pulling — if it drifts up or down the dot turns 🔴 and the gauge fills\nWhen it jolts on a snag, go really slow! Full gauge = it all comes down → 💀 penalty\nPull it all the way and it goes on top, next player 👉 (let go early and it slides back · not from the top row)"
+    mmTitle = "Wolf Memory"
+    mmSub = "Find the matching wolves!"
+    mmDesc = "Flip 2 cards at a time to find the same wolf.\nMatch = 1 point + go again! Miss = next player 👉\nWhen all cards are gone, the lowest score gets a 💀 penalty"
+    mmPairs = "Pairs"
+    bbTitle = "Wolf Balance"
+    bbSub = "Tilt to keep the wolf on the plate!"
+    bbDesc = "Hold the phone flat and tilt gently to keep the wolf on the plate.\nLast 6 seconds and \"👉 Pass!\" shows — the wolf freezes for 3 seconds while you hand the phone on\nEvery pass is 🔥 Lv up: smaller, slipperier plate, stronger and more frequent gusts, plus a steady push wind (blue arrows) 🌬️\nWhoever drops the wolf gets a 💀 penalty! (On PC, move the mouse to tilt)"
+    bbPass = "👉 Pass!"
+    bbHold = { "✋ Player $it, hold it!" }
+    bbNoSensor = "📱 No tilt sensor — drag with your finger"
 }
 
 val JaStrings = Strings().apply {
@@ -1739,9 +1799,9 @@ val JaStrings = Strings().apply {
     menuWolf = "オオカミゲーム"
     menuWolfSub = "オオカミの歯 · ウルフレース · オオカミルーレット · オオカミ回し · オオカミカーリング · オオカミ当て"
     menuLuck = "運ゲー"
-    menuLuckSub = "あみだくじ · ルーレット · 爆弾回し · コイントス · プリンコ · 数字爆弾 · 風船ふくらまし · 爆弾の線切り · 指えらび"
+    menuLuckSub = "あみだくじ · ルーレット · 爆弾回し · コイントス · プリンコ · 数字爆弾 · 風船ふくらまし · 爆弾の線切り · オオカミスロット · 指えらび"
     menuBattle = "対決ゲーム"
-    menuBattleSub = "三目並べ · 4目並べ · 五目並べ · 連打陣取り · スラップ対決"
+    menuBattleSub = "三目並べ · 4目並べ · 五目並べ · 連打陣取り · スラップ対決 · オオカミ神経衰弱"
     fingerTitle = "指えらび"
     fingerSub = "指を置いて離すとオオカミがあっかんべー！"
     fingerDesc = "当たる人数を決めて、みんなで画面に指を1本ずつ置きます。\n全員が指を離して0.5秒たつと、当たった人の場所にオオカミが出てきて、あっかんべーとからかいます。"
@@ -1753,7 +1813,7 @@ val JaStrings = Strings().apply {
     fingerMerong = "べー"
     fingerAgain = "画面をタップするともう一度"
     menuQuick = "反射神経ゲーム"
-    menuQuickSub = "反応速度対決 · 色反応対決 · ストップウォッチ · ビール注ぎ · タワー積み · まねっこ"
+    menuQuickSub = "反応速度対決 · 色反応対決 · ストップウォッチ · ビール注ぎ · タワー積み · まねっこ · オオカミジェンガ · オオカミバランス"
     rankFirst = "👑 1位"
     rankLast = "💀 ビリ"
     hiTag = "👑 最高"
@@ -2069,6 +2129,26 @@ val JaStrings = Strings().apply {
     ybEatingN = { "🪙 もぐもぐ…${it}匹はおあずけ" }
     ybShotN = { "${it}番 罰ゲーム！🎯" }
     disclaimer = "本ゲームは親睦を深めるためのランダムで罰ゲームを決めるシンプルなゲームです。過度な熱中や、オフラインでの無理な罰ゲームの実行（飲酒の強要など）による事故について、開発者は一切責任を負いません。"
+    turnN = { "👆 ${it}番の番" }
+    slTitle = "オオカミスロット"
+    slSub = "レバーを引け！💀が出たら罰ゲーム"
+    slDesc = "1人ずつレバーを引きます（画面のどこを押してもOK）。絵が3つ順番に止まります！\n💀が1つでも出たら → 罰ゲーム\n🐺が3つ → 🙌 みんなで罰ゲーム\n同じ絵が3つ → 👉 罰ゲームの人を指名\nそれ以外 → ✅ セーフ、次の人へ 👉"
+    slPass = "✅ セーフ"
+    slAll = "🙌 みんなで罰ゲーム！"
+    slPick = "👉 指名！"
+    jgTitle = "オオカミジェンガ"
+    jgSub = "崩したら罰ゲーム"
+    jgDesc = "ブロックを押したまま外側へ引き抜きます。速く抜くとタワーが揺れます（上のゲージ 〰️）\n抜いている間、指を上下にぶらさないで — 点が 🔴 になるとゲージが溜まります\n引っかかってガタッときたらゆっくり！ゲージが満タンで崩壊 → 💀 罰ゲーム\n最後まで抜けばてっぺんへ、次の人 👉（途中で離すと戻ります・一番上の段は抜けません）"
+    mmTitle = "オオカミ神経衰弱"
+    mmSub = "同じオオカミを2枚見つけろ！"
+    mmDesc = "カードを2枚ずつめくって同じオオカミを探します。\n当たれば1点＋もう1回！外れたら次の人 👉\nカードがなくなったら終わり！点数が一番低い人が 💀 罰ゲーム"
+    mmPairs = "ペアの数"
+    bbTitle = "オオカミバランス"
+    bbSub = "傾けてオオカミをお皿の上に！"
+    bbDesc = "スマホを平らに持ってそっと傾け、オオカミをお皿から落とさないように。\n6秒耐えたら「👉 次へ！」— 3秒間オオカミが止まるので、その間に次の人へ\n渡すたびに 🔥 Lvアップ：お皿はより小さく滑りやすく、突風は強く頻繁に、押し続ける風（青い矢印）も 🌬️\nオオカミを落とした人が 💀 罰ゲーム！（PCはマウスで傾けます）"
+    bbPass = "👉 次へ！"
+    bbHold = { "✋ ${it}番、がんばれ！" }
+    bbNoSensor = "📱 傾きセンサーが使えないので指で傾けます"
 }
 
 val ZhStrings = Strings().apply {
@@ -2245,9 +2325,9 @@ val ZhStrings = Strings().apply {
     menuWolf = "狼游戏"
     menuWolfSub = "狼牙齿 · 群狼赛跑 · 狼轮盘 · 转狼 · 狼冰壶 · 狼猜猜猜"
     menuLuck = "拼手气"
-    menuLuckSub = "爬梯子 · 转盘 · 传炸弹 · 抛硬币 · 弹珠台 · 数字炸弹 · 吹气球 · 剪炸弹线 · 手指选人"
+    menuLuckSub = "爬梯子 · 转盘 · 传炸弹 · 抛硬币 · 弹珠台 · 数字炸弹 · 吹气球 · 剪炸弹线 · 狼老虎机 · 手指选人"
     menuBattle = "对战游戏"
-    menuBattleSub = "井字棋 · 四子棋 · 五子棋 · 狂点抢地盘 · 拍手背对决"
+    menuBattleSub = "井字棋 · 四子棋 · 五子棋 · 狂点抢地盘 · 拍手背对决 · 狼狼配对"
     fingerTitle = "手指选人"
     fingerSub = "手指放上再松开，小狼来吐舌头！"
     fingerDesc = "先选要抽中几个人，大家各放一根手指在屏幕上。\n所有人松开手指0.5秒后，被抽中的位置会冒出小狼吐舌头气你。"
@@ -2259,7 +2339,7 @@ val ZhStrings = Strings().apply {
     fingerMerong = "略略略~"
     fingerAgain = "点屏幕再来一次"
     menuQuick = "反应游戏"
-    menuQuickSub = "反应速度对决 · 颜色反应对决 · 秒表 · 倒啤酒 · 叠高塔 · 跟着按"
+    menuQuickSub = "反应速度对决 · 颜色反应对决 · 秒表 · 倒啤酒 · 叠高塔 · 跟着按 · 狼叠叠乐 · 狼平衡"
     rankFirst = "👑 第1名"
     rankLast = "💀 最后"
     hiTag = "👑 最高"
@@ -2575,6 +2655,26 @@ val ZhStrings = Strings().apply {
     ybEatingN = { "🪙 吧唧吧唧…有${it}只饿着" }
     ybShotN = { "${it}号 受罚！🎯" }
     disclaimer = "本游戏是为增进友谊而设计的简单随机惩罚游戏。对于因过度沉迷或在线下勉强执行惩罚（强迫饮酒等）而导致的事故，开发者概不负责。"
+    turnN = { "👆 轮到${it}号" }
+    slTitle = "狼老虎机"
+    slSub = "拉下拉杆！出现💀就受罚"
+    slDesc = "每人轮流拉下拉杆（点屏幕任意位置也行）。3个图案会依次停下！\n出现任何一个💀 → 受罚\n3个🐺 → 🙌 大家一起受罚\n3个相同图案 → 👉 指定一个人受罚\n其他 → ✅ 过关，交给下一个人 👉"
+    slPass = "✅ 过关"
+    slAll = "🙌 大家一起受罚！"
+    slPick = "👉 指定一个人！"
+    jgTitle = "狼叠叠乐"
+    jgSub = "把塔弄倒就受罚"
+    jgDesc = "按住积木往外拖出来。拖得太快塔就会晃（上方的计量条 〰️）\n拖的时候手指不能上下晃 — 圆点变 🔴 计量条就会涨\n卡住一顿时要非常慢！计量条满了就倒 → 💀 受罚\n完全抽出就放到最上面，换下一个人 👉（中途松手会滑回去 · 最上层不能抽）"
+    mmTitle = "狼狼配对"
+    mmSub = "找出两张一样的狼！"
+    mmDesc = "每次翻两张牌，找出一样的狼。\n配对成功得1分＋再翻一次！没配上就换下一个人 👉\n牌全部翻完就结束！分数最低的人 💀 受罚"
+    mmPairs = "配对数"
+    bbTitle = "狼平衡"
+    bbSub = "倾斜手机，让狼留在盘子上！"
+    bbDesc = "把手机放平，轻轻倾斜，别让狼从盘子上掉下去。\n坚持6秒出现\"👉 传！\"— 狼会停住3秒，趁这时把手机交给下一个人\n每传一次 🔥 Lv 升级：盘子更小更滑，阵风更强更频繁，还有一直在推的风（蓝色箭头）🌬️\n让狼掉下去的人 💀 受罚！（电脑用鼠标倾斜）"
+    bbPass = "👉 传！"
+    bbHold = { "✋ ${it}号，稳住！" }
+    bbNoSensor = "📱 无法使用倾斜感应，用手指拖动"
 }
 
 val ThStrings = Strings().apply {
@@ -2751,9 +2851,9 @@ val ThStrings = Strings().apply {
     menuWolf = "เกมหมาป่า"
     menuWolfSub = "ฟันหมาป่า · วิ่งแข่งหมาป่า · รูเล็ตหมาป่า · หมุนหมาป่า · เคิร์ลลิงหมาป่า · หมาป่าซ่อนเหรียญ"
     menuLuck = "เกมดวง"
-    menuLuckSub = "เกมบันได · วงล้อ · ส่งระเบิด · โยนเหรียญ · พลิงโก · ระเบิดตัวเลข · เป่าลูกโป่ง · ตัดสายระเบิด · จิ้มนิ้วเลือกคน"
+    menuLuckSub = "เกมบันได · วงล้อ · ส่งระเบิด · โยนเหรียญ · พลิงโก · ระเบิดตัวเลข · เป่าลูกโป่ง · ตัดสายระเบิด · สล็อตหมาป่า · จิ้มนิ้วเลือกคน"
     menuBattle = "เกมดวล"
-    menuBattleSub = "โอเอ็กซ์ · เรียง 4 · โกะโมะกุ · แตะรัวยึดพื้นที่ · ดวลตบมือ"
+    menuBattleSub = "โอเอ็กซ์ · เรียง 4 · โกะโมะกุ · แตะรัวยึดพื้นที่ · ดวลตบมือ · จับคู่หมาป่า"
     fingerTitle = "จิ้มนิ้วเลือกคน"
     fingerSub = "วางนิ้วแล้วยก หมาป่าแลบลิ้นใส่!"
     fingerDesc = "เลือกจำนวนคนที่จะโดน แล้วทุกคนวางนิ้วบนหน้าจอคนละนิ้ว\nเมื่อทุกคนยกนิ้วออกครบ 0.5 วินาที หมาป่าจะโผล่ตรงตำแหน่งคนที่โดนแล้วแลบลิ้นแซว"
@@ -2765,7 +2865,7 @@ val ThStrings = Strings().apply {
     fingerMerong = "แบร่~"
     fingerAgain = "แตะหน้าจอเพื่อเล่นใหม่"
     menuQuick = "เกมไหวพริบ"
-    menuQuickSub = "ดวลความไว · ดวลสี · นาฬิกาจับเวลา · รินเบียร์ · ต่อตึก · ทำตาม"
+    menuQuickSub = "ดวลความไว · ดวลสี · นาฬิกาจับเวลา · รินเบียร์ · ต่อตึก · ทำตาม · เจงก้าหมาป่า · ทรงตัวหมาป่า"
     rankFirst = "👑 ที่ 1"
     rankLast = "💀 ที่โหล่"
     hiTag = "👑 สูงสุด"
@@ -3081,6 +3181,26 @@ val ThStrings = Strings().apply {
     ybEatingN = { "🪙 งั่มๆ… อด $it ตัว" }
     ybShotN = { "คนที่ $it โดนทำโทษ! 🎯" }
     disclaimer = "เกมนี้เป็นเกมสุ่มบทลงโทษง่ายๆ เพื่อความสนุกและกระชับมิตรเท่านั้น ผู้พัฒนาจะไม่รับผิดชอบต่ออุบัติเหตุใดๆ ที่เกิดจากการเล่นหมกมุ่นเกินไป หรือการทำบทลงโทษเกินขอบเขตในชีวิตจริง (เช่น การบังคับให้ดื่มเหล้า ฯลฯ)"
+    turnN = { "👆 ตาคนที่ $it" }
+    slTitle = "สล็อตหมาป่า"
+    slSub = "ดึงคันโยก! ออก 💀 โดนทำโทษ"
+    slDesc = "ผลัดกันดึงคันโยก (แตะตรงไหนก็ได้) รูป 3 ช่องจะหยุดทีละช่อง!\nมี 💀 แม้แต่อันเดียว → โดนทำโทษ\n🐺 3 ตัว → 🙌 โดนทำโทษทุกคน\nรูปเหมือนกัน 3 อัน → 👉 ชี้คนที่จะโดนทำโทษ\nนอกนั้น → ✅ รอด ส่งต่อคนถัดไป 👉"
+    slPass = "✅ รอด"
+    slAll = "🙌 ทุกคนโดนทำโทษ!"
+    slPick = "👉 ชี้คน!"
+    jgTitle = "เจงก้าหมาป่า"
+    jgSub = "ทำหอถล่ม โดนทำโทษ"
+    jgDesc = "กดบล็อกค้างไว้แล้วลากออกด้านข้าง ลากเร็วหอจะโยก (เกจด้านบน 〰️)\nระหว่างดึงห้ามนิ้วขยับขึ้นลง — ถ้าจุดเป็น 🔴 เกจจะเพิ่ม\nพอสะดุดตรงจุดที่ติดให้ค่อยๆ ดึง! เกจเต็มหอถล่ม → 💀 โดนทำโทษ\nดึงออกสุดบล็อกไปวางบนสุด คนถัดไป 👉 (ปล่อยกลางทางบล็อกจะกลับเข้าไป · แถวบนสุดดึงไม่ได้)"
+    mmTitle = "จับคู่หมาป่า"
+    mmSub = "หาหมาป่าที่เหมือนกัน 2 ใบ!"
+    mmDesc = "เปิดการ์ดทีละ 2 ใบ หาหมาป่าที่เหมือนกัน\nตรงกัน = 1 แต้ม + เล่นต่อ! ไม่ตรง = คนถัดไป 👉\nการ์ดหมดก็จบ! คนที่แต้มน้อยสุด 💀 โดนทำโทษ"
+    mmPairs = "จำนวนคู่"
+    bbTitle = "ทรงตัวหมาป่า"
+    bbSub = "เอียงมือถือให้หมาป่าอยู่บนจาน!"
+    bbDesc = "ถือมือถือให้ราบแล้วเอียงเบาๆ อย่าให้หมาป่าตกจาน\nอยู่ได้ 6 วินาทีจะขึ้น \"👉 ส่งต่อ!\" — หมาป่าหยุด 3 วินาที ส่งมือถือให้คนถัดไปตอนนั้น\nส่งต่อแต่ละครั้ง 🔥 Lv เพิ่ม: จานเล็กลงและลื่นขึ้น ลมกระโชกแรงและบ่อยขึ้น มีลมดันตลอด (ลูกศรสีฟ้า) 🌬️\nใครทำหมาป่าตก 💀 โดนทำโทษ! (บน PC ขยับเมาส์เพื่อเอียง)"
+    bbPass = "👉 ส่งต่อ!"
+    bbHold = { "✋ คนที่ $it อดทน!" }
+    bbNoSensor = "📱 ใช้เซ็นเซอร์เอียงไม่ได้ ใช้นิ้วลากแทน"
 }
 
 val ViStrings = Strings().apply {
@@ -3257,9 +3377,9 @@ val ViStrings = Strings().apply {
     menuWolf = "Trò chơi sói"
     menuWolfSub = "Răng sói · Sói chạy đua · Sói may rủi · Quay sói · Bi đá sói · Đoán sói"
     menuLuck = "Trò may rủi"
-    menuLuckSub = "Leo thang · Vòng quay · Chuyền bom · Tung đồng xu · Plinko · Bom số · Thổi bóng bay · Cắt dây bom · Chọn ngón tay"
+    menuLuckSub = "Leo thang · Vòng quay · Chuyền bom · Tung đồng xu · Plinko · Bom số · Thổi bóng bay · Cắt dây bom · Máy quay sói · Chọn ngón tay"
     menuBattle = "Trò đối kháng"
-    menuBattleSub = "Cờ ba · Nối 4 · Cờ năm · Chạm nhanh giành đất · Đấu đập tay"
+    menuBattleSub = "Cờ ba · Nối 4 · Cờ năm · Chạm nhanh giành đất · Đấu đập tay · Lật hình sói"
     fingerTitle = "Chọn ngón tay"
     fingerSub = "Đặt ngón tay rồi nhấc, sói lè lưỡi trêu!"
     fingerDesc = "Chọn số người bị chọn, rồi mỗi người đặt một ngón tay lên màn hình.\nKhi mọi người nhấc tay ra được 0,5 giây, sói sẽ hiện ra ở chỗ người bị chọn và lè lưỡi trêu."
@@ -3271,7 +3391,7 @@ val ViStrings = Strings().apply {
     fingerMerong = "Lêu lêu~"
     fingerAgain = "Chạm màn hình để chơi lại"
     menuQuick = "Trò phản xạ"
-    menuQuickSub = "Đấu phản xạ · Đấu màu · Bấm giờ · Rót bia · Xếp tháp · Bắt chước"
+    menuQuickSub = "Đấu phản xạ · Đấu màu · Bấm giờ · Rót bia · Xếp tháp · Bắt chước · Jenga sói · Giữ thăng bằng sói"
     rankFirst = "👑 Hạng 1"
     rankLast = "💀 Bét"
     hiTag = "👑 Cao nhất"
@@ -3587,6 +3707,26 @@ val ViStrings = Strings().apply {
     ybEatingN = { "🪙 Măm măm… $it con bị nhịn" }
     ybShotN = { "Người số $it bị phạt! 🎯" }
     disclaimer = "Đây là trò chơi hình phạt ngẫu nhiên đơn giản nhằm gắn kết bạn bè. Nhà phát triển không chịu trách nhiệm cho mọi sự cố do quá nhập tâm hoặc thực hiện hình phạt quá mức ngoài đời thực (ép uống rượu, v.v.)."
+    turnN = { "👆 Lượt người số $it" }
+    slTitle = "Máy quay sói"
+    slSub = "Kéo cần! Ra 💀 là bị phạt"
+    slDesc = "Lần lượt kéo cần (chạm chỗ nào cũng được). 3 ô hình sẽ dừng từng ô một!\nCó 💀 dù chỉ một → bị phạt\n🐺 3 con → 🙌 cả nhóm bị phạt\n3 hình giống nhau → 👉 chỉ định người bị phạt\nCòn lại → ✅ thoát, chuyển cho người kế 👉"
+    slPass = "✅ Thoát"
+    slAll = "🙌 Cả nhóm bị phạt!"
+    slPick = "👉 Chỉ định!"
+    jgTitle = "Jenga sói"
+    jgSub = "Làm đổ tháp là bị phạt"
+    jgDesc = "Giữ một khối rồi kéo ra ngoài. Kéo nhanh quá tháp sẽ lắc (thanh đo phía trên 〰️)\nKhi kéo đừng để ngón tay lệch lên xuống — chấm thành 🔴 là thanh đo tăng\nKhi bị kẹt giật thì kéo thật chậm! Thanh đầy là đổ → 💀 bị phạt\nRút hết thì khối lên đỉnh, đến người kế 👉 (buông giữa chừng khối sẽ trượt lại · không rút hàng trên cùng)"
+    mmTitle = "Lật hình sói"
+    mmSub = "Tìm 2 con sói giống nhau!"
+    mmDesc = "Lật 2 lá mỗi lần để tìm 2 con sói giống nhau.\nĐúng = 1 điểm + lật tiếp! Sai = người kế 👉\nHết bài là xong! Ai ít điểm nhất sẽ 💀 bị phạt"
+    mmPairs = "Số cặp"
+    bbTitle = "Giữ thăng bằng sói"
+    bbSub = "Nghiêng điện thoại giữ sói trên đĩa!"
+    bbDesc = "Cầm điện thoại thẳng và nghiêng nhẹ để sói không rơi khỏi đĩa.\nGiữ được 6 giây sẽ hiện \"👉 Chuyền!\" — sói đứng yên 3 giây, lúc đó đưa máy cho người kế\nMỗi lần chuyền 🔥 lên Lv: đĩa nhỏ và trơn hơn, gió giật mạnh và dày hơn, thêm gió đẩy liên tục (mũi tên xanh) 🌬️\nAi làm rơi sói sẽ 💀 bị phạt! (Trên PC, di chuột để nghiêng)"
+    bbPass = "👉 Chuyền!"
+    bbHold = { "✋ Người số $it, giữ vững!" }
+    bbNoSensor = "📱 Không có cảm biến nghiêng — kéo bằng ngón tay"
 }
 
 fun stringsFor(lang: Lang): Strings = when (lang) {

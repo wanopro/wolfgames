@@ -94,6 +94,10 @@ import com.wolfgames.app.games.RollDiceGame
 import com.wolfgames.app.games.RouletteGame
 import com.wolfgames.app.games.ShutBoxGame
 import com.wolfgames.app.games.WolfTeethGame
+import com.wolfgames.app.games.SlotScreen
+import com.wolfgames.app.games.JengaScreen
+import com.wolfgames.app.games.MemoryScreen
+import com.wolfgames.app.games.BalanceScreen
 import com.wolfgames.app.i18n.CHANGELOG
 import com.wolfgames.app.i18n.ChangeItem
 import androidx.compose.runtime.LaunchedEffect
@@ -151,7 +155,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, D789, CardMenu, UpDown, HoChiMinh, FingerMenu, Finger, WolfMenu, LuckMenu, BattleMenu, DiceDuel, QuickMenu, Reaction, ColorReact, Stopwatch, Bomb, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language, Changelog, Tug, Slap, Beer, Coin, Kings, Qr, Plinko, Ttt, Gomoku, Hotel, NumberBomb, Balloon, Tower, Simon, WireCut, Curling, Sizes, CalcSettle, Phrase, Settle, Yabawi, Share }
+enum class Screen { Home, DiceMenu, RollDice, ShutBox, FiveDice, D789, CardMenu, UpDown, HoChiMinh, FingerMenu, Finger, WolfMenu, LuckMenu, BattleMenu, DiceDuel, QuickMenu, Reaction, ColorReact, Stopwatch, Bomb, Croc, Ladder, Roulette, Race, Pirate, Arrow, Four, Calc, Fx, Language, Changelog, Tug, Slap, Beer, Coin, Kings, Qr, Plinko, Ttt, Gomoku, Hotel, NumberBomb, Balloon, Tower, Simon, WireCut, Curling, Sizes, CalcSettle, Phrase, Settle, Yabawi, Share, Slot, Jenga, Memory, Balance }
 
 @Composable
 fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String, String?) -> Unit) {
@@ -160,9 +164,9 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
     val back: () -> Unit = {
         screen = when (screen) {
             Screen.RollDice, Screen.ShutBox, Screen.FiveDice, Screen.D789, Screen.DiceDuel -> Screen.DiceMenu
-            Screen.Reaction, Screen.ColorReact, Screen.Stopwatch, Screen.Beer, Screen.Tower, Screen.Simon -> Screen.QuickMenu
-            Screen.Tug, Screen.Slap, Screen.Ttt, Screen.Gomoku -> Screen.BattleMenu
-            Screen.Coin, Screen.Plinko, Screen.NumberBomb, Screen.Balloon, Screen.WireCut, Screen.Finger -> Screen.LuckMenu
+            Screen.Reaction, Screen.ColorReact, Screen.Stopwatch, Screen.Beer, Screen.Tower, Screen.Simon, Screen.Jenga, Screen.Balance -> Screen.QuickMenu
+            Screen.Tug, Screen.Slap, Screen.Ttt, Screen.Gomoku, Screen.Memory -> Screen.BattleMenu
+            Screen.Coin, Screen.Plinko, Screen.NumberBomb, Screen.Balloon, Screen.WireCut, Screen.Slot, Screen.Finger -> Screen.LuckMenu
             Screen.Kings -> Screen.CardMenu
             Screen.UpDown, Screen.HoChiMinh -> Screen.CardMenu
             Screen.Croc, Screen.Race, Screen.Pirate, Screen.Arrow, Screen.Curling, Screen.Yabawi -> Screen.WolfMenu
@@ -204,6 +208,7 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
                 MenuItem("🔢", s.nbTitle, s.nbSub, Screen.NumberBomb),
                 MenuItem("🎈", s.blTitle, s.blSub, Screen.Balloon),
                 MenuItem("✂️", s.wcTitle, s.wcSub, Screen.WireCut),
+                MenuItem("🎰", s.slTitle, s.slSub, Screen.Slot),
                 MenuItem("☝️", s.fingerTitle, s.fingerSub, Screen.Finger),
             )) { screen = it }
             Screen.QuickMenu -> CategoryScreen("⚡ ${s.menuQuick}", back, listOf(
@@ -213,13 +218,15 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
                 MenuItem("🍺", s.beerTitle, s.beerSub, Screen.Beer),
                 MenuItem("🏗️", s.tsTitle, s.tsSub, Screen.Tower),
                 MenuItem("🔴", s.smTitle, s.smSub, Screen.Simon),
+                MenuItem("🧱", s.jgTitle, s.jgSub, Screen.Jenga),
+                MenuItem("⚖️", s.bbTitle, s.bbSub, Screen.Balance),
             )) { screen = it }
             Screen.DiceDuel -> DiceDuelScreen(onBack = back)
             Screen.Reaction -> ReactionGameScreen(onBack = back)
             Screen.ColorReact -> ColorGameScreen(onBack = back)
             Screen.Stopwatch -> StopwatchScreen(onBack = back)
             Screen.Bomb -> BombGameScreen(onBack = back)
-            Screen.BattleMenu -> CategoryScreen("⚔️ ${s.menuBattle}", back, listOf(MenuItem("🟢", s.tttTitle, s.tttSub, Screen.Ttt), MenuItem("🔴", s.menuFour, s.menuFourSub, Screen.Four), MenuItem("⚫", s.gomokuTitle, s.gomokuSub, Screen.Gomoku), MenuItem("🎀", s.tugTitle, s.tugSub, Screen.Tug), MenuItem("🐾", s.slapTitle, s.slapSub, Screen.Slap))) { screen = it }
+            Screen.BattleMenu -> CategoryScreen("⚔️ ${s.menuBattle}", back, listOf(MenuItem("🟢", s.tttTitle, s.tttSub, Screen.Ttt), MenuItem("🔴", s.menuFour, s.menuFourSub, Screen.Four), MenuItem("⚫", s.gomokuTitle, s.gomokuSub, Screen.Gomoku), MenuItem("🎀", s.tugTitle, s.tugSub, Screen.Tug), MenuItem("🐾", s.slapTitle, s.slapSub, Screen.Slap), MenuItem("🃏", s.mmTitle, s.mmSub, Screen.Memory))) { screen = it }
             Screen.Croc -> WolfTeethGame(onBack = back)
             Screen.Ladder -> LadderGame(onBack = back)
             Screen.Roulette -> RouletteGame(onBack = back)
@@ -246,6 +253,10 @@ fun App(langPref: String, currentLang: Lang, lang2: Lang?, onLangChange: (String
             Screen.Simon -> SimonScreen(onBack = back)
             Screen.WireCut -> WireCutScreen(onBack = back)
             Screen.Yabawi -> YabawiScreen(onBack = back)
+            Screen.Slot -> SlotScreen(onBack = back)
+            Screen.Jenga -> JengaScreen(onBack = back)
+            Screen.Memory -> MemoryScreen(onBack = back)
+            Screen.Balance -> BalanceScreen(onBack = back)
             Screen.Share -> ShareScreen(onBack = back)
             Screen.Curling -> CurlingScreen(onBack = back)
             Screen.Phrase -> PhraseScreen(onBack = back, mine = currentLang, second = lang2)

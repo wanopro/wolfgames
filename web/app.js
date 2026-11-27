@@ -19,6 +19,7 @@ import { phraseScreen } from './phrase.js';
 import { settleScreen } from './settle.js';
 import { yabawi } from './games-v19.js';
 import { shareScreen } from './share.js';
+import { slotMachine, jenga, memory, balance } from './games-v20.js';
 
 const HOMEPAGE = 'https://wolf.community';
 const FEEDBACK = 'https://wolf.community/traveltalk/6860756';
@@ -79,12 +80,16 @@ const SCREENS = {
   simon,
   wire: wireCut,
   yabawi,
+  slot: slotMachine,
+  jenga,
+  memory,
+  balance,
   share: shareScreen,
   curling,
   phrase: phraseScreen,
   settle: settleScreen,
 };
-const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', duel: 'dice', react: 'quick', color: 'quick', stop: 'quick', bomb: 'luck', updown: 'cards', hcm: 'cards', finger: 'luck', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle', tug: 'battle', slap: 'battle', ttt: 'battle', gomoku: 'battle', plinko: 'luck', nbomb: 'luck', balloon: 'luck', tower: 'quick', simon: 'quick', curling: 'wolves', wire: 'luck', yabawi: 'wolves', beer: 'quick', coin: 'luck', kings: 'cards' };
+const PARENT = { roll: 'dice', shut: 'dice', five: 'dice', d789: 'dice', duel: 'dice', react: 'quick', color: 'quick', stop: 'quick', bomb: 'luck', updown: 'cards', hcm: 'cards', finger: 'luck', teeth: 'wolves', race: 'wolves', pirate: 'wolves', arrow: 'wolves', ladder: 'luck', roulette: 'luck', four: 'battle', tug: 'battle', slap: 'battle', ttt: 'battle', gomoku: 'battle', plinko: 'luck', nbomb: 'luck', balloon: 'luck', tower: 'quick', simon: 'quick', curling: 'wolves', wire: 'luck', yabawi: 'wolves', slot: 'luck', jenga: 'quick', balance: 'quick', memory: 'battle', beer: 'quick', coin: 'luck', kings: 'cards' };
 
 // ---------- 화면 이동 (휴대폰 뒤로가기 버튼과 연동) ----------
 function show(name) {
@@ -226,7 +231,9 @@ function quickMenu(root) {
     card('⏱️', s.stopTitle, s.stopSub, () => go('stop')),
     card('🍺', s.beerTitle, s.beerSub, () => go('beer')),
     card('🏗️', s.tsTitle, s.tsSub, () => go('tower')),
-    card('🔴', s.smTitle, s.smSub, () => go('simon'))));
+    card('🔴', s.smTitle, s.smSub, () => go('simon')),
+    card('🧱', s.jgTitle, s.jgSub, () => go('jenga')),
+    card('⚖️', s.bbTitle, s.bbSub, () => go('balance'))));
 }
 function luckMenu(root) {
   const s = S();
@@ -239,6 +246,7 @@ function luckMenu(root) {
     card('🔢', s.nbTitle, s.nbSub, () => go('nbomb')),
     card('🎈', s.blTitle, s.blSub, () => go('balloon')),
     card('✂️', s.wcTitle, s.wcSub, () => go('wire')),
+    card('🎰', s.slTitle, s.slSub, () => go('slot')),
     card('☝️', s.fingerTitle, s.fingerSub, () => go('finger'))));
 }
 function battleMenu(root) {
@@ -248,7 +256,8 @@ function battleMenu(root) {
     card('🔴', s.menuFour, s.menuFourSub, () => go('four')),
     card('⚫', s.gomokuTitle, s.gomokuSub, () => go('gomoku')),
     card('🎀', s.tugTitle, s.tugSub, () => go('tug')),
-    card('🐾', s.slapTitle, s.slapSub, () => go('slap'))));
+    card('🐾', s.slapTitle, s.slapSub, () => go('slap')),
+    card('🃏', s.mmTitle, s.mmSub, () => go('memory'))));
 }
 
 function cardMenu(root) {

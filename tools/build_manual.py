@@ -216,7 +216,7 @@ def game_shots(b, lang):
         pg.mouse.click(196, 420); pg.wait_for_timeout(900)
     shot('how-kings')
     # 손가락선택 (걸릴 인원 2명, 5명 터치)
-    home(); card(4); card(8); pg.click('.stepper button:last-of-type'); start(); pg.wait_for_timeout(300)
+    home(); card(4); card(9); pg.click('.stepper button:last-of-type'); start(); pg.wait_for_timeout(300)
     pts = [(1, 90, 230), (2, 290, 200), (3, 200, 420), (4, 100, 620), (5, 300, 650)]
     for i, x, y in pts:
         pg.dispatch_event('canvas', 'pointerdown', {'pointerId': i, 'clientX': x, 'clientY': y, 'bubbles': True}); pg.wait_for_timeout(60)
@@ -392,6 +392,34 @@ def game_shots(b, lang):
     home(); card(3); card(5); start(); pg.wait_for_timeout(11800)
     bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']
     pg.mouse.click(bb['x'] + W / 2 - W * 0.19, bb['y'] + H * 0.36); pg.wait_for_timeout(900); shot('how-yabawi')
+    # 🎰 늑대 슬롯머신 (🍀 운빨, 슬롯 = 9번째): 🪙 3개 → 👉 지목 결과
+    home(); card(4); card(8); start(); pg.wait_for_timeout(500)
+    pg.evaluate("Math.__r = Math.random; Math.random = () => 0.3"); pg.mouse.click(196, 430); pg.evaluate("Math.random = Math.__r")
+    pg.wait_for_timeout(4300); shot('how-slot')
+    # 🧱 늑대 젠가 (⚡ 순발력 7번째): 오른쪽 블록을 반쯤 천천히 빼는 중
+    home(); card(2); card(6); start(); pg.wait_for_timeout(500)
+    bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']
+    bh = min(30, (H * 0.66) / 13); bw = min(W * 0.3, 130, bh * 4.4); x = bb['x'] + W / 2 + 0.5 * bw; y = bb['y'] + H - 64 - 5.5 * bh
+    pg.mouse.move(x, y); pg.mouse.down()
+    for k in range(1, 15): pg.mouse.move(x + bw * 0.55 * k / 14, y + (2 if k > 9 else 0)); pg.wait_for_timeout(90)
+    pg.wait_for_timeout(150); shot('how-jenga'); pg.mouse.up()
+    # ⚖️ 늑대 균형 잡기 (⚡ 순발력 8번째, 센서 없음 → 마우스): 살짝 기운 접시
+    home(); card(2); card(7); start(); pg.wait_for_timeout(300)
+    bb = pg.query_selector('canvas').bounding_box()
+    pg.mouse.move(bb['x'] + bb['width'] * 0.56, bb['y'] + bb['height'] * 0.55); pg.wait_for_timeout(1900)
+    pg.mouse.move(bb['x'] + bb['width'] * 0.46, bb['y'] + bb['height'] * 0.5); pg.wait_for_timeout(500); shot('how-balance')
+    # 🃏 늑대 짝 맞추기 (⚔️ 대결 6번째, 3명 · 6쌍): 짝 하나 맞히고 한 장 더 뒤집은 화면 (섞기 고정)
+    pg.evaluate("localStorage.setItem('wg-mm-n', '3'); localStorage.setItem('wg-mm-p', '6')")
+    home(); card(5); card(5); pg.evaluate("Math.__r = Math.random; Math.random = () => 0.3"); start(); pg.evaluate("Math.random = Math.__r"); pg.wait_for_timeout(500)
+    deck = [i // 2 for i in range(12)]
+    for i in range(11, 0, -1):
+        j = int(0.3 * (i + 1)); deck[i], deck[j] = deck[j], deck[i]
+    a0 = 0; a1 = next(i for i in range(1, 12) if deck[i] == deck[0]); b0 = next(i for i in range(1, 12) if i != a1)
+    bb = pg.query_selector('canvas').bounding_box(); W, H = bb['width'], bb['height']
+    aw, ah = W - 24, H - 86 - 70; cw = min(aw / 4, (ah / 3) * 0.78); chh = cw / 0.78
+    def mpos(i): return (bb['x'] + W / 2 + (i % 4 - 1.5) * cw, bb['y'] + 86 + (ah - 3 * chh) / 2 + (i // 4) * chh + chh / 2)
+    for i, w in [(a0, 400), (a1, 1300), (b0, 500)]: pg.mouse.click(*mpos(i)); pg.wait_for_timeout(w)
+    shot('how-memory')
     # 📤 공유하기: 메인 위 버튼 줄 → 공유 (안드로이드 선택 + QR)
     home(); pg.locator('.hero .chip').nth(5).click(); pg.wait_for_timeout(600); shot('how-share')
     # 📏 사이즈 변환표: 계산기 → 사이즈 → 신발 남, 270 줄 ⭐
