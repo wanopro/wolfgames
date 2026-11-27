@@ -1,6 +1,23 @@
 // 자동 생성 파일: tools/changelog.py 를 고친 뒤  python3 tools/gen_changelog.py
 export const CHANGELOG = [
  {
+  "ver": "2.1",
+  "date": "2026-11-28",
+  "items": [
+   [
+    "💬",
+    {
+     "ko": "💬 피드백 주소 변경: 메인 화면 \"미니 게임 모음\" 옆 링크가 새 게시판 글로 가요",
+     "en": "💬 Feedback link changed: the link next to \"Mini game collection\" on the main screen now opens the new board post",
+     "ja": "💬 フィードバックのリンク変更：メイン画面「ミニゲーム集」の横のリンクが新しい掲示板の投稿へ",
+     "zh": "💬 反馈链接已更换：主界面\"迷你游戏合集\"旁的链接现在打开新的帖子",
+     "th": "💬 เปลี่ยนลิงก์ส่งความเห็น: ลิงก์ข้าง \"รวมมินิเกม\" ในหน้าหลักจะไปที่โพสต์ใหม่",
+     "vi": "💬 Đổi link góp ý: link bên cạnh \"Tuyển tập mini game\" ở màn hình chính giờ mở bài viết mới"
+    }
+   ]
+  ]
+ },
+ {
   "ver": "2.0",
   "date": "2026-11-27",
   "items": [

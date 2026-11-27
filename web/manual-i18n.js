@@ -5,7 +5,7 @@ export const MANUAL = {
   "lead": "미니 게임 모음 · 설치 안내",
   "navAndroid": "🤖 안드로이드 설치",
   "navIphone": "🍎 아이폰 홈 화면 추가",
-  "navNew": "🆕 v2.0 구성",
+  "navNew": "🆕 v2.1 구성",
   "navUpdate": "🔄 업데이트",
   "navFaq": "❓ 자주 묻는 질문",
   "qAndroid": "🤖 안드로이드 앱",
@@ -101,9 +101,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 메인 화면",
-  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v2.0</b>)을 확인할 수 있어요.",
-  "hNew": "🆕 v2.0 구성",
-  "newIntro": "울프 게임즈 v2.0에는 아래 게임과 기능이 들어 있어요.",
+  "mainP": "로고 옆 🌐 언어 버튼으로 6개 언어 중에 고를 수 있고, 맨 아래에서 버전(<b>v2.1</b>)을 확인할 수 있어요.",
+  "hNew": "🆕 v2.1 구성",
+  "newIntro": "울프 게임즈 v2.1에는 아래 게임과 기능이 들어 있어요.",
   "newFeat": [
    "🌐 6개 언어: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎰 늑대 슬롯머신 · 🧱 늑대 젠가 · ⚖️ 늑대 균형 잡기 · 🃏 늑대 짝 맞추기",
@@ -123,6 +123,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 최근 수정 내용",
   "changes": [
+   "💬 피드백 주소 변경: 메인 화면 \"미니 게임 모음\" 옆 링크가 새 게시판 글로 가요",
    "🎰 🍀 운빨게임에 늑대 슬롯머신 추가: 레버 당기면 그림 3개가 하나씩 멈춰요 — 💀 나오면 벌칙, 🐺 3개면 다 같이, 같은 그림 3개면 지목",
    "🧱 ⚡ 순발력게임에 늑대 젠가 추가: 블록을 꾹 눌러 바깥으로 끌어서 빼기 — 빨리 빼거나 빼는 중에 손이 위아래로 흔들리면 흔들림 게이지가 차고, 꽉 차면 와르르 벌칙",
    "⚖️ ⚡ 순발력게임에 늑대 균형 잡기 추가: 폰을 기울여서 늑대를 접시 위에 — 6초 버티면 \"넘겨!\" (3초 동안 늑대 멈춤), 넘길 때마다 🔥 Lv 업 (접시 작고 미끄럽게·바람 세고 계속 밀기), 떨어뜨리면 벌칙",
@@ -655,7 +656,7 @@ export const MANUAL = {
   "lead": "Mini game collection · Install guide",
   "navAndroid": "🤖 Android install",
   "navIphone": "🍎 iPhone home screen",
-  "navNew": "🆕 What's in v2.0",
+  "navNew": "🆕 What's in v2.1",
   "navUpdate": "🔄 Updates",
   "navFaq": "❓ FAQ",
   "qAndroid": "🤖 Android app",
@@ -751,9 +752,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Main screen",
-  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v2.0</b>) is shown at the bottom.",
-  "hNew": "🆕 What's in v2.0",
-  "newIntro": "Wolf Games v2.0 includes these games and features.",
+  "mainP": "Choose from 6 languages with the 🌐 Language button next to the logo. The version (<b>v2.1</b>) is shown at the bottom.",
+  "hNew": "🆕 What's in v2.1",
+  "newIntro": "Wolf Games v2.1 includes these games and features.",
   "newFeat": [
    "🌐 6 languages: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎰 Wolf Slots · 🧱 Wolf Jenga · ⚖️ Wolf Balance · 🃏 Wolf Memory",
@@ -773,6 +774,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Latest changes",
   "changes": [
+   "💬 Feedback link changed: the link next to \"Mini game collection\" on the main screen now opens the new board post",
    "🎰 New 🍀 Luck game, Wolf Slots: pull the lever and 3 reels stop one by one — 💀 = penalty, 🐺🐺🐺 = everyone, three of a kind = pick someone",
    "🧱 New ⚡ Quick game, Wolf Jenga: press and drag blocks out — pull too fast or let your finger drift up or down and the wobble gauge fills; full gauge = it falls, penalty",
    "⚖️ New ⚡ Quick game, Wolf Balance: tilt the phone to keep the wolf on the plate — after 6s \"Pass!\" (wolf freezes 3s), every pass is 🔥 Lv up (smaller, slipperier plate, stronger and steady wind), drop it = penalty",
@@ -1305,7 +1307,7 @@ export const MANUAL = {
   "lead": "ミニゲーム集 · インストール案内",
   "navAndroid": "🤖 Androidにインストール",
   "navIphone": "🍎 iPhoneのホーム画面に追加",
-  "navNew": "🆕 v2.0の内容",
+  "navNew": "🆕 v2.1の内容",
   "navUpdate": "🔄 アップデート",
   "navFaq": "❓ よくある質問",
   "qAndroid": "🤖 Androidアプリ",
@@ -1400,9 +1402,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 メイン画面",
-  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v2.0</b>）を確認できます。",
-  "hNew": "🆕 v2.0の内容",
-  "newIntro": "ウルフゲームズv2.0には次のゲームと機能が入っています。",
+  "mainP": "ロゴ横の🌐言語ボタンで6言語から選べます。一番下でバージョン（<b>v2.1</b>）を確認できます。",
+  "hNew": "🆕 v2.1の内容",
+  "newIntro": "ウルフゲームズv2.1には次のゲームと機能が入っています。",
   "newFeat": [
    "🌐 6言語：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎰 オオカミスロット · 🧱 オオカミジェンガ · ⚖️ オオカミバランス · 🃏 オオカミ神経衰弱",
@@ -1422,6 +1424,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近の変更",
   "changes": [
+   "💬 フィードバックのリンク変更：メイン画面「ミニゲーム集」の横のリンクが新しい掲示板の投稿へ",
    "🎰 🍀 運ゲーに オオカミスロット 追加：レバーを引くと絵が3つ順番に止まる — 💀で罰ゲーム、🐺3つでみんな、同じ絵3つで指名",
    "🧱 ⚡ 反射神経ゲームに オオカミジェンガ 追加：ブロックを押して外へ引き抜く — 速すぎたり指が上下にぶれると揺れゲージが溜まり、満タンで崩壊・罰ゲーム",
    "⚖️ ⚡ 反射神経ゲームに オオカミバランス 追加：スマホを傾けてオオカミをお皿の上に — 6秒で「次へ！」（3秒間オオカミ停止）、渡すたびに 🔥 Lvアップ（お皿は小さく滑りやすく、風は強く押し続ける）、落としたら罰ゲーム",
@@ -1954,7 +1957,7 @@ export const MANUAL = {
   "lead": "迷你游戏合集 · 安装说明",
   "navAndroid": "🤖 安卓安装",
   "navIphone": "🍎 iPhone添加到主屏幕",
-  "navNew": "🆕 v2.0内容",
+  "navNew": "🆕 v2.1内容",
   "navUpdate": "🔄 更新",
   "navFaq": "❓ 常见问题",
   "qAndroid": "🤖 安卓应用",
@@ -2049,9 +2052,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 主界面",
-  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v2.0</b>）。",
-  "hNew": "🆕 v2.0内容",
-  "newIntro": "沃夫游戏v2.0包含以下游戏和功能。",
+  "mainP": "用标志旁边的🌐语言按钮可以在6种语言中选择，最下面可以看到版本（<b>v2.1</b>）。",
+  "hNew": "🆕 v2.1内容",
+  "newIntro": "沃夫游戏v2.1包含以下游戏和功能。",
   "newFeat": [
    "🌐 6种语言：한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎰 狼老虎机 · 🧱 狼叠叠乐 · ⚖️ 狼平衡 · 🃏 狼狼配对",
@@ -2071,6 +2074,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 最近修改",
   "changes": [
+   "💬 反馈链接已更换：主界面\"迷你游戏合集\"旁的链接现在打开新的帖子",
    "🎰 🍀 拼手气新增 狼老虎机：拉下拉杆3个图案依次停下 — 💀受罚，3个🐺大家一起，3个相同就指定一人",
    "🧱 ⚡ 反应游戏新增 狼叠叠乐：按住积木往外拖 — 拖太快或手指上下晃，摇晃计量条就会上涨，满了就倒，受罚",
    "⚖️ ⚡ 反应游戏新增 狼平衡：倾斜手机让狼留在盘子上 — 坚持6秒出现\"传！\"（狼停3秒），每传一次 🔥 Lv 升级（盘子更小更滑、风更强还一直推），掉下去就受罚",
@@ -2603,7 +2607,7 @@ export const MANUAL = {
   "lead": "รวมมินิเกม · วิธีติดตั้ง",
   "navAndroid": "🤖 ติดตั้งบน Android",
   "navIphone": "🍎 เพิ่มลงหน้าจอโฮม iPhone",
-  "navNew": "🆕 มีอะไรใน v2.0",
+  "navNew": "🆕 มีอะไรใน v2.1",
   "navUpdate": "🔄 อัปเดต",
   "navFaq": "❓ คำถามที่พบบ่อย",
   "qAndroid": "🤖 แอป Android",
@@ -2698,9 +2702,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 หน้าหลัก",
-  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v2.0</b>) ได้ที่ด้านล่างสุด",
-  "hNew": "🆕 มีอะไรใน v2.0",
-  "newIntro": "Wolf Games v2.0 มีเกมและฟีเจอร์ต่อไปนี้",
+  "mainP": "เลือกได้ 6 ภาษาด้วยปุ่ม 🌐 ภาษา ข้างโลโก้ ดูเวอร์ชัน (<b>v2.1</b>) ได้ที่ด้านล่างสุด",
+  "hNew": "🆕 มีอะไรใน v2.1",
+  "newIntro": "Wolf Games v2.1 มีเกมและฟีเจอร์ต่อไปนี้",
   "newFeat": [
    "🌐 6 ภาษา: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎰 สล็อตหมาป่า · 🧱 เจงก้าหมาป่า · ⚖️ ทรงตัวหมาป่า · 🃏 จับคู่หมาป่า",
@@ -2720,6 +2724,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 การแก้ไขล่าสุด",
   "changes": [
+   "💬 เปลี่ยนลิงก์ส่งความเห็น: ลิงก์ข้าง \"รวมมินิเกม\" ในหน้าหลักจะไปที่โพสต์ใหม่",
    "🎰 เพิ่ม สล็อตหมาป่า ใน 🍀 เกมดวง: ดึงคันโยกแล้วรูป 3 ช่องหยุดทีละช่อง — 💀 โดนทำโทษ, 🐺 3 ตัว ทุกคน, รูปเหมือนกัน 3 อัน ชี้คน",
    "🧱 เพิ่ม เจงก้าหมาป่า ใน ⚡ เกมไหวพริบ: กดบล็อกแล้วลากออก — ลากเร็วหรือนิ้วขยับขึ้นลง เกจโยกจะเพิ่ม เกจเต็มหอถล่ม โดนทำโทษ",
    "⚖️ เพิ่ม ทรงตัวหมาป่า ใน ⚡ เกมไหวพริบ: เอียงมือถือให้หมาป่าอยู่บนจาน — 6 วินาทีขึ้น \"ส่งต่อ!\" (หมาป่าหยุด 3 วิ) ส่งต่อแต่ละครั้ง 🔥 Lv เพิ่ม (จานเล็กและลื่นขึ้น ลมแรงและดันตลอด) ทำตกโดนทำโทษ",
@@ -3252,7 +3257,7 @@ export const MANUAL = {
   "lead": "Tuyển tập mini game · Hướng dẫn cài đặt",
   "navAndroid": "🤖 Cài trên Android",
   "navIphone": "🍎 Thêm vào MH chính iPhone",
-  "navNew": "🆕 Có gì trong v2.0",
+  "navNew": "🆕 Có gì trong v2.1",
   "navUpdate": "🔄 Cập nhật",
   "navFaq": "❓ Câu hỏi thường gặp",
   "qAndroid": "🤖 Ứng dụng Android",
@@ -3347,9 +3352,9 @@ export const MANUAL = {
    ]
   ],
   "mainT": "🎮 Màn hình chính",
-  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v2.0</b>) hiện ở dưới cùng.",
-  "hNew": "🆕 Có gì trong v2.0",
-  "newIntro": "Wolf Games v2.0 gồm các trò chơi và tính năng sau.",
+  "mainP": "Chọn 1 trong 6 ngôn ngữ bằng nút 🌐 Ngôn ngữ cạnh logo. Phiên bản (<b>v2.1</b>) hiện ở dưới cùng.",
+  "hNew": "🆕 Có gì trong v2.1",
+  "newIntro": "Wolf Games v2.1 gồm các trò chơi và tính năng sau.",
   "newFeat": [
    "🌐 6 ngôn ngữ: 한국어 · English · 日本語 · 简体中文 · ไทย · Tiếng Việt",
    "🆕 🎰 Máy quay sói · 🧱 Jenga sói · ⚖️ Giữ thăng bằng sói · 🃏 Lật hình sói",
@@ -3369,6 +3374,7 @@ export const MANUAL = {
   ],
   "hChange": "🛠 Thay đổi gần đây",
   "changes": [
+   "💬 Đổi link góp ý: link bên cạnh \"Tuyển tập mini game\" ở màn hình chính giờ mở bài viết mới",
    "🎰 Thêm Máy quay sói vào 🍀 Trò may rủi: kéo cần, 3 ô dừng lần lượt — 💀 bị phạt, 🐺 3 con cả nhóm, 3 hình giống nhau thì chỉ định",
    "🧱 Thêm Jenga sói vào ⚡ Trò phản xạ: giữ và kéo khối ra — kéo nhanh hoặc ngón tay lệch lên xuống thì thanh lắc tăng, đầy là đổ, bị phạt",
    "⚖️ Thêm Giữ thăng bằng sói vào ⚡ Trò phản xạ: nghiêng máy giữ sói trên đĩa — 6 giây hiện \"Chuyền!\" (sói dừng 3 giây), mỗi lần chuyền 🔥 lên Lv (đĩa nhỏ và trơn hơn, gió mạnh và đẩy liên tục), làm rơi là bị phạt",
