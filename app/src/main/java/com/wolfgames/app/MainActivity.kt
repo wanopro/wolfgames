@@ -120,7 +120,7 @@ private const val PREFS = "wolfgames"
 object DebugOpen { var screen: String? = null; var autostart = false }
 private const val KEY_LANG = "lang"
 private const val KEY_LANG2 = "lang2"
-private const val FEEDBACK = "https://wolf.community/traveltalk/6860756"
+private const val FEEDBACK = "https://wolf.community/travel_total/6987405"
 private const val HOMEPAGE = "https://wolf.community"
 
 class MainActivity : ComponentActivity() {
